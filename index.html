@@ -261,7 +261,7 @@
                 </div>
                 <div class="footer-col col-md-4">
                     <h3>About John</h3>
-                    <p>John is a&mdash;social media&mdash;data nerd and young contrarian who claims data analysis as an artisanal skill.</p>
+                    <p>John is a (mobile advertising) data analyst at <a href="http://www.cmcm.com/en-us/">Cheetah Mobile</a>.</p>
                 </div>
             </div>
         </div>
@@ -323,35 +323,35 @@
                         </div>
                         <br>
                         <p><h4>Install</h4>
-                            <pre class = "text-left"><code class="R">
-                                if(!"devtools" %in% rownames(installed.packages())) {
-                                install.packages("devtools")
-                            }
+<pre class = "text-left"><code class="R">
+if(!"devtools" %in% rownames(installed.packages())) {
+    install.packages("devtools")
+}
 
-                            devtools::install_github("JohnCoene/youTubeDataR")</code></pre>
+devtools::install_github("JohnCoene/youTubeDataR")</code></pre>
                         </p>
                         <p><h4>Example</h4> 
-                            <pre class="text-left"><code class="R">
-                                # Authenticate
-                                TK <- youOauth(client.id = "something.apps.googleusercontent.com",
-                                client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX", scope = "force-ssl")
+<pre class="text-left"><code class="R">
+# Authenticate
+TK <- youOauth(client.id = "something.apps.googleusercontent.com",
+client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX", scope = "force-ssl")
 
-                                # get my feed
-                                my.videos <- getVideos(TK)
+# get my feed
+my.videos <- getVideos(TK)
 
-                                # search channels about R tutorials
-                                search <- searchTube(TK, query = "R tutorial", type = "channel")
+# search channels about R tutorials
+search <- searchTube(TK, query = "R tutorial", type = "channel")
 
-                                # get REvolutionAnalytics channel
-                                revo <- search[grep("REvolutionAnalytics", search$snippet.channelTitle), 
-                                "id.channelId"]
+# get REvolutionAnalytics channel
+revo <- search[grep("REvolutionAnalytics", search$snippet.channelTitle), 
+"id.channelId"]
 
-                                # get activities of REvolutionAnalytics channel
-                                revo.act <- getActivities(TK, channel.id = revo)
+# get activities of REvolutionAnalytics channel
+revo.act <- getActivities(TK, channel.id = revo)
 
-                                # get REvolutionAnalytics channel sections
-                                revo.sect <- getChannelSections(TK, channel.id = revo)
-                            </code></pre>
+# get REvolutionAnalytics channel sections
+revo.sect <- getChannelSections(TK, channel.id = revo)
+</code></pre>
                         </p>
                         <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                     </div>
@@ -383,6 +383,7 @@
                      <img src="https://ci.appveyor.com/api/projects/status/t37a595yg5eb2sx6/branch/master?svg=true" target="_blank">
                      <a href="https://codecov.io/github/JohnCoene/graphTweets?branch=master" target="_blank">
                       <img src="https://codecov.io/github/JohnCoene/graphTweets/coverage.svg?branch=master" alt="Coverage via Codecov" />
+                      <img src="http://cranlogs.r-pkg.org/badges/graphTweets">
                   </a>
                   <p><a href="https://github.com/JohnCoene/GraphTweets">GraphTweets</a> is an R package to visualise networks of Twitter interactions.</p>
                   <div class="btn-group open">
@@ -391,8 +392,9 @@
                         <span class="fa fa-caret-down"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="https://github.com/JohnCoene/GraphTweets" target="_blank"><i class="fa fa-github fa-fw"></i> Repository</a></li>
+                            <li><a href="https://cran.r-project.org/web/packages/graphTweets/" target="_blank"><i class="fa fa-code fa-fw"></i> CRAN</a></li>
                             <li class="divider"></li>
-                            <li><a href="docs/GraphTweets.pdf" target="_blank"><i class="fa fa-file-pdf-o fa-fw"></i> Manual</a></li>
+                            <li><a href="https://cran.r-project.org/web/packages/graphTweets/graphTweets.pdf" target="_blank"><i class="fa fa-file-pdf-o fa-fw"></i> Manual</a></li>
                             <li><a href="#" target="_blank"><i class="fa fa-file-text-o fa-fw"></i> Examples</a></li>
                             <li><a href="https://github.com/JohnCoene/GraphTweets/issues" target="_blank"><i class="fa fa-exclamation-circle fa-fw"></i> Issues</a></li>
                         </ul>
@@ -400,11 +402,11 @@
                     <br>
                     <h4>Install</h4>
                     <pre class = "text-left"><code class="R">
-                        if(!"devtools" %in% rownames(installed.packages())) {
-                        install.packages("devtools")
-                    }
+# from CRAN
+install.packages(graphTweets)
 
-                    devtools::install_github("JohnCoene/graphTweets")</code></pre>
+# github development version
+devtools::install_github("JohnCoene/graphTweets")</code></pre>
                     <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                 </div>
             </div>
@@ -440,31 +442,6 @@
                             </div>
                             <br>
                             <br>
-                            <div>
-                                <h4>Dashboards</h4>
-                                <ul class="list-inline item-details">
-                                    <li>
-                                        <strong><a href="http://johncoene.github.io/wine/OverviewAugust2015.html" target="_blank">Overview</a>
-                                        </strong>
-                                    </li>
-                                    <li>
-                                        <strong><a href="http://johncoene.github.io/wine/VarietiesAugust2015.html" target="_blank">Varieties</a>
-                                        </strong>
-                                    </li>
-                                    <li>
-                                        <strong><a href="http://johncoene.github.io/wine/NetworksAugust2015.html" target="_blank">Networks</a>
-                                        </strong>
-                                    </li>
-                                    <li>
-                                        <strong><a href="http://johncoene.github.io/wine/Historic.html" target="_blank">Descriptors</a>
-                                        </strong>
-                                    </li>
-                                    <li>
-                                        <strong><a href="http://johncoene.github.io/wine/Historic.html" target="_blank">Historic</a>
-                                        </strong>
-                                    </li>
-                                </ul>
-                            </div>
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
@@ -508,12 +485,12 @@
                             </div>
                             <br>
                             <h4>Install</h4>
-                            <pre class = "text-left"><code class="R">
-                                if(!"devtools" %in% rownames(installed.packages())) {
-                                install.packages("devtools")
-                            }
+<pre class = "text-left"><code class="R">
+if(!"devtools" %in% rownames(installed.packages())) {
+    install.packages("devtools")
+}
 
-                            devtools::install_github("JohnCoene/tweets2earth")</code></pre>
+devtools::install_github("JohnCoene/tweets2earth")</code></pre>
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
