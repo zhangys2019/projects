@@ -1,4 +1,10 @@
-# projects
+# Project Vault
+
 JohnCoene.github.io/projects
 
-# project site
+## Includes ##
+
+* All pakcages
+* Documentation
+* R package manuals
+* and other things as well ...
