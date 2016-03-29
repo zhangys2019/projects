@@ -1,6 +1,6 @@
 # Project Vault
 
-JohnCoene.github.io/projects
+[http://johncoene.github.io/projects/](http://johncoene.github.io/projects/)
 
 ## Includes ##
 
