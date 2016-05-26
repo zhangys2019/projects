@@ -192,7 +192,7 @@
                         <p>Young epicurian&mdash;often found where the people are few and the drinks many&mdash;who insists on making his work a craft such as that of an <i>artisan</i>.</p>
                     </div>
                     <div class="col-lg-4">
-                        <p><i>Artisanat</i> makes projects riveting, and, though, while it doesn't always work, it never completely fails.</p> 
+                        <p><i>Artisanat</i> makes projects riveting, and while it doesn't always work it never completely fails.</p>
                     </div>
                     <div class="col-lg-8 col-lg-offset-2 text-center">
                         <a href="http://johncoene.github.io/cv/" class="btn btn-lg btn-outline" target="_blank">
@@ -335,7 +335,7 @@
 
 devtools::install_github("JohnCoene/youTubeDataR")</code></pre>
                         </p>
-                        <p><h4>Example</h4> 
+                        <p><h4>Example</h4>
 <pre class="text-left"><code class="R">
 # Authenticate
 TK <- youOauth(client.id = "something.apps.googleusercontent.com",
@@ -348,7 +348,7 @@ my.videos <- getVideos(TK)
 search <- searchTube(TK, query = "R tutorial", type = "channel")
 
 # get REvolutionAnalytics channel
-revo <- search[grep("REvolutionAnalytics", search$snippet.channelTitle), 
+revo <- search[grep("REvolutionAnalytics", search$snippet.channelTitle),
 "id.channelId"]
 
 # get activities of REvolutionAnalytics channel
@@ -495,7 +495,11 @@ devtools::install_github("JohnCoene/tweets2earth")</code></pre>
                         <div class="modal-body">
                             <h2>bibler</h2>
                             <hr class="star-primary">
-                            <img src="img/modals/bibler.JPG" class="img-responsive img-centered" alt="">
+                            <div class="embed-responsive embed-responsive-4by3">
+                            <iframe class="embed-responsive-item" src="html/bibler_modal.html" width="1200" height="650">
+                             Sorry your browser does not support inline frames.
+                         </iframe>
+                     </div>
                              <img src="https://travis-ci.org/JohnCoene/bibler.svg?branch=master" target="_blank">
                              <img src="https://ci.appveyor.com/api/projects/status/fgqivf16f1u7jrug/branch/master?svg=true" target="_blank">
                             <p>Package that includes 6 datasets on the Bible: the King James version, the Apocrypha as well as the list of books for each. The datasets are available in data frames (one row/verse) as well as in the form of corpus from tm package (one document/verse).</p>
