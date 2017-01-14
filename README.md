@@ -4,7 +4,7 @@
 
 ## Includes ##
 
-* All pakcages
-* Documentation
-* R package manuals
-* and other things as well ...
+- All packages
+- Documentation and R package manuals
+- Resume
+- and other things as well ...
