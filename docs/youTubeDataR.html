@@ -9,7 +9,7 @@
 <meta name="generator" content="pandoc" />
 
 
-<meta name="date" content="2016-09-30" />
+<meta name="date" content="2017-01-16" />
 
 <title>youTubeDataR</title>
 
@@ -299,7 +299,7 @@ search &lt;-<span class="st"> </span><span class="kw">searchTube</span>(token, <
 
 <span class="co"># pick random channel id</span>
 <span class="kw">set.seed</span>(<span class="dv">19880525</span>)
-chan &lt;-<span class="st"> </span><span class="kw">sample</span>(search$snippet.id.channelId, <span class="dv">1</span>)
+chan &lt;-<span class="st"> </span><span class="kw">sample</span>(search$id.channelId, <span class="dv">1</span>)
 
 <span class="co"># fetch data</span>
 act &lt;-<span class="st"> </span><span class="kw">getActivities</span>(token, <span class="dt">channel.id =</span> chan)</code></pre></div>
@@ -333,7 +333,7 @@ search &lt;-<span class="st"> </span><span class="kw">searchTube</span>(token, <
 
 <span class="co"># random channel id</span>
 <span class="kw">set.seed</span>(<span class="dv">19880525</span>)
-vid &lt;-<span class="st"> </span><span class="kw">sample</span>(search$snippet.id.videoId, <span class="dv">1</span>)
+vid &lt;-<span class="st"> </span><span class="kw">sample</span>(search$id.videoId, <span class="dv">1</span>)
 
 <span class="co"># fetch data</span>
 act &lt;-<span class="st"> </span><span class="kw">getActivities</span>(token, <span class="dt">video.id =</span> vid)</code></pre></div>
@@ -381,7 +381,7 @@ search &lt;-<span class="st"> </span><span class="kw">searchTube</span>(token, <
 
 <span class="co"># pick random id</span>
 <span class="kw">set.seed</span>(<span class="dv">19880525</span>)
-chan &lt;-<span class="st"> </span><span class="kw">sample</span>(search$snippet.id.channelId, <span class="dv">1</span>)
+chan &lt;-<span class="st"> </span><span class="kw">sample</span>(search$id.channelId, <span class="dv">1</span>)
 
 <span class="co"># fetch</span>
 chan.dat &lt;-<span class="st"> </span><span class="kw">getChannels</span>(token, <span class="dt">id =</span> chan)</code></pre></div>
@@ -418,7 +418,7 @@ search &lt;-<span class="st"> </span><span class="kw">searchTube</span>(token, <
 
 <span class="co"># get channel sections</span>
 sections &lt;-<span class="st"> </span><span class="kw">getChannelSections</span>(token, 
-                               <span class="dt">channel.id =</span> search$snippet.channelId [<span class="dv">1</span>])</code></pre></div>
+                               <span class="dt">channel.id =</span> search$channelId [<span class="dv">1</span>])</code></pre></div>
 </div>
 </div>
 <div id="getcomments" class="section level1">
@@ -520,7 +520,7 @@ search &lt;-<span class="st"> </span><span class="kw">searchTube</span>(token, <
 
 <span class="co"># pick random channel</span>
 <span class="kw">set.seed</span>(<span class="dv">19880525</span>)
-chan &lt;-<span class="st"> </span><span class="kw">sample</span>(search$snippet.id.channelId, <span class="dv">1</span>)
+chan &lt;-<span class="st"> </span><span class="kw">sample</span>(search$id.channelId, <span class="dv">1</span>)
 
 <span class="co"># fetch playlist</span>
 pl &lt;-<span class="st"> </span><span class="kw">getPlaylists</span>(token, <span class="dt">channel.id =</span> chan)</code></pre></div>
@@ -612,7 +612,7 @@ search &lt;-<span class="st"> </span><span class="kw">searchTube</span>(token, <
 
 <span class="co"># pick random channel</span>
 <span class="kw">set.seed</span>(<span class="dv">19880525</span>)
-chan &lt;-<span class="st"> </span><span class="kw">sample</span>(search$snippet.id.channelId, <span class="dv">1</span>)
+chan &lt;-<span class="st"> </span><span class="kw">sample</span>(search$id.channelId, <span class="dv">1</span>)
 
 <span class="co"># fetch subs</span>
 subs &lt;-<span class="st"> </span><span class="kw">getSubscriptions</span>(token, <span class="dt">channel.id =</span> chan)</code></pre></div>
@@ -741,7 +741,7 @@ clean.cats &lt;-<span class="st"> </span><span class="kw">searchVideos</span>(to
 video.cat &lt;-<span class="st"> </span><span class="kw">getVideoCategories</span>(token, <span class="dt">region.code =</span> <span class="st">&quot;US&quot;</span>)
 
 <span class="co"># filter pet-related video categories</span>
-video.cat &lt;-<span class="st"> </span>video.cat[<span class="kw">grep</span>(<span class="st">&quot;Pets&quot;</span>, video.cat$snippet.title),] 
+video.cat &lt;-<span class="st"> </span>video.cat[<span class="kw">grep</span>(<span class="st">&quot;Pets&quot;</span>, video.cat$title),] 
 
 <span class="co"># fetch by category</span>
 pets &lt;-<span class="st"> </span><span class="kw">searchTube</span>(token, <span class="dt">query =</span> <span class="st">&quot;cats&quot;</span>, <span class="dt">video.category.id =</span> video.cat[<span class="dv">1</span>])</code></pre></div>
@@ -783,7 +783,7 @@ pets &lt;-<span class="st"> </span><span class="kw">searchTube</span>(token, <sp
 </div>
 
 <div id="postamble" data-toggle="wy-nav-shift" class="status">
-<p class="date"><span class="glyphicon glyphicon-calendar"></span> 2016-09-30</p>
+<p class="date"><span class="glyphicon glyphicon-calendar"></span> 2017-01-16</p>
 </div>
 
 
