@@ -189,7 +189,17 @@
                                     <i class="fa fa-search-plus fa-3x"></i>
                                 </div>
                             </div>
-                            <img src="img/portfolio/countup.jpg" class="img-responsive" alt="">
+                            <img src="img/portfolio/countup.gif" class="img-responsive" alt="">
+                        </a>
+                    </div>
+                    <div class="col-sm-4 portfolio-item">
+                        <a href="#typed" class="portfolio-link" data-toggle="modal">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    <i class="fa fa-search-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img src="img/portfolio/typed.gif" class="img-responsive" alt="">
                         </a>
                     </div>
                 </div>
@@ -589,6 +599,7 @@ devtools::install_github("JohnCoene/rodham")</code></pre>
             </div>
         </div>
     </div>
+
     <div class="portfolio-modal modal fade" id="countup" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-content">
         <div class="close-modal" data-dismiss="modal">
@@ -636,7 +647,48 @@ countup(count = 1729, start = 10, options = opts)
         </div>
     </div>
 </div>
+</div>
 
+
+    <div class="portfolio-modal modal fade" id="typed" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>.
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <h2>countup</h2>
+                        <hr class="star-primary">
+                        <img src="img/modals/typed.gif">
+                        <br>
+                     <img src="https://travis-ci.org/JohnCoene/typed.svg?branch=master" target="_blank">
+                     <a href="https://saythanks.io/to/JohnCoene"><img src="https://img.shields.io/badge/say-thanks-dd1c1a.svg" target="_blank"></a>
+                  <p><a href="https://github.com/JohnCoene/typed">countup</a> is an implementation (htmlwidget) of <a href="https://github.com/mattboldt/typed.js/">Count-Up.js</a> in R for Rmarkdown.</p>
+                        <ul class="list-inline">
+                            <li><a class="btn btn-danger" href="https://github.com/JohnCoene/typed" target="_blank"><i class="fa fa-github fa-fw"></i> Repository</a></li>
+                            <li><a class="btn btn-danger" href="https://github.com/JohnCoene/typed/issues" target="_blank"><i class="fa fa-exclamation-circle fa-fw"></i> Issues</a></li>
+                            <li><a class="btn btn-danger" href="docs/typed.html" target="_blank"><i class="fa fa-html5 fa-fw"></i> Examples</a></li>
+                        </ul>
+                    <h4>Install</h4>
+<pre class = "text-left"><code class="R">
+devtools::install_github("JohnCoene/typed")</code></pre>
+                        <p><h4>Example</h4>
+<pre class="text-left"><code class="R">typed("Hello")
+typed(c("First sentence.", "Second sentence", typeSpeed = 2))
+</code></pre>
+                        </p>
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
