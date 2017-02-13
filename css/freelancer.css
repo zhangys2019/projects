@@ -473,3 +473,8 @@ img.bg {
   top: 0;
   left: 0;
 }
+
+.counter{
+    font-size: 100px;
+    color: #e74c3c;
+}
