@@ -813,17 +813,33 @@ peity(c(0,-3,-6,-4,-5,-4,-7,-3,-5,-2), type = "bar", options = list(fill = js_fu
                         <hr class="star-primary">
                         <div class="ct-chart ct-perfect-fourth" id="chartistChart" style="margin:0 auto; width: 600px; height: 250px;"></div>
 <script type="text/javascript">
-new Chartist.Line('#chartistChart', {
-  labels: [1, 2, 3, 4, 5, 6, 7, 8],
+var chart = new Chartist.Line('#chartistChart', {
+  labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
   series: [
-    [5, 9, 7, 8, 5, 3, 5, 4]
+    [1, 5, 2, 5, 4, 3],
+    [2, 3, 4, 8, 1, 2],
+    [5, 4, 3, 2, 1, 0.5]
   ]
 }, {
   low: 0,
   showArea: true,
-  width: 600,
-  height: 250
-});  
+  showPoint: false,
+  fullWidth: true
+});
+
+chart.on('draw', function(data) {
+  if(data.type === 'line' || data.type === 'area') {
+    data.element.animate({
+      d: {
+        begin: 2000 * data.index,
+        dur: 2000,
+        from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(),
+        to: data.path.clone().stringify(),
+        easing: Chartist.Svg.Easing.easeOutQuint
+      }
+    });
+  }
+});
 </script>
                         <br>
                      <img src="https://travis-ci.org/JohnCoene/chartist.svg?branch=master" target="_blank">
