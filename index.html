@@ -16,6 +16,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
     <script src="js/jquery.counterup.min.js"></script>
     <script src="js/jquery.peity.min.js"></script>
+    <script src="js/chartist.min.js"></script>
 
     <title>John Coene</title>
 
@@ -31,6 +32,7 @@
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
     <link rel="stylesheet" href="css/monokai-sublime.css">
+    <link rel="stylesheet" href="css/chartist.min.css">
     <script src="js/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
@@ -202,6 +204,18 @@
                                 </div>
                             </div>
                             <img src="img/portfolio/peity.png" class="img-responsive" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 portfolio-item">
+                        <a href="#chartist" class="portfolio-link" data-toggle="modal">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    <i class="fa fa-search-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img src="img/portfolio/chartist.png" class="img-responsive" alt="">
                         </a>
                     </div>
                 </div>
@@ -773,6 +787,97 @@ js_fun <- htmlwidgets::JS('function(_, i, all) {
 }')
 
 peity(c(0,-3,-6,-4,-5,-4,-7,-3,-5,-2), type = "bar", options = list(fill = js_fun))
+</code></pre>
+                        </p>
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+    <div class="portfolio-modal modal fade" id="chartist" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>.
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <h2>chartist</h2>
+                        <hr class="star-primary">
+                        <div class="ct-chart ct-perfect-fourth" id="chartistChart" style="margin:0 auto; width: 600px; height: 250px;"></div>
+<script type="text/javascript">
+new Chartist.Line('#chartistChart', {
+  labels: [1, 2, 3, 4, 5, 6, 7, 8],
+  series: [
+    [5, 9, 7, 8, 5, 3, 5, 4]
+  ]
+}, {
+  low: 0,
+  showArea: true,
+  width: 600,
+  height: 250
+});  
+</script>
+                        <br>
+                     <img src="https://travis-ci.org/JohnCoene/chartist.svg?branch=master" target="_blank">
+                     <a href="https://saythanks.io/to/JohnCoene"><img src="https://img.shields.io/badge/say-thanks-dd1c1a.svg" target="_blank"></a>
+                  <p><a href="https://github.com/JohnCoene/typed">chartist</a> is an implementation (htmlwidget) of <a href="https://gionkunz.github.io/chartist-js/">chartist.js</a> in R.</p>
+                        <ul class="list-inline">
+                            <li><a class="btn btn-danger" href="https://github.com/JohnCoene/chartist" target="_blank"><i class="fa fa-github fa-fw"></i> Repository</a></li>
+                            <li><a class="btn btn-danger" href="https://github.com/JohnCoene/chartist/issues" target="_blank"><i class="fa fa-exclamation-circle fa-fw"></i> Issues</a></li>
+                        </ul>
+                    <h4>Install</h4>
+<pre class = "text-left"><code class="R">
+devtools::install_github("JohnCoene/chartist")</code></pre>
+                        <p><h4>Example</h4>
+<pre class="text-left"><code class="R">library(chartist)
+# line
+mtcars[1:20,] %>%
+    chart_ist(x = rownames(.)) %>%
+    add_ist("disp")
+
+# scatter 
+mtcars[1:20,] %>%
+    chart_ist(x = rownames(.)) %>%
+    add_ist("disp") %>%
+    scatter_ist()
+
+# area chart using options
+mtcars[1:15,] %>%
+    chart_ist(x = rownames(.)) %>%
+    add_ist("disp") %>%
+    lineopt_ist(showArea = TRUE, showLine = FALSE, showPoint = FALSE)
+
+# pie    
+mtcars[1:5,] %>%
+    chart_ist(type = "pie") %>%
+    add_ist("disp")
+    
+# donut using options 
+mtcars[1:5,] %>%
+    chart_ist(type = "pie") %>%
+    add_ist("disp") %>%
+    pieopt_ist(donut = TRUE, percent = TRUE)
+    
+# gauge
+mtcars[1:5,] %>%
+    chart_ist(type = "pie") %>%
+    add_ist("disp") %>%
+    gauge_ist()
+
+# bar chart   
+mtcars[1:20,] %>%
+    chart_ist(x = rownames(.), type = "bar") %>%
+    add_ist("disp") %>%
+    add_ist("hp") %>%
+    baropt_ist(stackBars = TRUE)
 </code></pre>
                         </p>
                     <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>

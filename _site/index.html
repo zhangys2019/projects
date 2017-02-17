@@ -11,10 +11,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="google-site-verification" content="p4A9hVd1c8FOAlQsyDq0NMrE9IQdtfZoHgQ2e1t2dYE" />
-    <link rel="image_src" href="http://johncoene.github.io/projects/img/railway.jpg"/>
+<!--     <link rel="image_src" href="http://johncoene.github.io/projects/img/railway.jpg"/> -->
     <script src="js/jquery.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
     <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/jquery.peity.min.js"></script>
+    <script src="js/chartist.min.js"></script>
 
     <title>John Coene</title>
 
@@ -30,15 +32,9 @@
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
     <link rel="stylesheet" href="css/monokai-sublime.css">
+    <link rel="stylesheet" href="css/chartist.min.css">
     <script src="js/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
 
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -49,15 +45,6 @@
           ga('create', 'UA-74544116-1', 'auto');
           ga('send', 'pageview');
 
-        </script>
-
-        <script>
-        $('#modal-content').on('shown.bs.modal', function() {
-            $('.counter').counterUp({
-                delay: 10,
-                time: 1000
-            });
-        });
         </script>
 
     </head>
@@ -102,7 +89,7 @@
 
         <!-- Header -->
         <header>
-            <img src="img/railway.jpg" class = "bg img-responsive" id="bg" alt="">
+            <!-- <img src="img/railway.jpg" class = "bg img-responsive" id="bg" alt=""> -->
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -196,7 +183,39 @@
                                     <i class="fa fa-search-plus fa-3x"></i>
                                 </div>
                             </div>
-                            <img src="img/portfolio/countup.jpg" class="img-responsive" alt="">
+                            <img src="img/portfolio/countup.png" class="img-responsive" alt="">
+                        </a>
+                    </div>
+                    <div class="col-sm-4 portfolio-item">
+                        <a href="#typed" class="portfolio-link" data-toggle="modal">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    <i class="fa fa-search-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img src="img/portfolio/typed.png" class="img-responsive" alt="">
+                        </a>
+                    </div>
+                    <div class="col-sm-4 portfolio-item">
+                        <a href="#peity" class="portfolio-link" data-toggle="modal">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    <i class="fa fa-search-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img src="img/portfolio/peity.png" class="img-responsive" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 portfolio-item">
+                        <a href="#chartist" class="portfolio-link" data-toggle="modal">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    <i class="fa fa-search-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img src="img/portfolio/chartist.png" class="img-responsive" alt="">
                         </a>
                     </div>
                 </div>
@@ -596,6 +615,7 @@ devtools::install_github("JohnCoene/rodham")</code></pre>
             </div>
         </div>
     </div>
+
     <div class="portfolio-modal modal fade" id="countup" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-content">
         <div class="close-modal" data-dismiss="modal">
@@ -610,16 +630,18 @@ devtools::install_github("JohnCoene/rodham")</code></pre>
                     <div class="modal-body">
                         <h2>countup</h2>
                         <hr class="star-primary">
-                        <div class="counter">1,234,567</div>
+                        <img src="img/modals/countuprmd.gif">
+                        <br>
                      <img src="https://travis-ci.org/JohnCoene/countup.svg?branch=master" target="_blank">
-                  <p><a href="https://github.com/JohnCoene/countup">countup</a> is an implementation (htmlwidget) of <a href="https://inorganik.github.io/countUp.js/">Count-Up.js</a> in R for Rmarkdown and flexdashboard.</p>
+                     <a href="https://saythanks.io/to/JohnCoene"><img src="https://img.shields.io/badge/say-thanks-dd1c1a.svg" target="_blank"></a>
+                  <p><a href="https://github.com/JohnCoene/countup">countup</a> is an implementation (htmlwidget) of <a href="https://inorganik.github.io/countUp.js/">Count-Up.js</a> in R for Rmarkdown.</p>
                         <ul class="list-inline">
                             <li><a class="btn btn-danger" href="https://github.com/JohnCoene/countup" target="_blank"><i class="fa fa-github fa-fw"></i> Repository</a></li>
                             <li><a class="btn btn-danger" href="https://github.com/JohnCoene/countup/issues" target="_blank"><i class="fa fa-exclamation-circle fa-fw"></i> Issues</a></li>
+                            <li><a class="btn btn-danger" href="docs/countup.html" target="_blank"><i class="fa fa-html5 fa-fw"></i> Examples</a></li>
                         </ul>
                     <h4>Install</h4>
-<pre class = "text-left"><code class="R">
-devtools::install_github("JohnCoene/countup")</code></pre>
+<pre class = "text-left"><code class="R">devtools::install_github("JohnCoene/countup")</code></pre>
                         <p><h4>Example</h4>
 <pre class="text-left"><code class="R"># set options
 opts = list(
@@ -640,7 +662,231 @@ countup(count = 1729, start = 10, options = opts)
         </div>
     </div>
 </div>
+</div>
 
+
+    <div class="portfolio-modal modal fade" id="typed" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>.
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <h2>typed</h2>
+                        <hr class="star-primary">
+                        <img src="img/modals/typed.gif">
+                        <br>
+                     <img src="https://travis-ci.org/JohnCoene/typed.svg?branch=master" target="_blank">
+                     <a href="https://saythanks.io/to/JohnCoene"><img src="https://img.shields.io/badge/say-thanks-dd1c1a.svg" target="_blank"></a>
+                  <p><a href="https://github.com/JohnCoene/typed">countup</a> is an implementation (htmlwidget) of <a href="https://github.com/mattboldt/typed.js/">Count-Up.js</a> in R for Rmarkdown.</p>
+                        <ul class="list-inline">
+                            <li><a class="btn btn-danger" href="https://github.com/JohnCoene/typed" target="_blank"><i class="fa fa-github fa-fw"></i> Repository</a></li>
+                            <li><a class="btn btn-danger" href="https://github.com/JohnCoene/typed/issues" target="_blank"><i class="fa fa-exclamation-circle fa-fw"></i> Issues</a></li>
+                            <li><a class="btn btn-danger" href="docs/typed.html" target="_blank"><i class="fa fa-html5 fa-fw"></i> Examples</a></li>
+                        </ul>
+                    <h4>Install</h4>
+<pre class = "text-left"><code class="R">devtools::install_github("JohnCoene/typed")</code></pre>
+                        <p><h4>Example</h4>
+<pre class="text-left"><code class="R">typed("Hello")
+typed(c("First sentence.", "Second sentence", typeSpeed = 2))
+</code></pre>
+                        </p>
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+    <div class="portfolio-modal modal fade" id="peity" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>.
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <h2>peity</h2>
+                        <hr class="star-primary">
+<span class="bar-colours-1">5,3,9,6,5,9,7,3,5,2</span>
+<span class="bar-colours-2">5,3,2,-1,-3,-2,2,3,5,2</span>
+<span class="bar-colours-3">0,-3,-6,-4,-5,-4,-7,-3,-5,-2</span>
+<span class="pie-colours-1">4,7,6,5</span>
+<span class="pie-colours-2">5,3,9,6,5</span>
+<br>
+        <script>
+$(".bar-colours-1").peity("bar", {
+  fill: ["red", "green", "blue"]
+})
+
+$(".bar-colours-2").peity("bar", {
+  fill: function(value) {
+    return value > 0 ? "green" : "red"
+  }
+})
+
+$(".bar-colours-3").peity("bar", {
+  fill: function(_, i, all) {
+    var g = parseInt((i / all.length) * 255)
+    return "rgb(255, " + g + ", 0)"
+  }
+})
+
+$(".pie-colours-1").peity("pie", {
+  fill: ["cyan", "magenta", "yellow", "black"]
+})
+
+$(".pie-colours-2").peity("pie", {
+  fill: function(_, i, all) {
+    var g = parseInt((i / all.length) * 255)
+    return "rgb(255, " + g + ", 0)"
+  }
+})
+        </script>
+                        <br>
+                     <img src="https://travis-ci.org/JohnCoene/peity.svg?branch=master" target="_blank">
+                     <a href="https://saythanks.io/to/JohnCoene"><img src="https://img.shields.io/badge/say-thanks-dd1c1a.svg" target="_blank"></a>
+                  <p><a href="https://github.com/JohnCoene/peity">peity</a> is an implementation (htmlwidget) of <a href="http://benpickles.github.io/peity/">Peity</a> in R for Rmarkdown.</p>
+                        <ul class="list-inline">
+                            <li><a class="btn btn-danger" href="https://github.com/JohnCoene/peity" target="_blank"><i class="fa fa-github fa-fw"></i> Repository</a></li>
+                            <li><a class="btn btn-danger" href="https://github.com/JohnCoene/peity/issues" target="_blank"><i class="fa fa-exclamation-circle fa-fw"></i> Issues</a></li>
+                            <li><a class="btn btn-danger" href="html/peity.html" target="_blank"><i class="fa fa-html5 fa-fw"></i> Examples</a></li>
+                        </ul>
+                    <h4>Install</h4>
+<pre class = "text-left"><code class="R">
+devtools::install_github("JohnCoene/peity")</code></pre>
+                        <p><h4>Example</h4>
+<pre class="text-left"><code class="R">library(peity)
+
+peity("1/5", type = "pie")
+
+# pass options as list
+peity(c(1,5), type = "donut", options = list(fill = I(c("green", "red")), radius = 100))
+peity(c(1,5), type = "donut", options = list(fill = c("#845422", "#ead61c"), radius = 50, innerRadius = 40))
+peity(rnorm(50, 2, 1), type = "line", options = list(width = 100))
+peity(c(1,5,3), type = "bar", options = list(fill = I("green")))
+
+# set colors dynamically
+peity(c(4,-2,3, -4), type = "bar", options = list(fill = htmlwidgets::JS('function(value) {
+    return value > 0 ? "green" : "red"
+}')))
+
+js_fun <- htmlwidgets::JS('function(_, i, all) {
+    var g = parseInt((i / all.length) * 255)
+    return "rgb(255, " + g + ", 0)"
+}')
+
+peity(c(0,-3,-6,-4,-5,-4,-7,-3,-5,-2), type = "bar", options = list(fill = js_fun))
+</code></pre>
+                        </p>
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+    <div class="portfolio-modal modal fade" id="chartist" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>.
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <h2>chartist</h2>
+                        <hr class="star-primary">
+                        <div class="ct-chart ct-perfect-fourth" id="chartistChart" style="margin:0 auto; width: 600px; height: 250px;"></div>
+<script type="text/javascript">
+new Chartist.Line('#chartistChart', {
+  labels: [1, 2, 3, 4, 5, 6, 7, 8],
+  series: [
+    [5, 9, 7, 8, 5, 3, 5, 4]
+  ]
+}, {
+  low: 0,
+  showArea: true,
+  width: 600,
+  height: 250
+});  
+</script>
+                        <br>
+                     <img src="https://travis-ci.org/JohnCoene/chartist.svg?branch=master" target="_blank">
+                     <a href="https://saythanks.io/to/JohnCoene"><img src="https://img.shields.io/badge/say-thanks-dd1c1a.svg" target="_blank"></a>
+                  <p><a href="https://github.com/JohnCoene/typed">chartist</a> is an implementation (htmlwidget) of <a href="https://gionkunz.github.io/chartist-js/">chartist.js</a> in R.</p>
+                        <ul class="list-inline">
+                            <li><a class="btn btn-danger" href="https://github.com/JohnCoene/chartist" target="_blank"><i class="fa fa-github fa-fw"></i> Repository</a></li>
+                            <li><a class="btn btn-danger" href="https://github.com/JohnCoene/chartist/issues" target="_blank"><i class="fa fa-exclamation-circle fa-fw"></i> Issues</a></li>
+                        </ul>
+                    <h4>Install</h4>
+<pre class = "text-left"><code class="R">
+devtools::install_github("JohnCoene/chartist")</code></pre>
+                        <p><h4>Example</h4>
+<pre class="text-left"><code class="R">library(chartist)
+# line
+mtcars[1:20,] %>%
+    chart_ist(x = rownames(.)) %>%
+    add_ist("disp")
+
+# scatter 
+mtcars[1:20,] %>%
+    chart_ist(x = rownames(.)) %>%
+    add_ist("disp") %>%
+    scatter_ist()
+
+# area chart using options
+mtcars[1:15,] %>%
+    chart_ist(x = rownames(.)) %>%
+    add_ist("disp") %>%
+    lineopt_ist(showArea = TRUE, showLine = FALSE, showPoint = FALSE)
+
+# pie    
+mtcars[1:5,] %>%
+    chart_ist(type = "pie") %>%
+    add_ist("disp")
+    
+# donut using options 
+mtcars[1:5,] %>%
+    chart_ist(type = "pie") %>%
+    add_ist("disp") %>%
+    pieopt_ist(donut = TRUE, percent = TRUE)
+    
+# gauge
+mtcars[1:5,] %>%
+    chart_ist(type = "pie") %>%
+    add_ist("disp") %>%
+    gauge_ist()
+
+# bar chart   
+mtcars[1:20,] %>%
+    chart_ist(x = rownames(.), type = "bar") %>%
+    add_ist("disp") %>%
+    add_ist("hp") %>%
+    baropt_ist(stackBars = TRUE)
+</code></pre>
+                        </p>
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
