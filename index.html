@@ -947,16 +947,19 @@ chart.on('created', function() {
                         <br>
                      <img src="https://travis-ci.org/JohnCoene/chartist.svg?branch=master" target="_blank">
                      <a href="https://saythanks.io/to/JohnCoene"><img src="https://img.shields.io/badge/say-thanks-dd1c1a.svg" target="_blank"></a>
-                  <p><a href="https://github.com/JohnCoene/typed">chartist</a> is an implementation (htmlwidget) of <a href="https://gionkunz.github.io/chartist-js/">chartist.js</a> in R.</p>
+                  <p><a href="https://github.com/JohnCoene/typed">chartist</a> is an R htmlwidget for <a href="https://gionkunz.github.io/chartist-js/">chartist.js</a> in R.</p>
                         <ul class="list-inline">
                             <li><a class="btn btn-danger" href="https://github.com/JohnCoene/chartist" target="_blank"><i class="fa fa-github fa-fw"></i> Repository</a></li>
                             <li><a class="btn btn-danger" href="https://github.com/JohnCoene/chartist/issues" target="_blank"><i class="fa fa-exclamation-circle fa-fw"></i> Issues</a></li>
+                            <li><a class="btn btn-danger" href="https://johncoene.github.io/chartistwidget/" target="_blank"><i class="fa fa-html5 fa-fw"></i> Project site</a></li>
+                            <li><a class="btn btn-danger" href="https://johncoene.github.io/chartistwidget/docs.html" target="_blank"><i class="fa fa-book fa-fw"></i> Docs</a></li>
                         </ul>
                     <h4>Install</h4>
-<pre class = "text-left"><code class="R">
-devtools::install_github("JohnCoene/chartist")</code></pre>
+<pre class = "text-left"><code class="R">devtools::install_github("JohnCoene/chartist")
+</code></pre>
                         <p><h4>Example</h4>
 <pre class="text-left"><code class="R">library(chartist)
+# Chart types
 # line
 mtcars[1:20,] %>%
     chart_ist(x = rownames(.)) %>%
