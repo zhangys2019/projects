@@ -8,14 +8,14 @@ navbar:
       href: http://john-coene.com/
   right:
     - text: "Chart types"
-      href: types.html
+      href: types
     - text: "Config"
-      href: config.html
+      href: config
     - text: "Docs"
       icon: fa-book
       menu:
         - text: "HTML"
-          href: docs.html
+          href: docs
         - text: "PDF"
           href: uvcharts-0.0.1.pdf
 

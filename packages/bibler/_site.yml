@@ -12,7 +12,7 @@ navbar:
       href: https://github.com/JohnCoene/bibler/
     - icon: fa-html5
       text: "Examples"
-      href: examples.html
+      href: examples
       
 output:
   html_document:

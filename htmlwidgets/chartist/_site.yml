@@ -8,24 +8,24 @@ navbar:
       href: http://john-coene.com/
   right:
     - text: "Chart types"
-      href: types.html
+      href: types
     - text: "Plugins"
-      href: plugins.html
+      href: plugins
     - text: "Options"
-      href: options.html
+      href: options
     - text: "Responsive Options"
-      href: responsive.html
+      href: responsive
     - text: "Animations"
-      href: animations.html
+      href: animations
     - text: "Style"
-      href: style.html
+      href: style
     - text: "Rmarkdown"
-      href: rmarkdown.html
+      href: rmarkdown
     - text: "Docs"
       icon: fa-book
       menu:
         - text: "HTML"
-          href: docs.html
+          href: docs
         - text: "PDF"
           href: chartist-0.0.1.pdf
 

@@ -12,7 +12,7 @@ navbar:
       href: https://github.com/JohnCoene/youTubeDataR/
     - icon: fa-book
       text: "Docs"
-      href: docs.html
+      href: docs
       
 output:
   html_document:
