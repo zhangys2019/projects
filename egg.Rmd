@@ -1,0 +1,40 @@
+---
+title: "egg"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(egg)
+```
+
+[![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/JohnCoene)
+
+`egg` let's you put Easter eggs in Rmarkdown reports, it is an htmlwidget for [egg.js](http://thatmikeflynn.com/egg.js/).
+
+> Type "coene" to see it in action!
+
+```{r, echo = FALSE}
+egg(c("coene"),  imegg = "http://media.vanityfair.com/photos/54cbf3da998d4de83ba3602a/master/w_960,c_limit/image.jpg",
+    fade = 1000, timeout = 10000)
+```
+
+```{r}
+div(class = "page-header",
+    h2("Install"))
+```
+
+```{r, eval = FALSE, echo = TRUE}
+# install.packages("devtools")
+devtools::install_github("JohnCoene/egg")
+```
+
+```{r}
+div(class = "page-header",
+    h2("Example"))
+```
+
+```{r, echo = TRUE, eval=FALSE}
+egg(c("coene"),  "EASTER EGG IN RMARKDOWN!",
+    fade = 1000, timeout = 10000)
+```
+
