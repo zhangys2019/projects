@@ -22,7 +22,7 @@ wc <- cluster_walktrap(g)
 clusters <- membership(wc)
 g <- igraph_to_networkD3(g, group = clusters)
 
-MyClickScript <- 'alert("You clicked on " + d.name);'
+popup <- 'alert("You clicked on " + d.name);'
 ```
 
 ```{r header text}
@@ -30,7 +30,7 @@ p(em("Network of emails - random walk clustering (color)."))
 ```
 
 ```{r graph header}
-forceNetwork(Links = g$links, Nodes = g$nodes, clickAction = MyClickScript,
+forceNetwork(Links = g$links, Nodes = g$nodes, clickAction = popup,
              Source = 'source', Target = 'target', linkDistance = 20, width = "100%", height = 600,
              NodeID = 'name', Group = 'group', charge = -90, bounded = FALSE)
 ```

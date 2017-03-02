@@ -71,7 +71,7 @@ df <- data.frame(x = 1:15, y = runif(15, 10, 16))
 df %>%
   uv_bar(x) %>%
   uv_add(y) %>%
-  uv_legend(showlegends = FALSE)
+  uv_frame(bgcolor = "none")
 ```
 
 

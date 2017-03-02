@@ -138,7 +138,10 @@ div(class = "container-fluid",
         div(class = "col-lg-10",
             p("John is a young contrarian often found where the people are few and the drinks many."),
             p("I am an autodidact genuinely interested in things ranging from politics to data."),
-            p("#rstats, #data, #marketing, #BI")),
+            p(span("#rstats", class = "text-success"),
+              span("#marketing", class = "text-info"),
+              span("#BI", class = "text-warning"),
+              span("#data", class = "text-danger"))),
         div(class = "col-lg-2", 
             a("Resume", class = "btn btn-default btn-lg", href = "http://johncoene.github.io/cv/", target = "_blank"))))
 ```

@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(uvcharts)
 ```
 
-`uvcharts` come with 16 functions to customise your charts. These are only a few examples of combinations, see the documentation for all details.
+`uvcharts` come with 16 functions to customise your charts. These are only a few examples of combinations, see the [documentation](http://john-coene.com/htmlwidgets/uvcharts/docs) for all details.
 
 ```{r}
 # create data
@@ -31,7 +31,8 @@ df %>%
   uv_add(y) %>% 
   uv_add(z) %>% 
   uv_add(w) %>% 
-  uv_graph(palette = "Plain")
+  uv_graph(palette = "Plain") %>%
+  uv_frame(bgcolor = "none") # no background
 ```
 
 ## Custom
@@ -43,7 +44,8 @@ df %>%
   uv_add(z) %>% 
   uv_add(w) %>% 
   uv_graph(orientation = "Vertical", custom.palette = list("Red", "grey", "Blue")) %>%
-  uv_scale(type = "sqrt")
+  uv_scale(type = "sqrt") %>% # square root scale
+  uv_frame(bgcolor = "none") # no background
 ```
 
 ## Background 
@@ -58,7 +60,8 @@ df %>%
   uv_frame("black") %>%
   uv_legend(showlegends = FALSE) %>%
   uv_margin(20, 20, 20, 20) %>%
-  uv_axis(opacity = 0)
+  uv_axis(opacity = 0) %>% # opacity = 0 removes axis in effect
+  uv_frame(bgcolor = "none") # no background
 ```
 
 # Axis
@@ -71,7 +74,8 @@ df %>%
   uv_add(w) %>% 
   uv_graph(palette = "Sulphide") %>%
   uv_axis(strokecolor = "brown", ticks = 5, opacity = 0.6) %>%
-  uv_label(strokecolor = "brown")
+  uv_label(strokecolor = "brown") %>%
+  uv_frame(bgcolor = "none") # no background
 ```
 
 # Captions and labels
@@ -82,5 +86,6 @@ df %>%
   uv_add(y) %>% 
   uv_add(z) %>% 
   uv_graph(orientation = "Vertical") %>%
-  uv_meta(caption = "Chart Caption", subcaption = "Sub Caption", hlabel = "X axis", vlabel = "Y axis")
+  uv_meta(caption = "Chart Caption", subcaption = "Sub Caption", hlabel = "X axis", vlabel = "Y axis") %>%
+  uv_frame(bgcolor = "none") # no background
 ```

@@ -23,7 +23,8 @@ df <- data.frame(x = 1:10, y = runif(10, 0, 5), z = runif(10, 0, 5))
 df %>%
   uv_bar(x) %>%
   uv_add(y) %>%
-  uv_add(z)
+  uv_add(z) %>%
+  uv_frame(bgcolor = "none")
 ```
 
 ## Stacked bar
@@ -32,7 +33,8 @@ df %>%
 df %>%
   uv_stackbar(x) %>%
   uv_add(y) %>%
-  uv_add(z)
+  uv_add(z) %>%
+  uv_frame(bgcolor = "none")
 ```
 
 ## Percent bar
@@ -41,7 +43,8 @@ df %>%
 df %>%
   uv_percentbar(x) %>%
   uv_add(y) %>%
-  uv_add(z)
+  uv_add(z) %>%
+  uv_frame(bgcolor = "none")
 ```
 
 ## Stepup bar
@@ -50,7 +53,8 @@ df %>%
 df %>%
   uv_stepupbar(x) %>%
   uv_add(y) %>%
-  uv_add(z)
+  uv_add(z) %>%
+  uv_frame(bgcolor = "none")
 ```
 
 ## Line
@@ -60,7 +64,8 @@ df %>%
   uv_line(x) %>%
   uv_add(y) %>%
   uv_add(z) %>%
-  uv_graph(orientation = "Vertical")
+  uv_graph(orientation = "Vertical") %>%
+  uv_frame(bgcolor = "none")
 ```
 
 ## Area
@@ -70,7 +75,8 @@ df %>%
   uv_area(x) %>%
   uv_add(y) %>%
   uv_add(z) %>%
-  uv_graph(orientation = "Vertical")
+  uv_graph(orientation = "Vertical") %>%
+  uv_frame(bgcolor = "none")
 ```
 
 ## Stacked area
@@ -80,7 +86,8 @@ df %>%
   uv_stackarea(x) %>%
   uv_add(y) %>%
   uv_add(z) %>%
-  uv_graph(orientation = "Vertical")
+  uv_graph(orientation = "Vertical") %>%
+  uv_frame(bgcolor = "none")
 ```
 
 ## Percent area
@@ -90,7 +97,8 @@ df %>%
   uv_percentarea(x) %>%
   uv_add(y) %>%
   uv_add(z) %>%
-  uv_graph(orientation = "Vertical")
+  uv_graph(orientation = "Vertical") %>%
+  uv_frame(bgcolor = "none")
 ```
 
 ## Pie
@@ -102,7 +110,8 @@ df <- data.frame(x = c("apple", "banana", "cake", "mango", "strawberry"), y = c(
 ```{r}
 df %>%
   uv_pie(x) %>%
-  uv_add(y) 
+  uv_add(y) %>%
+  uv_frame(bgcolor = "none")
 ```
 
 ## Polar
@@ -110,7 +119,8 @@ df %>%
 ```{r}
 df %>%
   uv_polar(x) %>%
-  uv_add(y) 
+  uv_add(y) %>%
+  uv_frame(bgcolor = "none")
 ```
 
 ## Waterfall
@@ -118,7 +128,8 @@ df %>%
 ```{r}
 df %>%
   uv_waterfall(x) %>%
-  uv_add(y)
+  uv_add(y) %>%
+  uv_frame(bgcolor = "none")
 ```
 
 ## Any
@@ -128,5 +139,6 @@ Pass any charts with `uv_chart` specifying `type` (CamelCase).
 ```{r}
 df %>%
   uv_charts(x, type = "Bar") %>%
-  uv_add(y)
+  uv_add(y) %>%
+  uv_frame(bgcolor = "none")
 ```
