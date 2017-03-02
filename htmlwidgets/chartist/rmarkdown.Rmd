@@ -1,0 +1,43 @@
+---
+title: "Rmarkdown"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment="")
+library(chartist)
+```
+
+Being an htmlwidget, chartist is compatible with all HTML [Rmarkdown](http://rmarkdown.rstudio.com/) formats: *this very website is made with Rmarkdown.*
+
+## Example
+
+```{r, eval = TRUE, echo=FALSE}
+cat('---
+title: "chartist example"
+author: "John doe"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}\nknitr::opts_chunk$set(echo = TRUE)
+library(chartist)\n```\n\n
+```{r}\nmtcars %>%
+  chart_ist(qsec) %>%
+  add_ist(mpg) \n
+```')
+```
+
+```{r, echo=FALSE}
+mtcars %>%
+  chart_ist(qsec) %>%
+  add_ist(mpg)
+```
+
+## Options
+
+Default knitr options:
+
+* `width` = 100%
+* `height` = 400px
+
+You can override that by specifying `width` and/or `height` in `chart_ist`.

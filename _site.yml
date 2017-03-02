@@ -1,0 +1,20 @@
+name: "John Coene"
+output_dir: "."
+navbar:
+  title: "John Coene"
+  left:
+    - icon: fa-home
+      text: "Home"
+      href: index.html
+  right:
+    - text: "Resume"
+      href: http://johncoene.github.io/cv/
+      
+output:
+  html_document:
+    theme: simplex
+    highlight: kate
+    include:
+      in_header:: header.html
+      after_body: footer.html
+    css: css/styles.css

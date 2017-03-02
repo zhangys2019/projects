@@ -1,0 +1,48 @@
+---
+title: "Plugins"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Threshold
+
+```{r}
+mtcars %>%
+    chart_ist(x = hp) %>%
+    add_ist(drat) %>%
+    thresh_ist()
+```
+
+## Hover
+
+```{r}
+mtcars %>%
+    chart_ist(x = hp) %>%
+    add_ist(qsec, name = "Tooltip") %>%
+    hover_ist(prefix = "$", suffix = "%")
+```
+
+## Point label
+
+```{r}
+mtcars %>%
+    chart_ist(x = hp) %>%
+    add_ist(wt) %>%
+    label_ist()
+```
+
+## Axis Label
+
+```{r}
+mtcars %>%
+    chart_ist(x = hp) %>%
+    add_ist(disp) %>%
+    xtitle_ist("Displacement (cu.in.)", offsety = 30)
+```

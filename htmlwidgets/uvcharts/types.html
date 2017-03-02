@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Chart types</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/htmlwidgets-0.7/htmlwidgets.js"></script>
+<script src="site_libs/d3js-3.2.2/d3.min.js"></script>
+<script src="site_libs/uvcharts-1.1.5/uvcharts.full.min.js"></script>
+<script src="site_libs/uvcharts-binding-0.0.2.9000/uvcharts.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #dddddd; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { font-weight: bold; } /* Keyword */
+code > span.dt { color: #800000; } /* DataType */
+code > span.dv { color: #0000ff; } /* DecVal */
+code > span.bn { color: #0000ff; } /* BaseN */
+code > span.fl { color: #800080; } /* Float */
+code > span.ch { color: #ff00ff; } /* Char */
+code > span.st { color: #dd0000; } /* String */
+code > span.co { color: #808080; font-style: italic; } /* Comment */
+code > span.al { color: #00ff00; font-weight: bold; } /* Alert */
+code > span.fu { color: #000080; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #ff0000; font-weight: bold; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #ff00ff; } /* SpecialChar */
+code > span.vs { color: #dd0000; } /* VerbatimString */
+code > span.ss { color: #dd0000; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { font-weight: bold; } /* Preprocessor */
+code > span.at { } /* Attribute */
+code > span.do { color: #808080; font-style: italic; } /* Documentation */
+code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 41px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+
+.section h2 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h3 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h4 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h5 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h6 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">uvcharts</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="http://john-coene.com/">
+    <span class="fa fa-arrow-circle-left"></span>
+     
+    home
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="types.html">Chart types</a>
+</li>
+<li>
+  <a href="config.html">Config</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-book"></span>
+     
+    Docs
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="docs.html">HTML</a>
+    </li>
+    <li>
+      <a href="uvcharts-0.0.1.pdf">PDF</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Chart types</h1>
+
+</div>
+
+
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create data</span>
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="dv">1</span>:<span class="dv">10</span>, <span class="dt">y =</span> <span class="kw">runif</span>(<span class="dv">10</span>, <span class="dv">0</span>, <span class="dv">5</span>), <span class="dt">z =</span> <span class="kw">runif</span>(<span class="dv">10</span>, <span class="dv">0</span>, <span class="dv">5</span>))</code></pre></div>
+<div id="bar" class="section level2">
+<h2>Bar</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df %&gt;%
+<span class="st">  </span><span class="kw">uv_bar</span>(x) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(y) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(z)</code></pre></div>
+<div id="htmlwidget-f7eddee2323d4c5168c0" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f7eddee2323d4c5168c0">{"x":{"type":"Bar","config":{"meta":{"caption":""},"graph":{"responsive":true},"dimension":{"height":200}},"graph":{"categories":["y","z"],"dataset":{"y":[{"name":"1","value":2.4375437},{"name":"2","value":4.1786706},{"name":"3","value":3.8870156},{"name":"4","value":2.2845674},{"name":"5","value":3.8850116},{"name":"6","value":1.7544316},{"name":"7","value":0.8232464},{"name":"8","value":1.8680766},{"name":"9","value":0.0393408},{"name":"10","value":0.470195}],"z":[{"name":"1","value":1.703368},{"name":"2","value":3.1918524},{"name":"3","value":3.5760773},{"name":"4","value":1.8795139},{"name":"5","value":2.0077926},{"name":"6","value":3.1009838},{"name":"7","value":1.9834207},{"name":"8","value":4.1087997},{"name":"9","value":1.0622464},{"name":"10","value":0.4201322}]}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="stacked-bar" class="section level2">
+<h2>Stacked bar</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df %&gt;%
+<span class="st">  </span><span class="kw">uv_stackbar</span>(x) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(y) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(z)</code></pre></div>
+<div id="htmlwidget-b642ffb83bdc5d76071e" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b642ffb83bdc5d76071e">{"x":{"type":"StackedBar","config":{"meta":{"caption":""},"graph":{"responsive":true},"dimension":{"height":200}},"graph":{"categories":["y","z"],"dataset":{"y":[{"name":"1","value":2.4375437},{"name":"2","value":4.1786706},{"name":"3","value":3.8870156},{"name":"4","value":2.2845674},{"name":"5","value":3.8850116},{"name":"6","value":1.7544316},{"name":"7","value":0.8232464},{"name":"8","value":1.8680766},{"name":"9","value":0.0393408},{"name":"10","value":0.470195}],"z":[{"name":"1","value":1.703368},{"name":"2","value":3.1918524},{"name":"3","value":3.5760773},{"name":"4","value":1.8795139},{"name":"5","value":2.0077926},{"name":"6","value":3.1009838},{"name":"7","value":1.9834207},{"name":"8","value":4.1087997},{"name":"9","value":1.0622464},{"name":"10","value":0.4201322}]}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="percent-bar" class="section level2">
+<h2>Percent bar</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df %&gt;%
+<span class="st">  </span><span class="kw">uv_percentbar</span>(x) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(y) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(z)</code></pre></div>
+<div id="htmlwidget-191228b30d95ff5bbc39" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-191228b30d95ff5bbc39">{"x":{"type":"PercentBar","config":{"meta":{"caption":""},"graph":{"responsive":true},"dimension":{"height":200}},"graph":{"categories":["y","z"],"dataset":{"y":[{"name":"1","value":2.4375437},{"name":"2","value":4.1786706},{"name":"3","value":3.8870156},{"name":"4","value":2.2845674},{"name":"5","value":3.8850116},{"name":"6","value":1.7544316},{"name":"7","value":0.8232464},{"name":"8","value":1.8680766},{"name":"9","value":0.0393408},{"name":"10","value":0.470195}],"z":[{"name":"1","value":1.703368},{"name":"2","value":3.1918524},{"name":"3","value":3.5760773},{"name":"4","value":1.8795139},{"name":"5","value":2.0077926},{"name":"6","value":3.1009838},{"name":"7","value":1.9834207},{"name":"8","value":4.1087997},{"name":"9","value":1.0622464},{"name":"10","value":0.4201322}]}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="stepup-bar" class="section level2">
+<h2>Stepup bar</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df %&gt;%
+<span class="st">  </span><span class="kw">uv_stepupbar</span>(x) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(y) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(z)</code></pre></div>
+<div id="htmlwidget-1b60a4474f6d06939a42" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1b60a4474f6d06939a42">{"x":{"type":"StepUpBar","config":{"meta":{"caption":""},"graph":{"responsive":true},"dimension":{"height":200}},"graph":{"categories":["y","z"],"dataset":{"y":[{"name":"1","value":2.4375437},{"name":"2","value":4.1786706},{"name":"3","value":3.8870156},{"name":"4","value":2.2845674},{"name":"5","value":3.8850116},{"name":"6","value":1.7544316},{"name":"7","value":0.8232464},{"name":"8","value":1.8680766},{"name":"9","value":0.0393408},{"name":"10","value":0.470195}],"z":[{"name":"1","value":1.703368},{"name":"2","value":3.1918524},{"name":"3","value":3.5760773},{"name":"4","value":1.8795139},{"name":"5","value":2.0077926},{"name":"6","value":3.1009838},{"name":"7","value":1.9834207},{"name":"8","value":4.1087997},{"name":"9","value":1.0622464},{"name":"10","value":0.4201322}]}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="line" class="section level2">
+<h2>Line</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df %&gt;%
+<span class="st">  </span><span class="kw">uv_line</span>(x) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(y) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(z) %&gt;%
+<span class="st">  </span><span class="kw">uv_graph</span>(<span class="dt">orientation =</span> <span class="st">&quot;Vertical&quot;</span>)</code></pre></div>
+<div id="htmlwidget-6816bb532121dec0cd36" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6816bb532121dec0cd36">{"x":{"type":"Line","config":{"meta":{"caption":""},"graph":{"responsive":true,"orientation":"Vertical"},"dimension":{"height":200}},"graph":{"categories":["y","z"],"dataset":{"y":[{"name":"1","value":2.4375437},{"name":"2","value":4.1786706},{"name":"3","value":3.8870156},{"name":"4","value":2.2845674},{"name":"5","value":3.8850116},{"name":"6","value":1.7544316},{"name":"7","value":0.8232464},{"name":"8","value":1.8680766},{"name":"9","value":0.0393408},{"name":"10","value":0.470195}],"z":[{"name":"1","value":1.703368},{"name":"2","value":3.1918524},{"name":"3","value":3.5760773},{"name":"4","value":1.8795139},{"name":"5","value":2.0077926},{"name":"6","value":3.1009838},{"name":"7","value":1.9834207},{"name":"8","value":4.1087997},{"name":"9","value":1.0622464},{"name":"10","value":0.4201322}]}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="area" class="section level2">
+<h2>Area</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df %&gt;%
+<span class="st">  </span><span class="kw">uv_area</span>(x) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(y) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(z) %&gt;%
+<span class="st">  </span><span class="kw">uv_graph</span>(<span class="dt">orientation =</span> <span class="st">&quot;Vertical&quot;</span>)</code></pre></div>
+<div id="htmlwidget-b6ed3e73a2dca5add90b" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b6ed3e73a2dca5add90b">{"x":{"type":"Area","config":{"meta":{"caption":""},"graph":{"responsive":true,"orientation":"Vertical"},"dimension":{"height":200}},"graph":{"categories":["y","z"],"dataset":{"y":[{"name":"1","value":2.4375437},{"name":"2","value":4.1786706},{"name":"3","value":3.8870156},{"name":"4","value":2.2845674},{"name":"5","value":3.8850116},{"name":"6","value":1.7544316},{"name":"7","value":0.8232464},{"name":"8","value":1.8680766},{"name":"9","value":0.0393408},{"name":"10","value":0.470195}],"z":[{"name":"1","value":1.703368},{"name":"2","value":3.1918524},{"name":"3","value":3.5760773},{"name":"4","value":1.8795139},{"name":"5","value":2.0077926},{"name":"6","value":3.1009838},{"name":"7","value":1.9834207},{"name":"8","value":4.1087997},{"name":"9","value":1.0622464},{"name":"10","value":0.4201322}]}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="stacked-area" class="section level2">
+<h2>Stacked area</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df %&gt;%
+<span class="st">  </span><span class="kw">uv_stackarea</span>(x) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(y) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(z) %&gt;%
+<span class="st">  </span><span class="kw">uv_graph</span>(<span class="dt">orientation =</span> <span class="st">&quot;Vertical&quot;</span>)</code></pre></div>
+<div id="htmlwidget-9f0a2216348d3019eaf5" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9f0a2216348d3019eaf5">{"x":{"type":"StackedArea","config":{"meta":{"caption":""},"graph":{"responsive":true,"orientation":"Vertical"},"dimension":{"height":200}},"graph":{"categories":["y","z"],"dataset":{"y":[{"name":"1","value":2.4375437},{"name":"2","value":4.1786706},{"name":"3","value":3.8870156},{"name":"4","value":2.2845674},{"name":"5","value":3.8850116},{"name":"6","value":1.7544316},{"name":"7","value":0.8232464},{"name":"8","value":1.8680766},{"name":"9","value":0.0393408},{"name":"10","value":0.470195}],"z":[{"name":"1","value":1.703368},{"name":"2","value":3.1918524},{"name":"3","value":3.5760773},{"name":"4","value":1.8795139},{"name":"5","value":2.0077926},{"name":"6","value":3.1009838},{"name":"7","value":1.9834207},{"name":"8","value":4.1087997},{"name":"9","value":1.0622464},{"name":"10","value":0.4201322}]}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="percent-area" class="section level2">
+<h2>Percent area</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df %&gt;%
+<span class="st">  </span><span class="kw">uv_percentarea</span>(x) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(y) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(z) %&gt;%
+<span class="st">  </span><span class="kw">uv_graph</span>(<span class="dt">orientation =</span> <span class="st">&quot;Vertical&quot;</span>)</code></pre></div>
+<div id="htmlwidget-8b3f2c9f96130092df9d" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8b3f2c9f96130092df9d">{"x":{"type":"PercentArea","config":{"meta":{"caption":""},"graph":{"responsive":true,"orientation":"Vertical"},"dimension":{"height":200}},"graph":{"categories":["y","z"],"dataset":{"y":[{"name":"1","value":2.4375437},{"name":"2","value":4.1786706},{"name":"3","value":3.8870156},{"name":"4","value":2.2845674},{"name":"5","value":3.8850116},{"name":"6","value":1.7544316},{"name":"7","value":0.8232464},{"name":"8","value":1.8680766},{"name":"9","value":0.0393408},{"name":"10","value":0.470195}],"z":[{"name":"1","value":1.703368},{"name":"2","value":3.1918524},{"name":"3","value":3.5760773},{"name":"4","value":1.8795139},{"name":"5","value":2.0077926},{"name":"6","value":3.1009838},{"name":"7","value":1.9834207},{"name":"8","value":4.1087997},{"name":"9","value":1.0622464},{"name":"10","value":0.4201322}]}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="pie" class="section level2">
+<h2>Pie</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cake&quot;</span>, <span class="st">&quot;mango&quot;</span>, <span class="st">&quot;strawberry&quot;</span>), <span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">3</span>))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df %&gt;%
+<span class="st">  </span><span class="kw">uv_pie</span>(x) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(y) </code></pre></div>
+<div id="htmlwidget-a255b883e74a7849277a" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a255b883e74a7849277a">{"x":{"type":"Pie","config":{"meta":{"caption":""},"graph":{"responsive":true},"dimension":{"height":200}},"graph":{"categories":["y"],"dataset":{"y":[{"name":"apple","value":1},{"name":"banana","value":4},{"name":"cake","value":2},{"name":"mango","value":5},{"name":"strawberry","value":3}]}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="polar" class="section level2">
+<h2>Polar</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df %&gt;%
+<span class="st">  </span><span class="kw">uv_polar</span>(x) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(y) </code></pre></div>
+<div id="htmlwidget-f3d405b6d611db4a51e8" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f3d405b6d611db4a51e8">{"x":{"type":"PolarArea","config":{"meta":{"caption":""},"graph":{"responsive":true},"dimension":{"height":200}},"graph":{"categories":["y"],"dataset":{"y":[{"name":"apple","value":1},{"name":"banana","value":4},{"name":"cake","value":2},{"name":"mango","value":5},{"name":"strawberry","value":3}]}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="waterfall" class="section level2">
+<h2>Waterfall</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df %&gt;%
+<span class="st">  </span><span class="kw">uv_waterfall</span>(x) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(y)</code></pre></div>
+<div id="htmlwidget-b21fd28fd0205b24f08f" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b21fd28fd0205b24f08f">{"x":{"type":"Waterfall","config":{"meta":{"caption":""},"graph":{"responsive":true},"dimension":{"height":200}},"graph":{"categories":["y"],"dataset":{"y":[{"name":"apple","value":1},{"name":"banana","value":4},{"name":"cake","value":2},{"name":"mango","value":5},{"name":"strawberry","value":3}]}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="any" class="section level2">
+<h2>Any</h2>
+<p>Pass any charts with <code>uv_chart</code> specifying <code>type</code> (CamelCase).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df %&gt;%
+<span class="st">  </span><span class="kw">uv_charts</span>(x, <span class="dt">type =</span> <span class="st">&quot;Bar&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(y)</code></pre></div>
+<div id="htmlwidget-6082efcd7b4b01d3747c" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6082efcd7b4b01d3747c">{"x":{"type":"Bar","config":{"meta":{"caption":""},"graph":{"responsive":true},"dimension":{"height":200}},"graph":{"categories":["y"],"dataset":{"y":[{"name":"apple","value":1},{"name":"banana","value":4},{"name":"cake","value":2},{"name":"mango","value":5},{"name":"strawberry","value":3}]}}},"evals":[],"jsHooks":[]}</script>
+</div>
+
+<footer><p><a href="http://imaginea.github.io/uvCharts/">uvCharts</a> htmlwidget by <a href="http://john-coene.com">John Coene</a><span class="pull-right">MIT License</span></p></footer>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

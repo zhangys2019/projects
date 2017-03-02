@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Options</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/htmlwidgets-0.7/htmlwidgets.js"></script>
+<link href="site_libs/chartist-0.10.0/chartist.min.css" rel="stylesheet" />
+<link href="site_libs/chartist-0.10.0/chartist-plugin-tooltip.css" rel="stylesheet" />
+<link href="site_libs/chartist-0.10.0/threshold.css" rel="stylesheet" />
+<link href="site_libs/chartist-0.10.0/style.css" rel="stylesheet" />
+<script src="site_libs/chartist-0.10.0/chartist.min.js"></script>
+<script src="site_libs/chartist-0.10.0/plugins/chartist-plugin-pointlabels.min.js"></script>
+<script src="site_libs/chartist-0.10.0/plugins/chartist-plugin-threshold.min.js"></script>
+<script src="site_libs/chartist-0.10.0/plugins/chartist-plugin-tooltip.min.js"></script>
+<script src="site_libs/chartist-0.10.0/plugins/chartist-plugin-axistitle.min.js"></script>
+<script src="site_libs/chartist-0.10.0/plugins/chartist-plugin-accessibility.min.js"></script>
+<script src="site_libs/chartist-binding-0.0.2.9000/chartist.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #dddddd; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { font-weight: bold; } /* Keyword */
+code > span.dt { color: #800000; } /* DataType */
+code > span.dv { color: #0000ff; } /* DecVal */
+code > span.bn { color: #0000ff; } /* BaseN */
+code > span.fl { color: #800080; } /* Float */
+code > span.ch { color: #ff00ff; } /* Char */
+code > span.st { color: #dd0000; } /* String */
+code > span.co { color: #808080; font-style: italic; } /* Comment */
+code > span.al { color: #00ff00; font-weight: bold; } /* Alert */
+code > span.fu { color: #000080; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #ff0000; font-weight: bold; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #ff00ff; } /* SpecialChar */
+code > span.vs { color: #dd0000; } /* VerbatimString */
+code > span.ss { color: #dd0000; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { font-weight: bold; } /* Preprocessor */
+code > span.at { } /* Attribute */
+code > span.do { color: #808080; font-style: italic; } /* Documentation */
+code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 41px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+
+.section h2 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h3 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h4 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h5 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h6 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">chartist</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="http://john-coene.com/">
+    <span class="fa fa-arrow-circle-left"></span>
+     
+    home
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="types.html">Chart types</a>
+</li>
+<li>
+  <a href="plugins.html">Plugins</a>
+</li>
+<li>
+  <a href="options.html">Options</a>
+</li>
+<li>
+  <a href="responsive.html">Responsive Options</a>
+</li>
+<li>
+  <a href="animations.html">Animations</a>
+</li>
+<li>
+  <a href="style.html">Style</a>
+</li>
+<li>
+  <a href="rmarkdown.html">Rmarkdown</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-book"></span>
+     
+    Docs
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="docs.html">HTML</a>
+    </li>
+    <li>
+      <a href="chartist-0.0.1.pdf">PDF</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Options</h1>
+
+</div>
+
+
+<div id="functions" class="section level2">
+<h2>Functions</h2>
+<p>There are four functions that allow you to customise charts’ series:</p>
+<ol style="list-style-type: decimal">
+<li><code>opt_ist</code></li>
+<li><code>lineopt_ist</code></li>
+<li><code>baropt_ist</code></li>
+<li><code>pieopt_ist</code></li>
+</ol>
+<p>You can pass any otpion for any series <code>type</code> with <code>opt_ist</code>. However for the sake of convenience and clarity, there are also type-specific option functions.</p>
+</div>
+<div id="missing-data" class="section level2">
+<h2>Missing Data</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">19880525</span>) <span class="co"># create missing data</span>
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="dv">1</span>:<span class="dv">20</span>, 
+                 <span class="dt">y =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="kw">round</span>(<span class="kw">runif</span>(<span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">20</span>)), <span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">8</span>)), <span class="dv">20</span>),
+                 <span class="dt">z =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="kw">round</span>(<span class="kw">runif</span>(<span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">20</span>)), <span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">8</span>)), <span class="dv">20</span>))</code></pre></div>
+<div id="holes" class="section level3">
+<h3>Holes</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df %&gt;%
+<span class="st">  </span><span class="kw">chart_ist</span>(x) %&gt;%
+<span class="st">  </span><span class="kw">add_ist</span>(y) %&gt;%
+<span class="st">  </span><span class="kw">add_ist</span>(z) %&gt;%<span class="st"> </span><span class="co"># leave holes (NA)</span>
+<span class="st">  </span><span class="kw">yaxis_ist</span>(<span class="dt">onlyInteger =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div id="htmlwidget-0dad1ec948587c0124bf" style="width:100%;height:400px;" class="chartist html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0dad1ec948587c0124bf">{"x":{"cdat":{"labels":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"series":[{"name":"line-1","data":[15,14,null,null,17,null,11,13,null,17,19,12,10,16,null,17,null,14,15,16]},{"name":"line-2","data":[19,12,17,null,17,11,15,null,18,null,null,null,15,12,14,15,10,10,11,13]}]},"ratio":"ct-chart","type":"line","options":{"axisY":{"onlyInteger":true,"labelInterpolationFnc":"function(value) { return '' + value + '';}"}}},"evals":["options.axisY.labelInterpolationFnc"],"jsHooks":[]}</script>
+</div>
+<div id="fill-holes" class="section level3">
+<h3>Fill holes</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df %&gt;%
+<span class="st">  </span><span class="kw">chart_ist</span>(x) %&gt;%
+<span class="st">  </span><span class="kw">add_ist</span>(y) %&gt;%
+<span class="st">  </span><span class="kw">add_ist</span>(z) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">lineopt_ist</span>(<span class="dt">fillHoles =</span> <span class="ot">TRUE</span>) %&gt;%
+<span class="st">  </span><span class="kw">yaxis_ist</span>(<span class="dt">onlyInteger =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div id="htmlwidget-0b1a61b89dae8eeb1ec6" style="width:100%;height:400px;" class="chartist html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0b1a61b89dae8eeb1ec6">{"x":{"cdat":{"labels":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"series":[{"name":"line-1","data":[15,14,null,null,17,null,11,13,null,17,19,12,10,16,null,17,null,14,15,16]},{"name":"line-2","data":[19,12,17,null,17,11,15,null,18,null,null,null,15,12,14,15,10,10,11,13]}]},"ratio":"ct-chart","type":"line","options":{"lineSmooth":"Chartist.Interpolation.cardinal({fillHoles: true,})","axisY":{"onlyInteger":true,"labelInterpolationFnc":"function(value) { return '' + value + '';}"}}},"evals":["options.lineSmooth","options.axisY.labelInterpolationFnc"],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="series" class="section level2">
+<h2>Series</h2>
+<p>Set options to specific series by refering to their <code>name</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars$models &lt;-<span class="st"> </span><span class="kw">row.names</span>(mtcars)
+mtcars[<span class="dv">1</span>:<span class="dv">15</span>,] %&gt;%
+<span class="st">  </span><span class="kw">chart_ist</span>(models) %&gt;%
+<span class="st">  </span><span class="kw">add_ist</span>(cyl, <span class="dt">name =</span> <span class="st">&quot;serie-1&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">add_ist</span>(drat, <span class="dt">name =</span> <span class="st">&quot;serie-2&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">add_ist</span>(wt, <span class="st">&quot;serie-3&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">lineopt_ist</span>(<span class="dt">name =</span> <span class="st">&quot;serie-1&quot;</span>, <span class="dt">lineSmoothing =</span> <span class="st">&quot;step&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">lineopt_ist</span>(<span class="dt">name =</span> <span class="st">&quot;serie-2&quot;</span>, <span class="dt">showArea =</span> <span class="ot">TRUE</span>, <span class="dt">showPoint =</span> <span class="ot">FALSE</span>) %&gt;%
+<span class="st">  </span><span class="kw">lineopt_ist</span>(<span class="dt">name =</span> <span class="st">&quot;serie-3&quot;</span>, <span class="dt">lineSmoothing =</span> <span class="dv">3</span>, <span class="dt">showPoint =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div id="htmlwidget-c742cd441b474183af78" style="width:100%;height:400px;" class="chartist html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c742cd441b474183af78">{"x":{"cdat":{"labels":["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant","Duster 360","Merc 240D","Merc 230","Merc 280","Merc 280C","Merc 450SE","Merc 450SL","Merc 450SLC","Cadillac Fleetwood"],"series":[{"name":"serie-1","data":[6,6,4,6,8,6,8,4,4,6,6,8,8,8,8]},{"name":"serie-2","data":[3.9,3.9,3.85,3.08,3.15,2.76,3.21,3.69,3.92,3.92,3.92,3.07,3.07,3.07,2.93]},{"name":"serie-3","data":[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44,3.44,4.07,3.73,3.78,5.25]}]},"ratio":"ct-chart","type":"line","options":{"series":{"serie-1":{"lineSmooth":"Chartist.Interpolation.step()"},"serie-2":{"showArea":true,"showPoint":false,"lineSmooth":"Chartist.Interpolation.simple()"},"serie-3":{"showPoint":true,"lineSmooth":"Chartist.Interpolation.simple({divisor: \n3\n})"}}}},"evals":["options.series.serie-1.lineSmooth","options.series.serie-2.lineSmooth","options.series.serie-3.lineSmooth"],"jsHooks":[]}</script>
+</div>
+<div id="distributed-data" class="section level2">
+<h2>Distributed data</h2>
+<p>set <code>distributeSeries</code> to <code>TRUE</code> for categorical data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars[<span class="dv">1</span>:<span class="dv">10</span>,] %&gt;%
+<span class="st">  </span><span class="kw">chart_ist</span>(<span class="dt">x =</span> models, <span class="dt">type =</span> <span class="st">&quot;bar&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">add_ist</span>(disp) %&gt;%
+<span class="st">  </span><span class="kw">baropt_ist</span>(<span class="dt">distributeSeries =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div id="htmlwidget-3eef364332a92841497f" style="width:100%;height:400px;" class="chartist html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3eef364332a92841497f">{"x":{"cdat":{"labels":["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant","Duster 360","Merc 240D","Merc 230","Merc 280"],"series":[160,160,108,258,360,225,360,146.7,140.8,167.6]},"ratio":"ct-chart","type":"bar","options":{"distributeSeries":true}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="grid-axis" class="section level2">
+<h2>Grid &amp; Axis</h2>
+<p>Customise the grid and axis.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars[<span class="dv">1</span>:<span class="dv">15</span>,] %&gt;%
+<span class="st">  </span><span class="kw">chart_ist</span>(<span class="dt">x =</span> models, <span class="dt">type =</span> <span class="st">&quot;bar&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">add_ist</span>(disp) %&gt;%
+<span class="st">  </span><span class="kw">yaxis_ist</span>(<span class="dt">position =</span> <span class="st">&quot;end&quot;</span>, <span class="dt">prefix =</span> <span class="st">&quot;$&quot;</span>, <span class="dt">suffix =</span> <span class="st">&quot;M&quot;</span>, <span class="dt">showGrid =</span> <span class="ot">TRUE</span>) %&gt;%
+<span class="st">  </span><span class="kw">xaxis_ist</span>(<span class="dt">position =</span> <span class="st">&quot;end&quot;</span>, <span class="dt">showGrid =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<div id="htmlwidget-b93f63bf3c16d8d6fcaa" style="width:100%;height:400px;" class="chartist html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b93f63bf3c16d8d6fcaa">{"x":{"cdat":{"labels":["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant","Duster 360","Merc 240D","Merc 230","Merc 280","Merc 280C","Merc 450SE","Merc 450SL","Merc 450SLC","Cadillac Fleetwood"],"series":[{"name":"bar-1","data":[160,160,108,258,360,225,360,146.7,140.8,167.6,167.6,275.8,275.8,275.8,472]}]},"ratio":"ct-chart","type":"bar","options":{"axisY":{"showGrid":true,"labelInterpolationFnc":"function(value) { return '$' + value + 'M';}"},"axisX":{"showGrid":false,"labelInterpolationFnc":"function(value) { return '' + value + '';}"}}},"evals":["options.axisY.labelInterpolationFnc","options.axisX.labelInterpolationFnc"],"jsHooks":[]}</script>
+</div>
+
+<footer><p><a href="https://gionkunz.github.io/chartist-js">chartist.js</a> htmlwidget by <a href="http://johncoene.github.io/projects/">John Coene</a><span class="pull-right">MIT License</span></p></footer>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

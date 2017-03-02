@@ -1,0 +1,30 @@
+name: "rodham"
+output_dir: "."
+navbar:
+  title: "rodham"
+  left:
+    - icon: fa-arrow-circle-left
+      text: "home"
+      href: http://john-coene.com/
+  right:
+    - icon: fa-download
+      text: "CRAN"
+      href: https://cran.r-project.org/web/packages/rodham/
+    - icon: fa-github
+      text: "Repository"
+      href: https://github.com/JohnCoene/rodham/
+    - icon: fa-file-pdf-o
+      text: "Manual"
+      href: https://cran.r-project.org/web/packages/rodham/rodham.pdf
+    - icon: fa-file-text-o
+      text: "Vignette"
+      href: https://cran.r-project.org/web/packages/rodham/vignettes/how-to.html
+      
+output:
+  html_document:
+    theme: simplex
+    highlight: kate
+    include:
+      in_header:: header.html
+      after_body: footer.html
+    css: styles.css

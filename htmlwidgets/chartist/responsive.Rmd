@@ -1,0 +1,34 @@
+---
+title: "Responsive Options"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(chartist)
+```
+
+**Resize window to observe changes**
+
+## Basic
+
+```{r}
+mtcars$models <- rownames(mtcars)
+mtcars %>%
+  chart_ist(models) %>%
+  add_ist(qsec) %>%
+  add_ist(mpg) %>%
+  resp_ist(query = "screen and (max-width: 640px)", low = 15)
+```
+
+## Multiple queries
+
+```{r}
+mtcars %>%
+  chart_ist(models) %>%
+  add_ist(wt) %>%
+  add_ist(drat) %>%
+  resp_ist(query = "screen and (max-width: 640px)", low = 15,
+           chartPadding = 50) %>%
+  resp_ist(query = "screen and (min-width: 641px) and (max-width: 1024px)", 
+           chartPadding = 0)
+```

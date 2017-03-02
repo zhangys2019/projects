@@ -1,0 +1,86 @@
+---
+title: "Configuration"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(uvcharts)
+```
+
+`uvcharts` come with 16 functions to customise your charts. These are only a few examples of combinations, see the documentation for all details.
+
+```{r}
+# create data
+df <- data.frame(x = 1:10, y = runif(10, 0, 5), z = runif(10, 0, 5), w = runif(10, 0, 5))
+```
+
+# Colors
+
+Use any of the supplied palettes.
+
+## Palettes
+
+```{r}
+df %>%
+  uv_stackbar(x) %>%
+  uv_add(y) %>% 
+  uv_add(z) %>% 
+  uv_add(w) %>% 
+  uv_graph(palette = "Plain")
+```
+
+## Custom
+
+```{r}
+df %>%
+  uv_line(x) %>%
+  uv_add(y) %>% 
+  uv_add(z) %>% 
+  uv_add(w) %>% 
+  uv_graph(orientation = "Vertical", custom.palette = list("Red", "grey", "Blue")) %>%
+  uv_scale(type = "sqrt")
+```
+
+## Background 
+
+```{r}
+df %>%
+  uv_line(x) %>%
+  uv_add(y) %>% 
+  uv_add(z) %>% 
+  uv_add(w) %>% 
+  uv_graph(orientation = "Vertical", palette = "Simple", bgcolor = "black") %>%
+  uv_frame("black") %>%
+  uv_legend(showlegends = FALSE) %>%
+  uv_margin(20, 20, 20, 20) %>%
+  uv_axis(opacity = 0)
+```
+
+# Axis
+
+```{r}
+df %>%
+  uv_bar(x) %>%
+  uv_add(y) %>% 
+  uv_add(z) %>% 
+  uv_add(w) %>% 
+  uv_graph(palette = "Sulphide") %>%
+  uv_axis(strokecolor = "brown", ticks = 5, opacity = 0.6) %>%
+  uv_label(strokecolor = "brown")
+```
+
+# Captions and labels
+
+```{r}
+df %>%
+  uv_stackarea(x) %>%
+  uv_add(y) %>% 
+  uv_add(z) %>% 
+  uv_graph(orientation = "Vertical") %>%
+  uv_meta(caption = "Chart Caption", subcaption = "Sub Caption", hlabel = "X axis", vlabel = "Y axis")
+```

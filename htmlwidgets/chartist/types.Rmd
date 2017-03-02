@@ -1,0 +1,97 @@
+---
+title: "Chart types"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(chartist)
+```
+
+## Line
+
+```{r}
+mtcars %>%
+  chart_ist(wt) %>%
+  add_ist(disp) %>%
+  add_ist(hp)
+```
+
+### Area
+
+```{r}
+mtcars %>%
+  chart_ist(x = qsec) %>%
+  add_ist(disp) %>%
+  add_ist(hp) %>%
+  lineopt_ist(showArea = TRUE, showLine = TRUE, showPoint = FALSE)
+```
+
+### Scatter
+
+```{r}
+mtcars %>%
+  chart_ist(x = hp) %>%
+  add_ist(qsec) %>%
+  add_ist(mpg) %>%
+  scatter_ist()
+```
+
+## Bar
+
+```{r}
+mtcars %>%
+  chart_ist(x = mpg, type = "bar") %>%
+  add_ist(disp) %>%
+  add_ist(hp) %>%
+  add_ist(qsec) %>%
+  baropt_ist(stackBars = TRUE)
+```
+
+### Bipolar
+
+```{r}
+df <- data.frame(x = 1:50, y = sample(c(-25:25), 50))
+df %>%
+  chart_ist(x, type = "bar") %>%
+  add_ist(y)
+```
+
+### Peak
+
+```{r}
+mtcars %>%
+  chart_ist(hp, type = "bar") %>%
+  add_ist(disp) %>%
+  peak_ist(size = 10)
+```
+
+## Pie
+
+```{r}
+mtcars[1:5,] %>%
+  chart_ist(type = "pie") %>%
+  add_ist(disp)
+```
+
+### Donut
+
+```{r}
+mtcars[1:5,] %>%
+  chart_ist(type = "pie") %>%
+  add_ist(mpg) %>%
+  pieopt_ist(donut = TRUE, percent = TRUE)
+```
+
+### Gauge
+
+```{r}
+mtcars[1:5,] %>%
+  chart_ist(type = "pie") %>%
+  add_ist(hp) %>%
+  gauge_ist()
+```

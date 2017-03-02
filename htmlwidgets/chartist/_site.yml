@@ -1,0 +1,39 @@
+name: "chartist"
+output_dir: "."
+navbar:
+  title: "chartist"
+  left:
+    - icon: fa-arrow-circle-left
+      text: "home"
+      href: http://john-coene.com/
+  right:
+    - text: "Chart types"
+      href: types.html
+    - text: "Plugins"
+      href: plugins.html
+    - text: "Options"
+      href: options.html
+    - text: "Responsive Options"
+      href: responsive.html
+    - text: "Animations"
+      href: animations.html
+    - text: "Style"
+      href: style.html
+    - text: "Rmarkdown"
+      href: rmarkdown.html
+    - text: "Docs"
+      icon: fa-book
+      menu:
+        - text: "HTML"
+          href: docs.html
+        - text: "PDF"
+          href: chartist-0.0.1.pdf
+
+output:
+  html_document:
+    theme: simplex
+    highlight: kate
+    include:
+      in_header:: header.html
+      after_body: footer.html
+    css: style.css

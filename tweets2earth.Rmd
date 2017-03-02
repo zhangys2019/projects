@@ -1,0 +1,65 @@
+---
+title: "tweets2Earth"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r src gif}
+div(class = "container-fluid",
+    img(src = "img/thumbnails/tweets2earth.gif", alt = "tweets2earth", class = "img-responsive",
+        style = ""))
+br()
+```
+
+[![Build Status](https://travis-ci.org/JohnCoene/tweets2earth.svg?branch=master)](https://travis-ci.org/JohnCoene/tweets2earth)
+[![Build status](https://ci.appveyor.com/api/projects/status/qw77mjh79yjeakos/branch/master?svg=true)](https://ci.appveyor.com/project/JohnCoene/tweets2earth/branch/master)
+
+```{r description}
+div(class = "container-fluid",
+    div(class = "row",
+        div(class = "col-lg-8",
+            br(),
+            p("Easily plot tweets' location and created time onto ",
+              a("Google Earth", href = "https://www.google.com/earth/", target = "_blank"))),
+        div(class = "col-lg-4",
+            p(a(HTML('<i class="fa fa-github" aria-hidden="true"></i> Repository'),
+                class = "btn btn-primary btn-lg", href = "https://github.com/JohnCoene/tweets2earth", target = "_blank")))))
+```
+
+```{r install}
+div(class = "page-header",
+    h2("Install", class = "text-primary"))
+```
+
+```{r install code, echo=TRUE, eval=FALSE}
+devtools::install_github("JohnCoene/tweets2earth")
+```
+
+```{r example}
+div(class = "page-header",
+    h2("Example", class = "text-primary"))
+```
+
+```{r example code, eval=FALSE, echo=TRUE}
+library(twitteR) # use twitteR to fetch tweets
+
+# setup oauth
+setup_twitter_oauth(consumer_key, consumer_secret, access_token = your_token, access_secret = your_secret)
+
+# search twitter
+tweets <- searchTwitter("rstats", n = 2000, lang= "en", 
+                        geocode="34.052235,-118.243683,100mi")
+
+# unlist to data.frame
+tw.df <- do.call("rbind", lapply(tweets, as.data.frame))
+
+# make file
+earth <- plot2earth(tw.df, "longitude", "latitude", "created", 
+                    "screenName", "retweetCount", "favorited",
+                    colour.scale = RColorBrewer::brewer.pal(8, "BuPu"),
+                    file.name = "rstats.kml")
+# plot
+plotKML::plotKML(earth)
+```

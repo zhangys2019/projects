@@ -1,0 +1,473 @@
+---
+title: "Docs"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+```
+
+# uvcharts-shiny
+
+Output and render functions for using uvcharts within Shiny applications and interactive Rmd documents.
+
+## Arguments
+
+* `outputId` output variable to read from
+* `width`, `height` Must be a valid CSS unit (like '100%', '400px', 'auto') or a number, which will be coerced to a string and have 'px' appended.
+* `expr` An expression that generates a uvcharts
+* `env` The environment in which to evaluate expr.
+* `quoted` Is expr a quoted expression (with quote())? This is useful if you want to save an expression in a variable.
+
+# uv_add
+
+Add a serie to plot
+
+## Arguments
+
+* p a `uvcharts` object.
+* `serie` values to plot.
+
+## Examples
+
+```{r}
+mtcars %>%
+  uv_bar(mpg) %>%
+  uv_add(qsec) %>%
+  uv_add(drat)
+```
+
+# uv_areaopt
+
+Customise the properties specific to area chart.
+
+## Arguments
+
+* `p` a `uvcharts` object.
+* `interpolation` line interpolation. Defaults to linear see details for valid values.
+* `opacity` oOpacity in the case of simple Area chart, defaults to 0.2.
+* `offset` offset, defaults to zero. See details for valid values.
+
+## Details
+
+Valid values for interpolation argument:
+
+* `linear`
+* `basis`
+* `cardinal`
+* `monotone`
+
+Valid values for offset argument:
+
+* `zero`
+* `wiggle`
+* `silhouette`
+* `expand`
+
+## Examples
+
+```{r}
+mtcars %>%
+  uv_area(qsec) %>%
+  uv_add(mpg) %>%
+  uv_areaopt(opacity = 0.9)
+```
+
+# uv_axis
+
+Customise the chart axis.
+
+## Arguments
+
+* `p` a `uvcharts` object.
+* `opacity` opacity of the axis lines drawn for reference, defaults to `1`.
+* `ticks` number of major ticks on the measure axis.
+* `subticks` number of minor ticks on the measure axis.
+* `padding` any CSS size.
+* `minor` length of the minor ticks towards the label.
+* `strokecolor` color of axis lines, any Color Code or Color String or `none`. Defaults to `#000000`.
+* `fontfamily` any font, defaults to `Arial`.
+* `fontsize` font size. Defaults to `11`.
+* `fontweight` font weight, defaults to `bold`.
+* `showticks` show ticks flag, `TRUE` or `FALSE`, defaults to the former.
+* `showsubticks` show subticks flag, `TRUE` or `FALSE`, defaults to the former.
+* `showtext` show text flag, `TRUE` or `FALSE`, defaults to the former.
+
+## Examples
+
+```{r}
+mtcars %>%
+  uv_charts(qsec) %>%
+  uv_add(mpg) %>%
+  uv_axis(opacity = 0.6, ticks = 10, strokecolor = "blue", showtext = FALSE)
+```
+
+# uv_baropt
+
+Customise the chart bars.
+
+## Arguments
+
+* `p` a `uvcharts` object.
+* `strokecolor` any Color Code or Color String or none. defaults to `#000000`.
+* `fontsize` font size. Defaults to `11`.
+* `fontweight` font weight, defaults to `bold`.
+* `fontfamily` any font, defaults to `Arial`.
+* `textcolor` text color used for the numbers, defaults to `#000000`.
+
+## Examples
+
+```{r}
+mtcars %>%
+  uv_stackbar(qsec) %>%
+  uv_add(mpg) %>%
+  uv_add(drat) %>%
+  uv_baropt(fontsize = 7)
+```
+
+# uv_caption
+
+Customise the chart caption.
+Customise the chart subcaption.
+
+## Usage
+
+`uv_caption(p, fontfamily, fontsize, fontweight, textdecoration, strokecolor, cursor)`
+`uv_subcaption(p, fontfamily, fontsize, fontweight, textdecoration, strokecolor, cursor)`
+
+## Arguments
+
+* `p` a `uvcharts` object.
+* `fontfamily` any font, defaults to `Arial`.
+* `fontsize` font size. Defaults to `11`.
+* `fontweight` font weight, defaults to bold.
+* `textdecoration` text decoration applied on the caption, defaults to `none`.
+* `strokecolor` any Color Code or Color String or none. defaults to `#000000`.
+* `cursor` precision on the labels in case of decimal values. Defaults to `pointer`.
+
+## Examples
+
+```{r}
+mtcars %>%
+  uv_charts(qsec) %>%
+  uv_add(mpg) %>%
+  uv_meta("Title") %>%
+  uv_caption(fontsize = 30)
+```
+
+# uv_charts
+
+Initiate a uvchart
+
+## Usage
+
+`uv_charts(data, x, type = "Line", width = "100%", height = "100%", elementId = NULL)`
+`uv_bar(data, x, width = "100%", height = "100%", elementId = NULL)`
+`uv_line(data, x, width = "100%", height = "100%", elementId = NULL)`
+`uv_area(data, x, width = "100%", height = "100%", elementId = NULL)`
+`uv_stackbar(data, x, width = "100%", height = "100%", elementId = NULL)`
+`uv_stackarea(data, x, width = "100%", height = "100%", elementId = NULL)`
+`uv_pie(data, x, width = "100%", height = "100%", elementId = NULL)`
+`uv_donut(data, x, width = "100%", height = "100%", elementId = NULL)`
+`uv_percentbar(data, x, width = "100%", height = "100%", elementId = NULL)`
+`uv_percentarea(data, x, width = "100%", height = "100%", elementId = NULL)`
+`uv_stepupbar(data, x, width = "100%", height = "100%", elementId = NULL)`
+`uv_polar(data, x, width = "100%", height = "100%", elementId = NULL)`
+`uv_waterfall(data, x, width = "100%", height = "100%", elementId = NULL)`
+
+## Arguments
+
+* `data` data.frame of data to plot.
+* `x` x variable.
+* `type` type of chart to plot, see details.
+* `width`, `height` Must be a valid CSS unit (like '100%', '400px', 'auto') or a number, which will be coerced to a string and have 'px' appended.
+* `elementId` id of div element containing chart.
+
+## Examples
+
+```{r}
+mtcars %>%
+  uv_charts(mpg, type = "Area") %>%
+  uv_add(qsec)
+
+mtcars %>%
+  uv_bar(mpg) %>%
+  uv_add(qsec)
+
+mtcars %>%
+  uv_line(mpg) %>%
+  uv_add(qsec)
+
+mtcars %>%
+  uv_pie(mpg) %>%
+  uv_add(qsec)
+
+mtcars %>%
+  uv_stackbar(mpg) %>%
+  uv_add(qsec)
+
+mtcars %>%
+  uv_percentarea(mpg) %>%
+  uv_add(qsec)
+
+p <- uv_line(mtcars, qsec)
+p <- uv_add(p, mpg)
+p
+```
+
+# uv_config
+
+Configure the chart.
+
+## Arguments
+
+* `p` a uvcharts object.
+* `...` any argument to pass to config.
+
+## Examples
+
+```{r}
+mtcars %>%
+  uv_charts(qsec) %>%
+  uv_add(mpg) %>%
+  uv_config(legend = list(showlegends = FALSE))
+```
+
+# uv_dimension
+
+Customise the chart dimensions.
+
+## Arguments
+
+* `p` a `uvcharts` object.
+* `width`, `height` any CSS size.
+* `override` if `TRUE`, overrides the div’s `height` and `width`, recommended.
+
+## Examples
+
+```{r}
+mtcars %>%
+  uv_charts(qsec) %>%
+  uv_add(mpg) %>%
+  uv_dimension(width = 200)
+```
+
+# uv_frame
+
+Customise the chart frame.
+
+## Arguments
+
+* `p` a uvcharts object.
+* `bgcolor` any Color Code or Color String or `none`.
+
+## Examples
+
+```{r}
+mtcars %>%
+  uv_charts(qsec) %>%
+  uv_add(mpg) %>%
+  uv_frame(bgcolor = "black")
+```
+
+# uv_graph
+
+Customise the graph object.
+
+## Arguments
+
+* `p` a `uvcharts` object.
+* `palette` palette name, see details for valid values. Defaults to Brink.
+* `bgcolor` background color used for the entire chart include the margin spaces.
+* `orientation` orientation of the chart for a different layout based on requirements. Can take `Horizontal` or `Vertical`, defaults to the former.
+* `custom.palette` override the palette with your own color palette by providing a non empty list of color codes. They are used in order for corresponding serie (`uv_add`). Pass colors as `list`.
+* `opacity` opacity of the entire chart to make it blend into any background of your choice. Defaults to `1`.
+* `responsive` `TRUE` for responsive sizing (default).
+
+## Details
+
+Valid values for palette argument.
+
+* `Plain`
+* `Simple`
+* `Olive`
+* `Candid`
+* `Sulphide`
+* `Soft`
+* `Lint`
+
+## Examples
+
+```{r}
+mtcars %>%
+  uv_charts(qsec) %>%
+  uv_add(mpg) %>%
+  uv_graph(palette = "Plain")
+```
+
+# uv_label
+
+Customise the chart labels.
+
+## Arguments
+
+* `p` a `uvcharts` object.
+* `fontfamily` any font, defaults to `Arial`.
+* `fontsize` font size. Defaults to `11`.
+* `fontweight` font weight, defaults to `bold`.
+* `strokecolor` any Color Code or Color String or none. defaults to `#000000`.
+* `showlabel` show labels flag, `TRUE` or `FALSE`, defaults to the former.
+* `precision` precision on the labels in case of decimal values. Defaults to `2`.
+* `prefix` any prefix which needs to be added to the label.
+* `suffix` any suffix which needs to be added to the label.
+
+```{r}
+mtcars %>%
+  uv_charts(qsec) %>%
+  uv_add(mpg) %>%
+  uv_label(fontsize = 6, strokecolor = "red")
+```
+
+# uv_legend
+
+Configure the legend.
+
+## Arguments
+
+* `p` a `uvcharts` object.
+* `showlegends` boolean.
+* `position` legend position, i.e.: `right`.
+
+## Examples
+
+```{r}
+mtcars %>%
+  uv_charts(qsec) %>%
+  uv_add(mpg) %>%
+  uv_legend(position = "right")
+```
+
+# uv_lineopt
+
+Customise the properties affecting Line chart.
+
+## Arguments
+
+* `p` a `uvcharts` object.
+* `interpolation` line interpolation. Defaults to linear see details for valid values.
+
+## Details
+
+Valid values for `interpolation` argument:
+
+* `linear`
+* `basis`
+* `cardinal`
+* `monotone`
+
+## Examples
+
+```{r}
+mtcars %>%
+  uv_charts(qsec) %>%
+  uv_add(mpg) %>%
+  uv_lineopt(interpolation = "cardinal")
+```
+
+# uv_margin
+
+Customise the chart margin.
+
+## Arguments
+
+* `p` a `uvcharts` object.
+* `top`, `bottom`, `left`, `right` any CSS size.
+
+## Examples
+
+```{r}
+mtcars %>%
+  uv_charts(qsec) %>%
+  uv_add(mpg) %>%
+  uv_meta("Title", "Subtitle", "x axis", "y axis")
+```
+
+# uv_pieopt
+
+Customise the properties specific to Pie Chart.
+Customise the properties specific to Donut Chart.
+
+## Usage
+
+`uv_pieopt(p, fontfamily, fontsize, fontweight, fontvariant, fontfill, strokecolor, strokewidth)`
+`uv_donutopt(p, fontfamily, fontsize, fontweight, fontvariant, fontfill, strokecolor, strokewidth, factor)`
+
+## Arguments
+
+* `p` a `uvcharts` object.
+* `fontfamily` any font, defaults to `Arial`.
+* `fontsize` font size. Defaults to `11`.
+* `fontweight` font weight, defaults to `bold`.
+* `fontvariant` font variant used on the text, defaults to `small-caps`, can also take normal.
+* `fontfill` text color on the measure, defaults to `#000000`.
+* `strokecolor` any Color Code or Color String or none. defaults to `#000000`.
+
+## Examples
+
+```{r}
+mtcars %>%
+  uv_pie(qsec) %>%
+  uv_add(mpg) %>%
+  uv_pieopt(fontfill = "white")
+```
+
+# uv_scale
+
+Customise the chart scale.
+
+## Arguments
+
+* `p` a `uvcharts` object.
+* `type` scale used to represent values on the chart, see details for valid values.
+* `ordinality` defines the gap between 2 consecutive labels, defaults to `0.2`.
+
+## Details
+
+Valid values for type argument, defaults to linear:
+
+* `linear`
+* `log`
+* `pow`
+* `sqrt`
+
+## Examples
+
+```{r}
+mtcars %>%
+  uv_charts(qsec) %>%
+  uv_add(mpg) %>%
+  uv_scale(type = "log")
+```
+
+# uv_tooltip
+
+Customise the chart tooltip.
+
+## Arguments
+
+* `p` a `uvcharts` object.
+* `show` flag to enable or disable tooltip functionality, defaults to `TRUE`.
+* `format` defines custom format for tooltip, character string. defaults to` %c [%l] : %v`
+
+## Examples
+
+```{r}
+mtcars %>%
+  uv_charts(qsec) %>%
+  uv_add(mpg) %>%
+  uv_tooltip(format = "%v")
+```

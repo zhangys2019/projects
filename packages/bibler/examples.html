@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>bibler</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/htmlwidgets-0.7/htmlwidgets.js"></script>
+<link href="site_libs/plotlyjs-1.16.3/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="site_libs/plotlyjs-1.16.3/plotly-latest.min.js"></script>
+<script src="site_libs/plotly-binding-4.3.4/plotly.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<script src="https://use.fontawesome.com/9fdc01e796.js"></script>
+<link href="https://cdn.rawgit.com/gaborcsardi/r-font/master/rlogo.css" rel="stylesheet">
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #dddddd; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { font-weight: bold; } /* Keyword */
+code > span.dt { color: #800000; } /* DataType */
+code > span.dv { color: #0000ff; } /* DecVal */
+code > span.bn { color: #0000ff; } /* BaseN */
+code > span.fl { color: #800080; } /* Float */
+code > span.ch { color: #ff00ff; } /* Char */
+code > span.st { color: #dd0000; } /* String */
+code > span.co { color: #808080; font-style: italic; } /* Comment */
+code > span.al { color: #00ff00; font-weight: bold; } /* Alert */
+code > span.fu { color: #000080; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #ff0000; font-weight: bold; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #ff00ff; } /* SpecialChar */
+code > span.vs { color: #dd0000; } /* VerbatimString */
+code > span.ss { color: #dd0000; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { font-weight: bold; } /* Preprocessor */
+code > span.at { } /* Attribute */
+code > span.do { color: #808080; font-style: italic; } /* Documentation */
+code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 41px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+
+.section h2 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h3 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h4 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h5 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h6 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">bibler</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="http://john-coene.com/">
+    <span class="fa fa-arrow-circle-left"></span>
+     
+    home
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/JohnCoene/bibler/">
+    <span class="fa fa-github"></span>
+     
+    Repository
+  </a>
+</li>
+<li>
+  <a href="examples.html">
+    <span class="fa fa-html5"></span>
+     
+    Examples
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">bibler</h1>
+
+</div>
+
+
+<div id="preamble" class="section level2">
+<h2>Preamble</h2>
+<p>The Bible in R.</p>
+<p>Bibler includes 6 neat datasets about the King James Bible and the Apocrypha.</p>
+</div>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<div id="bible" class="section level3">
+<h3>Bible</h3>
+<ul>
+<li><code>king_james_df</code> The King James Bible as data.frame</li>
+<li><code>king_james_tm</code> The King James Bible as <a href="https://cran.r-project.org/package=tm">tm</a> corpus (<code>c(&quot;VCorpus&quot;, &quot;Corpus&quot;</code>)</li>
+<li><code>king_james_books</code> List of books that constitute the King James Bible</li>
+</ul>
+</div>
+<div id="apocrypha" class="section level3">
+<h3>Apocrypha</h3>
+<ul>
+<li><code>apocrypha_df</code> The Apocrypha as data.frame</li>
+<li><code>apocrypha_tm</code> The Apocrypha as <a href="https://cran.r-project.org/package=tm">tm</a> corpus (<code>c(&quot;VCorpus&quot;, &quot;Corpus&quot;</code>)</li>
+<li><code>apocrypha_books</code> List of books that constitute the Apocrypha</li>
+</ul>
+</div>
+<div id="utils" class="section level3">
+<h3>Utils</h3>
+<ul>
+<li><code>middle_english_stopwords</code> Character vector of Middle English stopwords</li>
+<li><code>middle_english_positive</code> Lexicon of positive Middle English terms</li>
+<li><code>middle_english_negative</code> Lexicon of negative Middle English terms</li>
+</ul>
+</div>
+</div>
+<div id="datasets" class="section level2">
+<h2>Datasets</h2>
+<p>Both the <code>data.frame</code> and <code>Corpus</code> (tm) datasets include the following variables:</p>
+<ul>
+<li><code>Book.Abbreviation</code></li>
+<li><code>King.James.Bible</code> - book title as in King James Bible</li>
+<li><code>Vulgate</code> - book title as in Vulgate</li>
+<li><code>Douay.Rheims</code> - book title in Douay Reihms version</li>
+<li><code>Full.Title.Auth.V</code> - book title in authorized version</li>
+<li><code>Testament</code> - Testament in which book/verse can be found.</li>
+<li><code>Book.Number</code> - Order of appearance of books, starting with Genesis #1</li>
+<li><code>Verse</code></li>
+<li><code>Text</code> - content of verse</li>
+</ul>
+<p>In the corpus datasets (ending in <code>_tm</code>) each verse makes a document while in the <code>data.frame</code> each row is a verse.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tm)
+<span class="kw">length</span>(king_james_tm) ==<span class="st"> </span><span class="kw">nrow</span>(king_james_df)</code></pre></div>
+<div id="data.frame" class="section level3">
+<h3>data.frame</h3>
+<p>The data frames consist of one verse by row, meta-data are variables/columns.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(king_james_df) <span class="co"># see ?king_james_df</span></code></pre></div>
+<pre><code>&gt;   [1] &quot;Book.Abbreviation&quot; &quot;King.James.Bible&quot;  &quot;Vulgate&quot;          
+&gt;   [4] &quot;Douay.Rheims&quot;      &quot;Full.Title.Auth.V&quot; &quot;Testament&quot;        
+&gt;   [7] &quot;Book.Number&quot;       &quot;Verse&quot;             &quot;Text&quot;             
+&gt;  [10] &quot;Sentiment&quot;</code></pre>
+</div>
+<div id="corpus" class="section level3">
+<h3>Corpus</h3>
+<p>The <a href="https://cran.r-project.org/package=tm">tm</a> corpus is comprised of 31102 documents, one for each verse and include meta-data (identical to columns in <code>_df</code> dataset).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">meta</span>(king_james_tm[[<span class="dv">1</span>]]) <span class="co"># meta of first verse</span></code></pre></div>
+<pre><code>&gt;    id               : 1
+&gt;    origin           : http://www.sacred-texts.com/bib/osrc/
+&gt;    Verse            : Gen|1|1|
+&gt;    King.James.Bible : Genesis
+&gt;    Vulgate          : Genesis
+&gt;    Douay.Reihms     : Genesis
+&gt;    Full.Title.Auth.V: The First Book of Moses, called Genesis
+&gt;    Testament        : Old Testament
+&gt;    Book.Number      : 1</code></pre>
+</div>
+<div id="books" class="section level3">
+<h3>Books</h3>
+<p>Reference list of the books included in datasets.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Book.Abbreviation
+</th>
+<th style="text-align:left;">
+King.James.Bible
+</th>
+<th style="text-align:left;">
+Vulgate
+</th>
+<th style="text-align:left;">
+Douay.Rheims
+</th>
+<th style="text-align:left;">
+Full.Title.Auth.V
+</th>
+<th style="text-align:left;">
+Testament
+</th>
+<th style="text-align:right;">
+Book.Number
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Gen
+</td>
+<td style="text-align:left;">
+Genesis
+</td>
+<td style="text-align:left;">
+Genesis
+</td>
+<td style="text-align:left;">
+Genesis
+</td>
+<td style="text-align:left;">
+The First Book of Moses, called Genesis
+</td>
+<td style="text-align:left;">
+Old Testament
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Exo
+</td>
+<td style="text-align:left;">
+Exodus
+</td>
+<td style="text-align:left;">
+Exodus
+</td>
+<td style="text-align:left;">
+Exodus
+</td>
+<td style="text-align:left;">
+The Second Book of Moses, called Exodus
+</td>
+<td style="text-align:left;">
+Old Testament
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Lev
+</td>
+<td style="text-align:left;">
+Leviticus
+</td>
+<td style="text-align:left;">
+Leviticus
+</td>
+<td style="text-align:left;">
+Leviticus
+</td>
+<td style="text-align:left;">
+The Third Book of Moses, called Leviticus
+</td>
+<td style="text-align:left;">
+Old Testament
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Num
+</td>
+<td style="text-align:left;">
+Numbers
+</td>
+<td style="text-align:left;">
+Numeri
+</td>
+<td style="text-align:left;">
+Numbers
+</td>
+<td style="text-align:left;">
+The Fourth Book of Moses, called Numbers
+</td>
+<td style="text-align:left;">
+Old Testament
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Deu
+</td>
+<td style="text-align:left;">
+Deuteronomy
+</td>
+<td style="text-align:left;">
+Deuteronomium
+</td>
+<td style="text-align:left;">
+Deuteronomy
+</td>
+<td style="text-align:left;">
+The Fifth Book of Moses, called Deuteronomy
+</td>
+<td style="text-align:left;">
+Old Testament
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="examples" class="section level2">
+<h2>Examples</h2>
+<div id="term-frequency" class="section level3">
+<h3>Term Frequency</h3>
+<p>We can have a look at the most mentioned terms in the Bible. Here I use the <code>king_james_tm</code> dataset which is a corpus of documents from the <a href="https://cran.r-project.org/package=tm">tm</a> package.</p>
+<p><code>bibler</code> also comes with a set of 97 Middle English stopwords.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(wordcloud)
+<span class="kw">library</span>(tm)
+<span class="kw">data</span>(<span class="st">&quot;king_james_tm&quot;</span>)
+<span class="kw">data</span>(<span class="st">&quot;middle_english_stopwords&quot;</span>) <span class="co"># get middle english stopwords</span>
+
+<span class="co"># clean text</span>
+wc &lt;-<span class="st"> </span><span class="kw">tm_map</span>(king_james_tm, tolower) <span class="co"># to lower case</span>
+wc &lt;-<span class="st"> </span><span class="kw">tm_map</span>(wc, stripWhitespace)
+wc &lt;-<span class="st"> </span><span class="kw">tm_map</span>(wc, removeNumbers) <span class="co"># remove</span>
+wc &lt;-<span class="st"> </span><span class="kw">tm_map</span>(wc, removePunctuation) <span class="co"># remove punctuation</span>
+wc &lt;-<span class="st"> </span><span class="kw">tm_map</span>(wc, removeWords, <span class="kw">c</span>(<span class="kw">stopwords</span>(<span class="st">&quot;english&quot;</span>), middle_english_stopwords,
+                                <span class="st">&quot;lord&quot;</span>, <span class="st">&quot;god&quot;</span>)) <span class="co"># remove stopwords</span>
+wc &lt;-<span class="st"> </span><span class="kw">tm_map</span>(wc, PlainTextDocument)
+
+<span class="co"># count term frequency</span>
+tdm &lt;-<span class="st"> </span><span class="kw">TermDocumentMatrix</span>(wc, <span class="dt">control =</span> <span class="kw">list</span>(<span class="dt">minWordLength =</span> <span class="dv">2</span>))
+tdm &lt;-<span class="st"> </span><span class="kw">removeSparseTerms</span>(tdm, <span class="fl">0.99</span>) 
+tdm &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(tdm)
+tdm &lt;-<span class="st"> </span><span class="kw">sort</span>(<span class="kw">rowSums</span>(tdm), <span class="dt">decreasing =</span> <span class="ot">TRUE</span>)
+dat &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">word =</span> <span class="kw">names</span>(tdm), <span class="dt">freq =</span> tdm)
+
+<span class="co"># wordcloud</span>
+<span class="kw">wordcloud</span>(<span class="dt">words =</span> dat$word, <span class="dt">scale =</span> <span class="kw">c</span>(<span class="dv">4</span>, .<span class="dv">3</span>), <span class="dt">freq =</span> dat$freq, <span class="dt">max.words =</span> <span class="dv">100</span>,
+          <span class="dt">rot.per =</span> <span class="fl">0.25</span>, 
+          <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;#bce784&quot;</span>, <span class="st">&quot;#5dd39e&quot;</span>, <span class="st">&quot;#348aa7&quot;</span>, <span class="st">&quot;#525174&quot;</span>, <span class="st">&quot;#513b56&quot;</span>))</code></pre></div>
+<p><img src="examples_files/figure-html/unnamed-chunk-5-1.png" width="864" /></p>
+</div>
+<div id="sentiment-analysis" class="section level3">
+<h3>Sentiment Analysis</h3>
+<p>First we can download the well-known Bing Liu lists of positive and negative terms.</p>
+<ul>
+<li><a href="http://www.cs.uic.edu/~liub/FBS/opinion-lexicon-English.rar">Download</a> Hu and Liu Lexicons</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># base Bing Liu lexicons</span>
+neg &lt;-<span class="st"> </span><span class="kw">readLines</span>(<span class="st">&quot;negative-words.txt&quot;</span>)
+neg &lt;-<span class="st"> </span>neg[<span class="dv">36</span>:<span class="kw">length</span>(neg)]
+pos &lt;-<span class="st"> </span><span class="kw">readLines</span>(<span class="st">&quot;positive-words.txt&quot;</span>)
+pos &lt;-<span class="st"> </span>pos[<span class="dv">36</span>:<span class="kw">length</span>(pos)]</code></pre></div>
+<p>However those lexicons are based on Internet reviews and other modernities and therefore are not well suited to the King James Bible. To remedy to this <code>bibler</code> also comes with lexicons of positive and negative Middle English terms.</p>
+<ul>
+<li>48 Positive terms</li>
+<li>42 Negative terms</li>
+</ul>
+<p>We can now assess the sentiment of each verse and plot the average sentiment by book in order of appearance in the Bible.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(<span class="st">&quot;king_james_df&quot;</span>)
+<span class="kw">data</span>(<span class="st">&quot;middle_english_negative&quot;</span>)
+<span class="kw">data</span>(<span class="st">&quot;middle_english_positive&quot;</span>)
+pos &lt;-<span class="st"> </span><span class="kw">c</span>(pos, middle_english_positive)
+neg &lt;-<span class="st"> </span><span class="kw">c</span>(neg, middle_english_negative)
+
+<span class="co"># sentiment scoring FUN</span>
+sentiment_score =<span class="st"> </span>function(text, pos.words, neg.words){
+  scores =<span class="st"> </span>plyr::<span class="kw">laply</span>(text,
+                 function(text, pos.words, neg.words){
+                   text =<span class="st"> </span><span class="kw">gsub</span>(<span class="st">&quot;[[:punct:]]&quot;</span>, <span class="st">&quot;&quot;</span>, text)
+                   text =<span class="st"> </span><span class="kw">gsub</span>(<span class="st">&quot;[[:cntrl:]]&quot;</span>, <span class="st">&quot;&quot;</span>, text)
+                   text =<span class="st"> </span><span class="kw">gsub</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">d+&#39;</span>, <span class="st">&#39;&#39;</span>, text)
+                   text =<span class="st"> </span><span class="kw">sapply</span>(text, tolower)
+                   word_list =<span class="st"> </span>stringr::<span class="kw">str_split</span>(text, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">s+&quot;</span>)
+                   words =<span class="st"> </span><span class="kw">unlist</span>(word_list)
+                   positive_matches =<span class="st"> </span><span class="kw">match</span>(words, pos.words)
+                   negative_matches =<span class="st"> </span><span class="kw">match</span>(words, neg.words)
+                   positive_matches =<span class="st"> </span>!<span class="kw">is.na</span>(positive_matches)
+                   negative_matches =<span class="st"> </span>!<span class="kw">is.na</span>(negative_matches)
+                   score =<span class="st"> </span><span class="kw">sum</span>(positive_matches) -<span class="st"> </span><span class="kw">sum</span>(negative_matches)
+                   <span class="kw">return</span>(score)
+                 }, pos.words, neg.words)
+  <span class="kw">return</span>(scores)
+}
+
+<span class="co"># score each verse</span>
+king_james_df$Sentiment &lt;-<span class="st"> </span><span class="kw">sentiment_score</span>(king_james_df$Text, pos, neg)
+
+<span class="co"># mean sentiment / book</span>
+bks &lt;-<span class="st"> </span>plyr::<span class="kw">ddply</span>(king_james_df, <span class="kw">c</span>(<span class="st">&quot;King.James.Bible&quot;</span>, <span class="st">&quot;Book.Number&quot;</span>),
+                                    plyr::summarise, <span class="dt">Sentiment =</span> <span class="kw">mean</span>(Sentiment))
+
+bks$colour &lt;-<span class="st"> </span><span class="kw">ifelse</span>(bks$Sentiment &gt;=<span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;#5dd39e&quot;</span>, <span class="st">&quot;#525174&quot;</span>)
+bks$label &lt;-<span class="st"> </span><span class="kw">ifelse</span>(bks$Sentiment &gt;=<span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;positive&quot;</span>, <span class="st">&quot;negative&quot;</span>)
+<span class="kw">plot_ly</span>(bks,
+        <span class="dt">x =</span> ~Book.Number,
+        <span class="dt">y =</span> ~Sentiment,
+        <span class="dt">type =</span> <span class="st">&quot;bar&quot;</span>,
+        <span class="dt">text =</span> ~King.James.Bible,
+        <span class="dt">hoverinfo =</span> <span class="st">&quot;text&quot;</span>,
+        <span class="dt">marker =</span> <span class="kw">list</span>(
+          <span class="dt">color =</span> ~colour
+        )) %&gt;%
+<span class="st">  </span><span class="kw">layout</span>(<span class="dt">title =</span> <span class="st">&quot;Average sentiment by book&quot;</span>,
+         <span class="dt">showlegend =</span> <span class="ot">FALSE</span>,
+         <span class="dt">xaxis =</span> <span class="kw">list</span>(<span class="dt">title =</span> <span class="st">&quot;Book Number&quot;</span>),
+         <span class="dt">width =</span> <span class="dv">800</span>,
+         <span class="dt">height =</span> <span class="dv">415</span>)</code></pre></div>
+<div id="htmlwidget-62c9c1e5a6cf0a4c71f7" style="width:864px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-62c9c1e5a6cf0a4c71f7">{"x":{"layout":{"width":800,"height":415,"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Average sentiment by book","showlegend":false,"xaxis":{"title":"Book Number"},"yaxis":{"title":"Sentiment"}},"config":{"modeBarButtonsToRemove":["sendDataToCloud"]},"base_url":"https://plot.ly","source":"A","data":[{"x":[13,46,62,11,60,9,52,54,14,47,63,12,61,10,53,55,64,30,51,27,5,21,49,17,2,26,15,48,1,35,37,58,28,23,59,24,18,29,32,6,65,7,25,3,39,33,34,16,4,31,57,50,20,19,66,45,8,22,43,42,41,40,44,56,38,36],"y":[0.180467091295117,0.091533180778032,0.19047619047619,0.0318627450980392,0.495238095238095,-0.223456790123457,0.382022471910112,0.504424778761062,-0.0231143552311436,0.373540856031128,0.538461538461538,-0.226703755215577,0.245901639344262,-0.142446043165468,0.446808510638298,0.421686746987952,1.35714285714286,-0.417808219178082,0.536842105263158,0.403361344537815,-0.200208550573514,0.00900900900900901,0.52258064516129,0.0419161676646707,0.0733718054410552,-0.398271798900236,0.114285714285714,0.25503355704698,-0.131115459882583,-0.714285714285714,-0.105263157894737,0.386138613861386,-0.411167512690355,-0.256191950464396,0.37962962962963,-0.725806451612903,-0.296261682242991,-0.232876712328767,-0.25,-0.0851063829787234,-0.08,-0.132686084142395,-0.772727272727273,-0.523864959254948,-0.436363636363636,-0.419047619047619,-0.702127659574468,0.00985221674876847,-0.207298136645963,-0.619047619047619,0.72,0.625,-0.149726775956284,0.114181227143438,0.356435643564356,0.163972286374134,0.0823529411764706,0.965811965811966,0.0261660978384528,0.0191138140747176,-0.084070796460177,0.00933706816059757,0.0516385302879841,0.521739130434783,-0.004739336492891,-1.0188679245283],"text":["1 Chronicles","1 Corinthians","1 John","1 Kings","1 Peter","1 Samuel","1 Thessalonians","1 Timothy","2 Chronicles","2 Corinthians","2 John","2 Kings","2 Peter","2 Samuel","2 Thessalonians","2 Timothy","3 John","Amos","Colossians","Daniel","Deuteronomy","Ecclesiastes","Ephesians","Esther","Exodus","Ezekiel","Ezra","Galatians","Genesis","Habakkuk","Haggai","Hebrews","Hosea","Isaiah","James","Jeremiah","Job","Joel","Jonah","Joshua","Jude","Judges","Lamentations","Leviticus","Malachi","Micah","Nahum","Nehemiah","Numbers","Obadiah","Philemon","Philippians","Proverbs","Psalms","Revelation","Romans","Ruth","Song of Solomon","St. John","St. Luke","St. Mark","St. Matthew","The Acts","Titus","Zechariah","Zephaniah"],"hoverinfo":"text","marker":{"fillcolor":"rgba(31,119,180,1)","color":["#5dd39e","#5dd39e","#5dd39e","#5dd39e","#5dd39e","#525174","#5dd39e","#5dd39e","#525174","#5dd39e","#5dd39e","#525174","#5dd39e","#525174","#5dd39e","#5dd39e","#5dd39e","#525174","#5dd39e","#5dd39e","#525174","#5dd39e","#5dd39e","#5dd39e","#5dd39e","#525174","#5dd39e","#5dd39e","#525174","#525174","#525174","#5dd39e","#525174","#525174","#5dd39e","#525174","#525174","#525174","#525174","#525174","#525174","#525174","#525174","#525174","#525174","#525174","#525174","#5dd39e","#525174","#525174","#5dd39e","#5dd39e","#525174","#5dd39e","#5dd39e","#5dd39e","#5dd39e","#5dd39e","#5dd39e","#5dd39e","#525174","#5dd39e","#5dd39e","#5dd39e","#525174","#525174"]},"type":"bar"}]},"evals":[],"jsHooks":[]}</script>
+<p>There is indeed more negativity at the “beginning” of the Bible: the Old Testament is far more gruesome than the New Testament.</p>
+<p>The <em>Song of Solomon</em> (book #22) is a lapse of light amidst the dark and spine-chilling godly injunctions of the Old Testament, it is scripturally unique in its celebration of sexual love.</p>
+<p>John 3 in the New Testament is also positive, by the Bible standard anyway: John accepts Jesus as the Messiah, gets baptised, finds the path to God, etc. Good stuff.</p>
+<p>The most negative book according to the analysis is <em>Zephaniah</em> (book #36) which is not inaccurate, the message of the book is best summed by this terse and unambiguous passage:</p>
+<blockquote>
+<p>“You also, O Ethiopians, / Shall be killed by my sword.”</p>
+</blockquote>
+<p>Zephaniah comes towards the end of the Old Testament and those who have not accepted the truth by then must be slain.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+
+rect &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">xmin =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">39</span>), <span class="dt">xmax =</span> <span class="kw">c</span>(<span class="dv">39</span>, <span class="dv">67</span>), <span class="dt">ymin =</span> <span class="kw">c</span>(-<span class="fl">1.1</span>, -<span class="fl">1.1</span>), 
+                   <span class="dt">ymax =</span> <span class="kw">c</span>(<span class="fl">1.5</span>, <span class="fl">1.5</span>), 
+                   <span class="dt">label =</span> <span class="kw">c</span>(<span class="st">&quot;Old Testament&quot;</span>, <span class="st">&quot;New Testament&quot;</span>),
+                   <span class="dt">fill =</span> <span class="kw">c</span>(<span class="st">&quot;#bce784&quot;</span>, <span class="st">&quot;#525174&quot;</span>))
+
+<span class="kw">ggplot</span>(<span class="dt">data =</span> bks, <span class="kw">aes</span>(<span class="dt">x =</span> Book.Number, <span class="dt">y =</span> Sentiment)) +
+<span class="st">    </span><span class="kw">geom_rect</span>(<span class="dt">data =</span> rect, 
+              <span class="kw">aes</span>(<span class="dt">xmin =</span> xmin, <span class="dt">xmax =</span> xmax, <span class="dt">ymin =</span> ymin, <span class="dt">ymax =</span> ymax, 
+                  <span class="dt">fill =</span> fill, <span class="dt">alpha =</span> <span class="fl">0.5</span>),
+            <span class="dt">inherit.aes =</span> <span class="ot">FALSE</span>,
+            <span class="dt">position =</span> <span class="st">&quot;identity&quot;</span>) +
+<span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">data =</span> rect, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">39</span>/<span class="dv">2</span>, (<span class="dv">39</span>+(<span class="dv">27</span>/<span class="dv">2</span>))), <span class="dt">y =</span> ymax -<span class="st"> </span><span class="fl">0.2</span>, 
+                             <span class="dt">label =</span> label),
+            <span class="dt">color =</span> <span class="st">&quot;grey20&quot;</span>, <span class="dt">fontface =</span> <span class="st">&quot;bold&quot;</span>, <span class="dt">size =</span> <span class="dv">4</span>) +
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;grey50&quot;</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#5dd39e&quot;</span>, <span class="st">&quot;#525174&quot;</span>)) +
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>,
+        <span class="dt">panel.border =</span> <span class="kw">element_blank</span>(),
+        <span class="dt">panel.background =</span> <span class="kw">element_blank</span>(),
+        <span class="dt">axis.text.x =</span> <span class="kw">element_blank</span>(),
+        <span class="dt">axis.ticks.x =</span> <span class="kw">element_blank</span>(),
+        <span class="dt">axis.title.x =</span> <span class="kw">element_blank</span>())</code></pre></div>
+<p><img src="examples_files/figure-html/unnamed-chunk-9-1.png" width="864" /></p>
+<p>Average sentiment:</p>
+<ul>
+<li>Old Testament: -0.156</li>
+<li>New Testament: 0.137</li>
+</ul>
+</div>
+<div id="testaments" class="section level3">
+<h3>Testaments</h3>
+<p>Since there are textual differences between Testaments we’ll categorise the verses according to each and plot a comparison cloud.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># split</span>
+old &lt;-<span class="st"> </span><span class="kw">paste0</span>(king_james_df[king_james_df$Testament ==<span class="st"> &quot;Old Testament&quot;</span>, <span class="st">&quot;Text&quot;</span>],
+              <span class="dt">collapse =</span> <span class="st">&quot;&quot;</span>)
+new &lt;-<span class="st"> </span><span class="kw">paste0</span>(king_james_df[king_james_df$Testament ==<span class="st"> &quot;New Testament&quot;</span>, <span class="st">&quot;Text&quot;</span>],
+              <span class="dt">collapse =</span> <span class="st">&quot;&quot;</span>)
+corp &lt;-<span class="st"> </span><span class="kw">Corpus</span>(<span class="kw">VectorSource</span>(<span class="kw">c</span>(old, new))) <span class="co"># combine</span>
+corp &lt;-<span class="st"> </span><span class="kw">tm_map</span>(corp, removePunctuation)
+corp &lt;-<span class="st"> </span><span class="kw">tm_map</span>(corp, <span class="kw">content_transformer</span>(tolower))
+corp &lt;-<span class="st"> </span><span class="kw">tm_map</span>(corp, removeNumbers)
+corp &lt;-<span class="st"> </span><span class="kw">tm_map</span>(corp, removeWords, <span class="kw">c</span>(middle_english_stopwords, 
+                                    <span class="kw">stopwords</span>(<span class="st">&quot;english&quot;</span>)))
+
+term.matrix &lt;-<span class="st"> </span><span class="kw">TermDocumentMatrix</span>(corp)
+term.matrix &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(term.matrix)
+<span class="kw">colnames</span>(term.matrix) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Old Testament&quot;</span>, <span class="st">&quot;New Testament&quot;</span>)
+<span class="kw">comparison.cloud</span>(term.matrix, <span class="dt">max.words =</span> <span class="dv">200</span>, <span class="dt">random.order =</span> <span class="ot">FALSE</span>,
+                 <span class="dt">rot.per =</span> <span class="fl">0.25</span>, <span class="dt">colors =</span> <span class="kw">rev</span>(<span class="kw">c</span>(<span class="st">&quot;#5dd39e&quot;</span>, <span class="st">&quot;#525174&quot;</span>)), <span class="dt">title.size =</span> <span class="dv">1</span>, 
+                 <span class="dt">scale =</span> <span class="kw">c</span>(<span class="dv">3</span>, .<span class="dv">5</span>))</code></pre></div>
+<p><img src="examples_files/figure-html/unnamed-chunk-10-1.png" width="864" /></p>
+<p>The New Testament is mostly about Jesus Christ and the band of disciples roaming the lands laying hands. While the Old Testament is more about God appearing to illiterate desert people ruling that <em>thee</em> and <em>thy</em> shall obey.</p>
+</div>
+<div id="mary" class="section level3">
+<h3>Mary</h3>
+<p>Christopher Hitchens once said that Mary only appeared three times in the bibe. I cannot tell exactly what he meant by “appeared” (only God knows now) but we can tell that she is mentioned far more often - 46 times.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(king_james_df$Text[<span class="kw">grep</span>(<span class="st">&quot;Mary[[:space:]]|Mary[[:punct:]]&quot;</span>, king_james_df$Text)]) <span class="co"># nbr mentions</span></code></pre></div>
+</div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <p class="text-muted"><a href="https://github.com/JohnCoene"><i class='fa fa-github fa-2x' aria-hidden='true'></i></a></p>
+      </div>
+      <div class="col-lg-4">
+        <p class="text-muted"><a href="https://www.linkedin.com/in/johncoene/"><i class='fa fa-linkedin fa-2x' aria-hidden='true'></i></a></p>
+      </div>
+      <div class="col-lg-4">
+        <p class="text-muted"><a href="https://twitter.com/jdatap"><i class='fa fa-twitter fa-2x' aria-hidden='true'></i></a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

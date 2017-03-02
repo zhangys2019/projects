@@ -1,0 +1,492 @@
+---
+title: "Examples"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+---
+
+```{r, echo=FALSE, eval=TRUE, include=FALSE, message=FALSE, error=FALSE, warning=FALSE, comment=NA}
+library(twitteR)
+library(graphTweets)
+library(igraph)
+library(magrittr)
+library(plotly)
+```
+
+```{r, echo=FALSE, eval=TRUE}
+presi <- get(load("data/presi.RData"))
+r_tw <- get(load("data/r_tw.RData"))
+```
+
+# Setup
+
+## Install
+
+graphTweets is available on CRAN and github.
+
+```{r, echo=TRUE, eval=FALSE}
+install.packages("graphTweets") # from CRAN
+
+devtools::install_github("JohnCoene/graphTweets") # from github
+
+library(graphTweets) # load
+```
+
+## Functions
+
+graphTweets only comes with *three* functions
+
+```{r, echo=TRUE, eval=FALSE}
+package?graphTweets
+```
+
+## Data
+
+Set yourself up with [twitteR](https://cran.r-project.org/web/packages/twitteR/index.html) or [streamR](https://cran.r-project.org/web/packages/streamR/index.html) to fetch tweets (you may of course import data in some other way).
+
+Data sets used in these slides:
+
+* [rstats.RData](https://github.com/JohnCoene/docs/raw/master/data/r_tw.RData) - `r nrow(r_tw)` tweets on #rstats.
+* [presi.RData](https://github.com/JohnCoene/docs/raw/master/data/presi.RData) - `r nrow(presi)` tweets on the US Presidential 2016.
+
+# Example 01
+
+## search Twitter
+
+Here I use the tiwtteR package to get 500 tweets on "#rstats". 
+
+```{r, echo=TRUE, eval=FALSE}
+library(twitteR)
+
+# replace with your details
+setup_twitter_oauth(consumer_key, consumer_secret, access_token, 
+                    access_secret)
+r_tw <- searchTwitter("rstats", n = 500)
+
+# unlist tweets to data.frame
+r_tw <- twListToDF(r_tw)
+```
+
+[download](https://github.com/JohnCoene/docs/raw/master/data/r_tw.RData) this dataset.
+
+## get Edges
+
+We can now get the list of edges using graphTweets.
+
+```{r, echo=TRUE, eval=TRUE}
+# get edges
+edges <- getEdges(r_tw, "text", "screenName")
+
+# remove dupliactes
+edges <- edges[!duplicated(edges),]
+```
+
+## igraph build
+
+We may then use [igraph](http://igraph.org/r/) to build and plot the network. 
+
+```{r, echo=TRUE, eval=FALSE}
+# build
+g <- igraph::graph.data.frame(edges, directed = TRUE)
+
+# plot
+igraph::plot.igraph(g, layout = layout.fruchterman.reingold(g))
+```
+
+## igraph plot
+
+```{r, echo=FALSE, eval=TRUE}
+g <- graph.data.frame(edges, directed = TRUE)
+
+# plot
+par(bg="#FFFFFF", mar=c(1,1,1,1))
+plot(g, layout = layout.fruchterman.reingold(g), vertex.color = "#DD1C1A",
+     vertex.label.family = "sans",
+     vertex.label.color = hsv(h = 0, s = 0, v = 0, alpha = 0.0), 
+     vertex.size = log1p(degree(g)) * 2, edge.arrow.size = 0.2, 
+     edge.arrow.width = 0.3, edge.width = 1,
+     edge.color = hsv(h = 1, s = .59, v = .91, alpha = 0.7),
+     vertex.frame.color="#262626")
+```
+
+## networkD3
+
+You may also use the networkD3 package.
+
+```{r, echo=TRUE, eval=FALSE}
+networkD3::simpleNetwork(edges, Source = "source", Target = "target")
+```
+
+```{r, echo=FALSE, eval=TRUE}
+networkD3::simpleNetwork(edges, Source = "source", Target = "target",
+                         linkColour = "#262626", nodeColour = "#d9230f",
+                         nodeClickColour = "#262626", 
+                         textColour = "#580b0a", width = "100%") 
+```
+
+## Export
+
+Alternatively one may use the igraph package to save the graph and import it in another software.
+
+For instance you may want to save the graph as `graphml`.
+
+```{r, echo=TRUE, eval=FALSE}
+write.graph(g, file = "graphTweets.graphml", format = "graphml")
+```
+
+Then open it in [Gephi](https://gephi.org/).
+
+# Example 02
+
+## build graph
+
+Let's use the same data set as in the previous example but this time add meta-data to the nodes.
+
+```{r, echo=TRUE, eval=FALSE}
+# graphTweets
+edges <- getEdges(r_tw, source = "screenName", tweets = "text", 
+                  str.length = NULL, "favoriteCount")
+
+nodes <- getNodes(edges, source = "source", target = "target", "favoriteCount")
+
+# replace NA with 0
+nodes$retweetCount[is.na(nodes$retweetCount)] <- 0
+
+# build graph
+g <- igraph::graph.data.frame(edges, directed = TRUE, vertices = nodes)
+```
+
+```{r, echo=FALSE, eval=TRUE}
+edges <- getEdges(r_tw, source = "screenName", tweets = "text", 
+                  str.length = NULL, "favoriteCount")
+edges$target <- as.character(edges$target)
+nodes <- getNodes(edges, source = "source", target = "target", "favoriteCount")
+
+nodes$favoriteCount[is.na(nodes$favoriteCount)] <- 0
+
+# build graph
+g <- igraph::graph.data.frame(edges, directed = TRUE, vertices = nodes)
+```
+
+## make plot
+
+Now we can use the meta-data (`favoriteCount`) in the plot.
+
+```{r, echo=TRUE, eval=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+# scale vertices color to # of favorites
+pal <- RColorBrewer:::brewer.pal(5, "Dark2")
+V(g)$color <- colorRampPalette(pal)(length(V(g)$favoriteCount))
+
+# plot vertex size ~ degree
+plot(g, layout = layout.fruchterman.reingold(g), vertex.color = V(g)$color,
+     vertex.size = log1p(degree(g)) * 3)
+```
+
+## plot
+
+```{r, echo=FALSE, eval=TRUE, warning=FALSE, error=FALSE, message=FALSE}
+V(g)$color <- colorRampPalette(RColorBrewer:::brewer.pal(5, "Reds"))(length(V(g)$favoriteCount))
+
+par(bg="#fcfcfc", mar=c(1,1,1,1))
+plot(g, layout = layout.fruchterman.reingold(g), vertex.color = V(g)$color,
+     vertex.label.family = "sans",
+     vertex.label.color = hsv(h = 0, s = 0, v = 0, alpha = 0.0), 
+     vertex.size = log1p(degree(g)) * 3, edge.arrow.size = 0.2, 
+     edge.arrow.width = 0.3, edge.width = 1,
+     edge.color = hsv(h = 1, s = .59, v = .91, alpha = 0.7),
+     vertex.frame.color="#fcfcfc")
+```
+
+# Example 03
+
+## Get tweets
+
+This time we'll get tweets on the US Presidential 2016 (writing this on `r Sys.Date()`)
+
+```{r, echo=TRUE, eval=FALSE}
+# search terms 2016 presidential
+st <- c("hillary", "clinton", "bernie", "sanders", "donald", "trump", "jeb", 
+        "bush", "ted", "cruz", "marco", "rubio", "carson", "christie")
+
+presi <- data.frame()
+
+for(i in 10:length(st)) {
+  # tweets from the US
+  tw <- searchTwitter(st[i], n = 5000, geocode = "39.554883,-99.931641,1000mi")
+  
+  tw <- twListToDF(tw)
+  
+  presi <- plyr::rbind.fill(presi, tw)
+}
+```
+
+[download](https://github.com/JohnCoene/docs/raw/master/data/presi.RData) this dataset.
+
+## get Edges
+
+We pass additional variables (`...`) to the `getEdges` function; tweets' retweet count and their geo-coordinates so that we can later layout the network on a map rather than a canvas.
+
+```{r, echo=TRUE, eval=TRUE}
+# remove NA
+presi <- presi[!is.na(presi$longitude),]
+
+edges <- getEdges(data = presi, tweets = "text", source = "screenName", 
+                  str.length = NULL, "longitude", "latitude", "retweetCount")
+```
+
+## get Nodes
+
+We then pass the geo-coordinates and retweet counts as meta-data to our vertices using `getNodes`.
+
+```{r, echo=FALSE, eval=TRUE}
+edges$source <- as.character(paste(edges$source))
+edges$target <- as.character(paste(edges$target))
+```
+
+```{r, echo=TRUE, eval=TRUE}
+nodes <- getNodes(edges, source = names(edges)[1], target = names(edges)[2], 
+                  "longitude", "latitude", "retweetCount")
+```
+
+## build graph
+
+Here I demonstrate with [plotly](https://plot.ly/r) as igraph cannot---on my machine---properly handle `r nrow(nodes)` nodes.
+
+```{r, echo=TRUE, eval=FALSE}
+# join nodes and edges and rename
+edges <- dplyr::inner_join(edges[,1:2], nodes[,1:3],
+                           by = c("source" = "nodes"))
+edges <- dplyr::inner_join(edges, nodes[,1:3], by = c("target" = "nodes"))
+names(edges)[3:ncol(edges)] <- c("lon_start", "lat_start", "lon_end",
+                                 "lat_end")
+
+# remove NA
+edges <- edges[!is.na(edges$lon_end),]
+
+# edges frequency to use for opacity in plot
+edges$freq <- 1
+edges <- plyr::ddply(edges, c("source", "target", "lon_start", "lat_start", 
+                              "lon_end", "lat_end"),
+                     plyr::summarise, freq = sum(freq))
+
+# add id for plotly
+edges$id <- 1:nrow(edges)
+
+# plot
+nodes %>% 
+  plot_ly(locationmode = 'USA-states', color = I("red")) %>%
+  add_scattergeo(lon = ~longitude, lat = ~latitude,
+                 size = ~retweetCount, alpha = 0.5) %>%
+  layout(geo = geo, showlegend = FALSE, height=700, width = "100%")
+```
+
+## plot
+
+```{r, echo=FALSE, eval=TRUE}
+# join nodes and edges
+edges <- dplyr::inner_join(edges[,1:2], nodes[,1:3],
+                           by = c("source" = "nodes"))
+edges <- dplyr::inner_join(edges, nodes[,1:3], by = c("target" = "nodes"))
+
+names(edges)[3:ncol(edges)] <- c("lon_start", "lat_start", "lon_end",
+                                 "lat_end")
+
+# remove unknown
+edges <- edges[!is.na(edges$lon_end),]
+
+# edges frequency
+edges$freq <- 1
+edges <- plyr::ddply(edges, c("source", "target", "lon_start", "lat_start", 
+                              "lon_end", "lat_end"),
+                     plyr::summarise, freq = sum(freq))
+
+# add id
+edges$id <- 1:nrow(edges)
+
+for(i in 3:ncol(edges)){
+  edges[,i] <- as.numeric(paste(edges[,i]))
+}
+
+# map projection
+geo <- list(
+  scope = 'north america',
+  projection = list(type = 'azimuthal equal area'),
+  showland = TRUE,
+  landcolor = toRGB("gray75"),
+  countrycolor = toRGB("#262626"),
+  showocean = TRUE,
+  oceancolor = "#FFFFFF",
+  bgcolor = "#FFFFFF",
+  caostlinecolor = "#FFFFFF",
+  showsubunits = TRUE,
+  subunitscolor = "#FFFFFF",
+  showcountries = TRUE
+)
+
+# hover
+nodes$text <- paste0(iconv(nodes$nodes, to = "UTF-8"))
+
+# nodes retweet NA to 0
+nodes$retweetCount[is.na(nodes$retweetCount)] <- 0
+
+nodes %>% 
+  plot_ly(locationmode = 'USA-states', color = I("red"), width = "100%") %>%
+  add_scattergeo(lon = ~longitude, lat = ~latitude,
+                 size = ~retweetCount, alpha = 0.5) %>%
+  layout(geo = geo, showlegend = FALSE,
+         background.color = "#fcfcfc")
+```
+
+# Example 04
+
+## Communities
+
+```{r, echo=FALSE, eval=TRUE}
+edges <- getEdges(data = r_tw, tweets = "text", source = "screenName",
+                  str.length = NULL)
+edges$source <- as.character(paste(edges$source))
+edges$target <- as.character(paste(edges$target))
+nodes <- getNodes(edges, source = "source", target = "target")
+g <- igraph::graph.data.frame(edges, directed = TRUE, vertices = nodes)
+cm <- walktrap.community(simplify(g))
+```
+
+Detect communities in our graph. Somewhat useful though it is not a giant component like ego networks.
+
+* modularity: `r round(modularity(cm), 3)`
+* number of communities: `r length(unique(membership(communities = cm)))`
+
+```{r, echo=TRUE, eval=FALSE}
+edges <- getEdges(data = r_tw, tweets = "text", source = "screenName",
+                  str.length = NULL)
+
+nodes <- getNodes(edges, source = "source", target = "target")
+
+g <- igraph::graph.data.frame(edges, directed = TRUE, vertices = nodes)
+
+# get communities
+cm <- walktrap.community(g)
+```
+
+## plot
+
+Plotting communities with igraph cound't be easier.
+
+```{r, echo=TRUE, eval=FALSE}
+plot(g, vertex.color = membership(cm), vertex.size = log1p(degree(g)) * 3)
+```
+
+```{r, echo=FALSE, eval=TRUE, fig.width=9, fig.height=4}
+par(bg="#fcfcfc", mar=c(1,1,1,1))
+plot(g, layout = layout.fruchterman.reingold(g), vertex.color = membership(cm),
+     vertex.label.family = "sans",
+     vertex.label.color = hsv(h = 0, s = 0, v = 0, alpha = 0.0), 
+     vertex.size = log1p(degree(g)) * 3, edge.arrow.size = 0.2, 
+     edge.arrow.width = 0.3, edge.width = 1,
+     edge.color = hsv(h = 1, s = .59, v = .91, alpha = 0.7),
+     vertex.frame.color="#fcfcfc")
+```
+
+# Example 05
+
+## Temporal graph
+
+Temporal graphs are do-able within R but remain clunky; one has to plot a graph frame by frame and turn it into a gif.
+
+`graphTweets::dynamise` somewhat remedies to this.
+
+## Dynamise
+
+graphTweets let's you build a temporal graph in R and easily export to/open it in [Gephi](https://gephi.org/) with `dynamise`. 
+
+```{r, echo=TRUE, eval=FALSE}
+dyn <- dynamise(data = presi, tweets = "text", source = "screenName", 
+                start.stamp = "created")
+```
+
+## Return
+
+`dynamise` returns an object of class `graph`, and, though therefore can be plotted using `plot`, it will not be dynamic. To take view the dynamic graph the network must be open in Gephi. 
+
+Thankfully the function makes it extremely easy.
+
+## Open
+
+To view the graph in gephi save the file (`write = TRUE`), you may additionally open it in Gephi from R itself with `open = TRUE`
+
+```{r, echo=TRUE, eval=FALSE}
+dyn <- dynamise(data = presi, tweets = "text", source = "screenName", 
+                start.stamp = "created", write = TRUE, open = TRUE)
+```
+
+See `?dynamise` for more options
+
+## In Gephi
+
+To make the graph dynamic in Gephi a few more steps are required. The following slides essentially go through the steps detailed  [here](http://www.clementlevallois.net/gephi/tuto/gephi_tutorial_dynamics.pdf) on slides 25 and 26.
+
+## Merge columns
+
+In the data laboratory for both the "nodes" and "edges" merge the columns "start.stamp" and "end.stamp". Select "create time interval" in the dropdown.
+
+![gephi.gif](https://github.com/JohnCoene/docs/raw/master/gephi.gif)
+
+In the following window check "parse dates", if you followed the steps in the previous slides in creating the graph and set `start.stamp = "created"` in `dynamise` use <b>yyyy-MM-dd HH:mm:ss</b> as date format.
+
+## Timeline
+
+You should now be able to "enable timeline" at the bottom of the screen. Then again, if you followed the steps in the previous slides in creating the graph then in the bottom left corner hit the gear icon and hit "set time format", change it to "Datetime".
+
+![gephi.gif](https://github.com/JohnCoene/docs/raw/master/timeformat.gif)
+
+<strong>That's it</strong>, mess around with the timeline.
+
+## Output
+
+![gephi.gif](https://github.com/JohnCoene/docs/raw/master/output.gif)
+
+# Example 06
+
+## edge lifetime
+
+By default `dynamise` keeps edges and nodes forever, which is unrealistic. Tweets do not last forever; use `end.stamp` to specify the delay.
+
+Since we pass in an array of class `POSIXct` we can specify a delay in seconds like so:
+
+```{r, echo=TRUE, eval=FALSE}
+# delay of an hour
+dyn <- dynamise(data = presi, tweets = "text", source = "screenName", 
+                start.stamp = "created", end.stamp = 3600, write = TRUE, 
+                open = TRUE)
+```
+
+The above will build a graph where tweets "last" one hour.
+
+## Date
+
+If we pass in a date we can specify a delay by day.
+
+```{r, echo = TRUE, eval=FALSE}
+presi$date <- as.Date(presi$created)
+
+# delay of an hour
+dyn <- dynamise(data = presi, tweets = "text", source = "screenName", 
+                start.stamp = "created", end.stamp = 1, write = TRUE, 
+                open = TRUE)
+```
+
+The above will build a graph where tweets "last" one day.
+
+# Outro
+
+## Resources
+
+If you encounter issues go to, [Github issues](https://github.com/JohnCoene/graphTweets/issues).
+
+For the manual go on [CRAN](https://cran.r-project.org/web/packages/graphTweets/).
+
+See my other packages and projects at [john-coene.com](http://john-coene.com)
+
+# Thanks!

@@ -1,0 +1,746 @@
+---
+title: "Docs"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+```
+
+# add_ist
+
+Add series(s) to chart.
+
+## Arguments
+
+* `p` a chartist object.
+* `value` values to plot.
+* `...` additional parameters to pass to serie.
+
+## Details
+
+Naming the serie (`name`) is useful if you want to apply different options (`opt_ist`) for each serie
+later on. If no name is specified then the assigns one; `type + i` where `i` is the serie's index and starts
+from 1. Names can be retrieved using `name_ist`. See examples.
+
+## Examples
+
+```{r}
+# basic example
+mtcars[1:10,] %>%
+  chart_ist(x = mpg) %>%
+  add_ist(disp) %>%
+  add_ist(hp)
+
+# option applies to both "disp" and "hp"
+mtcars[1:10,] %>%
+  chart_ist(x = mpg) %>%
+  add_ist(disp) %>%
+  add_ist(hp) %>%
+  opt_ist(showArea = TRUE)
+
+# use names to apply different option to each serie
+mtcars[1:10,] %>%
+  chart_ist(x = mpg) %>%
+  add_ist(disp, name = "disp") %>%
+  add_ist(hp, name = "hp") %>%
+  opt_ist(name = "hp", showArea = TRUE, showPoint = FALSE) %>%
+  opt_ist(name = "disp", lineSmoothing = "step")
+
+# if you haven't assigned names you can retrieve generated ones with name_ist
+# See details for generated names logic
+mtcars[1:10,] %>%
+  chart_ist(x = mpg) %>%
+  add_ist(disp, name = "disp") %>%
+  add_ist(hp, name = "hp") %>%
+  name_ist()
+```
+
+# anim_ist
+
+Animate chart.
+
+## Arguments
+
+* `p` a chartist object.
+* `type` chart element ype to animate (i.e.: `line` or `grid`)
+* `anim` animation (i.e.: `opacity`).
+* `begin` when animation begins
+* `dur` duration in milliseconds.
+* `from` where animation starts.
+* `to` where animation ends`
+* `easing` easing function.
+* `...` any other argument to pass to `anim`
+
+## Examples
+
+```{r}
+mtcars %>%
+  chart_ist(wt) %>%
+  add_ist(disp) %>%
+  add_ist(hp) %>%
+  anim_ist(type = c("line", "point"), 
+           anim = "opacity", 
+           begin = 0,
+           from = 0,
+           to = 1,
+           dur = 2000)
+```
+
+# baropt_ist
+
+Pass options to bar type.
+
+## Arguments
+
+* `p` a chartist object.
+* `fullWidth` When set to true, the last grid line on the x-axis is not drawn and the chart elements will expand to the full available width of the chart. For the last label to be drawn correctly you might need to add chart padding or offset the last label with a draw event handler.
+* `centerBars` set to TRUE to draw bars on the grid lines, FALSE to draw on grid lines.
+* `stackBars` whether to stack bars, default to FALSE.
+* `distributeSeries` distributed serie along x axis only works for 1 serie, defaults to FALSE.
+* `seriesBarDistance`distance in pixels between bar groups.
+* `width` set fixed width in pixels or percent (i.e.: `300px`, `70%`).
+* `height` set fixed height in pixels or percent (i.e.: `300px`, `70%`).
+* `low` lower bound of value.
+* `high` higher bound of value.
+* `chartPadding` padding around chart div.
+* `...` additional options.
+
+## Examples
+
+```{r}
+mtcars$models <- rownames(mtcars)
+
+mtcars[1:10,] %>%
+  chart_ist(x = models, type = "bar") %>%
+  add_ist(cyl) %>%
+  add_ist(carb) %>%
+  add_ist(gear) %>%
+  baropt_ist(stackBars = TRUE)
+
+mtcars[1:10,] %>%
+  chart_ist(x = models, type = "bar") %>%
+  add_ist(cyl) %>%
+  add_ist(carb) %>%
+  add_ist(gear) %>%
+  baropt_ist(seriesBarDistance = 10, centerBars = TRUE)
+```
+
+# chartist-shiny
+
+Output and render functions for using chartist within Shiny applications and interactive Rmd documents.
+
+## Arguments
+
+* `outputId` output variable to read from
+* `width`, `height` Must be a valid CSS unit (like '100%', '400px', 'auto') or a number, which will be coerced to a string and have 'px' appended.
+* `expr` An expression that generates a chartist
+* `env` The environment in which to evaluate expr.
+* `quoted` Is expr a quoted expression (with quote())? This is useful if you want to save an expression in a variable.
+
+# chart_ist
+
+Initiate a chartist chart.
+
+## Arguments
+
+* `data` data.frame containing data to plot.
+* `x` Must be passed for line and bar (`type`), optional for pie `type`.
+* `type` type of charts, defaults to line, may also be bar or pie.
+* `width`, `height` Must be a valid CSS unit (like '100%', '400px', 'auto') or a number, which will be coerced to a string and have 'px' appended, defaults to `NULL`.
+* `elementId` Use specific element id.
+
+## Examples
+
+```{r}
+mtcars %>%
+  chart_ist(cyl) %>%
+  add_ist(hp)
+```
+
+# danim_ist
+
+Out of the box animation for donut chart.
+
+## Arguments
+
+* `p` a chartist object.
+
+## Examples
+
+```{r}
+mtcars[1:5,] %>%
+  chart_ist(x = hp, type = "pie") %>%
+  add_ist(disp) %>%
+  pieopt_ist(donut = TRUE, showLabel = TRUE) %>%
+  danim_ist()
+```
+
+# ganim_ist
+
+Out of the box animation for chart grid.
+
+## Arguments
+
+* `p` a chartist object.
+
+## Examples
+
+```{r}
+mtcars %>%
+  chart_ist(wt) %>%
+  add_ist(disp) %>%
+  add_ist(hp) %>%
+  ganim_ist()
+```
+
+# gauge_ist
+
+Helper function to easily make a gauge chart from a pie.
+
+## Arguments
+
+* `p` a chartist object.
+* `...` additional parameters to pass to `opt_ist`.
+
+## Examples
+
+```{r}
+mtcars[1:5,] %>%
+  chart_ist(type = "pie") %>%
+  add_ist(disp) %>%
+  gauge_ist()
+```
+
+# hover_ist
+
+Add hover tooltip
+
+## Arguments
+
+* `p` a chartist object.
+* `prefix` add prefix to label.
+* `suffix` add suffix to label.
+
+## Examples
+
+```{r}
+mtcars %>%
+  chart_ist(disp) %>%
+  add_ist(values = hp, name = "Your Tooltip") %>%
+  hover_ist(prefix = "US$")
+
+mtcars %>%
+  chart_ist(disp) %>%
+  add_ist(values = hp, name = "Your <span style='color:blue;'>Tooltip</span>") %>%
+  hover_ist()
+```
+
+# label_ist
+
+Add data point labels to `line` type chart.
+
+## Arguments
+
+* `p` a chartist object.
+* `position` position of label, defaults to `middle`
+
+## Examples
+
+```{r}
+mtcars %>%
+  chart_ist(disp) %>%
+  add_ist(hp) %>%
+  label_ist()
+```
+
+# lanim_ist
+
+Out of the box animation for line and/or area chart.
+
+## Arguments
+
+* `p` a chartist object.
+* `type` chart element type to animate (i.e.: `line`, or `grid`).
+
+## Examples
+
+```{r}
+mtcars %>%
+  chart_ist(wt) %>%
+  add_ist(disp, name = "disp") %>%
+  add_ist(hp, name = "hp") %>%
+  opt_ist(showPoint = FALSE) %>%
+  lineopt_ist(name = "hp", showArea = TRUE) %>%
+  lanim_ist()
+```
+
+# lineopt_ist
+
+Pass options to line type.
+
+## Arguments
+
+* `p` a chartist object.
+* `name` name the serie, see details (optional).
+* `fillHoles` whether to fill missing data, defaults to `FALSE`.
+* `showPoint` whether to show points, defaults to `TRUE`.
+* `showArea` turn line chart into area chart, defaults to `FALSE`.
+* `showLine` set `FALSE` to hide line.
+* `areaBase` base for the chart, defaults to `0`.
+* `lineSmoothing` defaults to simple, can take an `integer`, `step`, `none` or an htmlwidgets javascript function (class JS_EVAL).
+* `fullWidth` When set to true, the last grid line on the x-axis is not drawn and the chart elements will expand to the full available width of the chart. For the last label to be drawn correctly you might need to add chart padding or offset the last label with a draw event handler.
+* `distributeSeries` distributed serie along x axis only works for 1 serie, defaults to FALSE.
+* `width` set fixed width in pixels or percent (i.e.: `300px`, `70%`).
+* `height` set fixed height in pixels or percent (i.e.: `300px`, `70%`).
+* `low` lower bound of value.
+* `high` higher bound of value.
+* `chartPadding` padding around chart div.
+* `...` additional options.
+
+## Examples
+
+```{r}
+mtcars %>%
+  chart_ist(x = mpg, type = "line") %>%
+  add_ist(disp) %>%
+  lineopt_ist(showArea = TRUE, showLine = FALSE, showPoint = FALSE)
+
+mtcars %>%
+  chart_ist(x = mpg, type = "line") %>%
+  add_ist(disp) %>%
+  lineopt_ist(lineSmoothing = "step", showLine = TRUE, showPoint = FALSE)
+
+mtcars %>%
+  chart_ist(x = mpg, type = "line") %>%
+  add_ist(disp, name = "disp") %>%
+  add_ist(hp, name = "hp") %>%
+  lineopt_ist(name = "disp", lineSmoothing = "none") %>%
+  lineopt_ist(name = "hp", showArea = TRUE, showPoint = FALSE)
+```
+
+# loop_ist
+
+Loop animation.
+
+## Arguements
+
+* `p` a chartist object.
+* `ms` Milliseconds for loop, defaults to `5000`.
+
+## Examples
+
+```{r}
+mtcars %>%
+chart_ist(qsec) %>%
+  add_ist(hp) %>%
+  lanim_ist() %>%
+  loop_ist()
+```
+
+# name_ist
+
+Get generated series name.
+
+## Arguments
+
+* `p` a chartist object.
+
+## Examples
+
+```{r}
+# default names
+mtcars[1:20,] %>%
+  chart_ist(x = qsec) %>%
+  add_ist(disp) %>%
+  add_ist(hp) %>%
+  name_ist()
+
+#assigned names
+mtcars[1:20,] %>%
+  chart_ist(x = qsec) %>%
+  add_ist(disp, name = "SERIE1") %>%
+  add_ist(hp, name = "hp") %>%
+  name_ist()
+```
+
+# opt_ist
+
+Pass any option to any chart here. Also see options specific to your chart type, `pieopt_ist`,
+`baropt_ist` or `lineopt_ist`.
+
+## Arguments
+
+* `p` a chartist object.
+* `name` name the serie, see details (optional).
+* `width` set fixed width in pixels or percent (i.e.: `300px`, `70%`).
+* `height` set fixed height in pixels or percent (i.e.: `300px`, `70%`).
+* `low` lower bound of value.
+* `high` higher bound of value.
+* `chartPadding` padding around chart div.
+* `...` additional options.
+
+## Examples
+
+```{r}
+mtcars$models <- row.names(mtcars)
+
+mtcars[1:10,] %>%
+  chart_ist(x = models) %>%
+  add_ist(wt) %>%
+  add_ist(drat) %>%
+  opt_ist(chartPadding = 10, width = 700, height = 200)
+
+mtcars[1:10,] %>%
+  chart_ist(x = qsec) %>%
+  add_ist(disp, name = "DISP") %>%
+  add_ist(hp, name = "HP") %>%
+  opt_ist(name = "DISP", lineSmoothing = "step") %>%
+  opt_ist(name = "HP", showArea = TRUE, showLine = FALSE, showPoint = FALSE)
+```
+
+# peak_ist
+
+Turn bar chart into peak chart.
+
+## Arguments
+
+* `p` a chartist object.
+* `size` point size.
+
+## Examples
+
+```{r}
+mtcars %>%
+  chart_ist(qsec, type = "bar") %>%
+  add_ist(hp) %>%
+  peak_ist()
+```
+
+# pieopt_ist
+
+Pie and donut options.
+
+## Arguments
+
+* `p` a chartist object.
+* `percent` add percent sign
+* `donut` set to `TRUE` for donut chart, defaults to `FALSE`.
+* `showLabel` set to `FALSE` to hide labels.
+* `startAngle` start angle of the pie chart in degrees.
+* `total` By specifying a total value, the sum of the values in the series must be this total.
+* `donutWidth` donut width.
+* `labelDirection` label direction takes neutral, explode or implode.
+* `labelOffset` numeric to offset labels.
+* `width` set fixed width in pixels or percent (i.e.: `300px`, `70%`).
+* `height` set fixed height in pixels or percent (i.e.: `300px`, `70%`).
+* `low` lower bound of value.
+* `high` higher bound of value.
+* `chartPadding` padding around chart div.
+* `...` additional options.
+
+## Examples
+
+```{r}
+mtcars$models <- rownames(mtcars)
+
+mtcars[1:5,] %>%
+  chart_ist(type = "pie") %>%
+  add_ist(disp) %>%
+  pieopt_ist(startAngle = 270, 
+             donut = TRUE, 
+             donutWidth = 50, 
+             showLabel = FALSE)
+
+mtcars[1:5,] %>%
+  chart_ist(x = models, type = "pie") %>%
+  add_ist(disp) %>%
+  pieopt_ist(labelDirection = "explode",
+             labelOffset = 100,
+             chartPadding = 50)
+
+mtcars[1:5,] %>%
+  chart_ist(type = "pie") %>%
+  add_ist(disp) %>%
+  pieopt_ist(percent = TRUE)
+```
+
+# ratio_ist
+
+Change aspect ratio of chart.
+
+## Arguments
+
+* `p` a chartist object.
+* `ratio` ratio of chart, see details and examples.
+
+## Details
+
+Valid values for ratio:
+
+* `square` or `1`
+* `minor-second` or `15:16`
+* `major-second` or `8:9`
+* `minor-third` or `5:6`
+* `major-third` or `4:5`
+* `perfect-fourth` or `3:4`
+* `perfect-fifth` or `2:3`
+* `minor-sixth` or `5:8`
+* `golden-section` or `1:1.618`
+* `major-sixth` or `3:5`
+* `minor-seventh` or `9:16`
+* `major-seventh` or `8:15`
+* `octave` or `1:2`
+* `major-tenth` or `2:5`
+* `major-eleventh` or `3:8`
+* `major-twelfth` or `1:3`
+* `double-octave` or `1:4`
+
+## Examples
+
+```{r}
+mtcars$models <- row.names(mtcars)
+
+mtcars %>%
+  chart_ist(x = models) %>%
+  add_ist(disp) %>%
+  ratio_ist(ratio = "square")
+```
+
+# resp_ist
+
+Configure responsive options for chartist visualisation.
+
+## Arguments
+
+* `p` a chartist object.
+* `query` responsive query.
+* `width` set fixed width in pixels or percent (i.e.: `300px`, `70%`).
+* `height` set fixed height in pixels or percent (i.e.: `300px`, `70%`).
+* `low` lower bound of value.
+* `high` higher bound of value.
+* `chartPadding` padding around chart div.
+* `...` additional options.
+
+## Examples
+
+```{r}
+mtcars$models <- row.names(mtcars)
+
+mtcars %>%
+  chart_ist(models) %>%
+  add_ist(qsec) %>%
+  resp_ist(query = "screen and (max-width: 640px)", 
+           low = 15, 
+           chartPadding = 50) %>%
+  resp_ist(query = "screen and (min-width: 641px) and (max-width: 1024px)", 
+         chartPadding = 0)
+```
+
+# sanim_ist
+
+Out of the box animation for scatter plot.
+
+## Arguments
+
+* `p` a chartist object.
+
+## Examples
+
+```{r}
+mtcars %>%
+  chart_ist(wt) %>%
+  add_ist(disp) %>%
+  add_ist(hp) %>%
+  scatter_ist() %>%
+  sanim_ist()
+```
+
+# scatter_ist
+
+Helper function to easily turn a line chart into a scatter plot.
+
+## Arguments
+
+* `p` a chartist object.
+* `...` additional parameters to pass to `opt_ist`.
+
+## Examples
+
+```{r}
+mtcars$models <- rownames(mtcars)
+
+mtcars[1:20,] %>%
+  chart_ist(x = models) %>%
+  add_ist(disp) %>%
+  scatter_ist()
+```
+
+# style_ist
+
+Style your charts
+
+## Arguments
+
+* `p` a chartist object.
+* `type` chart element type to animate (i.e.: line, or grid).
+* `css` css to wrap in `css`
+
+## Examples
+
+```{r}
+# missing style defaults to chart type
+mtcars %>%
+  chart_ist(qsec, "line") %>%
+  add_ist(mpg) %>%
+  style_ist(css = htmltools::css(stroke = "rgba(0,0,0,0.4)", stroke.dasharray="20")) %>%
+  style_ist("grid", htmltools::css(stroke = "black")) %>%
+  style_ist(c("point"), htmltools::css(stroke = "green"))
+     
+mtcars %>%
+  chart_ist(qsec, "line") %>%
+  add_ist(hp, "hp") %>%
+  add_ist(disp, "disp") %>%
+  lineopt_ist("hp", showPoint = FALSE, showArea = TRUE, showLine = FALSE) %>%
+  xaxis_ist(showLabel = FALSE) %>%
+  style_ist(css = htmltools::css(stroke = "rgba(231,1,2,0.4)", stroke.dasharray="20")) %>%
+  style_ist("area", htmltools::css(stroke = "black", fill = "rgba(0,,0,0.9)")) %>%
+  style_ist(c("point"), htmltools::css(stroke = "red"))
+```
+
+# thresh_ist
+
+Add threshold plugin.
+
+## Arguments
+
+* `p` a chartist object.
+* `threshold` threshold, defaults to mean of first series passed with `add_ist`.
+
+## Examples
+
+```{r}
+mtcars %>%
+  chart_ist(disp) %>%
+  add_ist(hp) %>%
+  thresh_ist()
+
+mtcars %>%
+  chart_ist(disp) %>%
+  add_ist(hp) %>%
+  thresh_ist(220)
+```
+
+# xaxist_ist
+
+Tweak the x axis and related grid.
+
+## Arguments
+
+* `p` a chartist object.
+* `showLabel` set to FALSE to hide labels.
+* `showGrid` set to FALSE to hide the grid.
+* `suffix` add suffix to label.
+* `prefix` add prefix to label.
+* `position` positon of axis.
+* `offset` offset axis.
+* `labelOffset` offset labels, takes integer, vector or list (i.e.: `1`, `c(1,2)`, `list(x = 1, y = 2)`.
+* `scaleMinSpace` minimum height in pixel of scale.
+* `...` additional options.
+
+## Examples
+
+```{r}
+mtcars$models <- row.names(mtcars)
+
+mtcars[1:20,] %>%
+  chart_ist(x = models, type = "bar") %>%
+  add_ist(disp) %>%
+  xaxis_ist(showLabel = FALSE, showGrid = FALSE)
+
+mtcars[1:10,] %>%
+  chart_ist(x = mpg, type = "bar") %>%
+  add_ist(disp) %>%
+  xaxis_ist(suffix = "MPG", scaleMinSpace = 100)
+```
+
+# xtitle_ist
+
+Add x axis title.
+
+## Arguments
+
+* `p` a chartist object.
+* `title` axis title.
+* `textAnchor` title position, defaults to middle.
+* `flipTitle` set to `TRUE` to flip title on x axis.
+* `offsetx` offset x aligment of title.
+* `offsety` offsety y alignment of title.
+
+## Examples
+
+```{r}
+mtcars %>%
+  chart_ist(disp) %>%
+  add_ist(values = hp) %>%
+  xtitle_ist(title = "HP", offsety = 30)
+```
+
+# yaxist_ist
+
+Tweak the y axis and related grid.
+
+## Arguments
+
+* `p` a chartist object.
+* `showLabel` set to FALSE to hide labels.
+* `showGrid` set to FALSE to hide the grid.
+* `suffix` add suffix to label.
+* `prefix` add prefix to label.
+* `position` positon of axis.
+* `offset` offset axis.
+* `labelOffset` offset labels, takes integer, vector or list (i.e.: `1`, `c(1,2)`, `list(x = 1, y = 2)`.
+* `scaleMinSpace` minimum height in pixel of scale.
+* `...` additional options.
+
+## Examples
+
+```{r}
+mtcars$models <- row.names(mtcars)
+
+mtcars[1:20,] %>%
+  chart_ist(x = models, type = "bar") %>%
+  add_ist(disp) %>%
+  yaxis_ist(showLabel = FALSE, showGrid = FALSE)
+
+mtcars[1:10,] %>%
+  chart_ist(x = mpg, type = "line") %>%
+  add_ist(disp) %>%
+  yaxis_ist(suffix = "MPG", scaleMinSpace = 100)
+```
+
+# ytitle_ist
+
+Add y axis title.
+
+## Arguments
+
+* `p` a chartist object.
+* `title` axis title.
+* `textAnchor` title position, defaults to middle.
+* `flipTitle` set to `TRUE` to flip title on x axis.
+* `offsetx` offset x aligment of title.
+* `offsety` offsety y alignment of title.
+
+## Examples
+
+```{r}
+mtcars %>%
+  chart_ist(disp) %>%
+  add_ist(values = hp) %>%
+  ytitle_ist(title = "HP", offsety = 30)
+```

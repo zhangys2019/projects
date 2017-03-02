@@ -1,0 +1,48 @@
+---
+title: "typed"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r demo}
+div(class = "page-header",
+    h3(typed("typed.js for Rmarkdown", typeSpeed = 100)))
+```
+
+[![Travis-CI Build Status](https://travis-ci.org/JohnCoene/typed.svg?branch=master)](https://travis-ci.org/JohnCoene/typed)
+[![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/JohnCoene)
+
+```{r intro}
+div(class = "container-fluid",
+    br(),
+    br(),
+    p(code("typed"), "is an htmlwidget for ",
+      a("typed.js", href = "https://github.com/mattboldt/typed.js", target = "_blank"), "It is obviously meant to be used in Rmarkdown html documents (such as this very website)."),
+    br(),
+    p(a(HTML('<i class="fa fa-github" aria-hidden="true"></i> Repository'),
+                class = "btn btn-primary btn-lg", href = "https://github.com/JohnCoene/typed", target = "_blank")))
+```
+
+```{r install}
+div(class = "page-header",
+    h2("Install"))
+```
+
+```{r install code, eval=FALSE, echo=TRUE}
+devtools::install_github("JohnCoene/typed")
+```
+
+```{r examples}
+div(class = "page-header",
+    h2("Examples"))
+```
+
+```{r example code, eval=FALSE, echo=TRUE}
+library(typed)
+
+typed("typed htmlwidget") # basic
+typed(c("hello", "world")) # this'll type 'hello' then erase and type 'world'
+tped("<h2>HTML content type (default)</h2>", typeSpeed = 150)
+```

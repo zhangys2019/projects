@@ -1,0 +1,53 @@
+---
+title: "Style"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(chartist)
+```
+
+You can style your chart using `style_ist`, currently on dev version only.
+
+## Basic example
+
+```{r}
+mtcars %>%
+  chart_ist(qsec, "bar", height = "200") %>%
+  add_ist(mpg) %>%
+  style_ist(type = "bar", css = htmltools::css(stroke = "darkblue"))
+```
+
+If you do speficy `type` it'll default to the chart `type`, or `bar` in this case.
+
+```{r}
+mtcars %>%
+  chart_ist(qsec, "bar", height = "250") %>%
+  add_ist(mpg) %>%
+  xaxis_ist(showGrid = FALSE) %>%
+  yaxis_ist(showLabel = FALSE, showGrid = FALSE) %>%
+  style_ist("bar", css = htmltools::css(stroke = "#d3d3d3", stroke.width = 20))
+```
+
+## Multiple elements
+
+You can pass a `vector` of multiple types.
+
+```{r}
+mtcars %>%
+  chart_ist(qsec) %>%
+  add_ist(mpg) %>%
+  style_ist(c("point", "line"), css = htmltools::css(stroke = "black")) 
+```
+
+## Advanced
+
+```{r}
+mtcars %>%
+  chart_ist(qsec) %>%
+  add_ist(mpg) %>%
+  xaxis_ist(showLabel = FALSE) %>%
+  style_ist("line", css = htmltools::css(stroke = "rgba(0,0,0,0.7)", stroke.dasharray = 15, stroke.width = 5)) %>%
+  style_ist("grid", css = htmltools::css(stroke.width = 4, stroke = "rgba(0,0,0,0.2)", stroke.dasharray = 2)) %>%
+  style_ist("point", css = htmltools::css(stroke = "darkred", stroke.width = 15)) 
+```

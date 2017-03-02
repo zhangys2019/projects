@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Docs</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #dddddd; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { font-weight: bold; } /* Keyword */
+code > span.dt { color: #800000; } /* DataType */
+code > span.dv { color: #0000ff; } /* DecVal */
+code > span.bn { color: #0000ff; } /* BaseN */
+code > span.fl { color: #800080; } /* Float */
+code > span.ch { color: #ff00ff; } /* Char */
+code > span.st { color: #dd0000; } /* String */
+code > span.co { color: #808080; font-style: italic; } /* Comment */
+code > span.al { color: #00ff00; font-weight: bold; } /* Alert */
+code > span.fu { color: #000080; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #ff0000; font-weight: bold; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #ff00ff; } /* SpecialChar */
+code > span.vs { color: #dd0000; } /* VerbatimString */
+code > span.ss { color: #dd0000; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { font-weight: bold; } /* Preprocessor */
+code > span.at { } /* Attribute */
+code > span.do { color: #808080; font-style: italic; } /* Documentation */
+code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 41px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+
+.section h2 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h3 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h4 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h5 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h6 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">uvcharts</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="http://john-coene.com/">
+    <span class="fa fa-arrow-circle-left"></span>
+     
+    home
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="types.html">Chart types</a>
+</li>
+<li>
+  <a href="config.html">Config</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-book"></span>
+     
+    Docs
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="docs.html">HTML</a>
+    </li>
+    <li>
+      <a href="uvcharts-0.0.1.pdf">PDF</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Docs</h1>
+
+</div>
+
+
+<div id="uvcharts-shiny" class="section level1">
+<h1>uvcharts-shiny</h1>
+<p>Output and render functions for using uvcharts within Shiny applications and interactive Rmd documents.</p>
+<div id="arguments" class="section level2">
+<h2>Arguments</h2>
+<ul>
+<li><code>outputId</code> output variable to read from</li>
+<li><code>width</code>, <code>height</code> Must be a valid CSS unit (like ‘100%’, ‘400px’, ‘auto’) or a number, which will be coerced to a string and have ‘px’ appended.</li>
+<li><code>expr</code> An expression that generates a uvcharts</li>
+<li><code>env</code> The environment in which to evaluate expr.</li>
+<li><code>quoted</code> Is expr a quoted expression (with quote())? This is useful if you want to save an expression in a variable.</li>
+</ul>
+</div>
+</div>
+<div id="uv_add" class="section level1">
+<h1>uv_add</h1>
+<p>Add a serie to plot</p>
+<div id="arguments-1" class="section level2">
+<h2>Arguments</h2>
+<ul>
+<li>p a <code>uvcharts</code> object.</li>
+<li><code>serie</code> values to plot.</li>
+</ul>
+</div>
+<div id="examples" class="section level2">
+<h2>Examples</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
+<span class="st">  </span><span class="kw">uv_bar</span>(mpg) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(qsec) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(drat)</code></pre></div>
+</div>
+</div>
+<div id="uv_areaopt" class="section level1">
+<h1>uv_areaopt</h1>
+<p>Customise the properties specific to area chart.</p>
+<div id="arguments-2" class="section level2">
+<h2>Arguments</h2>
+<ul>
+<li><code>p</code> a <code>uvcharts</code> object.</li>
+<li><code>interpolation</code> line interpolation. Defaults to linear see details for valid values.</li>
+<li><code>opacity</code> oOpacity in the case of simple Area chart, defaults to 0.2.</li>
+<li><code>offset</code> offset, defaults to zero. See details for valid values.</li>
+</ul>
+</div>
+<div id="details" class="section level2">
+<h2>Details</h2>
+<p>Valid values for interpolation argument:</p>
+<ul>
+<li><code>linear</code></li>
+<li><code>basis</code></li>
+<li><code>cardinal</code></li>
+<li><code>monotone</code></li>
+</ul>
+<p>Valid values for offset argument:</p>
+<ul>
+<li><code>zero</code></li>
+<li><code>wiggle</code></li>
+<li><code>silhouette</code></li>
+<li><code>expand</code></li>
+</ul>
+</div>
+<div id="examples-1" class="section level2">
+<h2>Examples</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
+<span class="st">  </span><span class="kw">uv_area</span>(qsec) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(mpg) %&gt;%
+<span class="st">  </span><span class="kw">uv_areaopt</span>(<span class="dt">opacity =</span> <span class="fl">0.9</span>)</code></pre></div>
+</div>
+</div>
+<div id="uv_axis" class="section level1">
+<h1>uv_axis</h1>
+<p>Customise the chart axis.</p>
+<div id="arguments-3" class="section level2">
+<h2>Arguments</h2>
+<ul>
+<li><code>p</code> a <code>uvcharts</code> object.</li>
+<li><code>opacity</code> opacity of the axis lines drawn for reference, defaults to <code>1</code>.</li>
+<li><code>ticks</code> number of major ticks on the measure axis.</li>
+<li><code>subticks</code> number of minor ticks on the measure axis.</li>
+<li><code>padding</code> any CSS size.</li>
+<li><code>minor</code> length of the minor ticks towards the label.</li>
+<li><code>strokecolor</code> color of axis lines, any Color Code or Color String or <code>none</code>. Defaults to <code>#000000</code>.</li>
+<li><code>fontfamily</code> any font, defaults to <code>Arial</code>.</li>
+<li><code>fontsize</code> font size. Defaults to <code>11</code>.</li>
+<li><code>fontweight</code> font weight, defaults to <code>bold</code>.</li>
+<li><code>showticks</code> show ticks flag, <code>TRUE</code> or <code>FALSE</code>, defaults to the former.</li>
+<li><code>showsubticks</code> show subticks flag, <code>TRUE</code> or <code>FALSE</code>, defaults to the former.</li>
+<li><code>showtext</code> show text flag, <code>TRUE</code> or <code>FALSE</code>, defaults to the former.</li>
+</ul>
+</div>
+<div id="examples-2" class="section level2">
+<h2>Examples</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
+<span class="st">  </span><span class="kw">uv_charts</span>(qsec) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(mpg) %&gt;%
+<span class="st">  </span><span class="kw">uv_axis</span>(<span class="dt">opacity =</span> <span class="fl">0.6</span>, <span class="dt">ticks =</span> <span class="dv">10</span>, <span class="dt">strokecolor =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">showtext =</span> <span class="ot">FALSE</span>)</code></pre></div>
+</div>
+</div>
+<div id="uv_baropt" class="section level1">
+<h1>uv_baropt</h1>
+<p>Customise the chart bars.</p>
+<div id="arguments-4" class="section level2">
+<h2>Arguments</h2>
+<ul>
+<li><code>p</code> a <code>uvcharts</code> object.</li>
+<li><code>strokecolor</code> any Color Code or Color String or none. defaults to <code>#000000</code>.</li>
+<li><code>fontsize</code> font size. Defaults to <code>11</code>.</li>
+<li><code>fontweight</code> font weight, defaults to <code>bold</code>.</li>
+<li><code>fontfamily</code> any font, defaults to <code>Arial</code>.</li>
+<li><code>textcolor</code> text color used for the numbers, defaults to <code>#000000</code>.</li>
+</ul>
+</div>
+<div id="examples-3" class="section level2">
+<h2>Examples</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
+<span class="st">  </span><span class="kw">uv_stackbar</span>(qsec) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(mpg) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(drat) %&gt;%
+<span class="st">  </span><span class="kw">uv_baropt</span>(<span class="dt">fontsize =</span> <span class="dv">7</span>)</code></pre></div>
+</div>
+</div>
+<div id="uv_caption" class="section level1">
+<h1>uv_caption</h1>
+<p>Customise the chart caption. Customise the chart subcaption.</p>
+<div id="usage" class="section level2">
+<h2>Usage</h2>
+<p><code>uv_caption(p, fontfamily, fontsize, fontweight, textdecoration, strokecolor, cursor)</code> <code>uv_subcaption(p, fontfamily, fontsize, fontweight, textdecoration, strokecolor, cursor)</code></p>
+</div>
+<div id="arguments-5" class="section level2">
+<h2>Arguments</h2>
+<ul>
+<li><code>p</code> a <code>uvcharts</code> object.</li>
+<li><code>fontfamily</code> any font, defaults to <code>Arial</code>.</li>
+<li><code>fontsize</code> font size. Defaults to <code>11</code>.</li>
+<li><code>fontweight</code> font weight, defaults to bold.</li>
+<li><code>textdecoration</code> text decoration applied on the caption, defaults to <code>none</code>.</li>
+<li><code>strokecolor</code> any Color Code or Color String or none. defaults to <code>#000000</code>.</li>
+<li><code>cursor</code> precision on the labels in case of decimal values. Defaults to <code>pointer</code>.</li>
+</ul>
+</div>
+<div id="examples-4" class="section level2">
+<h2>Examples</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
+<span class="st">  </span><span class="kw">uv_charts</span>(qsec) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(mpg) %&gt;%
+<span class="st">  </span><span class="kw">uv_meta</span>(<span class="st">&quot;Title&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">uv_caption</span>(<span class="dt">fontsize =</span> <span class="dv">30</span>)</code></pre></div>
+</div>
+</div>
+<div id="uv_charts" class="section level1">
+<h1>uv_charts</h1>
+<p>Initiate a uvchart</p>
+<div id="usage-1" class="section level2">
+<h2>Usage</h2>
+<p><code>uv_charts(data, x, type = &quot;Line&quot;, width = &quot;100%&quot;, height = &quot;100%&quot;, elementId = NULL)</code> <code>uv_bar(data, x, width = &quot;100%&quot;, height = &quot;100%&quot;, elementId = NULL)</code> <code>uv_line(data, x, width = &quot;100%&quot;, height = &quot;100%&quot;, elementId = NULL)</code> <code>uv_area(data, x, width = &quot;100%&quot;, height = &quot;100%&quot;, elementId = NULL)</code> <code>uv_stackbar(data, x, width = &quot;100%&quot;, height = &quot;100%&quot;, elementId = NULL)</code> <code>uv_stackarea(data, x, width = &quot;100%&quot;, height = &quot;100%&quot;, elementId = NULL)</code> <code>uv_pie(data, x, width = &quot;100%&quot;, height = &quot;100%&quot;, elementId = NULL)</code> <code>uv_donut(data, x, width = &quot;100%&quot;, height = &quot;100%&quot;, elementId = NULL)</code> <code>uv_percentbar(data, x, width = &quot;100%&quot;, height = &quot;100%&quot;, elementId = NULL)</code> <code>uv_percentarea(data, x, width = &quot;100%&quot;, height = &quot;100%&quot;, elementId = NULL)</code> <code>uv_stepupbar(data, x, width = &quot;100%&quot;, height = &quot;100%&quot;, elementId = NULL)</code> <code>uv_polar(data, x, width = &quot;100%&quot;, height = &quot;100%&quot;, elementId = NULL)</code> <code>uv_waterfall(data, x, width = &quot;100%&quot;, height = &quot;100%&quot;, elementId = NULL)</code></p>
+</div>
+<div id="arguments-6" class="section level2">
+<h2>Arguments</h2>
+<ul>
+<li><code>data</code> data.frame of data to plot.</li>
+<li><code>x</code> x variable.</li>
+<li><code>type</code> type of chart to plot, see details.</li>
+<li><code>width</code>, <code>height</code> Must be a valid CSS unit (like ‘100%’, ‘400px’, ‘auto’) or a number, which will be coerced to a string and have ‘px’ appended.</li>
+<li><code>elementId</code> id of div element containing chart.</li>
+</ul>
+</div>
+<div id="examples-5" class="section level2">
+<h2>Examples</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
+<span class="st">  </span><span class="kw">uv_charts</span>(mpg, <span class="dt">type =</span> <span class="st">&quot;Area&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(qsec)
+
+mtcars %&gt;%
+<span class="st">  </span><span class="kw">uv_bar</span>(mpg) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(qsec)
+
+mtcars %&gt;%
+<span class="st">  </span><span class="kw">uv_line</span>(mpg) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(qsec)
+
+mtcars %&gt;%
+<span class="st">  </span><span class="kw">uv_pie</span>(mpg) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(qsec)
+
+mtcars %&gt;%
+<span class="st">  </span><span class="kw">uv_stackbar</span>(mpg) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(qsec)
+
+mtcars %&gt;%
+<span class="st">  </span><span class="kw">uv_percentarea</span>(mpg) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(qsec)
+
+p &lt;-<span class="st"> </span><span class="kw">uv_line</span>(mtcars, qsec)
+p &lt;-<span class="st"> </span><span class="kw">uv_add</span>(p, mpg)
+p</code></pre></div>
+</div>
+</div>
+<div id="uv_config" class="section level1">
+<h1>uv_config</h1>
+<p>Configure the chart.</p>
+<div id="arguments-7" class="section level2">
+<h2>Arguments</h2>
+<ul>
+<li><code>p</code> a uvcharts object.</li>
+<li><code>...</code> any argument to pass to config.</li>
+</ul>
+</div>
+<div id="examples-6" class="section level2">
+<h2>Examples</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
+<span class="st">  </span><span class="kw">uv_charts</span>(qsec) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(mpg) %&gt;%
+<span class="st">  </span><span class="kw">uv_config</span>(<span class="dt">legend =</span> <span class="kw">list</span>(<span class="dt">showlegends =</span> <span class="ot">FALSE</span>))</code></pre></div>
+</div>
+</div>
+<div id="uv_dimension" class="section level1">
+<h1>uv_dimension</h1>
+<p>Customise the chart dimensions.</p>
+<div id="arguments-8" class="section level2">
+<h2>Arguments</h2>
+<ul>
+<li><code>p</code> a <code>uvcharts</code> object.</li>
+<li><code>width</code>, <code>height</code> any CSS size.</li>
+<li><code>override</code> if <code>TRUE</code>, overrides the div’s <code>height</code> and <code>width</code>, recommended.</li>
+</ul>
+</div>
+<div id="examples-7" class="section level2">
+<h2>Examples</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
+<span class="st">  </span><span class="kw">uv_charts</span>(qsec) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(mpg) %&gt;%
+<span class="st">  </span><span class="kw">uv_dimension</span>(<span class="dt">width =</span> <span class="dv">200</span>)</code></pre></div>
+</div>
+</div>
+<div id="uv_frame" class="section level1">
+<h1>uv_frame</h1>
+<p>Customise the chart frame.</p>
+<div id="arguments-9" class="section level2">
+<h2>Arguments</h2>
+<ul>
+<li><code>p</code> a uvcharts object.</li>
+<li><code>bgcolor</code> any Color Code or Color String or <code>none</code>.</li>
+</ul>
+</div>
+<div id="examples-8" class="section level2">
+<h2>Examples</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
+<span class="st">  </span><span class="kw">uv_charts</span>(qsec) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(mpg) %&gt;%
+<span class="st">  </span><span class="kw">uv_frame</span>(<span class="dt">bgcolor =</span> <span class="st">&quot;black&quot;</span>)</code></pre></div>
+</div>
+</div>
+<div id="uv_graph" class="section level1">
+<h1>uv_graph</h1>
+<p>Customise the graph object.</p>
+<div id="arguments-10" class="section level2">
+<h2>Arguments</h2>
+<ul>
+<li><code>p</code> a <code>uvcharts</code> object.</li>
+<li><code>palette</code> palette name, see details for valid values. Defaults to Brink.</li>
+<li><code>bgcolor</code> background color used for the entire chart include the margin spaces.</li>
+<li><code>orientation</code> orientation of the chart for a different layout based on requirements. Can take <code>Horizontal</code> or <code>Vertical</code>, defaults to the former.</li>
+<li><code>custom.palette</code> override the palette with your own color palette by providing a non empty list of color codes. They are used in order for corresponding serie (<code>uv_add</code>). Pass colors as <code>list</code>.</li>
+<li><code>opacity</code> opacity of the entire chart to make it blend into any background of your choice. Defaults to <code>1</code>.</li>
+<li><code>responsive</code> <code>TRUE</code> for responsive sizing (default).</li>
+</ul>
+</div>
+<div id="details-1" class="section level2">
+<h2>Details</h2>
+<p>Valid values for palette argument.</p>
+<ul>
+<li><code>Plain</code></li>
+<li><code>Simple</code></li>
+<li><code>Olive</code></li>
+<li><code>Candid</code></li>
+<li><code>Sulphide</code></li>
+<li><code>Soft</code></li>
+<li><code>Lint</code></li>
+</ul>
+</div>
+<div id="examples-9" class="section level2">
+<h2>Examples</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
+<span class="st">  </span><span class="kw">uv_charts</span>(qsec) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(mpg) %&gt;%
+<span class="st">  </span><span class="kw">uv_graph</span>(<span class="dt">palette =</span> <span class="st">&quot;Plain&quot;</span>)</code></pre></div>
+</div>
+</div>
+<div id="uv_label" class="section level1">
+<h1>uv_label</h1>
+<p>Customise the chart labels.</p>
+<div id="arguments-11" class="section level2">
+<h2>Arguments</h2>
+<ul>
+<li><code>p</code> a <code>uvcharts</code> object.</li>
+<li><code>fontfamily</code> any font, defaults to <code>Arial</code>.</li>
+<li><code>fontsize</code> font size. Defaults to <code>11</code>.</li>
+<li><code>fontweight</code> font weight, defaults to <code>bold</code>.</li>
+<li><code>strokecolor</code> any Color Code or Color String or none. defaults to <code>#000000</code>.</li>
+<li><code>showlabel</code> show labels flag, <code>TRUE</code> or <code>FALSE</code>, defaults to the former.</li>
+<li><code>precision</code> precision on the labels in case of decimal values. Defaults to <code>2</code>.</li>
+<li><code>prefix</code> any prefix which needs to be added to the label.</li>
+<li><code>suffix</code> any suffix which needs to be added to the label.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
+<span class="st">  </span><span class="kw">uv_charts</span>(qsec) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(mpg) %&gt;%
+<span class="st">  </span><span class="kw">uv_label</span>(<span class="dt">fontsize =</span> <span class="dv">6</span>, <span class="dt">strokecolor =</span> <span class="st">&quot;red&quot;</span>)</code></pre></div>
+</div>
+</div>
+<div id="uv_legend" class="section level1">
+<h1>uv_legend</h1>
+<p>Configure the legend.</p>
+<div id="arguments-12" class="section level2">
+<h2>Arguments</h2>
+<ul>
+<li><code>p</code> a <code>uvcharts</code> object.</li>
+<li><code>showlegends</code> boolean.</li>
+<li><code>position</code> legend position, i.e.: <code>right</code>.</li>
+</ul>
+</div>
+<div id="examples-10" class="section level2">
+<h2>Examples</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
+<span class="st">  </span><span class="kw">uv_charts</span>(qsec) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(mpg) %&gt;%
+<span class="st">  </span><span class="kw">uv_legend</span>(<span class="dt">position =</span> <span class="st">&quot;right&quot;</span>)</code></pre></div>
+</div>
+</div>
+<div id="uv_lineopt" class="section level1">
+<h1>uv_lineopt</h1>
+<p>Customise the properties affecting Line chart.</p>
+<div id="arguments-13" class="section level2">
+<h2>Arguments</h2>
+<ul>
+<li><code>p</code> a <code>uvcharts</code> object.</li>
+<li><code>interpolation</code> line interpolation. Defaults to linear see details for valid values.</li>
+</ul>
+</div>
+<div id="details-2" class="section level2">
+<h2>Details</h2>
+<p>Valid values for <code>interpolation</code> argument:</p>
+<ul>
+<li><code>linear</code></li>
+<li><code>basis</code></li>
+<li><code>cardinal</code></li>
+<li><code>monotone</code></li>
+</ul>
+</div>
+<div id="examples-11" class="section level2">
+<h2>Examples</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
+<span class="st">  </span><span class="kw">uv_charts</span>(qsec) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(mpg) %&gt;%
+<span class="st">  </span><span class="kw">uv_lineopt</span>(<span class="dt">interpolation =</span> <span class="st">&quot;cardinal&quot;</span>)</code></pre></div>
+</div>
+</div>
+<div id="uv_margin" class="section level1">
+<h1>uv_margin</h1>
+<p>Customise the chart margin.</p>
+<div id="arguments-14" class="section level2">
+<h2>Arguments</h2>
+<ul>
+<li><code>p</code> a <code>uvcharts</code> object.</li>
+<li><code>top</code>, <code>bottom</code>, <code>left</code>, <code>right</code> any CSS size.</li>
+</ul>
+</div>
+<div id="examples-12" class="section level2">
+<h2>Examples</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
+<span class="st">  </span><span class="kw">uv_charts</span>(qsec) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(mpg) %&gt;%
+<span class="st">  </span><span class="kw">uv_meta</span>(<span class="st">&quot;Title&quot;</span>, <span class="st">&quot;Subtitle&quot;</span>, <span class="st">&quot;x axis&quot;</span>, <span class="st">&quot;y axis&quot;</span>)</code></pre></div>
+</div>
+</div>
+<div id="uv_pieopt" class="section level1">
+<h1>uv_pieopt</h1>
+<p>Customise the properties specific to Pie Chart. Customise the properties specific to Donut Chart.</p>
+<div id="usage-2" class="section level2">
+<h2>Usage</h2>
+<p><code>uv_pieopt(p, fontfamily, fontsize, fontweight, fontvariant, fontfill, strokecolor, strokewidth)</code> <code>uv_donutopt(p, fontfamily, fontsize, fontweight, fontvariant, fontfill, strokecolor, strokewidth, factor)</code></p>
+</div>
+<div id="arguments-15" class="section level2">
+<h2>Arguments</h2>
+<ul>
+<li><code>p</code> a <code>uvcharts</code> object.</li>
+<li><code>fontfamily</code> any font, defaults to <code>Arial</code>.</li>
+<li><code>fontsize</code> font size. Defaults to <code>11</code>.</li>
+<li><code>fontweight</code> font weight, defaults to <code>bold</code>.</li>
+<li><code>fontvariant</code> font variant used on the text, defaults to <code>small-caps</code>, can also take normal.</li>
+<li><code>fontfill</code> text color on the measure, defaults to <code>#000000</code>.</li>
+<li><code>strokecolor</code> any Color Code or Color String or none. defaults to <code>#000000</code>.</li>
+</ul>
+</div>
+<div id="examples-13" class="section level2">
+<h2>Examples</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
+<span class="st">  </span><span class="kw">uv_pie</span>(qsec) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(mpg) %&gt;%
+<span class="st">  </span><span class="kw">uv_pieopt</span>(<span class="dt">fontfill =</span> <span class="st">&quot;white&quot;</span>)</code></pre></div>
+</div>
+</div>
+<div id="uv_scale" class="section level1">
+<h1>uv_scale</h1>
+<p>Customise the chart scale.</p>
+<div id="arguments-16" class="section level2">
+<h2>Arguments</h2>
+<ul>
+<li><code>p</code> a <code>uvcharts</code> object.</li>
+<li><code>type</code> scale used to represent values on the chart, see details for valid values.</li>
+<li><code>ordinality</code> defines the gap between 2 consecutive labels, defaults to <code>0.2</code>.</li>
+</ul>
+</div>
+<div id="details-3" class="section level2">
+<h2>Details</h2>
+<p>Valid values for type argument, defaults to linear:</p>
+<ul>
+<li><code>linear</code></li>
+<li><code>log</code></li>
+<li><code>pow</code></li>
+<li><code>sqrt</code></li>
+</ul>
+</div>
+<div id="examples-14" class="section level2">
+<h2>Examples</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
+<span class="st">  </span><span class="kw">uv_charts</span>(qsec) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(mpg) %&gt;%
+<span class="st">  </span><span class="kw">uv_scale</span>(<span class="dt">type =</span> <span class="st">&quot;log&quot;</span>)</code></pre></div>
+</div>
+</div>
+<div id="uv_tooltip" class="section level1">
+<h1>uv_tooltip</h1>
+<p>Customise the chart tooltip.</p>
+<div id="arguments-17" class="section level2">
+<h2>Arguments</h2>
+<ul>
+<li><code>p</code> a <code>uvcharts</code> object.</li>
+<li><code>show</code> flag to enable or disable tooltip functionality, defaults to <code>TRUE</code>.</li>
+<li><code>format</code> defines custom format for tooltip, character string. defaults to<code>%c [%l] : %v</code></li>
+</ul>
+</div>
+<div id="examples-15" class="section level2">
+<h2>Examples</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
+<span class="st">  </span><span class="kw">uv_charts</span>(qsec) %&gt;%
+<span class="st">  </span><span class="kw">uv_add</span>(mpg) %&gt;%
+<span class="st">  </span><span class="kw">uv_tooltip</span>(<span class="dt">format =</span> <span class="st">&quot;%v&quot;</span>)</code></pre></div>
+</div>
+</div>
+
+<footer><p><a href="http://imaginea.github.io/uvCharts/">uvCharts</a> htmlwidget by <a href="http://john-coene.com">John Coene</a><span class="pull-right">MIT License</span></p></footer>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

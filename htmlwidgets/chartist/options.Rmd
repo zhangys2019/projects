@@ -1,0 +1,92 @@
+---
+title: "Options"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Functions
+
+There are four functions that allow you to customise charts' series:
+
+1. `opt_ist`
+2. `lineopt_ist`
+3. `baropt_ist` 
+4. `pieopt_ist`
+
+You can pass any otpion for any series `type` with `opt_ist`. However for the sake of convenience and clarity, there are also type-specific option functions.
+
+## Missing Data
+
+```{r}
+set.seed(19880525) # create missing data
+df <- data.frame(x = 1:20, 
+                 y = sample(c(round(runif(20, 10, 20)), rep(NA, 8)), 20),
+                 z = sample(c(round(runif(20, 10, 20)), rep(NA, 8)), 20))
+```
+
+### Holes
+
+```{r}
+df %>%
+  chart_ist(x) %>%
+  add_ist(y) %>%
+  add_ist(z) %>% # leave holes (NA)
+  yaxis_ist(onlyInteger = TRUE)
+```
+
+### Fill holes
+
+```{r}
+df %>%
+  chart_ist(x) %>%
+  add_ist(y) %>%
+  add_ist(z) %>% 
+  lineopt_ist(fillHoles = TRUE) %>%
+  yaxis_ist(onlyInteger = TRUE)
+```
+
+## Series
+
+Set options to specific series by refering to their `name`.
+
+```{r}
+mtcars$models <- row.names(mtcars)
+mtcars[1:15,] %>%
+  chart_ist(models) %>%
+  add_ist(cyl, name = "serie-1") %>%
+  add_ist(drat, name = "serie-2") %>%
+  add_ist(wt, "serie-3") %>%
+  lineopt_ist(name = "serie-1", lineSmoothing = "step") %>%
+  lineopt_ist(name = "serie-2", showArea = TRUE, showPoint = FALSE) %>%
+  lineopt_ist(name = "serie-3", lineSmoothing = 3, showPoint = TRUE)
+```
+
+## Distributed data
+
+set `distributeSeries` to `TRUE` for categorical data.
+
+```{r}
+mtcars[1:10,] %>%
+  chart_ist(x = models, type = "bar") %>%
+  add_ist(disp) %>%
+  baropt_ist(distributeSeries = TRUE)
+```
+
+## Grid & Axis
+
+Customise the grid and axis.
+
+```{r}
+mtcars[1:15,] %>%
+  chart_ist(x = models, type = "bar") %>%
+  add_ist(disp) %>%
+  yaxis_ist(position = "end", prefix = "$", suffix = "M", showGrid = TRUE) %>%
+  xaxis_ist(position = "end", showGrid = FALSE)
+```

@@ -1,0 +1,94 @@
+---
+title: "Animations"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(chartist)
+```
+
+Here I use `loop_ist` to loop all animations.
+
+## Line
+
+Out of the box animation for line and area charts.
+
+```{r}
+mtcars %>%
+  chart_ist(wt) %>%
+  add_ist(disp, name = "disp") %>%
+  add_ist(hp, name = "hp") %>%
+  opt_ist(showPoint = FALSE) %>%
+  lineopt_ist(name = "hp", showArea = TRUE) %>%
+  lanim_ist() %>%
+  loop_ist() # loop animation
+```
+
+## Scatter
+
+Out of the box animation for scatter charts.
+
+```{r}
+mtcars %>%
+  chart_ist(wt) %>%
+  add_ist(disp) %>%
+  add_ist(hp) %>%
+  scatter_ist() %>%
+  sanim_ist() %>%
+  loop_ist(6000) # loop every 6000 milliseconds
+```
+
+## Donut
+
+Out of the box animation for donut charts.
+
+```{r}
+mtcars[1:5,] %>%
+  chart_ist(x = hp, type = "pie") %>%
+  add_ist(disp) %>%
+  pieopt_ist(donut = TRUE, showLabel = FALSE) %>%
+  danim_ist() %>%
+  loop_ist(7000) # loop every 7000 milliseconds
+```
+
+## Grid
+
+Out of the box animation for the grid.
+
+```{r}
+mtcars %>%
+  chart_ist(wt) %>%
+  add_ist(disp) %>%
+  add_ist(hp) %>%
+  ganim_ist() %>%
+  loop_ist()
+```
+
+## Custom
+
+Create your own SMIL using `anim_ist`.
+
+```{r}
+mtcars %>%
+    chart_ist(wt) %>%
+    add_ist(disp) %>%
+    add_ist(hp) %>%
+    anim_ist(type = c("line", "point"), 
+             anim = "opacity", 
+             begin = 0,
+             from = 0,
+             to = 1,
+             dur = 2000) %>%
+    anim_ist(type = c("grid"), 
+             anim = "opacity", 
+             begin = 0,
+             from = 0,
+             to = 1,
+             dur = 7000) %>%
+  loop_ist()
+```

@@ -1,0 +1,12 @@
+---
+title: "about"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+libs <- c("htmltools", "webutils", "typed")
+lapply(libs, library, character.only = TRUE)
+```
+
+# John Coene
+

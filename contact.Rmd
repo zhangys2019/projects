@@ -1,0 +1,15 @@
+---
+title: "Contact"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+libs <- c("htmltools", "webutils", "typed")
+lapply(libs, library, character.only = TRUE)
+```
+
+```{r}
+div(p("Please free to inquire about a project, collaboration, consulting or freelance opportunities."), 
+    a("jcoenep@gmail.com", href = "mailto:jcoenep@gmail.com"))
+```
+

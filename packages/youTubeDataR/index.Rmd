@@ -1,0 +1,108 @@
+---
+title: "youTubeDataR"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, eval = TRUE)
+library(htmltools)
+library(youTubeDataR)
+library(plotly)
+videos <- get(load("cred.RData"))
+```
+
+```{r chart}
+videos %>%
+  chart_ist(statistics.viewCount, height = 300) %>%
+  add_ist(statistics.likeCount) %>%
+  opt_ist(showArea = TRUE, showPoint = FALSE) %>%
+  xaxis_ist(showLabel = FALSE) %>%
+  lanim_ist() %>%
+  loop_ist()
+```
+
+[![Build Status](https://travis-ci.org/JohnCoene/youTubeDataR.svg?branch=master)](https://travis-ci.org/JohnCoene/youTubeDataR)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/JohnCoene/youTubeDataR?branch=master&svg=true)](https://ci.appveyor.com/project/JohnCoene/youTubeDataR)
+[![codecov.io](https://codecov.io/github/JohnCoene/youTubeDataR/coverage.svg?branch=master)](https://codecov.io/github/JohnCoene/youTubeDataR?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/JohnCoene/youTubeDataR/badge.svg?branch=master)](https://coveralls.io/github/JohnCoene/youTubeDataR?branch=master)
+
+```{r, intro}
+div(class = "container-fluid",
+    br(),
+    p("youTubeDataR is an R package that provides access to the ",
+           a("Youtube Data API", href = "https://developers.google.com/youtube/v3/", target = "_blank"), 
+           ".All functionalities of the API are implemented."))
+```
+
+```{r install head}
+div(class = "page-header",
+    h2("Install"))
+div(class = "container-fluid",
+    p("Install from Github."))
+```
+
+```{r install code, echo = TRUE, eval = FALSE}
+devtools::install_github("JohnCoene/tweets2earth")
+```
+
+```{r, setup pkg}
+div(class = "page-header",
+    h2("Setup"))
+```
+
+1. Sign in at [https://console.developers.google.com](https://console.developers.google.com)
+2. Click "Credentials" in the sidebar
+3. Hit "Create credentials"
+4. In the dropdown menu select "OAuth client ID"
+5. On the next page select "Web application"
+6. Fill in your "Authorized redirect URIs" as returned by `httr::oauth_callback()` as "Authorized redirect URIs" (generally `http://localhost:1410/`).
+
+```{r}
+div(class = "page-header",
+    h2("Examples"))
+```
+
+```{r, eval = FALSE, echo=TRUE}
+library(youTubeDataR)
+
+# Authenticate
+TK <- youOauth(client.id = "something.apps.googleusercontent.com",
+               client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX", 
+               scope = "force-ssl")
+
+# search channels, videos and playlists about R tutorials
+any <- searchTube(TK, query = "R tutorial", type = "any")
+
+# search channels about R tutorials
+search <- searchTube(TK, query = "R tutorial", type = "channel")
+
+# get random channel out of search results
+chan <- sample(search$id.channelId, 1)
+
+# get activities of sampled channel
+chan.act <- getActivities(TK, channel.id = chan)
+
+# get sampled channel sections
+chan.sect <- getChannelSections(TK, channel.id = chan)
+
+# get most popular video data
+my.videos <- getVideos(TK, chart = "mostPopular", part = "statistics")
+```
+
+Example used to make chart in page header.
+
+```{r example advanced, eval = FALSE, echo=TRUE}
+part <- findParts("getVideos") # helper FUN to find valid parts
+part <- part[part %in% "statistics"] # get statistics
+videos <- getVideos(TK, part = "statistics", chart = "mostPopular") # get statistics of most popular videos
+
+library(chartist) # load chartist to plot
+
+# plot view count vs comment count
+videos %>%
+  chart_ist(statistics.viewCount) %>%
+  add_ist(statistics.likeCount) %>%
+  opt_ist(showArea = TRUE, showPoint = FALSE) %>%
+  xaxis_ist(showLabel = FALSE) %>%
+  lanim_ist() %>%
+  loop_ist()
+```

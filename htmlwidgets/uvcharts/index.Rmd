@@ -1,0 +1,111 @@
+---
+title: "uvcharts"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(uvcharts)
+library(htmltools)
+df <- data.frame(x = 1:50,
+                 water = runif(50, 10, 16),
+                 apple = runif(50, 13, 16),
+                 avocado = runif(50, 15, 17))
+```
+
+```{r header}
+df %>%
+  uv_stackarea(x) %>%
+  uv_add(apple) %>%
+  uv_add(water) %>%
+  uv_add(avocado) %>%
+  uv_graph(orientation = "Vertical", custom.palette = list("#4da309", "#02a5de", "#e08b27")) %>%
+  uv_axis(ticks = 10, fontsize = 9, strokecolor = "#d3d3d3") %>%
+  uv_label(fontsize = 5) %>%
+  uv_meta(caption = "uvcharts", subcaption = "Example", vlabel = "y axis") %>%
+  uv_config(legend = list(showlegends = TRUE)) %>%
+  uv_margin(20, 50, 30, 30) %>%
+  uv_legend(position = "bottom")
+```
+
+<br>
+<br>
+[![Travis-CI Build Status](https://travis-ci.org/JohnCoene/uvcharts.svg?branch=master)](https://travis-ci.org/JohnCoene/uvcharts)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/JohnCoene/uvcharts?branch=master&svg=true)](https://ci.appveyor.com/project/JohnCoene/uvcharts)
+
+
+```{r}
+br()
+br()
+h4(code("uvcharts"), " is an htmlwidget for ",
+   a("uvCharts", href = "http://imaginea.github.io/uvCharts", target = "_blank"))
+```
+
+> uvCharts is a JavaScript based charting library built using the famous d3.js library. uvCharts lets you skip all the tough learning and coding part involved with d3.js and yet build simple, robust, completely customisable charts on any page on the web with utmost ease. --- uvCharts
+
+```{r install, echo = FALSE}
+div(class = "page-header",
+    h2("Install", class = "text-primary"))
+```
+
+```{r, eval=FALSE, echo = TRUE}
+devtools::install_github("JohnCoene/uvcharts")
+```
+
+```{r first chart, echo = FALSE}
+div(class = "page-header",
+    h2("Your first chart", class = "text-primary"))
+```
+
+```{r, echo=TRUE, eval = FALSE}
+library(uvcharts)
+
+df <- data.frame(x = 1:15, y = runif(15, 10, 16))
+
+df %>%
+  uv_bar(x) %>%
+  uv_add(y)
+```
+
+```{r, echo=FALSE, eval=TRUE}
+df <- data.frame(x = 1:15, y = runif(15, 10, 16))
+df %>%
+  uv_bar(x) %>%
+  uv_add(y) %>%
+  uv_legend(showlegends = FALSE)
+```
+
+
+```{r how it works, echo = FALSE}
+div(class = "page-header",
+    h2("How it works", class = "text-primary"))
+```
+
+All function start in `uv_`.
+
+1. Initiate a uvchart with `uv_charts` or their chart type equivalent (i.e.: `uv_bar`).
+2. Add series, values to plot, with `uv_add`.
+3. Customise your chart with any of the 15 functions.
+
+```{r adv ex, echo=FALSE}
+div(class = "page-header",
+    h2("Advanced example", class = "text-primary"))
+```
+
+Below is the code used to generate the very banner of this page.
+
+```{r, eval=FALSE, echo = TRUE}
+df <- data.frame(x = 1:50, water = runif(50, 10, 16), apples = runif(50, 13, 16), avocado = runif(50, 15, 17))
+
+df %>%
+  uv_stackarea(x) %>%
+  uv_add(apple) %>%
+  uv_add(water) %>%
+  uv_add(avocado) %>%
+  uv_graph(orientation = "Vertical", custom.palette = list("#4da309", "#02a5de", "#e08b27")) %>%
+  uv_axis(ticks = 10, fontsize = 9, strokecolor = "#d3d3d3") %>%
+  uv_label(fontsize = 5) %>%
+  uv_meta(caption = "uvcharts", subcaption = "Example", vlabel = "y axis") %>%
+  uv_config(legend = list(showlegends = TRUE)) %>%
+  uv_margin(20, 50, 30, 30) %>%
+  uv_legend(position = "bottom")
+```

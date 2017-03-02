@@ -1,0 +1,113 @@
+---
+title: "bibler"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
+library(htmltools)
+library(bibler)
+library(uvcharts)
+data("king_james_df")
+```
+
+```{r chart header}
+# base Bing Liu lexicons
+neg <- readLines("negative-words.txt")
+neg <- neg[36:length(neg)]
+pos <- readLines("positive-words.txt")
+pos <- pos[36:length(pos)]
+
+data("middle_english_negative")
+data("middle_english_positive")
+pos <- c(pos, middle_english_positive)
+neg <- c(neg, middle_english_negative)
+
+# sentiment scoring FUN
+sentiment_score = function(text, pos.words, neg.words){
+  scores = plyr::laply(text,
+                 function(text, pos.words, neg.words){
+                   text = gsub("[[:punct:]]", "", text)
+                   text = gsub("[[:cntrl:]]", "", text)
+                   text = gsub('\\d+', '', text)
+                   text = sapply(text, tolower)
+                   word_list = stringr::str_split(text, "\\s+")
+                   words = unlist(word_list)
+                   positive_matches = match(words, pos.words)
+                   negative_matches = match(words, neg.words)
+                   positive_matches = !is.na(positive_matches)
+                   negative_matches = !is.na(negative_matches)
+                   score = sum(positive_matches) - sum(negative_matches)
+                   return(score)
+                 }, pos.words, neg.words)
+  return(scores)
+}
+
+# score each verse
+king_james_df$Sentiment <- sentiment_score(king_james_df$Text, pos, neg)
+
+# mean sentiment / book
+bks <- plyr::ddply(king_james_df, c("King.James.Bible", "Book.Number"),
+                                    plyr::summarise, Sentiment = mean(Sentiment))
+
+# bks$colour <- ifelse(bks$Sentiment >= 0, "#59922b", "#f05b4f")
+bks$label <- ifelse(bks$Sentiment >= 0, "positive", "negative")
+# plot_ly(bks,
+#         x = ~Book.Number,
+#         y = ~Sentiment,
+#         type = "bar",
+#         text = ~King.James.Bible,
+#         hoverinfo = "text",
+#         marker = list(
+#           color = ~colour
+#         )) %>%
+#   layout(title = "Average sentiment by book",
+#          showlegend = FALSE,
+#          xaxis = list(title = "Book Number"),
+#          height = 415, width = "100%")
+
+bks <- reshape2::dcast(bks, King.James.Bible + Book.Number ~ label, value.var="Sentiment")
+
+bks$negative[is.na(bks$negative)] <- 0
+bks$positive[is.na(bks$positive)] <- 0
+
+bks %>% 
+  uv_bar(Book.Number) %>% 
+  uv_add(negative) %>% 
+  uv_add(positive) %>% 
+  uv_graph(custom.palette = c("red", "green"), orientation = "Vertical") %>% 
+  uv_baropt(fontsize = 0) %>% 
+  uv_label(fontsize = 5, strokecolor = "grey") %>% 
+  uv_axis(showsubticks = FALSE, opacity = 0.2, strokecolor = "#d3d3d3") %>% 
+  uv_meta(caption = "King James Bible", subcaption = "Sentiment Analysis", hlabel = "Book Number", vlabel = "Sentiment Score") %>% 
+  uv_frame(bgcolor = "none") %>% 
+  uv_legend(position = "right")
+```
+
+[![Travis-CI Build Status](https://travis-ci.org/JohnCoene/bibler.svg?branch=master)](https://travis-ci.org/JohnCoene/bibler) [![Build status](https://ci.appveyor.com/api/projects/status/fgqivf16f1u7jrug/branch/master?svg=true)](https://ci.appveyor.com/project/JohnCoene/bibler/branch/master)
+[![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/JohnCoene)
+
+```{r title}
+div(class = "page-header",
+    h2("Install"))
+```
+
+```{r install code, echo=TRUE, eval=FALSE}
+devtools::install_github("JohnCoene/bibler")
+```
+
+```{r}
+div(class = "page-header",
+    h2("Datasets"))
+```
+
+* `king_james_df` The King James Bible as data.frame
+* `king_james_tm` The King James Bible as [tm](https://cran.r-project.org/package=tm) corpus (`c("VCorpus", "Corpus"`)
+* `king_james_books` List of books that constitute the King James Bible
+* `apocrypha_df` The Apocrypha as data.frame
+* `apocrypha_tm` The Apocrypha as [tm](https://cran.r-project.org/package=tm) corpus (`c("VCorpus", "Corpus"`)
+* `apocrypha_books` List of books that constitute the Apocrypha
+* `middle_english_stopwords` Character vector of Middle English stopwords
+* `middle_english_positive` Lexicon of positive Middle English terms
+* `middle_english_negative` Lexicon of negative Middle English terms
+
+See [vignette](packages/bibler/examples.html) for more details.

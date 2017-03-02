@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Docs</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<script src="https://use.fontawesome.com/9fdc01e796.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #dddddd; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { font-weight: bold; } /* Keyword */
+code > span.dt { color: #800000; } /* DataType */
+code > span.dv { color: #0000ff; } /* DecVal */
+code > span.bn { color: #0000ff; } /* BaseN */
+code > span.fl { color: #800080; } /* Float */
+code > span.ch { color: #ff00ff; } /* Char */
+code > span.st { color: #dd0000; } /* String */
+code > span.co { color: #808080; font-style: italic; } /* Comment */
+code > span.al { color: #00ff00; font-weight: bold; } /* Alert */
+code > span.fu { color: #000080; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #ff0000; font-weight: bold; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #ff00ff; } /* SpecialChar */
+code > span.vs { color: #dd0000; } /* VerbatimString */
+code > span.ss { color: #dd0000; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { font-weight: bold; } /* Preprocessor */
+code > span.at { } /* Attribute */
+code > span.do { color: #808080; font-style: italic; } /* Documentation */
+code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 41px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+
+.section h2 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h3 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h4 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h5 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h6 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">youTubeDataR</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="http://john-coene.com/">
+    <span class="fa fa-arrow-circle-left"></span>
+     
+    home
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/JohnCoene/youTubeDataR/">
+    <span class="fa fa-github"></span>
+     
+    Repository
+  </a>
+</li>
+<li>
+  <a href="docs.html">
+    <span class="fa fa-book"></span>
+     
+    Docs
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Docs</h1>
+
+</div>
+
+
+<div id="findparams" class="section level1">
+<h1>findParams</h1>
+<p>Helper function to retrieve valid values for parameters.</p>
+<div id="arguments" class="section level3">
+<h3>Arguments</h3>
+<ul>
+<li><code>param</code> Parameter to retrieve</li>
+</ul>
+<div id="details" class="section level4">
+<h4>Details</h4>
+<p>Given the pletoric number of parameters a this helper function is provided. Please see the <a href="https://developers.google.com/youtube/v3/docs/search/list">official documentation</a> for more information. Note that all parameters (i.e.: <code>channel.id</code>) cannot, by nature, be tested.</p>
+<p>Valid parameters:</p>
+<ul>
+<li><code>order</code></li>
+<li><code>video.dimension</code></li>
+<li><code>video.caption</code></li>
+<li><code>video.duration</code></li>
+<li><code>video.definition</code></li>
+<li><code>video.embeddable</code></li>
+<li><code>video.syndicated</code></li>
+<li><code>video.license</code></li>
+<li><code>video.type</code></li>
+<li><code>safe.search</code></li>
+<li><code>event.type</code></li>
+<li><code>channel.type</code></li>
+<li><code>type</code></li>
+<li><code>text.format</code></li>
+<li><code>moderation.status</code></li>
+</ul>
+</div>
+<div id="examples" class="section level4">
+<h4>Examples</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Authenticate</span>
+token &lt;-<span class="st"> </span><span class="kw">youOAuth</span>(<span class="dt">client.id =</span> <span class="st">&quot;something.apps.googleusercontent.com&quot;</span>,
+                  <span class="dt">client.secret =</span> <span class="st">&quot;XxxXX1XxXxXxxx1xxx1xxXXX&quot;</span>)
+
+<span class="co"># find valid values for video.dimension</span>
+dims &lt;-<span class="st"> </span><span class="kw">findParams</span>(<span class="dt">param =</span> <span class="st">&quot;video.dimension&quot;</span>)
+
+<span class="co"># set seed for reproducability</span>
+<span class="kw">set.seed</span>(<span class="dv">19880525</span>)
+
+<span class="co"># fetch data using parameter</span>
+cats &lt;-<span class="st"> </span><span class="kw">searchVideos</span>(token, <span class="dt">query =</span> <span class="st">&quot;cats&quot;</span>, 
+                     <span class="dt">video.dimension =</span> <span class="kw">sample</span>(dims, <span class="dv">1</span>))</code></pre></div>
+</div>
+</div>
+</div>
+<div id="findparts" class="section level1">
+<h1>findParts</h1>
+<p>Helper function to retrieve valid values for <code>part</code>.</p>
+<div id="arguments-1" class="section level4">
+<h4>Arguments</h4>
+<ul>
+<li><code>FUN</code> Function to retrieve the valid <code>part</code>.</li>
+</ul>
+</div>
+<div id="details-1" class="section level4">
+<h4>Details</h4>
+<p>Valid values for <code>FUN</code>:</p>
+<ul>
+<li><code>getActivities</code></li>
+<li><code>getCaptions</code></li>
+<li><code>getChannels</code></li>
+<li><code>getChannelSections</code></li>
+<li><code>getComments</code></li>
+<li><code>getCommentThreads</code></li>
+<li><code>getPlaylistItems</code></li>
+<li><code>getPlaylists</code></li>
+<li><code>getSubscriptions</code></li>
+<li><code>getVideos</code></li>
+</ul>
+<p>Alternatively see <code>scope</code> in <code>youOAuth</code> function.</p>
+</div>
+<div id="examples-1" class="section level4">
+<h4>Examples</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Authenticate</span>
+token &lt;-<span class="st"> </span><span class="kw">youOAuth</span>(<span class="dt">client.id =</span> <span class="st">&quot;something.apps.googleusercontent.com&quot;</span>,
+                  <span class="dt">client.secret =</span> <span class="st">&quot;XxxXX1XxXxXxxx1xxx1xxXXX&quot;</span>)
+                  
+<span class="co"># search channels about cats</span>
+search &lt;-<span class="st"> </span><span class="kw">searchTube</span>(token, <span class="dt">query =</span> <span class="st">&quot;cats&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;channel&quot;</span>)
+
+<span class="co"># random channel id</span>
+<span class="kw">set.seed</span>(<span class="dv">19880525</span>)
+chan &lt;-<span class="st"> </span><span class="kw">sample</span>(search$id.channelId, <span class="dv">1</span>)
+
+<span class="co"># get valid part</span>
+p &lt;-<span class="st"> </span><span class="kw">findParts</span>(<span class="dt">FUN =</span> <span class="st">&quot;getActivities&quot;</span>)[<span class="dv">1</span>]
+
+<span class="co"># fetch data</span>
+act &lt;-<span class="st"> </span><span class="kw">getActivities</span>(token, <span class="dt">channel.id =</span> chan, <span class="dt">part =</span> p)</code></pre></div>
+</div>
+</div>
+<div id="getactivities" class="section level1">
+<h1>getActivities</h1>
+<p>Returns a list of caption tracks matching a specific critera.</p>
+<div id="arguments-2" class="section level3">
+<h3>Arguments</h3>
+<ul>
+<li><code>token</code> Your token as returned by <code>youOAuth</code> function.</li>
+<li><code>channel.id</code> Indicates that the API response should only contain resources created by the channel.</li>
+<li><code>part</code> The part parameter specifies a comma-separated list of one or more activity resource properties that the API response will include. The default value is <code>snippet</code>, can take any of <code>contentDetails</code>, <code>id</code> or <code>snippet</code>. See <code>findParts</code> function.</li>
+<li><code>n</code> Number of results to fecth. The default value is <code>50</code>.</li>
+<li><code>max.results</code> Specifies the maximum number of results that should be returned by each API call. Acceptable values are <code>0</code> to <code>50</code>, inclusive. The default value is <code>50</code>.</li>
+<li><code>mine</code> Set this parameter’s value to true to retrieve a feed of the authenticated user’s activities. The default value is <code>FALSE</code>.</li>
+<li><code>home</code> Set this parameter’s value to true to retrieve the activity feed that displays on the YouTube home page for the currently authenticated user. The default value is <code>FALSE</code>.</li>
+<li><code>published.before</code> Indicates that the API response should only contain resources created before the specified time. Can be either of class <code>Date</code> (“%Y-%m-%d”) or <code>POSIXct</code> or <code>POSIXlt</code> with time, or an RFC 3339 formatted date-time value (i.e.: <code>1970-01-01T00:00:00Z</code>). The default value is <code>Sys.time()</code>.</li>
+<li><code>published.after</code> Indicates that the API response should only contain resources created after the specified time. Can be either of class <code>Date</code> (“%Y-%m-%d”) or <code>POSIXct</code> or <code>POSIXlt</code> with time, or an RFC 3339 formatted date-time value (i.e.: <code>1970-01-01T00:00:00Z</code>). The default value is <code>NULL</code>.</li>
+<li><code>region.code</code> Instructs the API to return search results for the specified country. The parameter value is an <a href="http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm">ISO 3166-1 alpha-2</a> country code. The default value is <code>NULL</code>. See <code>getRegions</code> function.</li>
+<li><code>verbose</code> If <code>TRUE</code> prints infromational messages in the console. The default value is <code>FALSE</code>.</li>
+</ul>
+</div>
+<div id="examples-2" class="section level3">
+<h3>Examples</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Authenticate</span>
+token &lt;-<span class="st"> </span><span class="kw">youOAuth</span>(<span class="dt">client.id =</span> <span class="st">&quot;something.apps.googleusercontent.com&quot;</span>,
+                  <span class="dt">client.secret =</span> <span class="st">&quot;XxxXX1XxXxXxxx1xxx1xxXXX&quot;</span>)
+                  
+<span class="co"># search channels about cats</span>
+search &lt;-<span class="st"> </span><span class="kw">searchTube</span>(token, <span class="dt">query =</span> <span class="st">&quot;cats&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;channel&quot;</span>)
+
+<span class="co"># pick random channel id</span>
+<span class="kw">set.seed</span>(<span class="dv">19880525</span>)
+chan &lt;-<span class="st"> </span><span class="kw">sample</span>(search$id.channelId, <span class="dv">1</span>)
+
+<span class="co"># fetch data</span>
+act &lt;-<span class="st"> </span><span class="kw">getActivities</span>(token, <span class="dt">channel.id =</span> chan)</code></pre></div>
+</div>
+</div>
+<div id="getcaptions" class="section level1">
+<h1>getCaptions</h1>
+<p>Returns a list of caption tracks that are associated with a specified video.</p>
+<div id="arguments-3" class="section level3">
+<h3>Arguments</h3>
+<ul>
+<li><code>token</code> Your token as returned by <code>youOAuth</code> function.</li>
+<li><code>video.id</code> specifies the YouTube video ID of the video for which the API should return caption tracks. Required.</li>
+<li><code>part</code> specifies the caption resource parts that the API response will include. The default vlaue is <code>snippet</code>, can take any of <code>id</code> or <code>snippet</code>. See <code>findParts</code> function.</li>
+<li><code>id</code> The id parameter specifies a comma-separated list of IDs that identify the caption resources that should be retrieved. Each ID must identify a caption track associated with the specified video. The default value is `<code>NULL</code>.</li>
+<li><code>on.behalf.of.content.owner</code> The <code>on.behalf.of.content.owner</code> parameter indicates that the request’s authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with must be linked to the specified YouTube content owner. This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners. See scopes under <code>youOAuth</code> function. The default value is <code>NULL</code>.</li>
+</ul>
+</div>
+<div id="details-2" class="section level3">
+<h3>Details</h3>
+<p>See scope in <code>youOAuth</code>. Required authorisation: * <code>force-ssl</code> * <code>partner-channel-audit</code></p>
+</div>
+<div id="examples-3" class="section level3">
+<h3>Examples</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Authenticate</span>
+token &lt;-<span class="st"> </span><span class="kw">youOAuth</span>(<span class="dt">client.id =</span> <span class="st">&quot;something.apps.googleusercontent.com&quot;</span>,
+                  <span class="dt">client.secret =</span> <span class="st">&quot;XxxXX1XxXxXxxx1xxx1xxXXX&quot;</span>)
+                  
+<span class="co"># search videos about cats</span>
+search &lt;-<span class="st"> </span><span class="kw">searchTube</span>(token, <span class="dt">query =</span> <span class="st">&quot;cats&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;video&quot;</span>)
+
+<span class="co"># random channel id</span>
+<span class="kw">set.seed</span>(<span class="dv">19880525</span>)
+vid &lt;-<span class="st"> </span><span class="kw">sample</span>(search$id.videoId, <span class="dv">1</span>)
+
+<span class="co"># fetch data</span>
+act &lt;-<span class="st"> </span><span class="kw">getActivities</span>(token, <span class="dt">video.id =</span> vid)</code></pre></div>
+</div>
+</div>
+<div id="getchannels" class="section level1">
+<h1>getChannels</h1>
+<p>Returns a collection of zero or more channel resources that match the request criteria.</p>
+<div id="arguments-4" class="section level3">
+<h3>Arguments</h3>
+<ul>
+<li><code>token</code> Your token as returned by <code>youOAuth</code> function.</li>
+<li><code>n</code> Number of results to fecth. The default value is <code>50</code>.</li>
+<li><code>part</code> The part parameter specifies a comma-separated list of one or more activity resource properties that the API response will include. The default value is <code>snippet</code>, see <code>findParts</code> function or <a href="https://developers.google.com/youtube/v3/docs/channels/list">official documentation</a> for all valid values.</li>
+<li><code>category.id</code> Specifies a YouTube guide category, thereby requesting YouTube channels associated with that category. As returned by<code>getGuideCategories</code> function. The default value is <code>NULL</code>.</li>
+<li><code>for.username</code> Specifies a YouTube username, thereby requesting the channel associated with that username. The default value is <code>NULL</code>.</li>
+<li><code>id</code> specifies a comma-separated list of the YouTube channel ID(s) for the resource(s) that are being retrieved. In a channel resource, the id property specifies the channel’s YouTube channel ID. The default value is <code>NULL</code></li>
+<li><code>managed.by.me</code> This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners. See scopes under <code>youOAuth</code> function. Set this parameter’s value to true to instruct the API to only return channels managed by the content owner that the <code>on.behalf.of.content.owner</code> parameter specifies. The user must be authenticated as a CMS account linked to the specified content owner and <code>on.behalf.of.content.owner</code> must be provided.</li>
+<li><code>mine</code> Set this parameter’s value to true to retrieve a feed of the authenticated user’s activities. The default value is <code>FALSE</code>.</li>
+<li><code>hl</code> The hl parameter instructs the API to retrieve localized resource metadata for a specific application language that the YouTube website supports. The parameter value must be a language code included in the list returned by <code>getLanguages</code> function.</li>
+<li><code>max.results</code> Specifies the maximum number of results that should be returned by each API call. Acceptable values are <code>0</code> to <code>50</code>, inclusive. The default value is <code>50</code>.</li>
+<li><code>on.behalf.of.content.owner</code> Indicates that the request’s authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with must be linked to the specified YouTube content owner. This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners. See scope under <code>youOAuth</code> function. The default value is <code>NULL</code>.</li>
+<li><code>verbose</code> If <code>TRUE</code> prints infromational messages in the console. The default value is <code>FALSE</code>.</li>
+</ul>
+</div>
+<div id="details-3" class="section level3">
+<h3>Details</h3>
+<p>MUST specify at least one of the following:</p>
+<ul>
+<li><code>category.id</code></li>
+<li><code>for.username</code></li>
+<li><code>id</code></li>
+<li><code>managed.by.me</code> (<code>TRUE</code>)</li>
+<li><code>mine</code> (<code>TRUE</code>)</li>
+</ul>
+</div>
+<div id="examples-4" class="section level3">
+<h3>Examples</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Authenticate</span>
+token &lt;-<span class="st"> </span><span class="kw">youOAuth</span>(<span class="dt">client.id =</span> <span class="st">&quot;something.apps.googleusercontent.com&quot;</span>,
+                  <span class="dt">client.secret =</span> <span class="st">&quot;XxxXX1XxXxXxxx1xxx1xxXXX&quot;</span>)
+                  
+<span class="co"># search channels about cats</span>
+search &lt;-<span class="st"> </span><span class="kw">searchTube</span>(token, <span class="dt">query =</span> <span class="st">&quot;cats&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;channel&quot;</span>)
+
+<span class="co"># pick random id</span>
+<span class="kw">set.seed</span>(<span class="dv">19880525</span>)
+chan &lt;-<span class="st"> </span><span class="kw">sample</span>(search$id.channelId, <span class="dv">1</span>)
+
+<span class="co"># fetch</span>
+chan.dat &lt;-<span class="st"> </span><span class="kw">getChannels</span>(token, <span class="dt">id =</span> chan)</code></pre></div>
+</div>
+</div>
+<div id="getchannelsections" class="section level1">
+<h1>getChannelSections</h1>
+<p>Returns a list of channelSection resources that match the API request criteria.</p>
+</div>
+<div id="arguments-5" class="section level1">
+<h1>Arguments</h1>
+<ul>
+<li><code>token</code> Your token as returned by <code>youOAuth</code> function.</li>
+<li><code>channel.id</code> Indicates that the API response should only contain resources created by the channel. The default value is <code>NULL</code>.</li>
+<li><code>part</code> The part parameter specifies a comma-separated list of one or more activity resource properties that the API response will include. The default value is <code>snippet</code>, can take any of <code>contentDetails</code>, <code>id</code> or <code>snippet</code>. See <code>findParts</code> function.</li>
+<li><code>mine</code> Set this parameter’s value to true to retrieve a feed of the authenticated user’s activities. The default value is <code>FALSE</code>.</li>
+<li><code>id</code> Specifies a comma-separated list of IDs that uniquely identify the channelSection resources that are being retrieved. In a <code>getChannelSections</code> resource, the id property specifies the section’s ID.</li>
+<li><code>hl</code> The hl parameter instructs the API to retrieve localized resource metadata for a specific application language that the YouTube website supports. The parameter value must be a language code included in the list returned by <code>getLanguages</code> function</li>
+<li><code>on.behalf.of.content.owner</code> Indicates that the request’s authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with must be linked to the specified YouTube content owner. This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners. See scope under <code>youOAuth</code> function. The default value is <code>NULL</code>.</li>
+<li><code>verbose</code> If <code>TRUE</code> prints infromational messages in the console. The default value is <code>FALSE</code>.</li>
+</ul>
+<div id="details-4" class="section level3">
+<h3>Details</h3>
+<p>Must specify one (and only one) of <code>mine</code> (<code>TRUE</code>), <code>id</code> or <code>channel.id</code>.</p>
+</div>
+<div id="examples-5" class="section level3">
+<h3>Examples</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Authenticate</span>
+token &lt;-<span class="st"> </span><span class="kw">youOAuth</span>(<span class="dt">client.id =</span> <span class="st">&quot;something.apps.googleusercontent.com&quot;</span>,
+                  <span class="dt">client.secret =</span> <span class="st">&quot;XxxXX1XxXxXxxx1xxx1xxXXX&quot;</span>)
+
+<span class="co"># search channels on cats</span>
+search &lt;-<span class="st"> </span><span class="kw">searchTube</span>(token, <span class="dt">query =</span> <span class="st">&quot;cats&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;channel&quot;</span>)
+
+<span class="co"># get channel sections</span>
+sections &lt;-<span class="st"> </span><span class="kw">getChannelSections</span>(token, 
+                               <span class="dt">channel.id =</span> search$channelId [<span class="dv">1</span>])</code></pre></div>
+</div>
+</div>
+<div id="getcomments" class="section level1">
+<h1>getComments</h1>
+<p>Returns a list of comments that match the API request parameters.</p>
+<div id="arguments-6" class="section level3">
+<h3>Arguments</h3>
+<ul>
+<li><code>token</code> Your token as returned by <code>youOAuth</code>.</li>
+<li><code>part</code> The part parameter specifies a comma-separated list of one or more activity resource properties that the API response will include. The default value is <code>snippet</code>, can take any of <code>snippet</code> or <code>id</code>. See <code>findParts</code> function.</li>
+<li><code>n</code> Number of results to fecth. The default value is <code>50</code>.</li>
+<li><code>max.results</code> Specifies the maximum number of results that should be returned by each API call. Acceptable values are <code>0</code> to <code>50</code>, inclusive. The default value is <code>50</code>.</li>
+<li><code>id</code> Specifies a comma-separated list of comment IDs for the resources that are being retrieved. In a comment resource, specifies the comment’s ID.</li>
+<li><code>parent.id</code> Specifies the ID of the comment for which replies should be retrieved. Note: YouTube currently supports replies only for top-level comments. However, replies to replies may be supported in the future.</li>
+<li><code>text.format</code> Indicates whether the API should return comments formatted as HTML or as plain text. The default value is <code>html</code>.</li>
+<li><code>verbose</code> If <code>TRUE</code> prints infromational messages in the console. The default value is <code>FALSE</code>.</li>
+</ul>
+</div>
+<div id="details-5" class="section level3">
+<h3>Details</h3>
+<p>Must specify one (and only one) of <code>id</code> or <code>parent.id</code>.</p>
+</div>
+<div id="examples-6" class="section level3">
+<h3>Examples</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Authenticate</span>
+token &lt;-<span class="st"> </span><span class="kw">youOAuth</span>(<span class="dt">client.id =</span> <span class="st">&quot;something.apps.googleusercontent.com&quot;</span>,
+                  <span class="dt">client.secret =</span> <span class="st">&quot;XxxXX1XxXxXxxx1xxx1xxXXX&quot;</span>)</code></pre></div>
+</div>
+</div>
+<div id="getguidecategories" class="section level1">
+<h1>getGuideCategories</h1>
+<p>Returns a list of categories that can be associated with YouTube channels.</p>
+<div id="arguments-7" class="section level3">
+<h3>Arguments</h3>
+<ul>
+<li><code>token</code> Your token as returned by <code>youOAuth</code> function.</li>
+<li><code>id</code> Specifies a comma-separated list of the YouTube channel category ID(s) for the resource(s) that are being retrieved. In a <code>guide.category</code> resource, the id property specifies the YouTube channel category ID.</li>
+<li><code>region.code</code> Instructs the API to return the list of guide categories available in the specified country. The parameter value is an <a href="https://www.iso.org/obp/ui/#search">ISO 3166-1 alpha-2</a> country code.</li>
+<li><code>hl</code> Specifies the language that will be used for text values in the API response. The default value (from YouTube) is <code>en-US</code>. See <code>getLanguages</code> function</li>
+</ul>
+</div>
+<div id="examples-7" class="section level3">
+<h3>Examples</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">token &lt;-<span class="st"> </span><span class="kw">youOAuth</span>(<span class="dt">client.id =</span> <span class="st">&quot;something.apps.googleusercontent.com&quot;</span>,
+                  <span class="dt">client.secret =</span> <span class="st">&quot;XxxXX1XxXxXxxx1xxx1xxXXX&quot;</span>)
+
+<span class="co"># fetch categories from Belgium</span>
+dull.cat &lt;-<span class="st"> </span><span class="kw">getCategories</span>(token, <span class="dt">region.code =</span> <span class="st">&quot;BE&quot;</span>)</code></pre></div>
+</div>
+</div>
+<div id="getlanguages" class="section level1">
+<h1>getLanguages</h1>
+<p>Returns a list of application languages that the YouTube website supports.</p>
+<div id="arguments-8" class="section level3">
+<h3>Arguments</h3>
+<ul>
+<li><code>token</code> Your token as returned by <code>youOAuth</code> function.</li>
+<li><code>hl</code> Specifies the language that should be used for text values in the API response. The default value is <code>en_US</code>. Optional argument.’</li>
+<li><code>verbose</code> If <code>TRUE</code> prints infromational messages in the console. The default value is <code>FALSE</code>.</li>
+</ul>
+</div>
+<div id="examples-8" class="section level3">
+<h3>Examples</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Authenticate</span>
+token &lt;-<span class="st"> </span><span class="kw">youOAuth</span>(<span class="dt">client.id =</span> <span class="st">&quot;something.apps.googleusercontent.com&quot;</span>,
+                  <span class="dt">client.secret =</span> <span class="st">&quot;XxxXX1XxXxXxxx1xxx1xxXXX&quot;</span>)
+
+<span class="co"># fetch languages</span>
+lang &lt;-<span class="st"> </span><span class="kw">getLanguages</span>(token)</code></pre></div>
+</div>
+</div>
+<div id="getplaylists" class="section level1">
+<h1>getPlaylists</h1>
+<p>Returns a collection of playlists that match the API request parameters.</p>
+<div id="arguements" class="section level3">
+<h3>Arguements</h3>
+<ul>
+<li><code>token</code> Your token as returned by <code>youOAuth</code> function.</li>
+<li><code>part</code> The part parameter specifies a comma-separated list of one or more activity resource properties that the API response will include. The default value is <code>snippet</code>, see <code>findParts</code> function for all valid values..</li>
+<li><code>n</code> Number of results to fecth. The default value is <code>50</code>.</li>
+<li><code>max.results</code> Specifies the maximum number of results that should be returned by each API call. Acceptable values are <code>0</code> to <code>50</code>, inclusive. The default value is <code>50</code>.</li>
+<li><code>channel.id</code> Indicates that the API should only return the specified channel’s playlists.</li>
+<li><code>id</code> Specifies a comma-separated list of the YouTube playlist ID(s) for the resource(s) that are being retrieved.</li>
+<li><code>mine</code> This parameter can only be used in a properly authorized request. Set this parameter’s value to <code>TRUE</code> to instruct the API to only return playlists owned by the authenticated user.</li>
+<li><code>hl</code> Instructs the API to retrieve localized resource metadata for a specific application language that the YouTube website supports. The parameter value must be a language code included in the list returned by the <code>getLanguages</code> function. The default value is <code>NULL</code>.</li>
+<li><code>on.behalf.of.content.owner</code> This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners. Indicates that the request’s authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner. The default value is <code>NULL</code>, must be used in conjonction with <code>on.behalf.of.content.owner.channel.channel</code></li>
+<li><code>on.behalf.of.content.owner.channel</code> This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners. Specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the <code>on.behalf.of.content.owner</code> parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the <code>on.behalf.of.content.owner</code> parameter specifies. Finally, the channel that the <code>on.behalf.of.content.owner.channel</code> parameter value specifies must be linked to the content owner that the <code>on.behalf.of.content.owner</code> parameter specifies.</li>
+<li><code>verbose</code> If <code>TRUE</code> prints infromational messages in the console. The default value is <code>FALSE</code>.</li>
+</ul>
+</div>
+<div id="examples-9" class="section level3">
+<h3>Examples</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Authenticate</span>
+token &lt;-<span class="st"> </span><span class="kw">youOAuth</span>(<span class="dt">client.id =</span> <span class="st">&quot;something.apps.googleusercontent.com&quot;</span>,
+                  <span class="dt">client.secret =</span> <span class="st">&quot;XxxXX1XxXxXxxx1xxx1xxXXX&quot;</span>)
+                  
+<span class="co"># search channels about cats</span>
+search &lt;-<span class="st"> </span><span class="kw">searchTube</span>(token, <span class="dt">query =</span> <span class="st">&quot;cats&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;channel&quot;</span>)
+
+<span class="co"># pick random channel</span>
+<span class="kw">set.seed</span>(<span class="dv">19880525</span>)
+chan &lt;-<span class="st"> </span><span class="kw">sample</span>(search$id.channelId, <span class="dv">1</span>)
+
+<span class="co"># fetch playlist</span>
+pl &lt;-<span class="st"> </span><span class="kw">getPlaylists</span>(token, <span class="dt">channel.id =</span> chan)</code></pre></div>
+</div>
+</div>
+<div id="getplaylistitems" class="section level1">
+<h1>getPlaylistItems</h1>
+<p>Returns a collection of playlist items that match the API request parameters.</p>
+<div id="arguments-9" class="section level3">
+<h3>Arguments</h3>
+<ul>
+<li><code>token</code> Your token as returned by <code>youOAuth</code> function.</li>
+<li><code>part</code> The part parameter specifies a comma-separated list of one or more activity resource properties that the API response will include. The default value is <code>snippet</code>, see <code>findParts</code> function or <a href="https://developers.google.com/youtube/v3/docs/channels/list">official documentation</a> for all valid values.</li>
+<li><code>n</code> Number of results to fecth. The default value is <code>50</code>.</li>
+<li><code>id</code> The id parameter specifies a comma-separated list of one or more unique playlist item IDs.</li>
+<li><code>playlist.id</code> Specifies the unique ID of the playlist for which you want to retrieve playlist items. Note that even though this is an optional parameter, every request to retrieve playlist items must specify a value for either the id parameter or the <code>playlist.id</code> parameter.</li>
+<li><code>max.results</code> Specifies the maximum number of results that should be returned by each API call. Acceptable values are <code>0</code> to <code>50</code>, inclusive. The default value is <code>50</code>.</li>
+<li><code>on.behalf.of.content.owner</code> This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners. Indicates that the request’s authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.</li>
+<li><code>video.id</code> Specifies that the request should return only the playlist items that contain the specified video.</li>
+<li><code>verbose</code> If <code>TRUE</code> prints infromational messages in the console. The default value is <code>FALSE</code>.</li>
+</ul>
+</div>
+<div id="examples-10" class="section level3">
+<h3>Examples</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Authenticate</span>
+token &lt;-<span class="st"> </span><span class="kw">youOAuth</span>(<span class="dt">client.id =</span> <span class="st">&quot;something.apps.googleusercontent.com&quot;</span>,
+                  <span class="dt">client.secret =</span> <span class="st">&quot;XxxXX1XxXxXxxx1xxx1xxXXX&quot;</span>)
+
+<span class="co"># search playlists</span>
+search &lt;-<span class="st"> </span><span class="kw">searchTube</span>(token, <span class="dt">query =</span> <span class="st">&quot;cats&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;playlist&quot;</span>)
+
+<span class="co"># sample playlist id</span>
+id &lt;-<span class="st"> </span><span class="kw">sample</span>(search$id.playlistId, <span class="dv">1</span>)
+
+<span class="co"># fetch</span>
+items &lt;-<span class="st"> </span><span class="kw">getPlaylistItems</span>(token, <span class="dt">playlist.id =</span> id)</code></pre></div>
+</div>
+</div>
+<div id="getregions" class="section level1">
+<h1>getRegions</h1>
+<p>Returns a list of application languages that the YouTube website supports.</p>
+<div id="arguments-10" class="section level3">
+<h3>Arguments</h3>
+<ul>
+<li><code>token</code> Your token as returned by <code>youOAuth</code> function.</li>
+<li><code>hl</code> Specifies the language that should be used for text values in the API response. The default value is <code>en_US</code>. Optional argument.</li>
+<li><code>verbose</code> If <code>TRUE</code> prints infromational messages in the console. The default value is <code>FALSE</code>.</li>
+</ul>
+</div>
+<div id="examples-11" class="section level3">
+<h3>Examples</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Authenticate</span>
+token &lt;-<span class="st"> </span><span class="kw">youOAuth</span>(<span class="dt">client.id =</span> <span class="st">&quot;something.apps.googleusercontent.com&quot;</span>,
+                  <span class="dt">client.secret =</span> <span class="st">&quot;XxxXX1XxXxXxxx1xxx1xxXXX&quot;</span>)
+
+<span class="co"># fetch languages</span>
+regions &lt;-<span class="st"> </span><span class="kw">getRegions</span>(token)</code></pre></div>
+</div>
+</div>
+<div id="getsubscriptions" class="section level1">
+<h1>getSubscriptions</h1>
+<p>Returns subscription resources that match the API request criteria.</p>
+<div id="arguments-11" class="section level3">
+<h3>Arguments</h3>
+<ul>
+<li><code>token</code> Your token as returned by <code>youOAuth</code> function.</li>
+<li><code>part</code> The part parameter specifies a comma-separated list of one or more activity resource properties that the API response will include. The default value is <code>snippet</code>, see <code>findParts</code> function for all valid values.</li>
+<li><code>n</code> Number of results to fecth. The default value is <code>50</code>.</li>
+<li><code>mine</code> Set this parameter’s value to true to retrieve a feed of the authenticated user’s subscriptions. The default value is <code>FALSE</code></li>
+<li><code>max.results</code> Specifies the maximum number of results that should be returned by each API call. Acceptable values are <code>0</code> to <code>50</code>, inclusive. The default value is <code>50</code>.</li>
+<li><code>for.channel.id</code> Specifies a comma-separated list of channel IDs. The API response will then only contain subscriptions matching those channels.</li>
+<li><code>id</code> Specifies a comma-separated list of the YouTube subscription ID(s) for the resource(s) that are being retrieved. In a subscription resource, the id property specifies the YouTube subscription ID.</li>
+<li><code>order</code> Specifies the method that will be used to sort resources in the API response. The default value is <code>relevance</code>, see <code>findParams</code> function.</li>
+<li><code>channel.id</code> Specifies a YouTube channel ID. The API will only return that channel’s subscriptions.</li>
+<li><code>my.subscriber</code> This parameter can only be used in a properly authorized request. Set this parameter’s value to <code>TRUE</code> to retrieve a feed of the subscribers of the authenticated user.</li>
+<li><code>on.behalf.of.content.owner</code> This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.Indicates that the request’s authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner. The default value is <code>NULL</code>, must be used in conjonction with <code>on.behalf.of.content.owner.channel.channel</code></li>
+<li><code>on.behalf.of.content.owner.channel</code> This parameter can only be used in a properly authorized request. Note: This parameter is intended exclusively for YouTube content partners.Specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the <code>on.behalf.of.content.owner</code> parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the <code>on.behalf.of.content.owner</code> parameter specifies. Finally, the channel that the <code>on.behalf.of.content.owner.channel</code> parameter value specifies must be linked to the content owner that the <code>on.behalf.of.content.owner</code> parameter specifies.</li>
+<li><code>verbose</code> If <code>TRUE</code> prints infromational messages in the console. The default value is <code>FALSE</code>.</li>
+</ul>
+</div>
+<div id="examples-12" class="section level3">
+<h3>Examples</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Authenticate</span>
+token &lt;-<span class="st"> </span><span class="kw">youOAuth</span>(<span class="dt">client.id =</span> <span class="st">&quot;something.apps.googleusercontent.com&quot;</span>,
+                  <span class="dt">client.secret =</span> <span class="st">&quot;XxxXX1XxXxXxxx1xxx1xxXXX&quot;</span>)
+                  
+<span class="co"># search channels</span>
+search &lt;-<span class="st"> </span><span class="kw">searchTube</span>(token, <span class="dt">query =</span> <span class="st">&quot;cats&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;channel&quot;</span>)
+
+<span class="co"># pick random channel</span>
+<span class="kw">set.seed</span>(<span class="dv">19880525</span>)
+chan &lt;-<span class="st"> </span><span class="kw">sample</span>(search$id.channelId, <span class="dv">1</span>)
+
+<span class="co"># fetch subs</span>
+subs &lt;-<span class="st"> </span><span class="kw">getSubscriptions</span>(token, <span class="dt">channel.id =</span> chan)</code></pre></div>
+</div>
+</div>
+<div id="getvideocategories" class="section level1">
+<h1>getVideoCategories</h1>
+<p>Returns a list of categories that can be associated with YouTube videos.</p>
+<div id="arguments-12" class="section level3">
+<h3>Arguments</h3>
+<ul>
+<li><code>token</code> Your token as returned by <code>youOAuth</code> function.</li>
+<li><code>id</code> Specifies a comma-separated list of video category IDs for the resources that you are retrieving.</li>
+<li><code>region.code</code> Instructs the API to return the list of video categories available in the specified country. The parameter value is an <a href="https://www.iso.org/obp/ui/#search">ISO 3166-1 alpha-2</a> country code.</li>
+<li><code>hl</code> Specifies the language that should be used for text values in the API response. The default value is <code>en_US</code>.</li>
+</ul>
+</div>
+<div id="examples-13" class="section level3">
+<h3>Examples</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Authenticate</span>
+token &lt;-<span class="st"> </span><span class="kw">youOAuth</span>(<span class="dt">client.id =</span> <span class="st">&quot;something.apps.googleusercontent.com&quot;</span>,
+                  <span class="dt">client.secret =</span> <span class="st">&quot;XxxXX1XxXxXxxx1xxx1xxXXX&quot;</span>)
+
+<span class="co"># get categories</span>
+video.cat &lt;-<span class="st"> </span><span class="kw">getVideoCategories</span>(token, <span class="dt">region.code =</span> <span class="st">&quot;US&quot;</span>)</code></pre></div>
+</div>
+</div>
+<div id="getvideos" class="section level1">
+<h1>getVideos</h1>
+<p>Returns a list of videos that match the API request parameters.</p>
+<div id="arguments-13" class="section level3">
+<h3>Arguments</h3>
+<ul>
+<li><code>token</code> Your token as returned by <code>youOAuth</code> function.</li>
+<li><code>part</code> The part parameter specifies a comma-separated list of one or more activityresource properties that the API response will include. The default value is <code>snippet</code>, see <code>findParts</code> function for all valid values.</li>
+<li><code>n</code> Number of results to fecth. The default value is <code>50</code>.</li>
+<li><code>max.results</code> Specifies the maximum number of results that should be returned by each API call. Acceptable values are <code>0</code> to <code>50</code>, inclusive. The default value is <code>50</code>.</li>
+<li><code>chart</code> The chart parameter identifies the chart that you want to retrieve. Only valid value is <code>mostPopular</code> or <code>NULL</code>. The default value if <code>mostPopular</code>.</li>
+<li><code>id</code> Specifies a comma-separated list of the YouTube video ID(s) for the resource(s) that are being retrieved. In a video resource, the id property specifies the video’s ID.</li>
+<li><code>on.behalf.of.content.owner</code> This parameter can only be used in a properlyauthorized request. Note: This parameter is intended exclusively for YouTube content partners. Indicates that the request’s authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.</li>
+<li><code>video.category.id</code> Identifies the video category for which the chart should be retrieved. This parameter can only be used in conjunction with the chart parameter. By default, charts are not restricted to a particular category. The default value is <code>0</code>.</li>
+<li><code>region.code</code> Instructs the API to select a video chart available in the specified region. This parameter can only be used in conjunction with the chart parameter. The parameter value is an ISO 3166-1 alpha-2 country code.</li>
+<li><code>my.rating</code> This parameter can only be used in a properly authorized request. Set this parameter’s value to <code>like</code> or <code>dislike</code> to instruct the API to only return videos liked or disliked by the authenticated user.</li>
+<li><code>verbose</code> If <code>TRUE</code> prints infromational messages in the console. The default value is <code>FALSE</code>.</li>
+<li><code>hl</code> Specifies the language that will be used for text values in the API response. The default value (from YouTube) is <code>NULL</code>. See <code>getLanguages</code> function. If localized resource details are available in that language, the resource’s <code>snippet</code> (<code>part = &quot;snippet&quot;</code>).</li>
+</ul>
+</div>
+<div id="examples-14" class="section level3">
+<h3>Examples</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Authenticate</span>
+token &lt;-<span class="st"> </span><span class="kw">youOAuth</span>(<span class="dt">client.id =</span> <span class="st">&quot;something.apps.googleusercontent.com&quot;</span>,
+                  <span class="dt">client.secret =</span> <span class="st">&quot;XxxXX1XxXxXxxx1xxx1xxXXX&quot;</span>)
+
+<span class="co"># get videos</span>
+videos &lt;-<span class="st"> </span><span class="kw">getVideos</span>(token)</code></pre></div>
+</div>
+</div>
+<div id="searchtube" class="section level1">
+<h1>searchTube</h1>
+<p>Search YouTube for videos, channels and/or playlists.</p>
+<div id="arguments-14" class="section level3">
+<h3>Arguments</h3>
+<ul>
+<li><code>token</code> Your token as returned by <code>youOAuth</code> function.</li>
+<li><code>query</code> The query term to search for. Your request can also use the Boolean NOT (-) and OR (|) operators to exclude videos or to find videos that are associated with one of several search terms. For example, to search for videos matching either “boating” or “sailing”, set the query parameter value to <code>boating|sailing</code>. Similarly, to search for videos matching either “boating” or “sailing” but not “fishing”, set the query parameter value to <code>boating|sailing -fishing</code>.</li>
+<li><code>n</code> Number of results to fecth. The default value is <code>50</code>.</li>
+<li><code>type</code> Restricts a search query to only retrieve a particular type of resource. The value is a comma-separated list of resource types. The default value is <code>any</code> (includes <code>channel</code>, <code>video</code> and <code>playlist</code>).</li>
+<li><code>order</code> Specifies the method that will be used to order resources in the API response. The default value is <code>relevance</code>. See <code>findParams</code> function for valid values.</li>
+<li><code>video.dimension</code> Restricts a search to only retrieve 2D or 3D videos. The default value is <code>any</code>. If you specify a value for this parameter, you must also set the <code>type</code> parameter’s value to <code>video</code>. See <code>findParams</code> function for valid values.</li>
+<li><code>video.caption</code> Indicates whether the API should filter video search results based on whether they have captions. The default value is <code>any</code>. See <code>findParams</code> function for valid values. If you specify a value for this parameter, you must also set the <code>type</code> parameter’s value to <code>video</code>.</li>
+<li><code>video.category.id</code> Filters video search results based on their category ID as returned by <code>getVideoCategories</code> function.</li>
+<li><code>video.duration</code> Filters video search results based on their duration. The default value is <code>any</code>. See <code>findParams</code> function for valid values. If you specify a value for this parameter, you must also set the <code>type</code> parameter’s value to <code>video</code>.</li>
+<li><code>video.embeddable</code> Restricts a search to only videos that can be embedded into a webpage. The default value is <code>any</code>. See <code>findParams</code> function for valid values. If you specify a value for this parameter, you must also set the <code>type</code> parameter’s value to <code>video</code>.</li>
+<li><code>video.syndicated</code> Restricts a search to only videos that can be played outside youtube.com. The default value is <code>any</code>. See <code>findParams</code> function for valid values. If you specify a value for this parameter, you must also set the <code>type</code> parameter’s value to <code>video</code>.</li>
+<li><code>video.type</code> Restricts a search to a particular type of videos. The default value is <code>any</code>. See <code>findParams</code> function for valid values. If you specify a value for this parameter, you must also set the <code>type</code> parameter’s value to <code>video</code>.</li>
+<li><code>video.definition</code> Restricts a search to only include either high definition (HD) or standard definition (SD) videos. HD videos are available for playback in at least 720p, though higher resolutions, like 1080p, might also be available. The default value is <code>any</code>. See <code>findParams</code> function for valid values. If you specify a value for this parameter, you must also set the <code>type</code> parameter’s value to <code>video</code>.</li>
+<li><code>video.license</code> Filters search results to only include videos with a particular license. YouTube lets video uploaders choose to attach either the Creative Commons license or the standard YouTube license to each of their videos. The default value is <code>any</code>. See <code>findParams</code> function for valid values. If you specify a value for this parameter, you must also set the <code>type</code> parameter’s value to <code>video</code>.</li>
+<li><code>max.results</code> Specifies the maximum number of results that should be returned by each API call. Acceptable values are <code>0</code> to <code>50</code>, inclusive. The default value is <code>50</code>.</li>
+<li><code>location</code> Must be used in conjunction with the locationRadius parameter, defines a circular geographic area and also restricts a search to videos that specify, in their metadata, a geographic location that falls within that area. The parameter value is a vector that specifies latitude and longitude coordinates e.g. <code>c(lat = 37.42307, long = -122.08427)</code> or <code>c(37.42307, -122.08427)</code>. The default value is <code>NULL</code>.</li>
+<li><code>location.radius</code> Must be used in conjunction with the location parameter, defines a circular geographic area. The parameter value must be a floating point number followed by a measurement unit. Valid measurement units are <code>m</code>, <code>km</code>, <code>ft</code>, and <code>mi</code>. For example, valid parameter values include <code>1500m</code>, <code>5km</code>, <code>10000ft</code>, and <code>0.75mi</code>. The API does NOT support parameter values larger than 1000 kilometers. The default value is <code>NULL</code>.</li>
+<li><code>region.code</code> Instructs the API to return search results for the specified country. The parameter value is an <a href="http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm">ISO 3166-1 alpha-2</a> country code. The default value is <code>NULL</code>.</li>
+<li><code>safe.search</code> Indicates whether the search results should include restricted content as well as standard content. The default value is <code>none</code>. See <code>findParams</code> function for valid values.</li>
+<li><code>event.type</code> Restricts a search to broadcast events. The default value is <code>NULL</code>. See <code>findParams</code> function for valid values. If you specify a value for this parameter, you must also set the <code>type</code> parameter’s value to <code>video</code>.</li>
+<li><code>published.before</code> Indicates that the API response should only contain resources created before the specified time. Can be either of class <code>Date</code> (“%Y-%m-%d”) or <code>POSIXct</code> or <code>POSIXlt</code> with time, or an RFC 3339 formatted date-time value (i.e.: <code>1970-01-01T00:00:00Z</code>). The default value is <code>Sys.time()</code>.</li>
+<li><code>published.after</code> Indicates that the API response should only contain resources created after the specified time. Can be either of class <code>Date</code> (“%Y-%m-%d”) or <code>POSIXct</code> or <code>POSIXlt</code> with time, or an RFC 3339 formatted date-time value (i.e.: <code>1970-01-01T00:00:00Z</code>). The default value is <code>NULL</code>.</li>
+<li><code>channel.id</code> Indicates that the API response should only contain resources created by the channel.</li>
+<li><code>relevance.language</code> Instructs the API to return search results that are most relevant to the specified language. The parameter value is typically an <a href="http://www.loc.gov/standards/iso639-2/php/code_list.php">ISO 639-1</a> two-letter language code. However, you should use the values <code>zh-Hans</code> for simplified Chinese and <code>zh-Hant</code> for traditional Chinese. Please note that results in other languages will still be returned if they are highly relevant to the search query term.</li>
+<li><code>topic.id</code> Indicates that the API response should only contain resources associated with the specified topic. The value identifies a <a href="https://developers.google.com/youtube/v3/docs/search/list">Freebase topic ID</a>.</li>
+<li><code>verbose</code> If <code>TRUE</code> prints infromational messages in the console. The default value is <code>FALSE</code>.</li>
+</ul>
+</div>
+<div id="details-6" class="section level3">
+<h3>Details</h3>
+<p>For more information on the parameters and the API call this function refers to please see <a href="https://developers.google.com/youtube/v3/docs/search/list" class="uri">https://developers.google.com/youtube/v3/docs/search/list</a>. Some parameters are only applicable to <code>type=video</code> namely that which are preceded by <code>video.</code> and <code>event.type</code>.</p>
+</div>
+<div id="examples-15" class="section level3">
+<h3>Examples</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Authenticate</span>
+token &lt;-<span class="st"> </span><span class="kw">youOAuth</span>(<span class="dt">client.id =</span> <span class="st">&quot;something.apps.googleusercontent.com&quot;</span>,
+                  <span class="dt">client.secret =</span> <span class="st">&quot;XxxXX1XxXxXxxx1xxx1xxXXX&quot;</span>)
+
+<span class="co"># search</span>
+cats &lt;-<span class="st"> </span><span class="kw">searchVideos</span>(token, <span class="dt">query =</span> <span class="st">&quot;cats&quot;</span>)
+
+<span class="co"># filter 2d videos</span>
+2d.cats &lt;-<span class="st"> </span><span class="kw">searchVideos</span>(token, <span class="dt">query =</span> <span class="st">&quot;cats&quot;</span>, 
+                        <span class="dt">video.dimension =</span> <span class="kw">findParams</span>(<span class="st">&quot;video.dimension&quot;</span>)[<span class="dv">1</span>],
+                        <span class="dt">type =</span> <span class="st">&quot;video&quot;</span>)
+                        
+<span class="co"># find valid values for video.dimension</span>
+dims &lt;-<span class="st"> </span><span class="kw">findParams</span>(<span class="dt">param =</span> <span class="st">&quot;video.dimension&quot;</span>)
+
+<span class="co"># fetch 3D cats videos from Belgium</span>
+dull.cats &lt;-<span class="st"> </span><span class="kw">searchVideos</span>(token, <span class="dt">query =</span> <span class="st">&quot;cats&quot;</span>, <span class="dt">region.code =</span> <span class="st">&quot;BE&quot;</span>,
+                          <span class="dt">video.dimension =</span> dims[<span class="dv">2</span>], <span class="dt">type =</span> <span class="st">&quot;video&quot;</span>)
+                          
+<span class="co"># fetch &quot;clean cat&quot; channels from area 51 using coordinates</span>
+safety &lt;-<span class="st"> </span><span class="kw">findParams</span>(<span class="st">&quot;safe.search&quot;</span>)[<span class="kw">grep</span>(<span class="st">&quot;strict&quot;</span>, 
+                                         <span class="kw">findParams</span>(<span class="st">&quot;safe.search&quot;</span>))]
+                                         
+clean.cats &lt;-<span class="st"> </span><span class="kw">searchVideos</span>(token, <span class="dt">query =</span> <span class="st">&quot;clean cats&quot;</span>, <span class="dt">safe.search =</span> safety,
+                           <span class="dt">location =</span> <span class="kw">c</span>(<span class="dt">lat =</span> <span class="fl">37.2350</span>, <span class="dt">long =</span> <span class="fl">115.8111</span>),
+                           <span class="dt">location.radius =</span> <span class="st">&quot;5km&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;channel&quot;</span>)
+                           
+<span class="co"># fetch video catgeories</span>
+video.cat &lt;-<span class="st"> </span><span class="kw">getVideoCategories</span>(token, <span class="dt">region.code =</span> <span class="st">&quot;US&quot;</span>)
+
+<span class="co"># filter pet-related video categories</span>
+video.cat &lt;-<span class="st"> </span>video.cat[<span class="kw">grep</span>(<span class="st">&quot;Pets&quot;</span>, video.cat$title),] 
+
+<span class="co"># fetch by category</span>
+pets &lt;-<span class="st"> </span><span class="kw">searchTube</span>(token, <span class="dt">query =</span> <span class="st">&quot;cats&quot;</span>, <span class="dt">video.category.id =</span> video.cat[<span class="dv">1</span>])</code></pre></div>
+</div>
+</div>
+<div id="youoauth" class="section level1">
+<h1>youOAuth</h1>
+<p>OAuth 2.0 authentication.</p>
+<div id="arguments-15" class="section level3">
+<h3>Arguments</h3>
+<ul>
+<li><code>client.id</code>Your <code>client.id</code>. See details below.</li>
+<li><code>client.secret</code> Your <code>client.secret</code>. See details below.</li>
+<li><code>scope</code> Scope of token, defaults to <code>NULL</code>. See details below.</li>
+</ul>
+</div>
+<div id="details-7" class="section level3">
+<h3>Details</h3>
+<p>To get your client.id and client.secret please follow the instructions <a href="https://developers.google.com/youtube/registering_an_application">here</a>, you may also want to watch the <a href="https://www.youtube.com/watch?v=Im69kzhpR3I">video</a> Also set the redirect Authorized redirect URIs to your localhost.</p>
+<p>Scopes:</p>
+<ul>
+<li><code>force-ssl</code> Manage your YouTube account. This scope requires communication with the API server to happen over an SSL connection.</li>
+<li><code>NULL</code> Manage your YouTube account. This scope is functionally identical to the youtube.force-ssl scope listed above because the YouTube API server is only available via an HTTPS endpoint. As a result, even though this scope does not require an SSL connection, there is actually no other way to make an API request.</li>
+<li><code>readonly</code> View your YouTube account.</li>
+<li><code>upload</code> Upload YouTube videos and manage your YouTube videos.</li>
+<li><code>partner-channel-audit</code> Retrieve the <a href="https://developers.google.com/youtube/v3/docs/channels#auditDetails">auditDetails</a> part in a channel resource.</li>
+</ul>
+<p>See all scopes from documentation <a href="https://developers.google.com/youtube/v3/guides/auth/installed-apps">here</a></p>
+</div>
+<div id="examples-16" class="section level3">
+<h3>Examples</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">token &lt;-<span class="st"> </span><span class="kw">youOauth</span>(<span class="dt">client.id =</span> <span class="st">&quot;something.apps.googleusercontent.com&quot;</span>,
+                  <span class="dt">client.secret =</span> <span class="st">&quot;XxxXX1XxXxXxxx1xxx1xxXXX&quot;</span>)</code></pre></div>
+</div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <p class="text-muted"><a href="https://github.com/JohnCoene"><i class='fa fa-github fa-2x' aria-hidden='true'></i></a></p>
+      </div>
+      <div class="col-lg-4">
+        <p class="text-muted"><a href="https://www.linkedin.com/in/johncoene/"><i class='fa fa-linkedin fa-2x' aria-hidden='true'></i></a></p>
+      </div>
+      <div class="col-lg-4">
+        <p class="text-muted"><a href="https://twitter.com/jdatap"><i class='fa fa-twitter fa-2x' aria-hidden='true'></i></a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

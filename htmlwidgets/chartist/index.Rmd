@@ -1,0 +1,129 @@
+---
+title: "chartist"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig_width=9)
+
+library(dplyr)
+library(chartist)
+library(countup)
+library(typed)
+```
+
+```{r, echo=FALSE}
+mtcars %>%
+  mutate(id = 1:n()) %>%
+  chart_ist(id, height = 400) %>%
+  add_ist(mpg, name = "mpg") %>%
+  add_ist(wt, name = "wt") %>%
+  add_ist(qsec, name = "qsec") %>%
+  lineopt_ist(name = "qsec", lineSmoothing = "step", showPoint = FALSE) %>%
+  lineopt_ist(name = "wt", showLine = TRUE, showPoint = TRUE, lineSmoothing = 3) %>%
+  lineopt_ist(name = "mpg", showArea = TRUE, showPoint = FALSE) %>%
+  xaxis_ist(showGrid = FALSE, showLabel = FALSE) %>%
+  yaxis_ist(showGrid = FALSE, showLabel = FALSE) %>%
+  lanim_ist() %>%
+  sanim_ist() %>%
+  loop_ist(6000)
+```
+
+<div class = "page-header">
+<h1>`r typed::typed('Welcome to the chartist package!', typeSpeed = 150)`<h1>
+</div>
+
+<div class = "pull-right">
+[![Travis-CI Build Status](https://travis-ci.org/JohnCoene/chartist.svg?branch=master)](https://travis-ci.org/JohnCoene/chartist)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/JohnCoene/chartist?branch=master&svg=true)](https://ci.appveyor.com/project/JohnCoene/chartist)
+[![Coverage Status](https://img.shields.io/coveralls/JohnCoene/chartist.svg)](https://coveralls.io/r/JohnCoene/chartist?branch=master)
+[![Coverage Status](https://img.shields.io/codecov/c/github/JohnCoene/chartist/master.svg)](https://codecov.io/github/JohnCoene/chartist?branch=master)
+[![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/JohnCoene)
+</div>
+
+<br>
+<br>
+
+<h4>[chartist](https://github.com/JohnCoene/chartist) is an R [htmlwidget](http://htmlwidgets.org/) for [chartist.js](https://gionkunz.github.io/chartist-js).</h4>
+
+> You may think that this is just yet an other charting library. But Chartist.js is the product of a community that was disappointed about the abilities provided by other charting libraries. Of course there are hundreds of other great charting libraries but after using them there were always tweaks you would have wished for that were not included. 
+--- chartist.js
+
+<p>
+<a href = "https://github.com/JohnCoene/chartist/" class = "btn btn-default btn-lg" role = "button"><i class="fa fa-github" aria-hidden="true"></i>  Github</a>   <a href = "https://github.com/JohnCoene/chartist/issues" class = "btn btn-primary btn-lg" role = "button"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>  Issues</a>   <a href = "https://github.com/JohnCoene/chartist/docs.html" class = "btn btn-info btn-lg" role = "button"><i class="fa fa-book" aria-hidden="true"></i>  Docs</a>
+</p>
+
+
+```{r install, echo = FALSE}
+div(class = "page-header",
+    h2("Install", class = "text-primary"))
+```
+
+```{r, eval=FALSE}
+devtools::install_github("JohnCoene/chartist")
+```
+
+```{r first chart, echo = FALSE}
+div(class = "page-header",
+    h2("Your first chart", class = "text-primary"))
+```
+
+Your first chart using the built-in `mtcars` dataset.
+
+```{r, eval=FALSE}
+library(chartist)
+
+mtcars %>% # data.frame
+  chart_ist(qsec) %>% # initiate chart
+  add_ist(wt) # add serie
+```
+
+```{r, echo=FALSE}
+library(chartist)
+
+mtcars %>%
+  chart_ist(qsec, height = 250) %>%
+  add_ist(wt)
+```
+
+```{r how it works, echo = FALSE}
+div(class = "page-header",
+    h2("How it works", class = "text-primary"))
+```
+
+All functions end in `_ist`; pipe your data with `%>%`.
+
+* Minimal
+    1. Initiate chart object wtih `chart_ist`
+    2. Add series with `add_ist`
+
+* Customize your chart
+    - Pass options with `opt_ist`
+    - Add animations with `anim_ist`
+    - Tweak axis with `yaxis_ist` and `xaxis_ist`
+    - use helper functions to fast-forward.
+
+```{r adv ex, echo = FALSE}
+div(class = "page-header",
+    h2("Advanced example", class = "text-primary"))
+```
+
+Below is the code used to generate the very banner of this page.
+
+```{r, eval=FALSE}
+library(dplyr)
+
+mtcars %>%
+  mutate(id = 1:n()) %>%
+  chart_ist(id, height = 400) %>%
+  add_ist(mpg, name = "mpg") %>%
+  add_ist(wt, name = "wt") %>%
+  add_ist(qsec, name = "qsec") %>%
+  lineopt_ist(name = "qsec", lineSmoothing = "step", showPoint = FALSE) %>%
+  lineopt_ist(name = "wt", showLine = TRUE, showPoint = TRUE, lineSmoothing = 3) %>%
+  lineopt_ist(name = "mpg", showArea = TRUE, showPoint = FALSE) %>%
+  xaxis_ist(showGrid = FALSE, showLabel = FALSE) %>%
+  yaxis_ist(showGrid = FALSE, showLabel = FALSE) %>%
+  lanim_ist() %>%
+  sanim_ist() %>%
+  loop_ist(6000)
+```

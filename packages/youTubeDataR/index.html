@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>youTubeDataR</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/htmlwidgets-0.7/htmlwidgets.js"></script>
+<link href="site_libs/chartist-0.10.0/chartist.min.css" rel="stylesheet" />
+<link href="site_libs/chartist-0.10.0/chartist-plugin-tooltip.css" rel="stylesheet" />
+<link href="site_libs/chartist-0.10.0/threshold.css" rel="stylesheet" />
+<link href="site_libs/chartist-0.10.0/style.css" rel="stylesheet" />
+<script src="site_libs/chartist-0.10.0/chartist.min.js"></script>
+<script src="site_libs/chartist-0.10.0/plugins/chartist-plugin-pointlabels.min.js"></script>
+<script src="site_libs/chartist-0.10.0/plugins/chartist-plugin-threshold.min.js"></script>
+<script src="site_libs/chartist-0.10.0/plugins/chartist-plugin-tooltip.min.js"></script>
+<script src="site_libs/chartist-0.10.0/plugins/chartist-plugin-axistitle.min.js"></script>
+<script src="site_libs/chartist-0.10.0/plugins/chartist-plugin-accessibility.min.js"></script>
+<script src="site_libs/chartist-binding-0.0.2.9000/chartist.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<script src="https://use.fontawesome.com/9fdc01e796.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #dddddd; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { font-weight: bold; } /* Keyword */
+code > span.dt { color: #800000; } /* DataType */
+code > span.dv { color: #0000ff; } /* DecVal */
+code > span.bn { color: #0000ff; } /* BaseN */
+code > span.fl { color: #800080; } /* Float */
+code > span.ch { color: #ff00ff; } /* Char */
+code > span.st { color: #dd0000; } /* String */
+code > span.co { color: #808080; font-style: italic; } /* Comment */
+code > span.al { color: #00ff00; font-weight: bold; } /* Alert */
+code > span.fu { color: #000080; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #ff0000; font-weight: bold; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #ff00ff; } /* SpecialChar */
+code > span.vs { color: #dd0000; } /* VerbatimString */
+code > span.ss { color: #dd0000; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { font-weight: bold; } /* Preprocessor */
+code > span.at { } /* Attribute */
+code > span.do { color: #808080; font-style: italic; } /* Documentation */
+code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 41px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+
+.section h2 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h3 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h4 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h5 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h6 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">youTubeDataR</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="http://john-coene.com/">
+    <span class="fa fa-arrow-circle-left"></span>
+     
+    home
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/JohnCoene/youTubeDataR/">
+    <span class="fa fa-github"></span>
+     
+    Repository
+  </a>
+</li>
+<li>
+  <a href="docs.html">
+    <span class="fa fa-book"></span>
+     
+    Docs
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">youTubeDataR</h1>
+
+</div>
+
+
+<div id="htmlwidget-67c8192802cd668df262" style="width:100%;height:300px;" class="chartist html-widget"></div>
+<script type="application/json" data-for="htmlwidget-67c8192802cd668df262">{"x":{"cdat":{"labels":[905591,4843113,651601,287618,636307,705176,1149649,113598,154463,213217,1936566,181129,165196,1431913,46051,402125,259773,136191,2324410,29898,1867280,1833489,653338,1084911,1666495,197805,16734544,324135,1473460,420065,5439549,211886,1320359,137504,238333,228737,82884,1273046,1804828,445847,533542,201779,156306,7020,620842,35010,129688,242391,2206926,486106],"series":[{"name":"line-1","data":[295,286,224,6437,4212,2758,5342,15318,2727,23661,7987,15942,1226,17353,7624,3011,6756,9594,2496,16483,11580,19916,8003,16143,16620,19524,30218,22343,38917,20255,9778,36148,33492,8938,14918,15928,101310,5363,37829,48351,88094,104661,109012,74139,9396,61000,64368,187013,68412,692995]}]},"ratio":"ct-chart","type":"line","options":{"showArea":true,"showPoint":false,"axisX":{"showLabel":false,"labelInterpolationFnc":"function(value) { return '' + value + '';}"}},"anim":{"FUN":"\n    function(data){\n      if(data.type === 'line' || data.type === 'area'){\n        data.element.animate({d:{begin: 2000 * data.index, dur: 2000, from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(), to: data.path.clone().stringify(), easing: Chartist.Svg.Easing.easeOutQuint}});\n      }\n    }"},"loop":{"ms":5000}},"evals":["options.axisX.labelInterpolationFnc","anim.FUN"],"jsHooks":[]}</script>
+<p><a href="https://travis-ci.org/JohnCoene/youTubeDataR"><img src="https://travis-ci.org/JohnCoene/youTubeDataR.svg?branch=master" alt="Build Status" /></a> <a href="https://ci.appveyor.com/project/JohnCoene/youTubeDataR"><img src="https://ci.appveyor.com/api/projects/status/github/JohnCoene/youTubeDataR?branch=master&amp;svg=true" alt="AppVeyor Build Status" /></a> <a href="https://codecov.io/github/JohnCoene/youTubeDataR?branch=master"><img src="https://codecov.io/github/JohnCoene/youTubeDataR/coverage.svg?branch=master" alt="codecov.io" /></a> <a href="https://coveralls.io/github/JohnCoene/youTubeDataR?branch=master"><img src="https://coveralls.io/repos/github/JohnCoene/youTubeDataR/badge.svg?branch=master" alt="Coverage Status" /></a></p>
+<div class="container-fluid">
+<br/>
+<p>
+youTubeDataR is an R package that provides access to the 
+<a href="https://developers.google.com/youtube/v3/" target="_blank">Youtube Data API</a>
+.All functionalities of the API are implemented.
+</p>
+</div>
+<p><div class="page-header">
+<h2>Install</h2>
+</div><div class="container-fluid">
+<p>Install from Github.</p>
+</div></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools::<span class="kw">install_github</span>(<span class="st">&quot;JohnCoene/tweets2earth&quot;</span>)</code></pre></div>
+<div class="page-header">
+<h2>Setup</h2>
+</div>
+<ol style="list-style-type: decimal">
+<li>Sign in at <a href="https://console.developers.google.com" class="uri">https://console.developers.google.com</a></li>
+<li>Click “Credentials” in the sidebar</li>
+<li>Hit “Create credentials”</li>
+<li>In the dropdown menu select “OAuth client ID”</li>
+<li>On the next page select “Web application”</li>
+<li>Fill in your “Authorized redirect URIs” as returned by <code>httr::oauth_callback()</code> as “Authorized redirect URIs” (generally <code>http://localhost:1410/</code>).</li>
+</ol>
+<div class="page-header">
+<h2>Examples</h2>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(youTubeDataR)
+
+<span class="co"># Authenticate</span>
+TK &lt;-<span class="st"> </span><span class="kw">youOauth</span>(<span class="dt">client.id =</span> <span class="st">&quot;something.apps.googleusercontent.com&quot;</span>,
+               <span class="dt">client.secret =</span> <span class="st">&quot;XxxXX1XxXxXxxx1xxx1xxXXX&quot;</span>, 
+               <span class="dt">scope =</span> <span class="st">&quot;force-ssl&quot;</span>)
+
+<span class="co"># search channels, videos and playlists about R tutorials</span>
+any &lt;-<span class="st"> </span><span class="kw">searchTube</span>(TK, <span class="dt">query =</span> <span class="st">&quot;R tutorial&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;any&quot;</span>)
+
+<span class="co"># search channels about R tutorials</span>
+search &lt;-<span class="st"> </span><span class="kw">searchTube</span>(TK, <span class="dt">query =</span> <span class="st">&quot;R tutorial&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;channel&quot;</span>)
+
+<span class="co"># get random channel out of search results</span>
+chan &lt;-<span class="st"> </span><span class="kw">sample</span>(search$id.channelId, <span class="dv">1</span>)
+
+<span class="co"># get activities of sampled channel</span>
+chan.act &lt;-<span class="st"> </span><span class="kw">getActivities</span>(TK, <span class="dt">channel.id =</span> chan)
+
+<span class="co"># get sampled channel sections</span>
+chan.sect &lt;-<span class="st"> </span><span class="kw">getChannelSections</span>(TK, <span class="dt">channel.id =</span> chan)
+
+<span class="co"># get most popular video data</span>
+my.videos &lt;-<span class="st"> </span><span class="kw">getVideos</span>(TK, <span class="dt">chart =</span> <span class="st">&quot;mostPopular&quot;</span>, <span class="dt">part =</span> <span class="st">&quot;statistics&quot;</span>)</code></pre></div>
+<p>Example used to make chart in page header.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">part &lt;-<span class="st"> </span><span class="kw">findParts</span>(<span class="st">&quot;getVideos&quot;</span>) <span class="co"># helper FUN to find valid parts</span>
+part &lt;-<span class="st"> </span>part[part %in%<span class="st"> &quot;statistics&quot;</span>] <span class="co"># get statistics</span>
+videos &lt;-<span class="st"> </span><span class="kw">getVideos</span>(TK, <span class="dt">part =</span> <span class="st">&quot;statistics&quot;</span>, <span class="dt">chart =</span> <span class="st">&quot;mostPopular&quot;</span>) <span class="co"># get statistics of most popular videos</span>
+
+<span class="kw">library</span>(chartist) <span class="co"># load chartist to plot</span>
+
+<span class="co"># plot view count vs comment count</span>
+videos %&gt;%
+<span class="st">  </span><span class="kw">chart_ist</span>(statistics.viewCount) %&gt;%
+<span class="st">  </span><span class="kw">add_ist</span>(statistics.likeCount) %&gt;%
+<span class="st">  </span><span class="kw">opt_ist</span>(<span class="dt">showArea =</span> <span class="ot">TRUE</span>, <span class="dt">showPoint =</span> <span class="ot">FALSE</span>) %&gt;%
+<span class="st">  </span><span class="kw">xaxis_ist</span>(<span class="dt">showLabel =</span> <span class="ot">FALSE</span>) %&gt;%
+<span class="st">  </span><span class="kw">lanim_ist</span>() %&gt;%
+<span class="st">  </span><span class="kw">loop_ist</span>()</code></pre></div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <p class="text-muted"><a href="https://github.com/JohnCoene"><i class='fa fa-github fa-2x' aria-hidden='true'></i></a></p>
+      </div>
+      <div class="col-lg-4">
+        <p class="text-muted"><a href="https://www.linkedin.com/in/johncoene/"><i class='fa fa-linkedin fa-2x' aria-hidden='true'></i></a></p>
+      </div>
+      <div class="col-lg-4">
+        <p class="text-muted"><a href="https://twitter.com/jdatap"><i class='fa fa-twitter fa-2x' aria-hidden='true'></i></a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

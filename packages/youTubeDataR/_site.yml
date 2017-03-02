@@ -1,0 +1,24 @@
+name: "youTubeDataR"
+output_dir: "."
+navbar:
+  title: "youTubeDataR"
+  left:
+    - icon: fa-arrow-circle-left
+      text: "home"
+      href: http://john-coene.com/
+  right:
+    - icon: fa-github
+      text: "Repository"
+      href: https://github.com/JohnCoene/youTubeDataR/
+    - icon: fa-book
+      text: "Docs"
+      href: docs.html
+      
+output:
+  html_document:
+    theme: simplex
+    highlight: kate
+    include:
+      in_header:: header.html
+      after_body: footer.html
+    css: styles.css

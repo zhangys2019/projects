@@ -1,0 +1,84 @@
+---
+title: "rodham"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
+library(rodham)
+library(networkD3)
+library(htmltools)
+library(igraph)
+library(dplyr)
+emails <- emails %>%
+  select(to, from) %>%
+  filter(to != "" & from != "") %>%
+  group_by(to, from) %>%
+  summarise(edges = n()) %>%
+  arrange(desc(edges)) %>%
+  as.data.frame(.)
+
+g <- graph.data.frame(emails)
+wc <- cluster_walktrap(g)
+clusters <- membership(wc)
+g <- igraph_to_networkD3(g, group = clusters)
+
+MyClickScript <- 'alert("You clicked on " + d.name);'
+```
+
+```{r header text}
+p(em("Network of emails - random walk clustering (color)."))
+```
+
+```{r graph header}
+forceNetwork(Links = g$links, Nodes = g$nodes, clickAction = MyClickScript,
+             Source = 'source', Target = 'target', linkDistance = 20, width = "100%", height = 600,
+             NodeID = 'name', Group = 'group', charge = -90, bounded = FALSE)
+```
+
+[![Travis-CI Build Status](https://travis-ci.org/JohnCoene/rodham.svg?branch=master)](https://travis-ci.org/JohnCoene/rodham)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/JohnCoene/rodham?branch=master&svg=true)](https://ci.appveyor.com/project/JohnCoene/rodham)
+[![Coverage Status](https://img.shields.io/coveralls/JohnCoene/rodham.svg)](https://coveralls.io/r/JohnCoene/rodham?branch=master)
+[![codecov](https://codecov.io/gh/JohnCoene/rodham/branch/master/graph/badge.svg)](https://codecov.io/gh/JohnCoene/rodham)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/rodham)](https://cran.r-project.org/package=rodham)
+[![CRAN_DL_Badge](http://cranlogs.r-pkg.org/badges/grand-total/rodham)](http://cranlogs.r-pkg.org/badges/grand-total/rodham)
+
+```{r}
+div(class = "page-header",
+    h2("About", class = "text-primary"))
+
+div(class = "container-fluid",
+    p(code("rodham"), " is an R package that includes a dataset of Hillary Rodham Clinton's personal emails as well as function to download their entire content from the Wall Street Journal and read it into R."),
+    p(code("rodham"), " is available on CRAN."))
+```
+
+```{r install}
+div(class = "page-header",
+    h2("Install", class = "text-primary"))
+```
+
+```{r install code, eval = FALSE, echo = TRUE}
+install.packages("rodham") # stable version from CRAN
+devtools::install_github("JohnCoene/rodham") # development version
+```
+
+```{r releases}
+div(class = "page-header",
+    h2("Releases", class = "text-primary"))
+
+div(class = "container-fluid",
+    p("All publicly released emails are available and follow the WSJ naming convention."))
+```
+
+* Benghazi
+* June
+* July
+* August
+* September
+* October
+* November
+* January 7
+* January 29
+* February 19
+* February 29
+* December
+* Non-disclosure

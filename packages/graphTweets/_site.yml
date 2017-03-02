@@ -1,0 +1,30 @@
+name: "graphTweets"
+output_dir: "."
+navbar:
+  title: "graphTweets"
+  left:
+    - icon: fa-arrow-circle-left
+      text: "home"
+      href: http://john-coene.com/
+  right:
+    - icon: fa-download
+      text: "CRAN"
+      href: https://cran.r-project.org/web/packages/graphTweets/
+    - icon: fa-github
+      text: "Repository"
+      href: https://github.com/JohnCoene/graphTweets/
+    - icon: fa-file-pdf-o
+      text: "Manual"
+      href: https://cran.r-project.org/web/packages/graphTweets/graphTweets.pdf
+    - icon: fa-html5
+      text: "Examples"
+      href: examples.html
+      
+output:
+  html_document:
+    theme: simplex
+    highlight: kate
+    include:
+      in_header:: header.html
+      after_body: footer.html
+    css: styles.css
