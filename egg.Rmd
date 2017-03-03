@@ -16,7 +16,7 @@ library(egg)
 > Type "coene" to see it in action!
 
 ```{r, echo = FALSE}
-egg(c("coene"),  imegg = "http://media.vanityfair.com/photos/54cbf3da998d4de83ba3602a/master/w_960,c_limit/image.jpg",
+egg(c("c", "o", "e", "n","e"),  imegg = "http://media.vanityfair.com/photos/54cbf3da998d4de83ba3602a/master/w_960,c_limit/image.jpg",
     fade = 1000, timeout = 10000)
 ```
 
@@ -38,12 +38,12 @@ div(class = "page-header",
 Include in Rmarkdown just like so:
 
 ```{r, echo = TRUE, eval=FALSE}
-egg(c("coene"),  "EASTER EGG IN RMARKDOWN!", fade = 1000, timeout = 10000)
+egg(c("c", "o", "e", "n","e"),  "EASTER EGG IN RMARKDOWN!", fade = 1000, timeout = 10000)
 ```
 
 Use an image:
 
 ```{r, echo = TRUE, eval=FALSE}
-egg(c("coene"), 
+egg(c("c", "o", "e", "n","e"), 
     imegg = "http://media.vanityfair.com/photos/54cbf3da998d4de83ba3602a/master/w_960,c_limit/image.jpg")
 ```
