@@ -7,17 +7,17 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
 libs <- c("htmltools", "webutils", "typed")
 lapply(libs, library, character.only = TRUE)
 df <- data.frame(x = 1:50,
-                 water = runif(50, 10, 16),
-                 apple = runif(50, 13, 16),
-                 avocado = runif(50, 15, 17))
+                 uvcharts = runif(50, 10, 16),
+                 chartist = runif(50, 13, 16),
+                 rodham = runif(50, 15, 17))
 library(dplyr)
 
 library(uvcharts)
 uvplot <- df %>%
   uv_stackarea(x) %>%
-  uv_add(apple) %>%
-  uv_add(water) %>%
-  uv_add(avocado) %>%
+  uv_add(uvcharts) %>%
+  uv_add(chartist) %>%
+  uv_add(rodham) %>%
   uv_graph(orientation = "Vertical", bgcolor = "none") %>%
   uv_axis(ticks = 10, fontsize = 9, strokecolor = "#d3d3d3") %>%
   uv_label(fontsize = 5) %>%
