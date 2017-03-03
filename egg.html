@@ -20,13 +20,15 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/htmlwidgets-0.7/htmlwidgets.js"></script>
+<script src="site_libs/htmlwidgets-0.8/htmlwidgets.js"></script>
 <script src="site_libs/jQuery-1.11.2/jquery.min.js"></script>
 <script src="site_libs/egg-1/egg.js"></script>
 <script src="site_libs/egg-binding-0.0.1/egg.js"></script>
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 <script src="https://use.fontawesome.com/9fdc01e796.js"></script>
 <link href="https://cdn.rawgit.com/gaborcsardi/r-font/master/rlogo.css" rel="stylesheet">
+<script src="js/siema.min.js"></script>
+<link href="css/bttn.min.css" rel="stylesheet">
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -100,7 +102,7 @@ h6 {
 }
 </style>
 
-<link rel="stylesheet" href="css/styles.css" type="text/css" />
+<link rel="stylesheet" href="css\styles.css" type="text/css" />
 
 </head>
 
@@ -238,11 +240,12 @@ $(document).ready(function () {
 
 <p><a href="https://saythanks.io/to/JohnCoene"><img src="https://img.shields.io/badge/say-thanks-ff69b4.svg" alt="saythanks" /></a></p>
 <p><code>egg</code> let’s you put Easter eggs in Rmarkdown reports, it is an htmlwidget for <a href="http://thatmikeflynn.com/egg.js/">egg.js</a>.</p>
+<br/>
 <blockquote>
 <p>Type “coene” to see it in action!</p>
 </blockquote>
-<div id="htmlwidget-1ba58db2771e344a486e" class="egg html-widget" style="display: none; position: absolute; top:20%; left:50% width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-1ba58db2771e344a486e">{"x":{"egg":"","stroke":"coene","fade":1000,"imegg":"http://media.vanityfair.com/photos/54cbf3da998d4de83ba3602a/master/w_960,c_limit/image.jpg"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-05b913ccb85a72df86ae" class="egg html-widget" style="display: none; position: absolute; top:20%; left:50% width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-05b913ccb85a72df86ae">{"x":{"egg":"","stroke":"coene","fade":1000,"imegg":"http://media.vanityfair.com/photos/54cbf3da998d4de83ba3602a/master/w_960,c_limit/image.jpg"},"evals":[],"jsHooks":[]}</script>
 <div class="page-header">
 <h2>Install</h2>
 </div>
@@ -251,24 +254,38 @@ devtools::<span class="kw">install_github</span>(<span class="st">&quot;JohnCoen
 <div class="page-header">
 <h2>Example</h2>
 </div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">egg</span>(<span class="kw">c</span>(<span class="st">&quot;coene&quot;</span>),  <span class="st">&quot;EASTER EGG IN RMARKDOWN!&quot;</span>,
-    <span class="dt">fade =</span> <span class="dv">1000</span>, <span class="dt">timeout =</span> <span class="dv">10000</span>)</code></pre></div>
+<p>Include in Rmarkdown just like so:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">egg</span>(<span class="kw">c</span>(<span class="st">&quot;coene&quot;</span>),  <span class="st">&quot;EASTER EGG IN RMARKDOWN!&quot;</span>, <span class="dt">fade =</span> <span class="dv">1000</span>, <span class="dt">timeout =</span> <span class="dv">10000</span>)</code></pre></div>
+<p>Use an image:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">egg</span>(<span class="kw">c</span>(<span class="st">&quot;coene&quot;</span>), 
+    <span class="dt">imegg =</span> <span class="st">&quot;http://media.vanityfair.com/photos/54cbf3da998d4de83ba3602a/master/w_960,c_limit/image.jpg&quot;</span>)</code></pre></div>
 
-<footer class="footer">
-  <div class="container">
+
     <div class="row">
       <div class="col-lg-4">
-        <p class="text-muted"><a href="https://github.com/JohnCoene"><i class='fa fa-github fa-2x' aria-hidden='true'></i></a></p>
+        <p><a href="https://github.com/JohnCoene"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-github' aria-hidden='true'></i></button></a></p>
       </div>
       <div class="col-lg-4">
-        <p class="text-muted"><a href="https://www.linkedin.com/in/johncoene/"><i class='fa fa-linkedin fa-2x' aria-hidden='true'></i></a></p>
+        <p><a href="https://www.linkedin.com/in/johncoene/"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-linkedin' aria-hidden='true'></i></button></a></p>
       </div>
       <div class="col-lg-4">
-        <p class="text-muted"><a href="https://twitter.com/jdatap"><i class='fa fa-twitter fa-2x' aria-hidden='true'></i></a></p>
+        <p><a href="https://twitter.com/jdatap"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-twitter' aria-hidden='true'></i></button></a></p>
       </div>
     </div>
-  </div>
-</footer>
+
+<script>
+  const car = new Siema({
+    selector: '.siema',
+    duration: 500,
+    easing: 'ease-out',
+    draggable: true,
+    perPage: 1,
+    startIndex: 0,
+    loop: true
+  });
+  
+  setInterval(() => car.next(), 7000)
+</script>
 
 
 

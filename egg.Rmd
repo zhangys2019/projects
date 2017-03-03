@@ -11,6 +11,8 @@ library(egg)
 
 `egg` let's you put Easter eggs in Rmarkdown reports, it is an htmlwidget for [egg.js](http://thatmikeflynn.com/egg.js/).
 
+`r br()`
+
 > Type "coene" to see it in action!
 
 ```{r, echo = FALSE}
@@ -33,8 +35,15 @@ div(class = "page-header",
     h2("Example"))
 ```
 
+Include in Rmarkdown just like so:
+
 ```{r, echo = TRUE, eval=FALSE}
-egg(c("coene"),  "EASTER EGG IN RMARKDOWN!",
-    fade = 1000, timeout = 10000)
+egg(c("coene"),  "EASTER EGG IN RMARKDOWN!", fade = 1000, timeout = 10000)
 ```
 
+Use an image:
+
+```{r, echo = TRUE, eval=FALSE}
+egg(c("coene"), 
+    imegg = "http://media.vanityfair.com/photos/54cbf3da998d4de83ba3602a/master/w_960,c_limit/image.jpg")
+```

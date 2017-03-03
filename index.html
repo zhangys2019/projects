@@ -20,14 +20,26 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/htmlwidgets-0.7/htmlwidgets.js"></script>
-<script src="site_libs/jQuery-1.9.1/jquery.min.js"></script>
-<link href="site_libs/typed-1/cursor.css" rel="stylesheet" />
-<script src="site_libs/typed-1/typed.min.js"></script>
-<script src="site_libs/typed-binding-0.0.1/typed.js"></script>
+<script src="site_libs/htmlwidgets-0.8/htmlwidgets.js"></script>
+<script src="site_libs/d3js-3.2.2/d3.min.js"></script>
+<script src="site_libs/uvcharts-1.1.5/uvcharts.full.min.js"></script>
+<script src="site_libs/uvcharts-binding-0.0.2.9000/uvcharts.js"></script>
+<link href="site_libs/chartist-0.10.0/chartist.min.css" rel="stylesheet" />
+<link href="site_libs/chartist-0.10.0/chartist-plugin-tooltip.css" rel="stylesheet" />
+<link href="site_libs/chartist-0.10.0/threshold.css" rel="stylesheet" />
+<link href="site_libs/chartist-0.10.0/style.css" rel="stylesheet" />
+<script src="site_libs/chartist-0.10.0/chartist.min.js"></script>
+<script src="site_libs/chartist-0.10.0/plugins/chartist-plugin-pointlabels.min.js"></script>
+<script src="site_libs/chartist-0.10.0/plugins/chartist-plugin-threshold.min.js"></script>
+<script src="site_libs/chartist-0.10.0/plugins/chartist-plugin-tooltip.min.js"></script>
+<script src="site_libs/chartist-0.10.0/plugins/chartist-plugin-axistitle.min.js"></script>
+<script src="site_libs/chartist-0.10.0/plugins/chartist-plugin-accessibility.min.js"></script>
+<script src="site_libs/chartist-binding-0.0.2.9000/chartist.js"></script>
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 <script src="https://use.fontawesome.com/9fdc01e796.js"></script>
 <link href="https://cdn.rawgit.com/gaborcsardi/r-font/master/rlogo.css" rel="stylesheet">
+<script src="js/siema.min.js"></script>
+<link href="css/bttn.min.css" rel="stylesheet">
 
 
 
@@ -59,7 +71,7 @@ h6 {
 }
 </style>
 
-<link rel="stylesheet" href="css/styles.css" type="text/css" />
+<link rel="stylesheet" href="css\styles.css" type="text/css" />
 
 </head>
 
@@ -194,30 +206,80 @@ $(document).ready(function () {
 </div>
 
 
-<div class="jumbotron">
-<div class="container-fluid">
+<div class="siema" style="height:400px;">
 <div class="row">
-<div class="col-lg-8">
-<h1>
-<span id="htmlwidget-eeb0242a22da9cc55a61" class="typed html-widget"></span>
-<script type="application/json" data-for="htmlwidget-eeb0242a22da9cc55a61">{"x":{"type":"Welcome!","typeSpeed":150,"contentType":"html"},"evals":[],"jsHooks":[]}</script>
-</h1>
-<p>R, data and other indoor stuff.</p>
+<div class="col-lg-3">
+<div class="page-header">
+<h2 class="text-primary">uvcharts</h2>
 </div>
-<div class="col-lg-4">
+<p>uvCharts htmlwidget for R.</p>
+<p><ul> <li>12 chart types <li>themes <li>17 configuration functions <li>110 combinations <li>Responsive </ul></p>
+<br/>
+<a href="htmlwidgets/uvcharts/"><button class='bttn-unite bttn-md bttn-danger'><i class='fa fa-rocket' aria-hidden='true'></i> Get Started</button></a>
+</div>
+<div class="col-lg-9">
+<div id="htmlwidget-d9fe05fdbb9b79ddbff5" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d9fe05fdbb9b79ddbff5">{"x":{"type":"StackedArea","config":{"meta":{"caption":""},"graph":{"responsive":true,"bgcolor":"none","orientation":"Vertical"},"dimension":{"height":200},"axis":{"ticks":10,"strokecolor":"#d3d3d3","fontsize":9},"label":{"fontsize":5},"legend":{"showlegends":true,"position":"right"},"margin":{"top":20,"bottom":20,"left":30,"right":70},"frame":{"bgcolor":"none"}},"graph":{"categories":["apple","water","avocado"],"dataset":{"apple":[{"name":"1","value":15.41349},{"name":"2","value":13.07374},{"name":"3","value":14.09834},{"name":"4","value":14.78365},{"name":"5","value":13.27367},{"name":"6","value":15.44587},{"name":"7","value":15.67997},{"name":"8","value":14.49174},{"name":"9","value":14.76451},{"name":"10","value":14.93004},{"name":"11","value":13.6857},{"name":"12","value":14.98479},{"name":"13","value":15.68529},{"name":"14","value":13.3997},{"name":"15","value":14.42813},{"name":"16","value":13.78469},{"name":"17","value":13.78738},{"name":"18","value":13.28138},{"name":"19","value":14.98832},{"name":"20","value":14.44816},{"name":"21","value":15.83401},{"name":"22","value":14.18222},{"name":"23","value":15.80812},{"name":"24","value":14.37056},{"name":"25","value":15.6664},{"name":"26","value":15.1086},{"name":"27","value":15.39181},{"name":"28","value":13.62401},{"name":"29","value":13.28769},{"name":"30","value":13.55484},{"name":"31","value":15.83427},{"name":"32","value":13.25973},{"name":"33","value":14.89429},{"name":"34","value":15.48484},{"name":"35","value":15.12109},{"name":"36","value":15.43025},{"name":"37","value":14.15061},{"name":"38","value":13.80817},{"name":"39","value":14.72866},{"name":"40","value":13.38446},{"name":"41","value":13.19859},{"name":"42","value":14.52688},{"name":"43","value":13.29997},{"name":"44","value":13.29662},{"name":"45","value":15.89696},{"name":"46","value":13.86138},{"name":"47","value":14.05964},{"name":"48","value":13.77703},{"name":"49","value":14.95055},{"name":"50","value":13.34593}],"water":[{"name":"1","value":14.91983},{"name":"2","value":10.50761},{"name":"3","value":11.69265},{"name":"4","value":11.70659},{"name":"5","value":11.20271},{"name":"6","value":13.62481},{"name":"7","value":11.01221},{"name":"8","value":12.75987},{"name":"9","value":13.79629},{"name":"10","value":12.62507},{"name":"11","value":11.31897},{"name":"12","value":13.60674},{"name":"13","value":10.9874},{"name":"14","value":11.51493},{"name":"15","value":14.98291},{"name":"16","value":10.02943},{"name":"17","value":13.59186},{"name":"18","value":14.98354},{"name":"19","value":11.72578},{"name":"20","value":13.30052},{"name":"21","value":13.99116},{"name":"22","value":15.93568},{"name":"23","value":14.15724},{"name":"24","value":14.5242},{"name":"25","value":14.8595},{"name":"26","value":14.31612},{"name":"27","value":10.30676},{"name":"28","value":14.76052},{"name":"29","value":15.25902},{"name":"30","value":11.22438},{"name":"31","value":15.07872},{"name":"32","value":12.80358},{"name":"33","value":11.2012},{"name":"34","value":14.1666},{"name":"35","value":12.36152},{"name":"36","value":13.85203},{"name":"37","value":12.76581},{"name":"38","value":10.16423},{"name":"39","value":10.20863},{"name":"40","value":10.72665},{"name":"41","value":12.20528},{"name":"42","value":10.21801},{"name":"43","value":15.55855},{"name":"44","value":14.20753},{"name":"45","value":10.54206},{"name":"46","value":15.69007},{"name":"47","value":15.00762},{"name":"48","value":15.97864},{"name":"49","value":11.62395},{"name":"50","value":14.99889}],"avocado":[{"name":"1","value":15.10168},{"name":"2","value":15.53528},{"name":"3","value":15.28994},{"name":"4","value":15.99036},{"name":"5","value":16.05107},{"name":"6","value":15.46257},{"name":"7","value":15.68486},{"name":"8","value":16.40017},{"name":"9","value":16.06985},{"name":"10","value":16.88533},{"name":"11","value":16.9211},{"name":"12","value":16.75707},{"name":"13","value":16.05033},{"name":"14","value":15.73518},{"name":"15","value":16.26764},{"name":"16","value":15.74339},{"name":"17","value":16.65997},{"name":"18","value":15.57298},{"name":"19","value":16.35185},{"name":"20","value":16.06196},{"name":"21","value":16.50633},{"name":"22","value":16.34165},{"name":"23","value":16.20282},{"name":"24","value":15.73568},{"name":"25","value":15.38072},{"name":"26","value":15.0601},{"name":"27","value":15.69286},{"name":"28","value":15.46135},{"name":"29","value":15.30964},{"name":"30","value":16.59275},{"name":"31","value":16.53754},{"name":"32","value":16.84056},{"name":"33","value":16.66542},{"name":"34","value":16.56919},{"name":"35","value":15.73991},{"name":"36","value":15.16721},{"name":"37","value":16.05632},{"name":"38","value":16.11871},{"name":"39","value":16.77885},{"name":"40","value":16.68966},{"name":"41","value":16.29214},{"name":"42","value":15.27361},{"name":"43","value":15.79583},{"name":"44","value":16.76937},{"name":"45","value":15.41838},{"name":"46","value":16.79329},{"name":"47","value":15.29024},{"name":"48","value":16.17388},{"name":"49","value":16.41377},{"name":"50","value":16.2284}]}}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-6">
+<div class="page-header">
+<h2 class="text-primary">graphTweets</h2>
+</div>
+<p>Visualise Twitter interactions.</p>
+<p>Exctracts @handles, edges and nodes and simply chart.</p>
+<br/>
 <p>
-<a class="btn btn-default btn-lg" href="https://github.com/JohnCoene" target="_blank"><i class='fa fa-github fa-lg' aria-hidden='true'></i></a>
-<a class="btn btn-primary btn-lg" href="https://www.linkedin.com/in/johncoene/" target="_blank"><i class='fa fa-linkedin fa-lg' aria-hidden='true'></i></a>
-<a class="btn btn-info btn-lg" href="https://twitter.com/jdatap" target="_blank"><i class='fa fa-twitter fa-lg' aria-hidden='true'></i></a>
+<code>.@he tweets @you about @her</code>
+<br/>
+<code>@I tweet to @you and @him</code>
+<br/>
+<code>@Someone tweets @her and @I</code>
+</p>
+<br/>
+<a href="packages/graphTweets/"><button class='bttn-unite bttn-md bttn-default'><i class='fa fa-book' aria-hidden='true'></i> Docs</button></a>
+</div>
+<div class="col-lg-6">
+<img src="img/graphTweets.JPG" class="img-responsive" height="400px;"/>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-3">
+<div class="page-header">
+<h2 class="text-primary">chartist</h2>
+</div>
+<p>chartist htmlwidget for R.</p>
+<p><ul> <li>4 chart types <li>tons of options <li>Animations! <li>Responsive </ul></p>
+<br/>
+<a href="htmlwidgets/chartist/"><button class='bttn-unite bttn-md bttn-warning'><i class='fa fa-rocket' aria-hidden='true'></i> Get Started</button></a>
+</div>
+<div class="col-lg-9">
+<div id="htmlwidget-e249a1e92dc62d2d6677" style="width:960px;height:400px;" class="chartist html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e249a1e92dc62d2d6677">{"x":{"cdat":{"labels":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32],"series":[{"name":"mpg","data":[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4]},{"name":"wt","data":[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44,3.44,4.07,3.73,3.78,5.25,5.424,5.345,2.2,1.615,1.835,2.465,3.52,3.435,3.84,3.845,1.935,2.14,1.513,3.17,2.77,3.57,2.78]},{"name":"qsec","data":[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3,18.9,17.4,17.6,18,17.98,17.82,17.42,19.47,18.52,19.9,20.01,16.87,17.3,15.41,17.05,18.9,16.7,16.9,14.5,15.5,14.6,18.6]}]},"ratio":"ct-chart","type":"line","options":{"series":{"qsec":{"showPoint":false,"lineSmooth":"Chartist.Interpolation.step()"},"wt":{"showPoint":true,"showLine":true,"lineSmooth":"Chartist.Interpolation.simple({divisor: \n3\n})"},"mpg":{"showArea":true,"showPoint":false,"lineSmooth":"Chartist.Interpolation.simple()"}},"axisX":{"showLabel":false,"showGrid":false,"labelInterpolationFnc":"function(value) { return '' + value + '';}"},"axisY":{"showLabel":false,"showGrid":false,"labelInterpolationFnc":"function(value) { return '' + value + '';}"}},"anim":{"FUN":"\n    function(data){\n      if(data.type === 'line' || data.type === 'area'){\n        data.element.animate({d:{begin: 2000 * data.index, dur: 2000, from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(), to: data.path.clone().stringify(), easing: Chartist.Svg.Easing.easeOutQuint}});\n      }\n    \n      if(data.type === 'point'){\n        data.element.animate({opacity:{begin: 20, dur: 500, from: 0, to: 1}});\n      }\n    \n      if(data.type === 'point'){\n        data.element.animate({x1:{begin: 20, dur: 500, from: data.x - 100, to: data.x, easing: Chartist.Svg.Easing.easeOutQuart}});\n      }\n    }"},"loop":{"ms":6000}},"evals":["options.series.qsec.lineSmooth","options.series.wt.lineSmooth","options.series.mpg.lineSmooth","options.axisX.labelInterpolationFnc","options.axisY.labelInterpolationFnc","anim.FUN"],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-4 col-lg-4">
+<p class="text-center">
+<a href="https://github.com/JohnCoene" target="_blank"><button class='bttn-fill bttn-lg bttn-danger'><i class='fa fa-github' aria-hidden='true'></i></button></a>
 </p>
 </div>
+<div class="col-md-4 col-lg-4">
+<p class="text-center">
+<a href="https://www.linkedin.com/in/johncoene/" target="_blank"><button class='bttn-fill bttn-lg bttn-md bttn-success'><i class='fa fa-linkedin' aria-hidden='true'></i></button></a>
+</p>
 </div>
+<div class="col-md-4 col-lg-4">
+<p class="text-center">
+<a href="https://twitter.com/jdatap" target="_blank"><button class='bttn-fill bttn-lg bttn-md bttn-primary'><i class='fa fa-twitter' aria-hidden='true'></i></button></a>
+</p>
 </div>
 </div>
 <div class="page-header">
 <h1 class="text-primary" id="projects">Projects</h1>
 </div>
-<div class="container-fluid">
 <div class="row">
 <div class="col-lg-4 col-md-4col-sm-4">
 <div class="thumbnail">
@@ -262,8 +324,6 @@ $(document).ready(function () {
 </div>
 </div>
 </div>
-</div>
-<div class="container-fluid">
 <div class="row">
 <div class="col-lg-4 col-md-4col-sm-4">
 <div class="thumbnail">
@@ -308,8 +368,6 @@ $(document).ready(function () {
 </div>
 </div>
 </div>
-</div>
-<div class="container-fluid">
 <div class="row">
 <div class="col-lg-4 col-md-4col-sm-4">
 <div class="thumbnail">
@@ -354,8 +412,6 @@ $(document).ready(function () {
 </div>
 </div>
 </div>
-</div>
-<div class="container-fluid">
 <div class="row">
 <div class="col-lg-4 col-md-4col-sm-4">
 <div class="thumbnail">
@@ -385,13 +441,25 @@ $(document).ready(function () {
 </div>
 </div>
 </div>
+<div class="col-lg-4 col-md-4col-sm-4">
+<div class="thumbnail">
+<a href="egg" target="">
+<img src="img/thumbnails/egg.png" class="img-responsive" alt="egg"/>
+</a>
+<div class="caption">
+<h3>egg</h3>
+<p>egg let's you put Easter eggs in your Rmarkdown documents.</p>
+<h4>
+<span class="label label-default">misc</span>
+</h4>
+</div>
+</div>
 </div>
 </div>
 <p><div class="page-header">
 <h1 class="text-primary">About</h1>
-</div><div class="container-fluid">
-<div class="row">
-<div class="col-lg-10">
+</div><div class="row">
+<div class="col-lg-9 col-md-9">
 <p>John is a young contrarian often found where the people are few and the drinks many.</p>
 <p>I am an autodidact genuinely interested in things ranging from politics to data.</p>
 <br/>
@@ -402,9 +470,8 @@ $(document).ready(function () {
 <span class="text-danger">#data</span>
 </p>
 </div>
-<div class="col-lg-2">
-<a class="btn btn-default btn-lg" href="http://johncoene.github.io/cv/" target="_blank">Resume</a>
-</div>
+<div class="col-lg-3 col-md-3">
+<a href="http://johncoene.github.io/cv/" target="_blank"><button class='bttn-unite bttn-lg bttn-default'><i class='fa fa-address-card' aria-hidden='true'></i> Resume</button></a>
 </div>
 </div></p>
 <p><div class="page-header">
@@ -414,21 +481,32 @@ Please free to inquire about a project, collaboration, freelance, or other oppor
 <a href="mailto:jcoenep@gmail.com">jcoenep@gmail.com</a>
 </p></p>
 
-<footer class="footer">
-  <div class="container">
+
     <div class="row">
       <div class="col-lg-4">
-        <p class="text-muted"><a href="https://github.com/JohnCoene"><i class='fa fa-github fa-2x' aria-hidden='true'></i></a></p>
+        <p><a href="https://github.com/JohnCoene"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-github' aria-hidden='true'></i></button></a></p>
       </div>
       <div class="col-lg-4">
-        <p class="text-muted"><a href="https://www.linkedin.com/in/johncoene/"><i class='fa fa-linkedin fa-2x' aria-hidden='true'></i></a></p>
+        <p><a href="https://www.linkedin.com/in/johncoene/"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-linkedin' aria-hidden='true'></i></button></a></p>
       </div>
       <div class="col-lg-4">
-        <p class="text-muted"><a href="https://twitter.com/jdatap"><i class='fa fa-twitter fa-2x' aria-hidden='true'></i></a></p>
+        <p><a href="https://twitter.com/jdatap"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-twitter' aria-hidden='true'></i></button></a></p>
       </div>
     </div>
-  </div>
-</footer>
+
+<script>
+  const car = new Siema({
+    selector: '.siema',
+    duration: 500,
+    easing: 'ease-out',
+    draggable: true,
+    perPage: 1,
+    startIndex: 0,
+    loop: true
+  });
+  
+  setInterval(() => car.next(), 7000)
+</script>
 
 
 

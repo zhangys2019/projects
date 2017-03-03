@@ -6,25 +6,124 @@ title: ""
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
 libs <- c("htmltools", "webutils", "typed")
 lapply(libs, library, character.only = TRUE)
+df <- data.frame(x = 1:50,
+                 water = runif(50, 10, 16),
+                 apple = runif(50, 13, 16),
+                 avocado = runif(50, 15, 17))
+library(dplyr)
+
+library(uvcharts)
+uvplot <- df %>%
+  uv_stackarea(x) %>%
+  uv_add(apple) %>%
+  uv_add(water) %>%
+  uv_add(avocado) %>%
+  uv_graph(orientation = "Vertical", bgcolor = "none") %>%
+  uv_axis(ticks = 10, fontsize = 9, strokecolor = "#d3d3d3") %>%
+  uv_label(fontsize = 5) %>%
+  uv_config(legend = list(showlegends = TRUE)) %>%
+  uv_margin(20, 20, 30, 70) %>%
+  uv_legend(position = "right") %>% 
+  uv_frame(bgcolor = "none")
+
+library(chartist)
+
+chartistplot <- mtcars %>%
+  mutate(id = 1:n()) %>%
+  chart_ist(id, height = 400) %>%
+  add_ist(mpg, name = "mpg") %>%
+  add_ist(wt, name = "wt") %>%
+  add_ist(qsec, name = "qsec") %>%
+  lineopt_ist(name = "qsec", lineSmoothing = "step", showPoint = FALSE) %>%
+  lineopt_ist(name = "wt", showLine = TRUE, showPoint = TRUE, lineSmoothing = 3) %>%
+  lineopt_ist(name = "mpg", showArea = TRUE, showPoint = FALSE) %>%
+  xaxis_ist(showGrid = FALSE, showLabel = FALSE) %>%
+  yaxis_ist(showGrid = FALSE, showLabel = FALSE) %>%
+  lanim_ist() %>%
+  sanim_ist() %>%
+  loop_ist(6000)
+
+library(graphTweets)
+tweets <- data.frame(text = c("tweets @you about @her", "tweet @him about @you", "tweets @her and @I"),
+                     source = c("he", "I", "Someone"),
+                     stringsAsFactors = FALSE)
+edges <- getEdges(tweets, "text", "source")
+nodes <- getNodes(edges)
+g <- igraph::graph.data.frame(edges, vertices = nodes)
+wc <- igraph::cluster_walktrap(g)
+members <- igraph::membership(wc)
+n3 <- networkD3::igraph_to_networkD3(g, group = members)
+
+n3p <- networkD3::forceNetwork(Links = n3$links, Nodes = n3$nodes,
+             Source = 'source', Target = 'target', NodeID = 'name',
+             Group = 'group', height = 200, width = 200)
 ```
 
-```{r jumbotron}
-div(class = "jumbotron",
-    div(class = "container-fluid",
-        div(class = "row",
-            div(class = "col-lg-8",
-                h1(typed("Welcome!", typeSpeed = 150)),
-                p("R, data and other indoor stuff.")),
-            div(class = "col-lg-4",
-                p(a(HTML("<i class='fa fa-github fa-lg' aria-hidden='true'></i>"),
-                    class = "btn btn-default btn-lg",
-                    href = "https://github.com/JohnCoene", target = "_blank"),
-                  a(HTML("<i class='fa fa-linkedin fa-lg' aria-hidden='true'></i>"),
-                    class = "btn btn-primary btn-lg",
-                    href = "https://www.linkedin.com/in/johncoene/",target = "_blank"),
-                  a(HTML("<i class='fa fa-twitter fa-lg' aria-hidden='true'></i>"),
-                    class = "btn btn-info btn-lg",
-                    href = "https://twitter.com/jdatap", target = "_blank"))))))
+```{r carousel}
+div(class = "siema", style = "height:400px;",
+    div(class = "row",
+        div(class = "col-lg-3",
+            div(class = "page-header",
+                h2("uvcharts", class = "text-primary")),
+            p("uvCharts htmlwidget for R."),
+            p(HTML("<ul>",
+                   "<li>12 chart types",
+                   "<li>themes",
+                   "<li>17 configuration functions",
+                   "<li>110 combinations",
+                   "<li>Responsive",
+                   "</ul>")),
+            br(),
+            a(href="htmlwidgets/uvcharts/",
+            HTML("<button class='bttn-unite bttn-md bttn-danger'><i class='fa fa-rocket' aria-hidden='true'></i> Get Started</button>"))),
+        div(class = "col-lg-9",
+            uvplot)),
+    div(class = "row",
+        div(class = "col-lg-6",
+            div(class = "page-header",
+                h2("graphTweets", class = "text-primary")),
+            p("Visualise Twitter interactions."),
+            p("Exctracts @handles, edges and nodes and simply chart."),
+            br(),
+            p(code(".@he tweets @you about @her"),
+              br(),
+              code("@I tweet to @you and @him"),
+              br(),
+              code("@Someone tweets @her and @I")),
+            br(),
+            a(href="packages/graphTweets/",
+            HTML("<button class='bttn-unite bttn-md bttn-default'><i class='fa fa-book' aria-hidden='true'></i> Docs</button>"))),
+        div(class = "col-lg-6",
+            img(src = "img/graphTweets.JPG", class = "img-responsive", height = "400px;"))),
+    div(class = "row",
+        div(class = "col-lg-3",
+            div(class = "page-header",
+                h2("chartist", class = "text-primary")),
+            p("chartist htmlwidget for R."),
+            p(HTML("<ul>",
+                   "<li>4 chart types",
+                   "<li>tons of options",
+                   "<li>Animations!",
+                   "<li>Responsive",
+                   "</ul>")),
+            br(),
+            a(href="htmlwidgets/chartist/",
+            HTML("<button class='bttn-unite bttn-md bttn-warning'><i class='fa fa-rocket' aria-hidden='true'></i> Get Started</button>"))),
+        div(class = "col-lg-9",
+            chartistplot)))
+```
+
+```{r social}
+div(class = "row",
+    div(class = "col-md-4 col-lg-4",
+        p(class = "text-center", a(href="https://github.com/JohnCoene", target = "_blank",
+        HTML("<button class='bttn-fill bttn-lg bttn-danger'><i class='fa fa-github' aria-hidden='true'></i></button>")))),
+    div(class = "col-md-4 col-lg-4",
+        p(class = "text-center", a(href="https://www.linkedin.com/in/johncoene/", target = "_blank",
+        HTML("<button class='bttn-fill bttn-lg bttn-md bttn-success'><i class='fa fa-linkedin' aria-hidden='true'></i></button>")))),
+    div(class = "col-md-4 col-lg-4",
+        p(class = "text-center", a(href="https://twitter.com/jdatap", target = "_blank",
+        HTML("<button class='bttn-fill bttn-lg bttn-md bttn-primary'><i class='fa fa-twitter' aria-hidden='true'></i></button>")))))
 ```
 
 ```{r projects header}
@@ -34,117 +133,117 @@ div(class = "page-header",
 
 
 ```{r, projects row 1}
-div(class = "container-fluid",
-    div(class = "row",
-        thumbnail(title = "youTubeDataR",
-          img = "img/thumbnails/youTubeDataR.png",
-          content = "youTubeDataR is an R package that provides access to the YouTube Data API",
-          link.href = "packages/youTubeDataR/",
-          tag = "api",
-          tag.class = "info"),
+div(class = "row",
+    thumbnail(title = "youTubeDataR", 
+      img = "img/thumbnails/youTubeDataR.png",
+      content = "youTubeDataR is an R package that provides access to the YouTube Data API",
+      link.href = "packages/youTubeDataR/",
+      tag = "api",
+      tag.class = "info"),
 
-thumbnail(title = "chartist", 
-          img = "img/thumbnails/chartist.png",
-          content = "chartist is an R htmlwidget for chartist.js in R.",
-          link.href = "htmlwidgets/chartist/",
-          tag = "visualisation",
-          tag.class = "success"),
+  thumbnail(title = "chartist", 
+      img = "img/thumbnails/chartist.png",
+      content = "chartist is an R htmlwidget for chartist.js in R.",
+      link.href = "htmlwidgets/chartist/",
+      tag = "visualisation",
+      tag.class = "success"),
 
-thumbnail(title = "Wine Dashboard", 
-          img = "img/thumbnails/wine-dashboard.jpg",
-          content = "Wine dashboard is a set of dahsboards about conversations on wine occuring on Twitter.",
-          link.href = "http://johncoene.github.io/wine",
-          link.tgt = "_blank",
-          tag = "Dashboard",
-          tag.class = "warning")))
-
+  thumbnail(title = "Wine Dashboard", 
+      img = "img/thumbnails/wine-dashboard.jpg",
+      content = "Wine dashboard is a set of dahsboards about conversations on wine occuring on Twitter.",
+      link.href = "http://johncoene.github.io/wine",
+      link.tgt = "_blank",
+      tag = "Dashboard",
+      tag.class = "warning"))
 
 ```
 
 ```{r projects row 2}
-div(class = "container-fluid",
-    div(class = "row",
-        thumbnail(title = "uvcharts", 
-          img = "img/thumbnails/uvcharts.png",
-          content = "uvcharts is an htmlwidget for uvcharts.js charting library.",
-          link.href = "htmlwidgets/uvcharts/",
-          tag = "visualisation",
-          tag.class = "success"),
 
-thumbnail(title = "typed", 
-          img = "img/thumbnails/typed.png",
-          content = "typed is an is an R implementation (htmlwidget) of typed.js.",
-          link.href = "typed",
-          tag = "misc",
-          tag.class = "default"),
+div(class = "row",
+    thumbnail(title = "uvcharts", 
+      img = "img/thumbnails/uvcharts.png",
+      content = "uvcharts is an htmlwidget for uvcharts.js charting library.",
+      link.href = "htmlwidgets/uvcharts/",
+      tag = "visualisation",
+      tag.class = "success"),
 
-thumbnail(title = "bibler", 
-          img = "img/thumbnails/bibler.jpg",
-          content = "R Package that includes all of the Bible books and some text mining utilities.",
-          link.href = "packages/bibler/",
-          tag = "dataset",
-          tag.class = "danger")))
+  thumbnail(title = "typed", 
+      img = "img/thumbnails/typed.png",
+      content = "typed is an is an R implementation (htmlwidget) of typed.js.",
+      link.href = "typed",
+      tag = "misc",
+      tag.class = "default"),
 
+  thumbnail(title = "bibler", 
+      img = "img/thumbnails/bibler.jpg",
+      content = "R Package that includes all of the Bible books and some text mining utilities.",
+      link.href = "packages/bibler/",
+      tag = "dataset",
+      tag.class = "danger"))
 ```
 
 ```{r projects row 3}
-div(class = "container-fluid",
-    div(class = "row",
-        thumbnail(title = "countup", 
-          img = "img/thumbnails/countup.png",
-          content = "countup is an R implementation (htmlwidget) of Count-Up.js.",
-          link.href = "countup",
-          tag = "misc",
-          tag.class = "default"),
+div(class = "row",
+    thumbnail(title = "countup", 
+      img = "img/thumbnails/countup.png",
+      content = "countup is an R implementation (htmlwidget) of Count-Up.js.",
+      link.href = "countup",
+      tag = "misc",
+      tag.class = "default"),
 
-thumbnail(title = "rodham", 
-          img = "img/thumbnails/rodham.png",
-          content = "R Package to download Hillary Rodham Clinton's personal emails.",
-          link.href = "packages/rodham/",
-          tag = "api",
-          tag.class = "info"),
+  thumbnail(title = "rodham", 
+      img = "img/thumbnails/rodham.png",
+      content = "R Package to download Hillary Rodham Clinton's personal emails.",
+      link.href = "packages/rodham/",
+      tag = "api",
+      tag.class = "info"),
 
-thumbnail(title = "peity", 
-          img = "img/thumbnails/peity.png",
-          content = "peity is an R implementation (htmlwidget) of Peity.",
-          link.href = "peity",
-          tag = "visualisation",
-          tag.class = "success")))
+  thumbnail(title = "peity", 
+      img = "img/thumbnails/peity.png",
+      content = "peity is an R implementation (htmlwidget) of Peity.",
+      link.href = "peity",
+      tag = "visualisation",
+      tag.class = "success"))
 ```
 
 ```{r projects row 4}
-div(class = "container-fluid",
-    div(class = "row",
-        thumbnail(title = "graphTweets", 
-          img = "img/thumbnails/graphTweets.JPG",
-          content = "GraphTweets is an R package to visualise networks of Twitter interactions.",
-          link.href = "packages/graphTweets/",
-          tag = "visualisation",
-          tag.class = "success"),
-        thumbnail(title = "tweets2earth", 
-          img = "img/thumbnails/tweets2earth.png",
-          content = "Easily plot tweets' location and created time onto Google Earth",
-          link.href = "tweets2earth",
-          tag = "visualisation",
-          tag.class = "success")
-        ))
+div(class = "row",
+    thumbnail(title = "graphTweets", 
+      img = "img/thumbnails/graphTweets.JPG",
+      content = "GraphTweets is an R package to visualise networks of Twitter interactions.",
+      link.href = "packages/graphTweets/",
+      tag = "visualisation",
+      tag.class = "success"),
+    thumbnail(title = "tweets2earth", 
+      img = "img/thumbnails/tweets2earth.png",
+      content = "Easily plot tweets' location and created time onto Google Earth",
+      link.href = "tweets2earth",
+      tag = "visualisation",
+      tag.class = "success"),
+    thumbnail(title = "egg", 
+      img = "img/thumbnails/egg.png",
+      content = "egg let's you put Easter eggs in your Rmarkdown documents.",
+      link.href = "egg",
+      tag = "misc",
+      tag.class = "default"))
 ```
 
 ```{r about}
 div(class = "page-header", 
     h1("About", class = "text-primary")) # page header
-div(class = "container-fluid",
-    div(class = "row",
-        div(class = "col-lg-10",
-            p("John is a young contrarian often found where the people are few and the drinks many."),
-            p("I am an autodidact genuinely interested in things ranging from politics to data."),
-            br(),
-            p(span("#rstats", class = "text-success"),
-              span("#marketing", class = "text-info"),
-              span("#BI", class = "text-warning"),
-              span("#data", class = "text-danger"))),
-        div(class = "col-lg-2", 
-            a("Resume", class = "btn btn-default btn-lg", href = "http://johncoene.github.io/cv/", target = "_blank"))))
+div(class = "row",
+    div(class = "col-lg-9 col-md-9",
+        p("John is a young contrarian often found where the people are few and the drinks many."),
+        p("I am an autodidact genuinely interested in things ranging from politics to data."),
+        br(),
+        p(span("#rstats", class = "text-success"),
+          span("#marketing", class = "text-info"),
+          span("#BI", class = "text-warning"),
+          span("#data", class = "text-danger"))),
+    div(class = "col-lg-3 col-md-3", 
+        a(href="http://johncoene.github.io/cv/", target = "_blank",
+        HTML("<button class='bttn-unite bttn-lg bttn-default'><i class='fa fa-address-card' aria-hidden='true'></i> Resume</button>"))))
 ```
 
 ```{r contact}

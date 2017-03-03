@@ -23,6 +23,8 @@
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 <script src="https://use.fontawesome.com/9fdc01e796.js"></script>
 <link href="https://cdn.rawgit.com/gaborcsardi/r-font/master/rlogo.css" rel="stylesheet">
+<script src="js/siema.min.js"></script>
+<link href="css/bttn.min.css" rel="stylesheet">
 
 
 
@@ -54,7 +56,7 @@ h6 {
 }
 </style>
 
-<link rel="stylesheet" href="css/styles.css" type="text/css" />
+<link rel="stylesheet" href="css\styles.css" type="text/css" />
 
 </head>
 
@@ -195,21 +197,32 @@ $(document).ready(function () {
 <a href="mailto:jcoenep@gmail.com">jcoenep@gmail.com</a>
 </div>
 
-<footer class="footer">
-  <div class="container">
+
     <div class="row">
       <div class="col-lg-4">
-        <p class="text-muted"><a href="https://github.com/JohnCoene"><i class='fa fa-github fa-2x' aria-hidden='true'></i></a></p>
+        <p><a href="https://github.com/JohnCoene"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-github' aria-hidden='true'></i></button></a></p>
       </div>
       <div class="col-lg-4">
-        <p class="text-muted"><a href="https://www.linkedin.com/in/johncoene/"><i class='fa fa-linkedin fa-2x' aria-hidden='true'></i></a></p>
+        <p><a href="https://www.linkedin.com/in/johncoene/"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-linkedin' aria-hidden='true'></i></button></a></p>
       </div>
       <div class="col-lg-4">
-        <p class="text-muted"><a href="https://twitter.com/jdatap"><i class='fa fa-twitter fa-2x' aria-hidden='true'></i></a></p>
+        <p><a href="https://twitter.com/jdatap"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-twitter' aria-hidden='true'></i></button></a></p>
       </div>
     </div>
-  </div>
-</footer>
+
+<script>
+  const car = new Siema({
+    selector: '.siema',
+    duration: 500,
+    easing: 'ease-out',
+    draggable: true,
+    perPage: 1,
+    startIndex: 0,
+    loop: true
+  });
+  
+  setInterval(() => car.next(), 7000)
+</script>
 
 
 

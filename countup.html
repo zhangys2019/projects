@@ -20,12 +20,14 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/htmlwidgets-0.7/htmlwidgets.js"></script>
+<script src="site_libs/htmlwidgets-0.8/htmlwidgets.js"></script>
 <script src="site_libs/countUp-1.8.1/countUp-1.8.1.js"></script>
 <script src="site_libs/countup-binding-0.0.1/countup.js"></script>
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 <script src="https://use.fontawesome.com/9fdc01e796.js"></script>
 <link href="https://cdn.rawgit.com/gaborcsardi/r-font/master/rlogo.css" rel="stylesheet">
+<script src="js/siema.min.js"></script>
+<link href="css/bttn.min.css" rel="stylesheet">
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -99,7 +101,7 @@ h6 {
 }
 </style>
 
-<link rel="stylesheet" href="css/styles.css" type="text/css" />
+<link rel="stylesheet" href="css\styles.css" type="text/css" />
 
 </head>
 
@@ -238,8 +240,8 @@ $(document).ready(function () {
 <div class="page-header">
 <h3>
 John has been on earth for <span class = 'text-primary'>
-<span id="htmlwidget-88c07d19545c0f650519" class="countup html-widget"></span>
-<script type="application/json" data-for="htmlwidget-88c07d19545c0f650519">{"x":{"count":15242400,"start":0,"options":{"useEasing":true,"useGrouping":true,"separator":"'","decimal":".","prefix":"~"},"duration":2.5},"evals":[],"jsHooks":[]}</script>
+<span id="htmlwidget-f0d90926b01920a9362d" class="countup html-widget"></span>
+<script type="application/json" data-for="htmlwidget-f0d90926b01920a9362d">{"x":{"count":15242400,"start":0,"options":{"useEasing":true,"useGrouping":true,"separator":"'","decimal":".","prefix":"~"},"duration":2.5},"evals":[],"jsHooks":[]}</script>
 </span> minutes.
 </h3>
 </div>
@@ -280,21 +282,32 @@ opts =<span class="st"> </span><span class="kw">list</span>(
 
 <span class="kw">countup</span>(<span class="dt">count =</span> <span class="dv">1729</span>, <span class="dt">start =</span> <span class="dv">10</span>, <span class="dt">options =</span> opts) <span class="co"># with options</span></code></pre></div>
 
-<footer class="footer">
-  <div class="container">
+
     <div class="row">
       <div class="col-lg-4">
-        <p class="text-muted"><a href="https://github.com/JohnCoene"><i class='fa fa-github fa-2x' aria-hidden='true'></i></a></p>
+        <p><a href="https://github.com/JohnCoene"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-github' aria-hidden='true'></i></button></a></p>
       </div>
       <div class="col-lg-4">
-        <p class="text-muted"><a href="https://www.linkedin.com/in/johncoene/"><i class='fa fa-linkedin fa-2x' aria-hidden='true'></i></a></p>
+        <p><a href="https://www.linkedin.com/in/johncoene/"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-linkedin' aria-hidden='true'></i></button></a></p>
       </div>
       <div class="col-lg-4">
-        <p class="text-muted"><a href="https://twitter.com/jdatap"><i class='fa fa-twitter fa-2x' aria-hidden='true'></i></a></p>
+        <p><a href="https://twitter.com/jdatap"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-twitter' aria-hidden='true'></i></button></a></p>
       </div>
     </div>
-  </div>
-</footer>
+
+<script>
+  const car = new Siema({
+    selector: '.siema',
+    duration: 500,
+    easing: 'ease-out',
+    draggable: true,
+    perPage: 1,
+    startIndex: 0,
+    loop: true
+  });
+  
+  setInterval(() => car.next(), 7000)
+</script>
 
 
 
