@@ -72,7 +72,7 @@ div(class = "siema",
             p("uvCharts htmlwidget for R."),
             p(HTML("<ul>",
                    "<li>12 chart types",
-                   "<li>themes",
+                   "<li>7 themes",
                    "<li>17 configuration functions",
                    "<li>110 combinations",
                    "<li>Responsive",
@@ -107,7 +107,7 @@ div(class = "siema",
             p("chartist htmlwidget for R."),
             p(HTML("<ul>",
                    "<li>4 chart types",
-                   "<li>tons of options",
+                   "<li>Tons of options",
                    "<li>Animations!",
                    "<li>Responsive",
                    "</ul>")),
@@ -324,7 +324,3 @@ p("Please free to inquire about a project, collaboration, freelance, or other op
 ```
 
 <script src="js/tilt.jquery.min.js"></script>
-<script>
-  // Accepts any class name
-  var rellax = new Rellax('.rellax');
-</script>
