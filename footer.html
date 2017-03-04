@@ -14,7 +14,7 @@
 <script>
   const car = new Siema({
     selector: '.siema',
-    duration: 500,
+    duration: 700,
     easing: 'ease-out',
     draggable: true,
     perPage: 1,
@@ -23,4 +23,10 @@
   });
   
   setInterval(() => car.next(), 9000)
+</script>
+
+<script>
+$('.js-tilt').tilt({
+    scale: 1.1
+})
 </script>

@@ -28,7 +28,10 @@
 <script src="https://use.fontawesome.com/9fdc01e796.js"></script>
 <link href="https://cdn.rawgit.com/gaborcsardi/r-font/master/rlogo.css" rel="stylesheet">
 <script src="js/siema.min.js"></script>
+<script src="js/rellax.min.js"></script>
 <link href="css/bttn.min.css" rel="stylesheet">
+<link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -247,8 +250,8 @@ $(document).ready(function () {
 <blockquote>
 <p>Type “coene” to see it in action!</p>
 </blockquote>
-<div id="htmlwidget-4047bb11552f448ea614" class="egg html-widget" style="display: none; position: absolute; top:20%; left:50% width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-4047bb11552f448ea614">{"x":{"egg":"","stroke":["c","o","e","n","e"],"fade":1000,"imegg":"http://media.vanityfair.com/photos/54cbf3da998d4de83ba3602a/master/w_960,c_limit/image.jpg"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-fad2881f7402d6cd96a4" class="egg html-widget" style="display: none; position: absolute; top:20%; left:50% width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-fad2881f7402d6cd96a4">{"x":{"egg":"","stroke":["c","o","e","n","e"],"fade":1000,"imegg":"http://media.vanityfair.com/photos/54cbf3da998d4de83ba3602a/master/w_960,c_limit/image.jpg"},"evals":[],"jsHooks":[]}</script>
 <div class="page-header">
 <h2>Install</h2>
 </div>
@@ -279,7 +282,7 @@ devtools::<span class="kw">install_github</span>(<span class="st">&quot;JohnCoen
 <script>
   const car = new Siema({
     selector: '.siema',
-    duration: 500,
+    duration: 700,
     easing: 'ease-out',
     draggable: true,
     perPage: 1,
@@ -288,6 +291,12 @@ devtools::<span class="kw">install_github</span>(<span class="st">&quot;JohnCoen
   });
   
   setInterval(() => car.next(), 9000)
+</script>
+
+<script>
+$('.js-tilt').tilt({
+    scale: 1.1
+})
 </script>
 
 

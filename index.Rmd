@@ -138,100 +138,121 @@ div(class = "page-header",
 
 
 ```{r, projects row 1}
+tube <- div(class = "thumbnail js-tilt",
+          a(href = "packages/youTubeDataR/",
+            img(src = "img/thumbnails/youTubeDataR.png", class = "img-responsive")),
+            div(class = "caption",
+                h3("youTubeDataR"),
+                p("youTubeDataR is an R package that provides access to the YouTube Data API"),
+                h4(span("api", class = "label label-info"))))
+chartist <- div(class = "thumbnail js-tilt",
+          a(href = "htmlwidgets/chartist/",
+            img(src = "img/thumbnails/chartist.png", class = "img-responsive")),
+            div(class = "caption",
+                h3("chartist"),
+                p("chartist is an R htmlwidget for chartist.js in R."),
+                h4(span("visualisation", class = "label label-success"))))
+
+wine <- div(class = "thumbnail js-tilt",
+          a(href = "http://johncoene.github.io/wine", target = "_blank",
+            img(src = "img/thumbnails/wine-dashboard.jpg", class = "img-responsive")),
+            div(class = "caption",
+                h3("Wine on Twitter"),
+                p("Wine dashboard is a set of dahsboards about conversations on wine occuring on Twitter."),
+                h4(span("dashboard", class = "label label-warning"))))
+
 div(class = "row",
-    thumbnail(title = "youTubeDataR", 
-      img = "img/thumbnails/youTubeDataR.png",
-      content = "youTubeDataR is an R package that provides access to the YouTube Data API",
-      link.href = "packages/youTubeDataR/",
-      tag = "api",
-      tag.class = "info"),
-
-  thumbnail(title = "chartist", 
-      img = "img/thumbnails/chartist.png",
-      content = "chartist is an R htmlwidget for chartist.js in R.",
-      link.href = "htmlwidgets/chartist/",
-      tag = "visualisation",
-      tag.class = "success"),
-
-  thumbnail(title = "Wine Dashboard", 
-      img = "img/thumbnails/wine-dashboard.jpg",
-      content = "Wine dashboard is a set of dahsboards about conversations on wine occuring on Twitter.",
-      link.href = "http://johncoene.github.io/wine",
-      link.tgt = "_blank",
-      tag = "Dashboard",
-      tag.class = "warning"))
-
+    div(class = "col-lg-4 col-md-4", tagAppendAttributes(tube, "data-tilt" = NA)),
+    div(class = "col-lg-4 col-md-4", tagAppendAttributes(chartist, "data-tilt" = NA)),
+    div(class = "col-lg-4 col-md-4", tagAppendAttributes(wine, "data-tilt" = NA)))
 ```
 
 ```{r projects row 2}
+uvcharts <- div(class = "thumbnail js-tilt",
+          a(href = "htmlwidgets/uvcharts/",
+            img(src = "img/thumbnails/uvcharts.png", class = "img-responsive")),
+            div(class = "caption",
+                h3("uvcharts"),
+                p("uvcharts is an htmlwidget for uvcharts.js charting library."),
+                h4(span("visualisation", class = "label label-success"))))
+
+typed <- div(class = "thumbnail js-tilt",
+          a(href = "typed",
+            img(src = "img/thumbnails/typed.png", class = "img-responsive")),
+            div(class = "caption",
+                h3("typed"),
+                p("typed is an is an R implementation (htmlwidget) of typed.js."),
+                h4(span("misc", class = "label label-default"))))
+
+bibler <- div(class = "thumbnail js-tilt",
+          a(href = "packages/bibler/",
+            img(src = "img/thumbnails/bibler.jpg", class = "img-responsive")),
+            div(class = "caption",
+                h3("bibler"),
+                p("R Package that includes all of the Bible books and some text mining utilities."),
+                h4(span("dataset", class = "label label-danger"))))
 
 div(class = "row",
-    thumbnail(title = "uvcharts", 
-      img = "img/thumbnails/uvcharts.png",
-      content = "uvcharts is an htmlwidget for uvcharts.js charting library.",
-      link.href = "htmlwidgets/uvcharts/",
-      tag = "visualisation",
-      tag.class = "success"),
-
-  thumbnail(title = "typed", 
-      img = "img/thumbnails/typed.png",
-      content = "typed is an is an R implementation (htmlwidget) of typed.js.",
-      link.href = "typed",
-      tag = "misc",
-      tag.class = "default"),
-
-  thumbnail(title = "bibler", 
-      img = "img/thumbnails/bibler.jpg",
-      content = "R Package that includes all of the Bible books and some text mining utilities.",
-      link.href = "packages/bibler/",
-      tag = "dataset",
-      tag.class = "danger"))
+    div(class = "col-lg-4 col-md-4", tagAppendAttributes(uvcharts, "data-tilt" = NA)),
+    div(class = "col-lg-4 col-md-4", tagAppendAttributes(typed, "data-tilt" = NA)),
+    div(class = "col-lg-4 col-md-4", tagAppendAttributes(bibler, "data-tilt" = NA)))
 ```
 
 ```{r projects row 3}
+peity <- div(class = "thumbnail js-tilt",
+          a(href = "peity",
+            img(src = "img/thumbnails/peity.png", class = "img-responsive")),
+            div(class = "caption",
+                h3("peity"),
+                p("peity is an R implementation (htmlwidget) of Peity."),
+                h4(span("visualisation", class = "label label-success"))))
+countup <- div(class = "thumbnail js-tilt",
+          a(href = "countup",
+            img(src = "img/thumbnails/countup.png", class = "img-responsive")),
+            div(class = "caption",
+                h3("countup"),
+                p("countup is an R implementation (htmlwidget) of Count-Up.js."),
+                h4(span("misc", class = "label label-default"))))
+rodham <- div(class = "thumbnail js-tilt",
+          a(href = "packages/rodham/",
+            img(src = "img/thumbnails/rodham.png", class = "img-responsive")),
+            div(class = "caption",
+                h3("rodham"),
+                p("R Package to download Hillary Rodham Clinton's personal emails."),
+                h4(span("api", class = "label label-info"))))
+
 div(class = "row",
-    thumbnail(title = "countup", 
-      img = "img/thumbnails/countup.png",
-      content = "countup is an R implementation (htmlwidget) of Count-Up.js.",
-      link.href = "countup",
-      tag = "misc",
-      tag.class = "default"),
-
-  thumbnail(title = "rodham", 
-      img = "img/thumbnails/rodham.png",
-      content = "R Package to download Hillary Rodham Clinton's personal emails.",
-      link.href = "packages/rodham/",
-      tag = "api",
-      tag.class = "info"),
-
-  thumbnail(title = "peity", 
-      img = "img/thumbnails/peity.png",
-      content = "peity is an R implementation (htmlwidget) of Peity.",
-      link.href = "peity",
-      tag = "visualisation",
-      tag.class = "success"))
+    div(class = "col-lg-4 col-md-4", tagAppendAttributes(countup, "data-tilt" = NA)),
+    div(class = "col-lg-4 col-md-4", tagAppendAttributes(rodham, "data-tilt" = NA)),
+    div(class = "col-lg-4 col-md-4", tagAppendAttributes(peity, "data-tilt" = NA)))
 ```
 
 ```{r projects row 4}
+gt <- div(class = "thumbnail js-tilt",
+          a(href = "packages/graphTweets/",
+            img(src = "img/thumbnails/graphTweets.JPG", class = "img-responsive")),
+            div(class = "caption",
+                h3("graphTweets"),
+                p("graphTweets is an R package to visualise networks of Twitter interactions."),
+                h4(span("visualisation", class = "label label-success"))))
+t2e <- div(class = "thumbnail js-tilt",
+          a(href = "tweets2earth",
+            img(src = "img/thumbnails/tweets2earth.png", class = "img-responsive")),
+            div(class = "caption",
+                h3("tweets2earth"),
+                p("tweets2earth lets you easily plot tweets' location and created time onto Google Earth."),
+                h4(span("visualisation", class = "label label-success"))))
+egg <- div(class = "thumbnail js-tilt",
+          a(href = "egg",
+            img(src = "img/thumbnails/egg.png", class = "img-responsive")),
+            div(class = "caption",
+                h3("egg"),
+                p("egg let's you put Easter eggs in your Rmarkdown documents."),
+                h4(span("misc", class = "label label-default"))))
 div(class = "row",
-    thumbnail(title = "graphTweets", 
-      img = "img/thumbnails/graphTweets.JPG",
-      content = "GraphTweets is an R package to visualise networks of Twitter interactions.",
-      link.href = "packages/graphTweets/",
-      tag = "visualisation",
-      tag.class = "success"),
-    thumbnail(title = "tweets2earth", 
-      img = "img/thumbnails/tweets2earth.png",
-      content = "Easily plot tweets' location and created time onto Google Earth",
-      link.href = "tweets2earth",
-      tag = "visualisation",
-      tag.class = "success"),
-    thumbnail(title = "egg", 
-      img = "img/thumbnails/egg.png",
-      content = "egg let's you put Easter eggs in your Rmarkdown documents.",
-      link.href = "egg",
-      tag = "misc",
-      tag.class = "default"))
+    div(class = "col-lg-4 col-md-4", tagAppendAttributes(gt, "data-tilt" = NA)),
+    div(class = "col-lg-4 col-md-4", tagAppendAttributes(t2e, "data-tilt" = NA)),
+    div(class = "col-lg-4 col-md-4", tagAppendAttributes(egg, "data-tilt" = NA)))
 ```
 
 ```{r about}
@@ -258,3 +279,9 @@ div(class = "page-header",
 p("Please free to inquire about a project, collaboration, freelance, or other opportunities such as free cake:", 
   a("jcoenep@gmail.com", href = "mailto:jcoenep@gmail.com"))
 ```
+
+<script src="js/tilt.jquery.min.js"></script>
+<script>
+  // Accepts any class name
+  var rellax = new Rellax('.social');
+</script>

@@ -27,7 +27,10 @@
 <script src="https://use.fontawesome.com/9fdc01e796.js"></script>
 <link href="https://cdn.rawgit.com/gaborcsardi/r-font/master/rlogo.css" rel="stylesheet">
 <script src="js/siema.min.js"></script>
+<script src="js/rellax.min.js"></script>
 <link href="css/bttn.min.css" rel="stylesheet">
+<link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -237,20 +240,20 @@ $(document).ready(function () {
 </div>
 
 
-<p><span id="htmlwidget-c354641fbdb5f6602f77" class="peity html-widget"></span>
-<script type="application/json" data-for="htmlwidget-c354641fbdb5f6602f77">{"x":{"values":[3,1,7,8],"type":"donut","options":null},"evals":[],"jsHooks":[]}</script> <span id="htmlwidget-c9c7eee3cf5e3b9f027d" class="peity html-widget"></span>
-<script type="application/json" data-for="htmlwidget-c9c7eee3cf5e3b9f027d">{"x":{"values":[5,3,2,-1,-3,-2,2,3],"type":"bar","options":null},"evals":[],"jsHooks":[]}</script> <span id="htmlwidget-234296b479562c7f31ef" class="peity html-widget"></span>
-<script type="application/json" data-for="htmlwidget-234296b479562c7f31ef">{"x":{"values":[0,-3,-6,-4,-5,-3,-5,-2],"type":"bar","options":null},"evals":[],"jsHooks":[]}</script> <span id="htmlwidget-9483dba0ddce8ee7e4c0" class="peity html-widget"></span>
-<script type="application/json" data-for="htmlwidget-9483dba0ddce8ee7e4c0">{"x":{"values":[5,3,9,6,5,9,7,3],"type":"line","options":null},"evals":[],"jsHooks":[]}</script> <span id="htmlwidget-bfd1d4ab5315c703dc8d" class="peity html-widget"></span>
-<script type="application/json" data-for="htmlwidget-bfd1d4ab5315c703dc8d">{"x":{"values":[5,2,3,1],"type":"pie","options":null},"evals":[],"jsHooks":[]}</script></p>
+<p><span id="htmlwidget-9a05713ae7bfe84a3e64" class="peity html-widget"></span>
+<script type="application/json" data-for="htmlwidget-9a05713ae7bfe84a3e64">{"x":{"values":[3,1,7,8],"type":"donut","options":null},"evals":[],"jsHooks":[]}</script> <span id="htmlwidget-a9f5220db3e788080520" class="peity html-widget"></span>
+<script type="application/json" data-for="htmlwidget-a9f5220db3e788080520">{"x":{"values":[5,3,2,-1,-3,-2,2,3],"type":"bar","options":null},"evals":[],"jsHooks":[]}</script> <span id="htmlwidget-fb9ab4fd9e268dcdd41f" class="peity html-widget"></span>
+<script type="application/json" data-for="htmlwidget-fb9ab4fd9e268dcdd41f">{"x":{"values":[0,-3,-6,-4,-5,-3,-5,-2],"type":"bar","options":null},"evals":[],"jsHooks":[]}</script> <span id="htmlwidget-4459c44868990caff7eb" class="peity html-widget"></span>
+<script type="application/json" data-for="htmlwidget-4459c44868990caff7eb">{"x":{"values":[5,3,9,6,5,9,7,3],"type":"line","options":null},"evals":[],"jsHooks":[]}</script> <span id="htmlwidget-5db52a857f9022eaa93d" class="peity html-widget"></span>
+<script type="application/json" data-for="htmlwidget-5db52a857f9022eaa93d">{"x":{"values":[5,2,3,1],"type":"pie","options":null},"evals":[],"jsHooks":[]}</script></p>
 <div class="container-fluid">
 <p>
 <code>peity</code>
  is an htmlwidget for 
 <a href="http://benpickles.github.io/peity/" target="_blank">Peity</a>
 : in-line charts
-<span id="htmlwidget-54329c50496fdeacd75f" class="peity html-widget"></span>
-<script type="application/json" data-for="htmlwidget-54329c50496fdeacd75f">{"x":{"values":[1,5,2,6,5,3,1],"type":"line","options":null},"evals":[],"jsHooks":[]}</script>
+<span id="htmlwidget-ea4e00779cc3db7f6057" class="peity html-widget"></span>
+<script type="application/json" data-for="htmlwidget-ea4e00779cc3db7f6057">{"x":{"values":[1,5,2,6,5,3,1],"type":"line","options":null},"evals":[],"jsHooks":[]}</script>
 .
 </p>
 <p>
@@ -267,16 +270,16 @@ $(document).ready(function () {
 </div>
 <p>Reproducing examples from the <a href="http://benpickles.github.io/peity/">official documentation</a>:</p>
 <ol style="list-style-type: decimal">
-<li><span id="htmlwidget-50d9fdd7834deca4cdf7" class="peity html-widget"></span>
-<script type="application/json" data-for="htmlwidget-50d9fdd7834deca4cdf7">{"x":{"values":[5,3,9,6,5,9,7,3,5,2],"type":"bar","options":{"fill":["red","green","blue"]}},"evals":[],"jsHooks":[]}</script></li>
-<li><span id="htmlwidget-46cd28c40b26c732eb41" class="peity html-widget"></span>
-<script type="application/json" data-for="htmlwidget-46cd28c40b26c732eb41">{"x":{"values":[5,3,2,-1,-3,-2,2,3,5,2],"type":"bar","options":{"fill":"function(value) {return value > 0 ? 'green':'red'}"}},"evals":["options.fill"],"jsHooks":[]}</script></li>
-<li><span id="htmlwidget-e639874a75c23f64398d" class="peity html-widget"></span>
-<script type="application/json" data-for="htmlwidget-e639874a75c23f64398d">{"x":{"values":[0,-3,-6,-4,-5,-4,-7,-3,-5,-2],"type":"bar","options":{"fill":"function(_, i, all) {\n    var g = parseInt((i / all.length) * 255)\n    return \"rgb(255, \" + g + \", 0)\"\n  }"}},"evals":["options.fill"],"jsHooks":[]}</script></li>
-<li><span id="htmlwidget-0ba3e4b5186f36b37ab1" class="peity html-widget"></span>
-<script type="application/json" data-for="htmlwidget-0ba3e4b5186f36b37ab1">{"x":{"values":[4,7,6,5],"type":"pie","options":{"fill":["cyan","magenta","yellow","black"]}},"evals":[],"jsHooks":[]}</script></li>
-<li><span id="htmlwidget-f67460d7975c3675c5ca" class="peity html-widget"></span>
-<script type="application/json" data-for="htmlwidget-f67460d7975c3675c5ca">{"x":{"values":[5,3,9,6,5],"type":"pie","options":{"fill":"function(_, i, all) {\n    var g = parseInt((i / all.length) * 255)\n    return \"rgb(255, \" + g + \", 0)\"\n  }"}},"evals":["options.fill"],"jsHooks":[]}</script></li>
+<li><span id="htmlwidget-d8cf425add924d08df70" class="peity html-widget"></span>
+<script type="application/json" data-for="htmlwidget-d8cf425add924d08df70">{"x":{"values":[5,3,9,6,5,9,7,3,5,2],"type":"bar","options":{"fill":["red","green","blue"]}},"evals":[],"jsHooks":[]}</script></li>
+<li><span id="htmlwidget-9800aeb240bea8653607" class="peity html-widget"></span>
+<script type="application/json" data-for="htmlwidget-9800aeb240bea8653607">{"x":{"values":[5,3,2,-1,-3,-2,2,3,5,2],"type":"bar","options":{"fill":"function(value) {return value > 0 ? 'green':'red'}"}},"evals":["options.fill"],"jsHooks":[]}</script></li>
+<li><span id="htmlwidget-597a1d50304d88b59bc8" class="peity html-widget"></span>
+<script type="application/json" data-for="htmlwidget-597a1d50304d88b59bc8">{"x":{"values":[0,-3,-6,-4,-5,-4,-7,-3,-5,-2],"type":"bar","options":{"fill":"function(_, i, all) {\n    var g = parseInt((i / all.length) * 255)\n    return \"rgb(255, \" + g + \", 0)\"\n  }"}},"evals":["options.fill"],"jsHooks":[]}</script></li>
+<li><span id="htmlwidget-80434e4a4b1db8ef38e5" class="peity html-widget"></span>
+<script type="application/json" data-for="htmlwidget-80434e4a4b1db8ef38e5">{"x":{"values":[4,7,6,5],"type":"pie","options":{"fill":["cyan","magenta","yellow","black"]}},"evals":[],"jsHooks":[]}</script></li>
+<li><span id="htmlwidget-81b8f74ec68c3faac68b" class="peity html-widget"></span>
+<script type="application/json" data-for="htmlwidget-81b8f74ec68c3faac68b">{"x":{"values":[5,3,9,6,5],"type":"pie","options":{"fill":"function(_, i, all) {\n    var g = parseInt((i / all.length) * 255)\n    return \"rgb(255, \" + g + \", 0)\"\n  }"}},"evals":["options.fill"],"jsHooks":[]}</script></li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 1</span>
 <span class="kw">peity</span>(<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">9</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">9</span>,<span class="dv">7</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">2</span>), <span class="dt">type =</span> <span class="st">&quot;bar&quot;</span>, <span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">fill =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>)))
@@ -318,7 +321,7 @@ fun2 &lt;-<span class="st"> </span>htmlwidgets::<span class="kw">JS</span>(<span
 <script>
   const car = new Siema({
     selector: '.siema',
-    duration: 500,
+    duration: 700,
     easing: 'ease-out',
     draggable: true,
     perPage: 1,
@@ -327,6 +330,12 @@ fun2 &lt;-<span class="st"> </span>htmlwidgets::<span class="kw">JS</span>(<span
   });
   
   setInterval(() => car.next(), 9000)
+</script>
+
+<script>
+$('.js-tilt').tilt({
+    scale: 1.1
+})
 </script>
 
 
