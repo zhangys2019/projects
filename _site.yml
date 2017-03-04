@@ -7,7 +7,8 @@ navbar:
       text: "Home"
       href: index.html
   right:
-    - text: "Resume"
+    - icon: fa-address-card
+      text: "Resume"
       href: http://johncoene.github.io/cv/
       
 output:
