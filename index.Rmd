@@ -47,8 +47,9 @@ library(graphTweets)
 tweets <- data.frame(text = c("tweets @you about @her", 
                               "tweet @him about @you", 
                               "tweets @her and @I",
-                              "@You reply to @him and @her"),
-                     source = c("he", "I", "Someone", "You"),
+                              "@You reply to @him and @her",
+                              "Responds to @her"),
+                     source = c("he", "I", "Someone", "You", "Someone"),
                      stringsAsFactors = FALSE)
 
 edges <- getEdges(tweets, "text", "source")
@@ -94,7 +95,10 @@ div(class = "siema",
               code("@I tweet to @you and @him"),
               br(),
               code("@Someone tweets @her and @I"),
-              code("@You reply to @him and @her")),
+              br(),
+              code("@You reply to @him and @her"),
+              br(),
+              code("@Someone responds to @her")),
             br(),
             a(href="packages/graphTweets/",
             HTML("<button class='bttn-unite bttn-md bttn-default'><i class='fa fa-book' aria-hidden='true'></i> Docs</button>"))),

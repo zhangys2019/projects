@@ -21,4 +21,6 @@ output:
     include:
       in_header:: header.html
       after_body: footer.html
-    css: styles.css
+    css: 
+      - styles.css
+      - bttn.min.css
