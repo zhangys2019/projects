@@ -36,7 +36,7 @@
 <script src="site_libs/chartist-0.10.0/plugins/chartist-plugin-accessibility.min.js"></script>
 <script src="site_libs/chartist-binding-0.0.2.9000/chartist.js"></script>
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
+
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -111,6 +111,7 @@ h6 {
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="bttn.min.css" type="text/css" />
 
 </head>
 
@@ -388,8 +389,8 @@ div.tocify {
 <span class="st">  </span><span class="kw">lineopt_ist</span>(<span class="dt">name =</span> <span class="st">&quot;hp&quot;</span>, <span class="dt">showArea =</span> <span class="ot">TRUE</span>) %&gt;%
 <span class="st">  </span><span class="kw">lanim_ist</span>() %&gt;%
 <span class="st">  </span><span class="kw">loop_ist</span>() <span class="co"># loop animation</span></code></pre></div>
-<div id="htmlwidget-5d9fee8d5b31517398c6" style="width:100%;height:400px;" class="chartist html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5d9fee8d5b31517398c6">{"x":{"cdat":{"labels":[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44,3.44,4.07,3.73,3.78,5.25,5.424,5.345,2.2,1.615,1.835,2.465,3.52,3.435,3.84,3.845,1.935,2.14,1.513,3.17,2.77,3.57,2.78],"series":[{"name":"disp","data":[95.1,75.7,71.1,79,120.3,78.7,108,120.1,160,145,121,160,140.8,351,146.7,258,304,360,167.6,167.6,225,318,360,301,275.8,275.8,350,400,275.8,472,440,460]},{"name":"hp","data":[113,52,65,66,91,66,93,97,110,175,109,110,95,264,62,110,150,175,123,123,105,150,245,335,180,180,245,175,180,205,230,215]}]},"ratio":"ct-chart","type":"line","options":{"showPoint":false,"series":{"hp":{"showArea":true,"lineSmooth":"Chartist.Interpolation.simple()"}}},"anim":{"FUN":"\n    function(data){\n      if(data.type === 'line' || data.type === 'area'){\n        data.element.animate({d:{begin: 2000 * data.index, dur: 2000, from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(), to: data.path.clone().stringify(), easing: Chartist.Svg.Easing.easeOutQuint}});\n      }\n    }"},"loop":{"ms":5000}},"evals":["options.series.hp.lineSmooth","anim.FUN"],"jsHooks":[]}</script>
+<div id="htmlwidget-9b279d1b0dba216d470f" style="width:100%;height:400px;" class="chartist html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9b279d1b0dba216d470f">{"x":{"cdat":{"labels":[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44,3.44,4.07,3.73,3.78,5.25,5.424,5.345,2.2,1.615,1.835,2.465,3.52,3.435,3.84,3.845,1.935,2.14,1.513,3.17,2.77,3.57,2.78],"series":[{"name":"disp","data":[95.1,75.7,71.1,79,120.3,78.7,108,120.1,160,145,121,160,140.8,351,146.7,258,304,360,167.6,167.6,225,318,360,301,275.8,275.8,350,400,275.8,472,440,460]},{"name":"hp","data":[113,52,65,66,91,66,93,97,110,175,109,110,95,264,62,110,150,175,123,123,105,150,245,335,180,180,245,175,180,205,230,215]}]},"ratio":"ct-chart","type":"line","options":{"showPoint":false,"series":{"hp":{"showArea":true,"lineSmooth":"Chartist.Interpolation.simple()"}}},"anim":{"FUN":"\n    function(data){\n      if(data.type === 'line' || data.type === 'area'){\n        data.element.animate({d:{begin: 2000 * data.index, dur: 2000, from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(), to: data.path.clone().stringify(), easing: Chartist.Svg.Easing.easeOutQuint}});\n      }\n    }"},"loop":{"ms":5000}},"evals":["options.series.hp.lineSmooth","anim.FUN"],"jsHooks":[]}</script>
 </div>
 <div id="scatter" class="section level2">
 <h2>Scatter</h2>
@@ -401,8 +402,8 @@ div.tocify {
 <span class="st">  </span><span class="kw">scatter_ist</span>() %&gt;%
 <span class="st">  </span><span class="kw">sanim_ist</span>() %&gt;%
 <span class="st">  </span><span class="kw">loop_ist</span>(<span class="dv">6000</span>) <span class="co"># loop every 6000 milliseconds</span></code></pre></div>
-<div id="htmlwidget-2a256930080f3f2b95bf" style="width:100%;height:400px;" class="chartist html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2a256930080f3f2b95bf">{"x":{"cdat":{"labels":[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44,3.44,4.07,3.73,3.78,5.25,5.424,5.345,2.2,1.615,1.835,2.465,3.52,3.435,3.84,3.845,1.935,2.14,1.513,3.17,2.77,3.57,2.78],"series":[{"name":"line-1","data":[95.1,75.7,71.1,79,120.3,78.7,108,120.1,160,145,121,160,140.8,351,146.7,258,304,360,167.6,167.6,225,318,360,301,275.8,275.8,350,400,275.8,472,440,460]},{"name":"line-2","data":[113,52,65,66,91,66,93,97,110,175,109,110,95,264,62,110,150,175,123,123,105,150,245,335,180,180,245,175,180,205,230,215]}]},"ratio":"ct-chart","type":"line","options":{"showPoint":true,"showArea":false,"showLine":false},"anim":{"FUN":"\n    function(data){\n      if(data.type === 'point'){\n        data.element.animate({opacity:{begin: 20, dur: 500, from: 0, to: 1}});\n      }\n    \n      if(data.type === 'point'){\n        data.element.animate({x1:{begin: 20, dur: 500, from: data.x - 100, to: data.x, easing: Chartist.Svg.Easing.easeOutQuart}});\n      }\n    }"},"loop":{"ms":6000}},"evals":["anim.FUN"],"jsHooks":[]}</script>
+<div id="htmlwidget-22369ab0952d9afe9b0e" style="width:100%;height:400px;" class="chartist html-widget"></div>
+<script type="application/json" data-for="htmlwidget-22369ab0952d9afe9b0e">{"x":{"cdat":{"labels":[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44,3.44,4.07,3.73,3.78,5.25,5.424,5.345,2.2,1.615,1.835,2.465,3.52,3.435,3.84,3.845,1.935,2.14,1.513,3.17,2.77,3.57,2.78],"series":[{"name":"line-1","data":[95.1,75.7,71.1,79,120.3,78.7,108,120.1,160,145,121,160,140.8,351,146.7,258,304,360,167.6,167.6,225,318,360,301,275.8,275.8,350,400,275.8,472,440,460]},{"name":"line-2","data":[113,52,65,66,91,66,93,97,110,175,109,110,95,264,62,110,150,175,123,123,105,150,245,335,180,180,245,175,180,205,230,215]}]},"ratio":"ct-chart","type":"line","options":{"showPoint":true,"showArea":false,"showLine":false},"anim":{"FUN":"\n    function(data){\n      if(data.type === 'point'){\n        data.element.animate({opacity:{begin: 20, dur: 500, from: 0, to: 1}});\n      }\n    \n      if(data.type === 'point'){\n        data.element.animate({x1:{begin: 20, dur: 500, from: data.x - 100, to: data.x, easing: Chartist.Svg.Easing.easeOutQuart}});\n      }\n    }"},"loop":{"ms":6000}},"evals":["anim.FUN"],"jsHooks":[]}</script>
 </div>
 <div id="donut" class="section level2">
 <h2>Donut</h2>
@@ -413,8 +414,8 @@ div.tocify {
 <span class="st">  </span><span class="kw">pieopt_ist</span>(<span class="dt">donut =</span> <span class="ot">TRUE</span>, <span class="dt">showLabel =</span> <span class="ot">FALSE</span>) %&gt;%
 <span class="st">  </span><span class="kw">danim_ist</span>() %&gt;%
 <span class="st">  </span><span class="kw">loop_ist</span>(<span class="dv">7000</span>) <span class="co"># loop every 7000 milliseconds</span></code></pre></div>
-<div id="htmlwidget-f1c2bf17fdedb9d83e2a" style="width:100%;height:400px;" class="chartist html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f1c2bf17fdedb9d83e2a">{"x":{"cdat":{"labels":[110,110,93,110,175],"series":[108,160,160,258,360]},"ratio":"ct-chart","type":"pie","options":{"showLabel":false,"donut":true},"anim":{"FUN":"function(data) {\n  if(data.type === 'slice') {\n    var pathLength = data.element._node.getTotalLength();\n    data.element.attr({\n      'stroke-dasharray': pathLength + 'px ' + pathLength + 'px'\n    });\n    var animationDefinition = {\n      'stroke-dashoffset': {\n        id: 'anim' + data.index,\n        dur: 1000,\n        from: -pathLength + 'px',\n        to:  '0px',\n        easing: Chartist.Svg.Easing.easeOutQuint,\n        fill: 'freeze'\n      }\n    };\n    if(data.index !== 0) {\n      animationDefinition['stroke-dashoffset'].begin = 'anim' + (data.index - 1) + '.end';\n    }\n    data.element.attr({\n      'stroke-dashoffset': -pathLength + 'px'\n    });\n    data.element.animate(animationDefinition, false);\n  }}"},"loop":{"ms":7000}},"evals":["anim.FUN"],"jsHooks":[]}</script>
+<div id="htmlwidget-80f158faa69dbd022166" style="width:100%;height:400px;" class="chartist html-widget"></div>
+<script type="application/json" data-for="htmlwidget-80f158faa69dbd022166">{"x":{"cdat":{"labels":[110,110,93,110,175],"series":[108,160,160,258,360]},"ratio":"ct-chart","type":"pie","options":{"showLabel":false,"donut":true},"anim":{"FUN":"function(data) {\n  if(data.type === 'slice') {\n    var pathLength = data.element._node.getTotalLength();\n    data.element.attr({\n      'stroke-dasharray': pathLength + 'px ' + pathLength + 'px'\n    });\n    var animationDefinition = {\n      'stroke-dashoffset': {\n        id: 'anim' + data.index,\n        dur: 1000,\n        from: -pathLength + 'px',\n        to:  '0px',\n        easing: Chartist.Svg.Easing.easeOutQuint,\n        fill: 'freeze'\n      }\n    };\n    if(data.index !== 0) {\n      animationDefinition['stroke-dashoffset'].begin = 'anim' + (data.index - 1) + '.end';\n    }\n    data.element.attr({\n      'stroke-dashoffset': -pathLength + 'px'\n    });\n    data.element.animate(animationDefinition, false);\n  }}"},"loop":{"ms":7000}},"evals":["anim.FUN"],"jsHooks":[]}</script>
 </div>
 <div id="grid" class="section level2">
 <h2>Grid</h2>
@@ -425,8 +426,8 @@ div.tocify {
 <span class="st">  </span><span class="kw">add_ist</span>(hp) %&gt;%
 <span class="st">  </span><span class="kw">ganim_ist</span>() %&gt;%
 <span class="st">  </span><span class="kw">loop_ist</span>()</code></pre></div>
-<div id="htmlwidget-1071df4c3a7d41395ed9" style="width:100%;height:400px;" class="chartist html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1071df4c3a7d41395ed9">{"x":{"cdat":{"labels":[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44,3.44,4.07,3.73,3.78,5.25,5.424,5.345,2.2,1.615,1.835,2.465,3.52,3.435,3.84,3.845,1.935,2.14,1.513,3.17,2.77,3.57,2.78],"series":[{"name":"line-1","data":[95.1,75.7,71.1,79,120.3,78.7,108,120.1,160,145,121,160,140.8,351,146.7,258,304,360,167.6,167.6,225,318,360,301,275.8,275.8,350,400,275.8,472,440,460]},{"name":"line-2","data":[113,52,65,66,91,66,93,97,110,175,109,110,95,264,62,110,150,175,123,123,105,150,245,335,180,180,245,175,180,205,230,215]}]},"ratio":"ct-chart","type":"line","options":[],"anim":{"FUN":"function(data){\n  if(data.type === 'grid') {\n    var pos1Animation = {\n      begin: 0,\n      dur: 2000,\n      from: data[data.axis.units.pos + '1'] - 30,\n      to: data[data.axis.units.pos + '1'],\n      easing: 'easeOutQuart'\n    };\n\n    var pos2Animation = {\n      begin: 0,\n      dur: 2000,\n      from: data[data.axis.units.pos + '2'] - 100,\n      to: data[data.axis.units.pos + '2'],\n      easing: 'easeOutQuart'\n    };\n\n    var animations = {};\n    animations[data.axis.units.pos + '1'] = pos1Animation;\n    animations[data.axis.units.pos + '2'] = pos2Animation;\n    animations['opacity'] = {\n      begin: 0,\n      dur: 2000,\n      from: 0,\n      to: 1,\n      easing: 'easeOutQuart'\n    };\n\n    data.element.animate(animations);\n  }}"},"loop":{"ms":5000}},"evals":["anim.FUN"],"jsHooks":[]}</script>
+<div id="htmlwidget-1e3301d9ae2b8579b276" style="width:100%;height:400px;" class="chartist html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1e3301d9ae2b8579b276">{"x":{"cdat":{"labels":[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44,3.44,4.07,3.73,3.78,5.25,5.424,5.345,2.2,1.615,1.835,2.465,3.52,3.435,3.84,3.845,1.935,2.14,1.513,3.17,2.77,3.57,2.78],"series":[{"name":"line-1","data":[95.1,75.7,71.1,79,120.3,78.7,108,120.1,160,145,121,160,140.8,351,146.7,258,304,360,167.6,167.6,225,318,360,301,275.8,275.8,350,400,275.8,472,440,460]},{"name":"line-2","data":[113,52,65,66,91,66,93,97,110,175,109,110,95,264,62,110,150,175,123,123,105,150,245,335,180,180,245,175,180,205,230,215]}]},"ratio":"ct-chart","type":"line","options":[],"anim":{"FUN":"function(data){\n  if(data.type === 'grid') {\n    var pos1Animation = {\n      begin: 0,\n      dur: 2000,\n      from: data[data.axis.units.pos + '1'] - 30,\n      to: data[data.axis.units.pos + '1'],\n      easing: 'easeOutQuart'\n    };\n\n    var pos2Animation = {\n      begin: 0,\n      dur: 2000,\n      from: data[data.axis.units.pos + '2'] - 100,\n      to: data[data.axis.units.pos + '2'],\n      easing: 'easeOutQuart'\n    };\n\n    var animations = {};\n    animations[data.axis.units.pos + '1'] = pos1Animation;\n    animations[data.axis.units.pos + '2'] = pos2Animation;\n    animations['opacity'] = {\n      begin: 0,\n      dur: 2000,\n      from: 0,\n      to: 1,\n      easing: 'easeOutQuart'\n    };\n\n    data.element.animate(animations);\n  }}"},"loop":{"ms":5000}},"evals":["anim.FUN"],"jsHooks":[]}</script>
 </div>
 <div id="custom" class="section level2">
 <h2>Custom</h2>
@@ -448,11 +449,22 @@ div.tocify {
              <span class="dt">to =</span> <span class="dv">1</span>,
              <span class="dt">dur =</span> <span class="dv">7000</span>) %&gt;%
 <span class="st">  </span><span class="kw">loop_ist</span>()</code></pre></div>
-<div id="htmlwidget-8da8a8996a461015f9a1" style="width:100%;height:400px;" class="chartist html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8da8a8996a461015f9a1">{"x":{"cdat":{"labels":[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44,3.44,4.07,3.73,3.78,5.25,5.424,5.345,2.2,1.615,1.835,2.465,3.52,3.435,3.84,3.845,1.935,2.14,1.513,3.17,2.77,3.57,2.78],"series":[{"name":"line-1","data":[95.1,75.7,71.1,79,120.3,78.7,108,120.1,160,145,121,160,140.8,351,146.7,258,304,360,167.6,167.6,225,318,360,301,275.8,275.8,350,400,275.8,472,440,460]},{"name":"line-2","data":[113,52,65,66,91,66,93,97,110,175,109,110,95,264,62,110,150,175,123,123,105,150,245,335,180,180,245,175,180,205,230,215]}]},"ratio":"ct-chart","type":"line","options":[],"anim":{"FUN":"\n    function(data){\n      if(data.type === 'line' || data.type === 'point'){\n        data.element.animate({opacity:{begin: 0, dur: 2000, from: 0, to: 1}});\n      }\n    \n      if(data.type === 'grid'){\n        data.element.animate({opacity:{begin: 0, dur: 7000, from: 0, to: 1}});\n      }\n    }"},"loop":{"ms":5000}},"evals":["anim.FUN"],"jsHooks":[]}</script>
+<div id="htmlwidget-488117592287deab4168" style="width:100%;height:400px;" class="chartist html-widget"></div>
+<script type="application/json" data-for="htmlwidget-488117592287deab4168">{"x":{"cdat":{"labels":[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44,3.44,4.07,3.73,3.78,5.25,5.424,5.345,2.2,1.615,1.835,2.465,3.52,3.435,3.84,3.845,1.935,2.14,1.513,3.17,2.77,3.57,2.78],"series":[{"name":"line-1","data":[95.1,75.7,71.1,79,120.3,78.7,108,120.1,160,145,121,160,140.8,351,146.7,258,304,360,167.6,167.6,225,318,360,301,275.8,275.8,350,400,275.8,472,440,460]},{"name":"line-2","data":[113,52,65,66,91,66,93,97,110,175,109,110,95,264,62,110,150,175,123,123,105,150,245,335,180,180,245,175,180,205,230,215]}]},"ratio":"ct-chart","type":"line","options":[],"anim":{"FUN":"\n    function(data){\n      if(data.type === 'line' || data.type === 'point'){\n        data.element.animate({opacity:{begin: 0, dur: 2000, from: 0, to: 1}});\n      }\n    \n      if(data.type === 'grid'){\n        data.element.animate({opacity:{begin: 0, dur: 7000, from: 0, to: 1}});\n      }\n    }"},"loop":{"ms":5000}},"evals":["anim.FUN"],"jsHooks":[]}</script>
 </div>
 
-<footer><p><a href="https://gionkunz.github.io/chartist-js">chartist.js</a> htmlwidget by <a href="http://johncoene.github.io/projects/">John Coene</a><span class="pull-right">MIT License</span></p></footer>
+
+<div class="row">
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+    <p class="text-center"><a href="https://github.com/JohnCoene"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-github' aria-hidden='true'></i></button></a></p>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+    <p class="text-center"><a href="https://www.linkedin.com/in/johncoene/"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-linkedin' aria-hidden='true'></i></button></a></p>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+    <p class="text-center"><a href="https://twitter.com/jdatap"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-twitter' aria-hidden='true'></i></button></a></p>
+  </div>
+</div>
 
 
 </div>

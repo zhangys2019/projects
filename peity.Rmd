@@ -14,7 +14,9 @@ library(htmltools)
 div(class = "container-fluid",
     p(code("peity"), " is an htmlwidget for ", 
       a("Peity", href = "http://benpickles.github.io/peity/", target = "_blank"), 
-      ": in-line charts", peity(c(1,5,2,6,5,3,1), type = "line"), "."))
+      ": in-line charts", peity(c(1,5,2,6,5,3,1), type = "line"), "."),
+    p(a(href="https://github.com/JohnCoene/peity", target = "_blank",
+            HTML("<button class='bttn-unite bttn-lg bttn-danger'><i class='fa fa-github' aria-hidden='true'></i> Repository</button>"))))
 ```
 
 [![Build Status](https://travis-ci.org/JohnCoene/peity.svg?branch=master)](https://travis-ci.org/JohnCoene/peity)

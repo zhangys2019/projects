@@ -30,8 +30,8 @@ div(class = "container-fluid",
     p(code("countup"), "is an htmlwidget for ",
       a("countup.js", href = "https://inorganik.github.io/countUp.js/", target = "_blank"), "It is obviously meant to be used in Rmarkdown html documents (such as this very website)."),
     br(),
-    p(a(HTML('<i class="fa fa-github" aria-hidden="true"></i> Repository'),
-                class = "btn btn-primary btn-lg", href = "https://github.com/JohnCoene/countup", target = "_blank")))
+    p(a(href="https://github.com/JohnCoene/countup", target = "_blank",
+            HTML("<button class='bttn-unite bttn-lg bttn-danger'><i class='fa fa-github' aria-hidden='true'></i> Repository</button>"))))
 ```
 
 ```{r install}

@@ -6,18 +6,15 @@ title: "uvcharts"
 knitr::opts_chunk$set(echo = FALSE)
 library(uvcharts)
 library(htmltools)
-df <- data.frame(x = 1:50,
-                 water = runif(50, 10, 16),
-                 apple = runif(50, 13, 16),
-                 avocado = runif(50, 15, 17))
 ```
 
 ```{r header}
+df <- data.frame(x = rep(1:50, 3), grp = rep(c("water", "apple", "avocado"), 50), y = runif(150, 5, 10))
+
 df %>%
+  group_by(grp) %>% 
   uv_stackarea(x) %>%
-  uv_add(apple) %>%
-  uv_add(water) %>%
-  uv_add(avocado) %>%
+  uv_add(y) %>%
   uv_graph(orientation = "Vertical", custom.palette = list("#4da309", "#02a5de", "#e08b27")) %>%
   uv_axis(ticks = 10, fontsize = 9, strokecolor = "#d3d3d3") %>%
   uv_label(fontsize = 5) %>%
@@ -74,7 +71,6 @@ df %>%
   uv_frame(bgcolor = "none")
 ```
 
-
 ```{r how it works, echo = FALSE}
 div(class = "page-header",
     h2("How it works", class = "text-primary"))
@@ -84,7 +80,9 @@ All function start in `uv_`.
 
 1. Initiate a uvchart with `uv_charts` or their chart type equivalent (i.e.: `uv_bar`).
 2. Add series, values to plot, with `uv_add`.
-3. Customise your chart with any of the 15 functions.
+3. Customise your chart with any of the 16 functions.
+
+*Supports `group_by` for long form data*
 
 ```{r adv ex, echo=FALSE}
 div(class = "page-header",
@@ -94,13 +92,12 @@ div(class = "page-header",
 Below is the code used to generate the very banner of this page.
 
 ```{r, eval=FALSE, echo = TRUE}
-df <- data.frame(x = 1:50, water = runif(50, 10, 16), apples = runif(50, 13, 16), avocado = runif(50, 15, 17))
+df <- data.frame(x = rep(1:50, 3), grp = rep(c("water", "apple", "avocado"), 50), y = runif(150, 5, 10))
 
 df %>%
+  group_by(grp) %>% 
   uv_stackarea(x) %>%
-  uv_add(apple) %>%
-  uv_add(water) %>%
-  uv_add(avocado) %>%
+  uv_add(y) %>%
   uv_graph(orientation = "Vertical", custom.palette = list("#4da309", "#02a5de", "#e08b27")) %>%
   uv_axis(ticks = 10, fontsize = 9, strokecolor = "#d3d3d3") %>%
   uv_label(fontsize = 5) %>%

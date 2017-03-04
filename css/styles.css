@@ -1,15 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
 body{
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Ubuntu', sans-serif;
   padding-top: 50px!important;
 }
 
-h1{
-  color: #d70206;
-  font-family: 'Share Tech Mono', monospace;
-}
-
-h2, h3, h4, h5, h6{
-  font-family: 'Share Tech Mono', monospace;
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Ubuntu', sans-serif;
 }

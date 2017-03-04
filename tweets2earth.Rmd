@@ -24,8 +24,8 @@ div(class = "container-fluid",
             p("Easily plot tweets' location and created time onto ",
               a("Google Earth", href = "https://www.google.com/earth/", target = "_blank"))),
         div(class = "col-lg-4",
-            p(a(HTML('<i class="fa fa-github" aria-hidden="true"></i> Repository'),
-                class = "btn btn-primary btn-lg", href = "https://github.com/JohnCoene/tweets2earth", target = "_blank")))))
+            p(a(href="https://github.com/JohnCoene/tweets2earth", target = "_blank",
+            HTML("<button class='bttn-unite bttn-lg bttn-danger'><i class='fa fa-github' aria-hidden='true'></i> Repository</button>"))))))
 ```
 
 ```{r install}

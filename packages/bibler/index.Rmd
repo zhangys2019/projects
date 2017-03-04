@@ -51,29 +51,11 @@ bks <- plyr::ddply(king_james_df, c("King.James.Bible", "Book.Number"),
 
 # bks$colour <- ifelse(bks$Sentiment >= 0, "#59922b", "#f05b4f")
 bks$label <- ifelse(bks$Sentiment >= 0, "positive", "negative")
-# plot_ly(bks,
-#         x = ~Book.Number,
-#         y = ~Sentiment,
-#         type = "bar",
-#         text = ~King.James.Bible,
-#         hoverinfo = "text",
-#         marker = list(
-#           color = ~colour
-#         )) %>%
-#   layout(title = "Average sentiment by book",
-#          showlegend = FALSE,
-#          xaxis = list(title = "Book Number"),
-#          height = 415, width = "100%")
-
-bks <- reshape2::dcast(bks, King.James.Bible + Book.Number ~ label, value.var="Sentiment")
-
-bks$negative[is.na(bks$negative)] <- 0
-bks$positive[is.na(bks$positive)] <- 0
 
 bks %>% 
+  group_by(label) %>% 
   uv_bar(Book.Number) %>% 
-  uv_add(negative) %>% 
-  uv_add(positive) %>% 
+  uv_add(Sentiment) %>% 
   uv_graph(custom.palette = c("red", "green"), orientation = "Vertical") %>% 
   uv_baropt(fontsize = 0) %>% 
   uv_label(fontsize = 5, strokecolor = "grey") %>% 

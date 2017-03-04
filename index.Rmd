@@ -44,9 +44,13 @@ chartistplot <- mtcars %>%
   loop_ist(6000)
 
 library(graphTweets)
-tweets <- data.frame(text = c("tweets @you about @her", "tweet @him about @you", "tweets @her and @I"),
-                     source = c("he", "I", "Someone"),
+tweets <- data.frame(text = c("tweets @you about @her", 
+                              "tweet @him about @you", 
+                              "tweets @her and @I",
+                              "@You reply to @him and @her"),
+                     source = c("he", "I", "Someone", "You"),
                      stringsAsFactors = FALSE)
+
 edges <- getEdges(tweets, "text", "source")
 nodes <- getNodes(edges)
 g <- igraph::graph.data.frame(edges, vertices = nodes)
@@ -56,7 +60,7 @@ n3 <- networkD3::igraph_to_networkD3(g, group = members)
 
 n3p <- networkD3::forceNetwork(Links = n3$links, Nodes = n3$nodes,
              Source = 'source', Target = 'target', NodeID = 'name',
-             Group = 'group', height = 200, width = 200)
+             Group = 'group', width = 200, height = 200)
 ```
 
 ```{r carousel}
@@ -89,12 +93,13 @@ div(class = "siema",
               br(),
               code("@I tweet to @you and @him"),
               br(),
-              code("@Someone tweets @her and @I")),
+              code("@Someone tweets @her and @I"),
+              code("@You reply to @him and @her")),
             br(),
             a(href="packages/graphTweets/",
             HTML("<button class='bttn-unite bttn-md bttn-default'><i class='fa fa-book' aria-hidden='true'></i> Docs</button>"))),
         div(class = "col-lg-6",
-            img(src = "img/graphTweets.JPG", class = "img-responsive", height = "400px;"))),
+            n3p)),
     div(class = "row",
         div(class = "col-lg-3",
             div(class = "page-header",

@@ -13,6 +13,11 @@ library(egg)
 
 `r br()`
 
+```{r}
+p(a(href="https://github.com/JohnCoene/egg", target = "_blank",
+            HTML("<button class='bttn-unite bttn-lg bttn-danger'><i class='fa fa-github' aria-hidden='true'></i> Repository</button>")))
+```
+
 > Type "coene" to see it in action!
 
 ```{r, echo = FALSE}

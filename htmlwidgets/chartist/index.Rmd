@@ -48,9 +48,21 @@ mtcars %>%
 > You may think that this is just yet an other charting library. But Chartist.js is the product of a community that was disappointed about the abilities provided by other charting libraries. Of course there are hundreds of other great charting libraries but after using them there were always tweaks you would have wished for that were not included. 
 --- chartist.js
 
-<p>
-<a href = "https://github.com/JohnCoene/chartist/" class = "btn btn-default btn-lg" role = "button"><i class="fa fa-github" aria-hidden="true"></i>  Github</a>   <a href = "https://github.com/JohnCoene/chartist/issues" class = "btn btn-primary btn-lg" role = "button"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>  Issues</a>   <a href = "https://github.com/JohnCoene/chartist/docs.html" class = "btn btn-info btn-lg" role = "button"><i class="fa fa-book" aria-hidden="true"></i>  Docs</a>
-</p>
+```{r, echo=FALSE, eval=TRUE}
+div(class = "row",
+    div(class = "col-lg-4 col-mg-4",
+        p(class = "text-center",
+          a(href="https://github.com/JohnCoene/chartist/",
+            HTML("<button class='bttn-unite bttn-lg bttn-primary'><i class='fa fa-github' aria-hidden='true'></i> Repository</button>")))),
+    div(class = "col-lg-4 col-mg-4",
+        p(class = "text-center",
+          a(href="https://github.com/JohnCoene/chartist/issues",
+            HTML("<button class='bttn-unite bttn-lg bttn-danger'><i class='fa fa-exclamation-circle' aria-hidden='true'></i> Issues</button>")))),
+    div(class = "col-lg-4 col-mg-4",
+        p(class = "text-center",
+          a(href="https://github.com/JohnCoene/chartist/docs",
+            HTML("<button class='bttn-unite bttn-lg bttn-success'><i class='fa fa-book' aria-hidden='true'></i> Docs</button>")))))
+```
 
 
 ```{r install, echo = FALSE}
