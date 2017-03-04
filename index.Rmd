@@ -7,9 +7,9 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
 libs <- c("htmltools", "webutils", "typed")
 lapply(libs, library, character.only = TRUE)
 df <- data.frame(x = 1:50,
-                 uvcharts = runif(50, 10, 16),
-                 chartist = runif(50, 13, 16),
-                 rodham = runif(50, 15, 17))
+                 uvcharts = runif(50, 9, 16),
+                 chartist = runif(50, 13, 17),
+                 rodham = runif(50, 10, 17))
 library(dplyr)
 
 library(uvcharts)
@@ -166,10 +166,10 @@ tube <- tagAppendAttributes(tube, "data-tilt" = NA)
 chartist <- tagAppendAttributes(chartist, "data-tilt" = NA)
 wine <- tagAppendAttributes(wine, "data-tilt" = NA)
 
-# rellax
-tube <- tagAppendAttributes(tube, "data-rellax-speed" = "1")
-chartist <- tagAppendAttributes(chartist, "data-rellax-speed" = "1")
-wine <- tagAppendAttributes(wine, "data-rellax-speed" = "1")
+# rellax 
+tube <- tagAppendAttributes(tube, "data-aos" = "zoom-in-right", "data-aos-duration"="1000")
+chartist <- tagAppendAttributes(chartist, "data-aos" = "zoom-in-up","data-aos-duration"="1000")
+wine <- tagAppendAttributes(wine, "data-aos" = "zoom-in-left","data-aos-duration"="1000")
 
 div(class = "row",
     div(class = "col-lg-4 col-md-4", tube),
@@ -208,9 +208,9 @@ typed <- tagAppendAttributes(typed, "data-tilt" = NA)
 bibler <- tagAppendAttributes(bibler, "data-tilt" = NA)
 
 # rellax
-uvcharts <- tagAppendAttributes(uvcharts, "data-rellax-speed" = "1")
-typed <- tagAppendAttributes(typed, "data-rellax-speed" = "1")
-bibler <- tagAppendAttributes(bibler, "data-rellax-speed" = "1")
+uvcharts <- tagAppendAttributes(uvcharts, "data-aos" = "zoom-in-right", "data-aos-duration"="1000")
+typed <- tagAppendAttributes(typed, "data-aos" = "zoom-in-up", "data-aos-duration"="1000")
+bibler <- tagAppendAttributes(bibler, "data-aos" = "zoom-in-left", "data-aos-duration"="1000")
 
 div(class = "row",
     div(class = "col-lg-4 col-md-4", uvcharts),
@@ -247,9 +247,9 @@ countup <- tagAppendAttributes(countup, "data-tilt" = NA)
 rodham <- tagAppendAttributes(rodham, "data-tilt" = NA)
 
 # rellax
-peity <- tagAppendAttributes(peity, "data-rellax-speed" = "1")
-countup <- tagAppendAttributes(countup, "data-rellax-speed" = "1")
-rodham <- tagAppendAttributes(rodham, "data-rellax-speed" = "1")
+peity <- tagAppendAttributes(peity, "data-aos" = "zoom-in-right", "data-aos-duration"="1000")
+countup <- tagAppendAttributes(countup, "data-aos" = "zoom-in-up", "data-aos-duration"="1000")
+rodham <- tagAppendAttributes(rodham, "data-aos" = "zoom-in-left", "data-aos-duration"="1000")
 
 div(class = "row",
     div(class = "col-lg-4 col-md-4", peity),
@@ -288,9 +288,9 @@ t2e <- tagAppendAttributes(t2e, "data-tilt" = NA)
 egg <- tagAppendAttributes(egg, "data-tilt" = NA)
 
 # rellax
-gt <- tagAppendAttributes(gt, "data-rellax-speed" = "1")
-t2e <- tagAppendAttributes(t2e, "data-rellax-speed" = "1")
-egg <- tagAppendAttributes(egg, "data-rellax-speed" = "1")
+gt <- tagAppendAttributes(gt, "data-aos" = "zoom-in-right", "data-aos-duration"="1000")
+t2e <- tagAppendAttributes(t2e, "data-aos" = "zoom-in-up", "data-aos-duration"="1000")
+egg <- tagAppendAttributes(egg, "data-aos" = "zoom-in-left","data-aos-duration"="1000")
 
 div(class = "row",
     div(class = "col-lg-4 col-md-4", gt),
@@ -324,3 +324,6 @@ p("Please free to inquire about a project, collaboration, freelance, or other op
 ```
 
 <script src="js/tilt.jquery.min.js"></script>
+<script>
+    AOS.init();
+  </script>
