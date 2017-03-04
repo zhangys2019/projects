@@ -13,12 +13,12 @@ edges <- getEdges(rstats, "text", "screenName")
 nodes <- getNodes(edges)
 g <- igraph::graph.data.frame(edges, vertices = nodes)
 
-cm <- walktrap.community(simplify(g))
+cm <- igraph::walktrap.community(igraph::simplify(g))
 par(bg="#fcfcfc", mar=c(1,1,1,1))
-plot(g, layout = layout.fruchterman.reingold(g), vertex.color = membership(cm),
+plot(g, layout = igraph::layout.fruchterman.reingold(g), vertex.color = igraph::membership(cm),
      vertex.label.family = "sans",
      vertex.label.color = hsv(h = 0, s = 0, v = 0, alpha = 0.0), 
-     vertex.size = log1p(degree(g)) * 3, edge.arrow.size = 0.2, 
+     vertex.size = log1p(igraph::degree(g)) * 3, edge.arrow.size = 0.2, 
      edge.arrow.width = 0.3, edge.width = 1,
      edge.color = "#d3d3d3",
      vertex.frame.color="#fcfcfc")

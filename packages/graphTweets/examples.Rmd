@@ -101,7 +101,7 @@ igraph::plot.igraph(g, layout = layout.fruchterman.reingold(g))
 g <- graph.data.frame(edges, directed = TRUE)
 
 # plot
-par(bg="#FFFFFF", mar=c(1,1,1,1))
+par(bg="#fcfcfc", mar=c(1,1,1,1))
 plot(g, layout = layout.fruchterman.reingold(g), vertex.color = "#DD1C1A",
      vertex.label.family = "sans",
      vertex.label.color = hsv(h = 0, s = 0, v = 0, alpha = 0.0), 

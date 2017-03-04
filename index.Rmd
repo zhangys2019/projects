@@ -168,8 +168,8 @@ wine <- tagAppendAttributes(wine, "data-tilt" = NA)
 
 # rellax
 tube <- tagAppendAttributes(tube, "data-rellax-speed" = "1")
-chartist <- tagAppendAttributes(chartist, "data-rellax-speed" = "2")
-wine <- tagAppendAttributes(wine, "data-rellax-speed" = "0")
+chartist <- tagAppendAttributes(chartist, "data-rellax-speed" = "1")
+wine <- tagAppendAttributes(wine, "data-rellax-speed" = "1")
 
 div(class = "row",
     div(class = "col-lg-4 col-md-4", tube),
@@ -209,8 +209,8 @@ bibler <- tagAppendAttributes(bibler, "data-tilt" = NA)
 
 # rellax
 uvcharts <- tagAppendAttributes(uvcharts, "data-rellax-speed" = "1")
-typed <- tagAppendAttributes(typed, "data-rellax-speed" = "2")
-bibler <- tagAppendAttributes(bibler, "data-rellax-speed" = "0")
+typed <- tagAppendAttributes(typed, "data-rellax-speed" = "1")
+bibler <- tagAppendAttributes(bibler, "data-rellax-speed" = "1")
 
 div(class = "row",
     div(class = "col-lg-4 col-md-4", uvcharts),
@@ -248,8 +248,8 @@ rodham <- tagAppendAttributes(rodham, "data-tilt" = NA)
 
 # rellax
 peity <- tagAppendAttributes(peity, "data-rellax-speed" = "1")
-countup <- tagAppendAttributes(countup, "data-rellax-speed" = "2")
-rodham <- tagAppendAttributes(rodham, "data-rellax-speed" = "0")
+countup <- tagAppendAttributes(countup, "data-rellax-speed" = "1")
+rodham <- tagAppendAttributes(rodham, "data-rellax-speed" = "1")
 
 div(class = "row",
     div(class = "col-lg-4 col-md-4", peity),
@@ -289,8 +289,8 @@ egg <- tagAppendAttributes(egg, "data-tilt" = NA)
 
 # rellax
 gt <- tagAppendAttributes(gt, "data-rellax-speed" = "1")
-t2e <- tagAppendAttributes(t2e, "data-rellax-speed" = "2")
-egg <- tagAppendAttributes(egg, "data-rellax-speed" = "0")
+t2e <- tagAppendAttributes(t2e, "data-rellax-speed" = "1")
+egg <- tagAppendAttributes(egg, "data-rellax-speed" = "1")
 
 div(class = "row",
     div(class = "col-lg-4 col-md-4", gt),
