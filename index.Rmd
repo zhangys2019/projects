@@ -62,7 +62,7 @@ n3 <- networkD3::igraph_to_networkD3(g, group = members)
 
 n3p <- networkD3::forceNetwork(Links = n3$links, Nodes = n3$nodes,
              Source = 'source', Target = 'target', NodeID = 'name',
-             Group = 'group', width = 500, height = 300)
+             Group = 'group', width = 300, height = 300)
 ```
 
 ```{r carousel}
@@ -100,7 +100,7 @@ div(class = "siema",
             a(href="packages/graphTweets/",
             HTML("<button class='bttn-unite bttn-md bttn-default'><i class='fa fa-book' aria-hidden='true'></i> Docs</button>"))),
         div(class = "col-lg-8",
-            n3p)),
+            img(class = "img-responsive", src = "img/graphTweets.png"))),
     div(class = "row",
         div(class = "col-lg-3",
             div(class = "page-header",
