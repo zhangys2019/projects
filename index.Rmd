@@ -6,31 +6,29 @@ title: ""
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
 libs <- c("htmltools", "webutils", "typed")
 lapply(libs, library, character.only = TRUE)
-df <- data.frame(x = 1:50,
-                 uvcharts = runif(50, 9, 16),
-                 chartist = runif(50, 13, 17),
-                 rodham = runif(50, 10, 17))
+df <- data.frame(x = 1:10, uvcharts = runif(10, 0, 5), chartist = runif(10, 0, 5))
+
 library(dplyr)
 
 library(uvcharts)
 uvplot <- df %>%
-  uv_stackarea(x) %>%
+  uv_stackbar(x) %>%
   uv_add(uvcharts) %>%
   uv_add(chartist) %>%
-  uv_add(rodham) %>%
-  uv_graph(orientation = "Vertical", bgcolor = "none") %>%
+  uv_graph(orientation = "Horizontal", bgcolor = "none") %>%
   uv_axis(ticks = 10, fontsize = 9, strokecolor = "#d3d3d3") %>%
   uv_label(fontsize = 5) %>%
   uv_config(legend = list(showlegends = TRUE)) %>%
   uv_margin(20, 20, 30, 70) %>%
   uv_legend(position = "right") %>% 
-  uv_frame(bgcolor = "none")
+  uv_frame(bgcolor = "none") %>% 
+  uv_dimension(height = 300)
 
 library(chartist)
 
 chartistplot <- mtcars %>%
   mutate(id = 1:n()) %>%
-  chart_ist(id, height = 400) %>%
+  chart_ist(id, height = 450) %>%
   add_ist(mpg, name = "mpg") %>%
   add_ist(wt, name = "wt") %>%
   add_ist(qsec, name = "qsec") %>%
