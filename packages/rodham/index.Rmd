@@ -61,6 +61,11 @@ install.packages("rodham") # stable version from CRAN
 devtools::install_github("JohnCoene/rodham") # development version
 ```
 
+```{r button}
+a(href="https://cran.r-project.org/web/packages/rodham/", target = "_blank",
+            HTML("<button class='bttn-unite bttn-md bttn-danger'><i class='icon-rlogo'></i> CRAN Release</button>"))
+```
+
 ```{r releases}
 div(class = "page-header",
     h2("Releases", class = "text-primary"))

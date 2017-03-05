@@ -46,6 +46,11 @@ install.packages("graphTweets") # CRAN release
 devtools::install_github("JohnCoene/graphTweets") # dev version
 ```
 
+```{r button}
+a(href="https://cran.r-project.org/web/packages/graphTweets/", target = "_blank",
+            HTML("<button class='bttn-unite bttn-md bttn-danger'><i class='icon-rlogo'></i> CRAN Release</button>"))
+```
+
 ```{r}
 div(class = "page-header",
     h2("Examples", class = "text-primary"))
