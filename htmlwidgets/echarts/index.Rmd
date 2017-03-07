@@ -1,0 +1,78 @@
+---
+title: "echarts"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(echarts)
+library(htmltools)
+air <- read.csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_february_us_airport_traffic.csv')
+flights <- read.csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_february_aa_flight_paths.csv')
+
+# split frquent
+frequent_flights <- flights[flights$cnt > 400,]
+flights <- flights[flights$cnt <= 400,]
+
+freq_fl <- data.frame(iata = unique(frequent_flights$airport1, frequent_flights$airport2))
+freq_air <- dplyr::left_join(freq_fl, air, by = "iata")
+
+air %>% 
+  echart(iata) %>% 
+  emap(mapType = "world|United States of America") %>% 
+  emap_coords(long, lat) %>% 
+  emap_lines(flights, airport1, airport2) %>% 
+  emap(mapType = "world|United States of America") %>% 
+  edata(freq_air, iata) %>% 
+  emap_coords(long, lat) %>% 
+  emap_lines(frequent_flights, airport1, airport2, effect = emap_line_effect()) %>% 
+  emap_coords(long, lat) %>% 
+  emap_points(cnt/200, effect = list(show = TRUE, shadowBlur = 1), symbol = "emptyCircle",
+              itemStyle = list(normal = list(label = list(show = TRUE)))) %>% 
+  etheme("default")
+```
+
+```{r chart types}
+div(class = "page-header",
+    h2("Chart types"))
+```
+
+1. bar 
+2. line
+3. area
+4. pie
+5. heatmap
+6. chord
+7. venn
+8. gauge
+9. force network
+
+```{r install}
+div(class = "page-header",
+    h2("Install"))
+```
+
+```{r install code, eval=FALSE, echo=TRUE}
+devtools::install_github("JohnCoene/echarts")
+```
+
+```{r first chart}
+div(class = "page-header",
+    h2("Your first chart"))
+```
+
+```{r install code, eval=TRUE, echo=TRUE}
+mtcars %>% 
+  echart(drat) %>% 
+  ebar(qsec) %>% 
+  eline(mpg) %>% 
+  etooltip() %>% 
+  etheme("macarons")
+```
+
+```{r install}
+div(class = "page-header",
+    h2("How it works?"))
+```
+
+Initialise your chart with `echart` then add series, supports magrittr pipes, `%>%`.
+
