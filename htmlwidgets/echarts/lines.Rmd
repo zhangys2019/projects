@@ -1,0 +1,53 @@
+---
+title: "line"
+author: "John Coene"
+date: "March 7, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(echarts)
+```
+
+# Mark points & lines
+
+Reproduction of [this example](http://echarts.baidu.com/echarts2/doc/example/line2.html#-en).
+
+```{r mark point}
+df <- data.frame(x = c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"),
+                 y = c(11, 11, 15, 13, 12, 13, 10),
+                 z = c(1, -2, 2, 5, 3, 2, 0))
+
+point <- list(
+  list(type = "max", name = "maximum"), 
+  list(type = "min", name = "minimum"))
+
+avg <- list(list(type = "average", name = "average"))
+
+df %>% 
+  echart(x) %>% 
+  eline(y, smooth = TRUE) %>% 
+  eline(z, smooth = TRUE) %>% 
+  emark_point("all", data = point) %>% 
+  emark_line("all", data = avg) %>% 
+  etooltip() %>% 
+  elegend() 
+```
+
+# Stacked lines
+
+```{r}
+df <- data.frame(x = c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"),
+                 y = c(120, 132, 101, 134, 90, 230, 210),
+                 z = c(220, 182, 191, 234, 290, 330, 310),
+                 w = c(150, 232, 201, 154, 190, 330, 410))
+
+df %>% 
+  echart(x) %>% 
+  eline(y) %>% 
+  eline(z, stack = "grp1") %>% 
+  eline(w, stack = "grp1") %>% 
+  elegend() %>% 
+  etoolbox()
+```
