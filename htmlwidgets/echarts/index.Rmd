@@ -61,7 +61,7 @@ div(class = "page-header",
     h2("Your first chart"))
 ```
 
-```{r install code, eval=TRUE, echo=TRUE}
+```{r first chart code, eval=TRUE, echo=TRUE}
 mtcars %>% 
   echart(drat) %>% 
   ebar(qsec) %>% 
@@ -70,7 +70,7 @@ mtcars %>%
   etheme("macarons")
 ```
 
-```{r install}
+```{r Explanation}
 div(class = "page-header",
     h2("How it works?"))
 ```

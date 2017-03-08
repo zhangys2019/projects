@@ -1,0 +1,69 @@
+---
+title: "Scatter chart examples"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(echarts)
+```
+
+## Mark points
+
+[example](http://echarts.baidu.com/echarts2/doc/example/scatter1.html#-en)
+
+```{r}
+df <- data.frame(x = 1:150,
+                 y = round(rnorm(150, mean = 5, sd = 1), 2),
+                 z = round(rnorm(150, mean = 7, sd = 1), 2))
+
+pointer <- list(
+  show = TRUE,
+  type = "cross",
+  lineStyle = list(
+    type = "dashed",
+    width = 0.8
+  )
+)
+
+df %>% 
+  echart(x) %>% 
+  escatter(y) %>% 
+  escatter(z) %>% 
+  emark_point(which = "all", data = list(list(type = "min"), list(type = "max"))) %>% 
+  emark_line(which = "all", data = list(list(type = "average"))) %>% 
+  etheme("macarons") %>% 
+  elegend() %>% 
+  etoolbox_full() %>% 
+  etooltip(axisPointer = pointer, showDelay = 0)
+```
+
+## Bubble
+
+[example](http://echarts.baidu.com/echarts2/doc/example/scatter2.html#-en)
+
+```{r}
+df <- data.frame(x = 1:150,
+                 y = round(rnorm(150, mean = 5, sd = 1), 2),
+                 z = runif(150, 10, 50))
+
+df %>% 
+  echart(x) %>% 
+  escatter(y, z, name = "scatter 1") %>%
+  elegend() %>% 
+  etoolbox_full() %>% 
+  etoolbox_zoom()
+```
+
+
+## Scale
+
+[example](http://echarts.baidu.com/echarts2/doc/example/dataRange1.html#-en)
+
+```{r}
+df <- data.frame(x = 1:500, y = runif(500, 1, 20), z = runif(500, 10, 50))
+
+df %>% 
+  echart(x) %>% 
+  escatter(y, z) %>% 
+  edatarange(z, calculable = TRUE, color = list('lightgreen','yellow'))
+```

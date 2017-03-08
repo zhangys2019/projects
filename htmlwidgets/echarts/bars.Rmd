@@ -1,0 +1,128 @@
+---
+title: "Bar chart examples"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(echarts)
+```
+
+## Marks
+
+[example](http://echarts.baidu.com/echarts2/doc/example/bar1.html#-en)
+
+```{r}
+df <- data.frame(x = c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"),
+                 y = c(2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3),
+                 z = c(2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3))
+
+avg <- list(list(type = "average", name = "average"))
+point <- list(list(type = "max", name = "maximum"))
+
+df %>% 
+  echart(x) %>% 
+  ebar(y) %>% 
+  ebar(z) %>% 
+  emark_line("all", data = avg) %>% 
+  emark_point("all", data = point) %>% 
+  elegend() %>% 
+  etheme("macarons") %>% 
+  etoolbox_magic(type = list("line", "bar", "stack", "tiled"))
+```
+
+# Stacked bars
+
+[example](http://echarts.baidu.com/echarts2/doc/example/bar2.html#-en)
+
+```{r}
+df <- data.frame(x = c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"),
+                 radio = c(320, 332, 301, 334, 390, 330, 320),
+                 social = c(120, 132, 101, 134, 90, 230, 210),
+                 video = c(220, 182, 191, 234, 290, 330, 310),
+                 SEM = c(150, 232, 201, 154, 190, 330, 410),
+                 organic = c(862, 1018, 964, 1026, 1679, 1600, 1570)) 
+
+line <- list(
+  normal = list(
+    lineStyle = list(
+      type = "dashed"
+    )
+  ))
+
+df %>% 
+  echart(x) %>% 
+  ebar(radio, stack = "grp") %>% 
+  ebar(social, stack = "grp") %>% 
+  ebar(video, stack = "grp") %>% 
+  ebar(SEM, barWidth = 5) %>% 
+  ebar(organic) %>% 
+  emark_line(itemStyle = line, data = list(list(type = "max"))) %>% 
+  etooltip(axisPointer = list(type = "shadow"))
+```
+
+# Waterfall
+
+[example](http://echarts.baidu.com/echarts2/doc/example/bar7.html#-en)
+
+```{r}
+df <- data.frame(x = c("Total", "Rent", "Utilities", "Transport", "Food costs", "Misc"),
+                 hidden = c(0, 1700, 1400, 1200, 300, 0),
+                 values = c(2900, 1200, 300, 200, 900, 300))
+
+hide_bars <- list(
+  normal = list(
+    barBorderColor = "rgba(0,0,0,0)",
+    color = "rgba(0,0,0,0)"),
+  emphasis = list(
+    barBorderColor = "rgba(0,0,0,0)",
+    color = "rgba(0,0,0,0)")
+  )
+
+inside_label <- list(normal = list(label = list(show = TRUE, position = "inside")))
+
+df %>% 
+  echart(x) %>% 
+  ebar(hidden, itemStyle = hide_bars, stack = "stack") %>% 
+  ebar(values, stack = "stack", itemStyle = inside_label) %>% 
+  etheme("macarons") %>% 
+  etooltip(axisPointer = list(type = "shadow"))
+```
+
+# Thermometer
+
+[example](http://echarts.baidu.com/echarts2/doc/example/bar10.html#-en)
+
+```{r}
+df <- data.frame(x = c('Cosco','CMA','APL','OOCL','Wanhai','Zim'),
+                 y = c(260, 200, 220, 120, 100, 80),
+                 z = c(40, 80, 50, 80,80, 70))
+
+item1 <- list(normal = list(
+  color = "tomato",
+  barBorderColor = 'tomato',
+  barBorderWidth = 6,
+  barBorderWidth = 0,
+  label = list(
+    show = TRUE,
+    positon = "insideTop"
+  )
+))
+
+item2 <- list(normal = list(
+  color = "#FFF",
+  barBorderColor = 'tomato',
+  barBorderWidth = 6,
+  barBorderWidth = 0,
+  label = list(
+    show = TRUE,
+    positon = "top",
+    textStyle = list(color = "tomato")
+  )
+))
+
+df %>% 
+  echart(x) %>% 
+  ebar(y, stack = "grp", itemStyle = item1, barCategoryGap = '50%') %>% 
+  ebar(z, stack = "grp", itemStyle = item2) %>% 
+  etoolbox_full()
+```

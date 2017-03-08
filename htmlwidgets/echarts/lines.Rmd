@@ -1,8 +1,5 @@
 ---
-title: "line"
-author: "John Coene"
-date: "March 7, 2017"
-output: html_document
+title: "Line chart examples"
 ---
 
 ```{r setup, include=FALSE}
@@ -12,7 +9,7 @@ library(echarts)
 
 # Mark points & lines
 
-Reproduction of [this example](http://echarts.baidu.com/echarts2/doc/example/line2.html#-en).
+[example](http://echarts.baidu.com/echarts2/doc/example/line2.html#-en).
 
 ```{r mark point}
 df <- data.frame(x = c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"),
@@ -27,15 +24,64 @@ avg <- list(list(type = "average", name = "average"))
 
 df %>% 
   echart(x) %>% 
-  eline(y, smooth = TRUE) %>% 
-  eline(z, smooth = TRUE) %>% 
+  eline(y, smooth = TRUE, name = "serie 1") %>% 
+  eline(z, smooth = TRUE, name = "serie 2") %>% 
   emark_point("all", data = point) %>% 
   emark_line("all", data = avg) %>% 
   etooltip() %>% 
-  elegend() 
+  elegend() %>% 
+  exAxis_category(boundaryGap = FALSE) %>% 
+  etoolbox_magic(type = list("line", "bar")) %>% 
+  etitle(text = "Temperature", subtext = "Fake data")
 ```
 
 # Stacked lines
+
+[example](http://echarts.baidu.com/echarts2/doc/example/line2.html#-en)
+
+```{r}
+df <- data.frame(x = c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"),
+                 y = c(120, 132, 101, 134, 90, 230, 210),
+                 z = c(220, 182, 191, 234, 290, 330, 310),
+                 w = c(150, 232, 201, 154, 190, 330, 410)) 
+
+df %>% 
+  echart(x) %>% 
+  eline(y, name = "Y") %>% 
+  eline(z, stack = "grp1", name = "Z") %>% 
+  eline(w, stack = "grp1", name = "W") %>% 
+  elegend() %>% 
+  etoolbox() %>% 
+  etoolbox_magic(type = list('line', 'bar', 'stack', 'tiled'))
+```
+
+# Basic Area
+
+[example](http://echarts.baidu.com/echarts2/doc/example/line3.html#-en)
+
+```{r}
+df <- data.frame(x = c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"),
+                 y = c(10, 12, 21, 54, 260, 830, 710),
+                 z = c(30, 182, 434, 791, 390, 30, 10),
+                 w = c(1320, 1132, 601, 234, 120, 90, 20))
+
+df %>% 
+  echart(x) %>% 
+  earea(y, smooth = TRUE) %>% 
+  earea(z, smooth = TRUE) %>% 
+  earea(w, smooth = TRUE) %>% 
+  exAxis_category(boundaryGap = FALSE) %>% 
+  etheme("macarons") %>% 
+  etooltip() %>% 
+  etoolbox_magic(type = list('line', 'bar', 'stack', 'tiled')) %>% 
+  etoolbox_mark() %>% 
+  etoolbox_restore() %>% 
+  etoolbox_save()
+```
+
+# Stacked Area
+
+[example](http://echarts.baidu.com/echarts2/doc/example/line4.html#-en)
 
 ```{r}
 df <- data.frame(x = c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"),
@@ -45,9 +91,52 @@ df <- data.frame(x = c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"),
 
 df %>% 
   echart(x) %>% 
-  eline(y) %>% 
-  eline(z, stack = "grp1") %>% 
-  eline(w, stack = "grp1") %>% 
-  elegend() %>% 
-  etoolbox()
+  earea(y, smooth = TRUE, stack = "grp") %>% # stack
+  earea(z, smooth = TRUE, stack = "grp") %>% # stack
+  earea(w, smooth = TRUE) %>% # not stacked
+  exAxis_category(boundaryGap = FALSE) %>% 
+  etheme("macarons") %>% 
+  etooltip()
+```
+
+# Irregular line
+
+[example](http://echarts.baidu.com/echarts2/doc/example/line8.html#-en)
+
+```{r}
+df <- data.frame()
+for(i in seq(1:100)){
+  date <- Sys.time() + i * 3600
+  value <- round(runif(1, 5, 20))
+  df <- rbind.data.frame(df, cbind.data.frame(date, value))
+}
+
+df %>% 
+  echart(date) %>% 
+  eline(value, symbolSize = htmlwidgets::JS("function(value){ return value/2}"), showAllSymbol = TRUE) %>% 
+  etheme("macarons") %>% 
+  ezoom()
+```
+
+# Multiple axis
+
+[example](http://echarts.baidu.com/echarts2/doc/example/line6.html#-en)
+
+```{r}
+df <- data.frame()
+for(i in seq(1:100)){
+  date <- Sys.time() + i * 3600
+  y <- round(runif(1, 1, 5))
+  z <- runif(1, -4, -1)
+  df <- rbind.data.frame(df, cbind.data.frame(date, y, z))
+}
+
+df %>% 
+  echart(date) %>% 
+  earea(y, smooth = TRUE) %>% 
+  earea(z, smooth = TRUE, yAxisIndex = 1) %>% 
+  eyAxis_value(name = "y", max = 15) %>% 
+  eyAxis_value(name = "z", append = TRUE, min = -5) %>% 
+  ezoom() %>% 
+  etheme("macarons")
 ```
