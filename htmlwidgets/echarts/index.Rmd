@@ -9,26 +9,37 @@ library(htmltools)
 air <- read.csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_february_us_airport_traffic.csv')
 flights <- read.csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_february_aa_flight_paths.csv')
 
-# split frquent
-frequent_flights <- flights[flights$cnt > 400,]
-flights <- flights[flights$cnt <= 400,]
+sizeFUN <- htmlwidgets::JS(" function (v){ return v/1000 }")
 
-freq_fl <- data.frame(iata = unique(frequent_flights$airport1, frequent_flights$airport2))
-freq_air <- dplyr::left_join(freq_fl, air, by = "iata")
+# merge flights with air to get state of departure
+flights <- dplyr::left_join(flights, air, by = c("airport2" = "iata"))
+flights <- flights[complete.cases(flights),] # remove NAs
+
+# group flights like air
+flights <- flights %>% 
+  group_by(state)
+```
+
+```{r header}
+# customise line effect
+line.effect <- list(loop = TRUE,
+                    show = TRUE,
+                    scaleSize = 1,
+                    period = 40,
+                    shadowBlur = 5)
 
 air %>% 
+  group_by(state) %>% 
   echart(iata) %>% 
   emap(mapType = "world|United States of America") %>% 
   emap_coords(long, lat) %>% 
-  emap_lines(flights, airport1, airport2) %>% 
-  emap(mapType = "world|United States of America") %>% 
-  edata(freq_air, iata) %>% 
-  emap_coords(long, lat) %>% 
-  emap_lines(frequent_flights, airport1, airport2, effect = emap_line_effect()) %>% 
-  emap_coords(long, lat) %>% 
-  emap_points(cnt/200, effect = list(show = TRUE, shadowBlur = 1), symbol = "emptyCircle",
-              itemStyle = list(normal = list(label = list(show = TRUE)))) %>% 
-  etheme("macarons")
+  emap_points(cnt,
+              symbol = "emptyCircle", 
+              effect = list(show = TRUE, shadowBlur = 10),
+              symbolSize = sizeFUN) %>% 
+  emap_lines(flights, airport1, airport2, 
+             effect = line.effect) %>% 
+  etheme("helianthus")
 ```
 
 ```{r chart types}

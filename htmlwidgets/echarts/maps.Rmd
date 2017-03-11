@@ -1,0 +1,154 @@
+---
+title: "maps"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(echarts)
+```
+
+# Maps
+
+## How it works
+
+Some things remain unchanged; you still `%>%` your data and initiate the chart with the `echart` function. Once this done you can setup a map with `emap` and `emap_` and pass arguments that will apply to the map as a whole. Following that you add, if necessary, coordinates of points with `emap_coords` and `emap_coords`. Note that this does NOT draw points on the map, this is merely a reference table for your actual series to plot, i.e.: `points` or `lines`. Adding coordinates is obviously not required for choropleth maps (`emap_choropleth` and `emap_choropleth_`).
+
+## Examples
+
+Following is a reproduction examples from [plotly](https://plot.ly/r/lines-on-maps/) using their datasets:
+
+* [airports](https://raw.githubusercontent.com/plotly/datasets/master/2011_february_us_airport_traffic.csv')
+* [flights](https://raw.githubusercontent.com/plotly/datasets/master/2011_february_aa_flight_paths.csv)
+
+The datasets above are downloaded from R:
+
+```{r dl}
+air <- read.csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_february_us_airport_traffic.csv')
+flights <- read.csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_february_aa_flight_paths.csv')
+```
+
+Inspect the datasets yourself to understand the following examples, `str(air)` & `str(flights)`.
+
+## Points basic
+
+Here I simply plot the location of airports.
+
+```{r}
+air %>% 
+  echart(iata) %>% # x here corresponds to the name of each coordinate
+  emap() %>% # setup map
+  emap_coords(long, lat) %>% # actual coordinates
+  emap_points(cnt, symbolSize = 2) # value corresponding to each coordinate
+```
+
+## Points groups
+
+We can group the airports by `state` to have one serie and color for each, select the map of the United States only and change the symbol.
+
+```{r}
+air %>% 
+  group_by(state) %>% 
+  echart(iata) %>% 
+  emap_(mapType = "world|United States of America") %>% 
+  emap_coords(long, lat) %>% 
+  emap_points(cnt, symbol = "star", symbolSize = 10) 
+```
+
+## Point size
+
+Using a bit of JS we can set the symbol size to that of value we pass, `cnt`.
+
+```{r}
+sizeFUN <- htmlwidgets::JS(" function (v){ return v/1000 }")
+
+air %>% 
+  group_by(state) %>% 
+  echart(iata) %>% 
+  emap(mapType = "world|United States of America") %>% 
+  emap_coords(long, lat) %>% 
+  emap_points(cnt, symbol = "circle", symbolSize = sizeFUN) 
+```
+
+## Lines
+
+ECharts also lets you plot line on maps.  
+
+```{r}
+air %>% 
+  echart(iata) %>% 
+  emap(mapType = "world|United States of America") %>% 
+  emap_coords(long, lat) %>% 
+  emap_lines(flights, airport1, airport2) %>% 
+  emap(mapType = "world|United States of America") 
+```
+
+It may be confusing at first but ECharts has you, first, pass the *named* coordinates of the points then the edges as *name of source* to *name of target*. Hence passing the coordinates named `iata` (x in `echart` function) then passing edges as `airport1` to `airport2`.
+
+## Combine
+
+You can combine points and lines.
+
+```{r}
+air %>% 
+  echart(iata) %>% 
+  emap(mapType = "world|United States of America") %>% 
+  emap_coords(long, lat) %>% 
+  emap_points(cnt, symbolSize = sizeFUN, symbol = "circle") %>% 
+  emap_lines(flights, airport1, airport2)
+```
+
+## Combine groups
+
+Remember we grouped the data by `state` earlier on, we can do the same here. We will also group the edges by states so `echarts` will match our edges to our points.
+
+Below I merge the edges (`flights`) with the airports (`air`) by airport of arrival (`airport2`), then simply group the edges by `state`.
+
+```{r}
+# merge flights with air to get state of departure
+flights <- dplyr::left_join(flights, air, by = c("airport2" = "iata"))
+flights <- flights[complete.cases(flights),] # remove NAs
+
+# group flights like air
+flights <- flights %>% 
+  group_by(state)
+
+air %>% 
+  group_by(state) %>% 
+  echart(iata) %>% 
+  emap(mapType = "world|United States of America") %>% 
+  emap_coords(long, lat) %>% 
+  emap_points(cnt, symbol = "circle", symbolSize = sizeFUN) %>% 
+  emap_lines(flights, airport1, airport2)
+```
+
+## Beautify
+
+Finally you can beautify the map
+
+```{r}
+# options to set map backgroudn to dark
+dark <- list(normal = list(borderColor = "rgba(100,149,237,1)",
+                           borderWidth = 0.5,
+                           areaStyle = list(color = '#1b1b1b')))
+
+# customise line effect
+line.effect <- list(loop = TRUE,
+                    show = TRUE,
+                    scaleSize = 1,
+                    period = 40,
+                    shadowBlur = 5)
+
+air %>% 
+  group_by(state) %>% 
+  echart(iata) %>% 
+  emap(mapType = "world|United States of America", 
+       itemStyle = dark) %>% 
+  emap_coords(long, lat) %>% 
+  emap_points(cnt,
+              symbol = "emptyCircle", 
+              effect = list(show = TRUE, shadowBlur = 10),
+              symbolSize = sizeFUN) %>% 
+  emap_lines(flights, airport1, airport2, 
+             effect = line.effect) %>% 
+  etheme("dark")
+```
