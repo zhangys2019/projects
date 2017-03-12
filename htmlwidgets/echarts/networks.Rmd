@@ -7,3 +7,44 @@ knitr::opts_chunk$set(echo = TRUE)
 library(echarts)
 library(dplyr)
 ```
+
+## Simple topology
+
+[example](http://echarts.baidu.com/echarts2/doc/example/force1.html#-en)
+
+```{r}
+set.seed(19882505)
+grps <- LETTERS[1:4]
+
+nodes <- data.frame(name = LETTERS[1:20],
+                    value = round(runif(20, 5, 25)),
+                    grps = sample(grps, 20, replace = T))
+
+edges <- data.frame(from = sample(LETTERS[1:20], 30, replace = TRUE),
+                    to = sample(LETTERS[1:20], 30, replace = TRUE))
+
+showLabel <- list(normal = list(label = list(show = TRUE)))
+
+echart() %>% 
+  eforce(itemStyle = showLabel) %>% 
+  enodes(nodes, name = name, label = name, value = value, category = grps) %>% 
+  elinks(edges, from, to)
+```
+
+## Tree
+
+[example](http://echarts.baidu.com/echarts2/doc/example/force2.html#-en)
+
+```{r}
+nodes <- data.frame(name = c("ego", "layer1 - 1", "layer1 - 2", "layer2 - 1", "layer2 - 2", "layer2 - 3", "layer2 - 4"),
+                    values = round(runif(7, 5, 10)),
+                    depth = c(0, 1, 1, 2, 2, 2, 2))
+
+edges <- data.frame(from = c("ego", "ego", "layer1 - 1", "layer1 - 2", "layer1 - 1", "layer1 - 2"),
+                 to = c("layer1 - 1", "layer1 - 2", "layer2 - 1", "layer2 - 2", "layer2 - 3", "layer2 - 4"))
+
+echart() %>% 
+  eforce() %>% 
+  enodes(nodes, name = name, label = name, value = values, category = depth, depth = depth) %>% 
+  elinks(edges, from, to)
+```
