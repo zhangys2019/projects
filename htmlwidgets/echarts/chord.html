@@ -227,7 +227,44 @@ $(document).ready(function () {
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-bar-chart"></span>
+     
+    Chart types
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="bars">bar</a>
+    </li>
+    <li>
+      <a href="lines">line</a>
+    </li>
+    <li>
+      <a href="scatter">scatter</a>
+    </li>
+    <li>
+      <a href="pie">pie</a>
+    </li>
+    <li>
+      <a href="chord">chord</a>
+    </li>
+    <li>
+      <a href="funnels">funnel</a>
+    </li>
+    <li>
+      <a href="gauges">gauge</a>
+    </li>
+    <li>
+      <a href="heatmap">heatmap</a>
+    </li>
+    <li>
+      <a href="maps">map</a>
+    </li>
+  </ul>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -250,8 +287,8 @@ $(document).ready(function () {
 matrix %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">echart</span>(LETTERS[<span class="dv">1</span>:<span class="dv">10</span>]) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">echord</span>()</code></pre></div>
-<div id="htmlwidget-11903090db3324059583" style="width:100%;height:400px;" class="echarts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-11903090db3324059583">{"x":{"theme":"default","options":{"series":[{"type":"chord","sort":"none","sortSub":"none","clickable":true,"z":2,"zlevel":0,"clockWise":false,"minRadius":10,"maxRadius":20,"ribbonType":true,"showScale":false,"showScaleText":false,"padding":2,"data":[{"name":"A"},{"name":"B"},{"name":"C"},{"name":"D"},{"name":"E"},{"name":"F"},{"name":"G"},{"name":"H"},{"name":"I"},{"name":"J"}],"matrix":[[0,0,0,0,0,0,1,0,1,1],[0,0,0,0,0,0,1,1,0,0],[1,1,1,0,0,1,1,1,0,0],[1,1,0,0,0,1,0,1,1,0],[1,0,0,1,1,0,1,1,0,1],[0,0,1,0,0,0,0,1,0,1],[1,0,0,0,0,0,1,0,0,1],[0,1,0,0,0,0,1,1,1,0],[0,0,1,1,0,1,1,1,1,0],[1,0,0,1,0,0,0,0,0,0]]}]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-4085fa05e3ec0529f7a0" style="width:100%;height:400px;" class="echarts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4085fa05e3ec0529f7a0">{"x":{"theme":"default","options":{"series":[{"type":"chord","sort":"none","sortSub":"none","clickable":true,"z":2,"zlevel":0,"clockWise":false,"minRadius":10,"maxRadius":20,"ribbonType":true,"showScale":false,"showScaleText":false,"padding":2,"data":[{"name":"A"},{"name":"B"},{"name":"C"},{"name":"D"},{"name":"E"},{"name":"F"},{"name":"G"},{"name":"H"},{"name":"I"},{"name":"J"}],"matrix":[[1,0,0,0,1,0,1,1,1,0],[1,0,0,0,0,0,0,0,0,1],[0,0,0,0,1,0,1,1,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,1,1,0,1,1,0,0,0],[0,0,0,0,0,0,1,0,0,0],[0,0,0,0,1,0,1,1,1,0],[1,0,0,0,0,1,0,0,1,1],[0,0,0,0,1,0,1,1,0,0],[0,0,0,0,1,1,0,1,0,0]]}]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="ribbon-chord" class="section level2">
 <h2>Ribbon Chord</h2>
@@ -261,8 +298,8 @@ matrix %&gt;%<span class="st"> </span>
 matrix %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">echart</span>(LETTERS[<span class="dv">1</span>:<span class="dv">10</span>]) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">echord</span>(<span class="dt">ribbonType =</span> <span class="ot">FALSE</span>)</code></pre></div>
-<div id="htmlwidget-0962affa8a298555e691" style="width:100%;height:400px;" class="echarts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-0962affa8a298555e691">{"x":{"theme":"default","options":{"series":[{"type":"chord","sort":"none","sortSub":"none","clickable":true,"z":2,"zlevel":0,"clockWise":false,"minRadius":10,"maxRadius":20,"ribbonType":false,"showScale":false,"showScaleText":false,"padding":2,"data":[{"name":"A"},{"name":"B"},{"name":"C"},{"name":"D"},{"name":"E"},{"name":"F"},{"name":"G"},{"name":"H"},{"name":"I"},{"name":"J"}],"matrix":[[0,0,0,1,0,0,0,0,0,0],[1,1,1,0,1,1,0,0,0,0],[0,0,0,0,1,0,0,1,0,0],[0,1,0,1,0,0,0,1,0,0],[0,1,0,0,0,1,0,0,0,0],[0,0,1,1,0,1,0,0,0,1],[1,0,0,0,0,1,0,0,1,0],[0,0,1,1,0,0,1,1,1,1],[0,0,0,1,1,1,0,0,0,1],[0,0,0,0,1,0,0,0,0,0]]}]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-c649cb7c7b0518d1a630" style="width:100%;height:400px;" class="echarts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c649cb7c7b0518d1a630">{"x":{"theme":"default","options":{"series":[{"type":"chord","sort":"none","sortSub":"none","clickable":true,"z":2,"zlevel":0,"clockWise":false,"minRadius":10,"maxRadius":20,"ribbonType":false,"showScale":false,"showScaleText":false,"padding":2,"data":[{"name":"A"},{"name":"B"},{"name":"C"},{"name":"D"},{"name":"E"},{"name":"F"},{"name":"G"},{"name":"H"},{"name":"I"},{"name":"J"}],"matrix":[[0,0,0,1,1,1,0,0,1,0],[0,1,1,1,0,0,0,0,0,0],[0,1,1,0,0,0,1,0,1,1],[0,0,1,1,1,0,1,0,1,1],[0,1,1,0,1,1,1,1,1,0],[0,1,1,1,0,1,0,1,0,0],[0,0,0,1,1,0,1,1,1,1],[1,0,1,0,1,0,0,1,0,1],[0,0,0,0,1,1,1,1,1,0],[1,0,0,0,1,0,0,0,0,1]]}]}},"evals":[],"jsHooks":[]}</script>
 </div>
 
 

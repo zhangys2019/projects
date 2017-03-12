@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Pie chart example</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/htmlwidgets-0.7/htmlwidgets.js"></script>
+<script src="site_libs/echarts-2.2.7/echarts-all.js"></script>
+<script src="site_libs/echarts-binding-0.0.0.9000/echarts.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-74544116-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #dddddd; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { font-weight: bold; } /* Keyword */
+code > span.dt { color: #800000; } /* DataType */
+code > span.dv { color: #0000ff; } /* DecVal */
+code > span.bn { color: #0000ff; } /* BaseN */
+code > span.fl { color: #800080; } /* Float */
+code > span.ch { color: #ff00ff; } /* Char */
+code > span.st { color: #dd0000; } /* String */
+code > span.co { color: #808080; font-style: italic; } /* Comment */
+code > span.al { color: #00ff00; font-weight: bold; } /* Alert */
+code > span.fu { color: #000080; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #ff0000; font-weight: bold; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #ff00ff; } /* SpecialChar */
+code > span.vs { color: #dd0000; } /* VerbatimString */
+code > span.ss { color: #dd0000; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { font-weight: bold; } /* Preprocessor */
+code > span.at { } /* Attribute */
+code > span.do { color: #808080; font-style: italic; } /* Documentation */
+code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="bttn.min.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 41px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+
+.section h2 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h3 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h4 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h5 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h6 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">uvcharts</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="http://john-coene.com/">
+    <span class="fa fa-arrow-circle-left"></span>
+     
+    home
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-bar-chart"></span>
+     
+    Chart types
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="bars">bar</a>
+    </li>
+    <li>
+      <a href="lines">line</a>
+    </li>
+    <li>
+      <a href="scatter">scatter</a>
+    </li>
+    <li>
+      <a href="pie">pie</a>
+    </li>
+    <li>
+      <a href="chord">chord</a>
+    </li>
+    <li>
+      <a href="funnels">funnel</a>
+    </li>
+    <li>
+      <a href="gauges">gauge</a>
+    </li>
+    <li>
+      <a href="heatmap">heatmap</a>
+    </li>
+    <li>
+      <a href="maps">map</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Pie chart example</h1>
+
+</div>
+
+
+<div id="basic-pie" class="section level2">
+<h2>Basic pie</h2>
+<p><a href="http://echarts.baidu.com/echarts2/doc/example/pie1.html#-en">example</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pie &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">slices =</span> <span class="kw">c</span>(<span class="st">&#39;Direct access&#39;</span>, <span class="st">&#39;mail marketing&#39;</span>, <span class="st">&#39;affiliate ad&#39;</span>, <span class="st">&#39;video ad&#39;</span>, <span class="st">&#39;search engine&#39;</span>),
+                  <span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">335</span>, <span class="dv">310</span>, <span class="dv">234</span>, <span class="dv">135</span>, <span class="dv">1548</span>))
+
+<span class="co"># funnel options</span>
+opts &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">funnel =</span> <span class="kw">list</span>(<span class="dt">x =</span> <span class="st">&quot;25%&quot;</span>,
+                           <span class="dt">width =</span> <span class="st">&quot;50%&quot;</span>,
+                           <span class="dt">funnelAlign =</span> <span class="st">&quot;left&quot;</span>,
+                           <span class="dt">max =</span> <span class="dv">1548</span>))
+
+pie %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">echart</span>(slices) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">epie</span>(values) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">elegend</span>(<span class="dt">orient =</span> <span class="st">&quot;vertical&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;left&quot;</span>, <span class="dt">radius =</span> <span class="st">&quot;55%&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etoolbox_full</span>() %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etoolbox_magic</span>(<span class="dt">type =</span> <span class="kw">list</span>(<span class="st">&quot;pie&quot;</span>, <span class="st">&quot;funnel&quot;</span>), <span class="dt">option =</span> opts) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etheme</span>(<span class="st">&quot;macarons&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etooltip</span>(<span class="dt">trigger =</span> <span class="st">&quot;item&quot;</span>)</code></pre></div>
+<div id="htmlwidget-7b4904f92028364bf646" style="width:100%;height:400px;" class="echarts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7b4904f92028364bf646">{"x":{"theme":"macarons","options":{"series":[{"name":"values","type":"pie","data":[{"name":"Direct access","value":" 335"},{"name":"mail marketing","value":" 310"},{"name":"affiliate ad","value":" 234"},{"name":"video ad","value":" 135"},{"name":"search engine","value":"1548"}]}],"legend":{"data":["Direct access","mail marketing","affiliate ad","video ad","search engine"],"radius":"55%","data.1":["Direct access","mail marketing","affiliate ad","video ad","search engine"],"show":true,"zlevel":0,"z":4,"orient":"vertical","x":"left","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemWidth":20,"itemHeight":14,"selectMode":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"toolbox":{"show":true,"zlevel":0,"z":6,"orient":"horizontal","x":"right","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemSize":16,"color":["#1e90ff","#22bb22","#4b0082","#d2691e"],"disableColor":"#ddd","effectiveColor":"red","showTitle":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"feature":{"mark":{"show":true,"title":{"mark":"Mark","markUndo":"Undo","markClear":"Clear"},"lineStyle":{"color":"#1e90ff","typed":"dashed","width":2,"shadowColor":"rgba(0,0,0,0)","shadowBlur":5,"shadowOffsetX":3,"shadowOffsetY":3}},"restore":{"show":true,"title":"Reset"},"saveAsImage":{"show":true,"title":"Save as image"},"dataZoom":{"show":true,"title":{"dataZoom":"Area Zoom","dataZoomReset":"Reset"}},"dataView":{"show":true,"title":"View","readOnly":false,"lang":["Data View","close","refresh"]},"magicType":{"option":{"funnel":{"x":"25%","width":"50%","funnelAlign":"left","max":1548}},"show":true,"title":{"line":"line","bar":"bar","stack":"stack","tiled":"tiled","force":"force","chord":"chord","pie":"pie","funnel":"funnel"},"type":["pie","funnel"]}}},"tooltip":{"show":true,"trigger":"item","zlevel":1,"showContent":true,"islandFormatter":"{a} < br/>{b} : {c}","showDelay":20,"hideDelay":100,"transitionDuration":4,"enterable":false,"backgroundColor":"rgba(0,0,0,0.7)","borderColor":"#333","borderRadius":4,"borderWidth":0,"padding":5,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="doughnut" class="section level2">
+<h2>Doughnut</h2>
+<p><a href="http://echarts.baidu.com/echarts2/doc/example/pie2.html#-en">example</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pie &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">slices =</span> <span class="kw">c</span>(<span class="st">&#39;Direct access&#39;</span>, <span class="st">&#39;mail marketing&#39;</span>, <span class="st">&#39;affiliate ad&#39;</span>, <span class="st">&#39;video ad&#39;</span>, <span class="st">&#39;search engine&#39;</span>),
+                  <span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">335</span>, <span class="dv">310</span>, <span class="dv">234</span>, <span class="dv">135</span>, <span class="dv">1548</span>))
+
+<span class="co"># funnel options</span>
+opts &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">funnel =</span> <span class="kw">list</span>(<span class="dt">x =</span> <span class="st">&quot;25%&quot;</span>,
+                           <span class="dt">width =</span> <span class="st">&quot;50%&quot;</span>,
+                           <span class="dt">funnelAlign =</span> <span class="st">&quot;center&quot;</span>,
+                           <span class="dt">max =</span> <span class="dv">1548</span>))
+
+<span class="co"># doughnut inside label</span>
+lab &lt;-<span class="st"> </span><span class="kw">list</span>(
+  <span class="dt">normal =</span> <span class="kw">list</span>(<span class="dt">label =</span> <span class="kw">list</span>(<span class="dt">show =</span> <span class="ot">FALSE</span>), <span class="co"># hide normal labels</span>
+                <span class="dt">labelLine =</span> <span class="kw">list</span>(<span class="dt">show =</span> <span class="ot">FALSE</span>)), <span class="co"># hide label lines</span>
+  <span class="dt">emphasis =</span> <span class="kw">list</span>(<span class="dt">label =</span> <span class="kw">list</span>(<span class="dt">show =</span> <span class="ot">TRUE</span>, <span class="dt">position =</span> <span class="st">&quot;center&quot;</span>, <span class="co"># place on-hover labels inside doughnut </span>
+                               <span class="dt">textStyle =</span> <span class="kw">list</span>(<span class="dt">fontSize =</span> <span class="dv">30</span>, <span class="dt">fontWeight =</span> <span class="st">&quot;bold&quot;</span>)))) <span class="co"># customise font of inside label</span>
+
+pie %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">echart</span>(slices) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">epie</span>(values, <span class="dt">radius =</span> <span class="kw">list</span>(<span class="st">&quot;55%&quot;</span>, <span class="st">&quot;70%&quot;</span>), <span class="dt">itemStyle =</span> lab) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">elegend</span>(<span class="dt">orient =</span> <span class="st">&quot;vertical&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;left&quot;</span>, <span class="dt">radius =</span> <span class="st">&quot;55%&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etoolbox_full</span>() %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etoolbox_magic</span>(<span class="dt">type =</span> <span class="kw">list</span>(<span class="st">&quot;pie&quot;</span>, <span class="st">&quot;funnel&quot;</span>), <span class="dt">option =</span> opts) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etheme</span>(<span class="st">&quot;macarons&quot;</span>)%&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etooltip</span>(<span class="dt">trigger =</span> <span class="st">&quot;item&quot;</span>)</code></pre></div>
+<div id="htmlwidget-9b2158ccd45facb6c145" style="width:100%;height:400px;" class="echarts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9b2158ccd45facb6c145">{"x":{"theme":"macarons","options":{"series":[{"radius":["55%","70%"],"itemStyle":{"normal":{"label":{"show":false},"labelLine":{"show":false}},"emphasis":{"label":{"show":true,"position":"center","textStyle":{"fontSize":30,"fontWeight":"bold"}}}},"name":"values","type":"pie","data":[{"name":"Direct access","value":" 335"},{"name":"mail marketing","value":" 310"},{"name":"affiliate ad","value":" 234"},{"name":"video ad","value":" 135"},{"name":"search engine","value":"1548"}]}],"legend":{"data":["Direct access","mail marketing","affiliate ad","video ad","search engine"],"radius":"55%","data.1":["Direct access","mail marketing","affiliate ad","video ad","search engine"],"show":true,"zlevel":0,"z":4,"orient":"vertical","x":"left","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemWidth":20,"itemHeight":14,"selectMode":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"toolbox":{"show":true,"zlevel":0,"z":6,"orient":"horizontal","x":"right","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemSize":16,"color":["#1e90ff","#22bb22","#4b0082","#d2691e"],"disableColor":"#ddd","effectiveColor":"red","showTitle":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"feature":{"mark":{"show":true,"title":{"mark":"Mark","markUndo":"Undo","markClear":"Clear"},"lineStyle":{"color":"#1e90ff","typed":"dashed","width":2,"shadowColor":"rgba(0,0,0,0)","shadowBlur":5,"shadowOffsetX":3,"shadowOffsetY":3}},"restore":{"show":true,"title":"Reset"},"saveAsImage":{"show":true,"title":"Save as image"},"dataZoom":{"show":true,"title":{"dataZoom":"Area Zoom","dataZoomReset":"Reset"}},"dataView":{"show":true,"title":"View","readOnly":false,"lang":["Data View","close","refresh"]},"magicType":{"option":{"funnel":{"x":"25%","width":"50%","funnelAlign":"center","max":1548}},"show":true,"title":{"line":"line","bar":"bar","stack":"stack","tiled":"tiled","force":"force","chord":"chord","pie":"pie","funnel":"funnel"},"type":["pie","funnel"]}}},"tooltip":{"show":true,"trigger":"item","zlevel":1,"showContent":true,"islandFormatter":"{a} < br/>{b} : {c}","showDelay":20,"hideDelay":100,"transitionDuration":4,"enterable":false,"backgroundColor":"rgba(0,0,0,0.7)","borderColor":"#333","borderRadius":4,"borderWidth":0,"padding":5,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="rose-diagram" class="section level2">
+<h2>Rose diagram</h2>
+<p><a href="http://echarts.baidu.com/echarts2/doc/example/pie4.html#-en">example</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pie &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">slices =</span> <span class="kw">c</span>(<span class="st">&#39;Direct access&#39;</span>, <span class="st">&#39;mail marketing&#39;</span>, <span class="st">&#39;affiliate ad&#39;</span>, <span class="st">&#39;video ad&#39;</span>, <span class="st">&#39;search engine&#39;</span>),
+                  <span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">335</span>, <span class="dv">310</span>, <span class="dv">234</span>, <span class="dv">135</span>, <span class="dv">500</span>))
+
+<span class="co"># funnel options</span>
+opts &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">funnel =</span> <span class="kw">list</span>(<span class="dt">x =</span> <span class="st">&quot;25%&quot;</span>,
+                           <span class="dt">width =</span> <span class="st">&quot;50%&quot;</span>,
+                           <span class="dt">funnelAlign =</span> <span class="st">&quot;center&quot;</span>,
+                           <span class="dt">max =</span> <span class="dv">500</span>))
+
+pie %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">echart</span>(slices) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">epie</span>(values, <span class="dt">roseType =</span> <span class="st">&quot;radius&quot;</span>, <span class="dt">radius =</span> <span class="kw">list</span>(<span class="dv">20</span>, <span class="dv">110</span>)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">elegend</span>(<span class="dt">orient =</span> <span class="st">&quot;vertical&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;left&quot;</span>, <span class="dt">radius =</span> <span class="st">&quot;55%&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etoolbox_full</span>() %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etoolbox_magic</span>(<span class="dt">type =</span> <span class="kw">list</span>(<span class="st">&quot;pie&quot;</span>, <span class="st">&quot;funnel&quot;</span>), <span class="dt">option =</span> opts) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etheme</span>(<span class="st">&quot;macarons2&quot;</span>)%&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etooltip</span>(<span class="dt">trigger =</span> <span class="st">&quot;item&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">elegend</span>()</code></pre></div>
+<div id="htmlwidget-4d74500bdf80b29e7579" style="width:100%;height:400px;" class="echarts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4d74500bdf80b29e7579">{"x":{"theme":"macarons2","options":{"series":[{"roseType":"radius","radius":[20,110],"name":"values","type":"pie","data":[{"name":"Direct access","value":"335"},{"name":"mail marketing","value":"310"},{"name":"affiliate ad","value":"234"},{"name":"video ad","value":"135"},{"name":"search engine","value":"500"}]}],"legend":{"data":["Direct access","mail marketing","affiliate ad","video ad","search engine"],"radius":"55%","data.1":["Direct access","mail marketing","affiliate ad","video ad","search engine"],"show":true,"zlevel":0,"z":4,"orient":"vertical","x":"left","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemWidth":20,"itemHeight":14,"selectMode":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"data.2":["Direct access","mail marketing","affiliate ad","video ad","search engine"],"show.1":true,"zlevel.1":0,"z.1":4,"orient.1":"horizontal","x.1":"center","y.1":"top","backgroundColor.1":"rgba(0,0,0,0)","borderColor.1":"#ccc","borderWidth.1":0,"padding.1":5,"itemGap.1":10,"itemWidth.1":20,"itemHeight.1":14,"selectMode.1":true,"textStyle.1":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"toolbox":{"show":true,"zlevel":0,"z":6,"orient":"horizontal","x":"right","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemSize":16,"color":["#1e90ff","#22bb22","#4b0082","#d2691e"],"disableColor":"#ddd","effectiveColor":"red","showTitle":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"feature":{"mark":{"show":true,"title":{"mark":"Mark","markUndo":"Undo","markClear":"Clear"},"lineStyle":{"color":"#1e90ff","typed":"dashed","width":2,"shadowColor":"rgba(0,0,0,0)","shadowBlur":5,"shadowOffsetX":3,"shadowOffsetY":3}},"restore":{"show":true,"title":"Reset"},"saveAsImage":{"show":true,"title":"Save as image"},"dataZoom":{"show":true,"title":{"dataZoom":"Area Zoom","dataZoomReset":"Reset"}},"dataView":{"show":true,"title":"View","readOnly":false,"lang":["Data View","close","refresh"]},"magicType":{"option":{"funnel":{"x":"25%","width":"50%","funnelAlign":"center","max":500}},"show":true,"title":{"line":"line","bar":"bar","stack":"stack","tiled":"tiled","force":"force","chord":"chord","pie":"pie","funnel":"funnel"},"type":["pie","funnel"]}}},"tooltip":{"show":true,"trigger":"item","zlevel":1,"showContent":true,"islandFormatter":"{a} < br/>{b} : {c}","showDelay":20,"hideDelay":100,"transitionDuration":4,"enterable":false,"backgroundColor":"rgba(0,0,0,0.7)","borderColor":"#333","borderRadius":4,"borderWidth":0,"padding":5,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="nested" class="section level2">
+<h2>Nested</h2>
+<p><a href="http://echarts.baidu.com/echarts2/doc/example/pie3.html#-en">example</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pie &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">slice =</span> <span class="kw">c</span>(<span class="st">&quot;marketing&quot;</span>, <span class="st">&quot;IBD&quot;</span>, <span class="st">&quot;sales&quot;</span>),
+                  <span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">472</span>, <span class="dv">261</span>, <span class="dv">152</span>))
+
+doughnut &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">slices =</span> <span class="kw">c</span>(<span class="st">&#39;Direct access&#39;</span>, <span class="st">&#39;mail marketing&#39;</span>, <span class="st">&#39;affiliate ad&#39;</span>, <span class="st">&#39;video ad&#39;</span>, <span class="st">&#39;search engine&#39;</span>),
+                  <span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">335</span>, <span class="dv">310</span>, <span class="dv">234</span>, <span class="dv">135</span>, <span class="dv">1548</span>))
+
+pie.lab &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">normal =</span> <span class="kw">list</span>(<span class="dt">label =</span> <span class="kw">list</span>(<span class="dt">position =</span> <span class="st">&quot;inner&quot;</span>),
+                              <span class="dt">labelLine =</span> <span class="kw">list</span>(<span class="dt">show =</span> <span class="ot">FALSE</span>)))
+
+pie %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">echart</span>(slice) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">epie</span>(values, <span class="dt">radius =</span> <span class="kw">list</span>(<span class="dv">0</span>, <span class="dv">70</span>), <span class="dt">itemStyle =</span> pie.lab) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">edata</span>(doughnut, slices) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">epie</span>(values, <span class="dt">radius =</span> <span class="kw">list</span>(<span class="dv">100</span>, <span class="dv">140</span>)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etoolbox_full</span>() %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">elegend</span>(<span class="dt">x =</span> <span class="st">&quot;left&quot;</span>, <span class="dt">orient =</span> <span class="st">&quot;vertical&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etheme</span>(<span class="st">&quot;macarons&quot;</span>)</code></pre></div>
+<div id="htmlwidget-06a75775aa230452bca0" style="width:100%;height:400px;" class="echarts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-06a75775aa230452bca0">{"x":{"theme":"macarons","options":{"series":[{"radius":[0,70],"itemStyle":{"normal":{"label":{"position":"inner"},"labelLine":{"show":false}}},"name":"values","type":"pie","data":[{"name":"marketing","value":"472"},{"name":"IBD","value":"261"},{"name":"sales","value":"152"}]},{"radius":[100,140],"name":"values","type":"pie","data":[{"name":"Direct access","value":" 335"},{"name":"mail marketing","value":" 310"},{"name":"affiliate ad","value":" 234"},{"name":"video ad","value":" 135"},{"name":"search engine","value":"1548"}]}],"legend":{"data":["Direct access","mail marketing","affiliate ad","video ad","search engine"],"data.1":["Direct access","mail marketing","affiliate ad","video ad","search engine"],"show":true,"zlevel":0,"z":4,"orient":"vertical","x":"left","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemWidth":20,"itemHeight":14,"selectMode":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"toolbox":{"show":true,"zlevel":0,"z":6,"orient":"horizontal","x":"right","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemSize":16,"color":["#1e90ff","#22bb22","#4b0082","#d2691e"],"disableColor":"#ddd","effectiveColor":"red","showTitle":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"feature":{"mark":{"show":true,"title":{"mark":"Mark","markUndo":"Undo","markClear":"Clear"},"lineStyle":{"color":"#1e90ff","typed":"dashed","width":2,"shadowColor":"rgba(0,0,0,0)","shadowBlur":5,"shadowOffsetX":3,"shadowOffsetY":3}},"restore":{"show":true,"title":"Reset"},"saveAsImage":{"show":true,"title":"Save as image"},"dataZoom":{"show":true,"title":{"dataZoom":"Area Zoom","dataZoomReset":"Reset"}},"dataView":{"show":true,"title":"View","readOnly":false,"lang":["Data View","close","refresh"]}}}}},"evals":[],"jsHooks":[]}</script>
+</div>
+
+
+<div class="row">
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+    <p class="text-center"><a href="https://github.com/JohnCoene"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-github' aria-hidden='true'></i></button></a></p>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+    <p class="text-center"><a href="https://www.linkedin.com/in/johncoene/"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-linkedin' aria-hidden='true'></i></button></a></p>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+    <p class="text-center"><a href="https://twitter.com/jdatap"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-twitter' aria-hidden='true'></i></button></a></p>
+  </div>
+</div>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

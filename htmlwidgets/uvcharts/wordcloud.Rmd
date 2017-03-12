@@ -1,0 +1,37 @@
+---
+title: "wordcloud"
+author: "John Coene"
+date: "March 12, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(echarts)
+```
+
+## Wordcloud
+
+Using dataset from [wordcloud2](https://github.com/Lchiffon/wordcloud2).
+
+```{r load data}
+library(wordcloud2)
+data(demoFreq)
+```
+
+## Basic
+
+[example](http://echarts.baidu.com/echarts2/doc/example/wordCloud.html#-en)
+
+```{r}
+demoFreq$colors <- colorRampPalette(rev(c("lightblue", "yellow", "orange", "red")))(nrow(demoFreq))
+
+demoFreq %>% 
+  echart(word) %>% 
+  ecloud(freq, 
+         colors,
+         size = list("100%", "100%"), 
+         textPadding = 0, 
+         autoSize = list(enable = TRUE,
+                         minSize = 5))
+```

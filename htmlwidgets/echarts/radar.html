@@ -227,7 +227,44 @@ $(document).ready(function () {
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-bar-chart"></span>
+     
+    Chart types
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="bars">bar</a>
+    </li>
+    <li>
+      <a href="lines">line</a>
+    </li>
+    <li>
+      <a href="scatter">scatter</a>
+    </li>
+    <li>
+      <a href="pie">pie</a>
+    </li>
+    <li>
+      <a href="chord">chord</a>
+    </li>
+    <li>
+      <a href="funnels">funnel</a>
+    </li>
+    <li>
+      <a href="gauges">gauge</a>
+    </li>
+    <li>
+      <a href="heatmap">heatmap</a>
+    </li>
+    <li>
+      <a href="maps">map</a>
+    </li>
+  </ul>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -244,16 +281,39 @@ $(document).ready(function () {
 
 <div id="basic-radar" class="section level2">
 <h2>Basic radar</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">radar &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">axis =</span> <span class="kw">c</span>(<span class="st">&quot;sales&quot;</span>, <span class="st">&quot;marketing&quot;</span>, <span class="st">&quot;development&quot;</span>, <span class="st">&quot;customer support&quot;</span>, <span class="st">&quot;IT&quot;</span>, <span class="st">&quot;admin&quot;</span>),
-                    <span class="dt">values1 =</span> <span class="kw">c</span>(<span class="dv">6</span>, <span class="dv">16</span>, <span class="dv">30</span>, <span class="dv">38</span>, <span class="dv">52</span>, <span class="dv">25</span>),
-                    <span class="dt">values2 =</span> <span class="kw">c</span>(<span class="dv">7</span>, <span class="dv">13</span>, <span class="dv">33</span>, <span class="dv">25</span>, <span class="dv">46</span>, <span class="dv">37</span>))
+<p><a href="http://echarts.baidu.com/echarts2/doc/example/radar1.html#-en">example</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">axis &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;sales&quot;</span>, <span class="st">&quot;marketing&quot;</span>, <span class="st">&quot;development&quot;</span>, <span class="st">&quot;customer support&quot;</span>, <span class="st">&quot;IT&quot;</span>, <span class="st">&quot;admin&quot;</span>)
+radar &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">axis =</span> <span class="kw">rep</span>(axis, <span class="dv">2</span>),
+                    <span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">6</span>, <span class="dv">16</span>, <span class="dv">30</span>, <span class="dv">38</span>, <span class="dv">52</span>, <span class="dv">25</span>, <span class="dv">7</span>, <span class="dv">13</span>, <span class="dv">33</span>, <span class="dv">25</span>, <span class="dv">46</span>, <span class="dv">37</span>),
+                    <span class="dt">groups =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;grp1&quot;</span>, <span class="dv">6</span>), <span class="kw">rep</span>(<span class="st">&quot;grp2&quot;</span>, <span class="dv">6</span>)))
 
 radar %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(groups) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">echart</span>(axis) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">eradar</span>(values1) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">eradar</span>(values2)</code></pre></div>
-<div id="htmlwidget-35912fe40771529bbe6b" style="width:100%;height:400px;" class="echarts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-35912fe40771529bbe6b">{"x":{"theme":"default","options":{"series":[{"name":"values1","type":"radar","data":[{"value":[6,16,30,38,52,25],"name":"values1"}]},{"name":"values2","type":"radar","data":[{"value":[7,13,33,25,46,37],"name":"values2"}]}],"polar":[{"indicator":[{"text":"sales"},{"text":"marketing"},{"text":"development"},{"text":"customer support"},{"text":"IT"},{"text":"admin"}]}]}},"evals":[],"jsHooks":[]}</script>
+<span class="st">  </span><span class="kw">eradar</span>(values) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">elegend</span>() %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etoolbox_full</span>()</code></pre></div>
+<div id="htmlwidget-f32dfe8d35d83cf39c5c" style="width:100%;height:400px;" class="echarts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f32dfe8d35d83cf39c5c">{"x":{"theme":"default","options":{"series":[{"name":"grp1","type":"radar","data":[{"value":[6,16,30,38,52,25],"name":"grp1"}]},{"name":"grp2","type":"radar","data":[{"value":[7,13,33,25,46,37],"name":"grp2"}]}],"polar":[{"indicator":[{"text":"sales"},{"text":"marketing"},{"text":"development"},{"text":"customer support"},{"text":"IT"},{"text":"admin"}]}],"legend":{"data":["grp1","grp2"],"show":true,"zlevel":0,"z":4,"orient":"horizontal","x":"center","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemWidth":20,"itemHeight":14,"selectMode":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"toolbox":{"show":true,"zlevel":0,"z":6,"orient":"horizontal","x":"right","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemSize":16,"color":["#1e90ff","#22bb22","#4b0082","#d2691e"],"disableColor":"#ddd","effectiveColor":"red","showTitle":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"feature":{"mark":{"show":true,"title":{"mark":"Mark","markUndo":"Undo","markClear":"Clear"},"lineStyle":{"color":"#1e90ff","typed":"dashed","width":2,"shadowColor":"rgba(0,0,0,0)","shadowBlur":5,"shadowOffsetX":3,"shadowOffsetY":3}},"restore":{"show":true,"title":"Reset"},"saveAsImage":{"show":true,"title":"Save as image"},"dataZoom":{"show":true,"title":{"dataZoom":"Area Zoom","dataZoomReset":"Reset"}},"dataView":{"show":true,"title":"View","readOnly":false,"lang":["Data View","close","refresh"]}}}}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="basic-filled-radar" class="section level2">
+<h2>Basic filled radar</h2>
+<p><a href="http://echarts.baidu.com/echarts2/doc/example/radar2.html#-en">example</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">axis &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;sales&quot;</span>, <span class="st">&quot;marketing&quot;</span>, <span class="st">&quot;development&quot;</span>, <span class="st">&quot;customer support&quot;</span>, <span class="st">&quot;IT&quot;</span>, <span class="st">&quot;admin&quot;</span>)
+radar &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">axis =</span> <span class="kw">rep</span>(axis, <span class="dv">2</span>),
+                    <span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">6</span>, <span class="dv">16</span>, <span class="dv">30</span>, <span class="dv">38</span>, <span class="dv">52</span>, <span class="dv">25</span>, <span class="dv">7</span>, <span class="dv">13</span>, <span class="dv">33</span>, <span class="dv">25</span>, <span class="dv">46</span>, <span class="dv">37</span>),
+                    <span class="dt">groups =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;grp1&quot;</span>, <span class="dv">6</span>), <span class="kw">rep</span>(<span class="st">&quot;grp2&quot;</span>, <span class="dv">6</span>)))
+
+fill &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">normal =</span> <span class="kw">list</span>(<span class="dt">areaStyle =</span> <span class="kw">list</span>(<span class="dt">type =</span> <span class="st">&quot;default&quot;</span>)))
+
+radar %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(groups) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">echart</span>(axis) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">eradar</span>(values, <span class="dt">itemStyle =</span> fill) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">elegend</span>() %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etoolbox_full</span>()</code></pre></div>
+<div id="htmlwidget-104514367f6b4191cad3" style="width:100%;height:400px;" class="echarts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-104514367f6b4191cad3">{"x":{"theme":"default","options":{"series":[{"itemStyle":{"normal":{"areaStyle":{"type":"default"}}},"name":"grp1","type":"radar","data":[{"value":[6,16,30,38,52,25],"name":"grp1"}]},{"itemStyle":{"normal":{"areaStyle":{"type":"default"}}},"name":"grp2","type":"radar","data":[{"value":[7,13,33,25,46,37],"name":"grp2"}]}],"polar":[{"indicator":[{"text":"sales"},{"text":"marketing"},{"text":"development"},{"text":"customer support"},{"text":"IT"},{"text":"admin"}]}],"legend":{"data":["grp1","grp2"],"show":true,"zlevel":0,"z":4,"orient":"horizontal","x":"center","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemWidth":20,"itemHeight":14,"selectMode":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"toolbox":{"show":true,"zlevel":0,"z":6,"orient":"horizontal","x":"right","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemSize":16,"color":["#1e90ff","#22bb22","#4b0082","#d2691e"],"disableColor":"#ddd","effectiveColor":"red","showTitle":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"feature":{"mark":{"show":true,"title":{"mark":"Mark","markUndo":"Undo","markClear":"Clear"},"lineStyle":{"color":"#1e90ff","typed":"dashed","width":2,"shadowColor":"rgba(0,0,0,0)","shadowBlur":5,"shadowOffsetX":3,"shadowOffsetY":3}},"restore":{"show":true,"title":"Reset"},"saveAsImage":{"show":true,"title":"Save as image"},"dataZoom":{"show":true,"title":{"dataZoom":"Area Zoom","dataZoomReset":"Reset"}},"dataView":{"show":true,"title":"View","readOnly":false,"lang":["Data View","close","refresh"]}}}}},"evals":[],"jsHooks":[]}</script>
 </div>
 
 

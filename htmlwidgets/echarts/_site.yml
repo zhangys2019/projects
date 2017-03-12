@@ -6,6 +6,28 @@ navbar:
     - icon: fa-arrow-circle-left
       text: "home"
       href: http://john-coene.com/
+  right:
+    - text: "Chart types"
+      icon: fa-bar-chart
+      menu:
+        - text: "bar"
+          href: bars
+        - text: "line"
+          href: lines
+        - text: "scatter"
+          href: scatter
+        - text: "pie"
+          href: pie
+        - text: "chord"
+          href: chord
+        - text: "funnel"
+          href: funnels
+        - text: "gauge"
+          href: gauges
+        - text: "heatmap"
+          href: heatmap
+        - text: "map"
+          href: maps
 
 output:
   html_document:

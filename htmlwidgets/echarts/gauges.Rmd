@@ -1,0 +1,42 @@
+---
+title: "gauges"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(echarts)
+```
+
+## Basic
+
+[example](http://echarts.baidu.com/echarts2/doc/example/gauge1.html#-en)
+
+```{r}
+echart() %>%
+  egauge(85, "Completion rate") %>% 
+  etoolbox_full() %>% 
+  etooltip(trigger = "item") %>% 
+  etheme("macarons")
+```
+
+## Basic
+
+[example](http://echarts.baidu.com/echarts2/doc/example/gauge3.html#-en)
+
+```{r}
+axis_label <- htmlwidgets::JS("
+function(v){
+  switch (v+''){
+    case '10': return 'low';
+    case '50': return 'Medium';
+    case '90': return 'High';
+    default: return '';}}")
+
+text <- list(color = "#FFF")
+
+echart() %>%
+  egauge(85, "Completion rate", axisLabel = list(formatter = axis_label, textStyle = text)) %>% 
+  etooltip(trigger = "item") %>%
+  etoolbox_full() %>% 
+  etheme("dark")
+```

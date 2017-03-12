@@ -1,0 +1,51 @@
+---
+title: "funnels"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(echarts)
+```
+
+## Basic
+
+[example](http://echarts.baidu.com/echarts2/doc/example/funnel1.html#-en)
+
+```{r}
+funnel <- data.frame(name = c('view', 'click', 'contact', 'consultation', 'order'),
+                     values = c(100, 80, 60, 40, 20))
+
+style2 <- list(normal = list(label = list(position = "left", textStyle = list(fontSize = 9, fontWeight = "bold"))))
+style1 <- list(normal = list(label = list(textStyle = list(fontSize = 9, fontWeight = "bold"))))
+
+funnel %>% 
+  echart(name) %>% 
+  efunnel(values, width = "40%", itemStyle = style1) %>% 
+  efunnel(values, x = "50%", sort = "ascending", itemStyle = style2) %>% 
+  etoolbox_full() %>% 
+  etooltip(trigger = "item") %>% 
+  elegend(x = "left")
+```
+
+## Multiple
+
+[example](http://echarts.baidu.com/echarts2/doc/example/funnel2.html#-en)
+
+```{r}
+funnel <- data.frame(name = c('view', 'click', 'contact', 'consultation', 'order'),
+                     values = c(100, 80, 60, 40, 20),
+                     values2 = c(80, 50, 30, 10, 5))
+
+style1 <- list(normal = list(label = list(labelLine = list(show = FALSE, formatter = "{b}"))),
+               emphasis = list(label = list(position = "inside")))
+
+style2 <- list(normal = list(label = list(position = "inside", formatter = "{c}%", textStyle = list(color = "#FFF"))))
+
+funnel %>% 
+  echart(name) %>% 
+  efunnel(values, x = "10%", width = "80%", itemStyle = style1) %>% 
+  efunnel(values2, x = "10%", wdith = "80%", maxSize = "80%", itemStyle = style2) %>% 
+  etheme("infographic") %>% 
+  etoolbox_full() %>% 
+  elegend(x = "left")
+```
