@@ -9,37 +9,39 @@ library(htmltools)
 air <- read.csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_february_us_airport_traffic.csv')
 flights <- read.csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_february_aa_flight_paths.csv')
 
-sizeFUN <- htmlwidgets::JS(" function (v){ return v/1000 }")
+# split large airports and smaller one
+large_airports <- air[air$cnt > quantile(air$cnt, 0.90), ]
+small_airports <- dplyr::anti_join(air, large_airports, by = "iata")
 
-# merge flights with air to get state of departure
-flights <- dplyr::left_join(flights, air, by = c("airport2" = "iata"))
-flights <- flights[complete.cases(flights),] # remove NAs
-
-# group flights like air
-flights <- flights %>% 
-  group_by(state)
+# split freuqent and less frequent flights
+frequent <- flights[flights$cnt > quantile(flights$cnt, 0.90), ]
+sparse <- flights[flights$cnt < quantile(flights$cnt, 0.90),]
 ```
 
 ```{r header}
 # customise line effect
 line.effect <- list(loop = TRUE,
                     show = TRUE,
-                    scaleSize = 1,
+                    scaleSize = 2,
                     period = 40,
                     shadowBlur = 5)
 
-air %>% 
-  group_by(state) %>% 
+point.effect <- list(show = TRUE, shadowBlur = 10)
+item.style <- list(normal = list(lineStyle = list(type = "dotted", shadowBlur = 2)))
+
+large_airports %>% 
   echart(iata) %>% 
   emap(mapType = "world|United States of America") %>% 
   emap_coords(long, lat) %>% 
-  emap_points(cnt,
-              symbol = "emptyCircle", 
-              effect = list(show = TRUE, shadowBlur = 10),
-              symbolSize = sizeFUN) %>% 
-  emap_lines(flights, airport1, airport2, 
-             effect = line.effect) %>% 
-  etheme("helianthus")
+  emap_points(cnt, symbol = "emptyCircle", effect = point.effect) %>% 
+  emap_lines(frequent, airport1, airport2, effect = line.effect) %>% 
+  edata(small_airports, iata) %>% 
+  emap(mapType = "world|United States of America") %>% 
+  emap_coords(long, lat) %>% 
+  emap_points(cnt, symbol = "circle", symbolSize = 2) %>% 
+  emap_lines(sparse, airport1, airport2, itemStyle = item.style) %>% 
+  etooltip() %>% 
+  etheme("red")
 ```
 
 ```{r chart types}
