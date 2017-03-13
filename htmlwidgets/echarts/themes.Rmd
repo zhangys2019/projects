@@ -173,12 +173,6 @@ coords <- data.frame(city = c("London", "New York", "Beijing", "Sydney"),
   lat = c(51.49999, 40.74998, 39.92889, -33.92001),
   values = runif(4, 10, 20))
 
-coords %>%
-  echart(city) %>% # initialise chart
-  emap() %>% # setup default map
-  emap_coords(lon, lat) %>% # add coordinates
-  emap_points(values) # plot values on coordinates
-
 edges <- data.frame(source = c("Beijing", "Beijing", "New York"),
   target = c("Sydney", "London", "London"))
 
