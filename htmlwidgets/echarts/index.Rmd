@@ -10,12 +10,12 @@ air <- read.csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_f
 flights <- read.csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_february_aa_flight_paths.csv')
 
 # split large airports and smaller one
-large_airports <- air[air$cnt > quantile(air$cnt, 0.90), ]
+large_airports <- air[air$cnt > quantile(air$cnt, 0.95), ]
 small_airports <- dplyr::anti_join(air, large_airports, by = "iata")
 
 # split freuqent and less frequent flights
-frequent <- flights[flights$cnt > quantile(flights$cnt, 0.90), ]
-sparse <- flights[flights$cnt < quantile(flights$cnt, 0.90),]
+frequent <- flights[flights$cnt > quantile(flights$cnt, 0.95), ]
+sparse <- flights[flights$cnt < quantile(flights$cnt, 0.95),]
 ```
 
 ```{r header}
@@ -49,18 +49,20 @@ div(class = "page-header",
     h2("Features", class = "text-primary"))
 ```
 
-1. bar 
-2. line
-3. area
-4. pie
-5. heatmap
-6. chord
-7. venn
-8. gauge
-9. force network
-10. word cloud
-11. themes
-12. responsive
+1. bar charts
+2. line charts
+3. area charts
+4. pie & donut charts
+5. heatmaps
+6. chord diagrams
+7. venn diagrams
+8. gauges
+9. force networks
+10. word-clouds
+11. maps
+12. themes
+13. responsive
+14. animations
 
 ```{r install}
 div(class = "page-header",
@@ -71,26 +73,33 @@ div(class = "page-header",
 devtools::install_github("JohnCoene/echarts")
 ```
 
+```{r Explanation}
+div(class = "page-header",
+    h2("How it works?", class = "text-primary"))
+```
+
+**EASY**
+
+Initialise your chart with `echart` then add series, supports magrittr pipes, `%>%`, supports `dplyr`'s `group_by`.
+
 ```{r first chart}
 div(class = "page-header",
     h2("Your first chart", class = "text-primary"))
 ```
 
 ```{r first chart code, eval=TRUE, echo=TRUE}
-mtcars %>% 
-  echart(drat) %>% 
-  ebar(qsec) %>% 
-  eline(mpg) %>% 
-  etooltip() %>% 
-  etheme("macarons")
-```
+df <- data.frame(x = 1:20,
+                 y = round(runif(20, 5, 10)),
+                 z = round(runif(20, 7, 12)),
+                 w = round(runif(20, 9, 14)))
 
-```{r Explanation}
-div(class = "page-header",
-    h2("How it works?", class = "text-primary"))
+df %>% 
+  echart(x) %>% 
+  ebar(y) %>% 
+  eline(z) %>%
+  escatter(w) %>%
+  etooltip(trigger = "axis")
 ```
-
-Initialise your chart with `echart` then add series, supports magrittr pipes, `%>%`.
 
 ```{r advanced}
 div(class = "page-header",
@@ -100,6 +109,7 @@ div(class = "page-header",
 Code used to make map in header.
 
 ```{r adv, echo=TRUE, eval = FALSE}
+# download data
 air <- read.csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_february_us_airport_traffic.csv')
 flights <- read.csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_february_aa_flight_paths.csv')
 
@@ -107,7 +117,7 @@ flights <- read.csv('https://raw.githubusercontent.com/plotly/datasets/master/20
 large_airports <- air[air$cnt > quantile(air$cnt, 0.90), ]
 small_airports <- dplyr::anti_join(air, large_airports, by = "iata")
 
-# split freuqent and less frequent flights
+# split frequent and less frequent flights
 frequent <- flights[flights$cnt > quantile(flights$cnt, 0.90), ]
 sparse <- flights[flights$cnt < quantile(flights$cnt, 0.90),]
 

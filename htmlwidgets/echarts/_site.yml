@@ -7,6 +7,9 @@ navbar:
       text: "home"
       href: http://john-coene.com/
   right:
+    - text: "themes"
+      icon: fa-desktop
+      href: themes
     - text: "Chart types"
       icon: fa-bar-chart
       menu:
