@@ -48,10 +48,12 @@ df <- data.frame(x = 1:150,
 
 df %>% 
   echart(x) %>% 
-  escatter(y, z, name = "scatter 1") %>%
+  escatter(y, z, name = "scatter 1", symbolSize = 10) %>%
   elegend() %>% 
   etoolbox_full() %>% 
-  etoolbox_zoom()
+  etoolbox_zoom() %>% 
+  exAxis(type = "value") %>% 
+  etoolbox_full()
 ```
 
 
@@ -64,6 +66,8 @@ df <- data.frame(x = 1:500, y = runif(500, 1, 20), z = runif(500, 10, 50))
 
 df %>% 
   echart(x) %>% 
-  escatter(y, z) %>% 
-  edatarange(z, calculable = TRUE, color = list('lightgreen','yellow'))
+  escatter(y, z, symbolSize = 10) %>% 
+  ecolorbar(calculable = TRUE, color = list('lightgreen','yellow'), min = 0, max = 5) %>% 
+  exAxis(type = "value") %>% 
+  etoolbox_full()
 ```
