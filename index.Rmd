@@ -311,6 +311,8 @@ div(class = "row",
         HTML('<a class="twitter-timeline" data-width="300" data-height="400" data-link-color="#d9230f" href="https://twitter.com/jdatap">Tweets by jdatap</a>')))
 ```
 
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 <script src="js/tilt.jquery.min.js"></script>
 <script>
     AOS.init();
