@@ -11,7 +11,7 @@
 
 
 
-<title>Chord graph examples</title>
+<title>Toolbox</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,6 +19,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/htmlwidgets-0.7/htmlwidgets.js"></script>
 <script src="site_libs/echarts-2.2.7/echarts-all.js"></script>
@@ -204,6 +207,101 @@ $(document).ready(function () {
 
 
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
 
 
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
@@ -288,32 +386,52 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Chord graph examples</h1>
+<h1 class="title toc-ignore">Toolbox</h1>
 
 </div>
 
 
-<div id="basic-chord" class="section level2">
-<h2>Basic Chord</h2>
-<p><a href="http://echarts.baidu.com/echarts2/doc/example/chord1.html#-en">example</a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">sample</span>(<span class="dv">0</span>:<span class="dv">1</span>, <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>, <span class="dt">prob =</span> <span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.6</span>)), <span class="dt">nc =</span> <span class="dv">10</span>)
-
-matrix %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">echart</span>(LETTERS[<span class="dv">1</span>:<span class="dv">10</span>]) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">echord</span>()</code></pre></div>
-<div id="htmlwidget-bbb7a0e76c29d4555c3c" style="width:100%;height:400px;" class="echarts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-bbb7a0e76c29d4555c3c">{"x":{"theme":"default","options":{"series":[{"type":"chord","sort":"none","sortSub":"none","clickable":true,"z":2,"zlevel":0,"clockWise":false,"minRadius":10,"maxRadius":20,"ribbonType":true,"showScale":false,"showScaleText":false,"padding":2,"data":[{"name":"A"},{"name":"B"},{"name":"C"},{"name":"D"},{"name":"E"},{"name":"F"},{"name":"G"},{"name":"H"},{"name":"I"},{"name":"J"}],"matrix":[[1,0,0,1,0,0,1,1,1,0],[1,0,0,1,0,0,0,0,0,1],[0,0,0,1,1,0,0,1,1,1],[0,0,0,1,1,0,0,1,1,1],[0,0,0,0,1,0,1,0,0,1],[0,1,0,1,0,1,0,1,0,0],[0,1,1,1,0,1,0,0,0,1],[1,0,1,0,0,1,0,0,1,0],[0,0,0,0,0,1,0,0,1,1],[1,1,0,0,1,0,0,0,1,0]]}]}},"evals":[],"jsHooks":[]}</script>
+<div id="what-is-it" class="section level2">
+<h2>What is it?</h2>
+<p>The toolbox is a set of tools that allows your reader to interact with your chart.</p>
+<ol style="list-style-type: decimal">
+<li>Change chart type</li>
+<li>Switch from stack to tiled charts</li>
+<li>Save the chart as an image</li>
+<li>Zoom on an area</li>
+<li>Mark points on the chart</li>
+<li>View the data used to plot the chart</li>
+</ol>
 </div>
-<div id="ribbon-chord" class="section level2">
-<h2>Ribbon Chord</h2>
-<p><a href="http://echarts.baidu.com/echarts2/doc/example/chord4.html#-en">example</a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">sample</span>(<span class="dv">0</span>:<span class="dv">1</span>, <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>, <span class="dt">prob =</span> <span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.6</span>)), <span class="dt">nc =</span> <span class="dv">10</span>)
+<div id="how-it-works" class="section level2">
+<h2>How it works?</h2>
+<p>Initialise the toolbox with <code>etoolbox</code> then add the component(s) you desire.</p>
+<ol style="list-style-type: decimal">
+<li><code>etoolbox_view</code></li>
+<li><code>etoolbox_save</code></li>
+<li><code>etoolbox_restore</code></li>
+<li><code>etoolbox_mark</code></li>
+<li><code>etoolbox_zoom</code></li>
+<li><code>etoolbox_magic</code></li>
+</ol>
+<p>There is also a heper function, <code>etoolbox_full</code> that adds a bunch of the above at once.</p>
+</div>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="dv">1</span>:<span class="dv">20</span>,
+                 <span class="dt">y =</span> <span class="kw">round</span>(<span class="kw">runif</span>(<span class="dv">20</span>, <span class="dv">5</span>, <span class="dv">10</span>)),
+                 <span class="dt">z =</span> <span class="kw">round</span>(<span class="kw">runif</span>(<span class="dv">20</span>, <span class="dv">7</span>, <span class="dv">12</span>)),
+                 <span class="dt">w =</span> <span class="kw">round</span>(<span class="kw">runif</span>(<span class="dv">20</span>, <span class="dv">9</span>, <span class="dv">14</span>)))
 
-matrix %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">echart</span>(LETTERS[<span class="dv">1</span>:<span class="dv">10</span>]) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">echord</span>(<span class="dt">ribbonType =</span> <span class="ot">FALSE</span>)</code></pre></div>
-<div id="htmlwidget-dc5ce2b0c13f1056f965" style="width:100%;height:400px;" class="echarts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-dc5ce2b0c13f1056f965">{"x":{"theme":"default","options":{"series":[{"type":"chord","sort":"none","sortSub":"none","clickable":true,"z":2,"zlevel":0,"clockWise":false,"minRadius":10,"maxRadius":20,"ribbonType":false,"showScale":false,"showScaleText":false,"padding":2,"data":[{"name":"A"},{"name":"B"},{"name":"C"},{"name":"D"},{"name":"E"},{"name":"F"},{"name":"G"},{"name":"H"},{"name":"I"},{"name":"J"}],"matrix":[[1,0,0,0,0,1,1,1,1,0],[0,1,0,0,0,1,0,0,0,1],[0,1,0,0,0,1,0,0,0,0],[1,0,1,0,0,1,0,0,1,0],[0,0,1,0,0,0,0,0,0,0],[0,1,0,1,1,1,1,1,0,1],[0,0,1,1,0,0,1,0,1,0],[0,1,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]]}]}},"evals":[],"jsHooks":[]}</script>
+df %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">echart</span>(x) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">ebar</span>(y, <span class="dt">stack =</span> <span class="st">&quot;stk&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">ebar</span>(z, <span class="dt">stack =</span> <span class="st">&quot;stk&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">ebar</span>(w) %&gt;%
+<span class="st">  </span><span class="kw">etoolbox_full</span>() %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etoolbox_magic</span>(<span class="dt">type =</span> <span class="kw">list</span>(<span class="st">&quot;line&quot;</span>, <span class="st">&quot;bar&quot;</span>, <span class="st">&quot;tiled&quot;</span>, <span class="st">&quot;stack&quot;</span>))</code></pre></div>
+<div id="htmlwidget-1d86a32d9c1cb44cd334" style="width:100%;height:400px;" class="echarts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1d86a32d9c1cb44cd334">{"x":{"theme":"default","options":{"xAxis":[{"type":"category","data":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]}],"yAxis":[],"series":[{"name":"y","type":"bar","data":[5,8,9,7,7,6,9,6,8,7,6,9,7,10,8,8,5,7,9,8],"stack":"stk","clickable":true,"xAxisIndex":0,"yAxisIndex":0,"barGap":"100%","barCategory":"20%","legendHoverLink":true,"z":2,"zlevel":0},{"name":"z","type":"bar","data":[11,10,10,9,7,11,11,8,10,9,10,7,9,9,9,12,9,11,9,10],"stack":"stk","clickable":true,"xAxisIndex":0,"yAxisIndex":0,"barGap":"100%","barCategory":"20%","legendHoverLink":true,"z":2,"zlevel":0},{"name":"w","type":"bar","data":[13,10,10,13,13,12,9,11,12,11,11,13,9,10,10,12,14,10,11,12],"clickable":true,"xAxisIndex":0,"yAxisIndex":0,"barGap":"100%","barCategory":"20%","legendHoverLink":true,"z":2,"zlevel":0}],"toolbox":{"show":true,"zlevel":0,"z":6,"orient":"horizontal","x":"right","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemSize":16,"color":["#1e90ff","#22bb22","#4b0082","#d2691e"],"disableColor":"#ddd","effectiveColor":"red","showTitle":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"feature":{"mark":{"show":true,"title":{"mark":"Mark","markUndo":"Undo","markClear":"Clear"},"lineStyle":{"color":"#1e90ff","typed":"dashed","width":2,"shadowColor":"rgba(0,0,0,0)","shadowBlur":5,"shadowOffsetX":3,"shadowOffsetY":3}},"restore":{"show":true,"title":"Reset"},"saveAsImage":{"show":true,"title":"Save as image"},"dataZoom":{"show":true,"title":{"dataZoom":"Area Zoom","dataZoomReset":"Reset"}},"dataView":{"show":true,"title":"View","readOnly":false,"lang":["Data View","close","refresh"]},"magicType":{"show":true,"title":{"line":"line","bar":"bar","stack":"stack","tiled":"tiled","force":"force","chord":"chord","pie":"pie","funnel":"funnel"},"type":["line","bar","tiled","stack"]}}}}},"evals":[],"jsHooks":[]}</script>
 </div>
 
 
@@ -330,6 +448,8 @@ matrix %&gt;%<span class="st"> </span>
 </div>
 
 
+</div>
+</div>
 
 </div>
 

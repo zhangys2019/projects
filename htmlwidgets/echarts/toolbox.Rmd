@@ -1,0 +1,54 @@
+---
+title: "Toolbox"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(echarts)
+```
+
+## What is it?
+
+The toolbox is a set of tools that allows your reader to interact with your chart.
+
+1. Change chart type
+2. Switch from stack to tiled charts
+3. Save the chart as an image
+4. Zoom on an area
+5. Mark points on the chart
+6. View the data used to plot the chart
+
+## How it works?
+
+Initialise the toolbox with `etoolbox` then add the component(s) you desire.
+
+1. `etoolbox_view`
+2. `etoolbox_save`
+3. `etoolbox_restore`
+4. `etoolbox_mark`
+5. `etoolbox_zoom`
+6. `etoolbox_magic`
+
+There is also a heper function, `etoolbox_full` that adds a bunch of the above at once.
+
+## Example
+
+```{r}
+df <- data.frame(x = 1:20,
+                 y = round(runif(20, 5, 10)),
+                 z = round(runif(20, 7, 12)),
+                 w = round(runif(20, 9, 14)))
+
+df %>% 
+  echart(x) %>% 
+  ebar(y, stack = "stk") %>% 
+  ebar(z, stack = "stk") %>%
+  ebar(w) %>%
+  etoolbox_full() %>% 
+  etoolbox_magic(type = list("line", "bar", "tiled", "stack"))
+```

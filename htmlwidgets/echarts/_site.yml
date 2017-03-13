@@ -10,6 +10,9 @@ navbar:
     - text: "themes"
       icon: fa-desktop
       href: themes
+    - text: "toolbox"
+      icon: fa-wrench
+      href: toolbox
     - text: "Chart types"
       icon: fa-bar-chart
       menu:
