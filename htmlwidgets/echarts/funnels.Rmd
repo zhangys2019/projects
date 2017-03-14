@@ -9,7 +9,7 @@ library(echarts)
 
 ## Basic
 
-[example](http://echarts.baidu.com/echarts2/doc/example/funnel1.html#-en)
+This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/funnel1.html#-en) taken from Baidu's EChart official website.
 
 ```{r}
 funnel <- data.frame(name = c('view', 'click', 'contact', 'consultation', 'order'),
@@ -29,7 +29,7 @@ funnel %>%
 
 ## Multiple
 
-[example](http://echarts.baidu.com/echarts2/doc/example/funnel2.html#-en)
+This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/funnel2.html#-en) taken from Baidu's EChart official website.
 
 ```{r}
 funnel <- data.frame(name = c('view', 'click', 'contact', 'consultation', 'order'),

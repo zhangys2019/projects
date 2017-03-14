@@ -9,7 +9,7 @@ library(echarts)
 
 # Mark points & lines
 
-[example](http://echarts.baidu.com/echarts2/doc/example/line2.html#-en).
+This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/line2.html#-en) taken from Baidu's EChart official website.
 
 ```{r mark point}
 df <- data.frame(x = c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"),
@@ -37,7 +37,7 @@ df %>%
 
 # Stacked lines
 
-[example](http://echarts.baidu.com/echarts2/doc/example/line2.html#-en)
+This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/line2.html#-en) taken from Baidu's EChart official website.
 
 ```{r}
 df <- data.frame(x = c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"),
@@ -57,7 +57,7 @@ df %>%
 
 # Basic Area
 
-[example](http://echarts.baidu.com/echarts2/doc/example/line3.html#-en)
+This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/line3.html#-en) taken from Baidu's EChart official website.
 
 ```{r}
 df <- data.frame(x = c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"),
@@ -81,7 +81,7 @@ df %>%
 
 # Stacked Area
 
-[example](http://echarts.baidu.com/echarts2/doc/example/line4.html#-en)
+This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/line4.html#-en) taken from Baidu's EChart official website.
 
 ```{r}
 df <- data.frame(x = c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"),
@@ -101,7 +101,7 @@ df %>%
 
 # Irregular line
 
-[example](http://echarts.baidu.com/echarts2/doc/example/line8.html#-en)
+This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/line8.html#-en) taken from Baidu's EChart official website.
 
 ```{r}
 df <- data.frame()
@@ -120,7 +120,7 @@ df %>%
 
 # Multiple axis
 
-[example](http://echarts.baidu.com/echarts2/doc/example/line6.html#-en)
+This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/line6.html#-en) taken from Baidu's EChart official website.
 
 ```{r}
 df <- data.frame()

@@ -295,25 +295,25 @@ $(document).ready(function () {
 
 <div id="basic-chord" class="section level2">
 <h2>Basic Chord</h2>
-<p><a href="http://echarts.baidu.com/echarts2/doc/example/chord1.html#-en">example</a></p>
+<p>This is a reproduction of the following <a href="http://echarts.baidu.com/echarts2/doc/example/chord1.html#-en">example</a> taken from Baidu’s EChart official website.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">sample</span>(<span class="dv">0</span>:<span class="dv">1</span>, <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>, <span class="dt">prob =</span> <span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.6</span>)), <span class="dt">nc =</span> <span class="dv">10</span>)
 
 matrix %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">echart</span>(LETTERS[<span class="dv">1</span>:<span class="dv">10</span>]) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">echord</span>()</code></pre></div>
-<div id="htmlwidget-ac3f22cf7fc80f8fb580" style="width:100%;height:480px;" class="echarts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ac3f22cf7fc80f8fb580">{"x":{"theme":"default","options":{"series":[{"type":"chord","sort":"none","sortSub":"none","clickable":true,"z":2,"zlevel":0,"clockWise":false,"minRadius":10,"maxRadius":20,"ribbonType":true,"showScale":false,"showScaleText":false,"padding":2,"data":[{"name":"A"},{"name":"B"},{"name":"C"},{"name":"D"},{"name":"E"},{"name":"F"},{"name":"G"},{"name":"H"},{"name":"I"},{"name":"J"}],"matrix":[[1,1,1,0,1,1,1,0,0,1],[0,0,0,0,0,1,0,0,0,0],[0,1,0,0,0,1,1,0,0,0],[0,0,0,0,1,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,1],[1,0,1,0,1,1,1,0,0,0],[0,0,0,1,0,0,0,0,1,0],[0,1,1,0,0,1,1,1,0,0],[0,0,0,0,1,1,0,0,1,0],[1,0,0,0,0,0,0,1,0,1]]}]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-0afee34a9ea43a7a1390" style="width:100%;height:480px;" class="echarts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0afee34a9ea43a7a1390">{"x":{"theme":"default","options":{"series":[{"type":"chord","sort":"none","sortSub":"none","clickable":true,"z":2,"zlevel":0,"clockWise":false,"minRadius":10,"maxRadius":20,"ribbonType":true,"showScale":false,"showScaleText":false,"padding":2,"data":[{"name":"A"},{"name":"B"},{"name":"C"},{"name":"D"},{"name":"E"},{"name":"F"},{"name":"G"},{"name":"H"},{"name":"I"},{"name":"J"}],"matrix":[[1,0,0,1,0,0,1,1,1,0],[1,0,0,1,0,0,0,0,0,1],[0,0,0,1,1,0,0,1,1,1],[0,0,0,1,1,0,0,1,1,1],[0,0,0,0,1,0,1,0,0,1],[0,1,0,1,0,1,0,1,0,0],[0,1,1,1,0,1,0,0,0,1],[1,0,1,0,0,1,0,0,1,0],[0,0,0,0,0,1,0,0,1,1],[1,1,0,0,1,0,0,0,1,0]]}]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="ribbon-chord" class="section level2">
 <h2>Ribbon Chord</h2>
-<p><a href="http://echarts.baidu.com/echarts2/doc/example/chord4.html#-en">example</a></p>
+<p>This is a reproduction of the following <a href="http://echarts.baidu.com/echarts2/doc/example/chord4.html#-en">example</a> taken from Baidu’s EChart official website.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">sample</span>(<span class="dv">0</span>:<span class="dv">1</span>, <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>, <span class="dt">prob =</span> <span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.6</span>)), <span class="dt">nc =</span> <span class="dv">10</span>)
 
 matrix %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">echart</span>(LETTERS[<span class="dv">1</span>:<span class="dv">10</span>]) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">echord</span>(<span class="dt">ribbonType =</span> <span class="ot">FALSE</span>)</code></pre></div>
-<div id="htmlwidget-c2b3e62c62b263c4cb1e" style="width:100%;height:480px;" class="echarts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c2b3e62c62b263c4cb1e">{"x":{"theme":"default","options":{"series":[{"type":"chord","sort":"none","sortSub":"none","clickable":true,"z":2,"zlevel":0,"clockWise":false,"minRadius":10,"maxRadius":20,"ribbonType":false,"showScale":false,"showScaleText":false,"padding":2,"data":[{"name":"A"},{"name":"B"},{"name":"C"},{"name":"D"},{"name":"E"},{"name":"F"},{"name":"G"},{"name":"H"},{"name":"I"},{"name":"J"}],"matrix":[[1,1,1,1,1,1,1,0,0,0],[0,1,0,1,0,0,1,0,1,0],[1,0,0,0,1,0,1,0,0,0],[0,0,0,1,0,1,0,0,1,1],[0,0,1,0,1,1,0,0,0,1],[0,0,0,0,0,0,0,1,0,1],[0,1,1,0,0,1,0,0,0,0],[1,0,1,0,0,0,0,0,1,0],[0,0,1,0,0,0,1,0,0,1],[0,0,0,1,1,0,0,0,1,0]]}]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-87cf61293bc2295b9712" style="width:100%;height:480px;" class="echarts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-87cf61293bc2295b9712">{"x":{"theme":"default","options":{"series":[{"type":"chord","sort":"none","sortSub":"none","clickable":true,"z":2,"zlevel":0,"clockWise":false,"minRadius":10,"maxRadius":20,"ribbonType":false,"showScale":false,"showScaleText":false,"padding":2,"data":[{"name":"A"},{"name":"B"},{"name":"C"},{"name":"D"},{"name":"E"},{"name":"F"},{"name":"G"},{"name":"H"},{"name":"I"},{"name":"J"}],"matrix":[[1,0,0,0,0,1,1,1,1,0],[0,1,0,0,0,1,0,0,0,1],[0,1,0,0,0,1,0,0,0,0],[1,0,1,0,0,1,0,0,1,0],[0,0,1,0,0,0,0,0,0,0],[0,1,0,1,1,1,1,1,0,1],[0,0,1,1,0,0,1,0,1,0],[0,1,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]]}]}},"evals":[],"jsHooks":[]}</script>
 </div>
 
 

@@ -9,7 +9,7 @@ library(echarts)
 
 ## basic
 
-[example](http://echarts.baidu.com/echarts2/doc/example/heatmap.html#-en)
+This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/heatmap.html#-en) taken from Baidu's EChart official website.
 
 ```{r eval = TRUE, echo = TRUE}
 matrix <- data.frame(x = runif(500, 10, 800), y = runif(500, 10, 800), z = runif(500, 10 , 800))
@@ -35,7 +35,7 @@ p # my plot
 
 ## Map
 
-[example](http://echarts.baidu.com/echarts2/doc/example/heatmap_map.html#-en)
+This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/heatmap_map.html#-en) taken from Baidu's EChart official website.
 
 ```{r}
 data <- data.frame(lon = runif(200, 90, 120),

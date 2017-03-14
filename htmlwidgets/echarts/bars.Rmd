@@ -9,7 +9,7 @@ library(echarts)
 
 ## Marks
 
-[example](http://echarts.baidu.com/echarts2/doc/example/bar1.html#-en)
+This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/bar1.html#-en) taken from Baidu's EChart official website.
 
 ```{r}
 df <- data.frame(x = c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"),
@@ -32,7 +32,7 @@ df %>%
 
 # Stacked bars
 
-[example](http://echarts.baidu.com/echarts2/doc/example/bar2.html#-en)
+This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/bar2.html#-en) taken from Baidu's EChart official website.
 
 ```{r}
 df <- data.frame(x = c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"),
@@ -62,7 +62,7 @@ df %>%
 
 # Waterfall
 
-[example](http://echarts.baidu.com/echarts2/doc/example/bar7.html#-en)
+This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/bar7.html#-en) taken from Baidu's EChart official website.
 
 ```{r}
 df <- data.frame(x = c("Total", "Rent", "Utilities", "Transport", "Food costs", "Misc"),
@@ -90,7 +90,7 @@ df %>%
 
 # Thermometer
 
-[example](http://echarts.baidu.com/echarts2/doc/example/bar10.html#-en)
+This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/bar10.html#-en) taken from Baidu's EChart official website.
 
 ```{r}
 df <- data.frame(x = c('Cosco','CMA','APL','OOCL','Wanhai','Zim'),
