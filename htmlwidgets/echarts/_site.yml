@@ -7,10 +7,13 @@ navbar:
       text: "home"
       href: http://john-coene.com/
   right:
-    - text: "themes"
+    - text: "Repository"
+      icon: fa-github
+      href: https://github.com/JohnCoene/echarts
+    - text: "Themes"
       icon: fa-desktop
       href: themes
-    - text: "toolbox"
+    - text: "Toolbox"
       icon: fa-wrench
       href: toolbox
     - text: "Chart types"
