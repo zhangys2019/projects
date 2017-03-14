@@ -322,7 +322,7 @@ div(class = "jumbotron",
                    "<li>Plenty of options",
                    "<li>Responsive",
                    "</ul>")),
-                a(href="packages/echarts/",
+                a(href="htmlwidgets/echarts/",
                   HTML("<button class='bttn-unite bttn-md bttn-warning'><i class='fa fa-line-chart' aria-hidden='true'></i> Your first chart</button>"))))))
 ```
 
