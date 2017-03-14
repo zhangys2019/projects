@@ -58,7 +58,7 @@ df %>%
   etheme("macarons")
 ```
 
-# Macarons2
+## Macarons2
 
 ```{r}
 df %>% 

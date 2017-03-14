@@ -41,26 +41,11 @@ chartistplot <- mtcars %>%
   sanim_ist() %>%
   loop_ist(6000)
 
-library(graphTweets)
-tweets <- get(load("./packages/graphTweets/data/r_tw.RData"))
-# tweets <- data.frame(text = c("tweets @you about @her", 
-#                               "tweet @him about @you", 
-#                               "tweets @her and @I",
-#                               "@You reply to @him and @her",
-#                               "Responds to @her"),
-#                      source = c("he", "I", "Someone", "You", "Someone"),
-#                      stringsAsFactors = FALSE)
+library(echarts)
 
-edges <- getEdges(tweets, "text", "screenName")
-nodes <- getNodes(edges)
-g <- igraph::graph.data.frame(edges, vertices = nodes)
-wc <- igraph::cluster_walktrap(g)
-members <- igraph::membership(wc)
-n3 <- networkD3::igraph_to_networkD3(g, group = members)
-
-n3p <- networkD3::forceNetwork(Links = n3$links, Nodes = n3$nodes,
-             Source = 'source', Target = 'target', NodeID = 'name',
-             Group = 'group', width = 300, height = 300)
+echart <- echart(height = 400) %>% 
+  egauge(63, "ECHARTS") %>% 
+  etheme("helianthus")
 ```
 
 ```{r carousel}
@@ -99,6 +84,22 @@ div(class = "siema",
             HTML("<button class='bttn-unite bttn-md bttn-default'><i class='fa fa-book' aria-hidden='true'></i> Docs</button>"))),
         div(class = "col-lg-8",
             img(class = "img-responsive", src = "img/graphTweets.png"))),
+    div(class = "row",
+        div(class = "col-lg-3",
+            div(class = "page-header",
+                h2("echarts", class = "text-primary")),
+            p("ECharts htmlwidget for R."),
+            p(HTML("<ul>",
+                   "<li>9 chart types",
+                   "<li>10 themes",
+                   "<li>Plenty of options",
+                   "<li>Responsive",
+                   "</ul>")),
+            br(),
+            a(href="htmlwidgets/echarts/",
+            HTML("<button class='bttn-unite bttn-md bttn-warning'><i class='fa fa-rocket' aria-hidden='true'></i> Get Started</button>"))),
+        div(class = "col-lg-9",
+            echart)),
     div(class = "row",
         div(class = "col-lg-3",
             div(class = "page-header",
@@ -308,7 +309,7 @@ div(class = "row",
         p("Please free to inquire about a project, collaboration, freelance, or other opportunities such as free cake: ",
           br(),
           br(),
-          h3(a("jcoenep@gmail.com", href = "mailto:jcoenep@gmail.com")))),
+          h4(a("jcoenep@gmail.com", href = "mailto:jcoenep@gmail.com")))),
     div(class = "col-lg-6 col-md-6",
         HTML('<a class="twitter-timeline" data-width="300" data-height="400" data-link-color="#d9230f" href="https://twitter.com/jdatap">Tweets by jdatap</a>')))
 ```

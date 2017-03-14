@@ -1,7 +1,7 @@
-name: "uvcharts"
+name: "echarts"
 output_dir: "."
 navbar:
-  title: "uvcharts"
+  title: "echarts"
   left:
     - icon: fa-arrow-circle-left
       text: "home"

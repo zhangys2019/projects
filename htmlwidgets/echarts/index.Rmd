@@ -114,12 +114,12 @@ air <- read.csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_f
 flights <- read.csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_february_aa_flight_paths.csv')
 
 # split large airports and smaller one
-large_airports <- air[air$cnt > quantile(air$cnt, 0.90), ]
+large_airports <- air[air$cnt > quantile(air$cnt, 0.95), ]
 small_airports <- dplyr::anti_join(air, large_airports, by = "iata")
 
 # split frequent and less frequent flights
-frequent <- flights[flights$cnt > quantile(flights$cnt, 0.90), ]
-sparse <- flights[flights$cnt < quantile(flights$cnt, 0.90),]
+frequent <- flights[flights$cnt > quantile(flights$cnt, 0.95), ]
+sparse <- flights[flights$cnt < quantile(flights$cnt, 0.95),]
 
 # customise line effect
 line.effect <- list(loop = TRUE,
