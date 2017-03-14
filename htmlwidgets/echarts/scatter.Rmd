@@ -62,12 +62,20 @@ df %>%
 [example](http://echarts.baidu.com/echarts2/doc/example/dataRange1.html#-en)
 
 ```{r}
-df <- data.frame(x = 1:500, y = runif(500, 1, 20), z = runif(500, 10, 50))
+df <- data.frame(x = 1:500, y = runif(500, 1, 20), z = round(runif(500, 0, 10)))
 
 df %>% 
   echart(x) %>% 
   escatter(y, z, symbolSize = 10) %>% 
-  ecolorbar(calculable = TRUE, color = list('lightgreen','yellow'), min = 0, max = 5) %>% 
+  ecolorbar(calculable = FALSE, 
+            color = list('lightgreen','yellow'), 
+            min = 0, 
+            max = 10, 
+            splitNumber = 5,
+            x = "left",
+            y = "top",
+            orient = "horizontal") %>% 
   exAxis(type = "value") %>% 
+  etooltip(axisPointer = list(show = TRUE), trigger = "item") %>% 
   etoolbox_full()
 ```

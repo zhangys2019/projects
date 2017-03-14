@@ -308,7 +308,7 @@ div(class = "row",
         p("Please free to inquire about a project, collaboration, freelance, or other opportunities such as free cake: ",
           br(),
           br(),
-          h2(a("jcoenep@gmail.com", href = "mailto:jcoenep@gmail.com")))),
+          h3(a("jcoenep@gmail.com", href = "mailto:jcoenep@gmail.com")))),
     div(class = "col-lg-6 col-md-6",
         HTML('<a class="twitter-timeline" data-width="300" data-height="400" data-link-color="#d9230f" href="https://twitter.com/jdatap">Tweets by jdatap</a>')))
 ```
