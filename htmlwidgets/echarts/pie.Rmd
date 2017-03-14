@@ -9,7 +9,7 @@ library(echarts)
 
 ## Basic pie
 
-[example](http://echarts.baidu.com/echarts2/doc/example/pie1.html#-en)
+This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/pie1.html#-en) taken from Baidu's EChart official website.
 
 ```{r pie basic}
 pie <- data.frame(slices = c('Direct access', 'mail marketing', 'affiliate ad', 'video ad', 'search engine'),
@@ -28,12 +28,13 @@ pie %>%
   etoolbox_full() %>% 
   etoolbox_magic(type = list("pie", "funnel"), option = opts) %>% 
   etheme("macarons") %>% 
-  etooltip(trigger = "item")
+  etooltip(trigger = "item") %>% 
+  etitle("User access", "Fake data", x = "center")
 ```
 
 ## Doughnut
 
-[example](http://echarts.baidu.com/echarts2/doc/example/pie2.html#-en)
+This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/pie2.html#-en) taken from Baidu's EChart official website.
 
 ```{r doughnut}
 pie <- data.frame(slices = c('Direct access', 'mail marketing', 'affiliate ad', 'video ad', 'search engine'),
@@ -50,7 +51,7 @@ lab <- list(
   normal = list(label = list(show = FALSE), # hide normal labels
                 labelLine = list(show = FALSE)), # hide label lines
   emphasis = list(label = list(show = TRUE, position = "center", # place on-hover labels inside doughnut 
-                               textStyle = list(fontSize = 30, fontWeight = "bold")))) # customise font of inside label
+                               textStyle = list(fontSize = 20, fontWeight = "bold")))) # customise font of inside label
 
 pie %>% 
   echart(slices) %>% 
@@ -64,7 +65,7 @@ pie %>%
 
 ## Rose diagram
 
-[example](http://echarts.baidu.com/echarts2/doc/example/pie4.html#-en)
+This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/pie4.html#-en) taken from Baidu's EChart official website.
 
 ```{r rose}
 pie <- data.frame(slices = c('Direct access', 'mail marketing', 'affiliate ad', 'video ad', 'search engine'),
@@ -84,12 +85,13 @@ pie %>%
   etoolbox_magic(type = list("pie", "funnel"), option = opts) %>% 
   etheme("macarons2")%>% 
   etooltip(trigger = "item") %>% 
-  elegend()
+  elegend() %>% 
+  etitle("Nightingale Rose Chart", "Fake data", x = "center")
 ```
 
 ## Nested 
 
-[example](http://echarts.baidu.com/echarts2/doc/example/pie3.html#-en)
+This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/pie3.html#-en) taken from Baidu's EChart official website.
 
 ```{r nested}
 pie <- data.frame(slice = c("marketing", "IBD", "sales"),

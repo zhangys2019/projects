@@ -10,7 +10,7 @@ library(dplyr)
 
 ## Simple topology
 
-[example](http://echarts.baidu.com/echarts2/doc/example/force1.html#-en)
+This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/force1.html#-en) taken from Baidu's EChart official website.
 
 ```{r simp}
 set.seed(19882505)
@@ -28,7 +28,8 @@ showLabel <- list(normal = list(label = list(show = TRUE)))
 echart() %>% 
   eforce(itemStyle = showLabel) %>% 
   enodes(nodes, name = name, label = name, value = value, category = grps) %>% 
-  elinks(edges, from, to)
+  elinks(edges, from, to) %>% 
+  elegend(orient = "horizontal")
 ```
 
 ## Larger

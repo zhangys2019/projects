@@ -24,7 +24,8 @@ funnel %>%
   efunnel(values, x = "50%", sort = "ascending", itemStyle = style2) %>% 
   etoolbox_full() %>% 
   etooltip(trigger = "item") %>% 
-  elegend(x = "left")
+  elegend(x = "center") %>% 
+  etitle("Funnel", "Fake data")
 ```
 
 ## Multiple
@@ -47,5 +48,6 @@ funnel %>%
   efunnel(values2, x = "10%", wdith = "80%", maxSize = "80%", itemStyle = style2) %>% 
   etheme("infographic") %>% 
   etoolbox_full() %>% 
-  elegend(x = "left")
+  elegend() %>% 
+  etitle("Funnel", "Fake data")
 ```

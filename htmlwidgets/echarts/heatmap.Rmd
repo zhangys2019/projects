@@ -52,5 +52,6 @@ data %>%
   emap_heat(lon, lat, z, blurSize = 50, minAlpha = 0.3, opacity = 0.8) %>%
   eoptions(backgroundColor = '#1b1b1b') %>% 
   etheme("dark") %>%
-  etoolbox_full(orient = "vertical", x = "right", y = "center")
+  etoolbox_full(orient = "vertical", x = "right", y = "center") %>% 
+  etitle("Thermal map combined with map", x = "center", textStyle = list(color = "white"))
 ```

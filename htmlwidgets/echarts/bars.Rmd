@@ -21,13 +21,14 @@ point <- list(list(type = "max", name = "maximum"))
 
 df %>% 
   echart(x) %>% 
-  ebar(y) %>% 
-  ebar(z) %>% 
+  ebar(y, name = "evaporation") %>% 
+  ebar(z, name = "precipitation") %>% 
   emark_line("all", data = avg) %>% 
   emark_point("all", data = point) %>% 
   elegend() %>% 
   etheme("macarons") %>% 
-  etoolbox_magic(type = list("line", "bar", "stack", "tiled"))
+  etoolbox_magic(type = list("line", "bar", "stack", "tiled")) %>% 
+  etitle("Evaporation and precipitation")
 ```
 
 # Stacked bars
@@ -85,7 +86,8 @@ df %>%
   ebar(hidden, itemStyle = hide_bars, stack = "stack") %>% 
   ebar(values, stack = "stack", itemStyle = inside_label) %>% 
   etheme("macarons") %>% 
-  etooltip(axisPointer = list(type = "shadow"))
+  etooltip(axisPointer = list(type = "shadow")) %>% 
+  etitle("Shenzhen minimum living expenses (RMB)", subtext = "From ExcelHome", sublink = "http://e.weibo.com/1341556070/AjQH99che")
 ```
 
 # Thermometer
@@ -124,5 +126,6 @@ df %>%
   echart(x) %>% 
   ebar(y, stack = "grp", itemStyle = item1, barCategoryGap = '50%') %>% 
   ebar(z, stack = "grp", itemStyle = item2) %>% 
-  etoolbox_full()
+  etoolbox_full() %>% 
+  etitle("Thermometer chart", subtext = "From ExcelHome", sublink = "http://e.weibo.com/1341556070/AizJXrAEa")
 ```
