@@ -25,7 +25,7 @@ edges <- data.frame(from = sample(LETTERS[1:20], 30, replace = TRUE),
 
 showLabel <- list(normal = list(label = list(show = TRUE)))
 
-echart() %>% 
+echart(width = "100%") %>% 
   eforce(itemStyle = showLabel) %>% 
   enodes(nodes, name = name, label = name, value = value, category = grps) %>% 
   elinks(edges, from, to) %>% 
@@ -47,7 +47,7 @@ flights <- read.csv('https://raw.githubusercontent.com/plotly/datasets/master/20
 ```
 
 ```{r adv}
-echart() %>% 
+echart(width = "100%") %>% 
   eforce(maxRadius = 8, minRadius = 3, gravity = 0.8, large = TRUE) %>% 
   enodes(air, iata, airport, cnt) %>% 
   elinks(flights, airport1, airport2) %>% 

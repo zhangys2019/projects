@@ -26,7 +26,7 @@ pointer <- list(
 )
 
 df %>% 
-  echart(x) %>% 
+  echart(x, width = "100%") %>% 
   escatter(y) %>% 
   escatter(z) %>% 
   emark_point(which = "all", data = list(list(type = "min"), list(type = "max"))) %>% 
@@ -47,7 +47,7 @@ df <- data.frame(x = 1:150,
                  z = runif(150, 10, 50))
 
 df %>% 
-  echart(x) %>% 
+  echart(x, width = "100%") %>% 
   escatter(y, z, name = "scatter 1", symbolSize = 10) %>%
   elegend() %>% 
   etoolbox_full() %>% 
@@ -65,7 +65,7 @@ This is a reproduction of the following [example](http://echarts.baidu.com/echar
 df <- data.frame(x = 1:500, y = runif(500, 1, 20), z = round(runif(500, 0, 10)))
 
 df %>% 
-  echart(x) %>% 
+  echart(x, width = "100%") %>% 
   escatter(y, z, symbolSize = 10) %>% 
   ecolorbar(calculable = FALSE, 
             color = list('lightgreen','yellow'), 

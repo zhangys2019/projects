@@ -19,7 +19,7 @@ style2 <- list(normal = list(label = list(position = "left", textStyle = list(fo
 style1 <- list(normal = list(label = list(textStyle = list(fontSize = 9, fontWeight = "bold"))))
 
 funnel %>% 
-  echart(name) %>% 
+  echart(name, width = "100%") %>% 
   efunnel(values, width = "40%", itemStyle = style1) %>% 
   efunnel(values, x = "50%", sort = "ascending", itemStyle = style2) %>% 
   etoolbox_full() %>% 
@@ -43,7 +43,7 @@ style1 <- list(normal = list(label = list(labelLine = list(show = FALSE, formatt
 style2 <- list(normal = list(label = list(position = "inside", formatter = "{c}%", textStyle = list(color = "#FFF"))))
 
 funnel %>% 
-  echart(name) %>% 
+  echart(name, width = "100%") %>% 
   efunnel(values, x = "10%", width = "80%", itemStyle = style1) %>% 
   efunnel(values2, x = "10%", wdith = "80%", maxSize = "80%", itemStyle = style2) %>% 
   etheme("infographic") %>% 

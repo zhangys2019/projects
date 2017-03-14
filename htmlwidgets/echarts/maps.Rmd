@@ -35,7 +35,7 @@ Here I simply plot the location of airports.
 
 ```{r}
 air %>% 
-  echart(iata) %>% # x here corresponds to the name of each coordinate
+  echart(iata, width = "100%") %>% # x here corresponds to the name of each coordinate
   emap() %>% # setup map
   emap_coords(long, lat) %>% # actual coordinates
   emap_points(cnt, symbolSize = 2) # value corresponding to each coordinate
@@ -48,7 +48,7 @@ We can group the airports by `state` to have one serie and color for each, selec
 ```{r}
 air %>% 
   group_by(state) %>% 
-  echart(iata) %>% 
+  echart(iata, width = "100%") %>% 
   emap_(mapType = "world|United States of America") %>% 
   emap_coords(long, lat) %>% 
   emap_points(cnt, symbol = "star", symbolSize = 10) 
@@ -75,7 +75,7 @@ ECharts also lets you plot line on maps.
 
 ```{r}
 air %>% 
-  echart(iata) %>% 
+  echart(iata, width = "100%") %>% 
   emap(mapType = "world|United States of America") %>% 
   emap_coords(long, lat) %>% 
   emap_lines(flights, airport1, airport2) %>% 
@@ -90,7 +90,7 @@ You can combine points and lines.
 
 ```{r}
 air %>% 
-  echart(iata) %>% 
+  echart(iata, width = "100%") %>% 
   emap(mapType = "world|United States of America") %>% 
   emap_coords(long, lat) %>% 
   emap_points(cnt, symbolSize = sizeFUN, symbol = "circle") %>% 
@@ -114,7 +114,7 @@ flights <- flights %>%
 
 air %>% 
   group_by(state) %>% 
-  echart(iata) %>% 
+  echart(iata, width = "100%") %>% 
   emap(mapType = "world|United States of America") %>% 
   emap_coords(long, lat) %>% 
   emap_points(cnt, symbol = "circle", symbolSize = sizeFUN) %>% 
@@ -140,7 +140,7 @@ line.effect <- list(loop = TRUE,
 
 air %>% 
   group_by(state) %>% 
-  echart(iata) %>% 
+  echart(iata, width = "100%") %>% 
   emap(mapType = "world|United States of America", 
        itemStyle = dark) %>% 
   emap_coords(long, lat) %>% 

@@ -19,7 +19,7 @@ radar <- data.frame(axis = rep(axis, 2),
 
 radar %>% 
   group_by(groups) %>% 
-  echart(axis) %>% 
+  echart(axis, width = "100%") %>% 
   eradar(values) %>% 
   elegend() %>% 
   etoolbox_full()
@@ -39,7 +39,7 @@ fill <- list(normal = list(areaStyle = list(type = "default")))
 
 radar %>% 
   group_by(groups) %>% 
-  echart(axis) %>% 
+  echart(axis, width = "100%") %>% 
   eradar(values, itemStyle = fill) %>% 
   elegend() %>% 
   etoolbox_full()

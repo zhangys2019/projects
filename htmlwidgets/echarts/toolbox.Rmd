@@ -45,7 +45,7 @@ df <- data.frame(x = 1:20,
                  w = round(runif(20, 9, 14)))
 
 df %>% 
-  echart(x) %>% 
+  echart(x, width = "100%") %>% 
   ebar(y, stack = "stk") %>% 
   ebar(z, stack = "stk") %>%
   ebar(w) %>%

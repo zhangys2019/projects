@@ -15,7 +15,7 @@ This is a reproduction of the following [example](http://echarts.baidu.com/echar
 matrix <- data.frame(x = runif(500, 10, 800), y = runif(500, 10, 800), z = runif(500, 10 , 800))
 
 p <- matrix %>%
-  echart(x) %>%
+  echart(x, width = "100%") %>%
   eheatmap(y, z)
 ```
 
@@ -47,7 +47,7 @@ darkStyle <- list(normal = list(borderColor = "rgba(100,149,237,0.6)",
                                 areaStyle = list(color = "#1b1b1b")))
 
 data %>%
-  echart() %>%
+  echart(width = "100%") %>%
   emap(mapType = "china", itemStyle = darkStyle) %>%
   emap_heat(lon, lat, z, blurSize = 50, minAlpha = 0.3, opacity = 0.8) %>%
   eoptions(backgroundColor = '#1b1b1b') %>% 

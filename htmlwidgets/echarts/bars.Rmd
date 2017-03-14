@@ -20,7 +20,7 @@ avg <- list(list(type = "average", name = "average"))
 point <- list(list(type = "max", name = "maximum"))
 
 df %>% 
-  echart(x) %>% 
+  echart(x, width = "100%") %>% 
   ebar(y, name = "evaporation") %>% 
   ebar(z, name = "precipitation") %>% 
   emark_line("all", data = avg) %>% 
@@ -51,7 +51,7 @@ line <- list(
   ))
 
 df %>% 
-  echart(x) %>% 
+  echart(x, width = "100%") %>% 
   ebar(radio, stack = "grp") %>% 
   ebar(social, stack = "grp") %>% 
   ebar(video, stack = "grp") %>% 
@@ -82,7 +82,7 @@ hide_bars <- list(
 inside_label <- list(normal = list(label = list(show = TRUE, position = "inside")))
 
 df %>% 
-  echart(x) %>% 
+  echart(x, width = "100%") %>% 
   ebar(hidden, itemStyle = hide_bars, stack = "stack") %>% 
   ebar(values, stack = "stack", itemStyle = inside_label) %>% 
   etheme("macarons") %>% 
@@ -123,7 +123,7 @@ item2 <- list(normal = list(
 ))
 
 df %>% 
-  echart(x) %>% 
+  echart(x, width = "100%") %>% 
   ebar(y, stack = "grp", itemStyle = item1, barCategoryGap = '50%') %>% 
   ebar(z, stack = "grp", itemStyle = item2) %>% 
   etoolbox_full() %>% 

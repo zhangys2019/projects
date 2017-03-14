@@ -22,7 +22,7 @@ opts <- list(funnel = list(x = "25%",
                            max = 1548))
 
 pie %>% 
-  echart(slices) %>% 
+  echart(slices, width = "100%") %>% 
   epie(values) %>% 
   elegend(orient = "vertical", x = "left", radius = "55%") %>% 
   etoolbox_full() %>% 
@@ -54,7 +54,7 @@ lab <- list(
                                textStyle = list(fontSize = 20, fontWeight = "bold")))) # customise font of inside label
 
 pie %>% 
-  echart(slices) %>% 
+  echart(slices, width = "100%") %>% 
   epie(values, radius = list("55%", "70%"), itemStyle = lab) %>% 
   elegend(orient = "vertical", x = "left", radius = "55%") %>% 
   etoolbox_full() %>% 
@@ -78,7 +78,7 @@ opts <- list(funnel = list(x = "25%",
                            max = 500))
 
 pie %>% 
-  echart(slices) %>% 
+  echart(slices, width = "100%") %>% 
   epie(values, roseType = "radius", radius = list(20, 110)) %>% 
   elegend(orient = "vertical", x = "left", radius = "55%") %>% 
   etoolbox_full() %>% 
@@ -104,7 +104,7 @@ pie.lab <- list(normal = list(label = list(position = "inner"),
                               labelLine = list(show = FALSE)))
 
 pie %>% 
-  echart(slice) %>% 
+  echart(slice, width = "100%") %>% 
   epie(values, radius = list(0, 70), itemStyle = pie.lab) %>% 
   edata(doughnut, slices) %>% 
   epie(values, radius = list(100, 140)) %>% 

@@ -23,7 +23,7 @@ point <- list(
 avg <- list(list(type = "average", name = "average"))
 
 df %>% 
-  echart(x) %>% 
+  echart(x, width = "100%") %>% 
   eline(y, smooth = TRUE, name = "serie 1") %>% 
   eline(z, smooth = TRUE, name = "serie 2") %>% 
   emark_point("all", data = point) %>% 
@@ -46,7 +46,7 @@ df <- data.frame(x = c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"),
                  w = c(150, 232, 201, 154, 190, 330, 410)) 
 
 df %>% 
-  echart(x) %>% 
+  echart(x, width = "100%") %>% 
   eline(y, name = "Y") %>% 
   eline(z, stack = "grp1", name = "Z") %>% 
   eline(w, stack = "grp1", name = "W") %>% 
@@ -66,7 +66,7 @@ df <- data.frame(x = c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"),
                  w = c(1320, 1132, 601, 234, 120, 90, 20))
 
 df %>% 
-  echart(x) %>% 
+  echart(x, width = "100%") %>% 
   earea(y, smooth = TRUE) %>% 
   earea(z, smooth = TRUE) %>% 
   earea(w, smooth = TRUE) %>% 
@@ -90,7 +90,7 @@ df <- data.frame(x = c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"),
                  w = c(150, 232, 201, 154, 190, 330, 410))
 
 df %>% 
-  echart(x) %>% 
+  echart(x, width = "100%") %>% 
   earea(y, smooth = TRUE, stack = "grp") %>% # stack
   earea(z, smooth = TRUE, stack = "grp") %>% # stack
   earea(w, smooth = TRUE) %>% # not stacked
@@ -112,7 +112,7 @@ for(i in seq(1:100)){
 }
 
 df %>% 
-  echart(date) %>% 
+  echart(date, width = "100%") %>% 
   eline(value, symbolSize = htmlwidgets::JS("function(value){ return value/2}"), showAllSymbol = TRUE) %>% 
   etheme("macarons") %>% 
   ezoom()
@@ -132,7 +132,7 @@ for(i in seq(1:100)){
 }
 
 df %>% 
-  echart(date) %>% 
+  echart(date, width = "100%") %>% 
   earea(y, smooth = TRUE) %>% 
   earea(z, smooth = TRUE, yAxisIndex = 1) %>% 
   eyAxis_value(name = "y", max = 15) %>% 

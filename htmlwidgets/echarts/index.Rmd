@@ -30,7 +30,7 @@ point.effect <- list(show = TRUE, shadowBlur = 10)
 item.style <- list(normal = list(lineStyle = list(type = "dotted", shadowBlur = 2)))
 
 large_airports %>% 
-  echart(iata) %>% 
+  echart(iata, width = "100%") %>% 
   emap(mapType = "world|United States of America") %>% 
   emap_coords(long, lat) %>% 
   emap_points(cnt, symbol = "emptyCircle", effect = point.effect) %>% 
@@ -94,7 +94,7 @@ df <- data.frame(x = 1:20,
                  w = round(runif(20, 9, 14)))
 
 df %>% 
-  echart(x) %>% 
+  echart(x, width = "100%") %>% 
   ebar(y) %>% 
   eline(z) %>%
   escatter(w) %>%
@@ -132,7 +132,7 @@ point.effect <- list(show = TRUE, shadowBlur = 10)
 item.style <- list(normal = list(lineStyle = list(type = "dotted", shadowBlur = 2)))
 
 large_airports %>% 
-  echart(iata) %>% 
+  echart(iata, width = "100%") %>% 
   emap(mapType = "world|United States of America") %>% 
   emap_coords(long, lat) %>% 
   emap_points(cnt, symbol = "emptyCircle", effect = point.effect) %>% 

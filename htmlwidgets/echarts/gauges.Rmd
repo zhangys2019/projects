@@ -12,7 +12,7 @@ library(echarts)
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/gauge1.html#-en) taken from Baidu's EChart official website.
 
 ```{r}
-echart() %>%
+echart(width = "100%") %>%
   egauge(85, "Completion rate") %>% 
   etoolbox_full() %>% 
   etooltip(trigger = "item") %>% 
@@ -34,7 +34,7 @@ function(v){
 
 text <- list(color = "#FFF")
 
-echart() %>%
+echart(width = "100%") %>%
   egauge(85, "Completion rate", axisLabel = list(formatter = axis_label, textStyle = text)) %>% 
   etooltip(trigger = "item") %>%
   etoolbox_full() %>% 

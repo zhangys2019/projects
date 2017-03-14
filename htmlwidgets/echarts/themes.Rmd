@@ -23,7 +23,7 @@ df <- data.frame(x = 1:20,
 
 ```{r}
 df %>% 
-  echart(x) %>% 
+  echart(x, width = "100%") %>% 
   ebar(y, stack = "grp") %>% 
   ebar(z, stack = "grp") %>% 
   ebar(w, stack = "grp") %>% 
@@ -36,7 +36,7 @@ df %>%
 
 ```{r}
 df %>% 
-  echart(x) %>% 
+  echart(x, width = "100%") %>% 
   eline(y, stack = "grp") %>% 
   eline(z, stack = "grp") %>% 
   eline(w, stack = "grp") %>% 
@@ -49,7 +49,7 @@ df %>%
 
 ```{r}
 df %>% 
-  echart(x) %>% 
+  echart(x, width = "100%") %>% 
   earea(y, stack = "grp") %>% 
   earea(z, stack = "grp") %>% 
   earea(w, stack = "grp") %>% 
@@ -62,7 +62,7 @@ df %>%
 
 ```{r}
 df %>% 
-  echart(x) %>% 
+  echart(x, width = "100%") %>% 
   escatter(y, z, symbolSize = 15) %>% 
   escatter(w, symbolSize = 8, symbol = "circle") %>% 
   etooltip(trigger = "item") %>% 
@@ -75,7 +75,7 @@ df %>%
 funnel <- data.frame(stage = c("View", "Click", "Order", "Purchase"), value = c(80, 45, 20, 10))
 
 funnel %>%
-  echart(stage) %>%
+  echart(stage, width = "100%") %>%
   efunnel(value) %>% 
   etheme("green")
 ```
@@ -83,7 +83,7 @@ funnel %>%
 ## dark
 
 ```{r}
-echart() %>%
+echart(width = "100%") %>%
   egauge(25, "SPEED") %>%
   etheme("dark")
 ```
@@ -92,7 +92,7 @@ echart() %>%
 
 ```{r}
 df %>% 
-  echart(x) %>% 
+  echart(x, width = "100%") %>% 
   ebar(y, stack = "grp") %>% 
   ebar(z, stack = "grp") %>% 
   ebar(w, stack = "grp") %>% 
@@ -104,7 +104,7 @@ df %>%
 
 ```{r}
 df %>% 
-  echart(x) %>% 
+  echart(x, width = "100%") %>% 
   earea(y, stack = "grp") %>% 
   earea(z, stack = "grp") %>% 
   earea(w, stack = "grp") %>% 
@@ -126,7 +126,7 @@ opts <- list(funnel = list(x = "25%",
                            max = 1548))
 
 pie %>% 
-  echart(slices) %>% 
+  echart(slices, width = "100%") %>% 
   epie(values, roseType = "radius") %>% 
   elegend(orient = "vertical", x = "left", radius = "55%") %>% 
   etoolbox_full() %>% 
@@ -138,7 +138,7 @@ pie %>%
 ## Roma
 
 ```{r}
-echart() %>%
+echart(width = "100%") %>%
   egauge(53, "SPEED") %>%
   etheme("roma")
 ```
@@ -147,7 +147,7 @@ echart() %>%
 
 ```{r}
 funnel %>%
-  echart(stage) %>%
+  echart(stage, width = "100%") %>%
   efunnel(value) %>% 
   etheme("sakura")
 ```
@@ -156,7 +156,7 @@ funnel %>%
 
 ```{r}
 df %>% 
-  echart(x) %>% 
+  echart(x, width = "100%") %>% 
   eline(y) %>% 
   eline(z) %>% 
   eline(w) %>% 
@@ -177,10 +177,32 @@ edges <- data.frame(source = c("Beijing", "Beijing", "New York"),
   target = c("Sydney", "London", "London"))
 
 coords %>%
-  echart(city) %>%
+  echart(city, width = "100%") %>%
   emap() %>%
   emap_coords(lon, lat) %>%
   emap_points(values, effect = list(show = TRUE, shadowBlur = 10), symbol = "emptyCircle") %>% 
   emap_lines(edges, source, target) %>% 
   etheme("infographic")
+```
+
+## solarlight
+
+```{r}
+sizing <- htmlwidgets::JS("function(value){return(value[1]/1.5);}")
+
+df %>% 
+  echart(x, width = "100%") %>% 
+  eline(y, 
+        symbol = "emptyCircle", 
+        symbolSize = sizing, 
+        showAllSymbol = TRUE) %>% 
+  eline(z,
+        symbol = "emptyCircle", 
+        symbolSize = sizing, 
+        showAllSymbol = TRUE) %>% 
+  eline(w,
+        symbol = "emptyCircle", 
+        symbolSize = sizing, 
+        showAllSymbol = TRUE) %>% 
+  etheme("solarlight") 
 ```
