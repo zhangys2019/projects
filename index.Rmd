@@ -44,7 +44,7 @@ chartistplot <- mtcars %>%
 library(echarts)
 
 df <- data.frame()
-for(i in seq(1:100)){
+for(i in seq(1:20)){
   date <- Sys.time() + i * 3600
   value <- round(runif(1, 5, 20))
   df <- rbind.data.frame(df, cbind.data.frame(date, value))
