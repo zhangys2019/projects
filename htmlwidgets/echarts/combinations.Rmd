@@ -22,7 +22,7 @@ df <- data.frame(day = c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"),
                  search = c(862, 1018, 964, 1026, 1679, 1600, 1570))
 
 pie %>% 
-  echart(name) %>% 
+  echart(name, width = "100%") %>% 
   epie(values, center = list(160,130), radius = list(0, 50)) %>% 
   edata(df, day) %>%
   ebar(direct, stack = "grp1") %>% 
@@ -50,7 +50,7 @@ hide_line <- list(normal = list(color = "rgba(0,0,0,0)"),
                   emphasis = list(color = "rgba(0,0,0,0)"))
 
 df %>% 
-  echart(day) %>% 
+  echart(day, width = "100%") %>% 
   eline(topLine, showAllSymbols = TRUE, symbol = "emptyCircle", symbolSize = 5) %>% 
   eline(bottomLine) %>% 
   ebar(bottomBar, itemStyle = hide_line, stack = "grp", barWidth = 6) %>% 
@@ -70,7 +70,7 @@ actual <- data.frame(values = c(30, 10, 5, 50, 80),
                      names = c("Access", "Advice", "Order", "Click", "Print"))
 
 expected %>% 
-  echart(names) %>% 
+  echart(names, width = "100%") %>% 
   efunnel(values, x = "45%", width = "45%", itemStyle = list(normal = list(labelLine = list(show = FALSE)))) %>% 
   edata(actual, names) %>% 
   efunnel(values, x = "45%", width = "45%", maxSize = "80%",
