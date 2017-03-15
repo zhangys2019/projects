@@ -12,7 +12,7 @@ sesh <- read.csv("./data/sessions.csv")
 
 ```{r header}
 sesh %>% 
-  echart(Country) %>% 
+  echart(Country, width = "100%") %>% 
   emap() %>% 
   emap_choropleth(Sessions) %>% 
   ecolorbar(min = 1, max = 270, calculable = TRUE, text = list("high", "low"), color = list('orangered','yellow','lightskyblue')) %>% 

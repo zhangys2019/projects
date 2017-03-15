@@ -63,7 +63,7 @@ sizeFUN <- htmlwidgets::JS(" function (v){ return v/1000 }")
 
 air %>% 
   group_by(state) %>% 
-  echart(iata) %>% 
+  echart(iata, width = "100%") %>% 
   emap(mapType = "world|United States of America") %>% 
   emap_coords(long, lat) %>% 
   emap_points(cnt, symbol = "circle", symbolSize = sizeFUN) 

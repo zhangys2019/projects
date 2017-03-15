@@ -274,7 +274,7 @@ pointer <- list(
 )
 
 jumb <- df %>% 
-  echart(x, height = 300) %>% 
+  echart(x, height = 300, width = "100%") %>% 
   escatter(y, name = "Clicks") %>% 
   escatter(z, name = "Views") %>% 
   emark_point(which = "all", data = list(list(type = "min"), list(type = "max"))) %>% 
