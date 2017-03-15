@@ -86,7 +86,7 @@ div(class = "page-header",
 Code used to make map in header.
 
 ```{r adv, echo=TRUE, eval = FALSE}
-sesh <- read.csv("./data/sessions.csv")
+sesh <- read.csv("https://raw.githubusercontent.com/JohnCoene/projects/gh-pages/htmlwidgets/echarts/data/sessions.csv")
 
 sesh %>% 
   echart(Country) %>% 
