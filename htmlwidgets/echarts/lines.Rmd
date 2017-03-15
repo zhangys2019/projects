@@ -32,7 +32,8 @@ df %>%
   elegend() %>% 
   exAxis_category(boundaryGap = FALSE) %>% 
   etoolbox_magic(type = list("line", "bar")) %>% 
-  etitle(text = "Temperature", subtext = "Fake data")
+  etitle(text = "Temperature", subtext = "Fake data") %>% 
+  etheme("macarons")
 ```
 
 # Stacked lines

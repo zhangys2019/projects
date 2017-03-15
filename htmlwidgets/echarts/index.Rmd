@@ -6,42 +6,18 @@ title: "echarts"
 knitr::opts_chunk$set(echo = FALSE)
 library(echarts)
 library(htmltools)
-air <- read.csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_february_us_airport_traffic.csv')
-flights <- read.csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_february_aa_flight_paths.csv')
 
-# split large airports and smaller one
-large_airports <- air[air$cnt > quantile(air$cnt, 0.95), ]
-small_airports <- dplyr::anti_join(air, large_airports, by = "iata")
-
-# split freuqent and less frequent flights
-frequent <- flights[flights$cnt > quantile(flights$cnt, 0.95), ]
-sparse <- flights[flights$cnt < quantile(flights$cnt, 0.95),]
+sesh <- read.csv("./data/sessions.csv")
 ```
 
 ```{r header}
-# customise line effect
-line.effect <- list(loop = TRUE,
-                    show = TRUE,
-                    scaleSize = 2,
-                    period = 40,
-                    shadowBlur = 5)
-
-point.effect <- list(show = TRUE, shadowBlur = 10)
-item.style <- list(normal = list(lineStyle = list(type = "dotted", shadowBlur = 2)))
-
-large_airports %>% 
-  echart(iata, width = "100%") %>% 
-  emap(mapType = "world|United States of America") %>% 
-  emap_coords(long, lat) %>% 
-  emap_points(cnt, symbol = "emptyCircle", effect = point.effect) %>% 
-  emap_lines(frequent, airport1, airport2, effect = line.effect) %>% 
-  edata(small_airports, iata) %>% 
-  emap(mapType = "world|United States of America") %>% 
-  emap_coords(long, lat) %>% 
-  emap_points(cnt, symbol = "circle", symbolSize = 2) %>% 
-  emap_lines(sparse, airport1, airport2, itemStyle = item.style) %>% 
-  etooltip() %>% 
-  etheme("infographic")
+sesh %>% 
+  echart(Country) %>% 
+  emap() %>% 
+  emap_choropleth(Sessions) %>% 
+  ecolorbar(min = 1, max = 270, calculable = TRUE, text = list("high", "low"), color = list('orangered','yellow','lightskyblue')) %>% 
+  etitle("Sessions origins in 2016", "john-coene.com", sublink = "http://john-coene.com/") %>%
+  etheme("macarons")
 ```
 
 ```{r chart types}
@@ -109,39 +85,13 @@ div(class = "page-header",
 Code used to make map in header.
 
 ```{r adv, echo=TRUE, eval = FALSE}
-# download data
-air <- read.csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_february_us_airport_traffic.csv')
-flights <- read.csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_february_aa_flight_paths.csv')
+sesh <- read.csv("./data/sessions.csv")
 
-# split large airports and smaller one
-large_airports <- air[air$cnt > quantile(air$cnt, 0.95), ]
-small_airports <- dplyr::anti_join(air, large_airports, by = "iata")
-
-# split frequent and less frequent flights
-frequent <- flights[flights$cnt > quantile(flights$cnt, 0.95), ]
-sparse <- flights[flights$cnt < quantile(flights$cnt, 0.95),]
-
-# customise line effect
-line.effect <- list(loop = TRUE,
-                    show = TRUE,
-                    scaleSize = 2,
-                    period = 40,
-                    shadowBlur = 5)
-
-point.effect <- list(show = TRUE, shadowBlur = 10)
-item.style <- list(normal = list(lineStyle = list(type = "dotted", shadowBlur = 2)))
-
-large_airports %>% 
-  echart(iata, width = "100%") %>% 
-  emap(mapType = "world|United States of America") %>% 
-  emap_coords(long, lat) %>% 
-  emap_points(cnt, symbol = "emptyCircle", effect = point.effect) %>% 
-  emap_lines(frequent, airport1, airport2, effect = line.effect) %>% 
-  edata(small_airports, iata) %>% 
-  emap(mapType = "world|United States of America") %>% 
-  emap_coords(long, lat) %>% 
-  emap_points(cnt, symbol = "circle", symbolSize = 2) %>% 
-  emap_lines(sparse, airport1, airport2, itemStyle = item.style) %>% 
-  etooltip() %>% 
-  etheme("infographic")
+sesh %>% 
+  echart(Country) %>% 
+  emap() %>% 
+  emap_choropleth(Sessions) %>% 
+  ecolorbar(min = 1, max = 870, calculable = TRUE, text = list("high", "low")) %>% 
+  etitle("Sessions origins in 2016", "john-coene.com", sublink = "http://john-coene.com/") %>% 
+  etheme("roma")
 ```

@@ -24,23 +24,6 @@ uvplot <- df %>%
   uv_frame(bgcolor = "none") %>% 
   uv_dimension(height = 300)
 
-library(chartist)
-
-chartistplot <- mtcars %>%
-  mutate(id = 1:n()) %>%
-  chart_ist(id, height = 450) %>%
-  add_ist(mpg, name = "mpg") %>%
-  add_ist(wt, name = "wt") %>%
-  add_ist(qsec, name = "qsec") %>%
-  lineopt_ist(name = "qsec", lineSmoothing = "step", showPoint = FALSE) %>%
-  lineopt_ist(name = "wt", showLine = TRUE, showPoint = TRUE, lineSmoothing = 3) %>%
-  lineopt_ist(name = "mpg", showArea = TRUE, showPoint = FALSE) %>%
-  xaxis_ist(showGrid = FALSE, showLabel = FALSE) %>%
-  yaxis_ist(showGrid = FALSE, showLabel = FALSE) %>%
-  lanim_ist() %>%
-  sanim_ist() %>%
-  loop_ist(6000)
-
 library(echarts)
 
 df <- data.frame()
@@ -108,23 +91,7 @@ div(class = "siema",
             HTML("<button class='bttn-unite bttn-md bttn-info'><i class='fa fa-rocket' aria-hidden='true'></i> Get Started</button>")),
             br()),
         div(class = "col-lg-9",
-            echart)),
-    div(class = "row",
-        div(class = "col-lg-3",
-            div(class = "page-header",
-                h2("chartist", class = "text-primary")),
-            p("chartist htmlwidget for R."),
-            p(HTML("<ul>",
-                   "<li>4 chart types",
-                   "<li>Tons of options",
-                   "<li>Animations!",
-                   "<li>Responsive",
-                   "</ul>")),
-            br(),
-            a(href="htmlwidgets/chartist/",
-            HTML("<button class='bttn-unite bttn-md bttn-warning'><i class='fa fa-rocket' aria-hidden='true'></i> Get Started</button>"))),
-        div(class = "col-lg-9",
-            chartistplot)))
+            echart)))
 ```
 
 ```{r social}
