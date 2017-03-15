@@ -305,30 +305,24 @@ div(class = "jumbotron",
 ```{r about}
 div(class = "page-header", 
     h1("About", class = "text-primary")) # page header
+
 div(class = "row",
-    div(class = "col-lg-9 col-md-9",
+    div(class = "col-lg-6 col-md-6",
         p("John is a young contrarian often found where the people are few and the drinks many."),
         p("I am an autodidact genuinely interested in things ranging from politics to data."),
         br(),
         p(span("#rstats", class = "text-success"),
           span("#marketing", class = "text-info"),
           span("#BI", class = "text-warning"),
-          span("#data", class = "text-danger"))),
-    div(class = "col-lg-3 col-md-3", 
-        a(href="http://johncoene.github.io/cv/", target = "_blank",
-        HTML("<button class='bttn-unite bttn-lg bttn-danger'><i class='fa fa-address-card' aria-hidden='true'></i> Resume</button>"))))
-```
-
-```{r contact}
-div(class = "page-header",
-    h1("Contact", class = "text-primary")) # page header
-
-div(class = "row",
-    div(class = "col-lg-6 col-md-6",
+          span("#data", class = "text-danger")),
         p("Please free to inquire about a project, collaboration, freelance, or other opportunities such as free cake: ",
           br(),
           br(),
-          h4(a("jcoenep@gmail.com", href = "mailto:jcoenep@gmail.com")))),
+          h4(a("jcoenep@gmail.com", href = "mailto:jcoenep@gmail.com"))),
+        br(),
+        br(),
+        a(href="http://johncoene.github.io/cv/", target = "_blank",
+        HTML("<button class='bttn-unite bttn-lg bttn-danger'><i class='fa fa-address-card' aria-hidden='true'></i> Resume</button>"))),
     div(class = "col-lg-6 col-md-6",
         HTML('<a class="twitter-timeline" data-width="300" data-height="400" data-link-color="#d9230f" href="https://twitter.com/jdatap">Tweets by jdatap</a>')))
 ```
