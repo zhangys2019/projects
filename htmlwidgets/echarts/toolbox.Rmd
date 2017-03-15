@@ -38,6 +38,8 @@ There is also a heper function, `etoolbox_full` that adds a bunch of the above a
 
 ## Example
 
+`etoolbox_magic` enables your reader to change the chart type on the fly, see `?etoolbox_magic`. Below I enable to reader to change from line to bar and from tiled to stack.
+
 ```{r}
 df <- data.frame(x = 1:20,
                  y = round(runif(20, 5, 10)),
