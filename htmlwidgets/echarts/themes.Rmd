@@ -17,192 +17,95 @@ df <- data.frame(x = 1:20,
                  y = round(runif(20, 5, 10)),
                  z = round(runif(20, 7, 12)),
                  w = round(runif(20, 9, 14)))
+
+plot <- df %>% 
+  echart(x, width = "100%") %>% 
+  earea(y, stack = "grp") %>% 
+  earea(z, stack = "grp") %>% 
+  earea(w, stack = "grp") %>% 
+  etoolbox_magic(type = list("bar", "line", "stack", "tiled"))
 ```
 
 ## Default
 
 ```{r}
-df %>% 
-  echart(x, width = "100%") %>% 
-  ebar(y, stack = "grp") %>% 
-  ebar(z, stack = "grp") %>% 
-  ebar(w, stack = "grp") %>% 
-  etoolbox_magic(type = list("bar", "line", "stack", "tiled")) %>% 
-  etooltip() %>% 
-  etheme("default")
+etheme(plot, "default")
 ```
 
 ## Mint
 
 ```{r}
-df %>% 
-  echart(x, width = "100%") %>% 
-  eline(y, stack = "grp") %>% 
-  eline(z, stack = "grp") %>% 
-  eline(w, stack = "grp") %>% 
-  etoolbox_magic(type = list("bar", "line", "stack", "tiled")) %>% 
-  etooltip() %>% 
-  etheme("mint")
+etheme(plot, "mint")
 ```
 
 ## Macarons
 
 ```{r}
-df %>% 
-  echart(x, width = "100%") %>% 
-  earea(y, stack = "grp") %>% 
-  earea(z, stack = "grp") %>% 
-  earea(w, stack = "grp") %>% 
-  etoolbox_magic(type = list("bar", "line", "stack", "tiled")) %>% 
-  etooltip() %>% 
-  etheme("macarons")
+etheme(plot, "macarons")
 ```
 
 ## Macarons2
 
 ```{r}
-df %>% 
-  echart(x, width = "100%") %>% 
-  escatter(y, z, symbolSize = 15) %>% 
-  escatter(w, symbolSize = 8, symbol = "circle") %>% 
-  etooltip(trigger = "item") %>% 
-  etheme("macarons2")
+etheme(plot, "macarons2")
 ```
 
 ## Green
 
 ```{r}
-funnel <- data.frame(stage = c("View", "Click", "Order", "Purchase"), value = c(80, 45, 20, 10))
-
-funnel %>%
-  echart(stage, width = "100%") %>%
-  efunnel(value) %>% 
-  etheme("green")
+etheme(plot, "green")
 ```
 
 ## dark
 
 ```{r}
-echart(width = "100%") %>%
-  egauge(25, "SPEED") %>%
-  etheme("dark")
+etheme(plot, "dark")
 ```
 
 ## Gray
 
 ```{r}
-df %>% 
-  echart(x, width = "100%") %>% 
-  ebar(y, stack = "grp") %>% 
-  ebar(z, stack = "grp") %>% 
-  ebar(w, stack = "grp") %>% 
-  etooltip() %>% 
-  etheme("gray")
+etheme(plot, "gray")
 ```
 
 ## Helianthus
 
 ```{r}
-df %>% 
-  echart(x, width = "100%") %>% 
-  earea(y, stack = "grp") %>% 
-  earea(z, stack = "grp") %>% 
-  earea(w, stack = "grp") %>% 
-  etoolbox_magic(type = list("bar", "line", "stack", "tiled")) %>% 
-  etooltip() %>%
-  etheme("helianthus")
+etheme(plot, "helianthus")
 ```
 
 ## Red
 
 ```{r}
-pie <- data.frame(slices = c('Direct access', 'mail marketing', 'affiliate ad', 'video ad', 'search engine'),
-                  values = c(335, 310, 234, 135, 548))
-
-# funnel options
-opts <- list(funnel = list(x = "25%",
-                           width = "50%",
-                           funnelAlign = "left",
-                           max = 1548))
-
-pie %>% 
-  echart(slices, width = "100%") %>% 
-  epie(values, roseType = "radius") %>% 
-  elegend(orient = "vertical", x = "left", radius = "55%") %>% 
-  etoolbox_full() %>% 
-  etoolbox_magic(type = list("pie", "funnel"), option = opts) %>% 
-  etooltip(trigger = "item") %>% 
-  etheme("red")
+etheme(plot, "red")
 ```
 
 ## Roma
 
 ```{r}
-echart(width = "100%") %>%
-  egauge(53, "SPEED") %>%
-  etheme("roma")
+etheme(plot, "roma")
 ```
 
 ## Sakura
 
 ```{r}
-funnel %>%
-  echart(stage, width = "100%") %>%
-  efunnel(value) %>% 
-  etheme("sakura")
+etheme(plot, "sakura")
 ```
 
 ## Shine
 
 ```{r}
-df %>% 
-  echart(x, width = "100%") %>% 
-  eline(y) %>% 
-  eline(z) %>% 
-  eline(w) %>% 
-  etoolbox_magic(type = list("bar", "line", "stack", "tiled")) %>% 
-  etooltip() %>% 
-  etheme("shine")
+etheme(plot, "shine")
 ```
 
 ## Infographic
 
 ```{r}
-coords <- data.frame(city = c("London", "New York", "Beijing", "Sydney"),
-  lon = c(-0.1167218, -73.98002, 116.3883, 151.18518),
-  lat = c(51.49999, 40.74998, 39.92889, -33.92001),
-  values = runif(4, 10, 20))
-
-edges <- data.frame(source = c("Beijing", "Beijing", "New York"),
-  target = c("Sydney", "London", "London"))
-
-coords %>%
-  echart(city, width = "100%") %>%
-  emap() %>%
-  emap_coords(lon, lat) %>%
-  emap_points(values, effect = list(show = TRUE, shadowBlur = 10), symbol = "emptyCircle") %>% 
-  emap_lines(edges, source, target) %>% 
-  etheme("infographic")
+etheme(plot, "infographic")
 ```
 
 ## solarlight
 
 ```{r}
-sizing <- htmlwidgets::JS("function(value){return(value[1]/1.5);}")
-
-df %>% 
-  echart(x, width = "100%") %>% 
-  eline(y, 
-        symbol = "emptyCircle", 
-        symbolSize = sizing, 
-        showAllSymbol = TRUE) %>% 
-  eline(z,
-        symbol = "emptyCircle", 
-        symbolSize = sizing, 
-        showAllSymbol = TRUE) %>% 
-  eline(w,
-        symbol = "emptyCircle", 
-        symbolSize = sizing, 
-        showAllSymbol = TRUE) %>% 
-  etheme("solarlight") 
+etheme(plot, "solarlight") 
 ```
