@@ -1,0 +1,38 @@
+---
+title: "candlestick"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, error = FALSE, message = FALSE)
+library(echarts)
+library(quantmod)
+options("getSymbols.warning4.0"=FALSE)
+
+getSymbols("GS") #Goldman Sachs
+GS <- as.data.frame(GS)
+GS$date <- row.names(GS)
+row.names(GS) <- NULL
+```
+
+```{r get data, eval = FALSE}
+library(quantmod) # get data with quantmod
+
+getSymbols("GS") #Goldman Sachs
+GS <- as.data.frame(GS)
+GS$date <- row.names(GS)
+row.names(GS) <- NULL
+```
+
+## Candlestick
+
+This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/k1.html#-en) on Baidu's official example page.
+
+```{r}
+GS %>% 
+  echart(date, width = "100%") %>% 
+  ecandle(GS.Open, GS.Close, GS.Low, GS.High, name = "Goldman Sachs") %>% 
+  ezoom() %>% 
+  etoolbox_full() %>% 
+  elegend() %>% 
+  etheme("macarons")
+```

@@ -36,10 +36,11 @@ div(class = "page-header",
 9. force networks
 10. word-clouds
 11. maps
-12. treemap
-13. themes
-14. responsive
-15. animations
+12. treemaps
+13. candlestick charts
+14. themes
+15. responsive
+16. animations
 
 ```{r install}
 div(class = "page-header",

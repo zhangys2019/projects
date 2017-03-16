@@ -37,6 +37,8 @@ navbar:
           href: heatmap
         - text: "map"
           href: maps
+        - text: "candlestick"
+          href: candlestick
         - text: "Combos"
           href: combinations
 
