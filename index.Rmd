@@ -307,7 +307,7 @@ div(class = "page-header",
     h1("About", class = "text-primary")) # page header
 
 div(class = "row",
-    div(class = "col-lg-6 col-md-6",
+    div(class = "col-lg-7 col-md-7",
         p("John is a young contrarian often found where the people are few and the drinks many."),
         p("I am an autodidact genuinely interested in things ranging from politics to data."),
         br(),
@@ -323,7 +323,7 @@ div(class = "row",
         br(),
         a(href="http://johncoene.github.io/cv/", target = "_blank",
         HTML("<button class='bttn-unite bttn-lg bttn-danger'><i class='fa fa-address-card' aria-hidden='true'></i> Resume</button>"))),
-    div(class = "col-lg-6 col-md-6",
+    div(class = "col-lg-5 col-md-5",
         HTML('<a class="twitter-timeline" data-width="300" data-height="400" data-link-color="#d9230f" href="https://twitter.com/jdatap">Tweets by jdatap</a>')))
 ```
 
