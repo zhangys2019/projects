@@ -1,5 +1,5 @@
 ---
-title: "funnels"
+title: "Funnels"
 ---
 
 ```{r setup, include=FALSE}

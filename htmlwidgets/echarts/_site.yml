@@ -41,6 +41,8 @@ navbar:
           href: candlestick
         - text: "wordcloud"
           href: wordcloud
+        - text: "networks"
+          href: networks
         - text: "combos"
           href: combinations
 

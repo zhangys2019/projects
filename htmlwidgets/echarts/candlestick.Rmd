@@ -1,5 +1,5 @@
 ---
-title: "candlestick"
+title: "Candlestick"
 ---
 
 ```{r setup, include=FALSE}
@@ -23,7 +23,7 @@ GS$date <- row.names(GS)
 row.names(GS) <- NULL
 ```
 
-## Candlestick
+## Example
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/k1.html#-en) on Baidu's official example page.
 

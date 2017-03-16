@@ -1,5 +1,5 @@
 ---
-title: "wordcloud"
+title: "Wordcloud"
 author: "John Coene"
 date: "March 12, 2017"
 output: html_document
@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(echarts)
 ```
 
-## Wordcloud
+## Example
 
 Using dataset from [wordcloud2](https://github.com/Lchiffon/wordcloud2).
 

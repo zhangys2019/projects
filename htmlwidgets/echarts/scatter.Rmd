@@ -1,5 +1,5 @@
 ---
-title: "Scatter chart examples"
+title: "Scatter charts"
 ---
 
 ```{r setup, include=FALSE}

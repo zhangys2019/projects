@@ -1,5 +1,5 @@
 ---
-title: "maps"
+title: "Maps"
 output:
   html_document:
     toc: true
@@ -11,8 +11,6 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 library(echarts)
 ```
-
-# Maps
 
 ## How it works
 

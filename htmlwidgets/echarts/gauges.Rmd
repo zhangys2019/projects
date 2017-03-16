@@ -1,5 +1,5 @@
 ---
-title: "gauges"
+title: "Gauges"
 ---
 
 ```{r setup, include=FALSE}
@@ -19,7 +19,7 @@ echart(width = "100%") %>%
   etheme("macarons")
 ```
 
-## Basic
+## Dark
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/gauge3.html#-en) taken from Baidu's EChart official website.
 

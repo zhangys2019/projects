@@ -1,5 +1,5 @@
 ---
-title: "combinations"
+title: "Combinations"
 ---
 
 ```{r setup, include=FALSE}

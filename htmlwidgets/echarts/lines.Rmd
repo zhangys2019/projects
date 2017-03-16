@@ -1,5 +1,5 @@
 ---
-title: "Line chart examples"
+title: "Line charts"
 ---
 
 ```{r setup, include=FALSE}
@@ -7,7 +7,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(echarts)
 ```
 
-# Mark points & lines
+## Mark points & lines
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/line2.html#-en) taken from Baidu's EChart official website.
 
@@ -36,7 +36,7 @@ df %>%
   etheme("macarons")
 ```
 
-# Stacked lines
+## Stacked lines
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/line2.html#-en) taken from Baidu's EChart official website.
 
@@ -56,7 +56,7 @@ df %>%
   etoolbox_magic(type = list('line', 'bar', 'stack', 'tiled'))
 ```
 
-# Basic Area
+## Basic Area
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/line3.html#-en) taken from Baidu's EChart official website.
 
@@ -80,7 +80,7 @@ df %>%
   etoolbox_save()
 ```
 
-# Stacked Area
+## Stacked Area
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/line4.html#-en) taken from Baidu's EChart official website.
 
@@ -100,7 +100,7 @@ df %>%
   etooltip()
 ```
 
-# Irregular line
+## Irregular line
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/line8.html#-en) taken from Baidu's EChart official website.
 
@@ -119,7 +119,7 @@ df %>%
   ezoom()
 ```
 
-# Multiple axis
+## Multiple axis
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/line6.html#-en) taken from Baidu's EChart official website.
 

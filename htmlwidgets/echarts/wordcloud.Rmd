@@ -10,8 +10,6 @@ knitr::opts_chunk$set(echo = TRUE)
 library(echarts)
 ```
 
-## Wordcloud
-
 Using dataset from [wordcloud2](https://github.com/Lchiffon/wordcloud2).
 
 ```{r load data}
