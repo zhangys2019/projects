@@ -1,8 +1,5 @@
 ---
-title: "wordcloud"
-author: "John Coene"
-date: "March 12, 2017"
-output: html_document
+title: "Wordcloud"
 ---
 
 ```{r setup, include=FALSE}
