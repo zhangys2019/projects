@@ -19,15 +19,18 @@ data(demoFreq)
 Similar to the this [example](http://echarts.baidu.com/echarts2/doc/example/wordCloud.html#-en) from Baidu.
 
 ```{r}
-demoFreq$colors <- ifelse(demoFreq$freq >= 40, "red", "blue")
+demoFreq$colors <- ifelse(demoFreq$freq >= 30, "red", "blue")
 
 demoFreq %>% 
-  echart(word) %>% 
+  echart(word, width = "100%") %>% 
   ecloud(freq, 
          colors,
          size = list("100%", "100%"), 
-         textPadding = 0, 
-         autoSize = list(enable = TRUE, minSize = 5),
+         textPadding = 0,
+         autoSize = list(enable = TRUE, minSize = 14),
          textRotation = list(0, 45, 90, -45)) %>% 
+  etitle("Demo Data", 
+         link = "https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html",
+         target = "blank") %>% 
   etooltip()
 ```
