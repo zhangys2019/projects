@@ -33,6 +33,6 @@ GS %>%
   ecandle(GS.Open, GS.Close, GS.Low, GS.High, name = "Goldman Sachs") %>% 
   ezoom() %>% 
   etoolbox_full() %>% 
-  elegend() %>% 
+  etooltip() %>% 
   etheme("macarons")
 ```

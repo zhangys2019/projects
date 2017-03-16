@@ -16,7 +16,7 @@ navbar:
     - text: "Toolbox"
       icon: fa-wrench
       href: toolbox
-    - text: "Chart types"
+    - text: "Explore"
       icon: fa-bar-chart
       menu:
         - text: "bar"
@@ -39,7 +39,9 @@ navbar:
           href: maps
         - text: "candlestick"
           href: candlestick
-        - text: "Combos"
+        - text: "wordcloud"
+          href: wordcloud
+        - text: "combos"
           href: combinations
 
 output:
