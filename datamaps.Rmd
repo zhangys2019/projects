@@ -4,16 +4,18 @@ title: "datamaps"
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
-
+library(htmltools)
 library(datamaps)
 library(dplyr)
 
 sesh <- read.csv("https://raw.githubusercontent.com/JohnCoene/projects/gh-pages/htmlwidgets/echarts/data/sessions.csv")
 
+# datamaps uses iso3c format
 sesh$iso3c <- countrycode::countrycode(sesh$Country, "country.name", "iso3c")
-sesh <- sesh[!is.na(sesh$iso3c),]
-sesh$continent <- countrycode::countrycode(sesh$iso3c, "iso3c", "continent")
+sesh <- sesh[!is.na(sesh$iso3c),] # remove NA
+sesh$continent <- countrycode::countrycode(sesh$iso3c, "iso3c", "continent") # find continents
 
+# sum Sessions by continent
 continents <- sesh %>% 
   group_by(continent) %>% 
   summarise(Sessions = sum(Sessions)) %>% 
@@ -23,20 +25,23 @@ continents <- sesh %>%
 
 ```{r}
 sesh %>% 
-  datamaps(default = "lightgray") %>% 
-  add_choropleth(iso3c, Sessions, colors = RColorBrewer::brewer.pal(5, "YlOrRd")) %>% 
-  add_data(continents) %>% 
-  add_bubbles(long, lat, log(Sessions) * 5, continent, continent, colors = RColorBrewer::brewer.pal(4, "Set1"))
+  datamaps(default = "lightgray", width = "100%") %>% # initiate map
+  add_choropleth(iso3c, Sessions, colors = RColorBrewer::brewer.pal(5, "YlOrRd")) %>% # add chorpleth layer
+  add_data(continents) %>% # add continent dataset
+  add_bubbles(long, lat, log(Sessions) * 5, continent, continent, colors = RColorBrewer::brewer.pal(4, "Set1")) # add continent bubbles
 ```
 
 [![Travis-CI Build Status](https://travis-ci.org/JohnCoene/datamaps.svg?branch=master)](https://travis-ci.org/JohnCoene/datamaps)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/JohnCoene/datamaps?branch=master&svg=true)](https://ci.appveyor.com/project/JohnCoene/datamaps)
 
-R htmlwidget for [datamaps](http://datamaps.github.io/).
-
 ```{r, echo = FALSE}
-p(a(href="https://github.com/JohnCoene/datamaps", target = "_blank",
-            HTML("<button class='bttn-unite bttn-lg bttn-danger'><i class='fa fa-github' aria-hidden='true'></i> Repository</button>")))
+div(class = "row",
+    div(class = "col-lg-8 col-md-8",
+        "R htmlwidget for", 
+        a("datamaps.", href = "http://datamaps.github.io/")),
+    div(class = "col-lg-4 col-md-4",
+        p(a(href="https://github.com/JohnCoene/datamaps", target = "_blank",
+            HTML("<button class='bttn-unite bttn-lg bttn-danger'><i class='fa fa-github' aria-hidden='true'></i> Repository</button>")))))
 ```
 
 ## Install 
@@ -46,16 +51,34 @@ p(a(href="https://github.com/JohnCoene/datamaps", target = "_blank",
 devtools::install_github("JohnCoene/datamaps")
 ```
 
+## How it works
+
+Initiate your map with `datamaps`, pipe (`%>%`) your data to add data (`add_data`) or layers.
+
+**Layers**:
+
+* `add_choropleth`
+* `add_arcs` & `add_arcs_name`
+* `add_bubbles`
+
+**Options**:
+
+* `add_labels`
+* `config_geo`
+* `config_bubbles`
+* `config_arcs`
+
 ## First map
 
 ```{r, echo = TRUE}
-states <- data.frame(st = c("AR", "NY", "CA", "IL", "CO", "MT", "TX"),
-    val = c(10, 5, 3, 8, 6, 7, 2))
+# Fake data
+st <- c("AR", "NY", "CA", "IL", "CO", "MT", "TX", "OK", "AL", "NM", "NV", "NC", "OH", "PA")
+states <- data.frame(from = st, to = sample(st, 14))
 
 states %>%
-    datamaps(scope = "usa", default = "lightgray") %>%
-    add_choropleth(st, val) %>%
-    add_labels()
+    datamaps(scope = "usa", width = "100%") %>% # intiate map
+    add_arcs_name(from, to) %>% # add arcs layers 
+    add_labels() # add state labels
 ```
 
 ## Advanced examples
@@ -79,8 +102,8 @@ continents <- sesh %>%
          lat = c(7.401962, 19.432608, 10.762622, 48.210033))
 
 sesh %>% 
-  datamaps(default = "lightgray") %>% 
-  add_choropleth(iso3c, Sessions, colors = RColorBrewer::brewer.pal(5, "YlOrRd")) %>% 
-  add_data(continents) %>% 
-  add_bubbles(long, lat, log(Sessions) * 5, continent, continent, colors = RColorBrewer::brewer.pal(4, "Set1"))
+  datamaps(default = "lightgray") %>% # initiate map
+  add_choropleth(iso3c, Sessions, colors = RColorBrewer::brewer.pal(5, "YlOrRd")) %>% # add chorpleth layer
+  add_data(continents) %>% # add continent dataset
+  add_bubbles(long, lat, log(Sessions) * 5, continent, continent, colors = RColorBrewer::brewer.pal(4, "Set1")) # add continent bubbles
 ```
