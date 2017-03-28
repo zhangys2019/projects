@@ -11,9 +11,9 @@
 
 
 
-<title>peity</title>
+<title>datamaps</title>
 
-<script src="site_libs/jquery-3.1.1/jquery-3.1.1.min.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -21,8 +21,10 @@
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/htmlwidgets-0.7/htmlwidgets.js"></script>
-<script src="site_libs/peity-3.2.1/jquery.peity.min.js"></script>
-<script src="site_libs/peity-binding-0.0.0.9000/peity.js"></script>
+<script src="site_libs/d3js-3.5.3/d3.min.js"></script>
+<script src="site_libs/topojson-1.6.9/topojson.min.js"></script>
+<script src="site_libs/datamaps-0.5.0/datamaps.all.hires.min.js"></script>
+<script src="site_libs/datamaps-binding-0.0.0.9000/datamaps.js"></script>
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 <script src="https://use.fontawesome.com/9fdc01e796.js"></script>
 <link href="https://cdn.rawgit.com/gaborcsardi/r-font/master/rlogo.css" rel="stylesheet">
@@ -272,75 +274,60 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">peity</h1>
+<h1 class="title toc-ignore">datamaps</h1>
 
 </div>
 
 
-<p><span id="htmlwidget-1373fe5e8745fd268dce" class="peity html-widget"></span>
-<script type="application/json" data-for="htmlwidget-1373fe5e8745fd268dce">{"x":{"values":[3,1,7,8],"type":"donut","options":null},"evals":[],"jsHooks":[]}</script> <span id="htmlwidget-2f087bbd2a4861c630c2" class="peity html-widget"></span>
-<script type="application/json" data-for="htmlwidget-2f087bbd2a4861c630c2">{"x":{"values":[5,3,2,-1,-3,-2,2,3],"type":"bar","options":null},"evals":[],"jsHooks":[]}</script> <span id="htmlwidget-b8c9516d7c8308d33399" class="peity html-widget"></span>
-<script type="application/json" data-for="htmlwidget-b8c9516d7c8308d33399">{"x":{"values":[0,-3,-6,-4,-5,-3,-5,-2],"type":"bar","options":null},"evals":[],"jsHooks":[]}</script> <span id="htmlwidget-8ed5762c1346d25e7f9b" class="peity html-widget"></span>
-<script type="application/json" data-for="htmlwidget-8ed5762c1346d25e7f9b">{"x":{"values":[5,3,9,6,5,9,7,3],"type":"line","options":null},"evals":[],"jsHooks":[]}</script> <span id="htmlwidget-f9927914e9aaf86eb701" class="peity html-widget"></span>
-<script type="application/json" data-for="htmlwidget-f9927914e9aaf86eb701">{"x":{"values":[5,2,3,1],"type":"pie","options":null},"evals":[],"jsHooks":[]}</script></p>
-<div class="container-fluid">
+<div id="htmlwidget-42df27e8861d87c967fa" style="width:672px;height:480px;" class="datamaps html-widget"></div>
+<script type="application/json" data-for="htmlwidget-42df27e8861d87c967fa">{"x":{"scope":"world","projection":"equirectangular","fills":{"defaultFill":"lightgray","270":"#FFFFB2","163":"#FEF099","122":"#FEE180","96":"#FED368","33":"#FDC357","19":"#FDB14E","18":"#FD9F45","17":"#FD8D3C","10":"#F97534","8":"#F55E2C","6":"#F14624","4":"#E83220","3":"#DA2122","2":"#CB1024","1":"#BD0026","Africa":"#E41A1C","Americas":"#377EB8","Asia":"#4DAF4A","Europe":"#984EA3"},"geographyConfig":{"dataUrl":null},"data":{"GBR":{"fillKey":"270"},"RUS":{"fillKey":"163"},"CHN":{"fillKey":"122"},"USA":{"fillKey":"96"},"ITA":{"fillKey":"33"},"AUT":{"fillKey":"19"},"IRQ":{"fillKey":"18"},"DEU":{"fillKey":"17"},"SAU":{"fillKey":"10"},"IND":{"fillKey":"8"},"JPN":{"fillKey":"8"},"FRA":{"fillKey":"6"},"BRA":{"fillKey":"4"},"ESP":{"fillKey":"4"},"MEX":{"fillKey":"4"},"KEN":{"fillKey":"3"},"SRB":{"fillKey":"3"},"OMN":{"fillKey":"2"},"POL":{"fillKey":"2"},"SVN":{"fillKey":"2"},"VNM":{"fillKey":"2"},"BEL":{"fillKey":"1"},"CAN":{"fillKey":"1"},"CHE":{"fillKey":"1"},"COL":{"fillKey":"1"},"HKG":{"fillKey":"1"},"HUN":{"fillKey":"1"},"IRL":{"fillKey":"1"},"KOR":{"fillKey":"1"},"LKA":{"fillKey":"1"},"LTU":{"fillKey":"1"},"NOR":{"fillKey":"1"},"PAK":{"fillKey":"1"},"QAT":{"fillKey":"1"},"SGP":{"fillKey":"1"},"TUR":{"fillKey":"1"},"TWN":{"fillKey":"1"},"UKR":{"fillKey":"1"},"ZWE":{"fillKey":"1"}},"bubbles":[{"fillKey":"Africa","longitude":"  3.917313","latitude":" 7.401962","radius":" 6.931472","name":"Africa"},{"fillKey":"Americas","longitude":"-99.133209","latitude":"19.432608","radius":"23.317195","name":"Americas"},{"fillKey":"Asia","longitude":"106.660172","latitude":"10.762622","radius":"25.908918","name":"Asia"},{"fillKey":"Europe","longitude":" 16.363449","latitude":"48.210033","radius":"31.326506","name":"Europe"}]},"evals":[],"jsHooks":[]}</script>
+<p><a href="https://travis-ci.org/JohnCoene/datamaps"><img src="https://travis-ci.org/JohnCoene/datamaps.svg?branch=master" alt="Travis-CI Build Status" /></a> <a href="https://ci.appveyor.com/project/JohnCoene/datamaps"><img src="https://ci.appveyor.com/api/projects/status/github/JohnCoene/datamaps?branch=master&amp;svg=true" alt="AppVeyor Build Status" /></a></p>
+<p>R htmlwidget for <a href="http://datamaps.github.io/">datamaps</a>.</p>
 <p>
-<code>peity</code>
- is an htmlwidget for 
-<a href="http://benpickles.github.io/peity/" target="_blank">Peity</a>
-: in-line charts
-<span id="htmlwidget-59aee0e94bb0ef5e6179" class="peity html-widget"></span>
-<script type="application/json" data-for="htmlwidget-59aee0e94bb0ef5e6179">{"x":{"values":[1,5,2,6,5,3,1],"type":"line","options":null},"evals":[],"jsHooks":[]}</script>
-.
+<a href="https://github.com/JohnCoene/datamaps" target="_blank"><button class='bttn-unite bttn-lg bttn-danger'><i class='fa fa-github' aria-hidden='true'></i> Repository</button></a>
 </p>
-<p>
-<a href="https://github.com/JohnCoene/peity" target="_blank"><button class='bttn-unite bttn-lg bttn-danger'><i class='fa fa-github' aria-hidden='true'></i> Repository</button></a>
-</p>
-</div>
-<p><a href="https://travis-ci.org/JohnCoene/peity"><img src="https://travis-ci.org/JohnCoene/peity.svg?branch=master" alt="Build Status" /></a> <a href="https://saythanks.io/to/JohnCoene"><img src="https://img.shields.io/badge/say-thanks-ff69b4.svg" alt="saythanks" /></a></p>
-<div class="page-header">
+<div id="install" class="section level2">
 <h2>Install</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages(&quot;devtools&quot;)</span>
+devtools::<span class="kw">install_github</span>(<span class="st">&quot;JohnCoene/datamaps&quot;</span>)</code></pre></div>
 </div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools::<span class="kw">install_github</span>(<span class="st">&quot;JohnCoene/peity&quot;</span>)</code></pre></div>
-<div class="page-header">
-<h2>Examples</h2>
+<div id="first-map" class="section level2">
+<h2>First map</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">states &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">st =</span> <span class="kw">c</span>(<span class="st">&quot;AR&quot;</span>, <span class="st">&quot;NY&quot;</span>, <span class="st">&quot;CA&quot;</span>, <span class="st">&quot;IL&quot;</span>, <span class="st">&quot;CO&quot;</span>, <span class="st">&quot;MT&quot;</span>, <span class="st">&quot;TX&quot;</span>),
+    <span class="dt">val =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">8</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">2</span>))
+
+states %&gt;%
+<span class="st">    </span><span class="kw">datamaps</span>(<span class="dt">scope =</span> <span class="st">&quot;usa&quot;</span>, <span class="dt">default =</span> <span class="st">&quot;lightgray&quot;</span>) %&gt;%
+<span class="st">    </span><span class="kw">add_choropleth</span>(st, val) %&gt;%
+<span class="st">    </span><span class="kw">add_labels</span>()</code></pre></div>
+<div id="htmlwidget-bf44e1c3eeadad5b081c" style="width:672px;height:480px;" class="datamaps html-widget"></div>
+<script type="application/json" data-for="htmlwidget-bf44e1c3eeadad5b081c">{"x":{"scope":"usa","projection":"equirectangular","fills":{"defaultFill":"lightgray","10":"#FFEDA0","5":"#FED983","3":"#FEC568","8":"#FEB24C","6":"#F98A3D","7":"#F4622E","2":"#F03B20"},"geographyConfig":{"dataUrl":null},"data":{"AR":{"fillKey":"10"},"NY":{"fillKey":"5"},"CA":{"fillKey":"3"},"IL":{"fillKey":"8"},"CO":{"fillKey":"6"},"MT":{"fillKey":"7"},"TX":{"fillKey":"2"}},"labels":true},"evals":[],"jsHooks":[]}</script>
 </div>
-<p>Reproducing examples from the <a href="http://benpickles.github.io/peity/">official documentation</a>:</p>
-<ol style="list-style-type: decimal">
-<li><span id="htmlwidget-38ff766a076e2b39732d" class="peity html-widget"></span>
-<script type="application/json" data-for="htmlwidget-38ff766a076e2b39732d">{"x":{"values":[5,3,9,6,5,9,7,3,5,2],"type":"bar","options":{"fill":["red","green","blue"]}},"evals":[],"jsHooks":[]}</script></li>
-<li><span id="htmlwidget-61a72c6137d436fff392" class="peity html-widget"></span>
-<script type="application/json" data-for="htmlwidget-61a72c6137d436fff392">{"x":{"values":[5,3,2,-1,-3,-2,2,3,5,2],"type":"bar","options":{"fill":"function(value) {return value > 0 ? 'green':'red'}"}},"evals":["options.fill"],"jsHooks":[]}</script></li>
-<li><span id="htmlwidget-2a45ec655cf770435895" class="peity html-widget"></span>
-<script type="application/json" data-for="htmlwidget-2a45ec655cf770435895">{"x":{"values":[0,-3,-6,-4,-5,-4,-7,-3,-5,-2],"type":"bar","options":{"fill":"function(_, i, all) {\n    var g = parseInt((i / all.length) * 255)\n    return \"rgb(255, \" + g + \", 0)\"\n  }"}},"evals":["options.fill"],"jsHooks":[]}</script></li>
-<li><span id="htmlwidget-5450c6895d6829967b83" class="peity html-widget"></span>
-<script type="application/json" data-for="htmlwidget-5450c6895d6829967b83">{"x":{"values":[4,7,6,5],"type":"pie","options":{"fill":["cyan","magenta","yellow","black"]}},"evals":[],"jsHooks":[]}</script></li>
-<li><span id="htmlwidget-04b62ce9cb46fc5c75a3" class="peity html-widget"></span>
-<script type="application/json" data-for="htmlwidget-04b62ce9cb46fc5c75a3">{"x":{"values":[5,3,9,6,5],"type":"pie","options":{"fill":"function(_, i, all) {\n    var g = parseInt((i / all.length) * 255)\n    return \"rgb(255, \" + g + \", 0)\"\n  }"}},"evals":["options.fill"],"jsHooks":[]}</script></li>
-</ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 1</span>
-<span class="kw">peity</span>(<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">9</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">9</span>,<span class="dv">7</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">2</span>), <span class="dt">type =</span> <span class="st">&quot;bar&quot;</span>, <span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">fill =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>)))
+<div id="advanced-examples" class="section level2">
+<h2>Advanced examples</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(datamaps)
+<span class="kw">library</span>(dplyr)
 
-<span class="co"># 2</span>
-<span class="kw">peity</span>(<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">2</span>,-<span class="dv">1</span>,-<span class="dv">3</span>,-<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">2</span>), <span class="dt">type =</span> <span class="st">&quot;bar&quot;</span>, <span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">fill =</span> htmlwidgets::<span class="kw">JS</span>(<span class="st">&quot;function(value) {</span>
-<span class="st">                                                                                     return value &gt; 0 ? &#39;green&#39;:&#39;red&#39;}&quot;</span>)))
+sesh &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/JohnCoene/projects/gh-pages/htmlwidgets/echarts/data/sessions.csv&quot;</span>)
 
-<span class="co"># 3</span>
-fun &lt;-<span class="st"> </span>htmlwidgets::<span class="kw">JS</span>(<span class="st">&#39;function(_, i, all) {</span>
-<span class="st">    var g = parseInt((i / all.length) * 255)</span>
-<span class="st">    return &quot;rgb(255, &quot; + g + &quot;, 0)&quot;</span>
-<span class="st">  }&#39;</span>)
-<span class="kw">peity</span>(<span class="kw">c</span>(<span class="dv">0</span>,-<span class="dv">3</span>,-<span class="dv">6</span>,-<span class="dv">4</span>,-<span class="dv">5</span>,-<span class="dv">4</span>,-<span class="dv">7</span>,-<span class="dv">3</span>,-<span class="dv">5</span>,-<span class="dv">2</span>), <span class="dt">type =</span> <span class="st">&quot;bar&quot;</span>, <span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">fill =</span> fun))
+<span class="co"># datamaps uses iso3c format</span>
+sesh$iso3c &lt;-<span class="st"> </span>countrycode::<span class="kw">countrycode</span>(sesh$Country, <span class="st">&quot;country.name&quot;</span>, <span class="st">&quot;iso3c&quot;</span>)
+sesh &lt;-<span class="st"> </span>sesh[!<span class="kw">is.na</span>(sesh$iso3c),] <span class="co"># remove NA</span>
+sesh$continent &lt;-<span class="st"> </span>countrycode::<span class="kw">countrycode</span>(sesh$iso3c, <span class="st">&quot;iso3c&quot;</span>, <span class="st">&quot;continent&quot;</span>) <span class="co"># find continents</span>
 
-<span class="co"># 4</span>
-<span class="kw">peity</span>(<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">7</span>,<span class="dv">6</span>,<span class="dv">5</span>), <span class="dt">type =</span> <span class="st">&quot;pie&quot;</span>, <span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">fill =</span> <span class="kw">c</span>(<span class="st">&quot;cyan&quot;</span>, <span class="st">&quot;magenta&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;black&quot;</span>)))
+<span class="co"># sum Sessions by continent</span>
+continents &lt;-<span class="st"> </span>sesh %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(continent) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Sessions =</span> <span class="kw">sum</span>(Sessions)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">long =</span> <span class="kw">c</span>(<span class="fl">3.917313</span>, -<span class="fl">99.133209</span>, <span class="fl">106.660172</span>, <span class="fl">16.363449</span>),
+         <span class="dt">lat =</span> <span class="kw">c</span>(<span class="fl">7.401962</span>, <span class="fl">19.432608</span>, <span class="fl">10.762622</span>, <span class="fl">48.210033</span>))
 
-<span class="co"># 5</span>
-fun2 &lt;-<span class="st"> </span>htmlwidgets::<span class="kw">JS</span>(<span class="st">&#39;function(_, i, all) {</span>
-<span class="st">    var g = parseInt((i / all.length) * 255)</span>
-<span class="st">    return &quot;rgb(255, &quot; + g + &quot;, 0)&quot;</span>
-<span class="st">  }&#39;</span>)
-<span class="kw">peity</span>(<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">9</span>,<span class="dv">6</span>,<span class="dv">5</span>), <span class="dt">type =</span> <span class="st">&quot;pie&quot;</span>, <span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">fill =</span> fun2))</code></pre></div>
+sesh %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">datamaps</span>(<span class="dt">default =</span> <span class="st">&quot;lightgray&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">add_choropleth</span>(iso3c, Sessions, <span class="dt">colors =</span> RColorBrewer::<span class="kw">brewer.pal</span>(<span class="dv">5</span>, <span class="st">&quot;YlOrRd&quot;</span>)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">add_data</span>(continents) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">add_bubbles</span>(long, lat, <span class="kw">log</span>(Sessions) *<span class="st"> </span><span class="dv">5</span>, continent, continent, <span class="dt">colors =</span> RColorBrewer::<span class="kw">brewer.pal</span>(<span class="dv">4</span>, <span class="st">&quot;Set1&quot;</span>))</code></pre></div>
+</div>
 
 
 <div class="row">

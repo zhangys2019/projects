@@ -1,0 +1,86 @@
+---
+title: "datamaps"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(datamaps)
+library(dplyr)
+
+sesh <- read.csv("https://raw.githubusercontent.com/JohnCoene/projects/gh-pages/htmlwidgets/echarts/data/sessions.csv")
+
+sesh$iso3c <- countrycode::countrycode(sesh$Country, "country.name", "iso3c")
+sesh <- sesh[!is.na(sesh$iso3c),]
+sesh$continent <- countrycode::countrycode(sesh$iso3c, "iso3c", "continent")
+
+continents <- sesh %>% 
+  group_by(continent) %>% 
+  summarise(Sessions = sum(Sessions)) %>% 
+  mutate(long = c(3.917313, -99.133209, 106.660172, 16.363449),
+         lat = c(7.401962, 19.432608, 10.762622, 48.210033))
+```
+
+```{r}
+sesh %>% 
+  datamaps(default = "lightgray") %>% 
+  add_choropleth(iso3c, Sessions, colors = RColorBrewer::brewer.pal(5, "YlOrRd")) %>% 
+  add_data(continents) %>% 
+  add_bubbles(long, lat, log(Sessions) * 5, continent, continent, colors = RColorBrewer::brewer.pal(4, "Set1"))
+```
+
+[![Travis-CI Build Status](https://travis-ci.org/JohnCoene/datamaps.svg?branch=master)](https://travis-ci.org/JohnCoene/datamaps)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/JohnCoene/datamaps?branch=master&svg=true)](https://ci.appveyor.com/project/JohnCoene/datamaps)
+
+R htmlwidget for [datamaps](http://datamaps.github.io/).
+
+```{r, echo = FALSE}
+p(a(href="https://github.com/JohnCoene/datamaps", target = "_blank",
+            HTML("<button class='bttn-unite bttn-lg bttn-danger'><i class='fa fa-github' aria-hidden='true'></i> Repository</button>")))
+```
+
+## Install 
+
+```{r, echo = TRUE, eval = FALSE}
+# install.packages("devtools")
+devtools::install_github("JohnCoene/datamaps")
+```
+
+## First map
+
+```{r, echo = TRUE}
+states <- data.frame(st = c("AR", "NY", "CA", "IL", "CO", "MT", "TX"),
+    val = c(10, 5, 3, 8, 6, 7, 2))
+
+states %>%
+    datamaps(scope = "usa", default = "lightgray") %>%
+    add_choropleth(st, val) %>%
+    add_labels()
+```
+
+## Advanced examples
+
+```{r, echo = TRUE, eval = FALSE}
+library(datamaps)
+library(dplyr)
+
+sesh <- read.csv("https://raw.githubusercontent.com/JohnCoene/projects/gh-pages/htmlwidgets/echarts/data/sessions.csv")
+
+# datamaps uses iso3c format
+sesh$iso3c <- countrycode::countrycode(sesh$Country, "country.name", "iso3c")
+sesh <- sesh[!is.na(sesh$iso3c),] # remove NA
+sesh$continent <- countrycode::countrycode(sesh$iso3c, "iso3c", "continent") # find continents
+
+# sum Sessions by continent
+continents <- sesh %>% 
+  group_by(continent) %>% 
+  summarise(Sessions = sum(Sessions)) %>% 
+  mutate(long = c(3.917313, -99.133209, 106.660172, 16.363449),
+         lat = c(7.401962, 19.432608, 10.762622, 48.210033))
+
+sesh %>% 
+  datamaps(default = "lightgray") %>% 
+  add_choropleth(iso3c, Sessions, colors = RColorBrewer::brewer.pal(5, "YlOrRd")) %>% 
+  add_data(continents) %>% 
+  add_bubbles(long, lat, log(Sessions) * 5, continent, continent, colors = RColorBrewer::brewer.pal(4, "Set1"))
+```
