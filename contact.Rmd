@@ -4,7 +4,7 @@ title: "Contact"
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
-libs <- c("htmltools", "webutils", "typed")
+libs <- c("htmltools",  "typed")
 lapply(libs, library, character.only = TRUE)
 ```
 

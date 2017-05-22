@@ -4,7 +4,7 @@ title: ""
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
-libs <- c("htmltools", "webutils", "typed")
+libs <- c("htmltools", "typed")
 lapply(libs, library, character.only = TRUE)
 df <- data.frame(x = 1:10, uvcharts = runif(10, 0, 5), chartist = runif(10, 0, 5))
 
@@ -110,6 +110,17 @@ div(class = "row",
 ```{r projects header}
 div(class = "page-header",
     h1("Projects", class = "text-primary", id = "projects"))
+```
+
+```{r banner}
+div(class = "row",
+    div(class = "col-md-12 col-lg-12 col-sm-12 col-xs-12",
+        h3("five-line", class = "center"),
+        p("A collection of inappropriate limericks.", span("Python", class = "label label-primary pull-right")),
+        a(href="https://fiveline.herokuapp.com/", target="_blank", 
+          img(src = "img/thumbnails/fiveline.png", class = "img-responsive",
+              style="border:#d3d3d3;border-style:solid;"))))
+br()
 ```
 
 
