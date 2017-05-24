@@ -117,7 +117,7 @@ div(class = "row",
     div(class = "col-md-12 col-lg-12 col-sm-12 col-xs-12",
         h3("five-line", class = "center"),
         p("A collection of inappropriate limericks.", span("Python", class = "label label-primary pull-right")),
-        a(href="https://fiveline.herokuapp.com/", target="_blank", 
+        a(href="https://five-line.org", target="_blank", 
           img(src = "img/thumbnails/fiveline.png", class = "img-responsive",
               style="border:#d3d3d3;border-style:solid;"))))
 br()
