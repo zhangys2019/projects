@@ -23,6 +23,8 @@
   });
   
   setInterval(() => car.next(), 9000)
+  document.querySelector('.prev').addEventListener('click', () => car.prev())
+  document.querySelector('.next').addEventListener('click', () => car.next())
 </script>
 
 <script>

@@ -53,7 +53,7 @@
 <meta itemprop="image" content="http://john-coene.com/img/graphTweets.png">
 
 <!-- Twitter Card data -->
-<meta name="twitter:card" content="product">
+<meta name="twitter:card" content="website">
 <meta name="twitter:site" content="@jdatap">
 <meta name="twitter:title" content="John Coene">
 <meta name="twitter:description" content="R, data, and other indoor stuff.">
@@ -288,8 +288,8 @@ $(document).ready(function () {
 <blockquote>
 <p>Type “coene” to see it in action!</p>
 </blockquote>
-<div id="htmlwidget-75b91c8b78f4d959a2ad" class="egg html-widget" style="display: none; position: absolute; top:20%; left:50% width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-75b91c8b78f4d959a2ad">{"x":{"egg":"","stroke":["c","o","e","n","e"],"fade":1000,"imegg":"http://media.vanityfair.com/photos/54cbf3da998d4de83ba3602a/master/w_960,c_limit/image.jpg"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-7db2e8a830e29d0bf6bf" class="egg html-widget" style="display: none; position: absolute; top:20%; left:50% width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-7db2e8a830e29d0bf6bf">{"x":{"egg":"","stroke":["c","o","e","n","e"],"fade":1000,"imegg":"http://media.vanityfair.com/photos/54cbf3da998d4de83ba3602a/master/w_960,c_limit/image.jpg"},"evals":[],"jsHooks":[]}</script>
 <div class="page-header">
 <h2>Install</h2>
 </div>
@@ -329,6 +329,8 @@ devtools::<span class="kw">install_github</span>(<span class="st">&quot;JohnCoen
   });
   
   setInterval(() => car.next(), 9000)
+  document.querySelector('.prev').addEventListener('click', () => car.prev())
+  document.querySelector('.next').addEventListener('click', () => car.next())
 </script>
 
 <script>

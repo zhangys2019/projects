@@ -54,7 +54,7 @@
 <meta itemprop="image" content="http://john-coene.com/img/graphTweets.png">
 
 <!-- Twitter Card data -->
-<meta name="twitter:card" content="product">
+<meta name="twitter:card" content="website">
 <meta name="twitter:site" content="@jdatap">
 <meta name="twitter:title" content="John Coene">
 <meta name="twitter:description" content="R, data, and other indoor stuff.">
@@ -282,8 +282,8 @@ $(document).ready(function () {
 
 <div class="page-header">
 <h3>
-<span id="htmlwidget-074ec194253e140a3095" class="typed html-widget"></span>
-<script type="application/json" data-for="htmlwidget-074ec194253e140a3095">{"x":{"type":"typed.js for Rmarkdown","typeSpeed":100,"contentType":"html"},"evals":[],"jsHooks":[]}</script>
+<span id="htmlwidget-bf7e733c1eef0615a95b" class="typed html-widget"></span>
+<script type="application/json" data-for="htmlwidget-bf7e733c1eef0615a95b">{"x":{"type":"typed.js for Rmarkdown","typeSpeed":100,"contentType":"html"},"evals":[],"jsHooks":[]}</script>
 </h3>
 </div>
 <p><a href="https://travis-ci.org/JohnCoene/typed"><img src="https://travis-ci.org/JohnCoene/typed.svg?branch=master" alt="Travis-CI Build Status" /></a> <a href="https://saythanks.io/to/JohnCoene"><img src="https://img.shields.io/badge/say-thanks-ff69b4.svg" alt="saythanks" /></a></p>
@@ -339,6 +339,8 @@ It is obviously meant to be used in Rmarkdown html documents (such as this very 
   });
   
   setInterval(() => car.next(), 9000)
+  document.querySelector('.prev').addEventListener('click', () => car.prev())
+  document.querySelector('.next').addEventListener('click', () => car.next())
 </script>
 
 <script>
