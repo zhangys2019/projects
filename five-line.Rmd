@@ -1,0 +1,77 @@
+---
+title: "five-line"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(fiveline)
+library(htmltools)
+```
+
+[![Travis-CI Build Status](https://travis-ci.org/JohnCoene/fiveline.svg?branch=master)](https://travis-ci.org/JohnCoene/fiveline)
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/fiveline)](https://cran.r-project.org/package=fiveline)
+
+![five-line](https://s3-us-west-2.amazonaws.com/fiveline/media/twitter.png)
+
+```{r intro}
+div(class = "container-fluid",
+    p(code("fiveline"), " is an R wrapper for the", 
+      a("fiveline API", href = "http://www.five-line.org/api/", target = "_blank"), "."),
+    p(a(href="https://github.com/JohnCoene/fiveline", target = "_blank",
+        HTML("<button class='bttn-unite bttn-lg bttn-danger'><i class='fa fa-github' aria-hidden='true'></i> R Package</button>")),
+      a(href="http://www.five-line.org/api", target = "_blank",
+        HTML("<button class='bttn-unite bttn-lg bttn-warning'><i class='fa fa-code aria-hidden='true'></i> API</button>"))))
+```
+
+
+```{r install head}
+div(class = "page-header",
+    h2("Install"))
+```
+
+```{r install code, eval=FALSE, echo=TRUE}
+devtools::install_github("JohnCoene/fiveline")
+```
+
+```{r examples head}
+div(class = "page-header",
+    h2("Get Started"))
+```
+
+* Visit [five-line](http://www.five-line.org)
+* Create an account
+* Keep note of your credentials; username and password
+
+```{r examples ex}
+div(class = "page-header",
+    h2("Examples"))
+```
+
+```{r, eval=FALSE, echo=TRUE}
+# Authenticate - get token
+fl_auth(username = "<your_username>", password = "<your_password>")
+
+# get list of authors
+aut <- list_aut()
+
+# get limericks by first author
+aut_lim <- get_aut(aut$id[1])
+
+# get first limerick
+lim <- get_lim(aut_lim$id[1])
+
+# insert in Rmarkdown
+insert_lim(lim)
+```
+
+```{r}
+div(
+  h5("A belle of Natchez"),
+  p("There was a young belle of old Natchez,", br(),
+    'Whose garments were always in patchez.', br(),
+    'When comments arose, ', br(),
+    'On the state of her clothes, ', br(),
+    'She replied, "When Ah itchez, Ah scratchez."'
+    )
+)
+```
