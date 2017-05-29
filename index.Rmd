@@ -130,7 +130,7 @@ div(class = "row",
           img(src = "img/thumbnails/fiveline.png", class = "img-responsive",
               style="border:#d3d3d3;border-style:solid;"))),
     div(class = "col-md-4 col-lg-4 col-sm-6 col-xs-6",
-        h3("five-line - API", class = "center"),
+        h3("API & R Package", class = "center"),
         p("five-line API; include limericks in your Rmarkdown documents.", span("API", class = "label label-info pull-right")),
         a(href="five-line", 
           img(src = "img/thumbnails/fivelineAPI.png", class = "img-responsive"))))
