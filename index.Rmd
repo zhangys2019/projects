@@ -151,7 +151,8 @@ div(class = "panel panel-default",
                 class = "fa fa-android"
               ), 
               "App",
-              href="#"),
+              href="https://play.google.com/store/apps/details?id=org.five_line.www.five_line",
+              target="_blank"),
             "Get the all the poetic smut in one tap."
           ),
           tags$li(
