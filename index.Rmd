@@ -121,22 +121,63 @@ div(class = "page-header",
     h1("Projects", class = "text-primary", id = "projects"))
 ```
 
-```{r banner}
-div(class = "row",
-    div(class = "col-md-8 col-lg-8 col-sm-6 col-xs-6",
-        h3("five-line", class = "center"),
-        p("A collection of inappropriate limericks.", span("Python", class = "label label-primary pull-right")),
-        a(href="http://five-line.org", target="_blank", 
-          img(src = "img/thumbnails/fiveline.png", class = "img-responsive",
-              style="border:#d3d3d3;border-style:solid;"))),
-    div(class = "col-md-4 col-lg-4 col-sm-6 col-xs-6",
-        h3("API & R Package", class = "center"),
-        p("five-line API; include limericks in your Rmarkdown documents.", span("API", class = "label label-info pull-right")),
-        a(href="five-line", 
-          img(src = "img/thumbnails/fivelineAPI.png", class = "img-responsive"))))
-br()
+```{r fiveline}
+div(class = "panel panel-default",
+    div(class = "panel-body",
+        img(src = "img/thumbnails/fiveline.png", class = "img-responsive"),
+        div(
+          class = "panel-body",
+          tags$p(
+            "A collection of bawdy and blasphemous five-line stanzas."
+          )
+        ),
+        tags$ul(
+          class = "list-group",
+          tags$li(
+            class = "list-group-item",
+            a(
+              tags$i(
+                class = "fa fa-link"
+              ), 
+              "Website",
+              href="http://five-line.org", 
+              target="_blank"),
+            "browse the latest smutty scansions."
+          ),
+          tags$li(
+            class = "list-group-item",
+            a(
+              tags$i(
+                class = "fa fa-android"
+              ), 
+              "App",
+              href="#"),
+            "Get the all the poetic smut in one tap."
+          ),
+          tags$li(
+            class = "list-group-item",
+            a(
+              tags$i(
+                class = "fa fa-code"
+              ), 
+              "API",
+              href="five-line"),
+            "Add limericks to your website."
+          ),
+          tags$li(
+            class = "list-group-item",
+            a(
+              tags$i(
+                class = "icon-rlogo"
+              ), 
+              "Package",
+              href="five-line"),
+            "Include limericks in your Rmarkdown reports."
+          )
+        )
+      )
+  )
 ```
-
 
 ```{r, projects row 1}
 tube <- div(class = "thumbnail js-tilt rellax",
