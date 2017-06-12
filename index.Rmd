@@ -162,7 +162,8 @@ div(class = "panel panel-default",
                 class = "fa fa-code"
               ), 
               "API",
-              href="five-line"),
+              href="http://www.five-line.org/api/",
+              target = "_blank"),
             "Add limericks to your website."
           ),
           tags$li(
