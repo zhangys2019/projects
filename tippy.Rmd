@@ -1,0 +1,49 @@
+---
+title: "tippy"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(htmltools)
+```
+
+[![Build Status](https://travis-ci.org/JohnCoene/tippy.svg?branch=master)](https://travis-ci.org/JohnCoene/tippy)
+[![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/JohnCoene)
+
+```{r intro}
+div(class = "container-fluid",
+    br(),
+    br(),
+    p(code("countup"), "is an htmlwidget for ",
+      a("tippy.js", href = "https://atomiks.github.io/tippyjs", target = "_blank")),
+    br(),
+    p(a(href="https://github.com/JohnCoene/tippy", target = "_blank",
+            HTML("<button class='bttn-unite bttn-lg bttn-danger'><i class='fa fa-github' aria-hidden='true'></i> Repository</button>"))))
+```
+
+
+```{r install}
+div(class = "page-header",
+    h2("Install"))
+```
+
+```{r install code, eval=FALSE, echo=TRUE}
+devtools::install_github("JohnCoene/tippy")
+```
+
+```{r examples}
+div(class = "page-header",
+    h2("Examples"))
+```
+
+```{r example code, eval=TRUE, echo=TRUE}
+library(tippy)
+
+tippy("Hover me!", tooltip = "Hi, I'm the tooltip!")
+tippy("Hover me!", tooltip = "Hi, I'm the tooltip!", position = "right",
+  theme = "light")
+tippy("Hover me!", tooltip = "Hi, I'm the tooltip!", animation = "scale",
+  duration = 1000, position = "bottom")
+tippy("Click me!", tooltip = "Hi, I'm the tooltip!", trigger = "click",
+  theme = "light")
+```
