@@ -35,13 +35,36 @@ div(class = "page-header",
     h2("Demos"))
 ```
 
+```{r}
+p(a(href="fullpage_demo", target = "_blank",
+            HTML("<button class='bttn-unite bttn-lg bttn-info'><i class='fa fa-file-text' aria-hidden='true'></i> Full Page</button>")))
+```
+
+```{r}
+div(class = "page-header",
+    h2("Full page"))
+```
+
+Features:
+
 - slides
 - background colors
 - navigation
 - table of content
 - and more
 
-```{r}
-p(a(href="fullpage_demo", target = "_blank",
-            HTML("<button class='bttn-unite bttn-lg bttn-info'><i class='fa fa-file-text' aria-hidden='true'></i> Full Page</button>")))
+Options:
+
+- `toc` - Table of content as menu, i.e.: `toc: true`
+- `background` - background color of sections, i.e.:
 ```
+- background:
+    - blue
+    - red
+    - green
+```
+- `continousVertical`
+- `continuousHorizontal`
+- `navigation` whether to show navigation
+- `navigationPosition` position of aforementioned `navigation`
+- `slidesNavigation`
