@@ -1,0 +1,47 @@
+---
+title: "reporter"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(htmltools)
+```
+
+[![Travis-CI Build Status](https://travis-ci.org/JohnCoene/reporter.svg?branch=master)](https://travis-ci.org/JohnCoene/reporter)
+
+`reporter` is a set of Rmarkdown formats currently including:
+
+* fullpage - Not into slides? Me neither! This comes close enough.
+* material (WIP)
+
+`r br()`
+
+```{r}
+p(a(href="https://github.com/JohnCoene/reporter", target = "_blank",
+            HTML("<button class='bttn-unite bttn-lg bttn-danger'><i class='fa fa-github' aria-hidden='true'></i> Repository</button>")))
+```
+
+```{r install head}
+div(class = "page-header",
+    h2("Install"))
+```
+
+```{r install code, eval=FALSE, echo=TRUE}
+devtools::install_github("JohnCoene/reporter")
+```
+
+```{r examples head}
+div(class = "page-header",
+    h2("Demos"))
+```
+
+- slides
+- background colors
+- navigation
+- table of content
+- and more
+
+```{r}
+p(a(href="fullpage_demo", target = "_blank",
+            HTML("<button class='bttn-unite bttn-lg bttn-info'><i class='fa fa-file-text' aria-hidden='true'></i> Full Page</button>")))
+```

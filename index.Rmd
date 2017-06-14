@@ -338,10 +338,19 @@ tippy <- div(class = "thumbnail js-tilt rellax",
 
 tippy <- tagAppendAttributes(tippy, "data-aos" = "zoom-in-up", "data-aos-duration"="1000", "data-tilt" = NA)
 
+reporter <- div(class = "thumbnail js-tilt rellax",
+          a(href = "reporter",
+            img(src = "img/thumbnails/reporter.png", class = "img-responsive")),
+            div(class = "caption",
+                h3("reporter"),
+                p("reporter is a collection of Rmarkdown formats (WIP)."),
+                h4(span("misc", class = "label label-default"))))
+
+reporter <- tagAppendAttributes(reporter, "data-aos" = "zoom-in-up", "data-aos-duration"="1000", "data-tilt" = NA)
+
 div(class = "row",
-    div(class = "col-lg-12 col-md-12"),
-    div(class = "col-lg-12 col-md-12", tippy),
-    div(class = "col-lg-12 col-md-12"))
+    div(class = "col-lg-6 col-md-6", tippy),
+    div(class = "col-lg-6 col-md-6", reporter))
 ```
 
 ```{r echarts jumbo, echo = FALSE, eval = TRUE}
@@ -372,7 +381,7 @@ jumb <- df %>%
 div(class = "jumbotron",
     div(class = "container-fluid",
         div(class = "row",
-            div(class = "col-lg-6 col-md-6",
+            div(class = "col-lg-9 col-md-9",
                 jumb),
             div(class = "col-lg-3 col-md-3",
                 h2("echarts"),
