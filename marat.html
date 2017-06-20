@@ -11,7 +11,7 @@
 
 
 
-<title>typed</title>
+<title>marat</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,11 +20,6 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/htmlwidgets-0.8/htmlwidgets.js"></script>
-<script src="site_libs/jQuery-1.9.1/jquery.min.js"></script>
-<link href="site_libs/typed-1/cursor.css" rel="stylesheet" />
-<script src="site_libs/typed-1/typed.min.js"></script>
-<script src="site_libs/typed-binding-0.0.1/typed.js"></script>
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 <script src="https://use.fontawesome.com/9fdc01e796.js"></script>
 <link href="https://cdn.rawgit.com/gaborcsardi/r-font/master/rlogo.css" rel="stylesheet">
@@ -68,48 +63,6 @@
 <meta property="og:site_name" content="John Coene" />
 
 
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #dddddd; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { font-weight: bold; } /* Keyword */
-code > span.dt { color: #800000; } /* DataType */
-code > span.dv { color: #0000ff; } /* DecVal */
-code > span.bn { color: #0000ff; } /* BaseN */
-code > span.fl { color: #800080; } /* Float */
-code > span.ch { color: #ff00ff; } /* Char */
-code > span.st { color: #dd0000; } /* String */
-code > span.co { color: #808080; font-style: italic; } /* Comment */
-code > span.al { color: #00ff00; font-weight: bold; } /* Alert */
-code > span.fu { color: #000080; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #ff0000; font-weight: bold; } /* Warning */
-code > span.cn { color: #000000; } /* Constant */
-code > span.sc { color: #ff00ff; } /* SpecialChar */
-code > span.vs { color: #dd0000; } /* VerbatimString */
-code > span.ss { color: #dd0000; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { } /* Variable */
-code > span.cf { } /* ControlFlow */
-code > span.op { } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { font-weight: bold; } /* Preprocessor */
-code > span.at { } /* Attribute */
-code > span.do { color: #808080; font-style: italic; } /* Documentation */
-code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
-</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 
 
 <style type="text/css">
@@ -275,44 +228,31 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">typed</h1>
+<h1 class="title toc-ignore">marat</h1>
 
 </div>
 
 
-<div class="page-header">
-<h3>
-<span id="htmlwidget-196dbcb7db18fa1b0f94" class="typed html-widget"></span>
-<script type="application/json" data-for="htmlwidget-196dbcb7db18fa1b0f94">{"x":{"type":"typed.js for Rmarkdown","typeSpeed":100,"contentType":"html"},"evals":[],"jsHooks":[]}</script>
-</h3>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/JohnCoene/marat/master/assets/img/screenshot.png" alt="Marat screenshot" />
+<p class="caption">Marat screenshot</p>
 </div>
-<p><a href="https://travis-ci.org/JohnCoene/typed"><img src="https://travis-ci.org/JohnCoene/typed.svg?branch=master" alt="Travis-CI Build Status" /></a> <a href="https://saythanks.io/to/JohnCoene"><img src="https://img.shields.io/badge/say-thanks-ff69b4.svg" alt="saythanks" /></a></p>
 <div class="container-fluid">
-<br/>
-<br/>
 <p>
-<code>typed</code>
-is an htmlwidget for 
-<a href="https://github.com/mattboldt/typed.js" target="_blank">typed.js</a>
-It is obviously meant to be used in Rmarkdown html documents (such as this very website).
-</p>
-<br/>
-<p>
-<a href="https://github.com/JohnCoene/typed" target="_blank"><button class='bttn-unite bttn-lg bttn-danger'><i class='fa fa-github' aria-hidden='true'></i> Repository</button></a>
+<a href="https://github.com/JohnCoene/marat" target="_blank"><button class='bttn-unite bttn-lg bttn-default'><i class='fa fa-github' aria-hidden='true'></i> Get Started</button></a>
 </p>
 </div>
-<div class="page-header">
-<h2>Install</h2>
-</div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools::<span class="kw">install_github</span>(<span class="st">&quot;JohnCoene/typed&quot;</span>)</code></pre></div>
-<div class="page-header">
-<h2>Examples</h2>
-</div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(typed)
-
-<span class="kw">typed</span>(<span class="st">&quot;typed htmlwidget&quot;</span>) <span class="co"># basic</span>
-<span class="kw">typed</span>(<span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;world&quot;</span>)) <span class="co"># this&#39;ll type &#39;hello&#39; then erase and type &#39;world&#39;</span>
-<span class="kw">tped</span>(<span class="st">&quot;&lt;h2&gt;HTML content type (default)&lt;/h2&gt;&quot;</span>, <span class="dt">typeSpeed =</span> <span class="dv">150</span>)</code></pre></div>
+<p>Revive the values of the Enlightenment with <code>marat</code>.</p>
+<p>See <a href="http://johncoene.github.io/marat">Marat action</a>.</p>
+<p>Marat is heavily inspired by <a href="https://en.wikipedia.org/wiki/L%27Ami_du_peuple">L’Ami du peuple</a>, a newspaper written by <a href="https://en.wikipedia.org/wiki/Jean-Paul_Marat">Jean-Paul Marat</a> during the French Revolution, in which he was vocal advocate for the rights of man and liberty.</p>
+<ol style="list-style-type: decimal">
+<li>Adapt the <code>_config.yml</code> file</li>
+<li>Replace/Delete the posts</li>
+<li>Change <code>about.md</code></li>
+<li>Change or add your links in the <code>nav.yml</code> file located in the <code>_data</code> folder</li>
+<li>Enlighten the masses!</li>
+</ol>
+<p><br/><a href="https://johncoene.github.io/marat/" target="_blank"><button class='bttn-unite bttn-lg bttn-danger'><i class='fa fa-newspaper-o' aria-hidden='true'></i> Live Demo</button></a></p>
 
 
 <div class="row">

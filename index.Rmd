@@ -294,7 +294,7 @@ div(class = "row",
 ```{r projects row 4}
 gt <- div(class = "thumbnail js-tilt rellax",
           a(href = "packages/graphTweets/",
-            img(src = "img/thumbnails/graphTweets.JPG", class = "img-responsive")),
+            img(src = "img/thumbnails/graphTweets.png", class = "img-responsive")),
             div(class = "caption",
                 h3(HTML("<i class='icon-rlogo'></i> graphTweets")),
                 p("graphTweets is an R package to visualise networks of Twitter interactions."),
@@ -336,7 +336,7 @@ tippy <- div(class = "thumbnail js-tilt rellax",
                 p("tippy is an htmlwidget to include tooltips in Rmarkdown."),
                 h4(span("misc", class = "label label-default"))))
 
-tippy <- tagAppendAttributes(tippy, "data-aos" = "zoom-in-up", "data-aos-duration"="1000", "data-tilt" = NA)
+tippy <- tagAppendAttributes(tippy, "data-aos" = "zoom-in-right", "data-aos-duration"="1000", "data-tilt" = NA)
 
 reporter <- div(class = "thumbnail js-tilt rellax",
           a(href = "reporter",
@@ -348,9 +348,21 @@ reporter <- div(class = "thumbnail js-tilt rellax",
 
 reporter <- tagAppendAttributes(reporter, "data-aos" = "zoom-in-up", "data-aos-duration"="1000", "data-tilt" = NA)
 
+marat <- div(class = "thumbnail js-tilt rellax",
+          a(href = "marat",
+            img(src = "https://raw.githubusercontent.com/JohnCoene/marat/master/assets/img/screenshot.png", 
+                class = "img-responsive")),
+            div(class = "caption",
+                h3("Marat"),
+                p("Marat is a jekyll-theme inspired by L'Ami du peuple by Jean-Paul Marat."),
+                h4(span("misc", class = "label label-default"))))
+
+marat <- tagAppendAttributes(marat, "data-aos" = "zoom-in-left", "data-aos-duration"="1000", "data-tilt" = NA)
+
 div(class = "row",
-    div(class = "col-lg-6 col-md-6", tippy),
-    div(class = "col-lg-6 col-md-6", reporter))
+    div(class = "col-lg-4 col-md-4", tippy),
+    div(class = "col-lg-4 col-md-4", marat),
+    div(class = "col-lg-4 col-md-4", reporter))
 ```
 
 ```{r echarts jumbo, echo = FALSE, eval = TRUE}
