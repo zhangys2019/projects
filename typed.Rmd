@@ -1,14 +1,16 @@
 ---
-title: "typed"
+title: ""
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+<main>
+<div class = "container">
+
 ```{r demo}
-div(class = "page-header",
-    h3(typed("typed.js for Rmarkdown", typeSpeed = 100)))
+h1(typed("typed.js for Rmarkdown", typeSpeed = 100))
 ```
 
 [![Travis-CI Build Status](https://travis-ci.org/JohnCoene/typed.svg?branch=master)](https://travis-ci.org/JohnCoene/typed)
@@ -46,3 +48,6 @@ typed("typed htmlwidget") # basic
 typed(c("hello", "world")) # this'll type 'hello' then erase and type 'world'
 tped("<h2>HTML content type (default)</h2>", typeSpeed = 150)
 ```
+
+</div>
+</main>

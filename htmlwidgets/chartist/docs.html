@@ -4,26 +4,29 @@
 
 <head>
 
-<meta charset="utf-8">
+<meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 
 
-<title>Docs</title>
+<title></title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
-<script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+<link href="https://cdn.rawgit.com/gaborcsardi/r-font/master/rlogo.css" rel="stylesheet">
+<link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="../../css/materialize.min.css"  media="screen,projection"/>
+
+<link rel="stylesheet" href="../../css/atelier-cave-light.css">
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -35,397 +38,136 @@
 
 </script>
 
+<!--SHARE TAGS-->
+<meta name="google-site-verification" content="p4A9hVd1c8FOAlQsyDq0NMrE9IQdtfZoHgQ2e1t2dYE" />
+<meta name="description" content="R, data, and other indoor stuff." />
+
+<!-- Schema.org markup for Google+ -->
+<meta itemprop="name" content="John Coene">
+<meta itemprop="description" content="R, data, and other indoor stuff.">
+<meta itemprop="image" content="http://john-coene.com/img/graphTweets.png">
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="website">
+<meta name="twitter:site" content="@jdatap">
+<meta name="twitter:title" content="John Coene">
+<meta name="twitter:description" content="R, data, and other indoor stuff.">
+<meta name="twitter:creator" content="@jdatap">
+<meta name="twitter:image" content="http://john-coene.com/img/graphTweets.png">
+
+<!-- Open Graph data -->
+<meta property="og:title" content="John Coene" />
+<meta property="og:image" content="http://john-coene.com/img/graphTweets.png" />
+<meta property="og:description" content="R, data, and other indoor stuff." />
+<meta property="og:site_name" content="John Coene" />
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #dddddd; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { font-weight: bold; } /* Keyword */
-code > span.dt { color: #800000; } /* DataType */
-code > span.dv { color: #0000ff; } /* DecVal */
-code > span.bn { color: #0000ff; } /* BaseN */
-code > span.fl { color: #800080; } /* Float */
-code > span.ch { color: #ff00ff; } /* Char */
-code > span.st { color: #dd0000; } /* String */
-code > span.co { color: #808080; font-style: italic; } /* Comment */
-code > span.al { color: #00ff00; font-weight: bold; } /* Alert */
-code > span.fu { color: #000080; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #ff0000; font-weight: bold; } /* Warning */
-code > span.cn { color: #000000; } /* Constant */
-code > span.sc { color: #ff00ff; } /* SpecialChar */
-code > span.vs { color: #dd0000; } /* VerbatimString */
-code > span.ss { color: #dd0000; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { } /* Variable */
-code > span.cf { } /* ControlFlow */
-code > span.op { } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { font-weight: bold; } /* Preprocessor */
-code > span.at { } /* Attribute */
-code > span.do { color: #808080; font-style: italic; } /* Documentation */
-code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
-</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
-<link rel="stylesheet" href="bttn.min.css" type="text/css" />
+
+<link rel="stylesheet" href="../../css/styles.css" type="text/css" />
 
 </head>
 
 <body>
 
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-  height: auto;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-</style>
 
+<ul id="dropdown1" class="dropdown-content">
+  <li><a class="blue-text" href="docs">HTML</a></li>
+  <li class="divider"></li>
+  <li><a class="blue-text" href="chartist-0.0.1.pdf">PDF</a></li>
+</ul>
 
-<style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 41px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-
-.section h2 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h3 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h4 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h5 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h6 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-</style>
-
-<script>
-// manage active state of menu based on current page
-$(document).ready(function () {
-  // active menu anchor
-  href = window.location.pathname
-  href = href.substr(href.lastIndexOf('/') + 1)
-  if (href === "")
-    href = "index.html";
-  var menuAnchor = $('a[href="' + href + '"]');
-
-  // mark it active
-  menuAnchor.parent().addClass('active');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
-});
-</script>
-
-
-<div class="container-fluid main-container">
-
-<!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
-
-<!-- code folding -->
-
-
-
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
-
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-  padding-left: 25px;
-  text-indent: 0;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
-
-
-
-
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html">chartist</a>
+<nav>
+  <div class="nav-wrapper blue">
+    <div class="container">
+      <a href="http://john-coene.com/" class="brand-logo brand">John Coene</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="types">Chart types</a></li>
+        <li><a href="plugins">Plugins</a></li>
+        <li><a href="options">Options</a></li>
+        <li><a href="responsive">Responsive</a></li>
+        <li><a href="animations">Animations</a></li>
+        <li><a href="style">Style</a></li>
+        <li><a href="rmarkdown">Rmarkdown</a></li>
+        <li>
+          <a class="dropdown-button" href="#!" data-activates="dropdown1">Docs<i class="material-icons right">arrow_drop_down</i></a>
+        </li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="types">Chart types</a></li>
+        <li><a href="plugins">Plugins</a></li>
+        <li><a href="options">Options</a></li>
+        <li><a href="responsive">Responsive</a></li>
+        <li><a href="animations">Animations</a></li>
+        <li><a href="style">Style</a></li>
+        <li><a href="rmarkdown">Rmarkdown</a></li>
+        <li><a href="docs">HTML</a></li>
+        <li class="divider"></li>
+        <li><a href="chartist-0.0.1.pdf">Docs</a></li>
+      </ul>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li>
-  <a href="http://john-coene.com/">
-    <span class="fa fa-arrow-circle-left"></span>
-     
-    home
-  </a>
-</li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="types">Chart types</a>
-</li>
-<li>
-  <a href="plugins">Plugins</a>
-</li>
-<li>
-  <a href="options">Options</a>
-</li>
-<li>
-  <a href="responsive">Responsive Options</a>
-</li>
-<li>
-  <a href="animations">Animations</a>
-</li>
-<li>
-  <a href="style">Style</a>
-</li>
-<li>
-  <a href="rmarkdown">Rmarkdown</a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-book"></span>
-     
-    Docs
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="docs">HTML</a>
-    </li>
-    <li>
-      <a href="chartist-0.0.1.pdf">PDF</a>
-    </li>
-  </ul>
-</li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div><!--/.container -->
-</div><!--/.navbar -->
-
-<div class="fluid-row" id="header">
+  </div>
+</nav>
 
 
 
-<h1 class="title toc-ignore">Docs</h1>
-
-</div>
 
 
-<div id="add_ist" class="section level1">
-<h1>add_ist</h1>
+<main>
+<div class="container">
+<h1>Docs</h1>
+<h3 id="add_ist">add_ist</h3>
 <p>Add series(s) to chart.</p>
-<div id="arguments" class="section level2">
-<h2>Arguments</h2>
+<h4 id="arguments">Arguments</h4>
 <ul>
 <li><code>p</code> a chartist object.</li>
 <li><code>value</code> values to plot.</li>
 <li><code>...</code> additional parameters to pass to serie.</li>
 </ul>
-</div>
-<div id="details" class="section level2">
-<h2>Details</h2>
+<h4 id="details">Details</h4>
 <p>Naming the serie (<code>name</code>) is useful if you want to apply different options (<code>opt_ist</code>) for each serie later on. If no name is specified then the assigns one; <code>type + i</code> where <code>i</code> is the serie’s index and starts from 1. Names can be retrieved using <code>name_ist</code>. See examples.</p>
-</div>
-<div id="examples" class="section level2">
-<h2>Examples</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># basic example</span>
-mtcars[<span class="dv">1</span>:<span class="dv">10</span>,] %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(<span class="dt">x =</span> mpg) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(disp) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(hp)
+<h4 id="examples">Examples</h4>
+<pre class="r"><code># basic example
+mtcars[1:10,] %&gt;%
+  chart_ist(x = mpg) %&gt;%
+  add_ist(disp) %&gt;%
+  add_ist(hp)
 
-<span class="co"># option applies to both &quot;disp&quot; and &quot;hp&quot;</span>
-mtcars[<span class="dv">1</span>:<span class="dv">10</span>,] %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(<span class="dt">x =</span> mpg) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(disp) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(hp) %&gt;%
-<span class="st">  </span><span class="kw">opt_ist</span>(<span class="dt">showArea =</span> <span class="ot">TRUE</span>)
+# option applies to both &quot;disp&quot; and &quot;hp&quot;
+mtcars[1:10,] %&gt;%
+  chart_ist(x = mpg) %&gt;%
+  add_ist(disp) %&gt;%
+  add_ist(hp) %&gt;%
+  opt_ist(showArea = TRUE)
 
-<span class="co"># use names to apply different option to each serie</span>
-mtcars[<span class="dv">1</span>:<span class="dv">10</span>,] %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(<span class="dt">x =</span> mpg) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(disp, <span class="dt">name =</span> <span class="st">&quot;disp&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(hp, <span class="dt">name =</span> <span class="st">&quot;hp&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">opt_ist</span>(<span class="dt">name =</span> <span class="st">&quot;hp&quot;</span>, <span class="dt">showArea =</span> <span class="ot">TRUE</span>, <span class="dt">showPoint =</span> <span class="ot">FALSE</span>) %&gt;%
-<span class="st">  </span><span class="kw">opt_ist</span>(<span class="dt">name =</span> <span class="st">&quot;disp&quot;</span>, <span class="dt">lineSmoothing =</span> <span class="st">&quot;step&quot;</span>)
+# use names to apply different option to each serie
+mtcars[1:10,] %&gt;%
+  chart_ist(x = mpg) %&gt;%
+  add_ist(disp, name = &quot;disp&quot;) %&gt;%
+  add_ist(hp, name = &quot;hp&quot;) %&gt;%
+  opt_ist(name = &quot;hp&quot;, showArea = TRUE, showPoint = FALSE) %&gt;%
+  opt_ist(name = &quot;disp&quot;, lineSmoothing = &quot;step&quot;)
 
-<span class="co"># if you haven&#39;t assigned names you can retrieve generated ones with name_ist</span>
-<span class="co"># See details for generated names logic</span>
-mtcars[<span class="dv">1</span>:<span class="dv">10</span>,] %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(<span class="dt">x =</span> mpg) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(disp, <span class="dt">name =</span> <span class="st">&quot;disp&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(hp, <span class="dt">name =</span> <span class="st">&quot;hp&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">name_ist</span>()</code></pre></div>
-</div>
-</div>
-<div id="anim_ist" class="section level1">
-<h1>anim_ist</h1>
+# if you haven&#39;t assigned names you can retrieve generated ones with name_ist
+# See details for generated names logic
+mtcars[1:10,] %&gt;%
+  chart_ist(x = mpg) %&gt;%
+  add_ist(disp, name = &quot;disp&quot;) %&gt;%
+  add_ist(hp, name = &quot;hp&quot;) %&gt;%
+  name_ist()</code></pre>
+<h3 id="anim_ist">anim_ist</h3>
 <p>Animate chart.</p>
-<div id="arguments-1" class="section level2">
-<h2>Arguments</h2>
+<h4 id="arguments-1">Arguments</h4>
 <ul>
 <li><code>p</code> a chartist object.</li>
 <li><code>type</code> chart element ype to animate (i.e.: <code>line</code> or <code>grid</code>)</li>
@@ -437,26 +179,20 @@ mtcars[<span class="dv">1</span>:<span class="dv">10</span>,] %&gt;%
 <li><code>easing</code> easing function.</li>
 <li><code>...</code> any other argument to pass to <code>anim</code></li>
 </ul>
-</div>
-<div id="examples-1" class="section level2">
-<h2>Examples</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(wt) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(disp) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(hp) %&gt;%
-<span class="st">  </span><span class="kw">anim_ist</span>(<span class="dt">type =</span> <span class="kw">c</span>(<span class="st">&quot;line&quot;</span>, <span class="st">&quot;point&quot;</span>), 
-           <span class="dt">anim =</span> <span class="st">&quot;opacity&quot;</span>, 
-           <span class="dt">begin =</span> <span class="dv">0</span>,
-           <span class="dt">from =</span> <span class="dv">0</span>,
-           <span class="dt">to =</span> <span class="dv">1</span>,
-           <span class="dt">dur =</span> <span class="dv">2000</span>)</code></pre></div>
-</div>
-</div>
-<div id="baropt_ist" class="section level1">
-<h1>baropt_ist</h1>
+<h4 id="examples-1">Examples</h4>
+<pre class="r"><code>mtcars %&gt;%
+  chart_ist(wt) %&gt;%
+  add_ist(disp) %&gt;%
+  add_ist(hp) %&gt;%
+  anim_ist(type = c(&quot;line&quot;, &quot;point&quot;), 
+           anim = &quot;opacity&quot;, 
+           begin = 0,
+           from = 0,
+           to = 1,
+           dur = 2000)</code></pre>
+<h3 id="baropt_ist">baropt_ist</h3>
 <p>Pass options to bar type.</p>
-<div id="arguments-2" class="section level2">
-<h2>Arguments</h2>
+<h4 id="arguments-2">Arguments</h4>
 <ul>
 <li><code>p</code> a chartist object.</li>
 <li><code>fullWidth</code> When set to true, the last grid line on the x-axis is not drawn and the chart elements will expand to the full available width of the chart. For the last label to be drawn correctly you might need to add chart padding or offset the last label with a draw event handler.</li>
@@ -471,31 +207,25 @@ mtcars[<span class="dv">1</span>:<span class="dv">10</span>,] %&gt;%
 <li><code>chartPadding</code> padding around chart div.</li>
 <li><code>...</code> additional options.</li>
 </ul>
-</div>
-<div id="examples-2" class="section level2">
-<h2>Examples</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars$models &lt;-<span class="st"> </span><span class="kw">rownames</span>(mtcars)
+<h4 id="examples-2">Examples</h4>
+<pre class="r"><code>mtcars$models &lt;- rownames(mtcars)
 
-mtcars[<span class="dv">1</span>:<span class="dv">10</span>,] %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(<span class="dt">x =</span> models, <span class="dt">type =</span> <span class="st">&quot;bar&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(cyl) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(carb) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(gear) %&gt;%
-<span class="st">  </span><span class="kw">baropt_ist</span>(<span class="dt">stackBars =</span> <span class="ot">TRUE</span>)
+mtcars[1:10,] %&gt;%
+  chart_ist(x = models, type = &quot;bar&quot;) %&gt;%
+  add_ist(cyl) %&gt;%
+  add_ist(carb) %&gt;%
+  add_ist(gear) %&gt;%
+  baropt_ist(stackBars = TRUE)
 
-mtcars[<span class="dv">1</span>:<span class="dv">10</span>,] %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(<span class="dt">x =</span> models, <span class="dt">type =</span> <span class="st">&quot;bar&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(cyl) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(carb) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(gear) %&gt;%
-<span class="st">  </span><span class="kw">baropt_ist</span>(<span class="dt">seriesBarDistance =</span> <span class="dv">10</span>, <span class="dt">centerBars =</span> <span class="ot">TRUE</span>)</code></pre></div>
-</div>
-</div>
-<div id="chartist-shiny" class="section level1">
-<h1>chartist-shiny</h1>
+mtcars[1:10,] %&gt;%
+  chart_ist(x = models, type = &quot;bar&quot;) %&gt;%
+  add_ist(cyl) %&gt;%
+  add_ist(carb) %&gt;%
+  add_ist(gear) %&gt;%
+  baropt_ist(seriesBarDistance = 10, centerBars = TRUE)</code></pre>
+<h3 id="chartist-shiny">chartist-shiny</h3>
 <p>Output and render functions for using chartist within Shiny applications and interactive Rmd documents.</p>
-<div id="arguments-3" class="section level2">
-<h2>Arguments</h2>
+<h4 id="arguments-3">Arguments</h4>
 <ul>
 <li><code>outputId</code> output variable to read from</li>
 <li><code>width</code>, <code>height</code> Must be a valid CSS unit (like ‘100%’, ‘400px’, ‘auto’) or a number, which will be coerced to a string and have ‘px’ appended.</li>
@@ -503,13 +233,9 @@ mtcars[<span class="dv">1</span>:<span class="dv">10</span>,] %&gt;%
 <li><code>env</code> The environment in which to evaluate expr.</li>
 <li><code>quoted</code> Is expr a quoted expression (with quote())? This is useful if you want to save an expression in a variable.</li>
 </ul>
-</div>
-</div>
-<div id="chart_ist" class="section level1">
-<h1>chart_ist</h1>
+<h3 id="chart_ist">chart_ist</h3>
 <p>Initiate a chartist chart.</p>
-<div id="arguments-4" class="section level2">
-<h2>Arguments</h2>
+<h4 id="arguments-4">Arguments</h4>
 <ul>
 <li><code>data</code> data.frame containing data to plot.</li>
 <li><code>x</code> Must be passed for line and bar (<code>type</code>), optional for pie <code>type</code>.</li>
@@ -517,136 +243,94 @@ mtcars[<span class="dv">1</span>:<span class="dv">10</span>,] %&gt;%
 <li><code>width</code>, <code>height</code> Must be a valid CSS unit (like ‘100%’, ‘400px’, ‘auto’) or a number, which will be coerced to a string and have ‘px’ appended, defaults to <code>NULL</code>.</li>
 <li><code>elementId</code> Use specific element id.</li>
 </ul>
-</div>
-<div id="examples-3" class="section level2">
-<h2>Examples</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(cyl) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(hp)</code></pre></div>
-</div>
-</div>
-<div id="danim_ist" class="section level1">
-<h1>danim_ist</h1>
+<h4 id="examples-3">Examples</h4>
+<pre class="r"><code>mtcars %&gt;%
+  chart_ist(cyl) %&gt;%
+  add_ist(hp)</code></pre>
+<h3 id="danim_ist">danim_ist</h3>
 <p>Out of the box animation for donut chart.</p>
-<div id="arguments-5" class="section level2">
-<h2>Arguments</h2>
+<h4 id="arguments-5">Arguments</h4>
 <ul>
 <li><code>p</code> a chartist object.</li>
 </ul>
-</div>
-<div id="examples-4" class="section level2">
-<h2>Examples</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars[<span class="dv">1</span>:<span class="dv">5</span>,] %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(<span class="dt">x =</span> hp, <span class="dt">type =</span> <span class="st">&quot;pie&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(disp) %&gt;%
-<span class="st">  </span><span class="kw">pieopt_ist</span>(<span class="dt">donut =</span> <span class="ot">TRUE</span>, <span class="dt">showLabel =</span> <span class="ot">TRUE</span>) %&gt;%
-<span class="st">  </span><span class="kw">danim_ist</span>()</code></pre></div>
-</div>
-</div>
-<div id="ganim_ist" class="section level1">
-<h1>ganim_ist</h1>
+<h4 id="examples-4">Examples</h4>
+<pre class="r"><code>mtcars[1:5,] %&gt;%
+  chart_ist(x = hp, type = &quot;pie&quot;) %&gt;%
+  add_ist(disp) %&gt;%
+  pieopt_ist(donut = TRUE, showLabel = TRUE) %&gt;%
+  danim_ist()</code></pre>
+<h3 id="ganim_ist">ganim_ist</h3>
 <p>Out of the box animation for chart grid.</p>
-<div id="arguments-6" class="section level2">
-<h2>Arguments</h2>
+<h4 id="arguments-6">Arguments</h4>
 <ul>
 <li><code>p</code> a chartist object.</li>
 </ul>
-</div>
-<div id="examples-5" class="section level2">
-<h2>Examples</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(wt) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(disp) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(hp) %&gt;%
-<span class="st">  </span><span class="kw">ganim_ist</span>()</code></pre></div>
-</div>
-</div>
-<div id="gauge_ist" class="section level1">
-<h1>gauge_ist</h1>
+<h4 id="examples-5">Examples</h4>
+<pre class="r"><code>mtcars %&gt;%
+  chart_ist(wt) %&gt;%
+  add_ist(disp) %&gt;%
+  add_ist(hp) %&gt;%
+  ganim_ist()</code></pre>
+<h3 id="gauge_ist">gauge_ist</h3>
 <p>Helper function to easily make a gauge chart from a pie.</p>
-<div id="arguments-7" class="section level2">
-<h2>Arguments</h2>
+<h4 id="arguments-7">Arguments</h4>
 <ul>
 <li><code>p</code> a chartist object.</li>
 <li><code>...</code> additional parameters to pass to <code>opt_ist</code>.</li>
 </ul>
-</div>
-<div id="examples-6" class="section level2">
-<h2>Examples</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars[<span class="dv">1</span>:<span class="dv">5</span>,] %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(<span class="dt">type =</span> <span class="st">&quot;pie&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(disp) %&gt;%
-<span class="st">  </span><span class="kw">gauge_ist</span>()</code></pre></div>
-</div>
-</div>
-<div id="hover_ist" class="section level1">
-<h1>hover_ist</h1>
+<h4 id="examples-6">Examples</h4>
+<pre class="r"><code>mtcars[1:5,] %&gt;%
+  chart_ist(type = &quot;pie&quot;) %&gt;%
+  add_ist(disp) %&gt;%
+  gauge_ist()</code></pre>
+<h3 id="hover_ist">hover_ist</h3>
 <p>Add hover tooltip</p>
-<div id="arguments-8" class="section level2">
-<h2>Arguments</h2>
+<h4 id="arguments-8">Arguments</h4>
 <ul>
 <li><code>p</code> a chartist object.</li>
 <li><code>prefix</code> add prefix to label.</li>
 <li><code>suffix</code> add suffix to label.</li>
 </ul>
-</div>
-<div id="examples-7" class="section level2">
-<h2>Examples</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(disp) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(<span class="dt">values =</span> hp, <span class="dt">name =</span> <span class="st">&quot;Your Tooltip&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">hover_ist</span>(<span class="dt">prefix =</span> <span class="st">&quot;US$&quot;</span>)
+<h4 id="examples-7">Examples</h4>
+<pre class="r"><code>mtcars %&gt;%
+  chart_ist(disp) %&gt;%
+  add_ist(values = hp, name = &quot;Your Tooltip&quot;) %&gt;%
+  hover_ist(prefix = &quot;US$&quot;)
 
 mtcars %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(disp) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(<span class="dt">values =</span> hp, <span class="dt">name =</span> <span class="st">&quot;Your &lt;span style=&#39;color:blue;&#39;&gt;Tooltip&lt;/span&gt;&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">hover_ist</span>()</code></pre></div>
-</div>
-</div>
-<div id="label_ist" class="section level1">
-<h1>label_ist</h1>
+  chart_ist(disp) %&gt;%
+  add_ist(values = hp, name = &quot;Your &lt;span style=&#39;color:blue;&#39;&gt;Tooltip&lt;/span&gt;&quot;) %&gt;%
+  hover_ist()</code></pre>
+<h3 id="label_ist">label_ist</h3>
 <p>Add data point labels to <code>line</code> type chart.</p>
-<div id="arguments-9" class="section level2">
-<h2>Arguments</h2>
+<h4 id="arguments-9">Arguments</h4>
 <ul>
 <li><code>p</code> a chartist object.</li>
 <li><code>position</code> position of label, defaults to <code>middle</code></li>
 </ul>
-</div>
-<div id="examples-8" class="section level2">
-<h2>Examples</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(disp) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(hp) %&gt;%
-<span class="st">  </span><span class="kw">label_ist</span>()</code></pre></div>
-</div>
-</div>
-<div id="lanim_ist" class="section level1">
-<h1>lanim_ist</h1>
+<h4 id="examples-8">Examples</h4>
+<pre class="r"><code>mtcars %&gt;%
+  chart_ist(disp) %&gt;%
+  add_ist(hp) %&gt;%
+  label_ist()</code></pre>
+<h3 id="lanim_ist">lanim_ist</h3>
 <p>Out of the box animation for line and/or area chart.</p>
-<div id="arguments-10" class="section level2">
-<h2>Arguments</h2>
+<h4 id="arguments-10">Arguments</h4>
 <ul>
 <li><code>p</code> a chartist object.</li>
 <li><code>type</code> chart element type to animate (i.e.: <code>line</code>, or <code>grid</code>).</li>
 </ul>
-</div>
-<div id="examples-9" class="section level2">
-<h2>Examples</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(wt) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(disp, <span class="dt">name =</span> <span class="st">&quot;disp&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(hp, <span class="dt">name =</span> <span class="st">&quot;hp&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">opt_ist</span>(<span class="dt">showPoint =</span> <span class="ot">FALSE</span>) %&gt;%
-<span class="st">  </span><span class="kw">lineopt_ist</span>(<span class="dt">name =</span> <span class="st">&quot;hp&quot;</span>, <span class="dt">showArea =</span> <span class="ot">TRUE</span>) %&gt;%
-<span class="st">  </span><span class="kw">lanim_ist</span>()</code></pre></div>
-</div>
-</div>
-<div id="lineopt_ist" class="section level1">
-<h1>lineopt_ist</h1>
+<h4 id="examples-9">Examples</h4>
+<pre class="r"><code>mtcars %&gt;%
+  chart_ist(wt) %&gt;%
+  add_ist(disp, name = &quot;disp&quot;) %&gt;%
+  add_ist(hp, name = &quot;hp&quot;) %&gt;%
+  opt_ist(showPoint = FALSE) %&gt;%
+  lineopt_ist(name = &quot;hp&quot;, showArea = TRUE) %&gt;%
+  lanim_ist()</code></pre>
+<h3 id="lineopt_ist">lineopt_ist</h3>
 <p>Pass options to line type.</p>
-<div id="arguments-11" class="section level2">
-<h2>Arguments</h2>
+<h4 id="arguments-11">Arguments</h4>
 <ul>
 <li><code>p</code> a chartist object.</li>
 <li><code>name</code> name the serie, see details (optional).</li>
@@ -665,77 +349,59 @@ mtcars %&gt;%
 <li><code>chartPadding</code> padding around chart div.</li>
 <li><code>...</code> additional options.</li>
 </ul>
-</div>
-<div id="examples-10" class="section level2">
-<h2>Examples</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(<span class="dt">x =</span> mpg, <span class="dt">type =</span> <span class="st">&quot;line&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(disp) %&gt;%
-<span class="st">  </span><span class="kw">lineopt_ist</span>(<span class="dt">showArea =</span> <span class="ot">TRUE</span>, <span class="dt">showLine =</span> <span class="ot">FALSE</span>, <span class="dt">showPoint =</span> <span class="ot">FALSE</span>)
+<h4 id="examples-10">Examples</h4>
+<pre class="r"><code>mtcars %&gt;%
+  chart_ist(x = mpg, type = &quot;line&quot;) %&gt;%
+  add_ist(disp) %&gt;%
+  lineopt_ist(showArea = TRUE, showLine = FALSE, showPoint = FALSE)
 
 mtcars %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(<span class="dt">x =</span> mpg, <span class="dt">type =</span> <span class="st">&quot;line&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(disp) %&gt;%
-<span class="st">  </span><span class="kw">lineopt_ist</span>(<span class="dt">lineSmoothing =</span> <span class="st">&quot;step&quot;</span>, <span class="dt">showLine =</span> <span class="ot">TRUE</span>, <span class="dt">showPoint =</span> <span class="ot">FALSE</span>)
+  chart_ist(x = mpg, type = &quot;line&quot;) %&gt;%
+  add_ist(disp) %&gt;%
+  lineopt_ist(lineSmoothing = &quot;step&quot;, showLine = TRUE, showPoint = FALSE)
 
 mtcars %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(<span class="dt">x =</span> mpg, <span class="dt">type =</span> <span class="st">&quot;line&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(disp, <span class="dt">name =</span> <span class="st">&quot;disp&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(hp, <span class="dt">name =</span> <span class="st">&quot;hp&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">lineopt_ist</span>(<span class="dt">name =</span> <span class="st">&quot;disp&quot;</span>, <span class="dt">lineSmoothing =</span> <span class="st">&quot;none&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">lineopt_ist</span>(<span class="dt">name =</span> <span class="st">&quot;hp&quot;</span>, <span class="dt">showArea =</span> <span class="ot">TRUE</span>, <span class="dt">showPoint =</span> <span class="ot">FALSE</span>)</code></pre></div>
-</div>
-</div>
-<div id="loop_ist" class="section level1">
-<h1>loop_ist</h1>
+  chart_ist(x = mpg, type = &quot;line&quot;) %&gt;%
+  add_ist(disp, name = &quot;disp&quot;) %&gt;%
+  add_ist(hp, name = &quot;hp&quot;) %&gt;%
+  lineopt_ist(name = &quot;disp&quot;, lineSmoothing = &quot;none&quot;) %&gt;%
+  lineopt_ist(name = &quot;hp&quot;, showArea = TRUE, showPoint = FALSE)</code></pre>
+<h3 id="loop_ist">loop_ist</h3>
 <p>Loop animation.</p>
-<div id="arguements" class="section level2">
-<h2>Arguements</h2>
+<h4 id="arguements">Arguements</h4>
 <ul>
 <li><code>p</code> a chartist object.</li>
 <li><code>ms</code> Milliseconds for loop, defaults to <code>5000</code>.</li>
 </ul>
-</div>
-<div id="examples-11" class="section level2">
-<h2>Examples</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
-<span class="kw">chart_ist</span>(qsec) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(hp) %&gt;%
-<span class="st">  </span><span class="kw">lanim_ist</span>() %&gt;%
-<span class="st">  </span><span class="kw">loop_ist</span>()</code></pre></div>
-</div>
-</div>
-<div id="name_ist" class="section level1">
-<h1>name_ist</h1>
+<h4 id="examples-11">Examples</h4>
+<pre class="r"><code>mtcars %&gt;%
+chart_ist(qsec) %&gt;%
+  add_ist(hp) %&gt;%
+  lanim_ist() %&gt;%
+  loop_ist()</code></pre>
+<h3 id="name_ist">name_ist</h3>
 <p>Get generated series name.</p>
-<div id="arguments-12" class="section level2">
-<h2>Arguments</h2>
+<h4 id="arguments-12">Arguments</h4>
 <ul>
 <li><code>p</code> a chartist object.</li>
 </ul>
-</div>
-<div id="examples-12" class="section level2">
-<h2>Examples</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># default names</span>
-mtcars[<span class="dv">1</span>:<span class="dv">20</span>,] %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(<span class="dt">x =</span> qsec) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(disp) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(hp) %&gt;%
-<span class="st">  </span><span class="kw">name_ist</span>()
+<h4 id="examples-12">Examples</h4>
+<pre class="r"><code># default names
+mtcars[1:20,] %&gt;%
+  chart_ist(x = qsec) %&gt;%
+  add_ist(disp) %&gt;%
+  add_ist(hp) %&gt;%
+  name_ist()
 
-<span class="co">#assigned names</span>
-mtcars[<span class="dv">1</span>:<span class="dv">20</span>,] %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(<span class="dt">x =</span> qsec) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(disp, <span class="dt">name =</span> <span class="st">&quot;SERIE1&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(hp, <span class="dt">name =</span> <span class="st">&quot;hp&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">name_ist</span>()</code></pre></div>
-</div>
-</div>
-<div id="opt_ist" class="section level1">
-<h1>opt_ist</h1>
+#assigned names
+mtcars[1:20,] %&gt;%
+  chart_ist(x = qsec) %&gt;%
+  add_ist(disp, name = &quot;SERIE1&quot;) %&gt;%
+  add_ist(hp, name = &quot;hp&quot;) %&gt;%
+  name_ist()</code></pre>
+<h3 id="opt_ist">opt_ist</h3>
 <p>Pass any option to any chart here. Also see options specific to your chart type, <code>pieopt_ist</code>, <code>baropt_ist</code> or <code>lineopt_ist</code>.</p>
-<div id="arguments-13" class="section level2">
-<h2>Arguments</h2>
+<h4 id="arguments-13">Arguments</h4>
 <ul>
 <li><code>p</code> a chartist object.</li>
 <li><code>name</code> name the serie, see details (optional).</li>
@@ -746,48 +412,36 @@ mtcars[<span class="dv">1</span>:<span class="dv">20</span>,] %&gt;%
 <li><code>chartPadding</code> padding around chart div.</li>
 <li><code>...</code> additional options.</li>
 </ul>
-</div>
-<div id="examples-13" class="section level2">
-<h2>Examples</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars$models &lt;-<span class="st"> </span><span class="kw">row.names</span>(mtcars)
+<h4 id="examples-13">Examples</h4>
+<pre class="r"><code>mtcars$models &lt;- row.names(mtcars)
 
-mtcars[<span class="dv">1</span>:<span class="dv">10</span>,] %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(<span class="dt">x =</span> models) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(wt) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(drat) %&gt;%
-<span class="st">  </span><span class="kw">opt_ist</span>(<span class="dt">chartPadding =</span> <span class="dv">10</span>, <span class="dt">width =</span> <span class="dv">700</span>, <span class="dt">height =</span> <span class="dv">200</span>)
+mtcars[1:10,] %&gt;%
+  chart_ist(x = models) %&gt;%
+  add_ist(wt) %&gt;%
+  add_ist(drat) %&gt;%
+  opt_ist(chartPadding = 10, width = 700, height = 200)
 
-mtcars[<span class="dv">1</span>:<span class="dv">10</span>,] %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(<span class="dt">x =</span> qsec) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(disp, <span class="dt">name =</span> <span class="st">&quot;DISP&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(hp, <span class="dt">name =</span> <span class="st">&quot;HP&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">opt_ist</span>(<span class="dt">name =</span> <span class="st">&quot;DISP&quot;</span>, <span class="dt">lineSmoothing =</span> <span class="st">&quot;step&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">opt_ist</span>(<span class="dt">name =</span> <span class="st">&quot;HP&quot;</span>, <span class="dt">showArea =</span> <span class="ot">TRUE</span>, <span class="dt">showLine =</span> <span class="ot">FALSE</span>, <span class="dt">showPoint =</span> <span class="ot">FALSE</span>)</code></pre></div>
-</div>
-</div>
-<div id="peak_ist" class="section level1">
-<h1>peak_ist</h1>
+mtcars[1:10,] %&gt;%
+  chart_ist(x = qsec) %&gt;%
+  add_ist(disp, name = &quot;DISP&quot;) %&gt;%
+  add_ist(hp, name = &quot;HP&quot;) %&gt;%
+  opt_ist(name = &quot;DISP&quot;, lineSmoothing = &quot;step&quot;) %&gt;%
+  opt_ist(name = &quot;HP&quot;, showArea = TRUE, showLine = FALSE, showPoint = FALSE)</code></pre>
+<h3 id="peak_ist">peak_ist</h3>
 <p>Turn bar chart into peak chart.</p>
-<div id="arguments-14" class="section level2">
-<h2>Arguments</h2>
+<h4 id="arguments-14">Arguments</h4>
 <ul>
 <li><code>p</code> a chartist object.</li>
 <li><code>size</code> point size.</li>
 </ul>
-</div>
-<div id="examples-14" class="section level2">
-<h2>Examples</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(qsec, <span class="dt">type =</span> <span class="st">&quot;bar&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(hp) %&gt;%
-<span class="st">  </span><span class="kw">peak_ist</span>()</code></pre></div>
-</div>
-</div>
-<div id="pieopt_ist" class="section level1">
-<h1>pieopt_ist</h1>
+<h4 id="examples-14">Examples</h4>
+<pre class="r"><code>mtcars %&gt;%
+  chart_ist(qsec, type = &quot;bar&quot;) %&gt;%
+  add_ist(hp) %&gt;%
+  peak_ist()</code></pre>
+<h3 id="pieopt_ist">pieopt_ist</h3>
 <p>Pie and donut options.</p>
-<div id="arguments-15" class="section level2">
-<h2>Arguments</h2>
+<h4 id="arguments-15">Arguments</h4>
 <ul>
 <li><code>p</code> a chartist object.</li>
 <li><code>percent</code> add percent sign</li>
@@ -805,44 +459,36 @@ mtcars[<span class="dv">1</span>:<span class="dv">10</span>,] %&gt;%
 <li><code>chartPadding</code> padding around chart div.</li>
 <li><code>...</code> additional options.</li>
 </ul>
-</div>
-<div id="examples-15" class="section level2">
-<h2>Examples</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars$models &lt;-<span class="st"> </span><span class="kw">rownames</span>(mtcars)
+<h4 id="examples-15">Examples</h4>
+<pre class="r"><code>mtcars$models &lt;- rownames(mtcars)
 
-mtcars[<span class="dv">1</span>:<span class="dv">5</span>,] %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(<span class="dt">type =</span> <span class="st">&quot;pie&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(disp) %&gt;%
-<span class="st">  </span><span class="kw">pieopt_ist</span>(<span class="dt">startAngle =</span> <span class="dv">270</span>, 
-             <span class="dt">donut =</span> <span class="ot">TRUE</span>, 
-             <span class="dt">donutWidth =</span> <span class="dv">50</span>, 
-             <span class="dt">showLabel =</span> <span class="ot">FALSE</span>)
+mtcars[1:5,] %&gt;%
+  chart_ist(type = &quot;pie&quot;) %&gt;%
+  add_ist(disp) %&gt;%
+  pieopt_ist(startAngle = 270, 
+             donut = TRUE, 
+             donutWidth = 50, 
+             showLabel = FALSE)
 
-mtcars[<span class="dv">1</span>:<span class="dv">5</span>,] %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(<span class="dt">x =</span> models, <span class="dt">type =</span> <span class="st">&quot;pie&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(disp) %&gt;%
-<span class="st">  </span><span class="kw">pieopt_ist</span>(<span class="dt">labelDirection =</span> <span class="st">&quot;explode&quot;</span>,
-             <span class="dt">labelOffset =</span> <span class="dv">100</span>,
-             <span class="dt">chartPadding =</span> <span class="dv">50</span>)
+mtcars[1:5,] %&gt;%
+  chart_ist(x = models, type = &quot;pie&quot;) %&gt;%
+  add_ist(disp) %&gt;%
+  pieopt_ist(labelDirection = &quot;explode&quot;,
+             labelOffset = 100,
+             chartPadding = 50)
 
-mtcars[<span class="dv">1</span>:<span class="dv">5</span>,] %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(<span class="dt">type =</span> <span class="st">&quot;pie&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(disp) %&gt;%
-<span class="st">  </span><span class="kw">pieopt_ist</span>(<span class="dt">percent =</span> <span class="ot">TRUE</span>)</code></pre></div>
-</div>
-</div>
-<div id="ratio_ist" class="section level1">
-<h1>ratio_ist</h1>
+mtcars[1:5,] %&gt;%
+  chart_ist(type = &quot;pie&quot;) %&gt;%
+  add_ist(disp) %&gt;%
+  pieopt_ist(percent = TRUE)</code></pre>
+<h3 id="ratio_ist">ratio_ist</h3>
 <p>Change aspect ratio of chart.</p>
-<div id="arguments-16" class="section level2">
-<h2>Arguments</h2>
+<h4 id="arguments-16">Arguments</h4>
 <ul>
 <li><code>p</code> a chartist object.</li>
 <li><code>ratio</code> ratio of chart, see details and examples.</li>
 </ul>
-</div>
-<div id="details-1" class="section level2">
-<h2>Details</h2>
+<h4 id="details-1">Details</h4>
 <p>Valid values for ratio:</p>
 <ul>
 <li><code>square</code> or <code>1</code></li>
@@ -863,22 +509,16 @@ mtcars[<span class="dv">1</span>:<span class="dv">5</span>,] %&gt;%
 <li><code>major-twelfth</code> or <code>1:3</code></li>
 <li><code>double-octave</code> or <code>1:4</code></li>
 </ul>
-</div>
-<div id="examples-16" class="section level2">
-<h2>Examples</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars$models &lt;-<span class="st"> </span><span class="kw">row.names</span>(mtcars)
+<h4 id="examples-16">Examples</h4>
+<pre class="r"><code>mtcars$models &lt;- row.names(mtcars)
 
 mtcars %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(<span class="dt">x =</span> models) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(disp) %&gt;%
-<span class="st">  </span><span class="kw">ratio_ist</span>(<span class="dt">ratio =</span> <span class="st">&quot;square&quot;</span>)</code></pre></div>
-</div>
-</div>
-<div id="resp_ist" class="section level1">
-<h1>resp_ist</h1>
+  chart_ist(x = models) %&gt;%
+  add_ist(disp) %&gt;%
+  ratio_ist(ratio = &quot;square&quot;)</code></pre>
+<h3 id="resp_ist">resp_ist</h3>
 <p>Configure responsive options for chartist visualisation.</p>
-<div id="arguments-17" class="section level2">
-<h2>Arguments</h2>
+<h4 id="arguments-17">Arguments</h4>
 <ul>
 <li><code>p</code> a chartist object.</li>
 <li><code>query</code> responsive query.</li>
@@ -889,120 +529,90 @@ mtcars %&gt;%
 <li><code>chartPadding</code> padding around chart div.</li>
 <li><code>...</code> additional options.</li>
 </ul>
-</div>
-<div id="examples-17" class="section level2">
-<h2>Examples</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars$models &lt;-<span class="st"> </span><span class="kw">row.names</span>(mtcars)
+<h4 id="examples-17">Examples</h4>
+<pre class="r"><code>mtcars$models &lt;- row.names(mtcars)
 
 mtcars %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(models) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(qsec) %&gt;%
-<span class="st">  </span><span class="kw">resp_ist</span>(<span class="dt">query =</span> <span class="st">&quot;screen and (max-width: 640px)&quot;</span>, 
-           <span class="dt">low =</span> <span class="dv">15</span>, 
-           <span class="dt">chartPadding =</span> <span class="dv">50</span>) %&gt;%
-<span class="st">  </span><span class="kw">resp_ist</span>(<span class="dt">query =</span> <span class="st">&quot;screen and (min-width: 641px) and (max-width: 1024px)&quot;</span>, 
-         <span class="dt">chartPadding =</span> <span class="dv">0</span>)</code></pre></div>
-</div>
-</div>
-<div id="sanim_ist" class="section level1">
-<h1>sanim_ist</h1>
+  chart_ist(models) %&gt;%
+  add_ist(qsec) %&gt;%
+  resp_ist(query = &quot;screen and (max-width: 640px)&quot;, 
+           low = 15, 
+           chartPadding = 50) %&gt;%
+  resp_ist(query = &quot;screen and (min-width: 641px) and (max-width: 1024px)&quot;, 
+         chartPadding = 0)</code></pre>
+<h3 id="sanim_ist">sanim_ist</h3>
 <p>Out of the box animation for scatter plot.</p>
-<div id="arguments-18" class="section level2">
-<h2>Arguments</h2>
+<h4 id="arguments-18">Arguments</h4>
 <ul>
 <li><code>p</code> a chartist object.</li>
 </ul>
-</div>
-<div id="examples-18" class="section level2">
-<h2>Examples</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(wt) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(disp) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(hp) %&gt;%
-<span class="st">  </span><span class="kw">scatter_ist</span>() %&gt;%
-<span class="st">  </span><span class="kw">sanim_ist</span>()</code></pre></div>
-</div>
-</div>
-<div id="scatter_ist" class="section level1">
-<h1>scatter_ist</h1>
+<h4 id="examples-18">Examples</h4>
+<pre class="r"><code>mtcars %&gt;%
+  chart_ist(wt) %&gt;%
+  add_ist(disp) %&gt;%
+  add_ist(hp) %&gt;%
+  scatter_ist() %&gt;%
+  sanim_ist()</code></pre>
+<h3 id="scatter_ist">scatter_ist</h3>
 <p>Helper function to easily turn a line chart into a scatter plot.</p>
-<div id="arguments-19" class="section level2">
-<h2>Arguments</h2>
+<h4 id="arguments-19">Arguments</h4>
 <ul>
 <li><code>p</code> a chartist object.</li>
 <li><code>...</code> additional parameters to pass to <code>opt_ist</code>.</li>
 </ul>
-</div>
-<div id="examples-19" class="section level2">
-<h2>Examples</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars$models &lt;-<span class="st"> </span><span class="kw">rownames</span>(mtcars)
+<h4 id="examples-19">Examples</h4>
+<pre class="r"><code>mtcars$models &lt;- rownames(mtcars)
 
-mtcars[<span class="dv">1</span>:<span class="dv">20</span>,] %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(<span class="dt">x =</span> models) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(disp) %&gt;%
-<span class="st">  </span><span class="kw">scatter_ist</span>()</code></pre></div>
-</div>
-</div>
-<div id="style_ist" class="section level1">
-<h1>style_ist</h1>
+mtcars[1:20,] %&gt;%
+  chart_ist(x = models) %&gt;%
+  add_ist(disp) %&gt;%
+  scatter_ist()</code></pre>
+<h3 id="style_ist">style_ist</h3>
 <p>Style your charts</p>
-<div id="arguments-20" class="section level2">
-<h2>Arguments</h2>
+<h4 id="arguments-20">Arguments</h4>
 <ul>
 <li><code>p</code> a chartist object.</li>
 <li><code>type</code> chart element type to animate (i.e.: line, or grid).</li>
 <li><code>css</code> css to wrap in <code>css</code></li>
 </ul>
-</div>
-<div id="examples-20" class="section level2">
-<h2>Examples</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># missing style defaults to chart type</span>
+<h4 id="examples-20">Examples</h4>
+<pre class="r"><code># missing style defaults to chart type
 mtcars %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(qsec, <span class="st">&quot;line&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(mpg) %&gt;%
-<span class="st">  </span><span class="kw">style_ist</span>(<span class="dt">css =</span> htmltools::<span class="kw">css</span>(<span class="dt">stroke =</span> <span class="st">&quot;rgba(0,0,0,0.4)&quot;</span>, <span class="dt">stroke.dasharray=</span><span class="st">&quot;20&quot;</span>)) %&gt;%
-<span class="st">  </span><span class="kw">style_ist</span>(<span class="st">&quot;grid&quot;</span>, htmltools::<span class="kw">css</span>(<span class="dt">stroke =</span> <span class="st">&quot;black&quot;</span>)) %&gt;%
-<span class="st">  </span><span class="kw">style_ist</span>(<span class="kw">c</span>(<span class="st">&quot;point&quot;</span>), htmltools::<span class="kw">css</span>(<span class="dt">stroke =</span> <span class="st">&quot;green&quot;</span>))
+  chart_ist(qsec, &quot;line&quot;) %&gt;%
+  add_ist(mpg) %&gt;%
+  style_ist(css = htmltools::css(stroke = &quot;rgba(0,0,0,0.4)&quot;, stroke.dasharray=&quot;20&quot;)) %&gt;%
+  style_ist(&quot;grid&quot;, htmltools::css(stroke = &quot;black&quot;)) %&gt;%
+  style_ist(c(&quot;point&quot;), htmltools::css(stroke = &quot;green&quot;))
      
 mtcars %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(qsec, <span class="st">&quot;line&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(hp, <span class="st">&quot;hp&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(disp, <span class="st">&quot;disp&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">lineopt_ist</span>(<span class="st">&quot;hp&quot;</span>, <span class="dt">showPoint =</span> <span class="ot">FALSE</span>, <span class="dt">showArea =</span> <span class="ot">TRUE</span>, <span class="dt">showLine =</span> <span class="ot">FALSE</span>) %&gt;%
-<span class="st">  </span><span class="kw">xaxis_ist</span>(<span class="dt">showLabel =</span> <span class="ot">FALSE</span>) %&gt;%
-<span class="st">  </span><span class="kw">style_ist</span>(<span class="dt">css =</span> htmltools::<span class="kw">css</span>(<span class="dt">stroke =</span> <span class="st">&quot;rgba(231,1,2,0.4)&quot;</span>, <span class="dt">stroke.dasharray=</span><span class="st">&quot;20&quot;</span>)) %&gt;%
-<span class="st">  </span><span class="kw">style_ist</span>(<span class="st">&quot;area&quot;</span>, htmltools::<span class="kw">css</span>(<span class="dt">stroke =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;rgba(0,,0,0.9)&quot;</span>)) %&gt;%
-<span class="st">  </span><span class="kw">style_ist</span>(<span class="kw">c</span>(<span class="st">&quot;point&quot;</span>), htmltools::<span class="kw">css</span>(<span class="dt">stroke =</span> <span class="st">&quot;red&quot;</span>))</code></pre></div>
-</div>
-</div>
-<div id="thresh_ist" class="section level1">
-<h1>thresh_ist</h1>
+  chart_ist(qsec, &quot;line&quot;) %&gt;%
+  add_ist(hp, &quot;hp&quot;) %&gt;%
+  add_ist(disp, &quot;disp&quot;) %&gt;%
+  lineopt_ist(&quot;hp&quot;, showPoint = FALSE, showArea = TRUE, showLine = FALSE) %&gt;%
+  xaxis_ist(showLabel = FALSE) %&gt;%
+  style_ist(css = htmltools::css(stroke = &quot;rgba(231,1,2,0.4)&quot;, stroke.dasharray=&quot;20&quot;)) %&gt;%
+  style_ist(&quot;area&quot;, htmltools::css(stroke = &quot;black&quot;, fill = &quot;rgba(0,,0,0.9)&quot;)) %&gt;%
+  style_ist(c(&quot;point&quot;), htmltools::css(stroke = &quot;red&quot;))</code></pre>
+<h3 id="thresh_ist">thresh_ist</h3>
 <p>Add threshold plugin.</p>
-<div id="arguments-21" class="section level2">
-<h2>Arguments</h2>
+<h4 id="arguments-21">Arguments</h4>
 <ul>
 <li><code>p</code> a chartist object.</li>
 <li><code>threshold</code> threshold, defaults to mean of first series passed with <code>add_ist</code>.</li>
 </ul>
-</div>
-<div id="examples-21" class="section level2">
-<h2>Examples</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(disp) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(hp) %&gt;%
-<span class="st">  </span><span class="kw">thresh_ist</span>()
+<h4 id="examples-21">Examples</h4>
+<pre class="r"><code>mtcars %&gt;%
+  chart_ist(disp) %&gt;%
+  add_ist(hp) %&gt;%
+  thresh_ist()
 
 mtcars %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(disp) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(hp) %&gt;%
-<span class="st">  </span><span class="kw">thresh_ist</span>(<span class="dv">220</span>)</code></pre></div>
-</div>
-</div>
-<div id="xaxist_ist" class="section level1">
-<h1>xaxist_ist</h1>
+  chart_ist(disp) %&gt;%
+  add_ist(hp) %&gt;%
+  thresh_ist(220)</code></pre>
+<h3 id="xaxist_ist">xaxist_ist</h3>
 <p>Tweak the x axis and related grid.</p>
-<div id="arguments-22" class="section level2">
-<h2>Arguments</h2>
+<h4 id="arguments-22">Arguments</h4>
 <ul>
 <li><code>p</code> a chartist object.</li>
 <li><code>showLabel</code> set to FALSE to hide labels.</li>
@@ -1015,27 +625,21 @@ mtcars %&gt;%
 <li><code>scaleMinSpace</code> minimum height in pixel of scale.</li>
 <li><code>...</code> additional options.</li>
 </ul>
-</div>
-<div id="examples-22" class="section level2">
-<h2>Examples</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars$models &lt;-<span class="st"> </span><span class="kw">row.names</span>(mtcars)
+<h4 id="examples-22">Examples</h4>
+<pre class="r"><code>mtcars$models &lt;- row.names(mtcars)
 
-mtcars[<span class="dv">1</span>:<span class="dv">20</span>,] %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(<span class="dt">x =</span> models, <span class="dt">type =</span> <span class="st">&quot;bar&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(disp) %&gt;%
-<span class="st">  </span><span class="kw">xaxis_ist</span>(<span class="dt">showLabel =</span> <span class="ot">FALSE</span>, <span class="dt">showGrid =</span> <span class="ot">FALSE</span>)
+mtcars[1:20,] %&gt;%
+  chart_ist(x = models, type = &quot;bar&quot;) %&gt;%
+  add_ist(disp) %&gt;%
+  xaxis_ist(showLabel = FALSE, showGrid = FALSE)
 
-mtcars[<span class="dv">1</span>:<span class="dv">10</span>,] %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(<span class="dt">x =</span> mpg, <span class="dt">type =</span> <span class="st">&quot;bar&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(disp) %&gt;%
-<span class="st">  </span><span class="kw">xaxis_ist</span>(<span class="dt">suffix =</span> <span class="st">&quot;MPG&quot;</span>, <span class="dt">scaleMinSpace =</span> <span class="dv">100</span>)</code></pre></div>
-</div>
-</div>
-<div id="xtitle_ist" class="section level1">
-<h1>xtitle_ist</h1>
+mtcars[1:10,] %&gt;%
+  chart_ist(x = mpg, type = &quot;bar&quot;) %&gt;%
+  add_ist(disp) %&gt;%
+  xaxis_ist(suffix = &quot;MPG&quot;, scaleMinSpace = 100)</code></pre>
+<h3 id="xtitle_ist">xtitle_ist</h3>
 <p>Add x axis title.</p>
-<div id="arguments-23" class="section level2">
-<h2>Arguments</h2>
+<h4 id="arguments-23">Arguments</h4>
 <ul>
 <li><code>p</code> a chartist object.</li>
 <li><code>title</code> axis title.</li>
@@ -1044,20 +648,14 @@ mtcars[<span class="dv">1</span>:<span class="dv">10</span>,] %&gt;%
 <li><code>offsetx</code> offset x aligment of title.</li>
 <li><code>offsety</code> offsety y alignment of title.</li>
 </ul>
-</div>
-<div id="examples-23" class="section level2">
-<h2>Examples</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(disp) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(<span class="dt">values =</span> hp) %&gt;%
-<span class="st">  </span><span class="kw">xtitle_ist</span>(<span class="dt">title =</span> <span class="st">&quot;HP&quot;</span>, <span class="dt">offsety =</span> <span class="dv">30</span>)</code></pre></div>
-</div>
-</div>
-<div id="yaxist_ist" class="section level1">
-<h1>yaxist_ist</h1>
+<h4 id="examples-23">Examples</h4>
+<pre class="r"><code>mtcars %&gt;%
+  chart_ist(disp) %&gt;%
+  add_ist(values = hp) %&gt;%
+  xtitle_ist(title = &quot;HP&quot;, offsety = 30)</code></pre>
+<h3 id="yaxist_ist">yaxist_ist</h3>
 <p>Tweak the y axis and related grid.</p>
-<div id="arguments-24" class="section level2">
-<h2>Arguments</h2>
+<h4 id="arguments-24">Arguments</h4>
 <ul>
 <li><code>p</code> a chartist object.</li>
 <li><code>showLabel</code> set to FALSE to hide labels.</li>
@@ -1070,27 +668,21 @@ mtcars[<span class="dv">1</span>:<span class="dv">10</span>,] %&gt;%
 <li><code>scaleMinSpace</code> minimum height in pixel of scale.</li>
 <li><code>...</code> additional options.</li>
 </ul>
-</div>
-<div id="examples-24" class="section level2">
-<h2>Examples</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars$models &lt;-<span class="st"> </span><span class="kw">row.names</span>(mtcars)
+<h4 id="examples-24">Examples</h4>
+<pre class="r"><code>mtcars$models &lt;- row.names(mtcars)
 
-mtcars[<span class="dv">1</span>:<span class="dv">20</span>,] %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(<span class="dt">x =</span> models, <span class="dt">type =</span> <span class="st">&quot;bar&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(disp) %&gt;%
-<span class="st">  </span><span class="kw">yaxis_ist</span>(<span class="dt">showLabel =</span> <span class="ot">FALSE</span>, <span class="dt">showGrid =</span> <span class="ot">FALSE</span>)
+mtcars[1:20,] %&gt;%
+  chart_ist(x = models, type = &quot;bar&quot;) %&gt;%
+  add_ist(disp) %&gt;%
+  yaxis_ist(showLabel = FALSE, showGrid = FALSE)
 
-mtcars[<span class="dv">1</span>:<span class="dv">10</span>,] %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(<span class="dt">x =</span> mpg, <span class="dt">type =</span> <span class="st">&quot;line&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(disp) %&gt;%
-<span class="st">  </span><span class="kw">yaxis_ist</span>(<span class="dt">suffix =</span> <span class="st">&quot;MPG&quot;</span>, <span class="dt">scaleMinSpace =</span> <span class="dv">100</span>)</code></pre></div>
-</div>
-</div>
-<div id="ytitle_ist" class="section level1">
-<h1>ytitle_ist</h1>
+mtcars[1:10,] %&gt;%
+  chart_ist(x = mpg, type = &quot;line&quot;) %&gt;%
+  add_ist(disp) %&gt;%
+  yaxis_ist(suffix = &quot;MPG&quot;, scaleMinSpace = 100)</code></pre>
+<h3 id="ytitle_ist">ytitle_ist</h3>
 <p>Add y axis title.</p>
-<div id="arguments-25" class="section level2">
-<h2>Arguments</h2>
+<h4 id="arguments-25">Arguments</h4>
 <ul>
 <li><code>p</code> a chartist object.</li>
 <li><code>title</code> axis title.</li>
@@ -1099,54 +691,66 @@ mtcars[<span class="dv">1</span>:<span class="dv">10</span>,] %&gt;%
 <li><code>offsetx</code> offset x aligment of title.</li>
 <li><code>offsety</code> offsety y alignment of title.</li>
 </ul>
+<h4 id="examples-25">Examples</h4>
+<pre class="r"><code>mtcars %&gt;%
+  chart_ist(disp) %&gt;%
+  add_ist(values = hp) %&gt;%
+  ytitle_ist(title = &quot;HP&quot;, offsety = 30)</code></pre>
 </div>
-<div id="examples-25" class="section level2">
-<h2>Examples</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(disp) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(<span class="dt">values =</span> hp) %&gt;%
-<span class="st">  </span><span class="kw">ytitle_ist</span>(<span class="dt">title =</span> <span class="st">&quot;HP&quot;</span>, <span class="dt">offsety =</span> <span class="dv">30</span>)</code></pre></div>
-</div>
-</div>
+<p></main></p>
 
-
-<div class="row">
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-    <p class="text-center"><a href="https://github.com/JohnCoene"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-github' aria-hidden='true'></i></button></a></p>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-    <p class="text-center"><a href="https://www.linkedin.com/in/johncoene/"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-linkedin' aria-hidden='true'></i></button></a></p>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-    <p class="text-center"><a href="https://twitter.com/jdatap"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-twitter' aria-hidden='true'></i></button></a></p>
-  </div>
-</div>
-
-
-</div>
-</div>
-
-</div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
-
-
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../../js/materialize.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript" charset="utf-8">
+  $("code").addClass("hjls r")
+  $('code').each(function(i, inline) {
+   hljs.highlightBlock(inline);
+  });
+  $('pre code').each(function(i, block) {
+   hljs.highlightBlock(block);
+  });
 </script>
+
+<script type="text/javascript" charset="utf-8">
+  $(".dropdown-button").dropdown();
+  $(".button-collapse").sideNav();
+</script>
+
+<footer class="page-footer blue">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text brand">John Coene</h5>
+        <p class="grey-text text-lighten-4">Data, limericks, and other indoor stuff.</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Connect</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="https://twitter.com/jdatap">Twitter</a></li>
+          <li><a class="grey-text text-lighten-3" href="http://github.com/JohnCoene">Github</a></li>
+          <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/johncoene/">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    © 2017 John Coene
+    <a class="grey-text text-lighten-4 right" href="http://johncoene.github.io/cv/">Resume</a>
+    </div>
+  </div>
+</footer>
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

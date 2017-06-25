@@ -1,5 +1,5 @@
 ---
-title: "rodham"
+title: ""
 ---
 
 ```{r setup, include=FALSE}
@@ -25,6 +25,15 @@ g <- igraph_to_networkD3(g, group = clusters)
 popup <- 'alert("You clicked on " + d.name);'
 ```
 
+<main>
+<div class = "container">
+
+```{r}
+h1(
+  "rodham"
+)
+```
+
 ```{r header text}
 p(em("Network of emails - random walk clustering (color)."))
 ```
@@ -47,13 +56,11 @@ div(class = "page-header",
     h2("About", class = "text-primary"))
 
 div(class = "container-fluid",
-    p(code("rodham"), " is an R package that includes a dataset of Hillary Rodham Clinton's personal emails as well as function to download their entire content from the Wall Street Journal and read it into R."),
-    p(code("rodham"), " is available on CRAN."))
+    p(code("rodham"), " is an R package that includes a dataset of Hillary Rodham Clinton's personal emails as well as function to download their entire content from the Wall Street Journal and read it into R.", code("rodham"), " is available on CRAN."))
 ```
 
 ```{r install}
-div(class = "page-header",
-    h2("Install", class = "text-primary"))
+h3("Install")
 ```
 
 ```{r install code, eval = FALSE, echo = TRUE}
@@ -62,28 +69,31 @@ devtools::install_github("JohnCoene/rodham") # development version
 ```
 
 ```{r button}
-a(href="https://cran.r-project.org/web/packages/rodham/", target = "_blank",
-            HTML("<button class='bttn-unite bttn-md bttn-danger'><i class='icon-rlogo'></i> CRAN Release</button>"))
+a(href="https://cran.r-project.org/web/packages/rodham/", 
+  target = "_blank",
+  class = "btn blue",
+  "CRAN Release")
 ```
 
 ```{r releases}
-div(class = "page-header",
-    h2("Releases", class = "text-primary"))
+h3("Releases")
 
-div(class = "container-fluid",
-    p("All publicly released emails are available and follow the WSJ naming convention."))
+p("All publicly released emails are available and follow the WSJ naming convention.")
 ```
 
-* Benghazi
-* June
-* July
-* August
-* September
-* October
-* November
-* January 7
-* January 29
-* February 19
-* February 29
-* December
-* Non-disclosure
+1. Benghazi
+2. June
+3. July
+4. August
+5. September
+6. October
+7. November
+8. January 7
+9. January 29
+10. February 19
+11. February 29
+12. December
+13. Non-disclosure
+
+</div>
+</main>

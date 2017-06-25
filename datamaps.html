@@ -8,30 +8,28 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 
 
-<title>datamaps</title>
+<title></title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/htmlwidgets-0.8/htmlwidgets.js"></script>
 <script src="site_libs/d3js-3.5.3/d3.min.js"></script>
 <script src="site_libs/topojson-1.6.9/topojson.min.js"></script>
 <script src="site_libs/datamaps-0.5.0/datamaps.all.hires.min.js"></script>
 <script src="site_libs/datamaps-binding-0.0.0.9000/datamaps.js"></script>
-<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
-<script src="https://use.fontawesome.com/9fdc01e796.js"></script>
 <link href="https://cdn.rawgit.com/gaborcsardi/r-font/master/rlogo.css" rel="stylesheet">
-<script src="js/siema.min.js"></script>
-<script src="js/rellax.min.js"></script>
 <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
 <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+<link rel="stylesheet" href="css/atelier-cave-light.css">
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -42,7 +40,6 @@
   ga('send', 'pageview');
 
 </script>
-<title>John Coene</title>
 
 <!--SHARE TAGS-->
 <meta name="google-site-verification" content="p4A9hVd1c8FOAlQsyDq0NMrE9IQdtfZoHgQ2e1t2dYE" />
@@ -105,219 +102,86 @@ code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Ann
 code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
 </style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
 
 <link rel="stylesheet" href="css/styles.css" type="text/css" />
-<link rel="stylesheet" href="css/bttn.min.css" type="text/css" />
 
 </head>
 
 <body>
 
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-  height: auto;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-</style>
 
-
-<style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 41px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-
-.section h2 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h3 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h4 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h5 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h6 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-</style>
-
-<script>
-// manage active state of menu based on current page
-$(document).ready(function () {
-  // active menu anchor
-  href = window.location.pathname
-  href = href.substr(href.lastIndexOf('/') + 1)
-  if (href === "")
-    href = "index.html";
-  var menuAnchor = $('a[href="' + href + '"]');
-
-  // mark it active
-  menuAnchor.parent().addClass('active');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
-});
-</script>
-
-
-<div class="container-fluid main-container">
-
-<!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
-
-<!-- code folding -->
-
-
-
-
-
-
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html">John Coene</a>
+<nav>
+  <div class="nav-wrapper blue">
+    <div class = "container">
+      <a href="/" class="brand-logo brand left">John Coene</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="http://johncoene.github.io/cv/" target="_blank">Resume</a></li>
+      </ul>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li>
-  <a href="index.html">
-    <span class="fa fa-home"></span>
-     
-    Home
-  </a>
-</li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="http://johncoene.github.io/cv/">
-    <span class="fa fa-address-card"></span>
-     
-    Resume
-  </a>
-</li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div><!--/.container -->
-</div><!--/.navbar -->
-
-<div class="fluid-row" id="header">
+  </div>
+</nav>
 
 
 
-<h1 class="title toc-ignore">datamaps</h1>
-
-</div>
 
 
-<div id="htmlwidget-c9d321af2c36dc7bd5a9" style="width:100%;height:480px;" class="datamaps html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c9d321af2c36dc7bd5a9">{"x":{"scope":"world","projection":"equirectangular","fills":{"defaultFill":"lightgray","270":"#FFFFB2","163":"#FEF099","122":"#FEE180","96":"#FED368","33":"#FDC357","19":"#FDB14E","18":"#FD9F45","17":"#FD8D3C","10":"#F97534","8":"#F55E2C","6":"#F14624","4":"#E83220","3":"#DA2122","2":"#CB1024","1":"#BD0026","Africa":"#E41A1C","Americas":"#377EB8","Asia":"#4DAF4A","Europe":"#984EA3"},"geographyConfig":{"dataUrl":null},"data":{"GBR":{"fillKey":"270"},"RUS":{"fillKey":"163"},"CHN":{"fillKey":"122"},"USA":{"fillKey":"96"},"ITA":{"fillKey":"33"},"AUT":{"fillKey":"19"},"IRQ":{"fillKey":"18"},"DEU":{"fillKey":"17"},"SAU":{"fillKey":"10"},"IND":{"fillKey":"8"},"JPN":{"fillKey":"8"},"FRA":{"fillKey":"6"},"BRA":{"fillKey":"4"},"ESP":{"fillKey":"4"},"MEX":{"fillKey":"4"},"KEN":{"fillKey":"3"},"SRB":{"fillKey":"3"},"OMN":{"fillKey":"2"},"POL":{"fillKey":"2"},"SVN":{"fillKey":"2"},"VNM":{"fillKey":"2"},"BEL":{"fillKey":"1"},"CAN":{"fillKey":"1"},"CHE":{"fillKey":"1"},"COL":{"fillKey":"1"},"HKG":{"fillKey":"1"},"HUN":{"fillKey":"1"},"IRL":{"fillKey":"1"},"KOR":{"fillKey":"1"},"LKA":{"fillKey":"1"},"LTU":{"fillKey":"1"},"NOR":{"fillKey":"1"},"PAK":{"fillKey":"1"},"QAT":{"fillKey":"1"},"SGP":{"fillKey":"1"},"TUR":{"fillKey":"1"},"TWN":{"fillKey":"1"},"UKR":{"fillKey":"1"},"ZWE":{"fillKey":"1"}},"bubbles":[{"fillKey":"Africa","longitude":"  3.917313","latitude":" 7.401962","radius":" 6.931472","name":"Africa"},{"fillKey":"Americas","longitude":"-99.133209","latitude":"19.432608","radius":"23.317195","name":"Americas"},{"fillKey":"Asia","longitude":"106.660172","latitude":"10.762622","radius":"25.908918","name":"Asia"},{"fillKey":"Europe","longitude":" 16.363449","latitude":"48.210033","radius":"31.326506","name":"Europe"}]},"evals":[],"jsHooks":[]}</script>
+<main>
+<div class="container">
+<h1>datamaps</h1>
+<div id="htmlwidget-0fbf6c1eac5ef95413e5" style="width:100%;height:480px;" class="datamaps html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0fbf6c1eac5ef95413e5">{"x":{"scope":"world","projection":"equirectangular","fills":{"defaultFill":"lightgray","270":"#FFFFB2","163":"#FEF099","122":"#FEE180","96":"#FED368","33":"#FDC357","19":"#FDB14E","18":"#FD9F45","17":"#FD8D3C","10":"#F97534","8":"#F55E2C","6":"#F14624","4":"#E83220","3":"#DA2122","2":"#CB1024","1":"#BD0026","Africa":"#E41A1C","Americas":"#377EB8","Asia":"#4DAF4A","Europe":"#984EA3"},"geographyConfig":{"dataUrl":null},"data":{"GBR":{"fillKey":"270"},"RUS":{"fillKey":"163"},"CHN":{"fillKey":"122"},"USA":{"fillKey":"96"},"ITA":{"fillKey":"33"},"AUT":{"fillKey":"19"},"IRQ":{"fillKey":"18"},"DEU":{"fillKey":"17"},"SAU":{"fillKey":"10"},"IND":{"fillKey":"8"},"JPN":{"fillKey":"8"},"FRA":{"fillKey":"6"},"BRA":{"fillKey":"4"},"ESP":{"fillKey":"4"},"MEX":{"fillKey":"4"},"KEN":{"fillKey":"3"},"SRB":{"fillKey":"3"},"OMN":{"fillKey":"2"},"POL":{"fillKey":"2"},"SVN":{"fillKey":"2"},"VNM":{"fillKey":"2"},"BEL":{"fillKey":"1"},"CAN":{"fillKey":"1"},"CHE":{"fillKey":"1"},"COL":{"fillKey":"1"},"HKG":{"fillKey":"1"},"HUN":{"fillKey":"1"},"IRL":{"fillKey":"1"},"KOR":{"fillKey":"1"},"LKA":{"fillKey":"1"},"LTU":{"fillKey":"1"},"NOR":{"fillKey":"1"},"PAK":{"fillKey":"1"},"QAT":{"fillKey":"1"},"SGP":{"fillKey":"1"},"TUR":{"fillKey":"1"},"TWN":{"fillKey":"1"},"UKR":{"fillKey":"1"},"ZWE":{"fillKey":"1"}},"bubbles":[{"fillKey":"Africa","longitude":"  3.917313","latitude":" 7.401962","radius":" 6.931472","name":"Africa"},{"fillKey":"Americas","longitude":"-99.133209","latitude":"19.432608","radius":"23.317195","name":"Americas"},{"fillKey":"Asia","longitude":"106.660172","latitude":"10.762622","radius":"25.908918","name":"Asia"},{"fillKey":"Europe","longitude":" 16.363449","latitude":"48.210033","radius":"31.326506","name":"Europe"}]},"evals":[],"jsHooks":[]}</script>
 <p><a href="https://travis-ci.org/JohnCoene/datamaps"><img src="https://travis-ci.org/JohnCoene/datamaps.svg?branch=master" alt="Travis-CI Build Status" /></a> <a href="https://ci.appveyor.com/project/JohnCoene/datamaps"><img src="https://ci.appveyor.com/api/projects/status/github/JohnCoene/datamaps?branch=master&amp;svg=true" alt="AppVeyor Build Status" /></a></p>
 <div class="row">
-<div class="col-lg-8 col-md-8">
-R htmlwidget for
-<a href="http://datamaps.github.io/">datamaps.</a>
+<div class="col m8">
+R htmlwidget for 
+<a href="http://datamaps.github.io/" target="_blank">datamaps</a>
 </div>
-<div class="col-lg-4 col-md-4">
-<p>
-<a href="https://github.com/JohnCoene/datamaps" target="_blank"><button class='bttn-unite bttn-lg bttn-danger'><i class='fa fa-github' aria-hidden='true'></i> Repository</button></a>
-</p>
+<div class="col m4">
+<a class="btn blue waves-effect" href="https://github.com/JohnCoene/datamaps" target="_blank">
+<i class="material-icons left">code</i>
+Repository
+</a>
 </div>
 </div>
-<div id="install" class="section level2">
-<h2>Install</h2>
+<h3 id="install">Install</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages(&quot;devtools&quot;)</span>
 devtools::<span class="kw">install_github</span>(<span class="st">&quot;JohnCoene/datamaps&quot;</span>)</code></pre></div>
-</div>
-<div id="how-it-works" class="section level2">
-<h2>How it works</h2>
+<h3 id="how-it-works">How it works</h3>
 <p>Initiate your map with <code>datamaps</code>, pipe (<code>%&gt;%</code>) your data to add data (<code>add_data</code>) or layers.</p>
-<p><strong>Layers</strong>:</p>
-<ul>
-<li><code>add_choropleth</code></li>
-<li><code>add_arcs</code> &amp; <code>add_arcs_name</code></li>
-<li><code>add_bubbles</code></li>
+<ul class="collection with-header">
+<li class="collection-header">
+<h5>Layers</h5>
+</li>
+<li class="collection-item">
+<code>add_choropleth</code>
+</li>
+<li class="collection-item">
+<code>add_arcs</code>
+ and 
+<code>add_arcs_name</code>
+</li>
+<li class="collection-item">
+<code>add_bubbles</code>
+</li>
+<li class="collection-header">
+<h5>Options</h5>
+</li>
+<li class="collection-item">
+<code>add_labels</code>
+</li>
+<li class="collection-item">
+<code>config_geo</code>
+</li>
+<li class="collection-item">
+<code>config_bubbles</code>
+</li>
+<li class="collection-item">
+<code>config_arcs</code>
+</li>
 </ul>
-<p><strong>Options</strong>:</p>
-<ul>
-<li><code>add_labels</code></li>
-<li><code>config_geo</code></li>
-<li><code>config_bubbles</code></li>
-<li><code>config_arcs</code></li>
-</ul>
-</div>
-<div id="first-map" class="section level2">
-<h2>First map</h2>
+<h3 id="first-map">First map</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Fake data</span>
 st &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;AR&quot;</span>, <span class="st">&quot;NY&quot;</span>, <span class="st">&quot;CA&quot;</span>, <span class="st">&quot;IL&quot;</span>, <span class="st">&quot;CO&quot;</span>, <span class="st">&quot;MT&quot;</span>, <span class="st">&quot;TX&quot;</span>, <span class="st">&quot;OK&quot;</span>, <span class="st">&quot;AL&quot;</span>, <span class="st">&quot;NM&quot;</span>, <span class="st">&quot;NV&quot;</span>, <span class="st">&quot;NC&quot;</span>, <span class="st">&quot;OH&quot;</span>, <span class="st">&quot;PA&quot;</span>)
 states &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">from =</span> st, <span class="dt">to =</span> <span class="kw">sample</span>(st, <span class="dv">14</span>))
@@ -326,11 +190,10 @@ states %&gt;%
 <span class="st">    </span><span class="kw">datamaps</span>(<span class="dt">scope =</span> <span class="st">&quot;usa&quot;</span>, <span class="dt">width =</span> <span class="st">&quot;100%&quot;</span>) %&gt;%<span class="st"> </span><span class="co"># intiate map</span>
 <span class="st">    </span><span class="kw">add_arcs_name</span>(from, to) %&gt;%<span class="st"> </span><span class="co"># add arcs layers </span>
 <span class="st">    </span><span class="kw">add_labels</span>() <span class="co"># add state labels</span></code></pre></div>
-<div id="htmlwidget-a375e6b43a93d4d34035" style="width:100%;height:480px;" class="datamaps html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a375e6b43a93d4d34035">{"x":{"scope":"usa","projection":"equirectangular","fills":{"defaultFill":"#ABDDA4"},"geographyConfig":{"dataUrl":null},"arcs":[{"origin":"AR","destination":"NY"},{"origin":"NY","destination":"OK"},{"origin":"CA","destination":"TX"},{"origin":"IL","destination":"CA"},{"origin":"CO","destination":"AR"},{"origin":"MT","destination":"NC"},{"origin":"TX","destination":"MT"},{"origin":"OK","destination":"NM"},{"origin":"AL","destination":"AL"},{"origin":"NM","destination":"OH"},{"origin":"NV","destination":"CO"},{"origin":"NC","destination":"NV"},{"origin":"OH","destination":"PA"},{"origin":"PA","destination":"IL"}],"labels":true},"evals":[],"jsHooks":[]}</script>
-</div>
-<div id="advanced-examples" class="section level2">
-<h2>Advanced examples</h2>
+<div id="htmlwidget-64d4bf562fb6a88cf213" style="width:100%;height:480px;" class="datamaps html-widget"></div>
+<script type="application/json" data-for="htmlwidget-64d4bf562fb6a88cf213">{"x":{"scope":"usa","projection":"equirectangular","fills":{"defaultFill":"#ABDDA4"},"geographyConfig":{"dataUrl":null},"arcs":[{"origin":"AR","destination":"PA"},{"origin":"NY","destination":"NY"},{"origin":"CA","destination":"OH"},{"origin":"IL","destination":"NV"},{"origin":"CO","destination":"AL"},{"origin":"MT","destination":"NM"},{"origin":"TX","destination":"CA"},{"origin":"OK","destination":"TX"},{"origin":"AL","destination":"AR"},{"origin":"NM","destination":"IL"},{"origin":"NV","destination":"OK"},{"origin":"NC","destination":"NC"},{"origin":"OH","destination":"MT"},{"origin":"PA","destination":"CO"}],"labels":true},"evals":[],"jsHooks":[]}</script>
+<h3 id="advanced-examples">Advanced examples</h3>
+<p>Below is the code used to generate the map in the header of this very page.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(datamaps)
 <span class="kw">library</span>(dplyr)
 
@@ -354,58 +217,52 @@ sesh %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">add_data</span>(continents) %&gt;%<span class="st"> </span><span class="co"># add continent dataset</span>
 <span class="st">  </span><span class="kw">add_bubbles</span>(long, lat, <span class="kw">log</span>(Sessions) *<span class="st"> </span><span class="dv">5</span>, continent, continent, <span class="dt">colors =</span> RColorBrewer::<span class="kw">brewer.pal</span>(<span class="dv">4</span>, <span class="st">&quot;Set1&quot;</span>)) <span class="co"># add continent bubbles</span></code></pre></div>
 </div>
+<p></main></p>
 
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript" charset="utf-8">
+ $('code').each(function(i, inline) {
+   hljs.highlightBlock(inline);
+ });
+ $('pre code').each(function(i, block) {
+   hljs.highlightBlock(block);
+ });
+</script>
 
-<div class="row">
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-    <p class="text-center"><a href="https://github.com/JohnCoene"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-github' aria-hidden='true'></i></button></a></p>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-    <p class="text-center"><a href="https://www.linkedin.com/in/johncoene/"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-linkedin' aria-hidden='true'></i></button></a></p>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-    <p class="text-center"><a href="https://twitter.com/jdatap"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-twitter' aria-hidden='true'></i></button></a></p>
-  </div>
-</div>
-
-<script>
-  const car = new Siema({
-    selector: '.siema',
-    duration: 700,
-    easing: 'ease-out',
-    draggable: true,
-    perPage: 1,
-    startIndex: 0,
-    loop: true
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $('.parallax').parallax();
   });
-  
-  setInterval(() => car.next(), 9000)
-  document.querySelector('.prev').addEventListener('click', () => car.prev())
-  document.querySelector('.next').addEventListener('click', () => car.next())
 </script>
 
-<script>
-$('.js-tilt').tilt({
-    scale: 1.1
-})
-</script>
+<footer class="page-footer blue">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text brand">John Coene</h5>
+        <p class="grey-text text-lighten-4">Data, limericks, and other indoor stuff.</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Connect</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="https://twitter.com/jdatap">Twitter</a></li>
+          <li><a class="grey-text text-lighten-3" href="http://github.com/JohnCoene">Github</a></li>
+          <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/johncoene/">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    © 2017 John Coene
+    <a class="grey-text text-lighten-4 right" href="http://johncoene.github.io/cv/">Resume</a>
+    </div>
+  </div>
+</footer>
 
-
-
-</div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
-
-
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

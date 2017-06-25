@@ -1,12 +1,21 @@
 ---
-title: "Chord diagrams"
+title: ""
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Basic Chord
+<main>
+<div class = "container">
+
+```{r, echo=FALSE}
+h1(
+  "Chord diagrams"
+)
+```
+
+### Basic Chord
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/chord1.html#-en) taken from Baidu's EChart official website.
 
@@ -20,7 +29,7 @@ matrix %>%
   etoolbox_magic(type = list("force", "chord"))
 ```
 
-## Ribbon Chord
+### Ribbon Chord
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/chord4.html#-en) taken from Baidu's EChart official website.
 
@@ -33,3 +42,6 @@ matrix %>%
   etitle("German team effectiveness alliance", x = "right", y = "bottom") %>% 
   etoolbox_magic(type = list("force", "chord"))
 ```
+
+</div>
+</main>

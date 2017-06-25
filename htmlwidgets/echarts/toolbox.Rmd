@@ -1,10 +1,5 @@
 ---
-title: "Toolbox"
-output:
-  html_document:
-    toc: true
-    toc_depth: 3
-    toc_float: true
+title: ""
 ---
 
 ```{r setup, include=FALSE}
@@ -12,7 +7,16 @@ knitr::opts_chunk$set(echo = TRUE)
 library(echarts)
 ```
 
-## What is it?
+<main>
+<div class = "container">
+
+```{r, echo=FALSE}
+h1(
+  "Toolbox"
+)
+```
+
+### What is it?
 
 The toolbox is a set of tools that allows your reader to interact with your chart.
 
@@ -23,7 +27,7 @@ The toolbox is a set of tools that allows your reader to interact with your char
 5. Mark points on the chart
 6. View the data used to plot the chart
 
-## How it works?
+### How it works?
 
 Initialise the toolbox with `etoolbox` then add the component(s) you desire.
 
@@ -36,7 +40,7 @@ Initialise the toolbox with `etoolbox` then add the component(s) you desire.
 
 There is also a heper function, `etoolbox_full` that adds a bunch of the above at once.
 
-## Example
+### Example
 
 `etoolbox_magic` enables your reader to change the chart type on the fly, see `?etoolbox_magic`. Below I enable to reader to change from line to bar and from tiled to stack.
 
@@ -54,3 +58,6 @@ df %>%
   etoolbox_full() %>% 
   etoolbox_magic(type = list("line", "bar", "tiled", "stack"))
 ```
+
+</div>
+</main>

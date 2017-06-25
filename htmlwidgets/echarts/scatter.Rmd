@@ -1,5 +1,5 @@
 ---
-title: "Scatter charts"
+title: ""
 ---
 
 ```{r setup, include=FALSE}
@@ -7,7 +7,16 @@ knitr::opts_chunk$set(echo = TRUE)
 library(echarts)
 ```
 
-## Mark points
+<main>
+<div class = "container">
+
+```{r, echo=FALSE}
+h1(
+  "Scatter charts"
+)
+```
+
+### Mark points
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/scatter1.html#-en) taken from Baidu's EChart official website.
 
@@ -37,7 +46,7 @@ df %>%
   etooltip(axisPointer = pointer, showDelay = 0)
 ```
 
-## Bubble
+### Bubble
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/scatter2.html#-en) taken from Baidu's EChart official website.
 
@@ -57,7 +66,7 @@ df %>%
 ```
 
 
-## Scale
+### Scale
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/dataRange1.html#-en) taken from Baidu's EChart official website.
 
@@ -79,3 +88,6 @@ df %>%
   etooltip(axisPointer = list(show = TRUE), trigger = "item") %>% 
   etoolbox_full()
 ```
+
+</div>
+</main>

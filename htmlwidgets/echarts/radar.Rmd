@@ -1,5 +1,5 @@
 ---
-title: "Radar charts"
+title: ""
 ---
 
 ```{r setup, include=FALSE}
@@ -7,7 +7,16 @@ knitr::opts_chunk$set(echo = TRUE)
 library(echarts)
 ```
 
-## Basic
+<main>
+<div class = "container">
+
+```{r, echo=FALSE}
+h1(
+  "Radar charts"
+)
+```
+
+### Basic
 
 [example](http://echarts.baidu.com/echarts2/doc/example/radar1.html#-en)
 
@@ -25,7 +34,7 @@ radar %>%
   etoolbox_full()
 ```
 
-## Basic filled
+### Filled
 
 [example](http://echarts.baidu.com/echarts2/doc/example/radar2.html#-en)
 
@@ -44,3 +53,6 @@ radar %>%
   elegend() %>% 
   etoolbox_full()
 ```
+
+</div>
+</main>

@@ -1,10 +1,5 @@
 ---
-title: "Chart types"
-output:
-  html_document:
-    toc: true
-    toc_depth: 3
-    toc_float: true
+title: ""
 ---
 
 ```{r setup, include=FALSE}
@@ -12,12 +7,21 @@ knitr::opts_chunk$set(echo = TRUE)
 library(uvcharts)
 ```
 
+<main>
+<div class="container">
+
+```{r, echo=FALSE}
+h1(
+  "Chart types"
+)
+```
+
 ```{r}
 # create data
 df <- data.frame(x = 1:10, y = runif(10, 0, 5), z = runif(10, 0, 5))
 ```
 
-## Bar
+### Bar
 
 ```{r}
 df %>%
@@ -27,7 +31,7 @@ df %>%
   uv_frame(bgcolor = "none")
 ```
 
-## Stacked bar
+### Stacked bar
 
 ```{r}
 df %>%
@@ -37,7 +41,7 @@ df %>%
   uv_frame(bgcolor = "none")
 ```
 
-## Percent bar
+### Percent bar
 
 ```{r}
 df %>%
@@ -47,7 +51,7 @@ df %>%
   uv_frame(bgcolor = "none")
 ```
 
-## Stepup bar
+### Stepup bar
 
 ```{r}
 df %>%
@@ -57,7 +61,7 @@ df %>%
   uv_frame(bgcolor = "none")
 ```
 
-## Line
+### Line
 
 ```{r}
 df %>%
@@ -68,7 +72,7 @@ df %>%
   uv_frame(bgcolor = "none")
 ```
 
-## Area
+### Area
 
 ```{r}
 df %>%
@@ -79,7 +83,7 @@ df %>%
   uv_frame(bgcolor = "none")
 ```
 
-## Stacked area
+### Stacked area
 
 ```{r}
 df %>%
@@ -90,7 +94,7 @@ df %>%
   uv_frame(bgcolor = "none")
 ```
 
-## Percent area
+### Percent area
 
 ```{r}
 df %>%
@@ -101,7 +105,7 @@ df %>%
   uv_frame(bgcolor = "none")
 ```
 
-## Pie
+### Pie
 
 ```{r}
 df <- data.frame(x = c("apple", "banana", "cake", "mango", "strawberry"), y = c(1,4,2,5,3))
@@ -114,7 +118,7 @@ df %>%
   uv_frame(bgcolor = "none")
 ```
 
-## Polar
+### Polar
 
 ```{r}
 df %>%
@@ -123,7 +127,7 @@ df %>%
   uv_frame(bgcolor = "none")
 ```
 
-## Waterfall
+### Waterfall
 
 ```{r}
 df %>%
@@ -132,7 +136,7 @@ df %>%
   uv_frame(bgcolor = "none")
 ```
 
-## Any
+### Any
 
 Pass any charts with `uv_chart` specifying `type` (CamelCase).
 
@@ -142,3 +146,6 @@ df %>%
   uv_add(y) %>%
   uv_frame(bgcolor = "none")
 ```
+
+</div>
+</main>

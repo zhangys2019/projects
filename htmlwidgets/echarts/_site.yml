@@ -1,58 +1,13 @@
-name: "echarts"
+name: "John Coene"
 output_dir: "."
-navbar:
-  title: "echarts"
-  left:
-    - icon: fa-arrow-circle-left
-      text: "home"
-      href: http://john-coene.com/
-  right:
-    - text: "Repository"
-      icon: fa-github
-      href: https://github.com/JohnCoene/echarts
-    - text: "Themes"
-      icon: fa-desktop
-      href: themes
-    - text: "Toolbox"
-      icon: fa-wrench
-      href: toolbox
-    - text: "Explore"
-      icon: fa-bar-chart
-      menu:
-        - text: "bar"
-          href: bars
-        - text: "line"
-          href: lines
-        - text: "scatter"
-          href: scatter
-        - text: "pie"
-          href: pie
-        - text: "chord"
-          href: chord
-        - text: "funnel"
-          href: funnels
-        - text: "gauge"
-          href: gauges
-        - text: "heatmap"
-          href: heatmap
-        - text: "map"
-          href: maps
-        - text: "candlestick"
-          href: candlestick
-        - text: "wordcloud"
-          href: wordcloud
-        - text: "networks"
-          href: networks
-        - text: "combos"
-          href: combinations
-
+      
 output:
   html_document:
-    theme: simplex
+    theme: null
     highlight: kate
     include:
       in_header:: header.html
+      before_body: nav.html
       after_body: footer.html
     css: 
-      - style.css
-      - bttn.min.css
+      - ../../css/styles.css

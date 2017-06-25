@@ -1,10 +1,7 @@
 ---
-title: "Animations"
+title: ""
 output:
-  html_document:
-    toc: true
-    toc_depth: 3
-    toc_float: true
+  html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -12,9 +9,19 @@ knitr::opts_chunk$set(echo = TRUE)
 library(chartist)
 ```
 
+<main>
+<div class = "container">
+
+```{r, echo=FALSE}
+h1(
+  class = "grey-text text-darken-2",
+  "animations"
+)
+```
+
 Here I use `loop_ist` to loop all animations.
 
-## Line
+### Line
 
 Out of the box animation for line and area charts.
 
@@ -29,7 +36,7 @@ mtcars %>%
   loop_ist() # loop animation
 ```
 
-## Scatter
+### Scatter
 
 Out of the box animation for scatter charts.
 
@@ -43,7 +50,7 @@ mtcars %>%
   loop_ist(6000) # loop every 6000 milliseconds
 ```
 
-## Donut
+### Donut
 
 Out of the box animation for donut charts.
 
@@ -56,7 +63,7 @@ mtcars[1:5,] %>%
   loop_ist(7000) # loop every 7000 milliseconds
 ```
 
-## Grid
+### Grid
 
 Out of the box animation for the grid.
 
@@ -69,7 +76,7 @@ mtcars %>%
   loop_ist()
 ```
 
-## Custom
+### Custom
 
 Create your own SMIL using `anim_ist`.
 
@@ -92,3 +99,6 @@ mtcars %>%
              dur = 7000) %>%
   loop_ist()
 ```
+
+</div>
+</main>

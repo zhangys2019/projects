@@ -1,11 +1,20 @@
 ---
-title: "uvcharts"
+title: ""
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library(uvcharts)
 library(htmltools)
+```
+
+<main>
+<div class="container">
+
+```{r}
+h1(
+  "uvcharts"
+)
 ```
 
 ```{r header}
@@ -15,9 +24,10 @@ df %>%
   group_by(grp) %>% 
   uv_stackarea(x) %>%
   uv_add(y) %>%
-  uv_graph(orientation = "Vertical", custom.palette = list("#4da309", "#02a5de", "#e08b27")) %>%
+  uv_graph(orientation = "Vertical", custom.palette = list("#64b5f6", "#2196f3", "#1976d2"), bgcolor="#f5f5f5") %>%
   uv_axis(ticks = 10, fontsize = 9, strokecolor = "#d3d3d3") %>%
   uv_label(fontsize = 5) %>%
+  uv_frame(bgcolor="#f5f5f5") %>% 
   uv_meta(caption = "uvcharts", subcaption = "Example", vlabel = "y axis") %>%
   uv_config(legend = list(showlegends = TRUE)) %>%
   uv_margin(20, 50, 30, 30) %>%
@@ -25,13 +35,11 @@ df %>%
 ```
 
 <br>
-<br>
 [![Travis-CI Build Status](https://travis-ci.org/JohnCoene/uvcharts.svg?branch=master)](https://travis-ci.org/JohnCoene/uvcharts)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/JohnCoene/uvcharts?branch=master&svg=true)](https://ci.appveyor.com/project/JohnCoene/uvcharts)
 
 
 ```{r}
-br()
 br()
 h4(code("uvcharts"), " is an htmlwidget for ",
    a("uvCharts", href = "http://imaginea.github.io/uvCharts", target = "_blank"))
@@ -40,8 +48,8 @@ h4(code("uvcharts"), " is an htmlwidget for ",
 > uvCharts is a JavaScript based charting library built using the famous d3.js library. uvCharts lets you skip all the tough learning and coding part involved with d3.js and yet build simple, robust, completely customisable charts on any page on the web with utmost ease. --- uvCharts
 
 ```{r install, echo = FALSE}
-div(class = "page-header",
-    h2("Install", class = "text-primary"))
+div(
+    h3("Install", class = "text-primary"))
 ```
 
 ```{r, eval=FALSE, echo = TRUE}
@@ -49,8 +57,8 @@ devtools::install_github("JohnCoene/uvcharts")
 ```
 
 ```{r first chart, echo = FALSE}
-div(class = "page-header",
-    h2("Your first chart", class = "text-primary"))
+div(
+    h3("Your first chart", class = "text-primary"))
 ```
 
 ```{r, echo=TRUE, eval = FALSE}
@@ -68,6 +76,7 @@ df <- data.frame(x = 1:15, y = runif(15, 10, 16))
 df %>%
   uv_bar(x) %>%
   uv_add(y) %>%
+  uv_graph(bgcolor = "none") %>% 
   uv_frame(bgcolor = "none")
 ```
 
@@ -85,8 +94,8 @@ All function start in `uv_`.
 *Supports `group_by` for long form data*
 
 ```{r adv ex, echo=FALSE}
-div(class = "page-header",
-    h2("Advanced example", class = "text-primary"))
+div(
+    h3("Advanced example", class = "text-primary"))
 ```
 
 Below is the code used to generate the very banner of this page.
@@ -106,3 +115,6 @@ df %>%
   uv_margin(20, 50, 30, 30) %>%
   uv_legend(position = "bottom")
 ```
+
+</div>
+</main>

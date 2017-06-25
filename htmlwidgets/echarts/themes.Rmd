@@ -1,15 +1,19 @@
 ---
-title: "Themes"
-output:
-  html_document:
-    toc: true
-    toc_depth: 3
-    toc_float: true
+title: ""
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(echarts)
+```
+
+<main>
+<div class = "container">
+
+```{r, echo=FALSE}
+h1(
+  "Themes"
+)
 ```
 
 ```{r fake data}
@@ -26,86 +30,89 @@ plot <- df %>%
   etoolbox_magic(type = list("bar", "line", "stack", "tiled"))
 ```
 
-## Default
+### Default
 
 ```{r}
 etheme(plot, "default")
 ```
 
-## Mint
+### Mint
 
 ```{r}
 etheme(plot, "mint")
 ```
 
-## Macarons
+### Macarons
 
 ```{r}
 etheme(plot, "macarons")
 ```
 
-## Macarons2
+### Macarons2
 
 ```{r}
 etheme(plot, "macarons2")
 ```
 
-## Green
+### Green
 
 ```{r}
 etheme(plot, "green")
 ```
 
-## dark
+### dark
 
 ```{r}
 etheme(plot, "dark")
 ```
 
-## Gray
+### Gray
 
 ```{r}
 etheme(plot, "gray")
 ```
 
-## Helianthus
+### Helianthus
 
 ```{r}
 etheme(plot, "helianthus")
 ```
 
-## Red
+### Red
 
 ```{r}
 etheme(plot, "red")
 ```
 
-## Roma
+### Roma
 
 ```{r}
 etheme(plot, "roma")
 ```
 
-## Sakura
+### Sakura
 
 ```{r}
 etheme(plot, "sakura")
 ```
 
-## Shine
+### Shine
 
 ```{r}
 etheme(plot, "shine")
 ```
 
-## Infographic
+### Infographic
 
 ```{r}
 etheme(plot, "infographic")
 ```
 
-## solarlight
+### solarlight
 
 ```{r}
 etheme(plot, "solarlight") 
 ```
+
+</div>
+</main>

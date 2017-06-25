@@ -1,5 +1,5 @@
 ---
-title: "Candlestick"
+title: ""
 ---
 
 ```{r setup, include=FALSE}
@@ -14,8 +14,16 @@ GS$date <- row.names(GS)
 row.names(GS) <- NULL
 ```
 
+<main>
+<div class = "container">
+
+```{r, echo=FALSE}
+h1(
+  "Candlestick charts"
+)
+```
+
 ```{r get data, eval = FALSE}
-library(quantmod) # get data with quantmod
 
 getSymbols("GS") #Goldman Sachs
 GS <- as.data.frame(GS)
@@ -23,7 +31,7 @@ GS$date <- row.names(GS)
 row.names(GS) <- NULL
 ```
 
-## Example
+### Example
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/k1.html#-en) on Baidu's official example page.
 
@@ -36,3 +44,6 @@ GS %>%
   etooltip() %>% 
   etheme("macarons")
 ```
+
+</div>
+</main>

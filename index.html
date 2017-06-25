@@ -8,31 +8,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 
 
 <title></title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/htmlwidgets-0.8/htmlwidgets.js"></script>
-<script src="site_libs/d3js-3.2.2/d3.min.js"></script>
-<script src="site_libs/uvcharts-1.1.5/uvcharts.full.min.js"></script>
-<script src="site_libs/uvcharts-binding-0.0.2.9000/uvcharts.js"></script>
-<script src="site_libs/echarts-2.2.7/echarts-all.js"></script>
-<script src="site_libs/echarts-binding-0.0.1/echarts.js"></script>
-<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
-<script src="https://use.fontawesome.com/9fdc01e796.js"></script>
 <link href="https://cdn.rawgit.com/gaborcsardi/r-font/master/rlogo.css" rel="stylesheet">
-<script src="js/siema.min.js"></script>
-<script src="js/rellax.min.js"></script>
 <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
 <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+<link rel="stylesheet" href="css/atelier-cave-light.css">
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -43,7 +35,6 @@
   ga('send', 'pageview');
 
 </script>
-<title>John Coene</title>
 
 <!--SHARE TAGS-->
 <meta name="google-site-verification" content="p4A9hVd1c8FOAlQsyDq0NMrE9IQdtfZoHgQ2e1t2dYE" />
@@ -71,612 +62,575 @@
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
 
 <link rel="stylesheet" href="css/styles.css" type="text/css" />
-<link rel="stylesheet" href="css/bttn.min.css" type="text/css" />
 
 </head>
 
 <body>
 
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-  height: auto;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-</style>
 
-
-<style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 41px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-
-.section h2 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h3 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h4 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h5 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h6 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-</style>
-
-<script>
-// manage active state of menu based on current page
-$(document).ready(function () {
-  // active menu anchor
-  href = window.location.pathname
-  href = href.substr(href.lastIndexOf('/') + 1)
-  if (href === "")
-    href = "index.html";
-  var menuAnchor = $('a[href="' + href + '"]');
-
-  // mark it active
-  menuAnchor.parent().addClass('active');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
-});
-</script>
-
-
-<div class="container-fluid main-container">
-
-<!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
-
-<!-- code folding -->
-
-
-
-
-
-
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html">John Coene</a>
+<nav>
+  <div class="nav-wrapper blue">
+    <div class = "container">
+      <a href="/" class="brand-logo brand left">John Coene</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="http://johncoene.github.io/cv/" target="_blank">Resume</a></li>
+      </ul>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li>
-  <a href="index.html">
-    <span class="fa fa-home"></span>
-     
-    Home
-  </a>
-</li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="http://johncoene.github.io/cv/">
-    <span class="fa fa-address-card"></span>
-     
-    Resume
-  </a>
-</li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div><!--/.container -->
-</div><!--/.navbar -->
-
-<div class="fluid-row" id="header">
+  </div>
+</nav>
 
 
 
 
-</div>
 
-
+<p><main></p>
+<div class="container section center">
+<h1 class="brand blue-text">Project Vault</h1>
+<h4 class="grey-text text-darken-2">Data, limericks, and other indoor stuff.</h4>
+<br/>
 <div class="row">
-<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6"><button class='bttn-jelly bttn-md bttn-default prev pull-left'><i class='fa fa-arrow-circle-o-left' aria-hidden='true'></i></button></div>
-<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6"><button class='bttn-jelly bttn-md bttn-default next pull-right'><i class='fa fa-arrow-circle-o-right' aria-hidden='true'></i></button></div>
-</div>
-<div class="siema">
-<div class="row">
-<div class="col-lg-3">
-<div class="page-header">
-<h2 class="text-primary">uvcharts</h2>
-</div>
-<p>uvCharts htmlwidget for R.</p>
-<p><ul> <li>12 chart types <li>7 themes <li>17 configuration functions <li>110 combinations <li>Responsive </ul></p>
-<br/>
-<a href="htmlwidgets/uvcharts/"><button class='bttn-unite bttn-md bttn-danger'><i class='fa fa-rocket' aria-hidden='true'></i> Get Started</button></a>
-</div>
-<div class="col-lg-9">
-<div id="htmlwidget-026aaab7e8e223eeeedd" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-026aaab7e8e223eeeedd">{"x":{"type":"StackedBar","config":{"meta":{"caption":""},"graph":{"responsive":true,"bgcolor":"none","orientation":"Horizontal"},"dimension":{"height":300},"axis":{"ticks":10,"strokecolor":"#d3d3d3","fontsize":9},"label":{"fontsize":5},"legend":{"showlegends":true,"position":"right"},"margin":{"top":20,"bottom":20,"left":30,"right":70},"frame":{"bgcolor":"none"}},"graph":{"categories":["uvcharts","chartist"],"dataset":{"uvcharts":[{"name":"1","value":4.5984633},{"name":"2","value":3.64003913},{"name":"3","value":4.20031005},{"name":"4","value":0.21502555},{"name":"5","value":1.40750273},{"name":"6","value":0.01333283},{"name":"7","value":3.37186728},{"name":"8","value":4.45249531},{"name":"9","value":4.49714612},{"name":"10","value":4.15698494}],"chartist":[{"name":"1","value":4.7096303},{"name":"2","value":1.1925253},{"name":"3","value":2.4500188},{"name":"4","value":2.1851675},{"name":"5","value":4.4801309},{"name":"6","value":0.9755847},{"name":"7","value":2.4025924},{"name":"8","value":0.4139671},{"name":"9","value":4.9534095},{"name":"10","value":3.8454148}]}}},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
-<div class="row">
-<div class="col-lg-4">
-<div class="page-header">
-<h2 class="text-primary">graphTweets</h2>
-</div>
-<p>Visualise Twitter conversations.</p>
-<p>Easily extracts @handles, edges and nodes!</p>
-<br/>
-<p>
-<code>.@he tweets @you about @her</code>
-<br/>
-<code>@I tweet to @you and @him</code>
-<br/>
-<code>@Someone tweets @her and @I</code>
-</p>
-<br/>
-<a href="packages/graphTweets/"><button class='bttn-unite bttn-md bttn-default'><i class='fa fa-book' aria-hidden='true'></i> Docs</button></a>
-</div>
-<div class="col-lg-8">
-<img class="img-responsive" src="img/graphTweets.png"/>
-</div>
-</div>
-<div class="row">
-<div class="col-lg-3">
-<div class="page-header">
-<h2 class="text-primary">echarts</h2>
-</div>
-<p>ECharts htmlwidget for R.</p>
-<p><ul> <li>9 chart types <li>10 themes <li>Plenty of options <li>Responsive </ul></p>
-<br/>
-<a href="htmlwidgets/echarts/"><button class='bttn-unite bttn-md bttn-info'><i class='fa fa-rocket' aria-hidden='true'></i> Get Started</button></a>
-<br/>
-</div>
-<div class="col-lg-9">
-<div id="htmlwidget-22db7b8fd8f78b19dbc2" style="width:100%;height:500px;" class="echarts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-22db7b8fd8f78b19dbc2">{"x":{"theme":"macarons","options":{"xAxis":[{"type":"category","data":["2017-06-20T12:39:24Z","2017-06-20T13:39:24Z","2017-06-20T14:39:24Z","2017-06-20T15:39:24Z","2017-06-20T16:39:24Z","2017-06-20T17:39:24Z","2017-06-20T18:39:24Z","2017-06-20T19:39:24Z","2017-06-20T20:39:24Z","2017-06-20T21:39:24Z","2017-06-20T22:39:24Z","2017-06-20T23:39:24Z","2017-06-21T00:39:24Z","2017-06-21T01:39:24Z","2017-06-21T02:39:24Z","2017-06-21T03:39:24Z","2017-06-21T04:39:24Z","2017-06-21T05:39:24Z","2017-06-21T06:39:24Z","2017-06-21T07:39:24Z"]}],"yAxis":[],"series":[{"name":"value","type":"line","data":[15,14,17,18,18,19,20,18,9,12,11,11,13,5,8,7,10,15,6,20],"clickable":true,"xAxisIndex":0,"yAxisIndex":0,"symbolSize":"function(value){ return value/2}","showAllSymbol":true,"smooth":true,"dataFilter":"nearest","legendHoverLink":true,"z":2,"zlevel":0}]}},"evals":["options.series.0.symbolSize"],"jsHooks":[]}</script>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
-<p class="text-center">
-<a href="https://github.com/JohnCoene" target="_blank"><button class='bttn-fill bttn-lg bttn-danger'><i class='fa fa-github' aria-hidden='true'></i></button></a>
-</p>
-</div>
-<div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
-<p class="text-center">
-<a href="https://www.linkedin.com/in/johncoene/" target="_blank"><button class='bttn-fill bttn-lg bttn-md bttn-success'><i class='fa fa-linkedin' aria-hidden='true'></i></button></a>
-</p>
-</div>
-<div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
-<p class="text-center">
-<a href="https://twitter.com/jdatap" target="_blank"><button class='bttn-fill bttn-lg bttn-md bttn-primary'><i class='fa fa-twitter' aria-hidden='true'></i></button></a>
-</p>
-</div>
-</div>
-<div class="page-header">
-<h1 class="text-primary" id="projects">Projects</h1>
-</div>
-<div class="panel panel-default">
-<div class="panel-body">
-<img src="img/thumbnails/fiveline.png" class="img-responsive"/>
-<div class="panel-body">
-<p>A collection of bawdy and blasphemous five-line stanzas.</p>
-</div>
-<ul class="list-group">
-<li class="list-group-item">
-<a href="http://five-line.org" target="_blank">
-<i class="fa fa-link"></i>
-Website
+<div class="col m4">
+<a href="https://github.com/JohnCoene" target="_blank" class="btn grey darken-3 waves-effect">
+<i class="material-icons">code</i>
 </a>
-browse the latest smutty scansions.
-</li>
-<li class="list-group-item">
-<a href="https://play.google.com/store/apps/details?id=org.five_line.www.five_line" target="_blank">
-<i class="fa fa-android"></i>
-App
+</div>
+<div class="col m4">
+<a href="https://www.linkedin.com/in/johncoene/" target="_blank" class="btn blue darken-3 waves-effect">
+<i class="material-icons">assignment_ind</i>
 </a>
-Get the all the poetic smut in one tap.
-</li>
-<li class="list-group-item">
-<a href="http://www.five-line.org/api/" target="_blank">
-<i class="fa fa-code"></i>
-API
+</div>
+<div class="col m4">
+<a href="https://twitter.com/jdatap" target="_blank" class="btn blue lighten-1 waves-effect">
+<i class="material-icons">sms</i>
 </a>
-Add limericks to your website.
-</li>
-<li class="list-group-item">
-<a href="five-line">
-<i class="icon-rlogo"></i>
-Package
+</div>
+</div>
+</div>
+<div class="parallax-container hide-on-small-only">
+<div class="parallax">
+<img class="responsive-img" src="img/parallax1.jpg"/>
+</div>
+</div>
+<div class="container section">
+<h1 class="blue-text center">Web</h1>
+<div class="row">
+<div class="col m4">
+<div class="card sticky-action">
+<div class="card-image">
+<img class="activator" src="img/thumbnails/fiveline.png"/>
+</div>
+<div class="card-content">
+<span class="card-title activator grey-text text-darken-2">
+five-line
+<i class="material-icons right">more_vert</i>
+</span>
+</div>
+<div class="card-reveal">
+<span class="card-title activator grey-text text-darken-2">
+five-line
+<i class="material-icons right">close</i>
+</span>
+<ul class="collection">
+<li class="collection-item avatar">
+<i class="material-icons circle">desktop_windows</i>
+<span class="title grey-text text-darken-2">Webapp</span>
+<p class="grey-text text-darken-2">Limericks in your browser.</p>
+<a class="secondary-content" href="http://www.five-line.org/" target="_blank">
+<i class="material-icons grey-text text-darken-2">send</i>
 </a>
-Include limericks in your Rmarkdown reports.
+</li>
+<li class="collection-item avatar">
+<i class="material-icons circle green white-text">android</i>
+<span class="title text-darken-2">Android Application</span>
+<p class="grey-text text-darken-2">Limericks in your phone.</p>
+<a class="secondary-content" href="https://play.google.com/store/apps/details?id=org.five_line.www.five_line" target="_blank">
+<i class="material-icons grey-text text-darken-2">send</i>
+</a>
+</li>
+<li class="collection-item avatar">
+<i class="material-icons circle amber white-text">code</i>
+<span class="title text-darken-2">API</span>
+<p class="grey-text text-darken-2">Limericks in your website.</p>
+<a class="secondary-content" href="http://www.five-line.org/api" target="_blank">
+<i class="material-icons grey-text text-darken-2">send</i>
+</a>
+</li>
+<li class="collection-item avatar">
+<i class="material-icons circle blue white-text">check_box_outline_blank</i>
+<span class="title text-darken-2">R Package</span>
+<p class="grey-text text-darken-2">Limericks in your reports.</p>
+<a class="secondary-content" href="http://john-coene.com/five-line" target="_blank">
+<i class="material-icons grey-text text-darken-2">send</i>
+</a>
 </li>
 </ul>
 </div>
 </div>
-<div class="row">
-<div class="col-lg-4 col-md-4">
-<div class="thumbnail js-tilt rellax" data-tilt data-aos="zoom-in-right" data-aos-duration="1000">
-<a href="packages/youTubeDataR/">
-<img src="img/thumbnails/youTubeDataR.png" class="img-responsive"/>
-</a>
-<div class="caption">
-<h3>youTubeDataR</h3>
-<p>youTubeDataR is an R package that provides access to the YouTube Data API</p>
-<h4>
-<span class="label label-info">api</span>
-</h4>
 </div>
+<div class="col m4">
+<div class="card sticky-action">
+<div class="card-image">
+<img class="activator" src="img/thumbnails/wine-dashboard.jpg"/>
 </div>
+<div class="card-content">
+<span class="card-title activator grey-text text-darken-2">
+Wine on Twitter
+<i class="material-icons right">more_vert</i>
+</span>
 </div>
-<div class="col-lg-4 col-md-4">
-<div class="thumbnail js-tilt rellax" data-tilt data-aos="zoom-in-up" data-aos-duration="1000">
-<a href="htmlwidgets/chartist/">
-<img src="img/thumbnails/chartist.png" class="img-responsive"/>
-</a>
-<div class="caption">
-<h3>chartist</h3>
-<p>chartist is an R htmlwidget for chartist.js in R.</p>
-<h4>
-<span class="label label-success">visualisation</span>
-</h4>
+<div class="card-action">
+<a href="http://johncoene.github.io/wine/" target="_blank">Browse</a>
 </div>
-</div>
-</div>
-<div class="col-lg-4 col-md-4">
-<div class="thumbnail js-tilt rellax" data-tilt data-aos="zoom-in-left" data-aos-duration="1000">
-<a href="http://johncoene.github.io/wine" target="_blank">
-<img src="img/thumbnails/wine-dashboard.jpg" class="img-responsive"/>
-</a>
-<div class="caption">
-<h3>Wine on Twitter</h3>
-<p>Wine dashboard is a set of dahsboards about conversations on wine occuring on Twitter.</p>
-<h4>
-<span class="label label-warning">dashboard</span>
-</h4>
-</div>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-lg-4 col-md-4">
-<div class="thumbnail js-tilt rellax" data-aos="zoom-in-right" data-aos-duration="1000" data-tilt>
-<a href="datamaps">
-<img src="img/thumbnails/datamaps.png" class="img-responsive"/>
-</a>
-<div class="caption">
-<h3>datamaps</h3>
-<p>datamaps is an htmlwidget for datamaps.</p>
-<h4>
-<span class="label label-success">visualisation</span>
-</h4>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-4">
-<div class="thumbnail js-tilt rellax" data-aos="zoom-in-up" data-aos-duration="1000" data-tilt>
-<a href="typed">
-<img src="img/thumbnails/typed.png" class="img-responsive"/>
-</a>
-<div class="caption">
-<h3>typed</h3>
-<p>typed is an is an R implementation (htmlwidget) of typed.js.</p>
-<h4>
-<span class="label label-default">misc</span>
-</h4>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-4">
-<div class="thumbnail js-tilt rellax" data-aos="zoom-in-left" data-aos-duration="1000" data-tilt>
-<a href="packages/bibler/">
-<img src="img/thumbnails/bibler.jpg" class="img-responsive"/>
-</a>
-<div class="caption">
-<h3>bibler</h3>
-<p>R Package that includes all of the Bible books and some text mining utilities.</p>
-<h4>
-<span class="label label-danger">dataset</span>
-</h4>
-</div>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-lg-4 col-md-4">
-<div class="thumbnail js-tilt rellax" data-aos="zoom-in-right" data-aos-duration="1000" data-tilt>
-<a href="peity">
-<img src="img/thumbnails/peity.png" class="img-responsive"/>
-</a>
-<div class="caption">
-<h3>peity</h3>
-<p>peity is an R implementation (htmlwidget) of Peity.</p>
-<h4>
-<span class="label label-success">visualisation</span>
-</h4>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-4">
-<div class="thumbnail js-tilt rellax" data-aos="zoom-in-up" data-aos-duration="1000" data-tilt>
-<a href="countup">
-<img src="img/thumbnails/countup.png" class="img-responsive"/>
-</a>
-<div class="caption">
-<h3>countup</h3>
-<p>countup is an R implementation (htmlwidget) of Count-Up.js.</p>
-<h4>
-<span class="label label-default">misc</span>
-</h4>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-4">
-<div class="thumbnail js-tilt rellax" data-aos="zoom-in-left" data-aos-duration="1000" data-tilt>
-<a href="packages/rodham/">
-<img src="img/thumbnails/rodham.png" class="img-responsive"/>
-</a>
-<div class="caption">
-<h3><i class='icon-rlogo'></i> rodham</h3>
-<p>R Package to download Hillary Rodham Clinton's personal emails.</p>
-<h4>
-<span class="label label-info">api</span>
-</h4>
-</div>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-lg-4 col-md-4">
-<div class="thumbnail js-tilt rellax" data-aos="zoom-in-right" data-aos-duration="1000" data-tilt>
-<a href="packages/graphTweets/">
-<img src="img/thumbnails/graphTweets.png" class="img-responsive"/>
-</a>
-<div class="caption">
-<h3><i class='icon-rlogo'></i> graphTweets</h3>
-<p>graphTweets is an R package to visualise networks of Twitter interactions.</p>
-<h4>
-<span class="label label-success">visualisation</span>
-</h4>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-4">
-<div class="thumbnail js-tilt rellax" data-aos="zoom-in-up" data-aos-duration="1000" data-tilt>
-<a href="tweets2earth">
-<img src="img/thumbnails/tweets2earth.png" class="img-responsive"/>
-</a>
-<div class="caption">
-<h3>tweets2earth</h3>
-<p>tweets2earth lets you easily plot tweets' location and created time onto Google Earth.</p>
-<h4>
-<span class="label label-success">visualisation</span>
-</h4>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-4">
-<div class="thumbnail js-tilt rellax" data-aos="zoom-in-left" data-aos-duration="1000" data-tilt>
-<a href="egg">
-<img src="img/thumbnails/egg.png" class="img-responsive"/>
-</a>
-<div class="caption">
-<h3>egg</h3>
-<p>egg let's you put Easter eggs in your Rmarkdown documents.</p>
-<h4>
-<span class="label label-default">misc</span>
-</h4>
-</div>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-lg-4 col-md-4">
-<div class="thumbnail js-tilt rellax" data-aos="zoom-in-right" data-aos-duration="1000" data-tilt>
-<a href="tippy">
-<img src="img/thumbnails/tippy.png" class="img-responsive"/>
-</a>
-<div class="caption">
-<h3>tippy</h3>
-<p>tippy is an htmlwidget to include tooltips in Rmarkdown.</p>
-<h4>
-<span class="label label-default">misc</span>
-</h4>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-4">
-<div class="thumbnail js-tilt rellax" data-aos="zoom-in-left" data-aos-duration="1000" data-tilt>
-<a href="marat">
-<img src="https://raw.githubusercontent.com/JohnCoene/marat/master/assets/img/screenshot.png" class="img-responsive"/>
-</a>
-<div class="caption">
-<h3>Marat</h3>
-<p>Marat is a jekyll-theme inspired by L'Ami du peuple by Jean-Paul Marat.</p>
-<h4>
-<span class="label label-default">misc</span>
-</h4>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-4">
-<div class="thumbnail js-tilt rellax" data-aos="zoom-in-up" data-aos-duration="1000" data-tilt>
-<a href="reporter">
-<img src="img/thumbnails/reporter.png" class="img-responsive"/>
-</a>
-<div class="caption">
-<h3>reporter</h3>
-<p>reporter is a collection of Rmarkdown formats (WIP).</p>
-<h4>
-<span class="label label-default">misc</span>
-</h4>
-</div>
-</div>
-</div>
-</div>
-<div class="jumbotron">
-<div class="container-fluid">
-<div class="row">
-<div class="col-lg-9 col-md-9">
-<div id="htmlwidget-585120bd95bc50231575" style="width:100%;height:300px;" class="echarts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-585120bd95bc50231575">{"x":{"theme":"default","options":{"xAxis":[{"type":"value","min":1,"max":150}],"yAxis":[{"type":"value"}],"series":[{"name":"Clicks","type":"scatter","data":[[1,6.41],[2,4.52],[3,4.38],[4,5.64],[5,5.64],[6,4.09],[7,4.92],[8,5.18],[9,4.2],[10,6.34],[11,5.13],[12,4.21],[13,5.35],[14,6.87],[15,5.57],[16,4.31],[17,5.29],[18,4.63],[19,5.11],[20,4.61],[21,5.16],[22,6.49],[23,6.78],[24,3.86],[25,5.46],[26,5.53],[27,6.33],[28,4.76],[29,6.82],[30,4.99],[31,7.02],[32,4.35],[33,6.41],[34,4.97],[35,6.35],[36,5.06],[37,4.84],[38,5.37],[39,3.27],[40,4.97],[41,6.06],[42,5.03],[43,5.2],[44,7.95],[45,3.75],[46,4.67],[47,6.2],[48,4.53],[49,5.61],[50,6.47],[51,4.72],[52,5.91],[53,5.07],[54,6.02],[55,5.62],[56,5.7],[57,5.77],[58,5.22],[59,4.9],[60,5.03],[61,4.93],[62,4.33],[63,5.28],[64,6.38],[65,6.98],[66,4.45],[67,5.8],[68,4.54],[69,5.53],[70,4.14],[71,5.34],[72,4.25],[73,5.31],[74,5.39],[75,3.49],[76,3.15],[77,3.64],[78,4.17],[79,6.4],[80,3.63],[81,6.28],[82,5.66],[83,4.51],[84,5.66],[85,4.47],[86,3.56],[87,4.18],[88,6.78],[89,5.37],[90,3.45],[91,4.79],[92,3.9],[93,5.52],[94,5.35],[95,5.93],[96,5.48],[97,6.31],[98,7.29],[99,5.91],[100,7.34],[101,5.29],[102,4.71],[103,6.42],[104,4.87],[105,4.78],[106,6.11],[107,5.93],[108,4.78],[109,4.42],[110,5.15],[111,5.77],[112,3.27],[113,4.44],[114,6.24],[115,5.43],[116,5.32],[117,6.05],[118,3.97],[119,4.15],[120,5.4],[121,4.36],[122,4.92],[123,5.44],[124,5.73],[125,4.98],[126,4.61],[127,3.62],[128,5.58],[129,5.3],[130,4.63],[131,5.34],[132,5.12],[133,4.65],[134,7.04],[135,4.73],[136,6],[137,3.12],[138,5.21],[139,4.07],[140,5.3],[141,5.88],[142,6.81],[143,5.03],[144,4.72],[145,5.46],[146,3.12],[147,4.5],[148,5.63],[149,5.5],[150,4.1]],"clickable":true,"symbolSize":4,"large":false,"largeThreshold":2000,"legendHoverLink":true,"z":2,"zlevel":0,"markPoint":{"data":[{"type":"min"},{"type":"max"}],"clickable":true,"symbol":"pin","symbolSize":10,"large":false},"markLine":{"data":[{"type":"average"}],"clickable":true,"symbol":["circle","arrow"],"symbolSize":[2,4],"large":false,"smooth":false,"precision":2,"bundling":{"enable":false,"maxTurningAngle":45}}},{"name":"Views","type":"scatter","data":[[1,6.69],[2,7.84],[3,5.66],[4,7.11],[5,6.61],[6,5.18],[7,6.3],[8,7.18],[9,7.21],[10,6.92],[11,8.67],[12,8.76],[13,6.73],[14,7.78],[15,7.4],[16,6.04],[17,6.66],[18,7.36],[19,6.55],[20,6.63],[21,7.21],[22,6.06],[23,6.71],[24,5.89],[25,4.95],[26,7.77],[27,7.03],[28,5.77],[29,8.48],[30,6.75],[31,7.51],[32,5.7],[33,6.55],[34,6.17],[35,6.7],[36,7.86],[37,5.49],[38,6.56],[39,8.01],[40,7.54],[41,6.52],[42,7.71],[43,6.13],[44,6.65],[45,6.96],[46,6.99],[47,5.87],[48,7.23],[49,6.25],[50,7.23],[51,6.86],[52,7.2],[53,5.83],[54,7.81],[55,8.06],[56,6.31],[57,5.45],[58,6.52],[59,5.03],[60,6.65],[61,6.32],[62,7.05],[63,8.43],[64,6.96],[65,8.14],[66,6.95],[67,6.73],[68,6.73],[69,6.82],[70,7.52],[71,7.29],[72,8.25],[73,7.27],[74,7.36],[75,7.88],[76,4.83],[77,7.18],[78,6.92],[79,6.7],[80,6],[81,6.95],[82,7.05],[83,7.44],[84,5.07],[85,6.09],[86,8.18],[87,6.71],[88,8.81],[89,7.41],[90,5.47],[91,7.3],[92,8.37],[93,6.52],[94,5.99],[95,6.03],[96,6.84],[97,7.77],[98,6.21],[99,6.57],[100,6.29],[101,8.15],[102,7.54],[103,6.09],[104,7.33],[105,7.73],[106,7.66],[107,7.1],[108,6.74],[109,8.29],[110,7.35],[111,5.7],[112,8.37],[113,8.14],[114,6.28],[115,7.54],[116,6.41],[117,6.27],[118,6.16],[119,6.44],[120,5.12],[121,9.62],[122,6.29],[123,7.33],[124,6.52],[125,5.83],[126,6.01],[127,5.51],[128,6.36],[129,8.18],[130,6.79],[131,9.22],[132,7.09],[133,7.12],[134,7.85],[135,5.85],[136,5.95],[137,7.75],[138,6.26],[139,6.49],[140,7.34],[141,6.92],[142,4.15],[143,7.32],[144,6.19],[145,6.66],[146,7.46],[147,7.27],[148,6.58],[149,8.13],[150,7.59]],"clickable":true,"symbolSize":4,"large":false,"largeThreshold":2000,"legendHoverLink":true,"z":2,"zlevel":0,"markPoint":{"data":[{"type":"min"},{"type":"max"}],"clickable":true,"symbol":"pin","symbolSize":10,"large":false},"markLine":{"data":[{"type":"average"}],"clickable":true,"symbol":["circle","arrow"],"symbolSize":[2,4],"large":false,"smooth":false,"precision":2,"bundling":{"enable":false,"maxTurningAngle":45}}}],"tooltip":{"show":true,"trigger":"axis","zlevel":1,"showContent":true,"islandFormatter":"{a} < br/>{b} : {c}","showDelay":0,"hideDelay":100,"transitionDuration":0.4,"enterable":false,"backgroundColor":"rgba(0,0,0,0.7)","borderColor":"#333","borderRadius":4,"borderWidth":0,"padding":5,"axisPointer":{"show":true,"type":"cross","lineStyle":{"type":"dashed","width":0.8}},"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"backgroundColor":"rgba(0,0,0,0)","renderAsImage":false,"calculable":false}},"evals":[],"jsHooks":[]}</script>
-</div>
-<div class="col-lg-3 col-md-3">
-<h2>echarts</h2>
+<div class="card-reveal">
+<span class="card-title activator grey-text text-darken-2">
+Wine on Twitter
+<i class="material-icons right">close</i>
+</span>
 <p>
-<span class="label label-success">visualisation</span>
+A set of of dashboards on Twitter conversations taking place on Twitter.
+Includes dashboards on grape varieties, taste descriptors, wines associated with meal times, and more.
 </p>
-<p><ul> <li>9 chart types <li>10 themes <li>Plenty of options <li>Responsive </ul></p>
-<a href="htmlwidgets/echarts/"><button class='bttn-unite bttn-md bttn-warning'><i class='fa fa-line-chart' aria-hidden='true'></i> Your first chart</button></a>
 </div>
 </div>
 </div>
+<div class="col m4">
+<div class="card sticky-action">
+<div class="card-image">
+<img class="activator" src="https://raw.githubusercontent.com/JohnCoene/marat/master/assets/img/screenshot.png"/>
 </div>
-<p><div class="page-header">
-<h1 class="text-primary">About</h1>
-</div><div class="row">
-<div class="col-lg-7 col-md-7">
-<p>John is a young contrarian often found where the people are few and the drinks many.</p>
-<p>I am an autodidact genuinely interested in things ranging from politics to data.</p>
-<br/>
+<div class="card-content">
+<span class="card-title activator grey-text text-darken-2">
+Marat
+<i class="material-icons right">more_vert</i>
+</span>
+</div>
+<div class="card-action">
+<a href="marat">Check it out!</a>
+</div>
+<div class="card-reveal">
+<span class="card-title activator grey-text text-darken-2">
+Marat
+<i class="material-icons right">close</i>
+</span>
 <p>
-<span class="text-success">#rstats</span>
-<span class="text-info">#marketing</span>
-<span class="text-warning">#BI</span>
-<span class="text-danger">#data</span>
+A jekyll theme inspired by L'Ami du peuple, an octavo published during the French Revolution 
+by Jean-Paul Marat.
 </p>
-<p>
-Please free to inquire about a project, collaboration, freelance, or other opportunities such as free cake: 
-<br/>
-<br/>
-<h4>
-<a href="mailto:jcoenep@gmail.com">jcoenep@gmail.com</a>
-</h4>
-</p>
-<br/>
-<br/>
-<a href="http://johncoene.github.io/cv/" target="_blank"><button class='bttn-unite bttn-lg bttn-danger'><i class='fa fa-address-card' aria-hidden='true'></i> Resume</button></a>
 </div>
-<div class="col-lg-5 col-md-5"><a class="twitter-timeline" data-width="300" data-height="400" data-link-color="#d9230f" href="https://twitter.com/jdatap">Tweets by jdatap</a></div>
-</div></p>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-<script src="js/tilt.jquery.min.js"></script>
-<script>
-    AOS.init();
-  </script>
-
-
+</div>
+</div>
+</div>
+</div>
+<div class="parallax-container hide-on-small-only">
+<div class="parallax">
+<img class="responsive-img" src="img/parallax2.jpg"/>
+</div>
+</div>
+<div class="container section">
+<h1 class="blue-text center">Visualisations</h1>
 <div class="row">
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-    <p class="text-center"><a href="https://github.com/JohnCoene"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-github' aria-hidden='true'></i></button></a></p>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-    <p class="text-center"><a href="https://www.linkedin.com/in/johncoene/"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-linkedin' aria-hidden='true'></i></button></a></p>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-    <p class="text-center"><a href="https://twitter.com/jdatap"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-twitter' aria-hidden='true'></i></button></a></p>
-  </div>
+<div class="col m4">
+<div class="card sticky-action">
+<div class="card-image">
+<img class="activator" src="img/thumbnails/peity.png"/>
 </div>
+<div class="card-content">
+<span class="card-title activator grey-text text-darken-2">
+peity
+<i class="material-icons right">more_vert</i>
+</span>
+</div>
+<div class="card-action">
+<a href="https://github.com/JohnCoene/peity" target="_blank">Discover</a>
+</div>
+<div class="card-reveal">
+<span class="card-title activator grey-text text-darken-2">
+peity
+<i class="material-icons right">close</i>
+</span>
+<p>
+peity htmlwidget for R 
+<a href="http://benpickles.github.io/peity/" target="_blank">Peity</a>
+ - inline charts in Rmarkdown.
+</p>
+</div>
+</div>
+</div>
+<div class="col m4">
+<div class="card sticky-action">
+<div class="card-image">
+<img class="activator" src="img/thumbnails/chartist.png"/>
+</div>
+<div class="card-content">
+<span class="card-title activator grey-text text-darken-2">
+chartist
+<i class="material-icons right">more_vert</i>
+</span>
+</div>
+<div class="card-action">
+<a href="htmlwidgets/chartist">Start plotting</a>
+</div>
+<div class="card-reveal">
+<span class="card-title activator grey-text text-darken-2">
+chartist
+<i class="material-icons right">close</i>
+</span>
+<p>R htmlwidget for chartistjs.</p>
+</div>
+</div>
+</div>
+<div class="col m4">
+<div class="card sticky-action">
+<div class="card-image">
+<img class="activator" src="img/thumbnails/uvcharts.png"/>
+</div>
+<div class="card-content">
+<span class="card-title activator grey-text text-darken-2">
+uvcharts
+<i class="material-icons right">more_vert</i>
+</span>
+</div>
+<div class="card-action">
+<a href="htmlwidgets/uvcharts">Start charting</a>
+</div>
+<div class="card-reveal">
+<span class="card-title activator grey-text text-darken-2">
+uvcharts
+<i class="material-icons right">close</i>
+</span>
+<p>R htmlwidget for uvcharts.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col m6">
+<div class="card sticky-action">
+<div class="card-image">
+<img class="activator" src="img/thumbnails/datamaps.png"/>
+</div>
+<div class="card-content">
+<span class="card-title activator grey-text text-darken-2">
+datamaps
+<i class="material-icons right">more_vert</i>
+</span>
+</div>
+<div class="card-action">
+<a href="datamaps">Start mapping</a>
+</div>
+<div class="card-reveal">
+<span class="card-title activator grey-text text-darken-2">
+datamaps
+<i class="material-icons right">close</i>
+</span>
+<p>R htmlwidget for datamaps.</p>
+</div>
+</div>
+</div>
+<div class="col m6">
+<div class="card sticky-action">
+<div class="card-image">
+<img class="activator" src="img/thumbnails/echarts.png"/>
+</div>
+<div class="card-content">
+<span class="card-title activator grey-text text-darken-2">
+htmlwidgets/echarts
+<i class="material-icons right">more_vert</i>
+</span>
+</div>
+<div class="card-action">
+<a href="htmlwidgets/echarts/">Your first chart</a>
+</div>
+<div class="card-reveal">
+<span class="card-title activator grey-text text-darken-2">
+echarts
+<i class="material-icons right">close</i>
+</span>
+<p class="grey-text text-darken-2">R htmlwidget for ECharts2.</p>
+<ul class="collection">
+<li class="collection-item">13 chart types</li>
+<li class="collection-item">10 themes</li>
+<li class="collection-item">100s of options</li>
+<li class="collection-item">Fully responsive</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="parallax-container hide-on-small-only">
+<div class="parallax">
+<img class="responsive-img" src="img/parallax3.jpeg"/>
+</div>
+</div>
+<div class="container section">
+<h1 class="blue-text center">Social Media Analysis</h1>
+<div class="row">
+<div class="col m6">
+<div class="card sticky-action">
+<div class="card-image">
+<img class="activator" src="img/thumbnails/graphTweets.png"/>
+</div>
+<div class="card-content">
+<span class="card-title activator grey-text text-darken-2">
+graphTweets
+<i class="material-icons right">more_vert</i>
+</span>
+</div>
+<div class="card-action">
+<a href="packages/graphTweets">Visualise</a>
+</div>
+<div class="card-reveal">
+<span class="card-title activator grey-text text-darken-2">
+graphTweets
+<i class="material-icons right">close</i>
+</span>
+<p>R package to visualise Twitter interactions.</p>
+</div>
+</div>
+</div>
+<div class="col m6">
+<div class="card sticky-action">
+<div class="card-image">
+<img class="activator" src="img/thumbnails/tweets2earth.png"/>
+</div>
+<div class="card-content">
+<span class="card-title activator grey-text text-darken-2">
+tweets2earth
+<i class="material-icons right">more_vert</i>
+</span>
+</div>
+<div class="card-action">
+<a href="tweets2earth">Get started</a>
+</div>
+<div class="card-reveal">
+<span class="card-title activator grey-text text-darken-2">
+tweets2earth
+<i class="material-icons right">close</i>
+</span>
+<p>R package to plot tweets onto Google Earth.</p>
+<ul class="collection">
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="parallax-container hide-on-small-only">
+<div class="parallax">
+<img class="responsive-img" src="img/parallax4.jpeg"/>
+</div>
+</div>
+<div class="container section">
+<h1 class="blue-text center">Datasets &amp; APIs</h1>
+<div class="row">
+<div class="col m4">
+<div class="card sticky-action">
+<div class="card-image">
+<img class="activator" src="img/thumbnails/youTubeDataR.png"/>
+</div>
+<div class="card-content">
+<span class="card-title activator grey-text text-darken-2">
+youTubeDataR
+<i class="material-icons right">more_vert</i>
+</span>
+</div>
+<div class="card-action">
+<a href="packages/youTubeDataR/">Get data</a>
+</div>
+<div class="card-reveal">
+<span class="card-title activator grey-text text-darken-2">
+youTubeDataR
+<i class="material-icons right">close</i>
+</span>
+<p>youTubeDataR is an R package that wraps the YouTube Data API.</p>
+</div>
+</div>
+</div>
+<div class="col m4">
+<div class="card sticky-action">
+<div class="card-image">
+<img class="activator" src="img/thumbnails/bibler.jpg"/>
+</div>
+<div class="card-content">
+<span class="card-title activator grey-text text-darken-2">
+bibler
+<i class="material-icons right">more_vert</i>
+</span>
+</div>
+<div class="card-action">
+<a href="packages/bibler">Explore</a>
+</div>
+<div class="card-reveal">
+<span class="card-title activator grey-text text-darken-2">
+bibler
+<i class="material-icons right">close</i>
+</span>
+<p>R package that includes all the Bible books and some text mining utilities to deal with Middle English.</p>
+</div>
+</div>
+</div>
+<div class="col m4">
+<div class="card sticky-action">
+<div class="card-image">
+<img class="activator" src="img/thumbnails/rodham.png"/>
+</div>
+<div class="card-content">
+<span class="card-title activator grey-text text-darken-2">
+rodham
+<i class="material-icons right">more_vert</i>
+</span>
+</div>
+<div class="card-action">
+<a href="packages/rodham">Discover</a>
+</div>
+<div class="card-reveal">
+<span class="card-title activator grey-text text-darken-2">
+rodham
+<i class="material-icons right">close</i>
+</span>
+<p>R package to download and analyse Hillary Rodham Clinton emails from the Wall Street Journal.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="parallax-container hide-on-small-only">
+<div class="parallax">
+<img class="responsive-img" src="img/parallax5.jpeg"/>
+</div>
+</div>
+<div class="container section">
+<h1 class="blue-text center">Miscellaneous</h1>
+<div class="row">
+<div class="col m4">
+<div class="card sticky-action">
+<div class="card-image">
+<img class="activator" src="img/thumbnails/typed.png"/>
+</div>
+<div class="card-content">
+<span class="card-title activator grey-text text-darken-2">
+typed
+<i class="material-icons right">more_vert</i>
+</span>
+</div>
+<div class="card-action">
+<a href="https://github.com/JohnCoene/typed" target="_blank">Start typing</a>
+</div>
+<div class="card-reveal">
+<span class="card-title activator grey-text text-darken-2">
+typed
+<i class="material-icons right">close</i>
+</span>
+<p>
+typed is an R implementation of 
+<a href="https://github.com/mattboldt/typed.js">typed.js</a>
+.
+</p>
+</div>
+</div>
+</div>
+<div class="col m4">
+<div class="card sticky-action">
+<div class="card-image">
+<img class="activator" src="img/thumbnails/countup.png"/>
+</div>
+<div class="card-content">
+<span class="card-title activator grey-text text-darken-2">
+countup
+<i class="material-icons right">more_vert</i>
+</span>
+</div>
+<div class="card-action">
+<a href="https://github.com/JohnCoene/countup" target="_blank">Get counting</a>
+</div>
+<div class="card-reveal">
+<span class="card-title activator grey-text text-darken-2">
+countup
+<i class="material-icons right">close</i>
+</span>
+<p>
+R implementation of 
+<a href="https://inorganik.github.io/countUp.js/">countup.js</a>
+.
+</p>
+</div>
+</div>
+</div>
+<div class="col m4">
+<div class="card sticky-action">
+<div class="card-image">
+<img class="activator" src="img/thumbnails/egg.jpg"/>
+</div>
+<div class="card-content">
+<span class="card-title activator grey-text text-darken-2">
+egg
+<i class="material-icons right">more_vert</i>
+</span>
+</div>
+<div class="card-action">
+<a href="egg">Get cooking</a>
+</div>
+<div class="card-reveal">
+<span class="card-title activator grey-text text-darken-2">
+egg
+<i class="material-icons right">close</i>
+</span>
+<p>R package to put easter eggs in your Rmarkdown reports.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p></main></p>
 
-<script>
-  const car = new Siema({
-    selector: '.siema',
-    duration: 700,
-    easing: 'ease-out',
-    draggable: true,
-    perPage: 1,
-    startIndex: 0,
-    loop: true
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript" charset="utf-8">
+ $('code').each(function(i, inline) {
+   hljs.highlightBlock(inline);
+ });
+ $('pre code').each(function(i, block) {
+   hljs.highlightBlock(block);
+ });
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $('.parallax').parallax();
   });
-  
-  setInterval(() => car.next(), 9000)
-  document.querySelector('.prev').addEventListener('click', () => car.prev())
-  document.querySelector('.next').addEventListener('click', () => car.next())
 </script>
 
-<script>
-$('.js-tilt').tilt({
-    scale: 1.1
-})
-</script>
+<footer class="page-footer blue">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text brand">John Coene</h5>
+        <p class="grey-text text-lighten-4">Data, limericks, and other indoor stuff.</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Connect</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="https://twitter.com/jdatap">Twitter</a></li>
+          <li><a class="grey-text text-lighten-3" href="http://github.com/JohnCoene">Github</a></li>
+          <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/johncoene/">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    © 2017 John Coene
+    <a class="grey-text text-lighten-4 right" href="http://johncoene.github.io/cv/">Resume</a>
+    </div>
+  </div>
+</footer>
 
-
-
-</div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
-
-
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

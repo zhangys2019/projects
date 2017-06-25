@@ -1,5 +1,5 @@
 ---
-title: "Bar charts"
+title: ""
 ---
 
 ```{r setup, include=FALSE}
@@ -7,7 +7,16 @@ knitr::opts_chunk$set(echo = TRUE)
 library(echarts)
 ```
 
-## Marks
+<main>
+<div class = "container">
+
+```{r, echo=FALSE}
+h1(
+  "Bar charts"
+)
+```
+
+### Marks
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/bar1.html#-en) taken from Baidu's EChart official website.
 
@@ -31,7 +40,7 @@ df %>%
   etitle("Evaporation and precipitation")
 ```
 
-# Stacked bars
+### Stacked bars
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/bar2.html#-en) taken from Baidu's EChart official website.
 
@@ -61,7 +70,7 @@ df %>%
   etooltip(axisPointer = list(type = "shadow"))
 ```
 
-# Waterfall
+### Waterfall
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/bar7.html#-en) taken from Baidu's EChart official website.
 
@@ -90,7 +99,7 @@ df %>%
   etitle("Shenzhen minimum living expenses (RMB)", subtext = "From ExcelHome", sublink = "http://e.weibo.com/1341556070/AjQH99che")
 ```
 
-# Thermometer
+### Thermometer
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/bar10.html#-en) taken from Baidu's EChart official website.
 
@@ -129,3 +138,6 @@ df %>%
   etoolbox_full() %>% 
   etitle("Thermometer chart", subtext = "From ExcelHome", sublink = "http://e.weibo.com/1341556070/AizJXrAEa")
 ```
+
+</div>
+</main>

@@ -1,5 +1,5 @@
 ---
-title: "Funnels"
+title: ""
 ---
 
 ```{r setup, include=FALSE}
@@ -7,7 +7,16 @@ knitr::opts_chunk$set(echo = TRUE)
 library(echarts)
 ```
 
-## Basic
+<main>
+<div class = "container">
+
+```{r, echo=FALSE}
+h1(
+  "Funnels"
+)
+```
+
+### Basic
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/funnel1.html#-en) taken from Baidu's EChart official website.
 
@@ -28,7 +37,7 @@ funnel %>%
   etitle("Funnel", "Fake data")
 ```
 
-## Multiple
+### Multiple
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/funnel2.html#-en) taken from Baidu's EChart official website.
 
@@ -51,3 +60,6 @@ funnel %>%
   elegend() %>% 
   etitle("Funnel", "Fake data")
 ```
+
+</div>
+</main>

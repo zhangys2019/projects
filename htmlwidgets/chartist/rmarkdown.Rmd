@@ -1,5 +1,5 @@
 ---
-title: "Rmarkdown"
+title: ""
 ---
 
 ```{r setup, include=FALSE}
@@ -7,9 +7,18 @@ knitr::opts_chunk$set(echo = TRUE, comment="")
 library(chartist)
 ```
 
+<main>
+<div class = "container">
+
+```{r, echo=FALSE, eval=TRUE}
+h1(
+  "Rmarkdown"
+)
+```
+
 Being an htmlwidget, chartist is compatible with all HTML [Rmarkdown](http://rmarkdown.rstudio.com/) formats: *this very website is made with Rmarkdown.*
 
-## Example
+### Example
 
 ```{r, eval = TRUE, echo=FALSE}
 cat('---
@@ -41,3 +50,6 @@ Default knitr options:
 * `height` = 400px
 
 You can override that by specifying `width` and/or `height` in `chart_ist`.
+
+</div>
+</main>

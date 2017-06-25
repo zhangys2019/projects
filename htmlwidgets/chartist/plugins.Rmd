@@ -1,17 +1,23 @@
 ---
-title: "Plugins"
+title: ""
 output:
-  html_document:
-    toc: true
-    toc_depth: 3
-    toc_float: true
+  html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Threshold
+<main>
+<div class = "container">
+
+```{r, echo=FALSE, eval=TRUE}
+h1(
+  "Plugins"
+)
+```
+
+### Threshold
 
 ```{r}
 mtcars %>%
@@ -20,7 +26,7 @@ mtcars %>%
     thresh_ist()
 ```
 
-## Hover
+### Hover
 
 ```{r}
 mtcars %>%
@@ -29,7 +35,7 @@ mtcars %>%
     hover_ist(prefix = "$", suffix = "%")
 ```
 
-## Point label
+### Point label
 
 ```{r}
 mtcars %>%
@@ -38,7 +44,7 @@ mtcars %>%
     label_ist()
 ```
 
-## Axis Label
+### Axis Label
 
 ```{r}
 mtcars %>%
@@ -46,3 +52,6 @@ mtcars %>%
     add_ist(disp) %>%
     xtitle_ist("Displacement (cu.in.)", offsety = 30)
 ```
+
+</div>
+</main>

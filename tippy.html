@@ -8,29 +8,27 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 
 
 <title>tippy</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/htmlwidgets-0.8/htmlwidgets.js"></script>
 <link href="site_libs/tippyjs-0.17.0/tippy.css" rel="stylesheet" />
 <script src="site_libs/tippyjs-0.17.0/tippy.min.js"></script>
 <script src="site_libs/tippy-binding-0.0.0.9000/tippy.js"></script>
-<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
-<script src="https://use.fontawesome.com/9fdc01e796.js"></script>
 <link href="https://cdn.rawgit.com/gaborcsardi/r-font/master/rlogo.css" rel="stylesheet">
-<script src="js/siema.min.js"></script>
-<script src="js/rellax.min.js"></script>
 <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
 <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+<link rel="stylesheet" href="css/atelier-cave-light.css">
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -41,7 +39,6 @@
   ga('send', 'pageview');
 
 </script>
-<title>John Coene</title>
 
 <!--SHARE TAGS-->
 <meta name="google-site-verification" content="p4A9hVd1c8FOAlQsyDq0NMrE9IQdtfZoHgQ2e1t2dYE" />
@@ -104,179 +101,30 @@ code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Ann
 code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
 </style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
 
 <link rel="stylesheet" href="css/styles.css" type="text/css" />
-<link rel="stylesheet" href="css/bttn.min.css" type="text/css" />
 
 </head>
 
 <body>
 
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-  height: auto;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-</style>
 
-
-<style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 41px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-
-.section h2 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h3 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h4 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h5 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h6 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-</style>
-
-<script>
-// manage active state of menu based on current page
-$(document).ready(function () {
-  // active menu anchor
-  href = window.location.pathname
-  href = href.substr(href.lastIndexOf('/') + 1)
-  if (href === "")
-    href = "index.html";
-  var menuAnchor = $('a[href="' + href + '"]');
-
-  // mark it active
-  menuAnchor.parent().addClass('active');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
-});
-</script>
-
-
-<div class="container-fluid main-container">
-
-<!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
-
-<!-- code folding -->
-
-
-
-
-
-
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html">John Coene</a>
+<nav>
+  <div class="nav-wrapper blue">
+    <div class = "container">
+      <a href="/" class="brand-logo brand left">John Coene</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="http://johncoene.github.io/cv/" target="_blank">Resume</a></li>
+      </ul>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li>
-  <a href="index.html">
-    <span class="fa fa-home"></span>
-     
-    Home
-  </a>
-</li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="http://johncoene.github.io/cv/">
-    <span class="fa fa-address-card"></span>
-     
-    Resume
-  </a>
-</li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div><!--/.container -->
-</div><!--/.navbar -->
-
-<div class="fluid-row" id="header">
-
+  </div>
+</nav>
 
 
 <h1 class="title toc-ignore">tippy</h1>
 
-</div>
 
 
 <p><a href="https://travis-ci.org/JohnCoene/tippy"><img src="https://travis-ci.org/JohnCoene/tippy.svg?branch=master" alt="Build Status" /></a> <a href="https://saythanks.io/to/JohnCoene"><img src="https://img.shields.io/badge/say-thanks-ff69b4.svg" alt="saythanks" /></a></p>
@@ -315,72 +163,65 @@ is an htmlwidget for
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tippy)
 
 <span class="kw">tippy</span>(<span class="st">&quot;Hover me!&quot;</span>, <span class="dt">tooltip =</span> <span class="st">&quot;Hi, I&#39;m the tooltip!&quot;</span>)</code></pre></div>
-<span id="htmlwidget-37307c5df70230690cbc" class="tippy html-widget" width="672" height="480"></span>
-<script type="application/json" data-for="htmlwidget-37307c5df70230690cbc">{"x":{"text":"Hover me!","tooltip":"Hi, I'm the tooltip!","position":"top","animation":"shift","trigger":"mouseenter focus","interactive":"false","interactiveBorder":2,"delay":0,"hideDelay":0,"arrow":"false","arrowSize":"regular","animateFill":"true","duration":375,"hideDuration":375,"html":"false","distance":10,"theme":"dark","offset":0,"hideOnClick":"true","multiple":"false","followCursor":"false","inertia":"false","flipDuration":300,"sticky":"false","stickyDuration":"false","zIndex":9999,"touchHold":"false"},"evals":[],"jsHooks":[]}</script>
+<span id="htmlwidget-3a63232f89262f6d98d1" class="tippy html-widget" width="672" height="480"></span>
+<script type="application/json" data-for="htmlwidget-3a63232f89262f6d98d1">{"x":{"text":"Hover me!","tooltip":"Hi, I'm the tooltip!","position":"top","animation":"shift","trigger":"mouseenter focus","interactive":"false","interactiveBorder":2,"delay":0,"hideDelay":0,"arrow":"false","arrowSize":"regular","animateFill":"true","duration":375,"hideDuration":375,"html":"false","distance":10,"theme":"dark","offset":0,"hideOnClick":"true","multiple":"false","followCursor":"false","inertia":"false","flipDuration":300,"sticky":"false","stickyDuration":"false","zIndex":9999,"touchHold":"false"},"evals":[],"jsHooks":[]}</script>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tippy</span>(<span class="st">&quot;Hover me!&quot;</span>, <span class="dt">tooltip =</span> <span class="st">&quot;Hi, I&#39;m the tooltip!&quot;</span>, <span class="dt">position =</span> <span class="st">&quot;right&quot;</span>,
   <span class="dt">theme =</span> <span class="st">&quot;light&quot;</span>)</code></pre></div>
-<span id="htmlwidget-f4af9c1017afb444f29d" class="tippy html-widget" width="672" height="480"></span>
-<script type="application/json" data-for="htmlwidget-f4af9c1017afb444f29d">{"x":{"text":"Hover me!","tooltip":"Hi, I'm the tooltip!","position":"right","animation":"shift","trigger":"mouseenter focus","interactive":"false","interactiveBorder":2,"delay":0,"hideDelay":0,"arrow":"false","arrowSize":"regular","animateFill":"true","duration":375,"hideDuration":375,"html":"false","distance":10,"theme":"light","offset":0,"hideOnClick":"true","multiple":"false","followCursor":"false","inertia":"false","flipDuration":300,"sticky":"false","stickyDuration":"false","zIndex":9999,"touchHold":"false"},"evals":[],"jsHooks":[]}</script>
+<span id="htmlwidget-9cfd8bfd256e0d327212" class="tippy html-widget" width="672" height="480"></span>
+<script type="application/json" data-for="htmlwidget-9cfd8bfd256e0d327212">{"x":{"text":"Hover me!","tooltip":"Hi, I'm the tooltip!","position":"right","animation":"shift","trigger":"mouseenter focus","interactive":"false","interactiveBorder":2,"delay":0,"hideDelay":0,"arrow":"false","arrowSize":"regular","animateFill":"true","duration":375,"hideDuration":375,"html":"false","distance":10,"theme":"light","offset":0,"hideOnClick":"true","multiple":"false","followCursor":"false","inertia":"false","flipDuration":300,"sticky":"false","stickyDuration":"false","zIndex":9999,"touchHold":"false"},"evals":[],"jsHooks":[]}</script>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tippy</span>(<span class="st">&quot;Hover me!&quot;</span>, <span class="dt">tooltip =</span> <span class="st">&quot;Hi, I&#39;m the tooltip!&quot;</span>, <span class="dt">animation =</span> <span class="st">&quot;scale&quot;</span>,
   <span class="dt">duration =</span> <span class="dv">1000</span>, <span class="dt">position =</span> <span class="st">&quot;bottom&quot;</span>)</code></pre></div>
-<span id="htmlwidget-17fa561f7d26c3d4dd35" class="tippy html-widget" width="672" height="480"></span>
-<script type="application/json" data-for="htmlwidget-17fa561f7d26c3d4dd35">{"x":{"text":"Hover me!","tooltip":"Hi, I'm the tooltip!","position":"bottom","animation":"scale","trigger":"mouseenter focus","interactive":"false","interactiveBorder":2,"delay":0,"hideDelay":0,"arrow":"false","arrowSize":"regular","animateFill":"true","duration":1000,"hideDuration":1000,"html":"false","distance":10,"theme":"dark","offset":0,"hideOnClick":"true","multiple":"false","followCursor":"false","inertia":"false","flipDuration":300,"sticky":"false","stickyDuration":"false","zIndex":9999,"touchHold":"false"},"evals":[],"jsHooks":[]}</script>
+<span id="htmlwidget-7f00db2c6716e53babcf" class="tippy html-widget" width="672" height="480"></span>
+<script type="application/json" data-for="htmlwidget-7f00db2c6716e53babcf">{"x":{"text":"Hover me!","tooltip":"Hi, I'm the tooltip!","position":"bottom","animation":"scale","trigger":"mouseenter focus","interactive":"false","interactiveBorder":2,"delay":0,"hideDelay":0,"arrow":"false","arrowSize":"regular","animateFill":"true","duration":1000,"hideDuration":1000,"html":"false","distance":10,"theme":"dark","offset":0,"hideOnClick":"true","multiple":"false","followCursor":"false","inertia":"false","flipDuration":300,"sticky":"false","stickyDuration":"false","zIndex":9999,"touchHold":"false"},"evals":[],"jsHooks":[]}</script>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tippy</span>(<span class="st">&quot;Click me!&quot;</span>, <span class="dt">tooltip =</span> <span class="st">&quot;Hi, I&#39;m the tooltip!&quot;</span>, <span class="dt">trigger =</span> <span class="st">&quot;click&quot;</span>,
   <span class="dt">theme =</span> <span class="st">&quot;light&quot;</span>)</code></pre></div>
-<span id="htmlwidget-3ef7e22f7381b9ae7f44" class="tippy html-widget" width="672" height="480"></span>
-<script type="application/json" data-for="htmlwidget-3ef7e22f7381b9ae7f44">{"x":{"text":"Click me!","tooltip":"Hi, I'm the tooltip!","position":"top","animation":"shift","trigger":"click","interactive":"false","interactiveBorder":2,"delay":0,"hideDelay":0,"arrow":"false","arrowSize":"regular","animateFill":"true","duration":375,"hideDuration":375,"html":"false","distance":10,"theme":"light","offset":0,"hideOnClick":"true","multiple":"false","followCursor":"false","inertia":"false","flipDuration":300,"sticky":"false","stickyDuration":"false","zIndex":9999,"touchHold":"false"},"evals":[],"jsHooks":[]}</script>
+<span id="htmlwidget-30557b2b087bfa6ef56d" class="tippy html-widget" width="672" height="480"></span>
+<script type="application/json" data-for="htmlwidget-30557b2b087bfa6ef56d">{"x":{"text":"Click me!","tooltip":"Hi, I'm the tooltip!","position":"top","animation":"shift","trigger":"click","interactive":"false","interactiveBorder":2,"delay":0,"hideDelay":0,"arrow":"false","arrowSize":"regular","animateFill":"true","duration":375,"hideDuration":375,"html":"false","distance":10,"theme":"light","offset":0,"hideOnClick":"true","multiple":"false","followCursor":"false","inertia":"false","flipDuration":300,"sticky":"false","stickyDuration":"false","zIndex":9999,"touchHold":"false"},"evals":[],"jsHooks":[]}</script>
 
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript" charset="utf-8">
+ $('code').each(function(i, inline) {
+   hljs.highlightBlock(inline);
+ });
+ $('pre code').each(function(i, block) {
+   hljs.highlightBlock(block);
+ });
+</script>
 
-<div class="row">
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-    <p class="text-center"><a href="https://github.com/JohnCoene"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-github' aria-hidden='true'></i></button></a></p>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-    <p class="text-center"><a href="https://www.linkedin.com/in/johncoene/"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-linkedin' aria-hidden='true'></i></button></a></p>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-    <p class="text-center"><a href="https://twitter.com/jdatap"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-twitter' aria-hidden='true'></i></button></a></p>
-  </div>
-</div>
-
-<script>
-  const car = new Siema({
-    selector: '.siema',
-    duration: 700,
-    easing: 'ease-out',
-    draggable: true,
-    perPage: 1,
-    startIndex: 0,
-    loop: true
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $('.parallax').parallax();
   });
-  
-  setInterval(() => car.next(), 9000)
-  document.querySelector('.prev').addEventListener('click', () => car.prev())
-  document.querySelector('.next').addEventListener('click', () => car.next())
 </script>
 
-<script>
-$('.js-tilt').tilt({
-    scale: 1.1
-})
-</script>
+<footer class="page-footer blue">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text brand">John Coene</h5>
+        <p class="grey-text text-lighten-4">Data, limericks, and other indoor stuff.</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Connect</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="https://twitter.com/jdatap">Twitter</a></li>
+          <li><a class="grey-text text-lighten-3" href="http://github.com/JohnCoene">Github</a></li>
+          <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/johncoene/">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    © 2017 John Coene
+    <a class="grey-text text-lighten-4 right" href="http://johncoene.github.io/cv/">Resume</a>
+    </div>
+  </div>
+</footer>
 
-
-
-</div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
-
-
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

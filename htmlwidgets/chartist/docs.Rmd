@@ -1,33 +1,39 @@
 ---
-title: "Docs"
+title: ""
 output:
-  html_document:
-    toc: true
-    toc_depth: 3
-    toc_float: true
+  html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
 ```
 
-# add_ist
+<main>
+<div class = "container">
+
+```{r, echo=FALSE, eval=TRUE}
+h1(
+  "Docs"
+)
+```
+
+### add_ist
 
 Add series(s) to chart.
 
-## Arguments
+#### Arguments
 
 * `p` a chartist object.
 * `value` values to plot.
 * `...` additional parameters to pass to serie.
 
-## Details
+#### Details
 
 Naming the serie (`name`) is useful if you want to apply different options (`opt_ist`) for each serie
 later on. If no name is specified then the assigns one; `type + i` where `i` is the serie's index and starts
 from 1. Names can be retrieved using `name_ist`. See examples.
 
-## Examples
+#### Examples
 
 ```{r}
 # basic example
@@ -60,11 +66,11 @@ mtcars[1:10,] %>%
   name_ist()
 ```
 
-# anim_ist
+### anim_ist
 
 Animate chart.
 
-## Arguments
+#### Arguments
 
 * `p` a chartist object.
 * `type` chart element ype to animate (i.e.: `line` or `grid`)
@@ -76,7 +82,7 @@ Animate chart.
 * `easing` easing function.
 * `...` any other argument to pass to `anim`
 
-## Examples
+#### Examples
 
 ```{r}
 mtcars %>%
@@ -91,11 +97,11 @@ mtcars %>%
            dur = 2000)
 ```
 
-# baropt_ist
+### baropt_ist
 
 Pass options to bar type.
 
-## Arguments
+#### Arguments
 
 * `p` a chartist object.
 * `fullWidth` When set to true, the last grid line on the x-axis is not drawn and the chart elements will expand to the full available width of the chart. For the last label to be drawn correctly you might need to add chart padding or offset the last label with a draw event handler.
@@ -110,7 +116,7 @@ Pass options to bar type.
 * `chartPadding` padding around chart div.
 * `...` additional options.
 
-## Examples
+#### Examples
 
 ```{r}
 mtcars$models <- rownames(mtcars)
@@ -130,11 +136,11 @@ mtcars[1:10,] %>%
   baropt_ist(seriesBarDistance = 10, centerBars = TRUE)
 ```
 
-# chartist-shiny
+### chartist-shiny
 
 Output and render functions for using chartist within Shiny applications and interactive Rmd documents.
 
-## Arguments
+#### Arguments
 
 * `outputId` output variable to read from
 * `width`, `height` Must be a valid CSS unit (like '100%', '400px', 'auto') or a number, which will be coerced to a string and have 'px' appended.
@@ -142,11 +148,11 @@ Output and render functions for using chartist within Shiny applications and int
 * `env` The environment in which to evaluate expr.
 * `quoted` Is expr a quoted expression (with quote())? This is useful if you want to save an expression in a variable.
 
-# chart_ist
+### chart_ist
 
 Initiate a chartist chart.
 
-## Arguments
+#### Arguments
 
 * `data` data.frame containing data to plot.
 * `x` Must be passed for line and bar (`type`), optional for pie `type`.
@@ -154,7 +160,7 @@ Initiate a chartist chart.
 * `width`, `height` Must be a valid CSS unit (like '100%', '400px', 'auto') or a number, which will be coerced to a string and have 'px' appended, defaults to `NULL`.
 * `elementId` Use specific element id.
 
-## Examples
+#### Examples
 
 ```{r}
 mtcars %>%
@@ -162,15 +168,15 @@ mtcars %>%
   add_ist(hp)
 ```
 
-# danim_ist
+### danim_ist
 
 Out of the box animation for donut chart.
 
-## Arguments
+#### Arguments
 
 * `p` a chartist object.
 
-## Examples
+#### Examples
 
 ```{r}
 mtcars[1:5,] %>%
@@ -180,15 +186,15 @@ mtcars[1:5,] %>%
   danim_ist()
 ```
 
-# ganim_ist
+### ganim_ist
 
 Out of the box animation for chart grid.
 
-## Arguments
+#### Arguments
 
 * `p` a chartist object.
 
-## Examples
+#### Examples
 
 ```{r}
 mtcars %>%
@@ -198,16 +204,16 @@ mtcars %>%
   ganim_ist()
 ```
 
-# gauge_ist
+### gauge_ist
 
 Helper function to easily make a gauge chart from a pie.
 
-## Arguments
+#### Arguments
 
 * `p` a chartist object.
 * `...` additional parameters to pass to `opt_ist`.
 
-## Examples
+#### Examples
 
 ```{r}
 mtcars[1:5,] %>%
@@ -216,17 +222,17 @@ mtcars[1:5,] %>%
   gauge_ist()
 ```
 
-# hover_ist
+### hover_ist
 
 Add hover tooltip
 
-## Arguments
+#### Arguments
 
 * `p` a chartist object.
 * `prefix` add prefix to label.
 * `suffix` add suffix to label.
 
-## Examples
+#### Examples
 
 ```{r}
 mtcars %>%
@@ -240,16 +246,16 @@ mtcars %>%
   hover_ist()
 ```
 
-# label_ist
+### label_ist
 
 Add data point labels to `line` type chart.
 
-## Arguments
+#### Arguments
 
 * `p` a chartist object.
 * `position` position of label, defaults to `middle`
 
-## Examples
+#### Examples
 
 ```{r}
 mtcars %>%
@@ -258,16 +264,16 @@ mtcars %>%
   label_ist()
 ```
 
-# lanim_ist
+### lanim_ist
 
 Out of the box animation for line and/or area chart.
 
-## Arguments
+#### Arguments
 
 * `p` a chartist object.
 * `type` chart element type to animate (i.e.: `line`, or `grid`).
 
-## Examples
+#### Examples
 
 ```{r}
 mtcars %>%
@@ -279,11 +285,11 @@ mtcars %>%
   lanim_ist()
 ```
 
-# lineopt_ist
+### lineopt_ist
 
 Pass options to line type.
 
-## Arguments
+#### Arguments
 
 * `p` a chartist object.
 * `name` name the serie, see details (optional).
@@ -302,7 +308,7 @@ Pass options to line type.
 * `chartPadding` padding around chart div.
 * `...` additional options.
 
-## Examples
+#### Examples
 
 ```{r}
 mtcars %>%
@@ -323,16 +329,16 @@ mtcars %>%
   lineopt_ist(name = "hp", showArea = TRUE, showPoint = FALSE)
 ```
 
-# loop_ist
+### loop_ist
 
 Loop animation.
 
-## Arguements
+#### Arguements
 
 * `p` a chartist object.
 * `ms` Milliseconds for loop, defaults to `5000`.
 
-## Examples
+#### Examples
 
 ```{r}
 mtcars %>%
@@ -342,15 +348,15 @@ chart_ist(qsec) %>%
   loop_ist()
 ```
 
-# name_ist
+### name_ist
 
 Get generated series name.
 
-## Arguments
+#### Arguments
 
 * `p` a chartist object.
 
-## Examples
+#### Examples
 
 ```{r}
 # default names
@@ -368,12 +374,12 @@ mtcars[1:20,] %>%
   name_ist()
 ```
 
-# opt_ist
+### opt_ist
 
 Pass any option to any chart here. Also see options specific to your chart type, `pieopt_ist`,
 `baropt_ist` or `lineopt_ist`.
 
-## Arguments
+#### Arguments
 
 * `p` a chartist object.
 * `name` name the serie, see details (optional).
@@ -384,7 +390,7 @@ Pass any option to any chart here. Also see options specific to your chart type,
 * `chartPadding` padding around chart div.
 * `...` additional options.
 
-## Examples
+#### Examples
 
 ```{r}
 mtcars$models <- row.names(mtcars)
@@ -403,16 +409,16 @@ mtcars[1:10,] %>%
   opt_ist(name = "HP", showArea = TRUE, showLine = FALSE, showPoint = FALSE)
 ```
 
-# peak_ist
+### peak_ist
 
 Turn bar chart into peak chart.
 
-## Arguments
+#### Arguments
 
 * `p` a chartist object.
 * `size` point size.
 
-## Examples
+#### Examples
 
 ```{r}
 mtcars %>%
@@ -421,11 +427,11 @@ mtcars %>%
   peak_ist()
 ```
 
-# pieopt_ist
+### pieopt_ist
 
 Pie and donut options.
 
-## Arguments
+#### Arguments
 
 * `p` a chartist object.
 * `percent` add percent sign
@@ -443,7 +449,7 @@ Pie and donut options.
 * `chartPadding` padding around chart div.
 * `...` additional options.
 
-## Examples
+#### Examples
 
 ```{r}
 mtcars$models <- rownames(mtcars)
@@ -469,16 +475,16 @@ mtcars[1:5,] %>%
   pieopt_ist(percent = TRUE)
 ```
 
-# ratio_ist
+### ratio_ist
 
 Change aspect ratio of chart.
 
-## Arguments
+#### Arguments
 
 * `p` a chartist object.
 * `ratio` ratio of chart, see details and examples.
 
-## Details
+#### Details
 
 Valid values for ratio:
 
@@ -500,7 +506,7 @@ Valid values for ratio:
 * `major-twelfth` or `1:3`
 * `double-octave` or `1:4`
 
-## Examples
+#### Examples
 
 ```{r}
 mtcars$models <- row.names(mtcars)
@@ -511,11 +517,11 @@ mtcars %>%
   ratio_ist(ratio = "square")
 ```
 
-# resp_ist
+### resp_ist
 
 Configure responsive options for chartist visualisation.
 
-## Arguments
+#### Arguments
 
 * `p` a chartist object.
 * `query` responsive query.
@@ -526,7 +532,7 @@ Configure responsive options for chartist visualisation.
 * `chartPadding` padding around chart div.
 * `...` additional options.
 
-## Examples
+#### Examples
 
 ```{r}
 mtcars$models <- row.names(mtcars)
@@ -541,15 +547,15 @@ mtcars %>%
          chartPadding = 0)
 ```
 
-# sanim_ist
+### sanim_ist
 
 Out of the box animation for scatter plot.
 
-## Arguments
+#### Arguments
 
 * `p` a chartist object.
 
-## Examples
+#### Examples
 
 ```{r}
 mtcars %>%
@@ -560,16 +566,16 @@ mtcars %>%
   sanim_ist()
 ```
 
-# scatter_ist
+### scatter_ist
 
 Helper function to easily turn a line chart into a scatter plot.
 
-## Arguments
+#### Arguments
 
 * `p` a chartist object.
 * `...` additional parameters to pass to `opt_ist`.
 
-## Examples
+#### Examples
 
 ```{r}
 mtcars$models <- rownames(mtcars)
@@ -580,17 +586,17 @@ mtcars[1:20,] %>%
   scatter_ist()
 ```
 
-# style_ist
+### style_ist
 
 Style your charts
 
-## Arguments
+#### Arguments
 
 * `p` a chartist object.
 * `type` chart element type to animate (i.e.: line, or grid).
 * `css` css to wrap in `css`
 
-## Examples
+#### Examples
 
 ```{r}
 # missing style defaults to chart type
@@ -612,16 +618,16 @@ mtcars %>%
   style_ist(c("point"), htmltools::css(stroke = "red"))
 ```
 
-# thresh_ist
+### thresh_ist
 
 Add threshold plugin.
 
-## Arguments
+#### Arguments
 
 * `p` a chartist object.
 * `threshold` threshold, defaults to mean of first series passed with `add_ist`.
 
-## Examples
+#### Examples
 
 ```{r}
 mtcars %>%
@@ -635,11 +641,11 @@ mtcars %>%
   thresh_ist(220)
 ```
 
-# xaxist_ist
+### xaxist_ist
 
 Tweak the x axis and related grid.
 
-## Arguments
+#### Arguments
 
 * `p` a chartist object.
 * `showLabel` set to FALSE to hide labels.
@@ -652,7 +658,7 @@ Tweak the x axis and related grid.
 * `scaleMinSpace` minimum height in pixel of scale.
 * `...` additional options.
 
-## Examples
+#### Examples
 
 ```{r}
 mtcars$models <- row.names(mtcars)
@@ -668,11 +674,11 @@ mtcars[1:10,] %>%
   xaxis_ist(suffix = "MPG", scaleMinSpace = 100)
 ```
 
-# xtitle_ist
+### xtitle_ist
 
 Add x axis title.
 
-## Arguments
+#### Arguments
 
 * `p` a chartist object.
 * `title` axis title.
@@ -681,7 +687,7 @@ Add x axis title.
 * `offsetx` offset x aligment of title.
 * `offsety` offsety y alignment of title.
 
-## Examples
+#### Examples
 
 ```{r}
 mtcars %>%
@@ -690,11 +696,11 @@ mtcars %>%
   xtitle_ist(title = "HP", offsety = 30)
 ```
 
-# yaxist_ist
+### yaxist_ist
 
 Tweak the y axis and related grid.
 
-## Arguments
+#### Arguments
 
 * `p` a chartist object.
 * `showLabel` set to FALSE to hide labels.
@@ -707,7 +713,7 @@ Tweak the y axis and related grid.
 * `scaleMinSpace` minimum height in pixel of scale.
 * `...` additional options.
 
-## Examples
+#### Examples
 
 ```{r}
 mtcars$models <- row.names(mtcars)
@@ -723,11 +729,11 @@ mtcars[1:10,] %>%
   yaxis_ist(suffix = "MPG", scaleMinSpace = 100)
 ```
 
-# ytitle_ist
+### ytitle_ist
 
 Add y axis title.
 
-## Arguments
+#### Arguments
 
 * `p` a chartist object.
 * `title` axis title.
@@ -736,7 +742,7 @@ Add y axis title.
 * `offsetx` offset x aligment of title.
 * `offsety` offsety y alignment of title.
 
-## Examples
+#### Examples
 
 ```{r}
 mtcars %>%
@@ -744,3 +750,6 @@ mtcars %>%
   add_ist(values = hp) %>%
   ytitle_ist(title = "HP", offsety = 30)
 ```
+
+</div>
+</main>

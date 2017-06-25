@@ -1,14 +1,20 @@
 ---
-title: "Options"
+title: ""
 output:
-  html_document:
-    toc: true
-    toc_depth: 3
-    toc_float: true
+  html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+```
+
+<main>
+<div class = "container">
+
+```{r, echo=FALSE, eval=TRUE}
+h1(
+  "Options"
+)
 ```
 
 ## Functions
@@ -90,3 +96,6 @@ mtcars[1:15,] %>%
   yaxis_ist(position = "end", prefix = "$", suffix = "M", showGrid = TRUE) %>%
   xaxis_ist(position = "end", showGrid = FALSE)
 ```
+
+</div>
+</main>

@@ -4,26 +4,30 @@
 
 <head>
 
-<meta charset="utf-8">
+<meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 
 
-<title>Pie charts</title>
+<title></title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/htmlwidgets-0.7/htmlwidgets.js"></script>
+<script src="site_libs/htmlwidgets-0.8/htmlwidgets.js"></script>
 <script src="site_libs/echarts-2.2.7/echarts-all.js"></script>
-<script src="site_libs/echarts-binding-0.0.0.9000/echarts.js"></script>
-<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<script src="site_libs/echarts-binding-0.0.1/echarts.js"></script>
+<link href="https://cdn.rawgit.com/gaborcsardi/r-font/master/rlogo.css" rel="stylesheet">
+<link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="../../css/materialize.min.css"  media="screen,projection"/>
+
+<link rel="stylesheet" href="../../css/atelier-cave-light.css">
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -34,6 +38,29 @@
   ga('send', 'pageview');
 
 </script>
+
+<!--SHARE TAGS-->
+<meta name="google-site-verification" content="p4A9hVd1c8FOAlQsyDq0NMrE9IQdtfZoHgQ2e1t2dYE" />
+<meta name="description" content="R, data, and other indoor stuff." />
+
+<!-- Schema.org markup for Google+ -->
+<meta itemprop="name" content="John Coene">
+<meta itemprop="description" content="R, data, and other indoor stuff.">
+<meta itemprop="image" content="http://john-coene.com/img/graphTweets.png">
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="website">
+<meta name="twitter:site" content="@jdatap">
+<meta name="twitter:title" content="John Coene">
+<meta name="twitter:description" content="R, data, and other indoor stuff.">
+<meta name="twitter:creator" content="@jdatap">
+<meta name="twitter:image" content="http://john-coene.com/img/graphTweets.png">
+
+<!-- Open Graph data -->
+<meta property="og:title" content="John Coene" />
+<meta property="og:image" content="http://john-coene.com/img/graphTweets.png" />
+<meta property="og:description" content="R, data, and other indoor stuff." />
+<meta property="og:site_name" content="John Coene" />
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -73,247 +100,72 @@ code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Ann
 code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
 </style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
-<link rel="stylesheet" href="bttn.min.css" type="text/css" />
+<link rel="stylesheet" href="../../css/styles.css" type="text/css" />
 
 </head>
 
 <body>
 
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-  height: auto;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-</style>
 
+<ul id="dropdown1" class="dropdown-content">
+  <li><a class="blue-text" href="bars">Bar</a></li>
+  <li><a class="blue-text" href="lines">Line</a></li>
+  <li><a class="blue-text" href="scatter">Scatter</a></li>
+  <li><a class="blue-text" href="pie">Pie</a></li>
+  <li><a class="blue-text" href="chord">Chord</a></li>
+  <li><a class="blue-text" href="funnels">Funnel</a></li>
+  <li><a class="blue-text" href="gauges">Gauge</a></li>
+  <li><a class="blue-text" href="heatmap">Heatmap</a></li>
+  <li><a class="blue-text" href="maps">Map</a></li>
+  <li><a class="blue-text" href="candlestick">Candlestick</a></li>
+  <li><a class="blue-text" href="wordcloud">Wordcloud</a></li>
+  <li><a class="blue-text" href="networks">Networks</a></li>
+  <li><a class="blue-text" href="combinations">Combos</a></li>
+</ul>
 
-<style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 41px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-
-.section h2 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h3 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h4 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h5 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h6 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-</style>
-
-<script>
-// manage active state of menu based on current page
-$(document).ready(function () {
-  // active menu anchor
-  href = window.location.pathname
-  href = href.substr(href.lastIndexOf('/') + 1)
-  if (href === "")
-    href = "index.html";
-  var menuAnchor = $('a[href="' + href + '"]');
-
-  // mark it active
-  menuAnchor.parent().addClass('active');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
-});
-</script>
-
-
-<div class="container-fluid main-container">
-
-<!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
-
-<!-- code folding -->
-
-
-
-
-
-
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html">echarts</a>
+<nav>
+  <div class="nav-wrapper blue">
+    <div class="container">
+      <a href="http://john-coene.com/" class="brand-logo brand">John Coene</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="https://github.com/JohnCoene/echarts" target="_blank">Repository</a></li>
+        <li><a href="themes">Themes</a></li>
+        <li><a href="toolbox">Toolbox</a></li>
+        <li>
+          <a class="dropdown-button" href="#!" data-activates="dropdown1">Explore<i class="material-icons right">arrow_drop_down</i></a>
+        </li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a class="blue-text" href="bars">Bar</a></li>
+        <li><a class="blue-text" href="lines">Line</a></li>
+        <li><a class="blue-text" href="scatter">Scatter</a></li>
+        <li><a class="blue-text" href="pie">Pie</a></li>
+        <li><a class="blue-text" href="chord">Chord</a></li>
+        <li><a class="blue-text" href="funnels">Funnel</a></li>
+        <li><a class="blue-text" href="gauges">Gauge</a></li>
+        <li><a class="blue-text" href="heatmap">Heatmap</a></li>
+        <li><a class="blue-text" href="maps">Map</a></li>
+        <li><a class="blue-text" href="candlestick">Candlestick</a></li>
+        <li><a class="blue-text" href="wordcloud">Wordcloud</a></li>
+        <li><a class="blue-text" href="networks">Networks</a></li>
+        <li><a class="blue-text" href="combinations">Combos</a></li>
+      </ul>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li>
-  <a href="http://john-coene.com/">
-    <span class="fa fa-arrow-circle-left"></span>
-     
-    home
-  </a>
-</li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/JohnCoene/echarts">
-    <span class="fa fa-github"></span>
-     
-    Repository
-  </a>
-</li>
-<li>
-  <a href="themes">
-    <span class="fa fa-desktop"></span>
-     
-    Themes
-  </a>
-</li>
-<li>
-  <a href="toolbox">
-    <span class="fa fa-wrench"></span>
-     
-    Toolbox
-  </a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-bar-chart"></span>
-     
-    Explore
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="bars">bar</a>
-    </li>
-    <li>
-      <a href="lines">line</a>
-    </li>
-    <li>
-      <a href="scatter">scatter</a>
-    </li>
-    <li>
-      <a href="pie">pie</a>
-    </li>
-    <li>
-      <a href="chord">chord</a>
-    </li>
-    <li>
-      <a href="funnels">funnel</a>
-    </li>
-    <li>
-      <a href="gauges">gauge</a>
-    </li>
-    <li>
-      <a href="heatmap">heatmap</a>
-    </li>
-    <li>
-      <a href="maps">map</a>
-    </li>
-    <li>
-      <a href="candlestick">candlestick</a>
-    </li>
-    <li>
-      <a href="wordcloud">wordcloud</a>
-    </li>
-    <li>
-      <a href="networks">networks</a>
-    </li>
-    <li>
-      <a href="combinations">combos</a>
-    </li>
-  </ul>
-</li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div><!--/.container -->
-</div><!--/.navbar -->
-
-<div class="fluid-row" id="header">
+  </div>
+</nav>
 
 
 
-<h1 class="title toc-ignore">Pie charts</h1>
-
-</div>
 
 
-<div id="basic-pie" class="section level2">
-<h2>Basic pie</h2>
+<main>
+<div class="container">
+<h1>Pie charts</h1>
+<h3 id="basic-pie">Basic pie</h3>
 <p>This is a reproduction of the following <a href="http://echarts.baidu.com/echarts2/doc/example/pie1.html#-en">example</a> taken from Baidu’s EChart official website.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pie &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">slices =</span> <span class="kw">c</span>(<span class="st">&#39;Direct access&#39;</span>, <span class="st">&#39;mail marketing&#39;</span>, <span class="st">&#39;affiliate ad&#39;</span>, <span class="st">&#39;video ad&#39;</span>, <span class="st">&#39;search engine&#39;</span>),
                   <span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">335</span>, <span class="dv">310</span>, <span class="dv">234</span>, <span class="dv">135</span>, <span class="dv">1548</span>))
@@ -333,11 +185,9 @@ pie %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">etheme</span>(<span class="st">&quot;macarons&quot;</span>) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">etooltip</span>(<span class="dt">trigger =</span> <span class="st">&quot;item&quot;</span>) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">etitle</span>(<span class="st">&quot;User access&quot;</span>, <span class="st">&quot;Fake data&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;center&quot;</span>)</code></pre></div>
-<div id="htmlwidget-92469d5756c0c00622d0" style="width:100%;height:480px;" class="echarts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-92469d5756c0c00622d0">{"x":{"theme":"macarons","options":{"series":[{"name":"values","type":"pie","data":[{"name":"Direct access","value":" 335"},{"name":"mail marketing","value":" 310"},{"name":"affiliate ad","value":" 234"},{"name":"video ad","value":" 135"},{"name":"search engine","value":"1548"}],"clickable":true,"legendHoverLink":true,"center":["50%","50%"],"radius":[0,"75%"],"startAngle":90,"minAngle":0,"clockWise":true,"selectedOffset":10,"selectedMode":true,"z":2,"zlevel":0}],"legend":{"data":["Direct access","mail marketing","affiliate ad","video ad","search engine"],"radius":"55%","data.1":["Direct access","mail marketing","affiliate ad","video ad","search engine"],"show":true,"zlevel":0,"z":4,"orient":"vertical","x":"left","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemWidth":20,"itemHeight":14,"selectMode":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"toolbox":{"show":true,"zlevel":0,"z":6,"orient":"horizontal","x":"right","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemSize":16,"color":["#1e90ff","#22bb22","#4b0082","#d2691e"],"disableColor":"#ddd","effectiveColor":"red","showTitle":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"feature":{"mark":{"show":true,"title":{"mark":"Mark","markUndo":"Undo","markClear":"Clear"},"lineStyle":{"color":"#1e90ff","typed":"dashed","width":2,"shadowColor":"rgba(0,0,0,0)","shadowBlur":5,"shadowOffsetX":3,"shadowOffsetY":3}},"restore":{"show":true,"title":"Reset"},"saveAsImage":{"show":true,"title":"Save as image"},"dataZoom":{"show":true,"title":{"dataZoom":"Area Zoom","dataZoomReset":"Reset"}},"dataView":{"show":true,"title":"View","readOnly":false,"lang":["Data View","close","refresh"]},"magicType":{"option":{"funnel":{"x":"25%","width":"50%","funnelAlign":"left","max":1548}},"show":true,"title":{"line":"line","bar":"bar","stack":"stack","tiled":"tiled","force":"force","chord":"chord","pie":"pie","funnel":"funnel"},"type":["pie","funnel"]}}},"tooltip":{"show":true,"trigger":"item","zlevel":1,"showContent":true,"islandFormatter":"{a} < br/>{b} : {c}","showDelay":20,"hideDelay":100,"transitionDuration":0.4,"enterable":false,"backgroundColor":"rgba(0,0,0,0.7)","borderColor":"#333","borderRadius":4,"borderWidth":0,"padding":5,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"title":{"show":true,"text":"User access","subtext":"Fake data","target":"blank","subtarget":"blank","x":"center","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":5,"zlevel":0,"z":6}}},"evals":[],"jsHooks":[]}</script>
-</div>
-<div id="doughnut" class="section level2">
-<h2>Doughnut</h2>
+<div id="htmlwidget-aaf43d937be1cb01d2fc" style="width:100%;height:480px;" class="echarts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-aaf43d937be1cb01d2fc">{"x":{"theme":"macarons","options":{"series":[{"name":"values","type":"pie","data":[{"name":"Direct access","value":" 335"},{"name":"mail marketing","value":" 310"},{"name":"affiliate ad","value":" 234"},{"name":"video ad","value":" 135"},{"name":"search engine","value":"1548"}],"clickable":true,"legendHoverLink":true,"center":["50%","50%"],"radius":[0,"75%"],"startAngle":90,"minAngle":0,"clockWise":true,"selectedOffset":10,"selectedMode":true,"z":2,"zlevel":0}],"legend":{"data":["Direct access","mail marketing","affiliate ad","video ad","search engine"],"radius":"55%","data.1":["Direct access","mail marketing","affiliate ad","video ad","search engine"],"show":true,"zlevel":0,"z":4,"orient":"vertical","x":"left","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemWidth":20,"itemHeight":14,"selectMode":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"toolbox":{"show":true,"zlevel":0,"z":6,"orient":"horizontal","x":"right","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemSize":16,"color":["#1e90ff","#22bb22","#4b0082","#d2691e"],"disableColor":"#ddd","effectiveColor":"red","showTitle":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"feature":{"mark":{"show":true,"title":{"mark":"Mark","markUndo":"Undo","markClear":"Clear"},"lineStyle":{"color":"#1e90ff","typed":"dashed","width":2,"shadowColor":"rgba(0,0,0,0)","shadowBlur":5,"shadowOffsetX":3,"shadowOffsetY":3}},"restore":{"show":true,"title":"Reset"},"saveAsImage":{"show":true,"title":"Save as image"},"dataZoom":{"show":true,"title":{"dataZoom":"Area Zoom","dataZoomReset":"Reset"}},"dataView":{"show":true,"title":"View","readOnly":false,"lang":["Data View","close","refresh"]},"magicType":{"option":{"funnel":{"x":"25%","width":"50%","funnelAlign":"left","max":1548}},"show":true,"title":{"line":"line","bar":"bar","stack":"stack","tiled":"tiled","force":"force","chord":"chord","pie":"pie","funnel":"funnel"},"type":["pie","funnel"]}}},"tooltip":{"show":true,"trigger":"item","zlevel":1,"showContent":true,"islandFormatter":"{a} < br/>{b} : {c}","showDelay":20,"hideDelay":100,"transitionDuration":0.4,"enterable":false,"backgroundColor":"rgba(0,0,0,0.7)","borderColor":"#333","borderRadius":4,"borderWidth":0,"padding":5,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"title":{"show":true,"text":"User access","subtext":"Fake data","target":"blank","subtarget":"blank","x":"center","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":5,"zlevel":0,"z":6}}},"evals":[],"jsHooks":[]}</script>
+<h3 id="doughnut">Doughnut</h3>
 <p>This is a reproduction of the following <a href="http://echarts.baidu.com/echarts2/doc/example/pie2.html#-en">example</a> taken from Baidu’s EChart official website.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pie &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">slices =</span> <span class="kw">c</span>(<span class="st">&#39;Direct access&#39;</span>, <span class="st">&#39;mail marketing&#39;</span>, <span class="st">&#39;affiliate ad&#39;</span>, <span class="st">&#39;video ad&#39;</span>, <span class="st">&#39;search engine&#39;</span>),
                   <span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">335</span>, <span class="dv">310</span>, <span class="dv">234</span>, <span class="dv">135</span>, <span class="dv">1548</span>))
@@ -363,11 +213,9 @@ pie %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">etoolbox_magic</span>(<span class="dt">type =</span> <span class="kw">list</span>(<span class="st">&quot;pie&quot;</span>, <span class="st">&quot;funnel&quot;</span>), <span class="dt">option =</span> opts) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">etheme</span>(<span class="st">&quot;macarons&quot;</span>)%&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">etooltip</span>(<span class="dt">trigger =</span> <span class="st">&quot;item&quot;</span>)</code></pre></div>
-<div id="htmlwidget-67cd9e8d7743c248072b" style="width:100%;height:480px;" class="echarts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-67cd9e8d7743c248072b">{"x":{"theme":"macarons","options":{"series":[{"itemStyle":{"normal":{"label":{"show":false},"labelLine":{"show":false}},"emphasis":{"label":{"show":true,"position":"center","textStyle":{"fontSize":20,"fontWeight":"bold"}}}},"name":"values","type":"pie","data":[{"name":"Direct access","value":" 335"},{"name":"mail marketing","value":" 310"},{"name":"affiliate ad","value":" 234"},{"name":"video ad","value":" 135"},{"name":"search engine","value":"1548"}],"clickable":true,"legendHoverLink":true,"center":["50%","50%"],"radius":["55%","70%"],"startAngle":90,"minAngle":0,"clockWise":true,"selectedOffset":10,"selectedMode":true,"z":2,"zlevel":0}],"legend":{"data":["Direct access","mail marketing","affiliate ad","video ad","search engine"],"radius":"55%","data.1":["Direct access","mail marketing","affiliate ad","video ad","search engine"],"show":true,"zlevel":0,"z":4,"orient":"vertical","x":"left","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemWidth":20,"itemHeight":14,"selectMode":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"toolbox":{"show":true,"zlevel":0,"z":6,"orient":"horizontal","x":"right","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemSize":16,"color":["#1e90ff","#22bb22","#4b0082","#d2691e"],"disableColor":"#ddd","effectiveColor":"red","showTitle":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"feature":{"mark":{"show":true,"title":{"mark":"Mark","markUndo":"Undo","markClear":"Clear"},"lineStyle":{"color":"#1e90ff","typed":"dashed","width":2,"shadowColor":"rgba(0,0,0,0)","shadowBlur":5,"shadowOffsetX":3,"shadowOffsetY":3}},"restore":{"show":true,"title":"Reset"},"saveAsImage":{"show":true,"title":"Save as image"},"dataZoom":{"show":true,"title":{"dataZoom":"Area Zoom","dataZoomReset":"Reset"}},"dataView":{"show":true,"title":"View","readOnly":false,"lang":["Data View","close","refresh"]},"magicType":{"option":{"funnel":{"x":"25%","width":"50%","funnelAlign":"center","max":1548}},"show":true,"title":{"line":"line","bar":"bar","stack":"stack","tiled":"tiled","force":"force","chord":"chord","pie":"pie","funnel":"funnel"},"type":["pie","funnel"]}}},"tooltip":{"show":true,"trigger":"item","zlevel":1,"showContent":true,"islandFormatter":"{a} < br/>{b} : {c}","showDelay":20,"hideDelay":100,"transitionDuration":0.4,"enterable":false,"backgroundColor":"rgba(0,0,0,0.7)","borderColor":"#333","borderRadius":4,"borderWidth":0,"padding":5,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}}}},"evals":[],"jsHooks":[]}</script>
-</div>
-<div id="rose-diagram" class="section level2">
-<h2>Rose diagram</h2>
+<div id="htmlwidget-1e3cef2db11c09cd7343" style="width:100%;height:480px;" class="echarts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1e3cef2db11c09cd7343">{"x":{"theme":"macarons","options":{"series":[{"itemStyle":{"normal":{"label":{"show":false},"labelLine":{"show":false}},"emphasis":{"label":{"show":true,"position":"center","textStyle":{"fontSize":20,"fontWeight":"bold"}}}},"name":"values","type":"pie","data":[{"name":"Direct access","value":" 335"},{"name":"mail marketing","value":" 310"},{"name":"affiliate ad","value":" 234"},{"name":"video ad","value":" 135"},{"name":"search engine","value":"1548"}],"clickable":true,"legendHoverLink":true,"center":["50%","50%"],"radius":["55%","70%"],"startAngle":90,"minAngle":0,"clockWise":true,"selectedOffset":10,"selectedMode":true,"z":2,"zlevel":0}],"legend":{"data":["Direct access","mail marketing","affiliate ad","video ad","search engine"],"radius":"55%","data.1":["Direct access","mail marketing","affiliate ad","video ad","search engine"],"show":true,"zlevel":0,"z":4,"orient":"vertical","x":"left","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemWidth":20,"itemHeight":14,"selectMode":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"toolbox":{"show":true,"zlevel":0,"z":6,"orient":"horizontal","x":"right","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemSize":16,"color":["#1e90ff","#22bb22","#4b0082","#d2691e"],"disableColor":"#ddd","effectiveColor":"red","showTitle":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"feature":{"mark":{"show":true,"title":{"mark":"Mark","markUndo":"Undo","markClear":"Clear"},"lineStyle":{"color":"#1e90ff","typed":"dashed","width":2,"shadowColor":"rgba(0,0,0,0)","shadowBlur":5,"shadowOffsetX":3,"shadowOffsetY":3}},"restore":{"show":true,"title":"Reset"},"saveAsImage":{"show":true,"title":"Save as image"},"dataZoom":{"show":true,"title":{"dataZoom":"Area Zoom","dataZoomReset":"Reset"}},"dataView":{"show":true,"title":"View","readOnly":false,"lang":["Data View","close","refresh"]},"magicType":{"option":{"funnel":{"x":"25%","width":"50%","funnelAlign":"center","max":1548}},"show":true,"title":{"line":"line","bar":"bar","stack":"stack","tiled":"tiled","force":"force","chord":"chord","pie":"pie","funnel":"funnel"},"type":["pie","funnel"]}}},"tooltip":{"show":true,"trigger":"item","zlevel":1,"showContent":true,"islandFormatter":"{a} < br/>{b} : {c}","showDelay":20,"hideDelay":100,"transitionDuration":0.4,"enterable":false,"backgroundColor":"rgba(0,0,0,0.7)","borderColor":"#333","borderRadius":4,"borderWidth":0,"padding":5,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}}}},"evals":[],"jsHooks":[]}</script>
+<h3 id="rose-diagram">Rose diagram</h3>
 <p>This is a reproduction of the following <a href="http://echarts.baidu.com/echarts2/doc/example/pie4.html#-en">example</a> taken from Baidu’s EChart official website.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pie &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">slices =</span> <span class="kw">c</span>(<span class="st">&#39;Direct access&#39;</span>, <span class="st">&#39;mail marketing&#39;</span>, <span class="st">&#39;affiliate ad&#39;</span>, <span class="st">&#39;video ad&#39;</span>, <span class="st">&#39;search engine&#39;</span>),
                   <span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">335</span>, <span class="dv">310</span>, <span class="dv">234</span>, <span class="dv">135</span>, <span class="dv">500</span>))
@@ -388,11 +236,9 @@ pie %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">etooltip</span>(<span class="dt">trigger =</span> <span class="st">&quot;item&quot;</span>) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">elegend</span>() %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">etitle</span>(<span class="st">&quot;Nightingale Rose Chart&quot;</span>, <span class="st">&quot;Fake data&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;center&quot;</span>)</code></pre></div>
-<div id="htmlwidget-362a7c630fa122fee529" style="width:100%;height:480px;" class="echarts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-362a7c630fa122fee529">{"x":{"theme":"macarons2","options":{"series":[{"name":"values","type":"pie","data":[{"name":"Direct access","value":"335"},{"name":"mail marketing","value":"310"},{"name":"affiliate ad","value":"234"},{"name":"video ad","value":"135"},{"name":"search engine","value":"500"}],"clickable":true,"legendHoverLink":true,"center":["50%","50%"],"radius":[20,110],"startAngle":90,"minAngle":0,"clockWise":true,"roseType":"radius","selectedOffset":10,"selectedMode":true,"z":2,"zlevel":0}],"legend":{"data":["Direct access","mail marketing","affiliate ad","video ad","search engine"],"radius":"55%","data.1":["Direct access","mail marketing","affiliate ad","video ad","search engine"],"show":true,"zlevel":0,"z":4,"orient":"vertical","x":"left","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemWidth":20,"itemHeight":14,"selectMode":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"data.2":["Direct access","mail marketing","affiliate ad","video ad","search engine"],"show.1":true,"zlevel.1":0,"z.1":4,"orient.1":"horizontal","x.1":"center","y.1":"top","backgroundColor.1":"rgba(0,0,0,0)","borderColor.1":"#ccc","borderWidth.1":0,"padding.1":5,"itemGap.1":10,"itemWidth.1":20,"itemHeight.1":14,"selectMode.1":true,"textStyle.1":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"toolbox":{"show":true,"zlevel":0,"z":6,"orient":"horizontal","x":"right","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemSize":16,"color":["#1e90ff","#22bb22","#4b0082","#d2691e"],"disableColor":"#ddd","effectiveColor":"red","showTitle":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"feature":{"mark":{"show":true,"title":{"mark":"Mark","markUndo":"Undo","markClear":"Clear"},"lineStyle":{"color":"#1e90ff","typed":"dashed","width":2,"shadowColor":"rgba(0,0,0,0)","shadowBlur":5,"shadowOffsetX":3,"shadowOffsetY":3}},"restore":{"show":true,"title":"Reset"},"saveAsImage":{"show":true,"title":"Save as image"},"dataZoom":{"show":true,"title":{"dataZoom":"Area Zoom","dataZoomReset":"Reset"}},"dataView":{"show":true,"title":"View","readOnly":false,"lang":["Data View","close","refresh"]},"magicType":{"option":{"funnel":{"x":"25%","width":"50%","funnelAlign":"center","max":500}},"show":true,"title":{"line":"line","bar":"bar","stack":"stack","tiled":"tiled","force":"force","chord":"chord","pie":"pie","funnel":"funnel"},"type":["pie","funnel"]}}},"tooltip":{"show":true,"trigger":"item","zlevel":1,"showContent":true,"islandFormatter":"{a} < br/>{b} : {c}","showDelay":20,"hideDelay":100,"transitionDuration":0.4,"enterable":false,"backgroundColor":"rgba(0,0,0,0.7)","borderColor":"#333","borderRadius":4,"borderWidth":0,"padding":5,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"title":{"show":true,"text":"Nightingale Rose Chart","subtext":"Fake data","target":"blank","subtarget":"blank","x":"center","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":5,"zlevel":0,"z":6}}},"evals":[],"jsHooks":[]}</script>
-</div>
-<div id="nested" class="section level2">
-<h2>Nested</h2>
+<div id="htmlwidget-2bea4a264b823bd9d2b2" style="width:100%;height:480px;" class="echarts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2bea4a264b823bd9d2b2">{"x":{"theme":"macarons2","options":{"series":[{"name":"values","type":"pie","data":[{"name":"Direct access","value":"335"},{"name":"mail marketing","value":"310"},{"name":"affiliate ad","value":"234"},{"name":"video ad","value":"135"},{"name":"search engine","value":"500"}],"clickable":true,"legendHoverLink":true,"center":["50%","50%"],"radius":[20,110],"startAngle":90,"minAngle":0,"clockWise":true,"roseType":"radius","selectedOffset":10,"selectedMode":true,"z":2,"zlevel":0}],"legend":{"data":["Direct access","mail marketing","affiliate ad","video ad","search engine"],"radius":"55%","data.1":["Direct access","mail marketing","affiliate ad","video ad","search engine"],"show":true,"zlevel":0,"z":4,"orient":"vertical","x":"left","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemWidth":20,"itemHeight":14,"selectMode":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"data.2":["Direct access","mail marketing","affiliate ad","video ad","search engine"],"show.1":true,"zlevel.1":0,"z.1":4,"orient.1":"horizontal","x.1":"center","y.1":"top","backgroundColor.1":"rgba(0,0,0,0)","borderColor.1":"#ccc","borderWidth.1":0,"padding.1":5,"itemGap.1":10,"itemWidth.1":20,"itemHeight.1":14,"selectMode.1":true,"textStyle.1":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"toolbox":{"show":true,"zlevel":0,"z":6,"orient":"horizontal","x":"right","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemSize":16,"color":["#1e90ff","#22bb22","#4b0082","#d2691e"],"disableColor":"#ddd","effectiveColor":"red","showTitle":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"feature":{"mark":{"show":true,"title":{"mark":"Mark","markUndo":"Undo","markClear":"Clear"},"lineStyle":{"color":"#1e90ff","typed":"dashed","width":2,"shadowColor":"rgba(0,0,0,0)","shadowBlur":5,"shadowOffsetX":3,"shadowOffsetY":3}},"restore":{"show":true,"title":"Reset"},"saveAsImage":{"show":true,"title":"Save as image"},"dataZoom":{"show":true,"title":{"dataZoom":"Area Zoom","dataZoomReset":"Reset"}},"dataView":{"show":true,"title":"View","readOnly":false,"lang":["Data View","close","refresh"]},"magicType":{"option":{"funnel":{"x":"25%","width":"50%","funnelAlign":"center","max":500}},"show":true,"title":{"line":"line","bar":"bar","stack":"stack","tiled":"tiled","force":"force","chord":"chord","pie":"pie","funnel":"funnel"},"type":["pie","funnel"]}}},"tooltip":{"show":true,"trigger":"item","zlevel":1,"showContent":true,"islandFormatter":"{a} < br/>{b} : {c}","showDelay":20,"hideDelay":100,"transitionDuration":0.4,"enterable":false,"backgroundColor":"rgba(0,0,0,0.7)","borderColor":"#333","borderRadius":4,"borderWidth":0,"padding":5,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"title":{"show":true,"text":"Nightingale Rose Chart","subtext":"Fake data","target":"blank","subtarget":"blank","x":"center","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":5,"zlevel":0,"z":6}}},"evals":[],"jsHooks":[]}</script>
+<h3 id="nested">Nested</h3>
 <p>This is a reproduction of the following <a href="http://echarts.baidu.com/echarts2/doc/example/pie3.html#-en">example</a> taken from Baidu’s EChart official website.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pie &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">slice =</span> <span class="kw">c</span>(<span class="st">&quot;marketing&quot;</span>, <span class="st">&quot;IBD&quot;</span>, <span class="st">&quot;sales&quot;</span>),
                   <span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">472</span>, <span class="dv">261</span>, <span class="dv">152</span>))
@@ -411,46 +257,61 @@ pie %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">etoolbox_full</span>() %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">elegend</span>(<span class="dt">x =</span> <span class="st">&quot;left&quot;</span>, <span class="dt">orient =</span> <span class="st">&quot;vertical&quot;</span>) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">etheme</span>(<span class="st">&quot;macarons&quot;</span>)</code></pre></div>
-<div id="htmlwidget-0451d5ab97a8617b02c1" style="width:100%;height:480px;" class="echarts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-0451d5ab97a8617b02c1">{"x":{"theme":"macarons","options":{"series":[{"itemStyle":{"normal":{"label":{"position":"inner"},"labelLine":{"show":false}}},"name":"values","type":"pie","data":[{"name":"marketing","value":"472"},{"name":"IBD","value":"261"},{"name":"sales","value":"152"}],"clickable":true,"legendHoverLink":true,"center":["50%","50%"],"radius":[0,70],"startAngle":90,"minAngle":0,"clockWise":true,"selectedOffset":10,"selectedMode":true,"z":2,"zlevel":0},{"name":"values","type":"pie","data":[{"name":"Direct access","value":" 335"},{"name":"mail marketing","value":" 310"},{"name":"affiliate ad","value":" 234"},{"name":"video ad","value":" 135"},{"name":"search engine","value":"1548"}],"clickable":true,"legendHoverLink":true,"center":["50%","50%"],"radius":[100,140],"startAngle":90,"minAngle":0,"clockWise":true,"selectedOffset":10,"selectedMode":true,"z":2,"zlevel":0}],"legend":{"data":["Direct access","mail marketing","affiliate ad","video ad","search engine"],"data.1":["Direct access","mail marketing","affiliate ad","video ad","search engine"],"show":true,"zlevel":0,"z":4,"orient":"vertical","x":"left","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemWidth":20,"itemHeight":14,"selectMode":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"toolbox":{"show":true,"zlevel":0,"z":6,"orient":"horizontal","x":"right","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemSize":16,"color":["#1e90ff","#22bb22","#4b0082","#d2691e"],"disableColor":"#ddd","effectiveColor":"red","showTitle":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"feature":{"mark":{"show":true,"title":{"mark":"Mark","markUndo":"Undo","markClear":"Clear"},"lineStyle":{"color":"#1e90ff","typed":"dashed","width":2,"shadowColor":"rgba(0,0,0,0)","shadowBlur":5,"shadowOffsetX":3,"shadowOffsetY":3}},"restore":{"show":true,"title":"Reset"},"saveAsImage":{"show":true,"title":"Save as image"},"dataZoom":{"show":true,"title":{"dataZoom":"Area Zoom","dataZoomReset":"Reset"}},"dataView":{"show":true,"title":"View","readOnly":false,"lang":["Data View","close","refresh"]}}}}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-2d7ceb546a4450b77349" style="width:100%;height:480px;" class="echarts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2d7ceb546a4450b77349">{"x":{"theme":"macarons","options":{"series":[{"itemStyle":{"normal":{"label":{"position":"inner"},"labelLine":{"show":false}}},"name":"values","type":"pie","data":[{"name":"marketing","value":"472"},{"name":"IBD","value":"261"},{"name":"sales","value":"152"}],"clickable":true,"legendHoverLink":true,"center":["50%","50%"],"radius":[0,70],"startAngle":90,"minAngle":0,"clockWise":true,"selectedOffset":10,"selectedMode":true,"z":2,"zlevel":0},{"name":"values","type":"pie","data":[{"name":"Direct access","value":" 335"},{"name":"mail marketing","value":" 310"},{"name":"affiliate ad","value":" 234"},{"name":"video ad","value":" 135"},{"name":"search engine","value":"1548"}],"clickable":true,"legendHoverLink":true,"center":["50%","50%"],"radius":[100,140],"startAngle":90,"minAngle":0,"clockWise":true,"selectedOffset":10,"selectedMode":true,"z":2,"zlevel":0}],"legend":{"data":["Direct access","mail marketing","affiliate ad","video ad","search engine"],"data.1":["Direct access","mail marketing","affiliate ad","video ad","search engine"],"show":true,"zlevel":0,"z":4,"orient":"vertical","x":"left","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemWidth":20,"itemHeight":14,"selectMode":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"toolbox":{"show":true,"zlevel":0,"z":6,"orient":"horizontal","x":"right","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemSize":16,"color":["#1e90ff","#22bb22","#4b0082","#d2691e"],"disableColor":"#ddd","effectiveColor":"red","showTitle":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"feature":{"mark":{"show":true,"title":{"mark":"Mark","markUndo":"Undo","markClear":"Clear"},"lineStyle":{"color":"#1e90ff","typed":"dashed","width":2,"shadowColor":"rgba(0,0,0,0)","shadowBlur":5,"shadowOffsetX":3,"shadowOffsetY":3}},"restore":{"show":true,"title":"Reset"},"saveAsImage":{"show":true,"title":"Save as image"},"dataZoom":{"show":true,"title":{"dataZoom":"Area Zoom","dataZoomReset":"Reset"}},"dataView":{"show":true,"title":"View","readOnly":false,"lang":["Data View","close","refresh"]}}}}},"evals":[],"jsHooks":[]}</script>
 </div>
+<p></main></p>
 
-
-<div class="row">
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-    <p class="text-center"><a href="https://github.com/JohnCoene"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-github' aria-hidden='true'></i></button></a></p>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-    <p class="text-center"><a href="https://www.linkedin.com/in/johncoene/"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-linkedin' aria-hidden='true'></i></button></a></p>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-    <p class="text-center"><a href="https://twitter.com/jdatap"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-twitter' aria-hidden='true'></i></button></a></p>
-  </div>
-</div>
-
-
-
-</div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
-
-
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="../../js/materialize.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript" charset="utf-8">
+ $('code').each(function(i, inline) {
+   hljs.highlightBlock(inline);
+ });
+ $('pre code').each(function(i, block) {
+   hljs.highlightBlock(block);
+ });
 </script>
+
+<script type="text/javascript" charset="utf-8">
+  $(".dropdown-button").dropdown();
+  $(".button-collapse").sideNav();
+</script>
+
+<footer class="page-footer blue">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text brand">John Coene</h5>
+        <p class="grey-text text-lighten-4">Data, limericks, and other indoor stuff.</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Connect</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="https://twitter.com/jdatap">Twitter</a></li>
+          <li><a class="grey-text text-lighten-3" href="http://github.com/JohnCoene">Github</a></li>
+          <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/johncoene/">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    © 2017 John Coene
+    <a class="grey-text text-lighten-4 right" href="http://johncoene.github.io/cv/">Resume</a>
+    </div>
+  </div>
+</footer>
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

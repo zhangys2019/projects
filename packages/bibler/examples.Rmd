@@ -1,10 +1,5 @@
 ---
-title: "bibler"
-output:
-  html_document:
-    toc: true
-    toc_depth: 3
-    toc_float: true
+title: ""
 ---
 
 ```{r setup, include=FALSE}
@@ -15,45 +10,54 @@ library(tm)
 library(wordcloud)
 ```
 
-## Preamble
+<main>
+<div class = "container">
+
+```{r}
+h1(
+  "bibler examples"
+)
+```
+
+### Preamble
 
 The Bible in R.
 
 Bibler includes 6 neat datasets about the King James Bible and the Apocrypha.
 
-## Overview
+### Overview
 
-### Bible
+#### Bible
 
-* `king_james_df` The King James Bible as data.frame
-* `king_james_tm` The King James Bible as [tm](https://cran.r-project.org/package=tm) corpus (`c("VCorpus", "Corpus"`)
-* `king_james_books` List of books that constitute the King James Bible
+1. `king_james_df` The King James Bible as data.frame
+2. `king_james_tm` The King James Bible as [tm](https://cran.r-project.org/package=tm) corpus (`c("VCorpus", "Corpus"`)
+3. `king_james_books` List of books that constitute the King James Bible
 
-### Apocrypha
+#### Apocrypha
 
-* `apocrypha_df` The Apocrypha as data.frame
-* `apocrypha_tm` The Apocrypha as [tm](https://cran.r-project.org/package=tm) corpus (`c("VCorpus", "Corpus"`)
-* `apocrypha_books` List of books that constitute the Apocrypha
+1. `apocrypha_df` The Apocrypha as data.frame
+2. `apocrypha_tm` The Apocrypha as [tm](https://cran.r-project.org/package=tm) corpus (`c("VCorpus", "Corpus"`)
+3. `apocrypha_books` List of books that constitute the Apocrypha
 
-### Utils
+#### Utils
 
-* `middle_english_stopwords` Character vector of Middle English stopwords
-* `middle_english_positive` Lexicon of positive Middle English terms
-* `middle_english_negative` Lexicon of negative Middle English terms
+1. `middle_english_stopwords` Character vector of Middle English stopwords
+2. `middle_english_positive` Lexicon of positive Middle English terms
+3. `middle_english_negative` Lexicon of negative Middle English terms
 
-## Datasets
+### Datasets
 
 Both the `data.frame` and `Corpus` (tm) datasets include the following variables:
 
-* `Book.Abbreviation`
-* `King.James.Bible` - book title as in King James Bible
-* `Vulgate` - book title as in Vulgate
-* `Douay.Rheims` - book title in Douay Reihms version
-* `Full.Title.Auth.V` - book title in authorized version
-* `Testament` - Testament in which book/verse can be found.
-* `Book.Number` - Order of appearance of books, starting with Genesis #1
-* `Verse`
-* `Text` - content of verse
+1. `Book.Abbreviation`
+2. `King.James.Bible` - book title as in King James Bible
+3. `Vulgate` - book title as in Vulgate
+4. `Douay.Rheims` - book title in Douay Reihms version
+5. `Full.Title.Auth.V` - book title in authorized version
+6. `Testament` - Testament in which book/verse can be found.
+7. `Book.Number` - Order of appearance of books, starting with Genesis #1
+8. `Verse`
+9. `Text` - content of verse
 
 In the corpus datasets (ending in `_tm`) each verse makes a document while in the `data.frame` each row is a verse.
 
@@ -62,7 +66,7 @@ library(tm)
 length(king_james_tm) == nrow(king_james_df)
 ```
 
-### data.frame
+#### data.frame
 
 The data frames consist of one verse by row, meta-data are variables/columns.
 
@@ -70,7 +74,7 @@ The data frames consist of one verse by row, meta-data are variables/columns.
 names(king_james_df) # see ?king_james_df
 ```
 
-### Corpus
+#### Corpus
 
 The [tm](https://cran.r-project.org/package=tm) corpus is comprised of `r length(king_james_tm)` documents, one for each verse and include meta-data (identical to columns in `_df` dataset).
 
@@ -78,7 +82,7 @@ The [tm](https://cran.r-project.org/package=tm) corpus is comprised of `r length
 meta(king_james_tm[[1]]) # meta of first verse
 ```
 
-### Books
+#### Books
 
 Reference list of the books included in datasets.
 
@@ -86,9 +90,9 @@ Reference list of the books included in datasets.
 knitr::kable(head(king_james_books, 5), format = "html")
 ```
 
-## Examples
+### Examples
 
-### Term Frequency
+#### Term Frequency
 
 We can have a look at the most mentioned terms in the Bible. Here I use the `king_james_tm` dataset which is a corpus of documents from the [tm](https://cran.r-project.org/package=tm) package. 
 
@@ -128,11 +132,11 @@ rm(dat)
 rm(tdm)
 ```
 
-### Sentiment Analysis
+#### Sentiment Analysis
 
 First we can download the well-known Bing Liu lists of positive and negative terms.
 
-* [Download](http://www.cs.uic.edu/~liub/FBS/opinion-lexicon-English.rar) Hu and Liu Lexicons
+[Download](http://www.cs.uic.edu/~liub/FBS/opinion-lexicon-English.rar) Hu and Liu Lexicons
 
 ```{r, warning=FALSE, eval=TRUE, echo=TRUE}
 # base Bing Liu lexicons
@@ -144,8 +148,8 @@ pos <- pos[36:length(pos)]
 
 However those lexicons are based on Internet reviews and other modernities and therefore are not well suited to the King James Bible. To remedy to this `bibler` also comes with lexicons of positive and negative Middle English terms.
 
-* `r length(middle_english_positive)` Positive terms
-* `r length(middle_english_negative)` Negative terms
+1. `r length(middle_english_positive)` Positive terms
+2. `r length(middle_english_negative)` Negative terms
 
 We can now assess the sentiment of each verse and plot the average sentiment by book in order of appearance in the Bible.
 
@@ -242,10 +246,10 @@ ggplot(data = bks, aes(x = Book.Number, y = Sentiment)) +
 
 Average sentiment:
 
-* Old Testament: `r round(mean(king_james_df[king_james_df$Testament == "Old Testament",]$Sentiment), 3)`
-* New Testament: `r round(mean(king_james_df[king_james_df$Testament == "New Testament",]$Sentiment), 3)`
+1. Old Testament: `r round(mean(king_james_df[king_james_df$Testament == "Old Testament",]$Sentiment), 3)`
+2. New Testament: `r round(mean(king_james_df[king_james_df$Testament == "New Testament",]$Sentiment), 3)`
 
-### Testaments
+#### Testaments
 
 Since there are textual differences between Testaments we'll categorise the verses according to each and plot a comparison cloud.
 
@@ -280,3 +284,6 @@ Christopher Hitchens once said that Mary only appeared three times in the bibe. 
 ```{r, eval=FALSE}
 length(king_james_df$Text[grep("Mary[[:space:]]|Mary[[:punct:]]", king_james_df$Text)]) # nbr mentions
 ```
+
+</div>
+</main>

@@ -1,10 +1,19 @@
 ---
-title: "Wordcloud"
+title: ""
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(echarts)
+```
+
+<main>
+<div class = "container">
+
+```{r, echo=FALSE}
+h1(
+  "Wordcloud"
+)
 ```
 
 Using dataset from [wordcloud2](https://github.com/Lchiffon/wordcloud2).
@@ -34,3 +43,6 @@ demoFreq %>%
          target = "blank") %>% 
   etooltip()
 ```
+
+</div>
+</main>

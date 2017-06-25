@@ -1,5 +1,5 @@
 ---
-title: "Responsive Options"
+title: ""
 ---
 
 ```{r setup, include=FALSE}
@@ -7,9 +7,18 @@ knitr::opts_chunk$set(echo = TRUE)
 library(chartist)
 ```
 
+<main>
+<div class = "container">
+
+```{r, echo=FALSE, eval=TRUE}
+h1(
+  "Responsive options"
+)
+```
+
 **Resize window to observe changes**
 
-## Basic
+### Basic
 
 ```{r}
 mtcars$models <- rownames(mtcars)
@@ -20,7 +29,7 @@ mtcars %>%
   resp_ist(query = "screen and (max-width: 640px)", low = 15)
 ```
 
-## Multiple queries
+### Multiple queries
 
 ```{r}
 mtcars %>%
@@ -32,3 +41,6 @@ mtcars %>%
   resp_ist(query = "screen and (min-width: 641px) and (max-width: 1024px)", 
            chartPadding = 0)
 ```
+
+</div>
+</main>

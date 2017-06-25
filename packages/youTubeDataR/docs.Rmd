@@ -1,14 +1,18 @@
 ---
-title: "Docs"
-output:
-  html_document:
-    toc: true
-    toc_depth: 3
-    toc_float: true
+title: ""
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+```
+
+<main>
+<div class = "container">
+
+```{r, echo = FALSE, eval=TRUE}
+h1(
+  "Docs"
+)
 ```
 
 # findParams
@@ -620,3 +624,6 @@ See all scopes from documentation [here](https://developers.google.com/youtube/v
 token <- youOauth(client.id = "something.apps.googleusercontent.com",
                   client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX")
 ```
+
+</div>
+</main>

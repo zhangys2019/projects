@@ -1,5 +1,5 @@
 ---
-title: "Force networks"
+title: ""
 ---
 
 ```{r setup, include=FALSE}
@@ -8,7 +8,16 @@ library(echarts)
 library(dplyr)
 ```
 
-## Simple topology
+<main>
+<div class = "container">
+
+```{r, echo=FALSE}
+h1(
+  "Force networks"
+)
+```
+
+### Simple topology
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/force1.html#-en) taken from Baidu's EChart official website.
 
@@ -32,7 +41,7 @@ echart(width = "100%") %>%
   elegend(orient = "horizontal")
 ```
 
-## Larger
+### Larger
 
 Using datasets from [plotly](https://plot.ly/r/lines-on-maps/):
 
@@ -54,3 +63,6 @@ echart(width = "100%") %>%
   etooltip(trigger = "item") %>% 
   etheme("macarons2")
 ```
+
+</div>
+</main>

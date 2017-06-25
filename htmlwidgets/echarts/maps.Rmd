@@ -1,10 +1,5 @@
 ---
-title: "Maps"
-output:
-  html_document:
-    toc: true
-    toc_depth: 3
-    toc_float: true
+title: ""
 ---
 
 ```{r setup, include=FALSE}
@@ -12,11 +7,20 @@ knitr::opts_chunk$set(echo = TRUE)
 library(echarts)
 ```
 
-## How it works
+<main>
+<div class = "container">
+
+```{r, echo=FALSE}
+h1(
+  "Maps"
+)
+```
+
+### How it works
 
 Some things remain unchanged; you still `%>%` your data and initiate the chart with the `echart` function. Once this done you can setup a map with `emap` and `emap_` and pass arguments that will apply to the map as a whole. Following that you add, if necessary, coordinates of points with `emap_coords` and `emap_coords`. Note that this does NOT draw points on the map, this is merely a reference table for your actual series to plot, i.e.: `points` or `lines`. Adding coordinates is obviously not required for choropleth maps (`emap_choropleth` and `emap_choropleth_`).
 
-## Examples
+### Examples
 
 Following is a reproduction examples from [plotly](https://plot.ly/r/lines-on-maps/) using their datasets:
 
@@ -32,7 +36,7 @@ flights <- read.csv('https://raw.githubusercontent.com/plotly/datasets/master/20
 
 Inspect the datasets yourself to understand the following examples, `str(air)` & `str(flights)`.
 
-## Points basic
+### Points basic
 
 Here I simply plot the location of airports.
 
@@ -44,7 +48,7 @@ air %>%
   emap_points(cnt, symbolSize = 2) # value corresponding to each coordinate
 ```
 
-## Points groups
+### Points groups
 
 We can group the airports by `state` to have one serie and color for each, select the map of the United States only and change the symbol.
 
@@ -57,7 +61,7 @@ air %>%
   emap_points(cnt, symbol = "star", symbolSize = 10) 
 ```
 
-## Point size
+### Point size
 
 Using a bit of JS we can set the symbol size to that of value we pass, `cnt`.
 
@@ -72,7 +76,7 @@ air %>%
   emap_points(cnt, symbol = "circle", symbolSize = sizeFUN) 
 ```
 
-## Lines
+### Lines
 
 ECharts also lets you plot line on maps.  
 
@@ -87,7 +91,7 @@ air %>%
 
 It may be confusing at first but ECharts has you, first, pass the *named* coordinates of the points then the edges as *name of source* to *name of target*. Hence passing the coordinates named `iata` (x in `echart` function) then passing edges as `airport1` to `airport2`.
 
-## Combine
+### Combine
 
 You can combine points and lines.
 
@@ -100,7 +104,7 @@ air %>%
   emap_lines(flights, airport1, airport2)
 ```
 
-## Combine groups
+### Combine groups
 
 Remember we grouped the data by `state` earlier on, we can do the same here. We will also group the edges by states so `echarts` will match our edges to our points.
 
@@ -124,7 +128,7 @@ air %>%
   emap_lines(flights, airport1, airport2)
 ```
 
-## Beautify
+### Beautify
 
 Finally you can beautify the map
 
@@ -155,3 +159,6 @@ air %>%
              effect = line.effect) %>% 
   etheme("dark")
 ```
+
+</div>
+</main>

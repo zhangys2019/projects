@@ -1,5 +1,5 @@
 ---
-title: "chartist"
+title: ""
 ---
 
 ```{r setup, include=FALSE}
@@ -9,6 +9,17 @@ library(dplyr)
 library(chartist)
 library(countup)
 library(typed)
+```
+
+<main>
+
+<div class = "container">
+
+```{r echo=FALSE}
+h1(
+  "chartist",
+  class = "grey-text text-darken-2"
+)
 ```
 
 ```{r, echo=FALSE}
@@ -28,46 +39,67 @@ mtcars %>%
   loop_ist(6000)
 ```
 
-<div class = "page-header">
-<h1>`r typed::typed('Welcome to the chartist package!', typeSpeed = 150)`<h1>
-</div>
-
-<div class = "pull-right">
 [![Travis-CI Build Status](https://travis-ci.org/JohnCoene/chartist.svg?branch=master)](https://travis-ci.org/JohnCoene/chartist)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/JohnCoene/chartist?branch=master&svg=true)](https://ci.appveyor.com/project/JohnCoene/chartist)
 [![Coverage Status](https://img.shields.io/coveralls/JohnCoene/chartist.svg)](https://coveralls.io/r/JohnCoene/chartist?branch=master)
 [![Coverage Status](https://img.shields.io/codecov/c/github/JohnCoene/chartist/master.svg)](https://codecov.io/github/JohnCoene/chartist?branch=master)
 [![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/JohnCoene)
-</div>
 
-<br>
-<br>
-
-<h4>[chartist](https://github.com/JohnCoene/chartist) is an R [htmlwidget](http://htmlwidgets.org/) for [chartist.js](https://gionkunz.github.io/chartist-js).</h4>
+#### [chartist](https://github.com/JohnCoene/chartist) is an R [htmlwidget](http://htmlwidgets.org/) for [chartist.js](https://gionkunz.github.io/chartist-js).
 
 > You may think that this is just yet an other charting library. But Chartist.js is the product of a community that was disappointed about the abilities provided by other charting libraries. Of course there are hundreds of other great charting libraries but after using them there were always tweaks you would have wished for that were not included. 
 --- chartist.js
 
 ```{r, echo=FALSE, eval=TRUE}
-div(class = "row",
-    div(class = "col-lg-4 col-mg-4",
-        p(class = "text-center",
-          a(href="https://github.com/JohnCoene/chartist/",
-            HTML("<button class='bttn-unite bttn-lg bttn-primary'><i class='fa fa-github' aria-hidden='true'></i> Repository</button>")))),
-    div(class = "col-lg-4 col-mg-4",
-        p(class = "text-center",
-          a(href="https://github.com/JohnCoene/chartist/issues",
-            HTML("<button class='bttn-unite bttn-lg bttn-danger'><i class='fa fa-exclamation-circle' aria-hidden='true'></i> Issues</button>")))),
-    div(class = "col-lg-4 col-mg-4",
-        p(class = "text-center",
-          a(href="https://github.com/JohnCoene/chartist/docs",
-            HTML("<button class='bttn-unite bttn-lg bttn-success'><i class='fa fa-book' aria-hidden='true'></i> Docs</button>")))))
+div(
+  class = "row",
+  div(
+    class = "col m4 center",
+    a(
+      href="https://github.com/JohnCoene/chartist/",
+      target="_blank",
+      class = "btn blue waves-effect",
+      "Repository",
+      tags$i(
+        class = "material-icons left",
+        "code"
+      )
+    )
+  ),
+  div(
+    class = "col m4 center",
+    a(
+      href="https://github.com/JohnCoene/chartist/issues",
+      target="_blank",
+      class = "btn blue lighten-1 waves-effect",
+      "Issues",
+      tags$i(
+        class = "material-icons left",
+        "warning"
+      )
+    )
+  ),
+  div(
+    class = "col m4 center",
+    a(
+      href="https://github.com/JohnCoene/chartist/docs",
+      target="_blank",
+      class = "btn blue lighten-2 waves-effect",
+      "Docs",
+      tags$i(
+        class = "material-icons left",
+        "insert_drive_file"
+      )
+    )
+  )
+)
+
 ```
 
 
 ```{r install, echo = FALSE}
 div(class = "page-header",
-    h2("Install", class = "text-primary"))
+    h4("Install", class = "text-primary"))
 ```
 
 ```{r, eval=FALSE}
@@ -76,7 +108,7 @@ devtools::install_github("JohnCoene/chartist")
 
 ```{r first chart, echo = FALSE}
 div(class = "page-header",
-    h2("Your first chart", class = "text-primary"))
+    h4("Your first chart", class = "text-primary"))
 ```
 
 Your first chart using the built-in `mtcars` dataset.
@@ -104,19 +136,21 @@ div(class = "page-header",
 
 All functions end in `_ist`; pipe your data with `%>%`.
 
-* Minimal
-    1. Initiate chart object wtih `chart_ist`
-    2. Add series with `add_ist`
+Minimal example:
 
-* Customize your chart
-    - Pass options with `opt_ist`
-    - Add animations with `anim_ist`
-    - Tweak axis with `yaxis_ist` and `xaxis_ist`
-    - use helper functions to fast-forward.
+1. Initiate chart object wtih `chart_ist`
+2. Add series with `add_ist`
+
+Customize your chart:
+
+1. Pass options with `opt_ist`
+2. Add animations with `anim_ist`
+3. Tweak axis with `yaxis_ist` and `xaxis_ist`
+4. use helper functions to fast-forward.
 
 ```{r adv ex, echo = FALSE}
 div(class = "page-header",
-    h2("Advanced example", class = "text-primary"))
+    h4("Advanced example", class = "text-primary"))
 ```
 
 Below is the code used to generate the very banner of this page.
@@ -139,3 +173,7 @@ mtcars %>%
   sanim_ist() %>%
   loop_ist(6000)
 ```
+
+</div>
+
+</main>

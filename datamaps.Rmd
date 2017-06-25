@@ -1,5 +1,5 @@
 ---
-title: "datamaps"
+title: ""
 ---
 
 ```{r setup, include=FALSE}
@@ -23,6 +23,16 @@ continents <- sesh %>%
          lat = c(7.401962, 19.432608, 10.762622, 48.210033))
 ```
 
+<main>
+<div class = "container">
+
+```{r}
+h1(
+  "datamaps"
+)
+```
+
+
 ```{r}
 sesh %>% 
   datamaps(default = "lightgray", width = "100%") %>% # initiate map
@@ -35,40 +45,93 @@ sesh %>%
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/JohnCoene/datamaps?branch=master&svg=true)](https://ci.appveyor.com/project/JohnCoene/datamaps)
 
 ```{r, echo = FALSE}
-div(class = "row",
-    div(class = "col-lg-8 col-md-8",
-        "R htmlwidget for", 
-        a("datamaps.", href = "http://datamaps.github.io/")),
-    div(class = "col-lg-4 col-md-4",
-        p(a(href="https://github.com/JohnCoene/datamaps", target = "_blank",
-            HTML("<button class='bttn-unite bttn-lg bttn-danger'><i class='fa fa-github' aria-hidden='true'></i> Repository</button>")))))
+div(
+  class = "row",
+  div(
+    class = "col m8",
+    "R htmlwidget for ",
+    a(
+      "datamaps",
+      href = "http://datamaps.github.io/",
+      target = "_blank"
+    )
+  ),
+  div(
+    class = "col m4",
+    a(
+      class = "btn blue waves-effect",
+      href="https://github.com/JohnCoene/datamaps", 
+      target = "_blank",
+      tags$i(
+        class = "material-icons left",
+        "code"
+      ),
+      "Repository"
+    )
+  )
+)
 ```
 
-## Install 
+### Install 
 
 ```{r, echo = TRUE, eval = FALSE}
 # install.packages("devtools")
 devtools::install_github("JohnCoene/datamaps")
 ```
 
-## How it works
+### How it works
 
 Initiate your map with `datamaps`, pipe (`%>%`) your data to add data (`add_data`) or layers.
 
-**Layers**:
+```{r}
+tags$ul(
+  class = "collection with-header",
+  tags$li(
+    class = "collection-header",
+    tags$h5(
+      "Layers"
+    )
+  ),
+  tags$li(
+    class = "collection-item",
+    code("add_choropleth")
+  ),
+  tags$li(
+    class = "collection-item",
+    code("add_arcs"),
+    " and ",
+    code("add_arcs_name")
+  ),
+  tags$li(
+    class = "collection-item",
+    code("add_bubbles")
+  ),
+  tags$li(
+    class = "collection-header",
+    tags$h5(
+      "Options"
+    )
+  ),
+  tags$li(
+    class = "collection-item",
+    code("add_labels")
+  ),
+  tags$li(
+    class = "collection-item",
+    code("config_geo")
+  ),
+  tags$li(
+    class = "collection-item",
+    code("config_bubbles")
+  ),
+  tags$li(
+    class = "collection-item",
+    code("config_arcs")
+  )
+)
+```
 
-* `add_choropleth`
-* `add_arcs` & `add_arcs_name`
-* `add_bubbles`
-
-**Options**:
-
-* `add_labels`
-* `config_geo`
-* `config_bubbles`
-* `config_arcs`
-
-## First map
+### First map
 
 ```{r, echo = TRUE}
 # Fake data
@@ -81,7 +144,9 @@ states %>%
     add_labels() # add state labels
 ```
 
-## Advanced examples
+### Advanced examples
+
+Below is the code used to generate the map in the header of this very page.
 
 ```{r, echo = TRUE, eval = FALSE}
 library(datamaps)
@@ -107,3 +172,6 @@ sesh %>%
   add_data(continents) %>% # add continent dataset
   add_bubbles(long, lat, log(Sessions) * 5, continent, continent, colors = RColorBrewer::brewer.pal(4, "Set1")) # add continent bubbles
 ```
+
+</div>
+</main>

@@ -1,10 +1,17 @@
 ---
-title: "egg"
+title: ""
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library(egg)
+```
+
+<main>
+<div class = "container">
+
+```{r}
+h1("egg")
 ```
 
 [![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/JohnCoene)
@@ -14,8 +21,10 @@ library(egg)
 `r br()`
 
 ```{r}
-p(a(href="https://github.com/JohnCoene/egg", target = "_blank",
-            HTML("<button class='bttn-unite bttn-lg bttn-danger'><i class='fa fa-github' aria-hidden='true'></i> Repository</button>")))
+p(a(href="https://github.com/JohnCoene/egg", 
+    target = "_blank",
+    "Repository",
+    class = "btn blue"))
 ```
 
 > Type "coene" to see it in action!
@@ -52,3 +61,6 @@ Use an image:
 egg(c("c", "o", "e", "n","e"), 
     imegg = "http://media.vanityfair.com/photos/54cbf3da998d4de83ba3602a/master/w_960,c_limit/image.jpg")
 ```
+
+</div>
+</main>

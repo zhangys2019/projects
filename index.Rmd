@@ -3,439 +3,1054 @@ title: ""
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
-libs <- c("htmltools", "typed")
-lapply(libs, library, character.only = TRUE)
-df <- data.frame(x = 1:10, uvcharts = runif(10, 0, 5), chartist = runif(10, 0, 5))
-
-library(dplyr)
-
-library(uvcharts)
-uvplot <- df %>%
-  uv_stackbar(x) %>%
-  uv_add(uvcharts) %>%
-  uv_add(chartist) %>%
-  uv_graph(orientation = "Horizontal", bgcolor = "none") %>%
-  uv_axis(ticks = 10, fontsize = 9, strokecolor = "#d3d3d3") %>%
-  uv_label(fontsize = 5) %>%
-  uv_config(legend = list(showlegends = TRUE)) %>%
-  uv_margin(20, 20, 30, 70) %>%
-  uv_legend(position = "right") %>% 
-  uv_frame(bgcolor = "none") %>% 
-  uv_dimension(height = 300)
-
-library(echarts)
-
-df <- data.frame()
-for(i in seq(1:20)){
-  date <- Sys.time() + i * 3600
-  value <- round(runif(1, 5, 20))
-  df <- rbind.data.frame(df, cbind.data.frame(date, value))
-}
-
-echart <- df %>% 
-  echart(date, width = "100%") %>% 
-  eline(value, symbolSize = htmlwidgets::JS("function(value){ return value/2}"), showAllSymbol = TRUE) %>% 
-  etheme("macarons") 
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
-```{r siema buttons}
-div(class = "row",
-    div(class = "col-md-6 col-lg-6 col-sm-6 col-xs-6",
-        HTML("<button class='bttn-jelly bttn-md bttn-default prev pull-left'><i class='fa fa-arrow-circle-o-left' aria-hidden='true'></i></button>")),
-    div(class = "col-md-6 col-lg-6 col-sm-6 col-xs-6",
-        HTML("<button class='bttn-jelly bttn-md bttn-default next pull-right'><i class='fa fa-arrow-circle-o-right' aria-hidden='true'></i></button>")))
+<main>
+
+```{r intro}
+div(
+  class = "container section center",
+  h1(
+    class = "brand blue-text",
+    "Project Vault"
+  ),
+  h4(
+    class = "grey-text text-darken-2",
+    "Data, limericks, and other indoor stuff."
+  ),
+  br(),
+  div(
+    class = "row",
+    div(
+      class = "col m4",
+      a(
+        href = "https://github.com/JohnCoene",
+        target = "_blank",
+        class = "btn grey darken-3 waves-effect",
+        tags$i(
+          class = "material-icons",
+          "code"
+        )
+      )
+    ),
+    div(
+      class = "col m4",
+      a(
+        href = "https://www.linkedin.com/in/johncoene/",
+        target = "_blank",
+        class = "btn blue darken-3 waves-effect",
+        tags$i(
+          class = "material-icons",
+          "assignment_ind"
+        )
+      )
+    ),
+    div(
+      class = "col m4",
+      a(
+        href = "https://twitter.com/jdatap",
+        target = "_blank",
+        class = "btn blue lighten-1 waves-effect",
+        tags$i(
+          class = "material-icons",
+          "sms"
+        )
+      )
+    )
+  )
+)
 ```
 
-
-```{r carousel}
-div(class = "siema",
-    div(class = "row",
-        div(class = "col-lg-3",
-            div(class = "page-header",
-                h2("uvcharts", class = "text-primary")),
-            p("uvCharts htmlwidget for R."),
-            p(HTML("<ul>",
-                   "<li>12 chart types",
-                   "<li>7 themes",
-                   "<li>17 configuration functions",
-                   "<li>110 combinations",
-                   "<li>Responsive",
-                   "</ul>")),
-            br(),
-            a(href="htmlwidgets/uvcharts/",
-            HTML("<button class='bttn-unite bttn-md bttn-danger'><i class='fa fa-rocket' aria-hidden='true'></i> Get Started</button>"))),
-        div(class = "col-lg-9",
-            uvplot)),
-    div(class = "row",
-        div(class = "col-lg-4",
-            div(class = "page-header",
-                h2("graphTweets", class = "text-primary")),
-            p("Visualise Twitter conversations."),
-            p("Easily extracts @handles, edges and nodes!"),
-            br(),
-            p(code(".@he tweets @you about @her"),
-              br(),
-              code("@I tweet to @you and @him"),
-              br(),
-              code("@Someone tweets @her and @I")),
-            br(),
-            a(href="packages/graphTweets/",
-            HTML("<button class='bttn-unite bttn-md bttn-default'><i class='fa fa-book' aria-hidden='true'></i> Docs</button>"))),
-        div(class = "col-lg-8",
-            img(class = "img-responsive", src = "img/graphTweets.png"))),
-    div(class = "row",
-        div(class = "col-lg-3",
-            div(class = "page-header",
-                h2("echarts", class = "text-primary")),
-            p("ECharts htmlwidget for R."),
-            p(HTML("<ul>",
-                   "<li>9 chart types",
-                   "<li>10 themes",
-                   "<li>Plenty of options",
-                   "<li>Responsive",
-                   "</ul>")),
-            br(),
-            a(href="htmlwidgets/echarts/",
-            HTML("<button class='bttn-unite bttn-md bttn-info'><i class='fa fa-rocket' aria-hidden='true'></i> Get Started</button>")),
-            br()),
-        div(class = "col-lg-9",
-            echart)))
+```{r parallax 1}
+div(
+  class = "parallax-container hide-on-small-only",
+  div(
+    class = "parallax",
+    img(
+      class = "responsive-img",
+      src = "img/parallax1.jpg"
+    )
+  )
+)
 ```
 
-```{r social}
-div(class = "row",
-    div(class = "col-md-4 col-lg-4 col-sm-4 col-xs-4",
-        p(class = "text-center", a(href="https://github.com/JohnCoene", target = "_blank",
-        HTML("<button class='bttn-fill bttn-lg bttn-danger'><i class='fa fa-github' aria-hidden='true'></i></button>")))),
-    div(class = "col-md-4 col-lg-4 col-sm-4 col-xs-4",
-        p(class = "text-center", a(href="https://www.linkedin.com/in/johncoene/", target = "_blank",
-        HTML("<button class='bttn-fill bttn-lg bttn-md bttn-success'><i class='fa fa-linkedin' aria-hidden='true'></i></button>")))),
-    div(class = "col-md-4 col-lg-4 col-sm-4 col-xs-4",
-        p(class = "text-center", a(href="https://twitter.com/jdatap", target = "_blank",
-        HTML("<button class='bttn-fill bttn-lg bttn-md bttn-primary'><i class='fa fa-twitter' aria-hidden='true'></i></button>")))))
-```
-
-```{r projects header}
-div(class = "page-header",
-    h1("Projects", class = "text-primary", id = "projects"))
-```
-
-```{r fiveline}
-div(class = "panel panel-default",
-    div(class = "panel-body",
-        img(src = "img/thumbnails/fiveline.png", class = "img-responsive"),
+```{r web}
+div(
+  class = "container section",
+  h1(
+    class = "blue-text center",
+    "Web"
+  ),
+  div(
+    class = "row",
+    div(
+      class = "col m4",
+      div(
+        class = "card sticky-action",
         div(
-          class = "panel-body",
-          tags$p(
-            "A collection of bawdy and blasphemous five-line stanzas."
+          class = "card-image",
+          img(
+            class = "activator",
+            src = "img/thumbnails/fiveline.png"
           )
         ),
-        tags$ul(
-          class = "list-group",
-          tags$li(
-            class = "list-group-item",
-            a(
-              tags$i(
-                class = "fa fa-link"
-              ), 
-              "Website",
-              href="http://five-line.org", 
-              target="_blank"),
-            "browse the latest smutty scansions."
+        div(
+          class = "card-content",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "five-line",
+            tags$i(
+              class = "material-icons right",
+              "more_vert"
+            )
+          )
+        ),
+        div(
+          class = "card-reveal",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "five-line",
+            tags$i(
+              class = "material-icons right",
+              "close"
+            )
           ),
-          tags$li(
-            class = "list-group-item",
-            a(
+          tags$ul(
+            class="collection",
+            tags$li(
+              class="collection-item avatar",
               tags$i(
-                class = "fa fa-android"
-              ), 
-              "App",
-              href="https://play.google.com/store/apps/details?id=org.five_line.www.five_line",
-              target="_blank"),
-            "Get the all the poetic smut in one tap."
-          ),
-          tags$li(
-            class = "list-group-item",
-            a(
+                class = "material-icons circle",
+                "desktop_windows"
+              ),
+              tags$span(
+                class = "title grey-text text-darken-2",
+                "Webapp"
+              ),
+              p(
+                class = "grey-text text-darken-2",
+                "Limericks in your browser."
+              ),
+              a(
+                class = "secondary-content",
+                href = "http://www.five-line.org/",
+                target = "_blank",
+                tags$i(
+                  class = "material-icons grey-text text-darken-2",
+                  "send"
+                )
+              )
+            ),
+            tags$li(
+              class="collection-item avatar",
               tags$i(
-                class = "fa fa-code"
-              ), 
-              "API",
-              href="http://www.five-line.org/api/",
-              target = "_blank"),
-            "Add limericks to your website."
-          ),
-          tags$li(
-            class = "list-group-item",
-            a(
+                class = "material-icons circle green white-text",
+                "android"
+              ),
+              tags$span(
+                class = "title text-darken-2",
+                "Android Application"
+              ),
+              p(
+                class = "grey-text text-darken-2",
+                "Limericks in your phone."
+              ),
+              a(
+                class = "secondary-content",
+                href = "https://play.google.com/store/apps/details?id=org.five_line.www.five_line",
+                target = "_blank",
+                tags$i(
+                  class = "material-icons grey-text text-darken-2",
+                  "send"
+                )
+              )
+            ),
+            tags$li(
+              class="collection-item avatar",
               tags$i(
-                class = "icon-rlogo"
-              ), 
-              "Package",
-              href="five-line"),
-            "Include limericks in your Rmarkdown reports."
+                class = "material-icons circle amber white-text",
+                "code"
+              ),
+              tags$span(
+                class = "title text-darken-2",
+                "API"
+              ),
+              p(
+                class = "grey-text text-darken-2",
+                "Limericks in your website."
+              ),
+              a(
+                class = "secondary-content",
+                href = "http://www.five-line.org/api",
+                target = "_blank",
+                tags$i(
+                  class = "material-icons grey-text text-darken-2",
+                  "send"
+                )
+              )
+            ),
+            tags$li(
+              class="collection-item avatar",
+              tags$i(
+                class = "material-icons circle blue white-text",
+                "check_box_outline_blank"
+              ),
+              tags$span(
+                class = "title text-darken-2",
+                "R Package"
+              ),
+              p(
+                class = "grey-text text-darken-2",
+                "Limericks in your reports."
+              ),
+              a(
+                class = "secondary-content",
+                href = "http://john-coene.com/five-line",
+                target = "_blank",
+                tags$i(
+                  class = "material-icons grey-text text-darken-2",
+                  "send"
+                )
+              )
+            )
           )
         )
       )
-  )
-```
-
-```{r, projects row 1}
-tube <- div(class = "thumbnail js-tilt rellax",
-          a(href = "packages/youTubeDataR/",
-            img(src = "img/thumbnails/youTubeDataR.png", class = "img-responsive")),
-            div(class = "caption",
-                h3("youTubeDataR"),
-                p("youTubeDataR is an R package that provides access to the YouTube Data API"),
-                h4(span("api", class = "label label-info"))))
-chartist <- div(class = "thumbnail js-tilt rellax",
-          a(href = "htmlwidgets/chartist/",
-            img(src = "img/thumbnails/chartist.png", class = "img-responsive")),
-            div(class = "caption",
-                h3("chartist"),
-                p("chartist is an R htmlwidget for chartist.js in R."),
-                h4(span("visualisation", class = "label label-success"))))
-
-wine <- div(class = "thumbnail js-tilt rellax",
-          a(href = "http://johncoene.github.io/wine", target = "_blank",
-            img(src = "img/thumbnails/wine-dashboard.jpg", class = "img-responsive")),
-            div(class = "caption",
-                h3("Wine on Twitter"),
-                p("Wine dashboard is a set of dahsboards about conversations on wine occuring on Twitter."),
-                h4(span("dashboard", class = "label label-warning"))))
-
-# title
-tube <- tagAppendAttributes(tube, "data-tilt" = NA)
-chartist <- tagAppendAttributes(chartist, "data-tilt" = NA)
-wine <- tagAppendAttributes(wine, "data-tilt" = NA)
-
-# rellax 
-tube <- tagAppendAttributes(tube, "data-aos" = "zoom-in-right", "data-aos-duration"="1000")
-chartist <- tagAppendAttributes(chartist, "data-aos" = "zoom-in-up","data-aos-duration"="1000")
-wine <- tagAppendAttributes(wine, "data-aos" = "zoom-in-left","data-aos-duration"="1000")
-
-div(class = "row",
-    div(class = "col-lg-4 col-md-4", tube),
-    div(class = "col-lg-4 col-md-4", chartist),
-    div(class = "col-lg-4 col-md-4", wine))
-```
-
-```{r projects row 2}
-uvcharts <- div(class = "thumbnail js-tilt rellax",
-          a(href = "datamaps",
-            img(src = "img/thumbnails/datamaps.png", class = "img-responsive")),
-            div(class = "caption",
-                h3("datamaps"),
-                p("datamaps is an htmlwidget for datamaps."),
-                h4(span("visualisation", class = "label label-success"))))
-
-typed <- div(class = "thumbnail js-tilt rellax",
-          a(href = "typed",
-            img(src = "img/thumbnails/typed.png", class = "img-responsive")),
-            div(class = "caption",
-                h3("typed"),
-                p("typed is an is an R implementation (htmlwidget) of typed.js."),
-                h4(span("misc", class = "label label-default"))))
-
-bibler <- div(class = "thumbnail js-tilt rellax",
-          a(href = "packages/bibler/",
-            img(src = "img/thumbnails/bibler.jpg", class = "img-responsive")),
-            div(class = "caption",
-                h3("bibler"),
-                p("R Package that includes all of the Bible books and some text mining utilities."),
-                h4(span("dataset", class = "label label-danger"))))
-
-# aos + tilt
-uvcharts <- tagAppendAttributes(uvcharts, "data-aos" = "zoom-in-right", "data-aos-duration"="1000", "data-tilt" = NA)
-typed <- tagAppendAttributes(typed, "data-aos" = "zoom-in-up", "data-aos-duration"="1000", "data-tilt" = NA)
-bibler <- tagAppendAttributes(bibler, "data-aos" = "zoom-in-left", "data-aos-duration"="1000", "data-tilt" = NA)
-
-div(class = "row",
-    div(class = "col-lg-4 col-md-4", uvcharts),
-    div(class = "col-lg-4 col-md-4", typed),
-    div(class = "col-lg-4 col-md-4", bibler))
-```
-
-```{r projects row 3}
-peity <- div(class = "thumbnail js-tilt rellax",
-          a(href = "peity",
-            img(src = "img/thumbnails/peity.png", class = "img-responsive")),
-            div(class = "caption",
-                h3("peity"),
-                p("peity is an R implementation (htmlwidget) of Peity."),
-                h4(span("visualisation", class = "label label-success"))))
-countup <- div(class = "thumbnail js-tilt rellax",
-          a(href = "countup",
-            img(src = "img/thumbnails/countup.png", class = "img-responsive")),
-            div(class = "caption",
-                h3("countup"),
-                p("countup is an R implementation (htmlwidget) of Count-Up.js."),
-                h4(span("misc", class = "label label-default"))))
-rodham <- div(class = "thumbnail js-tilt rellax",
-          a(href = "packages/rodham/",
-            img(src = "img/thumbnails/rodham.png", class = "img-responsive")),
-            div(class = "caption",
-                h3(HTML("<i class='icon-rlogo'></i> rodham")),
-                p("R Package to download Hillary Rodham Clinton's personal emails."),
-                h4(span("api", class = "label label-info"))))
-
-# tilt + aos
-peity <- tagAppendAttributes(peity, "data-aos" = "zoom-in-right", "data-aos-duration"="1000", "data-tilt" = NA)
-countup <- tagAppendAttributes(countup, "data-aos" = "zoom-in-up", "data-aos-duration"="1000", "data-tilt" = NA)
-rodham <- tagAppendAttributes(rodham, "data-aos" = "zoom-in-left", "data-aos-duration"="1000", "data-tilt" = NA)
-
-div(class = "row",
-    div(class = "col-lg-4 col-md-4", peity),
-    div(class = "col-lg-4 col-md-4", countup),
-    div(class = "col-lg-4 col-md-4", rodham))
-```
-
-```{r projects row 4}
-gt <- div(class = "thumbnail js-tilt rellax",
-          a(href = "packages/graphTweets/",
-            img(src = "img/thumbnails/graphTweets.png", class = "img-responsive")),
-            div(class = "caption",
-                h3(HTML("<i class='icon-rlogo'></i> graphTweets")),
-                p("graphTweets is an R package to visualise networks of Twitter interactions."),
-                h4(span("visualisation", class = "label label-success"))))
-
-t2e <- div(class = "thumbnail js-tilt rellax",
-          a(href = "tweets2earth",
-            img(src = "img/thumbnails/tweets2earth.png", class = "img-responsive")),
-            div(class = "caption",
-                h3("tweets2earth"),
-                p("tweets2earth lets you easily plot tweets' location and created time onto Google Earth."),
-                h4(span("visualisation", class = "label label-success"))))
-
-egg <- div(class = "thumbnail js-tilt rellax",
-          a(href = "egg",
-            img(src = "img/thumbnails/egg.png", class = "img-responsive")),
-            div(class = "caption",
-                h3("egg"),
-                p("egg let's you put Easter eggs in your Rmarkdown documents."),
-                h4(span("misc", class = "label label-default"))))
-
-# tilt + aos
-gt <- tagAppendAttributes(gt, "data-aos" = "zoom-in-right", "data-aos-duration"="1000", "data-tilt" = NA)
-t2e <- tagAppendAttributes(t2e, "data-aos" = "zoom-in-up", "data-aos-duration"="1000", "data-tilt" = NA)
-egg <- tagAppendAttributes(egg, "data-aos" = "zoom-in-left","data-aos-duration"="1000", "data-tilt" = NA)
-
-div(class = "row",
-    div(class = "col-lg-4 col-md-4", gt),
-    div(class = "col-lg-4 col-md-4", t2e),
-    div(class = "col-lg-4 col-md-4", egg))
-```
-
-```{r projects row 5}
-tippy <- div(class = "thumbnail js-tilt rellax",
-          a(href = "tippy",
-            img(src = "img/thumbnails/tippy.png", class = "img-responsive")),
-            div(class = "caption",
-                h3("tippy"),
-                p("tippy is an htmlwidget to include tooltips in Rmarkdown."),
-                h4(span("misc", class = "label label-default"))))
-
-tippy <- tagAppendAttributes(tippy, "data-aos" = "zoom-in-right", "data-aos-duration"="1000", "data-tilt" = NA)
-
-reporter <- div(class = "thumbnail js-tilt rellax",
-          a(href = "reporter",
-            img(src = "img/thumbnails/reporter.png", class = "img-responsive")),
-            div(class = "caption",
-                h3("reporter"),
-                p("reporter is a collection of Rmarkdown formats (WIP)."),
-                h4(span("misc", class = "label label-default"))))
-
-reporter <- tagAppendAttributes(reporter, "data-aos" = "zoom-in-up", "data-aos-duration"="1000", "data-tilt" = NA)
-
-marat <- div(class = "thumbnail js-tilt rellax",
-          a(href = "marat",
-            img(src = "https://raw.githubusercontent.com/JohnCoene/marat/master/assets/img/screenshot.png", 
-                class = "img-responsive")),
-            div(class = "caption",
-                h3("Marat"),
-                p("Marat is a jekyll-theme inspired by L'Ami du peuple by Jean-Paul Marat."),
-                h4(span("misc", class = "label label-default"))))
-
-marat <- tagAppendAttributes(marat, "data-aos" = "zoom-in-left", "data-aos-duration"="1000", "data-tilt" = NA)
-
-div(class = "row",
-    div(class = "col-lg-4 col-md-4", tippy),
-    div(class = "col-lg-4 col-md-4", marat),
-    div(class = "col-lg-4 col-md-4", reporter))
-```
-
-```{r echarts jumbo, echo = FALSE, eval = TRUE}
-df <- data.frame(x = 1:150,
-                 y = round(rnorm(150, mean = 5, sd = 1), 2),
-                 z = round(rnorm(150, mean = 7, sd = 1), 2))
-
-pointer <- list(
-  show = TRUE,
-  type = "cross",
-  lineStyle = list(
-    type = "dashed",
-    width = 0.8
+    ),
+    div(
+      class = "col m4",
+      div(
+        class = "card sticky-action",
+        div(
+          class = "card-image",
+          img(
+            class = "activator",
+            src = "img/thumbnails/wine-dashboard.jpg"
+          )
+        ),
+        div(
+          class = "card-content",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "Wine on Twitter",
+            tags$i(
+              class = "material-icons right",
+              "more_vert"
+            )
+          )
+        ),
+        div(
+          class = "card-action",
+          tags$a(
+            href="http://johncoene.github.io/wine/",
+            target = "_blank",
+            "Browse"
+          )
+        ),
+        div(
+          class = "card-reveal",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "Wine on Twitter",
+            tags$i(
+              class = "material-icons right",
+              "close"
+            )
+          ),
+          p(
+            "A set of of dashboards on Twitter conversations taking place on Twitter.",
+            "Includes dashboards on grape varieties, taste descriptors, wines associated with meal times, and more."
+          )
+        )
+      )
+    ),
+    div(
+      class = "col m4",
+      div(
+        class = "card sticky-action",
+        div(
+          class = "card-image",
+          img(
+            class = "activator",
+            src = "https://raw.githubusercontent.com/JohnCoene/marat/master/assets/img/screenshot.png"
+          )
+        ),
+        div(
+          class = "card-content",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "Marat",
+            tags$i(
+              class = "material-icons right",
+              "more_vert"
+            )
+          )
+        ),
+        div(
+          class = "card-action",
+          tags$a(
+            href="marat",
+            "Check it out!"
+          )
+        ),
+        div(
+          class = "card-reveal",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "Marat",
+            tags$i(
+              class = "material-icons right",
+              "close"
+            )
+          ),
+          p(
+            "A jekyll theme inspired by L'Ami du peuple, an octavo published during the French Revolution ",
+            "by Jean-Paul Marat."
+          )
+        )
+      )
+    )
   )
 )
-
-jumb <- df %>% 
-  echart(x, height = 300, width = "100%") %>% 
-  escatter(y, name = "Clicks") %>% 
-  escatter(z, name = "Views") %>% 
-  emark_point(which = "all", data = list(list(type = "min"), list(type = "max"))) %>% 
-  emark_line(which = "all", data = list(list(type = "average"))) %>% 
-  etooltip(axisPointer = pointer, showDelay = 0) %>% 
-  eoptions(backgroundColor = "rgba(0,0,0,0)")
 ```
 
-```{r project jumbo end}
-div(class = "jumbotron",
-    div(class = "container-fluid",
-        div(class = "row",
-            div(class = "col-lg-9 col-md-9",
-                jumb),
-            div(class = "col-lg-3 col-md-3",
-                h2("echarts"),
-                p(span("visualisation", class = "label label-success")),
-                p(HTML("<ul>",
-                   "<li>9 chart types",
-                   "<li>10 themes",
-                   "<li>Plenty of options",
-                   "<li>Responsive",
-                   "</ul>")),
-                a(href="htmlwidgets/echarts/",
-                  HTML("<button class='bttn-unite bttn-md bttn-warning'><i class='fa fa-line-chart' aria-hidden='true'></i> Your first chart</button>"))))))
+```{r parallax 2}
+div(
+  class = "parallax-container hide-on-small-only",
+  div(
+    class = "parallax",
+    img(
+      class = "responsive-img",
+      src = "img/parallax2.jpg"
+    )
+  )
+)
 ```
 
-```{r about}
-div(class = "page-header", 
-    h1("About", class = "text-primary")) # page header
-
-div(class = "row",
-    div(class = "col-lg-7 col-md-7",
-        p("John is a young contrarian often found where the people are few and the drinks many."),
-        p("I am an autodidact genuinely interested in things ranging from politics to data."),
-        br(),
-        p(span("#rstats", class = "text-success"),
-          span("#marketing", class = "text-info"),
-          span("#BI", class = "text-warning"),
-          span("#data", class = "text-danger")),
-        p("Please free to inquire about a project, collaboration, freelance, or other opportunities such as free cake: ",
-          br(),
-          br(),
-          h4(a("jcoenep@gmail.com", href = "mailto:jcoenep@gmail.com"))),
-        br(),
-        br(),
-        a(href="http://johncoene.github.io/cv/", target = "_blank",
-        HTML("<button class='bttn-unite bttn-lg bttn-danger'><i class='fa fa-address-card' aria-hidden='true'></i> Resume</button>"))),
-    div(class = "col-lg-5 col-md-5",
-        HTML('<a class="twitter-timeline" data-width="300" data-height="400" data-link-color="#d9230f" href="https://twitter.com/jdatap">Tweets by jdatap</a>')))
+```{r viz}
+div(
+  class = "container section",
+  h1(
+    class = "blue-text center",
+    "Visualisations"
+  ),
+  div(
+    class = "row",
+    div(
+      class = "col m4",
+      div(
+        class = "card sticky-action",
+        div(
+          class = "card-image",
+          img(
+            class = "activator",
+            src = "img/thumbnails/peity.png"
+          )
+        ),
+        div(
+          class = "card-content",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "peity",
+            tags$i(
+              class = "material-icons right",
+              "more_vert"
+            )
+          )
+        ),
+        div(
+          class = "card-action",
+          tags$a(
+            href="https://github.com/JohnCoene/peity",
+            target = "_blank",
+            "Discover"
+          )
+        ),
+        div(
+          class = "card-reveal",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "peity",
+            tags$i(
+              class = "material-icons right",
+              "close"
+            )
+          ),
+          p(
+            "peity htmlwidget for R ",
+            a(
+              href="http://benpickles.github.io/peity/",
+              target = "_blank",
+              "Peity"
+            ),
+            " - inline charts in Rmarkdown."
+          )
+        )
+      )
+    ),
+    div(
+      class = "col m4",
+      div(
+        class = "card sticky-action",
+        div(
+          class = "card-image",
+          img(
+            class = "activator",
+            src = "img/thumbnails/chartist.png"
+          )
+        ),
+        div(
+          class = "card-content",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "chartist",
+            tags$i(
+              class = "material-icons right",
+              "more_vert"
+            )
+          )
+        ),
+        div(
+          class = "card-action",
+          tags$a(
+            href="htmlwidgets/chartist",
+            "Start plotting"
+          )
+        ),
+        div(
+          class = "card-reveal",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "chartist",
+            tags$i(
+              class = "material-icons right",
+              "close"
+            )
+          ),
+          p(
+            "R htmlwidget for chartistjs."
+          )
+        )
+      )
+    ),
+    div(
+      class = "col m4",
+      div(
+        class = "card sticky-action",
+        div(
+          class = "card-image",
+          img(
+            class = "activator",
+            src = "img/thumbnails/uvcharts.png"
+          )
+        ),
+        div(
+          class = "card-content",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "uvcharts",
+            tags$i(
+              class = "material-icons right",
+              "more_vert"
+            )
+          )
+        ),
+        div(
+          class = "card-action",
+          tags$a(
+            href="htmlwidgets/uvcharts",
+            "Start charting"
+          )
+        ),
+        div(
+          class = "card-reveal",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "uvcharts",
+            tags$i(
+              class = "material-icons right",
+              "close"
+            )
+          ),
+          p(
+            "R htmlwidget for uvcharts."
+          )
+        )
+      )
+    )
+  ),
+  div(
+    class = "row",
+    div(
+      class = "col m6",
+      div(
+        class = "card sticky-action",
+        div(
+          class = "card-image",
+          img(
+            class = "activator",
+            src = "img/thumbnails/datamaps.png"
+          )
+        ),
+        div(
+          class = "card-content",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "datamaps",
+            tags$i(
+              class = "material-icons right",
+              "more_vert"
+            )
+          )
+        ),
+        div(
+          class = "card-action",
+          tags$a(
+            href="datamaps",
+            "Start mapping"
+          )
+        ),
+        div(
+          class = "card-reveal",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "datamaps",
+            tags$i(
+              class = "material-icons right",
+              "close"
+            )
+          ),
+          p(
+            "R htmlwidget for datamaps."
+          )
+        )
+      )
+    ),
+    div(
+      class = "col m6",
+      div(
+        class = "card sticky-action",
+        div(
+          class = "card-image",
+          img(
+            class = "activator",
+            src = "img/thumbnails/echarts.png"
+          )
+        ),
+        div(
+          class = "card-content",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "htmlwidgets/echarts",
+            tags$i(
+              class = "material-icons right",
+              "more_vert"
+            )
+          )
+        ),
+        div(
+          class = "card-action",
+          tags$a(
+            href="htmlwidgets/echarts/",
+            "Your first chart"
+          )
+        ),
+        div(
+          class = "card-reveal",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "echarts",
+            tags$i(
+              class = "material-icons right",
+              "close"
+            )
+          ),
+          p(
+            class = "grey-text text-darken-2",
+            "R htmlwidget for ECharts2."
+          ),
+          tags$ul(
+            class = "collection",
+            tags$li(
+              class = "collection-item",
+              "13 chart types"
+            ),
+            tags$li(
+              class = "collection-item",
+              "10 themes"
+            ),
+            tags$li(
+              class = "collection-item",
+              "100s of options"
+            ),
+            tags$li(
+              class = "collection-item",
+              "Fully responsive"
+            )
+          )
+        )
+      )
+    )
+  )
+)
 ```
 
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+```{r parallax 3}
+div(
+  class = "parallax-container hide-on-small-only",
+  div(
+    class = "parallax",
+    img(
+      class = "responsive-img",
+      src = "img/parallax3.jpeg"
+    )
+  )
+)
+```
 
-<script src="js/tilt.jquery.min.js"></script>
-<script>
-    AOS.init();
-  </script>
+
+```{r social media}
+div(
+  class = "container section",
+  h1(
+    class = "blue-text center",
+    "Social Media Analysis"
+  ),
+  div(
+    class = "row",
+    div(
+      class = "col m6",
+      div(
+        class = "card sticky-action",
+        div(
+          class = "card-image",
+          img(
+            class = "activator",
+            src = "img/thumbnails/graphTweets.png"
+          )
+        ),
+        div(
+          class = "card-content",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "graphTweets",
+            tags$i(
+              class = "material-icons right",
+              "more_vert"
+            )
+          )
+        ),
+        div(
+          class = "card-action",
+          tags$a(
+            href="packages/graphTweets",
+            "Visualise"
+          )
+        ),
+        div(
+          class = "card-reveal",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "graphTweets",
+            tags$i(
+              class = "material-icons right",
+              "close"
+            )
+          ),
+          p(
+            "R package to visualise Twitter interactions."
+          )
+        )
+      )
+    ),
+    div(
+      class = "col m6",
+      div(
+        class = "card sticky-action",
+        div(
+          class = "card-image",
+          img(
+            class = "activator",
+            src = "img/thumbnails/tweets2earth.png"
+          )
+        ),
+        div(
+          class = "card-content",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "tweets2earth",
+            tags$i(
+              class = "material-icons right",
+              "more_vert"
+            )
+          )
+        ),
+        div(
+          class = "card-action",
+          tags$a(
+            href="tweets2earth",
+            "Get started"
+          )
+        ),
+        div(
+          class = "card-reveal",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "tweets2earth",
+            tags$i(
+              class = "material-icons right",
+              "close"
+            )
+          ),
+          p(
+            "R package to plot tweets onto Google Earth."
+          ),
+          tags$ul(
+            class = "collection",
+            tags$li(
+              
+            )
+          )
+        )
+      )
+    )
+  )
+)
+```
+
+```{r parallax 4}
+div(
+  class = "parallax-container hide-on-small-only",
+  div(
+    class = "parallax",
+    img(
+      class = "responsive-img",
+      src = "img/parallax4.jpeg"
+    )
+  )
+)
+```
+
+```{r data}
+div(
+  class = "container section",
+  h1(
+    class = "blue-text center",
+    "Datasets & APIs"
+  ),
+  div(
+    class = "row",
+    div(
+      class = "col m4",
+      div(
+        class = "card sticky-action",
+        div(
+          class = "card-image",
+          img(
+            class = "activator",
+            src = "img/thumbnails/youTubeDataR.png"
+          )
+        ),
+        div(
+          class = "card-content",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "youTubeDataR",
+            tags$i(
+              class = "material-icons right",
+              "more_vert"
+            )
+          )
+        ),
+        div(
+          class = "card-action",
+          tags$a(
+            href="packages/youTubeDataR/",
+            "Get data"
+          )
+        ),
+        div(
+          class = "card-reveal",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "youTubeDataR",
+            tags$i(
+              class = "material-icons right",
+              "close"
+            )
+          ),
+          p(
+            "youTubeDataR is an R package that wraps the YouTube Data API."
+          )
+        )
+      )
+    ),
+    div(
+      class = "col m4",
+      div(
+        class = "card sticky-action",
+        div(
+          class = "card-image",
+          img(
+            class = "activator",
+            src = "img/thumbnails/bibler.jpg"
+          )
+        ),
+        div(
+          class = "card-content",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "bibler",
+            tags$i(
+              class = "material-icons right",
+              "more_vert"
+            )
+          )
+        ),
+        div(
+          class = "card-action",
+          tags$a(
+            href="packages/bibler",
+            "Explore"
+          )
+        ),
+        div(
+          class = "card-reveal",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "bibler",
+            tags$i(
+              class = "material-icons right",
+              "close"
+            )
+          ),
+          p(
+            "R package that includes all the Bible books and some text mining utilities to deal with Middle English."
+          )
+        )
+      )
+    ),
+    div(
+      class = "col m4",
+      div(
+        class = "card sticky-action",
+        div(
+          class = "card-image",
+          img(
+            class = "activator",
+            src = "img/thumbnails/rodham.png"
+          )
+        ),
+        div(
+          class = "card-content",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "rodham",
+            tags$i(
+              class = "material-icons right",
+              "more_vert"
+            )
+          )
+        ),
+        div(
+          class = "card-action",
+          tags$a(
+            href="packages/rodham",
+            "Discover"
+          )
+        ),
+        div(
+          class = "card-reveal",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "rodham",
+            tags$i(
+              class = "material-icons right",
+              "close"
+            )
+          ),
+          p(
+            "R package to download and analyse Hillary Rodham Clinton emails from the Wall Street Journal."
+          )
+        )
+      )
+    )
+  )
+)
+```
+
+```{r parallax 5}
+div(
+  class = "parallax-container hide-on-small-only",
+  div(
+    class = "parallax",
+    img(
+      class = "responsive-img",
+      src = "img/parallax5.jpeg"
+    )
+  )
+)
+```
+
+```{r misc}
+div(
+  class = "container section",
+  h1(
+    class = "blue-text center",
+    "Miscellaneous"
+  ),
+  div(
+    class = "row",
+    div(
+      class = "col m4",
+      div(
+        class = "card sticky-action",
+        div(
+          class = "card-image",
+          img(
+            class = "activator",
+            src = "img/thumbnails/typed.png"
+          )
+        ),
+        div(
+          class = "card-content",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "typed",
+            tags$i(
+              class = "material-icons right",
+              "more_vert"
+            )
+          )
+        ),
+        div(
+          class = "card-action",
+          tags$a(
+            href="https://github.com/JohnCoene/typed",
+            target = "_blank",
+            "Start typing"
+          )
+        ),
+        div(
+          class = "card-reveal",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "typed",
+            tags$i(
+              class = "material-icons right",
+              "close"
+            )
+          ),
+          p(
+            "typed is an R implementation of ",
+            a(
+              href = "https://github.com/mattboldt/typed.js",
+              "typed.js"
+            ),
+            "."
+          )
+        )
+      )
+    ),
+    div(
+      class = "col m4",
+      div(
+        class = "card sticky-action",
+        div(
+          class = "card-image",
+          img(
+            class = "activator",
+            src = "img/thumbnails/countup.png"
+          )
+        ),
+        div(
+          class = "card-content",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "countup",
+            tags$i(
+              class = "material-icons right",
+              "more_vert"
+            )
+          )
+        ),
+        div(
+          class = "card-action",
+          tags$a(
+            href="https://github.com/JohnCoene/countup",
+            target="_blank",
+            "Get counting"
+          )
+        ),
+        div(
+          class = "card-reveal",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "countup",
+            tags$i(
+              class = "material-icons right",
+              "close"
+            )
+          ),
+          p(
+            "R implementation of ",
+            a(
+              href = "https://inorganik.github.io/countUp.js/",
+              "countup.js"
+            ),
+            "."
+          )
+        )
+      )
+    ),
+    div(
+      class = "col m4",
+      div(
+        class = "card sticky-action",
+        div(
+          class = "card-image",
+          img(
+            class = "activator",
+            src = "img/thumbnails/egg.jpg"
+          )
+        ),
+        div(
+          class = "card-content",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "egg",
+            tags$i(
+              class = "material-icons right",
+              "more_vert"
+            )
+          )
+        ),
+        div(
+          class = "card-action",
+          tags$a(
+            href="egg",
+            "Get cooking"
+          )
+        ),
+        div(
+          class = "card-reveal",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "egg",
+            tags$i(
+              class = "material-icons right",
+              "close"
+            )
+          ),
+          p(
+            "R package to put easter eggs in your Rmarkdown reports."
+          )
+        )
+      )
+    )
+  )
+)
+```
+
+</main>

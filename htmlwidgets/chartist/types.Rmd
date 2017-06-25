@@ -1,15 +1,21 @@
 ---
-title: "Chart types"
+title: ""
 output:
-  html_document:
-    toc: true
-    toc_depth: 3
-    toc_float: true
+  html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(chartist)
+```
+
+<main>
+<div class = "container">
+
+```{r, echo=FALSE, eval=TRUE}
+h1(
+  "Chart types"
+)
 ```
 
 ## Line
@@ -95,3 +101,6 @@ mtcars[1:5,] %>%
   add_ist(hp) %>%
   gauge_ist()
 ```
+
+</div>
+</main>

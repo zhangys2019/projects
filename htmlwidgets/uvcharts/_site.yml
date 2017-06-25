@@ -1,31 +1,12 @@
-name: "uvcharts"
+name: "John Coene"
 output_dir: "."
-navbar:
-  title: "uvcharts"
-  left:
-    - icon: fa-arrow-circle-left
-      text: "home"
-      href: http://john-coene.com/
-  right:
-    - text: "Chart types"
-      href: types
-    - text: "Config"
-      href: config
-    - text: "Docs"
-      icon: fa-book
-      menu:
-        - text: "HTML"
-          href: docs
-        - text: "PDF"
-          href: uvcharts-0.0.1.pdf
-
+      
 output:
   html_document:
-    theme: simplex
-    highlight: kate
+    theme: null
     include:
       in_header:: header.html
+      before_body: nav.html
       after_body: footer.html
     css: 
-      - style.css
-      - bttn.min.css
+      - ../../css/styles.css

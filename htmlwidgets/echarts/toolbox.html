@@ -4,29 +4,30 @@
 
 <head>
 
-<meta charset="utf-8">
+<meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 
 
-<title>Toolbox</title>
+<title></title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
-<script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/htmlwidgets-0.7/htmlwidgets.js"></script>
+<script src="site_libs/htmlwidgets-0.8/htmlwidgets.js"></script>
 <script src="site_libs/echarts-2.2.7/echarts-all.js"></script>
-<script src="site_libs/echarts-binding-0.0.0.9000/echarts.js"></script>
-<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<script src="site_libs/echarts-binding-0.0.1/echarts.js"></script>
+<link href="https://cdn.rawgit.com/gaborcsardi/r-font/master/rlogo.css" rel="stylesheet">
+<link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="../../css/materialize.min.css"  media="screen,projection"/>
+
+<link rel="stylesheet" href="../../css/atelier-cave-light.css">
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -37,6 +38,29 @@
   ga('send', 'pageview');
 
 </script>
+
+<!--SHARE TAGS-->
+<meta name="google-site-verification" content="p4A9hVd1c8FOAlQsyDq0NMrE9IQdtfZoHgQ2e1t2dYE" />
+<meta name="description" content="R, data, and other indoor stuff." />
+
+<!-- Schema.org markup for Google+ -->
+<meta itemprop="name" content="John Coene">
+<meta itemprop="description" content="R, data, and other indoor stuff.">
+<meta itemprop="image" content="http://john-coene.com/img/graphTweets.png">
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="website">
+<meta name="twitter:site" content="@jdatap">
+<meta name="twitter:title" content="John Coene">
+<meta name="twitter:description" content="R, data, and other indoor stuff.">
+<meta name="twitter:creator" content="@jdatap">
+<meta name="twitter:image" content="http://john-coene.com/img/graphTweets.png">
+
+<!-- Open Graph data -->
+<meta property="og:title" content="John Coene" />
+<meta property="og:image" content="http://john-coene.com/img/graphTweets.png" />
+<meta property="og:description" content="R, data, and other indoor stuff." />
+<meta property="og:site_name" content="John Coene" />
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -76,342 +100,72 @@ code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Ann
 code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
 </style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
-<link rel="stylesheet" href="bttn.min.css" type="text/css" />
+<link rel="stylesheet" href="../../css/styles.css" type="text/css" />
 
 </head>
 
 <body>
 
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-  height: auto;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-</style>
 
+<ul id="dropdown1" class="dropdown-content">
+  <li><a class="blue-text" href="bars">Bar</a></li>
+  <li><a class="blue-text" href="lines">Line</a></li>
+  <li><a class="blue-text" href="scatter">Scatter</a></li>
+  <li><a class="blue-text" href="pie">Pie</a></li>
+  <li><a class="blue-text" href="chord">Chord</a></li>
+  <li><a class="blue-text" href="funnels">Funnel</a></li>
+  <li><a class="blue-text" href="gauges">Gauge</a></li>
+  <li><a class="blue-text" href="heatmap">Heatmap</a></li>
+  <li><a class="blue-text" href="maps">Map</a></li>
+  <li><a class="blue-text" href="candlestick">Candlestick</a></li>
+  <li><a class="blue-text" href="wordcloud">Wordcloud</a></li>
+  <li><a class="blue-text" href="networks">Networks</a></li>
+  <li><a class="blue-text" href="combinations">Combos</a></li>
+</ul>
 
-<style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 41px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-
-.section h2 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h3 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h4 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h5 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h6 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-</style>
-
-<script>
-// manage active state of menu based on current page
-$(document).ready(function () {
-  // active menu anchor
-  href = window.location.pathname
-  href = href.substr(href.lastIndexOf('/') + 1)
-  if (href === "")
-    href = "index.html";
-  var menuAnchor = $('a[href="' + href + '"]');
-
-  // mark it active
-  menuAnchor.parent().addClass('active');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
-});
-</script>
-
-
-<div class="container-fluid main-container">
-
-<!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
-
-<!-- code folding -->
-
-
-
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
-
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-  padding-left: 25px;
-  text-indent: 0;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
-
-
-
-
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html">echarts</a>
+<nav>
+  <div class="nav-wrapper blue">
+    <div class="container">
+      <a href="http://john-coene.com/" class="brand-logo brand">John Coene</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="https://github.com/JohnCoene/echarts" target="_blank">Repository</a></li>
+        <li><a href="themes">Themes</a></li>
+        <li><a href="toolbox">Toolbox</a></li>
+        <li>
+          <a class="dropdown-button" href="#!" data-activates="dropdown1">Explore<i class="material-icons right">arrow_drop_down</i></a>
+        </li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a class="blue-text" href="bars">Bar</a></li>
+        <li><a class="blue-text" href="lines">Line</a></li>
+        <li><a class="blue-text" href="scatter">Scatter</a></li>
+        <li><a class="blue-text" href="pie">Pie</a></li>
+        <li><a class="blue-text" href="chord">Chord</a></li>
+        <li><a class="blue-text" href="funnels">Funnel</a></li>
+        <li><a class="blue-text" href="gauges">Gauge</a></li>
+        <li><a class="blue-text" href="heatmap">Heatmap</a></li>
+        <li><a class="blue-text" href="maps">Map</a></li>
+        <li><a class="blue-text" href="candlestick">Candlestick</a></li>
+        <li><a class="blue-text" href="wordcloud">Wordcloud</a></li>
+        <li><a class="blue-text" href="networks">Networks</a></li>
+        <li><a class="blue-text" href="combinations">Combos</a></li>
+      </ul>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li>
-  <a href="http://john-coene.com/">
-    <span class="fa fa-arrow-circle-left"></span>
-     
-    home
-  </a>
-</li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/JohnCoene/echarts">
-    <span class="fa fa-github"></span>
-     
-    Repository
-  </a>
-</li>
-<li>
-  <a href="themes">
-    <span class="fa fa-desktop"></span>
-     
-    Themes
-  </a>
-</li>
-<li>
-  <a href="toolbox">
-    <span class="fa fa-wrench"></span>
-     
-    Toolbox
-  </a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-bar-chart"></span>
-     
-    Explore
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="bars">bar</a>
-    </li>
-    <li>
-      <a href="lines">line</a>
-    </li>
-    <li>
-      <a href="scatter">scatter</a>
-    </li>
-    <li>
-      <a href="pie">pie</a>
-    </li>
-    <li>
-      <a href="chord">chord</a>
-    </li>
-    <li>
-      <a href="funnels">funnel</a>
-    </li>
-    <li>
-      <a href="gauges">gauge</a>
-    </li>
-    <li>
-      <a href="heatmap">heatmap</a>
-    </li>
-    <li>
-      <a href="maps">map</a>
-    </li>
-    <li>
-      <a href="candlestick">candlestick</a>
-    </li>
-    <li>
-      <a href="wordcloud">wordcloud</a>
-    </li>
-    <li>
-      <a href="networks">networks</a>
-    </li>
-    <li>
-      <a href="combinations">combos</a>
-    </li>
-  </ul>
-</li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div><!--/.container -->
-</div><!--/.navbar -->
-
-<div class="fluid-row" id="header">
+  </div>
+</nav>
 
 
 
-<h1 class="title toc-ignore">Toolbox</h1>
-
-</div>
 
 
-<div id="what-is-it" class="section level2">
-<h2>What is it?</h2>
+<main>
+<div class="container">
+<h1>Toolbox</h1>
+<h3 id="what-is-it">What is it?</h3>
 <p>The toolbox is a set of tools that allows your reader to interact with your chart.</p>
 <ol style="list-style-type: decimal">
 <li>Change chart type</li>
@@ -421,9 +175,7 @@ div.tocify {
 <li>Mark points on the chart</li>
 <li>View the data used to plot the chart</li>
 </ol>
-</div>
-<div id="how-it-works" class="section level2">
-<h2>How it works?</h2>
+<h3 id="how-it-works">How it works?</h3>
 <p>Initialise the toolbox with <code>etoolbox</code> then add the component(s) you desire.</p>
 <ol style="list-style-type: decimal">
 <li><code>etoolbox_view</code></li>
@@ -434,9 +186,7 @@ div.tocify {
 <li><code>etoolbox_magic</code></li>
 </ol>
 <p>There is also a heper function, <code>etoolbox_full</code> that adds a bunch of the above at once.</p>
-</div>
-<div id="example" class="section level2">
-<h2>Example</h2>
+<h3 id="example">Example</h3>
 <p><code>etoolbox_magic</code> enables your reader to change the chart type on the fly, see <code>?etoolbox_magic</code>. Below I enable to reader to change from line to bar and from tiled to stack.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="dv">1</span>:<span class="dv">20</span>,
                  <span class="dt">y =</span> <span class="kw">round</span>(<span class="kw">runif</span>(<span class="dv">20</span>, <span class="dv">5</span>, <span class="dv">10</span>)),
@@ -450,48 +200,61 @@ df %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">ebar</span>(w) %&gt;%
 <span class="st">  </span><span class="kw">etoolbox_full</span>() %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">etoolbox_magic</span>(<span class="dt">type =</span> <span class="kw">list</span>(<span class="st">&quot;line&quot;</span>, <span class="st">&quot;bar&quot;</span>, <span class="st">&quot;tiled&quot;</span>, <span class="st">&quot;stack&quot;</span>))</code></pre></div>
-<div id="htmlwidget-4ed4f8c8947ccc0f7aaf" style="width:100%;height:480px;" class="echarts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4ed4f8c8947ccc0f7aaf">{"x":{"theme":"default","options":{"xAxis":[{"type":"category","data":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]}],"yAxis":[],"series":[{"name":"y","type":"bar","data":[6,8,9,10,5,8,9,7,7,6,9,6,8,7,6,9,7,10,8,8],"stack":"stk","clickable":true,"xAxisIndex":0,"yAxisIndex":0,"barGap":"100%","barCategory":"20%","legendHoverLink":true,"z":2,"zlevel":0},{"name":"z","type":"bar","data":[7,9,11,10,11,10,10,9,7,11,11,8,10,9,10,7,9,9,9,12],"stack":"stk","clickable":true,"xAxisIndex":0,"yAxisIndex":0,"barGap":"100%","barCategory":"20%","legendHoverLink":true,"z":2,"zlevel":0},{"name":"w","type":"bar","data":[11,13,11,12,13,10,10,13,13,12,9,11,12,11,11,13,9,10,10,12],"clickable":true,"xAxisIndex":0,"yAxisIndex":0,"barGap":"100%","barCategory":"20%","legendHoverLink":true,"z":2,"zlevel":0}],"toolbox":{"show":true,"zlevel":0,"z":6,"orient":"horizontal","x":"right","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemSize":16,"color":["#1e90ff","#22bb22","#4b0082","#d2691e"],"disableColor":"#ddd","effectiveColor":"red","showTitle":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"feature":{"mark":{"show":true,"title":{"mark":"Mark","markUndo":"Undo","markClear":"Clear"},"lineStyle":{"color":"#1e90ff","typed":"dashed","width":2,"shadowColor":"rgba(0,0,0,0)","shadowBlur":5,"shadowOffsetX":3,"shadowOffsetY":3}},"restore":{"show":true,"title":"Reset"},"saveAsImage":{"show":true,"title":"Save as image"},"dataZoom":{"show":true,"title":{"dataZoom":"Area Zoom","dataZoomReset":"Reset"}},"dataView":{"show":true,"title":"View","readOnly":false,"lang":["Data View","close","refresh"]},"magicType":{"show":true,"title":{"line":"line","bar":"bar","stack":"stack","tiled":"tiled","force":"force","chord":"chord","pie":"pie","funnel":"funnel"},"type":["line","bar","tiled","stack"]}}}}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-80ee2c12d35b82f64e60" style="width:100%;height:480px;" class="echarts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-80ee2c12d35b82f64e60">{"x":{"theme":"default","options":{"xAxis":[{"type":"category","data":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]}],"yAxis":[],"series":[{"name":"y","type":"bar","data":[6,8,9,10,5,8,9,7,7,6,9,6,8,7,6,9,7,10,8,8],"stack":"stk","clickable":true,"xAxisIndex":0,"yAxisIndex":0,"barGap":"100%","barCategory":"20%","legendHoverLink":true,"z":2,"zlevel":0},{"name":"z","type":"bar","data":[7,9,11,10,11,10,10,9,7,11,11,8,10,9,10,7,9,9,9,12],"stack":"stk","clickable":true,"xAxisIndex":0,"yAxisIndex":0,"barGap":"100%","barCategory":"20%","legendHoverLink":true,"z":2,"zlevel":0},{"name":"w","type":"bar","data":[11,13,11,12,13,10,10,13,13,12,9,11,12,11,11,13,9,10,10,12],"clickable":true,"xAxisIndex":0,"yAxisIndex":0,"barGap":"100%","barCategory":"20%","legendHoverLink":true,"z":2,"zlevel":0}],"toolbox":{"show":true,"zlevel":0,"z":6,"orient":"horizontal","x":"right","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemSize":16,"color":["#1e90ff","#22bb22","#4b0082","#d2691e"],"disableColor":"#ddd","effectiveColor":"red","showTitle":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"feature":{"mark":{"show":true,"title":{"mark":"Mark","markUndo":"Undo","markClear":"Clear"},"lineStyle":{"color":"#1e90ff","typed":"dashed","width":2,"shadowColor":"rgba(0,0,0,0)","shadowBlur":5,"shadowOffsetX":3,"shadowOffsetY":3}},"restore":{"show":true,"title":"Reset"},"saveAsImage":{"show":true,"title":"Save as image"},"dataZoom":{"show":true,"title":{"dataZoom":"Area Zoom","dataZoomReset":"Reset"}},"dataView":{"show":true,"title":"View","readOnly":false,"lang":["Data View","close","refresh"]},"magicType":{"show":true,"title":{"line":"line","bar":"bar","stack":"stack","tiled":"tiled","force":"force","chord":"chord","pie":"pie","funnel":"funnel"},"type":["line","bar","tiled","stack"]}}}}},"evals":[],"jsHooks":[]}</script>
 </div>
+<p></main></p>
 
-
-<div class="row">
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-    <p class="text-center"><a href="https://github.com/JohnCoene"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-github' aria-hidden='true'></i></button></a></p>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-    <p class="text-center"><a href="https://www.linkedin.com/in/johncoene/"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-linkedin' aria-hidden='true'></i></button></a></p>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-    <p class="text-center"><a href="https://twitter.com/jdatap"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-twitter' aria-hidden='true'></i></button></a></p>
-  </div>
-</div>
-
-
-</div>
-</div>
-
-</div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
-
-
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="../../js/materialize.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript" charset="utf-8">
+ $('code').each(function(i, inline) {
+   hljs.highlightBlock(inline);
+ });
+ $('pre code').each(function(i, block) {
+   hljs.highlightBlock(block);
+ });
 </script>
+
+<script type="text/javascript" charset="utf-8">
+  $(".dropdown-button").dropdown();
+  $(".button-collapse").sideNav();
+</script>
+
+<footer class="page-footer blue">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text brand">John Coene</h5>
+        <p class="grey-text text-lighten-4">Data, limericks, and other indoor stuff.</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Connect</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="https://twitter.com/jdatap">Twitter</a></li>
+          <li><a class="grey-text text-lighten-3" href="http://github.com/JohnCoene">Github</a></li>
+          <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/johncoene/">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    © 2017 John Coene
+    <a class="grey-text text-lighten-4 right" href="http://johncoene.github.io/cv/">Resume</a>
+    </div>
+  </div>
+</footer>
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

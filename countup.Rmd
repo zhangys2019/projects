@@ -1,11 +1,14 @@
 ---
-title: "countup"
+title: ""
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library(countup)
 ```
+
+<main>
+<div class = "container">
 
 ```{r demo}
 opts = list(
@@ -64,3 +67,6 @@ opts = list(
 
 countup(count = 1729, start = 10, options = opts) # with options
 ```
+
+</div>
+</main>

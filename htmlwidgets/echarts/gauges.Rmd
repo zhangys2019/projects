@@ -1,5 +1,5 @@
 ---
-title: "Gauges"
+title: ""
 ---
 
 ```{r setup, include=FALSE}
@@ -7,7 +7,16 @@ knitr::opts_chunk$set(echo = TRUE)
 library(echarts)
 ```
 
-## Basic
+<main>
+<div class = "container">
+
+```{r, echo=FALSE}
+h1(
+  "Gauges"
+)
+```
+
+### Basic
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/gauge1.html#-en) taken from Baidu's EChart official website.
 
@@ -19,7 +28,7 @@ echart(width = "100%") %>%
   etheme("macarons")
 ```
 
-## Dark
+### Dark
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/gauge3.html#-en) taken from Baidu's EChart official website.
 
@@ -40,3 +49,6 @@ echart(width = "100%") %>%
   etoolbox_full() %>% 
   etheme("dark")
 ```
+
+</div>
+</main>

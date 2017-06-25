@@ -1,23 +1,13 @@
 name: "John Coene"
 output_dir: "."
-navbar:
-  title: "John Coene"
-  left:
-    - icon: fa-home
-      text: "Home"
-      href: index.html
-  right:
-    - text: "Resume"
-      icon: fa-address-card
-      href: http://johncoene.github.io/cv/
       
 output:
   html_document:
-    theme: simplex
+    theme: null
     highlight: kate
     include:
       in_header:: header.html
+      before_body: nav.html
       after_body: footer.html
     css: 
       - css/styles.css
-      - css/bttn.min.css

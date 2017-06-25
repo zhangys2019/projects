@@ -4,26 +4,30 @@
 
 <head>
 
-<meta charset="utf-8">
+<meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 
 
-<title>Line charts</title>
+<title></title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/htmlwidgets-0.7/htmlwidgets.js"></script>
+<script src="site_libs/htmlwidgets-0.8/htmlwidgets.js"></script>
 <script src="site_libs/echarts-2.2.7/echarts-all.js"></script>
-<script src="site_libs/echarts-binding-0.0.0.9000/echarts.js"></script>
-<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<script src="site_libs/echarts-binding-0.0.1/echarts.js"></script>
+<link href="https://cdn.rawgit.com/gaborcsardi/r-font/master/rlogo.css" rel="stylesheet">
+<link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="../../css/materialize.min.css"  media="screen,projection"/>
+
+<link rel="stylesheet" href="../../css/atelier-cave-light.css">
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -34,6 +38,29 @@
   ga('send', 'pageview');
 
 </script>
+
+<!--SHARE TAGS-->
+<meta name="google-site-verification" content="p4A9hVd1c8FOAlQsyDq0NMrE9IQdtfZoHgQ2e1t2dYE" />
+<meta name="description" content="R, data, and other indoor stuff." />
+
+<!-- Schema.org markup for Google+ -->
+<meta itemprop="name" content="John Coene">
+<meta itemprop="description" content="R, data, and other indoor stuff.">
+<meta itemprop="image" content="http://john-coene.com/img/graphTweets.png">
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="website">
+<meta name="twitter:site" content="@jdatap">
+<meta name="twitter:title" content="John Coene">
+<meta name="twitter:description" content="R, data, and other indoor stuff.">
+<meta name="twitter:creator" content="@jdatap">
+<meta name="twitter:image" content="http://john-coene.com/img/graphTweets.png">
+
+<!-- Open Graph data -->
+<meta property="og:title" content="John Coene" />
+<meta property="og:image" content="http://john-coene.com/img/graphTweets.png" />
+<meta property="og:description" content="R, data, and other indoor stuff." />
+<meta property="og:site_name" content="John Coene" />
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -73,247 +100,72 @@ code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Ann
 code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
 </style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
-<link rel="stylesheet" href="bttn.min.css" type="text/css" />
+<link rel="stylesheet" href="../../css/styles.css" type="text/css" />
 
 </head>
 
 <body>
 
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-  height: auto;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-</style>
 
+<ul id="dropdown1" class="dropdown-content">
+  <li><a class="blue-text" href="bars">Bar</a></li>
+  <li><a class="blue-text" href="lines">Line</a></li>
+  <li><a class="blue-text" href="scatter">Scatter</a></li>
+  <li><a class="blue-text" href="pie">Pie</a></li>
+  <li><a class="blue-text" href="chord">Chord</a></li>
+  <li><a class="blue-text" href="funnels">Funnel</a></li>
+  <li><a class="blue-text" href="gauges">Gauge</a></li>
+  <li><a class="blue-text" href="heatmap">Heatmap</a></li>
+  <li><a class="blue-text" href="maps">Map</a></li>
+  <li><a class="blue-text" href="candlestick">Candlestick</a></li>
+  <li><a class="blue-text" href="wordcloud">Wordcloud</a></li>
+  <li><a class="blue-text" href="networks">Networks</a></li>
+  <li><a class="blue-text" href="combinations">Combos</a></li>
+</ul>
 
-<style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 41px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-
-.section h2 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h3 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h4 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h5 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h6 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-</style>
-
-<script>
-// manage active state of menu based on current page
-$(document).ready(function () {
-  // active menu anchor
-  href = window.location.pathname
-  href = href.substr(href.lastIndexOf('/') + 1)
-  if (href === "")
-    href = "index.html";
-  var menuAnchor = $('a[href="' + href + '"]');
-
-  // mark it active
-  menuAnchor.parent().addClass('active');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
-});
-</script>
-
-
-<div class="container-fluid main-container">
-
-<!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
-
-<!-- code folding -->
-
-
-
-
-
-
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html">echarts</a>
+<nav>
+  <div class="nav-wrapper blue">
+    <div class="container">
+      <a href="http://john-coene.com/" class="brand-logo brand">John Coene</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="https://github.com/JohnCoene/echarts" target="_blank">Repository</a></li>
+        <li><a href="themes">Themes</a></li>
+        <li><a href="toolbox">Toolbox</a></li>
+        <li>
+          <a class="dropdown-button" href="#!" data-activates="dropdown1">Explore<i class="material-icons right">arrow_drop_down</i></a>
+        </li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a class="blue-text" href="bars">Bar</a></li>
+        <li><a class="blue-text" href="lines">Line</a></li>
+        <li><a class="blue-text" href="scatter">Scatter</a></li>
+        <li><a class="blue-text" href="pie">Pie</a></li>
+        <li><a class="blue-text" href="chord">Chord</a></li>
+        <li><a class="blue-text" href="funnels">Funnel</a></li>
+        <li><a class="blue-text" href="gauges">Gauge</a></li>
+        <li><a class="blue-text" href="heatmap">Heatmap</a></li>
+        <li><a class="blue-text" href="maps">Map</a></li>
+        <li><a class="blue-text" href="candlestick">Candlestick</a></li>
+        <li><a class="blue-text" href="wordcloud">Wordcloud</a></li>
+        <li><a class="blue-text" href="networks">Networks</a></li>
+        <li><a class="blue-text" href="combinations">Combos</a></li>
+      </ul>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li>
-  <a href="http://john-coene.com/">
-    <span class="fa fa-arrow-circle-left"></span>
-     
-    home
-  </a>
-</li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/JohnCoene/echarts">
-    <span class="fa fa-github"></span>
-     
-    Repository
-  </a>
-</li>
-<li>
-  <a href="themes">
-    <span class="fa fa-desktop"></span>
-     
-    Themes
-  </a>
-</li>
-<li>
-  <a href="toolbox">
-    <span class="fa fa-wrench"></span>
-     
-    Toolbox
-  </a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-bar-chart"></span>
-     
-    Explore
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="bars">bar</a>
-    </li>
-    <li>
-      <a href="lines">line</a>
-    </li>
-    <li>
-      <a href="scatter">scatter</a>
-    </li>
-    <li>
-      <a href="pie">pie</a>
-    </li>
-    <li>
-      <a href="chord">chord</a>
-    </li>
-    <li>
-      <a href="funnels">funnel</a>
-    </li>
-    <li>
-      <a href="gauges">gauge</a>
-    </li>
-    <li>
-      <a href="heatmap">heatmap</a>
-    </li>
-    <li>
-      <a href="maps">map</a>
-    </li>
-    <li>
-      <a href="candlestick">candlestick</a>
-    </li>
-    <li>
-      <a href="wordcloud">wordcloud</a>
-    </li>
-    <li>
-      <a href="networks">networks</a>
-    </li>
-    <li>
-      <a href="combinations">combos</a>
-    </li>
-  </ul>
-</li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div><!--/.container -->
-</div><!--/.navbar -->
-
-<div class="fluid-row" id="header">
+  </div>
+</nav>
 
 
 
-<h1 class="title toc-ignore">Line charts</h1>
-
-</div>
 
 
-<div id="mark-points-lines" class="section level2">
-<h2>Mark points &amp; lines</h2>
+<main>
+<div class="container">
+<h1>Line Charts</h1>
+<h3 id="mark-points-lines">Mark points &amp; lines</h3>
 <p>This is a reproduction of the following <a href="http://echarts.baidu.com/echarts2/doc/example/line2.html#-en">example</a> taken from Baidu’s EChart official website.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="st">&quot;Mon&quot;</span>, <span class="st">&quot;Tue&quot;</span>, <span class="st">&quot;Wed&quot;</span>, <span class="st">&quot;Thu&quot;</span>, <span class="st">&quot;Fri&quot;</span>, <span class="st">&quot;Sat&quot;</span>, <span class="st">&quot;Sun&quot;</span>),
                  <span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">11</span>, <span class="dv">11</span>, <span class="dv">15</span>, <span class="dv">13</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">10</span>),
@@ -337,11 +189,9 @@ df %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">etoolbox_magic</span>(<span class="dt">type =</span> <span class="kw">list</span>(<span class="st">&quot;line&quot;</span>, <span class="st">&quot;bar&quot;</span>)) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">etitle</span>(<span class="dt">text =</span> <span class="st">&quot;Temperature&quot;</span>, <span class="dt">subtext =</span> <span class="st">&quot;Fake data&quot;</span>) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">etheme</span>(<span class="st">&quot;macarons&quot;</span>)</code></pre></div>
-<div id="htmlwidget-4fec90816a2254717751" style="width:100%;height:480px;" class="echarts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4fec90816a2254717751">{"x":{"theme":"macarons","options":{"xAxis":[{"data":["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],"type":"category","show":true,"zlevel":0,"z":0,"boundaryGap":false}],"yAxis":[],"series":[{"name":"serie 1","type":"line","data":[11,11,15,13,12,13,10],"clickable":true,"xAxisIndex":0,"yAxisIndex":0,"symbolSize":"2 | 4","showAllSymbol":false,"smooth":true,"dataFilter":"nearest","legendHoverLink":true,"z":2,"zlevel":0,"markPoint":{"data":[{"type":"max","name":"maximum"},{"type":"min","name":"minimum"}],"clickable":true,"symbol":"pin","symbolSize":10,"large":false},"markLine":{"data":[{"type":"average","name":"average"}],"clickable":true,"symbol":["circle","arrow"],"symbolSize":[2,4],"large":false,"smooth":false,"precision":2,"bundling":{"enable":false,"maxTurningAngle":45}}},{"name":"serie 2","type":"line","data":[1,-2,2,5,3,2,0],"clickable":true,"xAxisIndex":0,"yAxisIndex":0,"symbolSize":"2 | 4","showAllSymbol":false,"smooth":true,"dataFilter":"nearest","legendHoverLink":true,"z":2,"zlevel":0,"markPoint":{"data":[{"type":"max","name":"maximum"},{"type":"min","name":"minimum"}],"clickable":true,"symbol":"pin","symbolSize":10,"large":false},"markLine":{"data":[{"type":"average","name":"average"}],"clickable":true,"symbol":["circle","arrow"],"symbolSize":[2,4],"large":false,"smooth":false,"precision":2,"bundling":{"enable":false,"maxTurningAngle":45}}}],"tooltip":{"show":true,"trigger":"axis","zlevel":1,"showContent":true,"islandFormatter":"{a} < br/>{b} : {c}","showDelay":20,"hideDelay":100,"transitionDuration":0.4,"enterable":false,"backgroundColor":"rgba(0,0,0,0.7)","borderColor":"#333","borderRadius":4,"borderWidth":0,"padding":5,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"legend":{"data":["serie 1","serie 2"],"show":true,"zlevel":0,"z":4,"orient":"horizontal","x":"center","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemWidth":20,"itemHeight":14,"selectMode":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"toolbox":{"show":true,"zlevel":0,"z":6,"orient":"horizontal","x":"right","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemSize":16,"color":["#1e90ff","#22bb22","#4b0082","#d2691e"],"disableColor":"#ddd","effectiveColor":"red","showTitle":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"feature":{"magicType":{"show":true,"title":{"line":"line","bar":"bar","stack":"stack","tiled":"tiled","force":"force","chord":"chord","pie":"pie","funnel":"funnel"},"type":["line","bar"]}}},"title":{"show":true,"text":"Temperature","subtext":"Fake data","target":"blank","subtarget":"blank","x":"left","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":5,"zlevel":0,"z":6}}},"evals":[],"jsHooks":[]}</script>
-</div>
-<div id="stacked-lines" class="section level2">
-<h2>Stacked lines</h2>
+<div id="htmlwidget-dfed64be5dc6f4a840f0" style="width:100%;height:480px;" class="echarts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-dfed64be5dc6f4a840f0">{"x":{"theme":"macarons","options":{"xAxis":[{"data":["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],"type":"category","show":true,"zlevel":0,"z":0,"boundaryGap":false}],"yAxis":[],"series":[{"name":"serie 1","type":"line","data":[11,11,15,13,12,13,10],"clickable":true,"xAxisIndex":0,"yAxisIndex":0,"symbolSize":"2 | 4","showAllSymbol":false,"smooth":true,"dataFilter":"nearest","legendHoverLink":true,"z":2,"zlevel":0,"markPoint":{"data":[{"type":"max","name":"maximum"},{"type":"min","name":"minimum"}],"clickable":true,"symbol":"pin","symbolSize":10,"large":false},"markLine":{"data":[{"type":"average","name":"average"}],"clickable":true,"symbol":["circle","arrow"],"symbolSize":[2,4],"large":false,"smooth":false,"precision":2,"bundling":{"enable":false,"maxTurningAngle":45}}},{"name":"serie 2","type":"line","data":[1,-2,2,5,3,2,0],"clickable":true,"xAxisIndex":0,"yAxisIndex":0,"symbolSize":"2 | 4","showAllSymbol":false,"smooth":true,"dataFilter":"nearest","legendHoverLink":true,"z":2,"zlevel":0,"markPoint":{"data":[{"type":"max","name":"maximum"},{"type":"min","name":"minimum"}],"clickable":true,"symbol":"pin","symbolSize":10,"large":false},"markLine":{"data":[{"type":"average","name":"average"}],"clickable":true,"symbol":["circle","arrow"],"symbolSize":[2,4],"large":false,"smooth":false,"precision":2,"bundling":{"enable":false,"maxTurningAngle":45}}}],"tooltip":{"show":true,"trigger":"axis","zlevel":1,"showContent":true,"islandFormatter":"{a} < br/>{b} : {c}","showDelay":20,"hideDelay":100,"transitionDuration":0.4,"enterable":false,"backgroundColor":"rgba(0,0,0,0.7)","borderColor":"#333","borderRadius":4,"borderWidth":0,"padding":5,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"legend":{"data":["serie 1","serie 2"],"show":true,"zlevel":0,"z":4,"orient":"horizontal","x":"center","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemWidth":20,"itemHeight":14,"selectMode":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"toolbox":{"show":true,"zlevel":0,"z":6,"orient":"horizontal","x":"right","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemSize":16,"color":["#1e90ff","#22bb22","#4b0082","#d2691e"],"disableColor":"#ddd","effectiveColor":"red","showTitle":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"feature":{"magicType":{"show":true,"title":{"line":"line","bar":"bar","stack":"stack","tiled":"tiled","force":"force","chord":"chord","pie":"pie","funnel":"funnel"},"type":["line","bar"]}}},"title":{"show":true,"text":"Temperature","subtext":"Fake data","target":"blank","subtarget":"blank","x":"left","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":5,"zlevel":0,"z":6}}},"evals":[],"jsHooks":[]}</script>
+<h3 id="stacked-lines">Stacked lines</h3>
 <p>This is a reproduction of the following <a href="http://echarts.baidu.com/echarts2/doc/example/line2.html#-en">example</a> taken from Baidu’s EChart official website.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="st">&quot;Mon&quot;</span>, <span class="st">&quot;Tue&quot;</span>, <span class="st">&quot;Wed&quot;</span>, <span class="st">&quot;Thu&quot;</span>, <span class="st">&quot;Fri&quot;</span>, <span class="st">&quot;Sat&quot;</span>, <span class="st">&quot;Sun&quot;</span>),
                  <span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">120</span>, <span class="dv">132</span>, <span class="dv">101</span>, <span class="dv">134</span>, <span class="dv">90</span>, <span class="dv">230</span>, <span class="dv">210</span>),
@@ -356,11 +206,9 @@ df %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">elegend</span>() %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">etoolbox</span>() %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">etoolbox_magic</span>(<span class="dt">type =</span> <span class="kw">list</span>(<span class="st">&#39;line&#39;</span>, <span class="st">&#39;bar&#39;</span>, <span class="st">&#39;stack&#39;</span>, <span class="st">&#39;tiled&#39;</span>))</code></pre></div>
-<div id="htmlwidget-da78700c4c93f9bdd518" style="width:100%;height:480px;" class="echarts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-da78700c4c93f9bdd518">{"x":{"theme":"default","options":{"xAxis":[{"type":"category","data":["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]}],"yAxis":[],"series":[{"name":"Y","type":"line","data":[120,132,101,134,90,230,210],"clickable":true,"xAxisIndex":0,"yAxisIndex":0,"symbolSize":"2 | 4","showAllSymbol":false,"smooth":true,"dataFilter":"nearest","legendHoverLink":true,"z":2,"zlevel":0},{"name":"Z","type":"line","data":[220,182,191,234,290,330,310],"stack":"grp1","clickable":true,"xAxisIndex":0,"yAxisIndex":0,"symbolSize":"2 | 4","showAllSymbol":false,"smooth":true,"dataFilter":"nearest","legendHoverLink":true,"z":2,"zlevel":0},{"name":"W","type":"line","data":[150,232,201,154,190,330,410],"stack":"grp1","clickable":true,"xAxisIndex":0,"yAxisIndex":0,"symbolSize":"2 | 4","showAllSymbol":false,"smooth":true,"dataFilter":"nearest","legendHoverLink":true,"z":2,"zlevel":0}],"legend":{"data":["Y","Z","W"],"show":true,"zlevel":0,"z":4,"orient":"horizontal","x":"center","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemWidth":20,"itemHeight":14,"selectMode":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"toolbox":{"show":true,"zlevel":0,"z":6,"orient":"horizontal","x":"right","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemSize":16,"color":["#1e90ff","#22bb22","#4b0082","#d2691e"],"disableColor":"#ddd","effectiveColor":"red","showTitle":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"feature":{"magicType":{"show":true,"title":{"line":"line","bar":"bar","stack":"stack","tiled":"tiled","force":"force","chord":"chord","pie":"pie","funnel":"funnel"},"type":["line","bar","stack","tiled"]}}}}},"evals":[],"jsHooks":[]}</script>
-</div>
-<div id="basic-area" class="section level2">
-<h2>Basic Area</h2>
+<div id="htmlwidget-86db19d563a550f17998" style="width:100%;height:480px;" class="echarts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-86db19d563a550f17998">{"x":{"theme":"default","options":{"xAxis":[{"type":"category","data":["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]}],"yAxis":[],"series":[{"name":"Y","type":"line","data":[120,132,101,134,90,230,210],"clickable":true,"xAxisIndex":0,"yAxisIndex":0,"symbolSize":"2 | 4","showAllSymbol":false,"smooth":true,"dataFilter":"nearest","legendHoverLink":true,"z":2,"zlevel":0},{"name":"Z","type":"line","data":[220,182,191,234,290,330,310],"stack":"grp1","clickable":true,"xAxisIndex":0,"yAxisIndex":0,"symbolSize":"2 | 4","showAllSymbol":false,"smooth":true,"dataFilter":"nearest","legendHoverLink":true,"z":2,"zlevel":0},{"name":"W","type":"line","data":[150,232,201,154,190,330,410],"stack":"grp1","clickable":true,"xAxisIndex":0,"yAxisIndex":0,"symbolSize":"2 | 4","showAllSymbol":false,"smooth":true,"dataFilter":"nearest","legendHoverLink":true,"z":2,"zlevel":0}],"legend":{"data":["Y","Z","W"],"show":true,"zlevel":0,"z":4,"orient":"horizontal","x":"center","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemWidth":20,"itemHeight":14,"selectMode":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"toolbox":{"show":true,"zlevel":0,"z":6,"orient":"horizontal","x":"right","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemSize":16,"color":["#1e90ff","#22bb22","#4b0082","#d2691e"],"disableColor":"#ddd","effectiveColor":"red","showTitle":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"feature":{"magicType":{"show":true,"title":{"line":"line","bar":"bar","stack":"stack","tiled":"tiled","force":"force","chord":"chord","pie":"pie","funnel":"funnel"},"type":["line","bar","stack","tiled"]}}}}},"evals":[],"jsHooks":[]}</script>
+<h3 id="basic-area">Basic Area</h3>
 <p>This is a reproduction of the following <a href="http://echarts.baidu.com/echarts2/doc/example/line3.html#-en">example</a> taken from Baidu’s EChart official website.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="st">&quot;Mon&quot;</span>, <span class="st">&quot;Tue&quot;</span>, <span class="st">&quot;Wed&quot;</span>, <span class="st">&quot;Thu&quot;</span>, <span class="st">&quot;Fri&quot;</span>, <span class="st">&quot;Sat&quot;</span>, <span class="st">&quot;Sun&quot;</span>),
                  <span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">21</span>, <span class="dv">54</span>, <span class="dv">260</span>, <span class="dv">830</span>, <span class="dv">710</span>),
@@ -379,11 +227,9 @@ df %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">etoolbox_mark</span>() %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">etoolbox_restore</span>() %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">etoolbox_save</span>()</code></pre></div>
-<div id="htmlwidget-77a46d172b7bd6f4c1d5" style="width:100%;height:480px;" class="echarts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-77a46d172b7bd6f4c1d5">{"x":{"theme":"macarons","options":{"xAxis":[{"data":["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],"type":"category","show":true,"zlevel":0,"z":0,"boundaryGap":false}],"yAxis":[],"series":[{"name":"y","type":"line","data":[10,12,21,54,260,830,710],"smooth":true,"itemStyle":{"normal":{"areaStyle":{"type":"default"}}}},{"name":"z","type":"line","data":[30,182,434,791,390,30,10],"smooth":true,"itemStyle":{"normal":{"areaStyle":{"type":"default"}}}},{"name":"w","type":"line","data":[1320,1132,601,234,120,90,20],"smooth":true,"itemStyle":{"normal":{"areaStyle":{"type":"default"}}}}],"tooltip":{"show":true,"trigger":"axis","zlevel":1,"showContent":true,"islandFormatter":"{a} < br/>{b} : {c}","showDelay":20,"hideDelay":100,"transitionDuration":0.4,"enterable":false,"backgroundColor":"rgba(0,0,0,0.7)","borderColor":"#333","borderRadius":4,"borderWidth":0,"padding":5,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"toolbox":{"show":true,"zlevel":0,"z":6,"orient":"horizontal","x":"right","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemSize":16,"color":["#1e90ff","#22bb22","#4b0082","#d2691e"],"disableColor":"#ddd","effectiveColor":"red","showTitle":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"feature":{"magicType":{"show":true,"title":{"line":"line","bar":"bar","stack":"stack","tiled":"tiled","force":"force","chord":"chord","pie":"pie","funnel":"funnel"},"type":["line","bar","stack","tiled"]},"mark":{"show":true,"title":{"mark":"Mark","markUndo":"Undo","markClear":"Clear"},"lineStyle":{"color":"#1e90ff","typed":"dashed","width":2,"shadowColor":"rgba(0,0,0,0)","shadowBlur":5,"shadowOffsetX":3,"shadowOffsetY":3}},"restore":{"show":true,"title":"Reset"},"saveAsImage":{"show":true,"title":"Save as image"}}}}},"evals":[],"jsHooks":[]}</script>
-</div>
-<div id="stacked-area" class="section level2">
-<h2>Stacked Area</h2>
+<div id="htmlwidget-f54d6c8ccd1673f7a336" style="width:100%;height:480px;" class="echarts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f54d6c8ccd1673f7a336">{"x":{"theme":"macarons","options":{"xAxis":[{"data":["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],"type":"category","show":true,"zlevel":0,"z":0,"boundaryGap":false}],"yAxis":[],"series":[{"name":"y","type":"line","data":[10,12,21,54,260,830,710],"smooth":true,"itemStyle":{"normal":{"areaStyle":{"type":"default"}}}},{"name":"z","type":"line","data":[30,182,434,791,390,30,10],"smooth":true,"itemStyle":{"normal":{"areaStyle":{"type":"default"}}}},{"name":"w","type":"line","data":[1320,1132,601,234,120,90,20],"smooth":true,"itemStyle":{"normal":{"areaStyle":{"type":"default"}}}}],"tooltip":{"show":true,"trigger":"axis","zlevel":1,"showContent":true,"islandFormatter":"{a} < br/>{b} : {c}","showDelay":20,"hideDelay":100,"transitionDuration":0.4,"enterable":false,"backgroundColor":"rgba(0,0,0,0.7)","borderColor":"#333","borderRadius":4,"borderWidth":0,"padding":5,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"toolbox":{"show":true,"zlevel":0,"z":6,"orient":"horizontal","x":"right","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemSize":16,"color":["#1e90ff","#22bb22","#4b0082","#d2691e"],"disableColor":"#ddd","effectiveColor":"red","showTitle":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"feature":{"magicType":{"show":true,"title":{"line":"line","bar":"bar","stack":"stack","tiled":"tiled","force":"force","chord":"chord","pie":"pie","funnel":"funnel"},"type":["line","bar","stack","tiled"]},"mark":{"show":true,"title":{"mark":"Mark","markUndo":"Undo","markClear":"Clear"},"lineStyle":{"color":"#1e90ff","typed":"dashed","width":2,"shadowColor":"rgba(0,0,0,0)","shadowBlur":5,"shadowOffsetX":3,"shadowOffsetY":3}},"restore":{"show":true,"title":"Reset"},"saveAsImage":{"show":true,"title":"Save as image"}}}}},"evals":[],"jsHooks":[]}</script>
+<h3 id="stacked-area">Stacked Area</h3>
 <p>This is a reproduction of the following <a href="http://echarts.baidu.com/echarts2/doc/example/line4.html#-en">example</a> taken from Baidu’s EChart official website.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="st">&quot;Mon&quot;</span>, <span class="st">&quot;Tue&quot;</span>, <span class="st">&quot;Wed&quot;</span>, <span class="st">&quot;Thu&quot;</span>, <span class="st">&quot;Fri&quot;</span>, <span class="st">&quot;Sat&quot;</span>, <span class="st">&quot;Sun&quot;</span>),
                  <span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">120</span>, <span class="dv">132</span>, <span class="dv">101</span>, <span class="dv">134</span>, <span class="dv">90</span>, <span class="dv">230</span>, <span class="dv">210</span>),
@@ -398,11 +244,9 @@ df %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">exAxis_category</span>(<span class="dt">boundaryGap =</span> <span class="ot">FALSE</span>) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">etheme</span>(<span class="st">&quot;macarons&quot;</span>) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">etooltip</span>()</code></pre></div>
-<div id="htmlwidget-7f4de09d38b18abc6c9a" style="width:100%;height:480px;" class="echarts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-7f4de09d38b18abc6c9a">{"x":{"theme":"macarons","options":{"xAxis":[{"data":["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],"type":"category","show":true,"zlevel":0,"z":0,"boundaryGap":false}],"yAxis":[],"series":[{"name":"y","type":"line","data":[120,132,101,134,90,230,210],"smooth":true,"stack":"grp","itemStyle":{"normal":{"areaStyle":{"type":"default"}}}},{"name":"z","type":"line","data":[220,182,191,234,290,330,310],"smooth":true,"stack":"grp","itemStyle":{"normal":{"areaStyle":{"type":"default"}}}},{"name":"w","type":"line","data":[150,232,201,154,190,330,410],"smooth":true,"itemStyle":{"normal":{"areaStyle":{"type":"default"}}}}],"tooltip":{"show":true,"trigger":"axis","zlevel":1,"showContent":true,"islandFormatter":"{a} < br/>{b} : {c}","showDelay":20,"hideDelay":100,"transitionDuration":0.4,"enterable":false,"backgroundColor":"rgba(0,0,0,0.7)","borderColor":"#333","borderRadius":4,"borderWidth":0,"padding":5,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}}}},"evals":[],"jsHooks":[]}</script>
-</div>
-<div id="irregular-line" class="section level2">
-<h2>Irregular line</h2>
+<div id="htmlwidget-935985d3e598fb00c862" style="width:100%;height:480px;" class="echarts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-935985d3e598fb00c862">{"x":{"theme":"macarons","options":{"xAxis":[{"data":["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],"type":"category","show":true,"zlevel":0,"z":0,"boundaryGap":false}],"yAxis":[],"series":[{"name":"y","type":"line","data":[120,132,101,134,90,230,210],"smooth":true,"stack":"grp","itemStyle":{"normal":{"areaStyle":{"type":"default"}}}},{"name":"z","type":"line","data":[220,182,191,234,290,330,310],"smooth":true,"stack":"grp","itemStyle":{"normal":{"areaStyle":{"type":"default"}}}},{"name":"w","type":"line","data":[150,232,201,154,190,330,410],"smooth":true,"itemStyle":{"normal":{"areaStyle":{"type":"default"}}}}],"tooltip":{"show":true,"trigger":"axis","zlevel":1,"showContent":true,"islandFormatter":"{a} < br/>{b} : {c}","showDelay":20,"hideDelay":100,"transitionDuration":0.4,"enterable":false,"backgroundColor":"rgba(0,0,0,0.7)","borderColor":"#333","borderRadius":4,"borderWidth":0,"padding":5,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}}}},"evals":[],"jsHooks":[]}</script>
+<h3 id="irregular-line">Irregular line</h3>
 <p>This is a reproduction of the following <a href="http://echarts.baidu.com/echarts2/doc/example/line8.html#-en">example</a> taken from Baidu’s EChart official website.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>()
 for(i in <span class="kw">seq</span>(<span class="dv">1</span>:<span class="dv">100</span>)){
@@ -416,11 +260,9 @@ df %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">eline</span>(value, <span class="dt">symbolSize =</span> htmlwidgets::<span class="kw">JS</span>(<span class="st">&quot;function(value){ return value/2}&quot;</span>), <span class="dt">showAllSymbol =</span> <span class="ot">TRUE</span>) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">etheme</span>(<span class="st">&quot;macarons&quot;</span>) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">ezoom</span>()</code></pre></div>
-<div id="htmlwidget-1e8979250e8610f9ea92" style="width:100%;height:480px;" class="echarts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1e8979250e8610f9ea92">{"x":{"theme":"macarons","options":{"xAxis":[{"type":"category","data":["2017-03-16T16:03:41Z","2017-03-16T17:03:41Z","2017-03-16T18:03:41Z","2017-03-16T19:03:41Z","2017-03-16T20:03:41Z","2017-03-16T21:03:41Z","2017-03-16T22:03:41Z","2017-03-16T23:03:41Z","2017-03-17T00:03:41Z","2017-03-17T01:03:41Z","2017-03-17T02:03:41Z","2017-03-17T03:03:41Z","2017-03-17T04:03:41Z","2017-03-17T05:03:41Z","2017-03-17T06:03:41Z","2017-03-17T07:03:41Z","2017-03-17T08:03:41Z","2017-03-17T09:03:41Z","2017-03-17T10:03:41Z","2017-03-17T11:03:41Z","2017-03-17T12:03:41Z","2017-03-17T13:03:41Z","2017-03-17T14:03:41Z","2017-03-17T15:03:41Z","2017-03-17T16:03:41Z","2017-03-17T17:03:41Z","2017-03-17T18:03:41Z","2017-03-17T19:03:41Z","2017-03-17T20:03:41Z","2017-03-17T21:03:41Z","2017-03-17T22:03:41Z","2017-03-17T23:03:41Z","2017-03-18T00:03:41Z","2017-03-18T01:03:41Z","2017-03-18T02:03:41Z","2017-03-18T03:03:41Z","2017-03-18T04:03:41Z","2017-03-18T05:03:41Z","2017-03-18T06:03:41Z","2017-03-18T07:03:41Z","2017-03-18T08:03:41Z","2017-03-18T09:03:41Z","2017-03-18T10:03:41Z","2017-03-18T11:03:41Z","2017-03-18T12:03:41Z","2017-03-18T13:03:41Z","2017-03-18T14:03:41Z","2017-03-18T15:03:41Z","2017-03-18T16:03:41Z","2017-03-18T17:03:41Z","2017-03-18T18:03:41Z","2017-03-18T19:03:41Z","2017-03-18T20:03:41Z","2017-03-18T21:03:41Z","2017-03-18T22:03:41Z","2017-03-18T23:03:41Z","2017-03-19T00:03:41Z","2017-03-19T01:03:41Z","2017-03-19T02:03:41Z","2017-03-19T03:03:41Z","2017-03-19T04:03:41Z","2017-03-19T05:03:41Z","2017-03-19T06:03:41Z","2017-03-19T07:03:41Z","2017-03-19T08:03:41Z","2017-03-19T09:03:41Z","2017-03-19T10:03:41Z","2017-03-19T11:03:41Z","2017-03-19T12:03:41Z","2017-03-19T13:03:41Z","2017-03-19T14:03:41Z","2017-03-19T15:03:41Z","2017-03-19T16:03:41Z","2017-03-19T17:03:41Z","2017-03-19T18:03:41Z","2017-03-19T19:03:41Z","2017-03-19T20:03:41Z","2017-03-19T21:03:41Z","2017-03-19T22:03:41Z","2017-03-19T23:03:41Z","2017-03-20T00:03:41Z","2017-03-20T01:03:41Z","2017-03-20T02:03:41Z","2017-03-20T03:03:41Z","2017-03-20T04:03:41Z","2017-03-20T05:03:41Z","2017-03-20T06:03:41Z","2017-03-20T07:03:41Z","2017-03-20T08:03:41Z","2017-03-20T09:03:41Z","2017-03-20T10:03:41Z","2017-03-20T11:03:41Z","2017-03-20T12:03:41Z","2017-03-20T13:03:41Z","2017-03-20T14:03:41Z","2017-03-20T15:03:41Z","2017-03-20T16:03:41Z","2017-03-20T17:03:41Z","2017-03-20T18:03:41Z","2017-03-20T19:03:41Z"]}],"yAxis":[],"series":[{"name":"value","type":"line","data":[19,20,10,15,7,10,18,6,7,16,9,11,19,6,16,9,10,20,8,20,7,11,16,13,7,8,19,11,17,6,14,8,13,19,14,12,18,16,9,13,5,10,7,13,20,16,19,9,19,13,7,16,13,19,9,9,9,13,13,12,15,12,10,5,17,14,8,12,12,14,10,10,11,8,12,8,16,10,16,15,18,11,9,18,14,7,8,13,8,5,10,11,6,11,12,10,17,10,11,15],"clickable":true,"xAxisIndex":0,"yAxisIndex":0,"symbolSize":"function(value){ return value/2}","showAllSymbol":true,"smooth":true,"dataFilter":"nearest","legendHoverLink":true,"z":2,"zlevel":0}],"dataZoom":{"show":true,"zlevel":0,"z":4,"orient":"horizontal","backgroundColor":"rgba(0,0,0,0)","dataBackgroundColor":"#eee","fillerColor":"rgba(144,197,237,0.2)","handleColor":"rgba(70,130,180,0.8)","handleSize":8,"start":0,"end":100,"showDetail":true,"realtime":false,"zoomLock":false}}},"evals":["options.series.0.symbolSize"],"jsHooks":[]}</script>
-</div>
-<div id="multiple-axis" class="section level2">
-<h2>Multiple axis</h2>
+<div id="htmlwidget-03ebeebad5f59d7170fd" style="width:100%;height:480px;" class="echarts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-03ebeebad5f59d7170fd">{"x":{"theme":"macarons","options":{"xAxis":[{"type":"category","data":["2017-06-25T08:38:20Z","2017-06-25T09:38:20Z","2017-06-25T10:38:20Z","2017-06-25T11:38:20Z","2017-06-25T12:38:20Z","2017-06-25T13:38:20Z","2017-06-25T14:38:20Z","2017-06-25T15:38:20Z","2017-06-25T16:38:20Z","2017-06-25T17:38:20Z","2017-06-25T18:38:20Z","2017-06-25T19:38:20Z","2017-06-25T20:38:20Z","2017-06-25T21:38:20Z","2017-06-25T22:38:20Z","2017-06-25T23:38:20Z","2017-06-26T00:38:20Z","2017-06-26T01:38:20Z","2017-06-26T02:38:20Z","2017-06-26T03:38:20Z","2017-06-26T04:38:20Z","2017-06-26T05:38:20Z","2017-06-26T06:38:20Z","2017-06-26T07:38:20Z","2017-06-26T08:38:20Z","2017-06-26T09:38:20Z","2017-06-26T10:38:20Z","2017-06-26T11:38:20Z","2017-06-26T12:38:20Z","2017-06-26T13:38:20Z","2017-06-26T14:38:20Z","2017-06-26T15:38:20Z","2017-06-26T16:38:20Z","2017-06-26T17:38:20Z","2017-06-26T18:38:20Z","2017-06-26T19:38:20Z","2017-06-26T20:38:20Z","2017-06-26T21:38:20Z","2017-06-26T22:38:20Z","2017-06-26T23:38:20Z","2017-06-27T00:38:20Z","2017-06-27T01:38:20Z","2017-06-27T02:38:20Z","2017-06-27T03:38:20Z","2017-06-27T04:38:20Z","2017-06-27T05:38:20Z","2017-06-27T06:38:20Z","2017-06-27T07:38:20Z","2017-06-27T08:38:20Z","2017-06-27T09:38:20Z","2017-06-27T10:38:20Z","2017-06-27T11:38:20Z","2017-06-27T12:38:20Z","2017-06-27T13:38:20Z","2017-06-27T14:38:20Z","2017-06-27T15:38:20Z","2017-06-27T16:38:20Z","2017-06-27T17:38:20Z","2017-06-27T18:38:20Z","2017-06-27T19:38:20Z","2017-06-27T20:38:20Z","2017-06-27T21:38:20Z","2017-06-27T22:38:20Z","2017-06-27T23:38:20Z","2017-06-28T00:38:20Z","2017-06-28T01:38:20Z","2017-06-28T02:38:20Z","2017-06-28T03:38:20Z","2017-06-28T04:38:20Z","2017-06-28T05:38:20Z","2017-06-28T06:38:20Z","2017-06-28T07:38:20Z","2017-06-28T08:38:20Z","2017-06-28T09:38:20Z","2017-06-28T10:38:20Z","2017-06-28T11:38:20Z","2017-06-28T12:38:20Z","2017-06-28T13:38:20Z","2017-06-28T14:38:20Z","2017-06-28T15:38:20Z","2017-06-28T16:38:20Z","2017-06-28T17:38:20Z","2017-06-28T18:38:20Z","2017-06-28T19:38:20Z","2017-06-28T20:38:20Z","2017-06-28T21:38:20Z","2017-06-28T22:38:20Z","2017-06-28T23:38:20Z","2017-06-29T00:38:20Z","2017-06-29T01:38:20Z","2017-06-29T02:38:20Z","2017-06-29T03:38:20Z","2017-06-29T04:38:20Z","2017-06-29T05:38:20Z","2017-06-29T06:38:20Z","2017-06-29T07:38:20Z","2017-06-29T08:38:20Z","2017-06-29T09:38:20Z","2017-06-29T10:38:20Z","2017-06-29T11:38:20Z"]}],"yAxis":[],"series":[{"name":"value","type":"line","data":[7,19,9,13,10,13,10,7,7,15,19,15,20,7,6,7,7,16,16,7,11,17,6,10,9,9,11,15,14,18,15,10,12,7,12,9,16,17,16,20,17,11,14,13,15,19,17,11,12,18,18,11,17,17,16,13,5,20,11,7,10,15,16,11,14,6,19,19,12,11,13,10,20,18,6,16,15,9,7,10,20,15,13,5,10,11,14,7,14,5,17,8,16,10,5,17,6,13,14,17],"clickable":true,"xAxisIndex":0,"yAxisIndex":0,"symbolSize":"function(value){ return value/2}","showAllSymbol":true,"smooth":true,"dataFilter":"nearest","legendHoverLink":true,"z":2,"zlevel":0}],"dataZoom":{"show":true,"zlevel":0,"z":4,"orient":"horizontal","backgroundColor":"rgba(0,0,0,0)","dataBackgroundColor":"#eee","fillerColor":"rgba(144,197,237,0.2)","handleColor":"rgba(70,130,180,0.8)","handleSize":8,"start":0,"end":100,"showDetail":true,"realtime":false,"zoomLock":false}}},"evals":["options.series.0.symbolSize"],"jsHooks":[]}</script>
+<h3 id="multiple-axis">Multiple axis</h3>
 <p>This is a reproduction of the following <a href="http://echarts.baidu.com/echarts2/doc/example/line6.html#-en">example</a> taken from Baidu’s EChart official website.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>()
 for(i in <span class="kw">seq</span>(<span class="dv">1</span>:<span class="dv">100</span>)){
@@ -438,46 +280,61 @@ df %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">eyAxis_value</span>(<span class="dt">name =</span> <span class="st">&quot;z&quot;</span>, <span class="dt">append =</span> <span class="ot">TRUE</span>, <span class="dt">min =</span> -<span class="dv">5</span>) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">ezoom</span>() %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">etheme</span>(<span class="st">&quot;macarons&quot;</span>)</code></pre></div>
-<div id="htmlwidget-4a4d3ba5c3e80f9b5a0d" style="width:100%;height:480px;" class="echarts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4a4d3ba5c3e80f9b5a0d">{"x":{"theme":"macarons","options":{"xAxis":[{"type":"category","data":["2017-03-16T16:03:41Z","2017-03-16T17:03:41Z","2017-03-16T18:03:41Z","2017-03-16T19:03:41Z","2017-03-16T20:03:41Z","2017-03-16T21:03:41Z","2017-03-16T22:03:41Z","2017-03-16T23:03:41Z","2017-03-17T00:03:41Z","2017-03-17T01:03:41Z","2017-03-17T02:03:41Z","2017-03-17T03:03:41Z","2017-03-17T04:03:41Z","2017-03-17T05:03:41Z","2017-03-17T06:03:41Z","2017-03-17T07:03:41Z","2017-03-17T08:03:41Z","2017-03-17T09:03:41Z","2017-03-17T10:03:41Z","2017-03-17T11:03:41Z","2017-03-17T12:03:41Z","2017-03-17T13:03:41Z","2017-03-17T14:03:41Z","2017-03-17T15:03:41Z","2017-03-17T16:03:41Z","2017-03-17T17:03:41Z","2017-03-17T18:03:41Z","2017-03-17T19:03:41Z","2017-03-17T20:03:41Z","2017-03-17T21:03:41Z","2017-03-17T22:03:41Z","2017-03-17T23:03:41Z","2017-03-18T00:03:41Z","2017-03-18T01:03:41Z","2017-03-18T02:03:41Z","2017-03-18T03:03:41Z","2017-03-18T04:03:41Z","2017-03-18T05:03:41Z","2017-03-18T06:03:41Z","2017-03-18T07:03:41Z","2017-03-18T08:03:41Z","2017-03-18T09:03:41Z","2017-03-18T10:03:41Z","2017-03-18T11:03:41Z","2017-03-18T12:03:41Z","2017-03-18T13:03:41Z","2017-03-18T14:03:41Z","2017-03-18T15:03:41Z","2017-03-18T16:03:41Z","2017-03-18T17:03:41Z","2017-03-18T18:03:41Z","2017-03-18T19:03:41Z","2017-03-18T20:03:41Z","2017-03-18T21:03:41Z","2017-03-18T22:03:41Z","2017-03-18T23:03:41Z","2017-03-19T00:03:41Z","2017-03-19T01:03:41Z","2017-03-19T02:03:41Z","2017-03-19T03:03:41Z","2017-03-19T04:03:41Z","2017-03-19T05:03:41Z","2017-03-19T06:03:41Z","2017-03-19T07:03:41Z","2017-03-19T08:03:41Z","2017-03-19T09:03:41Z","2017-03-19T10:03:41Z","2017-03-19T11:03:41Z","2017-03-19T12:03:41Z","2017-03-19T13:03:41Z","2017-03-19T14:03:41Z","2017-03-19T15:03:41Z","2017-03-19T16:03:41Z","2017-03-19T17:03:41Z","2017-03-19T18:03:41Z","2017-03-19T19:03:41Z","2017-03-19T20:03:41Z","2017-03-19T21:03:41Z","2017-03-19T22:03:41Z","2017-03-19T23:03:41Z","2017-03-20T00:03:41Z","2017-03-20T01:03:41Z","2017-03-20T02:03:41Z","2017-03-20T03:03:41Z","2017-03-20T04:03:41Z","2017-03-20T05:03:41Z","2017-03-20T06:03:41Z","2017-03-20T07:03:41Z","2017-03-20T08:03:41Z","2017-03-20T09:03:41Z","2017-03-20T10:03:41Z","2017-03-20T11:03:41Z","2017-03-20T12:03:41Z","2017-03-20T13:03:41Z","2017-03-20T14:03:41Z","2017-03-20T15:03:41Z","2017-03-20T16:03:41Z","2017-03-20T17:03:41Z","2017-03-20T18:03:41Z","2017-03-20T19:03:41Z"]}],"yAxis":[{"type":"value","show":true,"zlevel":0,"z":0,"position":"left","name":"y","nameLocation":"end","nameTextStyle":[],"boundaryGap":[0,0],"max":15,"scale":false},{"type":"value","show":true,"zlevel":0,"z":0,"position":"left","name":"z","nameLocation":"end","nameTextStyle":[],"boundaryGap":[0,0],"min":-5,"scale":false}],"series":[{"name":"y","type":"line","data":[4,3,2,2,3,4,2,5,1,3,5,3,4,4,2,1,2,2,2,4,2,3,5,1,3,4,3,3,4,4,3,2,3,5,3,3,1,5,1,4,2,2,2,4,4,3,5,3,1,4,2,4,3,3,3,1,3,3,3,4,2,5,5,5,4,4,2,3,2,5,3,3,4,5,4,5,2,4,2,2,3,4,1,2,4,4,3,3,2,4,5,3,3,3,5,4,4,2,2,5],"smooth":true,"itemStyle":{"normal":{"areaStyle":{"type":"default"}}}},{"yAxisIndex":1,"name":"z","type":"line","data":[-2.77381713711657,-1.30525712994859,-2.84102539159358,-3.92519179289229,-2.2159033017233,-1.842652752297,-2.12096954789013,-1.88950497866608,-3.20788971311413,-2.90271129622124,-3.39769373554736,-3.08334729005583,-3.60553885321133,-2.17738029686734,-3.91815165709704,-1.33573210588656,-3.2402353733778,-2.91219907486811,-3.875645309221,-2.56713163270615,-1.63566081598401,-3.81441839132458,-2.36039158515632,-2.4748124605976,-1.65815328294411,-2.76368583575822,-1.74611261230893,-1.28481576079503,-3.26773645915091,-1.07977549405769,-1.12952087330632,-1.6279123716522,-2.05318914190866,-3.76904102717526,-3.26477789808996,-1.08740980341099,-1.72717816196382,-1.59210048499517,-2.65535617806017,-1.09744828077964,-2.83560194890015,-3.48261800291948,-1.71796982828528,-1.69876891653985,-1.24803442880511,-3.09941345173866,-2.40303917787969,-2.37042135512456,-2.790702275699,-3.45752798067406,-2.02934521040879,-1.41501371446066,-1.71532339323312,-3.61565523967147,-2.69202772388235,-1.60147592797875,-2.10845378995873,-1.6552478694357,-3.99808365036733,-2.170459584333,-3.80497700930573,-3.807026789058,-1.48546268022619,-2.90057942131534,-2.75109839928336,-1.7377646069508,-2.84779278305359,-2.56316939671524,-1.95257797720842,-3.67137172818184,-1.98343736957759,-1.18775416584685,-1.9910890001338,-2.11769424588419,-1.21838528825901,-1.56683905911632,-3.27601135266013,-1.64191630994901,-3.60851535852998,-1.33672368922271,-3.3013906958513,-1.36998751573265,-2.11800906108692,-3.06147129950114,-3.06182093941607,-2.1093077766709,-2.58788714371622,-2.01227703341283,-3.97370957396924,-2.33289848035201,-2.69251889921725,-1.44566033850424,-3.79745852248743,-2.4601920011919,-3.80475275288336,-1.27930085826665,-3.45123720937409,-1.46590205142274,-2.59724076860584,-2.04025924671441],"smooth":true,"itemStyle":{"normal":{"areaStyle":{"type":"default"}}}}],"dataZoom":{"show":true,"zlevel":0,"z":4,"orient":"horizontal","backgroundColor":"rgba(0,0,0,0)","dataBackgroundColor":"#eee","fillerColor":"rgba(144,197,237,0.2)","handleColor":"rgba(70,130,180,0.8)","handleSize":8,"start":0,"end":100,"showDetail":true,"realtime":false,"zoomLock":false}}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-c3bf4b54a3d3151f92bc" style="width:100%;height:480px;" class="echarts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c3bf4b54a3d3151f92bc">{"x":{"theme":"macarons","options":{"xAxis":[{"type":"category","data":["2017-06-25T08:38:20Z","2017-06-25T09:38:20Z","2017-06-25T10:38:20Z","2017-06-25T11:38:20Z","2017-06-25T12:38:20Z","2017-06-25T13:38:20Z","2017-06-25T14:38:20Z","2017-06-25T15:38:20Z","2017-06-25T16:38:20Z","2017-06-25T17:38:20Z","2017-06-25T18:38:20Z","2017-06-25T19:38:20Z","2017-06-25T20:38:20Z","2017-06-25T21:38:20Z","2017-06-25T22:38:20Z","2017-06-25T23:38:20Z","2017-06-26T00:38:20Z","2017-06-26T01:38:20Z","2017-06-26T02:38:20Z","2017-06-26T03:38:20Z","2017-06-26T04:38:20Z","2017-06-26T05:38:20Z","2017-06-26T06:38:20Z","2017-06-26T07:38:20Z","2017-06-26T08:38:20Z","2017-06-26T09:38:20Z","2017-06-26T10:38:20Z","2017-06-26T11:38:20Z","2017-06-26T12:38:20Z","2017-06-26T13:38:20Z","2017-06-26T14:38:20Z","2017-06-26T15:38:20Z","2017-06-26T16:38:20Z","2017-06-26T17:38:20Z","2017-06-26T18:38:20Z","2017-06-26T19:38:20Z","2017-06-26T20:38:20Z","2017-06-26T21:38:20Z","2017-06-26T22:38:20Z","2017-06-26T23:38:20Z","2017-06-27T00:38:20Z","2017-06-27T01:38:20Z","2017-06-27T02:38:20Z","2017-06-27T03:38:20Z","2017-06-27T04:38:20Z","2017-06-27T05:38:20Z","2017-06-27T06:38:20Z","2017-06-27T07:38:20Z","2017-06-27T08:38:20Z","2017-06-27T09:38:20Z","2017-06-27T10:38:20Z","2017-06-27T11:38:20Z","2017-06-27T12:38:20Z","2017-06-27T13:38:20Z","2017-06-27T14:38:20Z","2017-06-27T15:38:20Z","2017-06-27T16:38:20Z","2017-06-27T17:38:20Z","2017-06-27T18:38:20Z","2017-06-27T19:38:20Z","2017-06-27T20:38:20Z","2017-06-27T21:38:20Z","2017-06-27T22:38:20Z","2017-06-27T23:38:20Z","2017-06-28T00:38:20Z","2017-06-28T01:38:20Z","2017-06-28T02:38:20Z","2017-06-28T03:38:20Z","2017-06-28T04:38:20Z","2017-06-28T05:38:20Z","2017-06-28T06:38:20Z","2017-06-28T07:38:20Z","2017-06-28T08:38:20Z","2017-06-28T09:38:20Z","2017-06-28T10:38:20Z","2017-06-28T11:38:20Z","2017-06-28T12:38:20Z","2017-06-28T13:38:20Z","2017-06-28T14:38:20Z","2017-06-28T15:38:20Z","2017-06-28T16:38:20Z","2017-06-28T17:38:20Z","2017-06-28T18:38:20Z","2017-06-28T19:38:20Z","2017-06-28T20:38:20Z","2017-06-28T21:38:20Z","2017-06-28T22:38:20Z","2017-06-28T23:38:20Z","2017-06-29T00:38:20Z","2017-06-29T01:38:20Z","2017-06-29T02:38:20Z","2017-06-29T03:38:20Z","2017-06-29T04:38:20Z","2017-06-29T05:38:20Z","2017-06-29T06:38:20Z","2017-06-29T07:38:20Z","2017-06-29T08:38:20Z","2017-06-29T09:38:20Z","2017-06-29T10:38:20Z","2017-06-29T11:38:20Z"]}],"yAxis":[{"type":"value","show":true,"zlevel":0,"z":0,"position":"left","name":"y","nameLocation":"end","nameTextStyle":[],"boundaryGap":[0,0],"max":15,"scale":false},{"type":"value","show":true,"zlevel":0,"z":0,"position":"left","name":"z","nameLocation":"end","nameTextStyle":[],"boundaryGap":[0,0],"min":-5,"scale":false}],"series":[{"name":"y","type":"line","data":[5,2,4,2,1,4,1,5,4,4,5,3,4,3,3,5,4,3,3,1,5,3,4,2,4,2,4,5,1,3,2,5,4,4,3,2,3,3,3,3,5,4,4,4,4,2,2,4,5,3,2,2,5,1,2,4,3,2,5,4,4,1,4,4,2,2,5,1,4,4,2,2,3,5,3,3,3,4,3,4,5,3,4,4,1,2,3,1,3,2,2,2,4,4,4,4,5,1,1,2],"smooth":true,"itemStyle":{"normal":{"areaStyle":{"type":"default"}}}},{"yAxisIndex":1,"name":"z","type":"line","data":[-1.99533140752465,-1.71239404031076,-3.24435706390068,-2.85758887045085,-3.84925179067068,-2.22950234240852,-3.68105501821265,-1.33711913693696,-2.80314654996619,-1.21748908259906,-2.54276645020582,-2.01421992504038,-3.02184817823581,-3.89324196451344,-3.09998218901455,-3.40826048864983,-1.24420162616298,-1.12834714353085,-1.38000686839223,-2.65476069832221,-2.31286319904029,-3.73910334589891,-1.91998978657648,-1.12549249851145,-1.6007829324808,-1.04175814148039,-2.7731459310744,-2.50110851996578,-3.703913934296,-1.42727254750207,-1.34011780680157,-3.93276099092327,-3.63053117669187,-2.18738805805333,-2.75041087088175,-3.50350760482252,-2.11014112923294,-2.3860602946952,-2.6533683356829,-3.23422197741456,-2.60052871680818,-1.45667316461913,-1.12743961531669,-3.92336977389641,-1.96769120311365,-3.08843352459371,-1.88630665116943,-2.99531567445956,-2.77618956565857,-1.05935013014823,-1.2492247086484,-1.61639142408967,-1.8957627476193,-2.39265532558784,-3.90401855995879,-3.25486886803992,-2.2971416648943,-1.50065208994783,-3.57139592850581,-2.74145538290031,-3.97417835216038,-3.06250979984179,-1.66754623991437,-3.81449382286519,-3.09283696510829,-1.60379943414591,-1.10698674269952,-2.89698171499185,-2.04711024346761,-3.94108319678344,-2.5221304721199,-1.28070451971143,-2.04561562929302,-1.30909757409245,-1.84892205824144,-3.12398318341002,-2.83619523048401,-1.04048781236634,-3.03183547849767,-3.87552459724247,-2.15342423296534,-1.22017633821815,-1.43514317763038,-1.64436781546101,-3.4609157810919,-2.71127458731644,-3.22076319390908,-3.05561124067754,-2.61043548304588,-3.03846338251606,-2.76232853601687,-3.28546302136965,-1.50703542050906,-1.77681665867567,-1.77484707348049,-2.15541309514083,-3.38487273245119,-3.01639396767132,-1.81787579134107,-2.90688004344702],"smooth":true,"itemStyle":{"normal":{"areaStyle":{"type":"default"}}}}],"dataZoom":{"show":true,"zlevel":0,"z":4,"orient":"horizontal","backgroundColor":"rgba(0,0,0,0)","dataBackgroundColor":"#eee","fillerColor":"rgba(144,197,237,0.2)","handleColor":"rgba(70,130,180,0.8)","handleSize":8,"start":0,"end":100,"showDetail":true,"realtime":false,"zoomLock":false}}},"evals":[],"jsHooks":[]}</script>
 </div>
+<p></main></p>
 
-
-<div class="row">
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-    <p class="text-center"><a href="https://github.com/JohnCoene"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-github' aria-hidden='true'></i></button></a></p>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-    <p class="text-center"><a href="https://www.linkedin.com/in/johncoene/"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-linkedin' aria-hidden='true'></i></button></a></p>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-    <p class="text-center"><a href="https://twitter.com/jdatap"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-twitter' aria-hidden='true'></i></button></a></p>
-  </div>
-</div>
-
-
-
-</div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
-
-
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="../../js/materialize.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript" charset="utf-8">
+ $('code').each(function(i, inline) {
+   hljs.highlightBlock(inline);
+ });
+ $('pre code').each(function(i, block) {
+   hljs.highlightBlock(block);
+ });
 </script>
+
+<script type="text/javascript" charset="utf-8">
+  $(".dropdown-button").dropdown();
+  $(".button-collapse").sideNav();
+</script>
+
+<footer class="page-footer blue">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text brand">John Coene</h5>
+        <p class="grey-text text-lighten-4">Data, limericks, and other indoor stuff.</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Connect</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="https://twitter.com/jdatap">Twitter</a></li>
+          <li><a class="grey-text text-lighten-3" href="http://github.com/JohnCoene">Github</a></li>
+          <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/johncoene/">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    © 2017 John Coene
+    <a class="grey-text text-lighten-4 right" href="http://johncoene.github.io/cv/">Resume</a>
+    </div>
+  </div>
+</footer>
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

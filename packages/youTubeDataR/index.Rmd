@@ -1,13 +1,22 @@
 ---
-title: "youTubeDataR"
+title: ""
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, eval = TRUE)
 library(htmltools)
 library(youTubeDataR)
-library(plotly)
+library(chartist)
 videos <- get(load("cred.RData"))
+```
+
+<main>
+<div class = "container">
+
+```{r}
+h1(
+  "youTubeDataR"
+)
 ```
 
 ```{r chart}
@@ -41,7 +50,7 @@ div(class = "container-fluid",
 ```
 
 ```{r install code, echo = TRUE, eval = FALSE}
-devtools::install_github("JohnCoene/tweets2earth")
+devtools::install_github("JohnCoene/youTubeDataR")
 ```
 
 ```{r, setup pkg}
@@ -106,3 +115,6 @@ videos %>%
   lanim_ist() %>%
   loop_ist()
 ```
+
+</div>
+</main>

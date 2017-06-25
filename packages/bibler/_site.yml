@@ -1,26 +1,13 @@
-name: "bibler"
+name: "John Coene"
 output_dir: "."
-navbar:
-  title: "bibler"
-  left:
-    - icon: fa-arrow-circle-left
-      text: "home"
-      href: http://john-coene.com/
-  right:
-    - icon: fa-github
-      text: "Repository"
-      href: https://github.com/JohnCoene/bibler/
-    - icon: fa-html5
-      text: "Examples"
-      href: examples
       
 output:
   html_document:
-    theme: simplex
+    theme: null
     highlight: kate
     include:
       in_header:: header.html
+      before_body: nav.html
       after_body: footer.html
     css: 
-      - styles.css
-      - bttn.min.css
+      - ../../css/styles.css

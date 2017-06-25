@@ -1,11 +1,20 @@
 ---
-title: "graphTweets"
+title: ""
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library(htmltools)
 rstats <- get(load("data/r_tw.RData"))
+```
+
+<main>
+<div class = "container">
+
+```{r, echo=FALSE}
+h1(
+  "graphTweets"
+)
 ```
 
 ```{r intro g, fig.width=9}
@@ -47,8 +56,14 @@ devtools::install_github("JohnCoene/graphTweets") # dev version
 ```
 
 ```{r button}
-a(href="https://cran.r-project.org/web/packages/graphTweets/", target = "_blank",
-            HTML("<button class='bttn-unite bttn-md bttn-danger'><i class='icon-rlogo'></i> CRAN Release</button>"))
+a(href="https://cran.r-project.org/web/packages/graphTweets/", 
+  target = "_blank",
+  class = "btn blue",
+  "CRAN release",
+  tags$i(
+    class="icon-rlogo left"
+  )
+)
 ```
 
 ```{r}
@@ -74,3 +89,6 @@ g <- igraph::graph.data.frame(edges, directed=TRUE, vertices = nodes)
 
 plot(g)
 ```
+
+</div>
+</main>

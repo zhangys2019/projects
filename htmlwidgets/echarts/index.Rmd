@@ -1,5 +1,5 @@
 ---
-title: "echarts"
+title: ""
 ---
 
 ```{r setup, include=FALSE}
@@ -8,6 +8,15 @@ library(echarts)
 library(htmltools)
 
 sesh <- read.csv("./data/sessions.csv")
+```
+
+<main>
+<div class = "container">
+
+```{r, echo=FALSE}
+h1(
+  "echarts"
+)
 ```
 
 ```{r header}
@@ -44,7 +53,7 @@ div(class = "page-header",
 
 ```{r install}
 div(class = "page-header",
-    h2("Install", class = "text-primary"))
+    h3("Install", class = "text-primary"))
 ```
 
 ```{r install code, eval=FALSE, echo=TRUE}
@@ -56,13 +65,11 @@ div(class = "page-header",
     h2("How it works?", class = "text-primary"))
 ```
 
-**EASY**
-
-Initialise your chart with `echart` then add series, supports magrittr pipes, `%>%`, supports `dplyr`'s `group_by`.
+Easy: nitialise your chart with `echart` then add series, supports magrittr pipes, `%>%`, supports `dplyr`'s `group_by`.
 
 ```{r first chart}
 div(class = "page-header",
-    h2("Your first chart", class = "text-primary"))
+    h3("Your first chart", class = "text-primary"))
 ```
 
 ```{r first chart code, eval=TRUE, echo=TRUE}
@@ -81,7 +88,7 @@ df %>%
 
 ```{r advanced}
 div(class = "page-header",
-    h2("Advanced Example", class = "text-primary"))
+    h3("Advanced Example", class = "text-primary"))
 ```
 
 Code used to make map in header.
@@ -97,3 +104,6 @@ sesh %>%
   etitle("Sessions origins in 2016", "john-coene.com", sublink = "http://john-coene.com/") %>% 
   etheme("roma")
 ```
+
+</div>
+</main>

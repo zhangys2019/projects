@@ -4,27 +4,33 @@
 
 <head>
 
-<meta charset="utf-8">
+<meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 
 
-<title>uvcharts</title>
+<title></title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/htmlwidgets-0.7/htmlwidgets.js"></script>
+<link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+<script src="site_libs/htmlwidgets-0.8/htmlwidgets.js"></script>
 <script src="site_libs/d3js-3.2.2/d3.min.js"></script>
 <script src="site_libs/uvcharts-1.1.5/uvcharts.full.min.js"></script>
 <script src="site_libs/uvcharts-binding-0.0.2.9000/uvcharts.js"></script>
-<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="https://cdn.rawgit.com/gaborcsardi/r-font/master/rlogo.css" rel="stylesheet">
+<link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="../../css/materialize.min.css"  media="screen,projection"/>
+
+<link rel="stylesheet" href="../../css/atelier-cave-light.css">
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,239 +42,87 @@
 
 </script>
 
+<!--SHARE TAGS-->
+<meta name="google-site-verification" content="p4A9hVd1c8FOAlQsyDq0NMrE9IQdtfZoHgQ2e1t2dYE" />
+<meta name="description" content="R, data, and other indoor stuff." />
+
+<!-- Schema.org markup for Google+ -->
+<meta itemprop="name" content="John Coene">
+<meta itemprop="description" content="R, data, and other indoor stuff.">
+<meta itemprop="image" content="http://john-coene.com/img/graphTweets.png">
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="website">
+<meta name="twitter:site" content="@jdatap">
+<meta name="twitter:title" content="John Coene">
+<meta name="twitter:description" content="R, data, and other indoor stuff.">
+<meta name="twitter:creator" content="@jdatap">
+<meta name="twitter:image" content="http://john-coene.com/img/graphTweets.png">
+
+<!-- Open Graph data -->
+<meta property="og:title" content="John Coene" />
+<meta property="og:image" content="http://john-coene.com/img/graphTweets.png" />
+<meta property="og:description" content="R, data, and other indoor stuff." />
+<meta property="og:site_name" content="John Coene" />
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #dddddd; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { font-weight: bold; } /* Keyword */
-code > span.dt { color: #800000; } /* DataType */
-code > span.dv { color: #0000ff; } /* DecVal */
-code > span.bn { color: #0000ff; } /* BaseN */
-code > span.fl { color: #800080; } /* Float */
-code > span.ch { color: #ff00ff; } /* Char */
-code > span.st { color: #dd0000; } /* String */
-code > span.co { color: #808080; font-style: italic; } /* Comment */
-code > span.al { color: #00ff00; font-weight: bold; } /* Alert */
-code > span.fu { color: #000080; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #ff0000; font-weight: bold; } /* Warning */
-code > span.cn { color: #000000; } /* Constant */
-code > span.sc { color: #ff00ff; } /* SpecialChar */
-code > span.vs { color: #dd0000; } /* VerbatimString */
-code > span.ss { color: #dd0000; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { } /* Variable */
-code > span.cf { } /* ControlFlow */
-code > span.op { } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { font-weight: bold; } /* Preprocessor */
-code > span.at { } /* Attribute */
-code > span.do { color: #808080; font-style: italic; } /* Documentation */
-code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
-</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
-<link rel="stylesheet" href="bttn.min.css" type="text/css" />
+
+<link rel="stylesheet" href="../../css/styles.css" type="text/css" />
 
 </head>
 
 <body>
 
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-  height: auto;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-</style>
 
+<ul id="dropdown1" class="dropdown-content">
+  <li><a class="blue-text" href="docs">HTML</a></li>
+  <li class="divider"></li>
+  <li><a class="blue-text" href="uvcharts-0.0.1.pdf">PDF</a></li>
+</ul>
 
-<style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 41px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-
-.section h2 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h3 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h4 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h5 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-.section h6 {
-  padding-top: 46px;
-  margin-top: -46px;
-}
-</style>
-
-<script>
-// manage active state of menu based on current page
-$(document).ready(function () {
-  // active menu anchor
-  href = window.location.pathname
-  href = href.substr(href.lastIndexOf('/') + 1)
-  if (href === "")
-    href = "index.html";
-  var menuAnchor = $('a[href="' + href + '"]');
-
-  // mark it active
-  menuAnchor.parent().addClass('active');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
-});
-</script>
-
-
-<div class="container-fluid main-container">
-
-<!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
-
-<!-- code folding -->
-
-
-
-
-
-
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html">uvcharts</a>
+<nav>
+  <div class="nav-wrapper blue">
+    <div class="container">
+      <a href="http://john-coene.com/" class="brand-logo brand">John Coene</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="types">Chart types</a></li>
+        <li><a href="config">Config</a></li>
+        <li>
+          <a class="dropdown-button" href="#!" data-activates="dropdown1">Docs<i class="material-icons right">arrow_drop_down</i></a>
+        </li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="types">Chart types</a></li>
+        <li><a href="config">Config</a></li>
+        <li class="divider"></li>
+        <li><a href="chartist-0.0.1.pdf">Docs</a></li>
+      </ul>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li>
-  <a href="http://john-coene.com/">
-    <span class="fa fa-arrow-circle-left"></span>
-     
-    home
-  </a>
-</li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="types">Chart types</a>
-</li>
-<li>
-  <a href="config">Config</a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-book"></span>
-     
-    Docs
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="docs">HTML</a>
-    </li>
-    <li>
-      <a href="uvcharts-0.0.1.pdf">PDF</a>
-    </li>
-  </ul>
-</li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div><!--/.container -->
-</div><!--/.navbar -->
-
-<div class="fluid-row" id="header">
+  </div>
+</nav>
 
 
 
-<h1 class="title toc-ignore">uvcharts</h1>
-
-</div>
 
 
-<div id="htmlwidget-8359b8d631104188d2a0" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8359b8d631104188d2a0">{"x":{"type":"StackedArea","config":{"meta":{"caption":"uvcharts","subcaption":"Example","vlabel":"y axis"},"graph":{"responsive":true,"orientation":"Vertical","custompalette":["#4da309","#02a5de","#e08b27"]},"dimension":{"height":200},"axis":{"ticks":10,"strokecolor":"#d3d3d3","fontsize":9},"label":{"fontsize":5},"legend":{"showlegends":true,"position":"bottom"},"margin":{"top":20,"bottom":50,"left":30,"right":30}},"graph":{"categories":["apple","avocado","water"],"dataset":{"apple":[{"name":"1","value":6.450303},{"name":"2","value":6.402413},{"name":"3","value":5.313295},{"name":"4","value":9.76316},{"name":"5","value":6.792833},{"name":"6","value":5.543655},{"name":"7","value":8.839469},{"name":"8","value":5.531854},{"name":"9","value":8.505853},{"name":"10","value":5.31945},{"name":"11","value":7.341752},{"name":"12","value":8.379647},{"name":"13","value":7.123352},{"name":"14","value":8.230032},{"name":"15","value":7.281516},{"name":"16","value":6.632416},{"name":"17","value":9.907132},{"name":"18","value":8.860233},{"name":"19","value":9.427296},{"name":"20","value":9.406225},{"name":"21","value":6.839036},{"name":"22","value":8.509295},{"name":"23","value":5.314788},{"name":"24","value":8.108464},{"name":"25","value":9.8252},{"name":"26","value":6.477528},{"name":"27","value":7.345734},{"name":"28","value":6.787173},{"name":"29","value":7.891172},{"name":"30","value":8.608619},{"name":"31","value":9.156277},{"name":"32","value":6.548762},{"name":"33","value":7.23375},{"name":"34","value":7.082866},{"name":"35","value":6.729438},{"name":"36","value":5.992992},{"name":"37","value":6.644259},{"name":"38","value":8.576879},{"name":"39","value":5.97219},{"name":"40","value":7.961573},{"name":"41","value":7.570899},{"name":"42","value":9.733432},{"name":"43","value":8.277681},{"name":"44","value":7.901802},{"name":"45","value":5.7005},{"name":"46","value":6.958851},{"name":"47","value":5.723473},{"name":"48","value":9.733326},{"name":"49","value":8.84289},{"name":"50","value":7.834039}],"avocado":[{"name":"1","value":5.635936},{"name":"2","value":7.048447},{"name":"3","value":5.780796},{"name":"4","value":9.034282},{"name":"5","value":6.813805},{"name":"6","value":7.61509},{"name":"7","value":8.815291},{"name":"8","value":8.62957},{"name":"9","value":5.743599},{"name":"10","value":9.747479},{"name":"11","value":6.331351},{"name":"12","value":5.442528},{"name":"13","value":8.109945},{"name":"14","value":8.593813},{"name":"15","value":9.8225},{"name":"16","value":5.481316},{"name":"17","value":8.665437},{"name":"18","value":5.822813},{"name":"19","value":9.796423},{"name":"20","value":8.267464},{"name":"21","value":7.44447},{"name":"22","value":6.154864},{"name":"23","value":6.277016},{"name":"24","value":5.928445},{"name":"25","value":9.465566},{"name":"26","value":5.130873},{"name":"27","value":6.456551},{"name":"28","value":5.926838},{"name":"29","value":9.993521},{"name":"30","value":5.70728},{"name":"31","value":6.626598},{"name":"32","value":7.265398},{"name":"33","value":9.93689},{"name":"34","value":8.573557},{"name":"35","value":7.504892},{"name":"36","value":7.345923},{"name":"37","value":7.008279},{"name":"38","value":6.311855},{"name":"39","value":9.265983},{"name":"40","value":9.676099},{"name":"41","value":6.959969},{"name":"42","value":6.031222},{"name":"43","value":7.383298},{"name":"44","value":7.123837},{"name":"45","value":9.617407},{"name":"46","value":9.902347},{"name":"47","value":7.652122},{"name":"48","value":9.739788},{"name":"49","value":5.240568},{"name":"50","value":5.817252}],"water":[{"name":"1","value":9.581162},{"name":"2","value":6.422355},{"name":"3","value":7.412441},{"name":"4","value":5.052915},{"name":"5","value":7.145434},{"name":"6","value":7.282499},{"name":"7","value":9.331952},{"name":"8","value":9.887718},{"name":"9","value":5.05866},{"name":"10","value":8.069289},{"name":"11","value":6.506742},{"name":"12","value":6.121507},{"name":"13","value":5.079721},{"name":"14","value":7.82159},{"name":"15","value":5.484058},{"name":"16","value":5.603819},{"name":"17","value":6.524518},{"name":"18","value":7.163138},{"name":"19","value":7.763582},{"name":"20","value":9.693124},{"name":"21","value":9.208693},{"name":"22","value":6.429993},{"name":"23","value":8.995359},{"name":"24","value":8.428177},{"name":"25","value":9.971956},{"name":"26","value":9.234398},{"name":"27","value":7.52059},{"name":"28","value":5.080656},{"name":"29","value":8.201717},{"name":"30","value":9.635136},{"name":"31","value":9.712322},{"name":"32","value":7.093455},{"name":"33","value":8.214652},{"name":"34","value":5.264113},{"name":"35","value":6.561769},{"name":"36","value":7.409158},{"name":"37","value":5.31596},{"name":"38","value":7.404368},{"name":"39","value":5.049434},{"name":"40","value":7.34903},{"name":"41","value":9.011825},{"name":"42","value":5.837065},{"name":"43","value":5.892855},{"name":"44","value":7.571165},{"name":"45","value":7.002745},{"name":"46","value":7.169251},{"name":"47","value":7.054629},{"name":"48","value":9.376274},{"name":"49","value":9.520747},{"name":"50","value":7.114873}]}}},"evals":[],"jsHooks":[]}</script>
-<p><br> <br> <a href="https://travis-ci.org/JohnCoene/uvcharts"><img src="https://travis-ci.org/JohnCoene/uvcharts.svg?branch=master" alt="Travis-CI Build Status" /></a> <a href="https://ci.appveyor.com/project/JohnCoene/uvcharts"><img src="https://ci.appveyor.com/api/projects/status/github/JohnCoene/uvcharts?branch=master&amp;svg=true" alt="AppVeyor Build Status" /></a></p>
-<p><br/><br/><h4>
+<main>
+<div class="container">
+<h1>uvcharts</h1>
+<div id="htmlwidget-d09e0884caa5c5f023d7" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d09e0884caa5c5f023d7">{"x":{"type":"StackedArea","config":{"meta":{"caption":"uvcharts","subcaption":"Example","vlabel":"y axis"},"graph":{"responsive":true,"bgcolor":"#f5f5f5","orientation":"Vertical","custompalette":["#64b5f6","#2196f3","#1976d2"]},"dimension":{"height":200},"axis":{"ticks":10,"strokecolor":"#d3d3d3","fontsize":9},"label":{"fontsize":5},"frame":{"bgcolor":"#f5f5f5"},"legend":{"showlegends":true,"position":"bottom"},"margin":{"top":20,"bottom":50,"left":30,"right":30}},"graph":{"categories":["apple","avocado","water"],"dataset":{"apple":[{"name":"1","value":6.450303},{"name":"2","value":6.402413},{"name":"3","value":5.313295},{"name":"4","value":9.76316},{"name":"5","value":6.792833},{"name":"6","value":5.543655},{"name":"7","value":8.839469},{"name":"8","value":5.531854},{"name":"9","value":8.505853},{"name":"10","value":5.31945},{"name":"11","value":7.341752},{"name":"12","value":8.379647},{"name":"13","value":7.123352},{"name":"14","value":8.230032},{"name":"15","value":7.281516},{"name":"16","value":6.632416},{"name":"17","value":9.907132},{"name":"18","value":8.860233},{"name":"19","value":9.427296},{"name":"20","value":9.406225},{"name":"21","value":6.839036},{"name":"22","value":8.509295},{"name":"23","value":5.314788},{"name":"24","value":8.108464},{"name":"25","value":9.8252},{"name":"26","value":6.477528},{"name":"27","value":7.345734},{"name":"28","value":6.787173},{"name":"29","value":7.891172},{"name":"30","value":8.608619},{"name":"31","value":9.156277},{"name":"32","value":6.548762},{"name":"33","value":7.23375},{"name":"34","value":7.082866},{"name":"35","value":6.729438},{"name":"36","value":5.992992},{"name":"37","value":6.644259},{"name":"38","value":8.576879},{"name":"39","value":5.97219},{"name":"40","value":7.961573},{"name":"41","value":7.570899},{"name":"42","value":9.733432},{"name":"43","value":8.277681},{"name":"44","value":7.901802},{"name":"45","value":5.7005},{"name":"46","value":6.958851},{"name":"47","value":5.723473},{"name":"48","value":9.733326},{"name":"49","value":8.84289},{"name":"50","value":7.834039}],"avocado":[{"name":"1","value":5.635936},{"name":"2","value":7.048447},{"name":"3","value":5.780796},{"name":"4","value":9.034282},{"name":"5","value":6.813805},{"name":"6","value":7.61509},{"name":"7","value":8.815291},{"name":"8","value":8.62957},{"name":"9","value":5.743599},{"name":"10","value":9.747479},{"name":"11","value":6.331351},{"name":"12","value":5.442528},{"name":"13","value":8.109945},{"name":"14","value":8.593813},{"name":"15","value":9.8225},{"name":"16","value":5.481316},{"name":"17","value":8.665437},{"name":"18","value":5.822813},{"name":"19","value":9.796423},{"name":"20","value":8.267464},{"name":"21","value":7.44447},{"name":"22","value":6.154864},{"name":"23","value":6.277016},{"name":"24","value":5.928445},{"name":"25","value":9.465566},{"name":"26","value":5.130873},{"name":"27","value":6.456551},{"name":"28","value":5.926838},{"name":"29","value":9.993521},{"name":"30","value":5.70728},{"name":"31","value":6.626598},{"name":"32","value":7.265398},{"name":"33","value":9.93689},{"name":"34","value":8.573557},{"name":"35","value":7.504892},{"name":"36","value":7.345923},{"name":"37","value":7.008279},{"name":"38","value":6.311855},{"name":"39","value":9.265983},{"name":"40","value":9.676099},{"name":"41","value":6.959969},{"name":"42","value":6.031222},{"name":"43","value":7.383298},{"name":"44","value":7.123837},{"name":"45","value":9.617407},{"name":"46","value":9.902347},{"name":"47","value":7.652122},{"name":"48","value":9.739788},{"name":"49","value":5.240568},{"name":"50","value":5.817252}],"water":[{"name":"1","value":9.581162},{"name":"2","value":6.422355},{"name":"3","value":7.412441},{"name":"4","value":5.052915},{"name":"5","value":7.145434},{"name":"6","value":7.282499},{"name":"7","value":9.331952},{"name":"8","value":9.887718},{"name":"9","value":5.05866},{"name":"10","value":8.069289},{"name":"11","value":6.506742},{"name":"12","value":6.121507},{"name":"13","value":5.079721},{"name":"14","value":7.82159},{"name":"15","value":5.484058},{"name":"16","value":5.603819},{"name":"17","value":6.524518},{"name":"18","value":7.163138},{"name":"19","value":7.763582},{"name":"20","value":9.693124},{"name":"21","value":9.208693},{"name":"22","value":6.429993},{"name":"23","value":8.995359},{"name":"24","value":8.428177},{"name":"25","value":9.971956},{"name":"26","value":9.234398},{"name":"27","value":7.52059},{"name":"28","value":5.080656},{"name":"29","value":8.201717},{"name":"30","value":9.635136},{"name":"31","value":9.712322},{"name":"32","value":7.093455},{"name":"33","value":8.214652},{"name":"34","value":5.264113},{"name":"35","value":6.561769},{"name":"36","value":7.409158},{"name":"37","value":5.31596},{"name":"38","value":7.404368},{"name":"39","value":5.049434},{"name":"40","value":7.34903},{"name":"41","value":9.011825},{"name":"42","value":5.837065},{"name":"43","value":5.892855},{"name":"44","value":7.571165},{"name":"45","value":7.002745},{"name":"46","value":7.169251},{"name":"47","value":7.054629},{"name":"48","value":9.376274},{"name":"49","value":9.520747},{"name":"50","value":7.114873}]}}},"evals":[],"jsHooks":[]}</script>
+<p><br> <a href="https://travis-ci.org/JohnCoene/uvcharts"><img src="https://travis-ci.org/JohnCoene/uvcharts.svg?branch=master" alt="Travis-CI Build Status" /></a> <a href="https://ci.appveyor.com/project/JohnCoene/uvcharts"><img src="https://ci.appveyor.com/api/projects/status/github/JohnCoene/uvcharts?branch=master&amp;svg=true" alt="AppVeyor Build Status" /></a></p>
+<p><br/><h4>
 <code>uvcharts</code>
  is an htmlwidget for 
 <a href="http://imaginea.github.io/uvCharts" target="_blank">uvCharts</a>
@@ -276,22 +130,22 @@ $(document).ready(function () {
 <blockquote>
 <p>uvCharts is a JavaScript based charting library built using the famous d3.js library. uvCharts lets you skip all the tough learning and coding part involved with d3.js and yet build simple, robust, completely customisable charts on any page on the web with utmost ease. — uvCharts</p>
 </blockquote>
-<div class="page-header">
-<h2 class="text-primary">Install</h2>
+<div>
+<h3 class="text-primary">Install</h3>
 </div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools::<span class="kw">install_github</span>(<span class="st">&quot;JohnCoene/uvcharts&quot;</span>)</code></pre></div>
-<div class="page-header">
-<h2 class="text-primary">Your first chart</h2>
+<pre class="r"><code>devtools::install_github(&quot;JohnCoene/uvcharts&quot;)</code></pre>
+<div>
+<h3 class="text-primary">Your first chart</h3>
 </div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(uvcharts)
+<pre class="r"><code>library(uvcharts)
 
-df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="dv">1</span>:<span class="dv">15</span>, <span class="dt">y =</span> <span class="kw">runif</span>(<span class="dv">15</span>, <span class="dv">10</span>, <span class="dv">16</span>))
+df &lt;- data.frame(x = 1:15, y = runif(15, 10, 16))
 
 df %&gt;%
-<span class="st">  </span><span class="kw">uv_bar</span>(x) %&gt;%
-<span class="st">  </span><span class="kw">uv_add</span>(y)</code></pre></div>
-<div id="htmlwidget-ae1331f7817626c26164" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ae1331f7817626c26164">{"x":{"type":"Bar","config":{"meta":{"caption":""},"graph":{"responsive":true},"dimension":{"height":200},"frame":{"bgcolor":"none"}},"graph":{"categories":["y"],"dataset":{"y":[{"name":"1","value":11.79732},{"name":"2","value":11.23295},{"name":"3","value":11.98867},{"name":"4","value":11.0521},{"name":"5","value":11.36088},{"name":"6","value":14.0451},{"name":"7","value":15.39514},{"name":"8","value":12.48816},{"name":"9","value":13.9558},{"name":"10","value":10.30394},{"name":"11","value":11.43626},{"name":"12","value":12.19241},{"name":"13","value":10.41412},{"name":"14","value":13.32729},{"name":"15","value":15.22253}]}}},"evals":[],"jsHooks":[]}</script>
+  uv_bar(x) %&gt;%
+  uv_add(y)</code></pre>
+<div id="htmlwidget-dd292e84ba704aabbc6d" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-dd292e84ba704aabbc6d">{"x":{"type":"Bar","config":{"meta":{"caption":""},"graph":{"responsive":true,"bgcolor":"none"},"dimension":{"height":200},"frame":{"bgcolor":"none"}},"graph":{"categories":["y"],"dataset":{"y":[{"name":"1","value":11.79732},{"name":"2","value":11.23295},{"name":"3","value":11.98867},{"name":"4","value":11.0521},{"name":"5","value":11.36088},{"name":"6","value":14.0451},{"name":"7","value":15.39514},{"name":"8","value":12.48816},{"name":"9","value":13.9558},{"name":"10","value":10.30394},{"name":"11","value":11.43626},{"name":"12","value":12.19241},{"name":"13","value":10.41412},{"name":"14","value":13.32729},{"name":"15","value":15.22253}]}}},"evals":[],"jsHooks":[]}</script>
 <div class="page-header">
 <h2 class="text-primary">How it works</h2>
 </div>
@@ -302,60 +156,78 @@ df %&gt;%
 <li>Customise your chart with any of the 16 functions.</li>
 </ol>
 <p><em>Supports <code>group_by</code> for long form data</em></p>
-<div class="page-header">
-<h2 class="text-primary">Advanced example</h2>
+<div>
+<h3 class="text-primary">Advanced example</h3>
 </div>
 <p>Below is the code used to generate the very banner of this page.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">rep</span>(<span class="dv">1</span>:<span class="dv">50</span>, <span class="dv">3</span>), <span class="dt">grp =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;water&quot;</span>, <span class="st">&quot;apple&quot;</span>, <span class="st">&quot;avocado&quot;</span>), <span class="dv">50</span>), <span class="dt">y =</span> <span class="kw">runif</span>(<span class="dv">150</span>, <span class="dv">5</span>, <span class="dv">10</span>))
+<pre class="r"><code>df &lt;- data.frame(x = rep(1:50, 3), grp = rep(c(&quot;water&quot;, &quot;apple&quot;, &quot;avocado&quot;), 50), y = runif(150, 5, 10))
 
 df %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(grp) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">uv_stackarea</span>(x) %&gt;%
-<span class="st">  </span><span class="kw">uv_add</span>(y) %&gt;%
-<span class="st">  </span><span class="kw">uv_graph</span>(<span class="dt">orientation =</span> <span class="st">&quot;Vertical&quot;</span>, <span class="dt">custom.palette =</span> <span class="kw">list</span>(<span class="st">&quot;#4da309&quot;</span>, <span class="st">&quot;#02a5de&quot;</span>, <span class="st">&quot;#e08b27&quot;</span>)) %&gt;%
-<span class="st">  </span><span class="kw">uv_axis</span>(<span class="dt">ticks =</span> <span class="dv">10</span>, <span class="dt">fontsize =</span> <span class="dv">9</span>, <span class="dt">strokecolor =</span> <span class="st">&quot;#d3d3d3&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">uv_label</span>(<span class="dt">fontsize =</span> <span class="dv">5</span>) %&gt;%
-<span class="st">  </span><span class="kw">uv_meta</span>(<span class="dt">caption =</span> <span class="st">&quot;uvcharts&quot;</span>, <span class="dt">subcaption =</span> <span class="st">&quot;Example&quot;</span>, <span class="dt">vlabel =</span> <span class="st">&quot;y axis&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">uv_config</span>(<span class="dt">legend =</span> <span class="kw">list</span>(<span class="dt">showlegends =</span> <span class="ot">TRUE</span>)) %&gt;%
-<span class="st">  </span><span class="kw">uv_margin</span>(<span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">30</span>, <span class="dv">30</span>) %&gt;%
-<span class="st">  </span><span class="kw">uv_legend</span>(<span class="dt">position =</span> <span class="st">&quot;bottom&quot;</span>)</code></pre></div>
-
-
-<div class="row">
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-    <p class="text-center"><a href="https://github.com/JohnCoene"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-github' aria-hidden='true'></i></button></a></p>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-    <p class="text-center"><a href="https://www.linkedin.com/in/johncoene/"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-linkedin' aria-hidden='true'></i></button></a></p>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-    <p class="text-center"><a href="https://twitter.com/jdatap"><button class = "bttn-material-circle bttn-md bttn-default"><i class='fa fa-twitter' aria-hidden='true'></i></button></a></p>
-  </div>
+  group_by(grp) %&gt;% 
+  uv_stackarea(x) %&gt;%
+  uv_add(y) %&gt;%
+  uv_graph(orientation = &quot;Vertical&quot;, custom.palette = list(&quot;#4da309&quot;, &quot;#02a5de&quot;, &quot;#e08b27&quot;)) %&gt;%
+  uv_axis(ticks = 10, fontsize = 9, strokecolor = &quot;#d3d3d3&quot;) %&gt;%
+  uv_label(fontsize = 5) %&gt;%
+  uv_meta(caption = &quot;uvcharts&quot;, subcaption = &quot;Example&quot;, vlabel = &quot;y axis&quot;) %&gt;%
+  uv_config(legend = list(showlegends = TRUE)) %&gt;%
+  uv_margin(20, 50, 30, 30) %&gt;%
+  uv_legend(position = &quot;bottom&quot;)</code></pre>
 </div>
+<p></main></p>
 
-
-
-</div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
-
-
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../../js/materialize.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript" charset="utf-8">
+  $("code").addClass("hjls r")
+  $('code').each(function(i, inline) {
+   hljs.highlightBlock(inline);
+  });
+  $('pre code').each(function(i, block) {
+   hljs.highlightBlock(block);
+  });
 </script>
+
+<script type="text/javascript" charset="utf-8">
+  $(".dropdown-button").dropdown();
+  $(".button-collapse").sideNav();
+</script>
+
+<footer class="page-footer blue">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text brand">John Coene</h5>
+        <p class="grey-text text-lighten-4">Data, limericks, and other indoor stuff.</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Connect</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="https://twitter.com/jdatap">Twitter</a></li>
+          <li><a class="grey-text text-lighten-3" href="http://github.com/JohnCoene">Github</a></li>
+          <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/johncoene/">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    © 2017 John Coene
+    <a class="grey-text text-lighten-4 right" href="http://johncoene.github.io/cv/">Resume</a>
+    </div>
+  </div>
+</footer>
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

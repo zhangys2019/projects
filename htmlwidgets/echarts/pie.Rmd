@@ -1,5 +1,5 @@
 ---
-title: "Pie charts"
+title: ""
 ---
 
 ```{r setup, include=FALSE}
@@ -7,7 +7,16 @@ knitr::opts_chunk$set(echo = TRUE)
 library(echarts)
 ```
 
-## Basic pie
+<main>
+<div class = "container">
+
+```{r, echo=FALSE}
+h1(
+  "Pie charts"
+)
+```
+
+### Basic pie
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/pie1.html#-en) taken from Baidu's EChart official website.
 
@@ -32,7 +41,7 @@ pie %>%
   etitle("User access", "Fake data", x = "center")
 ```
 
-## Doughnut
+### Doughnut
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/pie2.html#-en) taken from Baidu's EChart official website.
 
@@ -63,7 +72,7 @@ pie %>%
   etooltip(trigger = "item")
 ```
 
-## Rose diagram
+### Rose diagram
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/pie4.html#-en) taken from Baidu's EChart official website.
 
@@ -89,7 +98,7 @@ pie %>%
   etitle("Nightingale Rose Chart", "Fake data", x = "center")
 ```
 
-## Nested 
+### Nested 
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/pie3.html#-en) taken from Baidu's EChart official website.
 
@@ -112,3 +121,6 @@ pie %>%
   elegend(x = "left", orient = "vertical") %>% 
   etheme("macarons")
 ```
+
+</div>
+</main>

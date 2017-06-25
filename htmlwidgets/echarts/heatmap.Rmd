@@ -1,5 +1,5 @@
 ---
-title: "Heatmaps"
+title: ""
 ---
 
 ```{r setup, include=FALSE}
@@ -7,7 +7,16 @@ knitr::opts_chunk$set(echo = TRUE)
 library(echarts)
 ```
 
-## basic
+<main>
+<div class = "container">
+
+```{r, echo=FALSE}
+h1(
+  "Heatmaps"
+)
+```
+
+### basic
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/heatmap.html#-en) taken from Baidu's EChart official website.
 
@@ -33,7 +42,7 @@ p # my plot
 <br>
 <br>
 
-## Map
+### Map
 
 This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/heatmap_map.html#-en) taken from Baidu's EChart official website.
 
@@ -55,3 +64,6 @@ data %>%
   etoolbox_full(orient = "vertical", x = "right", y = "center") %>% 
   etitle("Thermal map combined with map", x = "center", textStyle = list(color = "white"))
 ```
+
+</div>
+</main>

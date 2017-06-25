@@ -1,5 +1,5 @@
 ---
-title: "bibler"
+title: ""
 ---
 
 ```{r setup, include=FALSE}
@@ -8,6 +8,15 @@ library(htmltools)
 library(bibler)
 library(uvcharts)
 data("king_james_df")
+```
+
+<main>
+<div class = "container">
+
+```{r}
+h1(
+  "bibler"
+)
 ```
 
 ```{r chart header}
@@ -69,8 +78,7 @@ bks %>%
 [![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/JohnCoene)
 
 ```{r title}
-div(class = "page-header",
-    h2("Install"))
+h3("Install")
 ```
 
 ```{r install code, echo=TRUE, eval=FALSE}
@@ -78,18 +86,20 @@ devtools::install_github("JohnCoene/bibler")
 ```
 
 ```{r}
-div(class = "page-header",
-    h2("Datasets"))
+h3("Datasets")
 ```
 
-* `king_james_df` The King James Bible as data.frame
-* `king_james_tm` The King James Bible as [tm](https://cran.r-project.org/package=tm) corpus (`c("VCorpus", "Corpus"`)
-* `king_james_books` List of books that constitute the King James Bible
-* `apocrypha_df` The Apocrypha as data.frame
-* `apocrypha_tm` The Apocrypha as [tm](https://cran.r-project.org/package=tm) corpus (`c("VCorpus", "Corpus"`)
-* `apocrypha_books` List of books that constitute the Apocrypha
-* `middle_english_stopwords` Character vector of Middle English stopwords
-* `middle_english_positive` Lexicon of positive Middle English terms
-* `middle_english_negative` Lexicon of negative Middle English terms
+1. `king_james_df` The King James Bible as data.frame
+2. `king_james_tm` The King James Bible as [tm](https://cran.r-project.org/package=tm) corpus (`c("VCorpus", "Corpus"`)
+3. `king_james_books` List of books that constitute the King James Bible
+4. `apocrypha_df` The Apocrypha as data.frame
+5. `apocrypha_tm` The Apocrypha as [tm](https://cran.r-project.org/package=tm) corpus (`c("VCorpus", "Corpus"`)
+6. `apocrypha_books` List of books that constitute the Apocrypha
+7. `middle_english_stopwords` Character vector of Middle English stopwords
+8. `middle_english_positive` Lexicon of positive Middle English terms
+9. `middle_english_negative` Lexicon of negative Middle English terms
 
 See [vignette](packages/bibler/examples.html) for more details.
+
+</div>
+</main>

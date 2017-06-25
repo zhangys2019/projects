@@ -1,5 +1,5 @@
 ---
-title: "Combinations"
+title: ""
 ---
 
 ```{r setup, include=FALSE}
@@ -7,7 +7,16 @@ knitr::opts_chunk$set(echo = TRUE)
 library(echarts)
 ```
 
-## line, pie & bar
+<main>
+<div class = "container">
+
+```{r, echo=FALSE}
+h1(
+  "Combinations"
+)
+```
+
+### line, pie & bar
 
 Reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/mix2.html#-en) on the official website.
 
@@ -35,7 +44,7 @@ pie %>%
   etheme("macarons")
 ```
 
-## Line & bar
+### Line & bar
 
 Reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/mix6.html#-en) on the official website.
 
@@ -58,7 +67,7 @@ df %>%
   etheme("macarons")
 ```
 
-## Funnel & Gauge
+### Funnel & Gauge
 
 Reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/mix11.html#-en) on the official website.
 
@@ -79,3 +88,6 @@ expected %>%
                                                       textStyle = list(color = "#FFF"))))) %>% 
   egauge(50, "Indicator", center = list("25%", "55%"))
 ```
+
+</div>
+</main>
