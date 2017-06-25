@@ -19,7 +19,7 @@ opts = list(
   prefix = "~"
 )
 div(class = "page-header",
-    h3(HTML("John has been on earth for <span class = 'text-primary'>"), 
+    h3(HTML("John has been on earth for <span class = 'red-text'>"), 
        countup(29 * 365 * 24 * 60, options = opts), HTML("</span> minutes.")))
 ```
 
@@ -27,28 +27,31 @@ div(class = "page-header",
 [![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/JohnCoene)
 
 ```{r intro}
-div(class = "container-fluid",
-    br(),
-    br(),
-    p(code("countup"), "is an htmlwidget for ",
-      a("countup.js", href = "https://inorganik.github.io/countUp.js/", target = "_blank"), "It is obviously meant to be used in Rmarkdown html documents (such as this very website)."),
-    br(),
-    p(a(href="https://github.com/JohnCoene/countup", target = "_blank",
-            HTML("<button class='bttn-unite bttn-lg bttn-danger'><i class='fa fa-github' aria-hidden='true'></i> Repository</button>"))))
+p(
+  code("countup"), 
+  "is an htmlwidget for ",
+  a("countup.js", href = "https://inorganik.github.io/countUp.js/", target = "_blank"), 
+  "It is obviously meant to be used in Rmarkdown html documents (such as this very website).")
+p(a(href="https://github.com/JohnCoene/countup", 
+    class = "btn blue",
+    target = "_blank",
+    tags$i(
+      class ="material-icons left",
+      "code"
+    ),
+    "Repository"))
 ```
 
 ```{r install}
-div(class = "page-header",
-    h2("Install"))
+h3("Install")
 ```
 
 ```{r install code, eval=FALSE, echo=TRUE}
-devtools::install_github("JohnCoene/peity")
+devtools::install_github("JohnCoene/countup")
 ```
 
 ```{r examples}
-div(class = "page-header",
-    h2("Examples"))
+h3("Examples")
 ```
 
 ```{r example code, eval=FALSE, echo=TRUE}

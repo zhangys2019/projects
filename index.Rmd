@@ -342,7 +342,7 @@ div(
   class = "container section",
   h1(
     class = "blue-text center",
-    "Visualisations"
+    "Viz"
   ),
   div(
     class = "row",
@@ -624,7 +624,7 @@ div(
   class = "container section",
   h1(
     class = "blue-text center",
-    "Social Media Analysis"
+    "Twitter"
   ),
   div(
     class = "row",
@@ -746,7 +746,7 @@ div(
   class = "container section",
   h1(
     class = "blue-text center",
-    "Datasets & APIs"
+    "Data"
   ),
   div(
     class = "row",
@@ -987,7 +987,7 @@ div(
         div(
           class = "card-action",
           tags$a(
-            href="https://github.com/JohnCoene/countup",
+            href="countup",
             target="_blank",
             "Get counting"
           )
