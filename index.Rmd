@@ -23,38 +23,47 @@ div(
   div(
     class = "row",
     div(
-      class = "col m4",
-      a(
-        href = "https://github.com/JohnCoene",
-        target = "_blank",
-        class = "btn grey darken-3 waves-effect",
-        tags$i(
-          class = "material-icons",
-          "code"
+      class = "col s4",
+      p(
+        class = "center-align",
+        a(
+          href = "https://github.com/JohnCoene",
+          target = "_blank",
+          class = "btn grey darken-3 waves-effect",
+          tags$i(
+            class = "material-icons",
+            "code"
+          )
         )
       )
     ),
     div(
-      class = "col m4",
-      a(
-        href = "https://www.linkedin.com/in/johncoene/",
-        target = "_blank",
-        class = "btn blue darken-3 waves-effect",
-        tags$i(
-          class = "material-icons",
-          "assignment_ind"
+      class = "col s4",
+      p(
+        class = "center-align",
+        a(
+          href = "https://www.linkedin.com/in/johncoene/",
+          target = "_blank",
+          class = "btn blue darken-3 waves-effect",
+          tags$i(
+            class = "material-icons",
+            "assignment_ind"
+          )
         )
       )
     ),
     div(
-      class = "col m4",
-      a(
-        href = "https://twitter.com/jdatap",
-        target = "_blank",
-        class = "btn blue lighten-1 waves-effect",
-        tags$i(
-          class = "material-icons",
-          "sms"
+      class = "col s4",
+      p(
+        class = "center-align",
+        a(
+          href = "https://twitter.com/jdatap",
+          target = "_blank",
+          class = "btn blue lighten-1 waves-effect",
+          tags$i(
+            class = "material-icons",
+            "sms"
+          )
         )
       )
     )
@@ -898,7 +907,7 @@ div(
   class = "container section",
   h1(
     class = "blue-text center",
-    "Miscellaneous"
+    "Misc"
   ),
   div(
     class = "row",
