@@ -551,7 +551,7 @@ div(
           class = "card-content",
           tags$span(
             class = "card-title activator grey-text text-darken-2", 
-            "htmlwidgets/echarts",
+            "echarts",
             tags$i(
               class = "material-icons right",
               "more_vert"
