@@ -12,7 +12,7 @@ rstats <- get(load("data/r_tw.RData"))
 <div class = "container">
 
 ```{r, echo=FALSE}
-h1(
+h2(
   "graphTweets"
 )
 ```

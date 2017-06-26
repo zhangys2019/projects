@@ -13,7 +13,7 @@ library(wordcloud)
 <main>
 <div class = "container">
 
-```{r}
+```{r, echo=FALSE}
 h1(
   "bibler examples"
 )
@@ -197,12 +197,11 @@ plot_ly(bks,
         hoverinfo = "text",
         marker = list(
           color = ~colour
-        )) %>%
+        ),
+         width = "100%") %>%
   layout(title = "Average sentiment by book",
          showlegend = FALSE,
-         xaxis = list(title = "Book Number"),
-         width = 800,
-         height = 415)
+         xaxis = list(title = "Book Number"))
 ```
 
 There is indeed more negativity at the "beginning" of the Bible: the Old Testament is far more gruesome than the New Testament. 

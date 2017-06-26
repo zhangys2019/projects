@@ -92,7 +92,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
       <a href="http://john-coene.com/" class="brand-logo brand">John Coene</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="types">Chart types</a></li>
+        <li><a href="types"><i class="material-icons left">show_chart</i>Chart types</a></li>
         <li><a href="plugins">Plugins</a></li>
         <li><a href="options">Options</a></li>
         <li><a href="responsive">Responsive</a></li>
@@ -111,8 +111,8 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
         <li><a href="animations">Animations</a></li>
         <li><a href="style">Style</a></li>
         <li><a href="rmarkdown">Rmarkdown</a></li>
-        <li><a href="docs">HTML</a></li>
         <li class="divider"></li>
+        <li><a href="docs">HTML</a></li>
         <li><a href="chartist-0.0.1.pdf">Docs</a></li>
       </ul>
     </div>
@@ -717,6 +717,11 @@ mtcars[1:10,] %&gt;%
 <script type="text/javascript" charset="utf-8">
   $(".dropdown-button").dropdown();
   $(".button-collapse").sideNav();
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  $("main ul").addClass("collection");
+  $("main li").addClass("collection-item");
 </script>
 
 <footer class="page-footer blue">

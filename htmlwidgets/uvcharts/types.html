@@ -86,7 +86,6 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 
 <ul id="dropdown1" class="dropdown-content">
   <li><a class="blue-text" href="docs">HTML</a></li>
-  <li class="divider"></li>
   <li><a class="blue-text" href="uvcharts-0.0.1.pdf">PDF</a></li>
 </ul>
 
@@ -96,17 +95,18 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
       <a href="http://john-coene.com/" class="brand-logo brand">John Coene</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="types">Chart types</a></li>
-        <li><a href="config">Config</a></li>
+        <li><a href="types"><i class = "material-icons left">show_chart</i>Chart types</a></li>
+        <li><a href="config"><i class = "material-icons left">settings</i>Config</a></li>
         <li>
           <a class="dropdown-button" href="#!" data-activates="dropdown1">Docs<i class="material-icons right">arrow_drop_down</i></a>
         </li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li><a href="types">Chart types</a></li>
-        <li><a href="config">Config</a></li>
+        <li><a href="types"><i class = "material-icons left">show_chart</i>Chart types</a></li>
+        <li><a href="config"><i class = "material-icons left">settings</i>Config</a></li>
         <li class="divider"></li>
         <li><a href="chartist-0.0.1.pdf">Docs</a></li>
+        <li><a class="blue-text" href="uvcharts-0.0.1.pdf">PDF</a></li>
       </ul>
     </div>
   </div>
@@ -127,32 +127,32 @@ df &lt;- data.frame(x = 1:10, y = runif(10, 0, 5), z = runif(10, 0, 5))</code></
   uv_add(y) %&gt;%
   uv_add(z) %&gt;%
   uv_frame(bgcolor = &quot;none&quot;)</code></pre>
-<div id="htmlwidget-d23b58c4baa0394ff8d5" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d23b58c4baa0394ff8d5">{"x":{"type":"Bar","config":{"meta":{"caption":""},"graph":{"responsive":true},"dimension":{"height":200},"frame":{"bgcolor":"none"}},"graph":{"categories":["y","z"],"dataset":{"y":[{"name":"1","value":2.4375437},{"name":"2","value":4.1786706},{"name":"3","value":3.8870156},{"name":"4","value":2.2845674},{"name":"5","value":3.8850116},{"name":"6","value":1.7544316},{"name":"7","value":0.8232464},{"name":"8","value":1.8680766},{"name":"9","value":0.0393408},{"name":"10","value":0.470195}],"z":[{"name":"1","value":1.703368},{"name":"2","value":3.1918524},{"name":"3","value":3.5760773},{"name":"4","value":1.8795139},{"name":"5","value":2.0077926},{"name":"6","value":3.1009838},{"name":"7","value":1.9834207},{"name":"8","value":4.1087997},{"name":"9","value":1.0622464},{"name":"10","value":0.4201322}]}}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-96ced6e008813fb66fa1" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-96ced6e008813fb66fa1">{"x":{"type":"Bar","config":{"meta":{"caption":""},"graph":{"responsive":true},"dimension":{"height":200},"frame":{"bgcolor":"none"}},"graph":{"categories":["y","z"],"dataset":{"y":[{"name":"1","value":1.31344},{"name":"2","value":1.1400868},{"name":"3","value":3.9263466},{"name":"4","value":1.6262866},{"name":"5","value":3.8881322},{"name":"6","value":1.9533796},{"name":"7","value":4.7140881},{"name":"8","value":3.7276656},{"name":"9","value":0.3976045},{"name":"10","value":0.7761821}],"z":[{"name":"1","value":3.214416},{"name":"2","value":1.785786},{"name":"3","value":4.768672},{"name":"4","value":4.91812},{"name":"5","value":1.311354},{"name":"6","value":2.902268},{"name":"7","value":1.690805},{"name":"8","value":2.134191},{"name":"9","value":3.912272},{"name":"10","value":2.824446}]}}},"evals":[],"jsHooks":[]}</script>
 <h3 id="stacked-bar">Stacked bar</h3>
 <pre class="r"><code>df %&gt;%
   uv_stackbar(x) %&gt;%
   uv_add(y) %&gt;%
   uv_add(z) %&gt;%
   uv_frame(bgcolor = &quot;none&quot;)</code></pre>
-<div id="htmlwidget-9b0ca98cf958e5b49aa9" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9b0ca98cf958e5b49aa9">{"x":{"type":"StackedBar","config":{"meta":{"caption":""},"graph":{"responsive":true},"dimension":{"height":200},"frame":{"bgcolor":"none"}},"graph":{"categories":["y","z"],"dataset":{"y":[{"name":"1","value":2.4375437},{"name":"2","value":4.1786706},{"name":"3","value":3.8870156},{"name":"4","value":2.2845674},{"name":"5","value":3.8850116},{"name":"6","value":1.7544316},{"name":"7","value":0.8232464},{"name":"8","value":1.8680766},{"name":"9","value":0.0393408},{"name":"10","value":0.470195}],"z":[{"name":"1","value":1.703368},{"name":"2","value":3.1918524},{"name":"3","value":3.5760773},{"name":"4","value":1.8795139},{"name":"5","value":2.0077926},{"name":"6","value":3.1009838},{"name":"7","value":1.9834207},{"name":"8","value":4.1087997},{"name":"9","value":1.0622464},{"name":"10","value":0.4201322}]}}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-300f1bb519e666f8dcee" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-300f1bb519e666f8dcee">{"x":{"type":"StackedBar","config":{"meta":{"caption":""},"graph":{"responsive":true},"dimension":{"height":200},"frame":{"bgcolor":"none"}},"graph":{"categories":["y","z"],"dataset":{"y":[{"name":"1","value":1.31344},{"name":"2","value":1.1400868},{"name":"3","value":3.9263466},{"name":"4","value":1.6262866},{"name":"5","value":3.8881322},{"name":"6","value":1.9533796},{"name":"7","value":4.7140881},{"name":"8","value":3.7276656},{"name":"9","value":0.3976045},{"name":"10","value":0.7761821}],"z":[{"name":"1","value":3.214416},{"name":"2","value":1.785786},{"name":"3","value":4.768672},{"name":"4","value":4.91812},{"name":"5","value":1.311354},{"name":"6","value":2.902268},{"name":"7","value":1.690805},{"name":"8","value":2.134191},{"name":"9","value":3.912272},{"name":"10","value":2.824446}]}}},"evals":[],"jsHooks":[]}</script>
 <h3 id="percent-bar">Percent bar</h3>
 <pre class="r"><code>df %&gt;%
   uv_percentbar(x) %&gt;%
   uv_add(y) %&gt;%
   uv_add(z) %&gt;%
   uv_frame(bgcolor = &quot;none&quot;)</code></pre>
-<div id="htmlwidget-5aae87011066cc79b44f" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5aae87011066cc79b44f">{"x":{"type":"PercentBar","config":{"meta":{"caption":""},"graph":{"responsive":true},"dimension":{"height":200},"frame":{"bgcolor":"none"}},"graph":{"categories":["y","z"],"dataset":{"y":[{"name":"1","value":2.4375437},{"name":"2","value":4.1786706},{"name":"3","value":3.8870156},{"name":"4","value":2.2845674},{"name":"5","value":3.8850116},{"name":"6","value":1.7544316},{"name":"7","value":0.8232464},{"name":"8","value":1.8680766},{"name":"9","value":0.0393408},{"name":"10","value":0.470195}],"z":[{"name":"1","value":1.703368},{"name":"2","value":3.1918524},{"name":"3","value":3.5760773},{"name":"4","value":1.8795139},{"name":"5","value":2.0077926},{"name":"6","value":3.1009838},{"name":"7","value":1.9834207},{"name":"8","value":4.1087997},{"name":"9","value":1.0622464},{"name":"10","value":0.4201322}]}}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b4a11383ce75c8a4daaa" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b4a11383ce75c8a4daaa">{"x":{"type":"PercentBar","config":{"meta":{"caption":""},"graph":{"responsive":true},"dimension":{"height":200},"frame":{"bgcolor":"none"}},"graph":{"categories":["y","z"],"dataset":{"y":[{"name":"1","value":1.31344},{"name":"2","value":1.1400868},{"name":"3","value":3.9263466},{"name":"4","value":1.6262866},{"name":"5","value":3.8881322},{"name":"6","value":1.9533796},{"name":"7","value":4.7140881},{"name":"8","value":3.7276656},{"name":"9","value":0.3976045},{"name":"10","value":0.7761821}],"z":[{"name":"1","value":3.214416},{"name":"2","value":1.785786},{"name":"3","value":4.768672},{"name":"4","value":4.91812},{"name":"5","value":1.311354},{"name":"6","value":2.902268},{"name":"7","value":1.690805},{"name":"8","value":2.134191},{"name":"9","value":3.912272},{"name":"10","value":2.824446}]}}},"evals":[],"jsHooks":[]}</script>
 <h3 id="stepup-bar">Stepup bar</h3>
 <pre class="r"><code>df %&gt;%
   uv_stepupbar(x) %&gt;%
   uv_add(y) %&gt;%
   uv_add(z) %&gt;%
   uv_frame(bgcolor = &quot;none&quot;)</code></pre>
-<div id="htmlwidget-553e938a4df5702f6e5e" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-553e938a4df5702f6e5e">{"x":{"type":"StepUpBar","config":{"meta":{"caption":""},"graph":{"responsive":true},"dimension":{"height":200},"frame":{"bgcolor":"none"}},"graph":{"categories":["y","z"],"dataset":{"y":[{"name":"1","value":2.4375437},{"name":"2","value":4.1786706},{"name":"3","value":3.8870156},{"name":"4","value":2.2845674},{"name":"5","value":3.8850116},{"name":"6","value":1.7544316},{"name":"7","value":0.8232464},{"name":"8","value":1.8680766},{"name":"9","value":0.0393408},{"name":"10","value":0.470195}],"z":[{"name":"1","value":1.703368},{"name":"2","value":3.1918524},{"name":"3","value":3.5760773},{"name":"4","value":1.8795139},{"name":"5","value":2.0077926},{"name":"6","value":3.1009838},{"name":"7","value":1.9834207},{"name":"8","value":4.1087997},{"name":"9","value":1.0622464},{"name":"10","value":0.4201322}]}}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9f665f3a811ff2c45464" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9f665f3a811ff2c45464">{"x":{"type":"StepUpBar","config":{"meta":{"caption":""},"graph":{"responsive":true},"dimension":{"height":200},"frame":{"bgcolor":"none"}},"graph":{"categories":["y","z"],"dataset":{"y":[{"name":"1","value":1.31344},{"name":"2","value":1.1400868},{"name":"3","value":3.9263466},{"name":"4","value":1.6262866},{"name":"5","value":3.8881322},{"name":"6","value":1.9533796},{"name":"7","value":4.7140881},{"name":"8","value":3.7276656},{"name":"9","value":0.3976045},{"name":"10","value":0.7761821}],"z":[{"name":"1","value":3.214416},{"name":"2","value":1.785786},{"name":"3","value":4.768672},{"name":"4","value":4.91812},{"name":"5","value":1.311354},{"name":"6","value":2.902268},{"name":"7","value":1.690805},{"name":"8","value":2.134191},{"name":"9","value":3.912272},{"name":"10","value":2.824446}]}}},"evals":[],"jsHooks":[]}</script>
 <h3 id="line">Line</h3>
 <pre class="r"><code>df %&gt;%
   uv_line(x) %&gt;%
@@ -160,8 +160,8 @@ df &lt;- data.frame(x = 1:10, y = runif(10, 0, 5), z = runif(10, 0, 5))</code></
   uv_add(z) %&gt;%
   uv_graph(orientation = &quot;Vertical&quot;) %&gt;%
   uv_frame(bgcolor = &quot;none&quot;)</code></pre>
-<div id="htmlwidget-8bb3409d31822f23d265" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8bb3409d31822f23d265">{"x":{"type":"Line","config":{"meta":{"caption":""},"graph":{"responsive":true,"orientation":"Vertical"},"dimension":{"height":200},"frame":{"bgcolor":"none"}},"graph":{"categories":["y","z"],"dataset":{"y":[{"name":"1","value":2.4375437},{"name":"2","value":4.1786706},{"name":"3","value":3.8870156},{"name":"4","value":2.2845674},{"name":"5","value":3.8850116},{"name":"6","value":1.7544316},{"name":"7","value":0.8232464},{"name":"8","value":1.8680766},{"name":"9","value":0.0393408},{"name":"10","value":0.470195}],"z":[{"name":"1","value":1.703368},{"name":"2","value":3.1918524},{"name":"3","value":3.5760773},{"name":"4","value":1.8795139},{"name":"5","value":2.0077926},{"name":"6","value":3.1009838},{"name":"7","value":1.9834207},{"name":"8","value":4.1087997},{"name":"9","value":1.0622464},{"name":"10","value":0.4201322}]}}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-c30fec674923470a20c6" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c30fec674923470a20c6">{"x":{"type":"Line","config":{"meta":{"caption":""},"graph":{"responsive":true,"orientation":"Vertical"},"dimension":{"height":200},"frame":{"bgcolor":"none"}},"graph":{"categories":["y","z"],"dataset":{"y":[{"name":"1","value":1.31344},{"name":"2","value":1.1400868},{"name":"3","value":3.9263466},{"name":"4","value":1.6262866},{"name":"5","value":3.8881322},{"name":"6","value":1.9533796},{"name":"7","value":4.7140881},{"name":"8","value":3.7276656},{"name":"9","value":0.3976045},{"name":"10","value":0.7761821}],"z":[{"name":"1","value":3.214416},{"name":"2","value":1.785786},{"name":"3","value":4.768672},{"name":"4","value":4.91812},{"name":"5","value":1.311354},{"name":"6","value":2.902268},{"name":"7","value":1.690805},{"name":"8","value":2.134191},{"name":"9","value":3.912272},{"name":"10","value":2.824446}]}}},"evals":[],"jsHooks":[]}</script>
 <h3 id="area">Area</h3>
 <pre class="r"><code>df %&gt;%
   uv_area(x) %&gt;%
@@ -169,8 +169,8 @@ df &lt;- data.frame(x = 1:10, y = runif(10, 0, 5), z = runif(10, 0, 5))</code></
   uv_add(z) %&gt;%
   uv_graph(orientation = &quot;Vertical&quot;) %&gt;%
   uv_frame(bgcolor = &quot;none&quot;)</code></pre>
-<div id="htmlwidget-de4ce6ef25cc5dc5734c" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-de4ce6ef25cc5dc5734c">{"x":{"type":"Area","config":{"meta":{"caption":""},"graph":{"responsive":true,"orientation":"Vertical"},"dimension":{"height":200},"frame":{"bgcolor":"none"}},"graph":{"categories":["y","z"],"dataset":{"y":[{"name":"1","value":2.4375437},{"name":"2","value":4.1786706},{"name":"3","value":3.8870156},{"name":"4","value":2.2845674},{"name":"5","value":3.8850116},{"name":"6","value":1.7544316},{"name":"7","value":0.8232464},{"name":"8","value":1.8680766},{"name":"9","value":0.0393408},{"name":"10","value":0.470195}],"z":[{"name":"1","value":1.703368},{"name":"2","value":3.1918524},{"name":"3","value":3.5760773},{"name":"4","value":1.8795139},{"name":"5","value":2.0077926},{"name":"6","value":3.1009838},{"name":"7","value":1.9834207},{"name":"8","value":4.1087997},{"name":"9","value":1.0622464},{"name":"10","value":0.4201322}]}}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-402b93139babdcab2a16" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-402b93139babdcab2a16">{"x":{"type":"Area","config":{"meta":{"caption":""},"graph":{"responsive":true,"orientation":"Vertical"},"dimension":{"height":200},"frame":{"bgcolor":"none"}},"graph":{"categories":["y","z"],"dataset":{"y":[{"name":"1","value":1.31344},{"name":"2","value":1.1400868},{"name":"3","value":3.9263466},{"name":"4","value":1.6262866},{"name":"5","value":3.8881322},{"name":"6","value":1.9533796},{"name":"7","value":4.7140881},{"name":"8","value":3.7276656},{"name":"9","value":0.3976045},{"name":"10","value":0.7761821}],"z":[{"name":"1","value":3.214416},{"name":"2","value":1.785786},{"name":"3","value":4.768672},{"name":"4","value":4.91812},{"name":"5","value":1.311354},{"name":"6","value":2.902268},{"name":"7","value":1.690805},{"name":"8","value":2.134191},{"name":"9","value":3.912272},{"name":"10","value":2.824446}]}}},"evals":[],"jsHooks":[]}</script>
 <h3 id="stacked-area">Stacked area</h3>
 <pre class="r"><code>df %&gt;%
   uv_stackarea(x) %&gt;%
@@ -178,8 +178,8 @@ df &lt;- data.frame(x = 1:10, y = runif(10, 0, 5), z = runif(10, 0, 5))</code></
   uv_add(z) %&gt;%
   uv_graph(orientation = &quot;Vertical&quot;) %&gt;%
   uv_frame(bgcolor = &quot;none&quot;)</code></pre>
-<div id="htmlwidget-844467512bf1f7f32df3" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-844467512bf1f7f32df3">{"x":{"type":"StackedArea","config":{"meta":{"caption":""},"graph":{"responsive":true,"orientation":"Vertical"},"dimension":{"height":200},"frame":{"bgcolor":"none"}},"graph":{"categories":["y","z"],"dataset":{"y":[{"name":"1","value":2.4375437},{"name":"2","value":4.1786706},{"name":"3","value":3.8870156},{"name":"4","value":2.2845674},{"name":"5","value":3.8850116},{"name":"6","value":1.7544316},{"name":"7","value":0.8232464},{"name":"8","value":1.8680766},{"name":"9","value":0.0393408},{"name":"10","value":0.470195}],"z":[{"name":"1","value":1.703368},{"name":"2","value":3.1918524},{"name":"3","value":3.5760773},{"name":"4","value":1.8795139},{"name":"5","value":2.0077926},{"name":"6","value":3.1009838},{"name":"7","value":1.9834207},{"name":"8","value":4.1087997},{"name":"9","value":1.0622464},{"name":"10","value":0.4201322}]}}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-046f7a354c5de5358d84" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-046f7a354c5de5358d84">{"x":{"type":"StackedArea","config":{"meta":{"caption":""},"graph":{"responsive":true,"orientation":"Vertical"},"dimension":{"height":200},"frame":{"bgcolor":"none"}},"graph":{"categories":["y","z"],"dataset":{"y":[{"name":"1","value":1.31344},{"name":"2","value":1.1400868},{"name":"3","value":3.9263466},{"name":"4","value":1.6262866},{"name":"5","value":3.8881322},{"name":"6","value":1.9533796},{"name":"7","value":4.7140881},{"name":"8","value":3.7276656},{"name":"9","value":0.3976045},{"name":"10","value":0.7761821}],"z":[{"name":"1","value":3.214416},{"name":"2","value":1.785786},{"name":"3","value":4.768672},{"name":"4","value":4.91812},{"name":"5","value":1.311354},{"name":"6","value":2.902268},{"name":"7","value":1.690805},{"name":"8","value":2.134191},{"name":"9","value":3.912272},{"name":"10","value":2.824446}]}}},"evals":[],"jsHooks":[]}</script>
 <h3 id="percent-area">Percent area</h3>
 <pre class="r"><code>df %&gt;%
   uv_percentarea(x) %&gt;%
@@ -187,38 +187,38 @@ df &lt;- data.frame(x = 1:10, y = runif(10, 0, 5), z = runif(10, 0, 5))</code></
   uv_add(z) %&gt;%
   uv_graph(orientation = &quot;Vertical&quot;) %&gt;%
   uv_frame(bgcolor = &quot;none&quot;)</code></pre>
-<div id="htmlwidget-03d29d15482a7b33a40f" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-03d29d15482a7b33a40f">{"x":{"type":"PercentArea","config":{"meta":{"caption":""},"graph":{"responsive":true,"orientation":"Vertical"},"dimension":{"height":200},"frame":{"bgcolor":"none"}},"graph":{"categories":["y","z"],"dataset":{"y":[{"name":"1","value":2.4375437},{"name":"2","value":4.1786706},{"name":"3","value":3.8870156},{"name":"4","value":2.2845674},{"name":"5","value":3.8850116},{"name":"6","value":1.7544316},{"name":"7","value":0.8232464},{"name":"8","value":1.8680766},{"name":"9","value":0.0393408},{"name":"10","value":0.470195}],"z":[{"name":"1","value":1.703368},{"name":"2","value":3.1918524},{"name":"3","value":3.5760773},{"name":"4","value":1.8795139},{"name":"5","value":2.0077926},{"name":"6","value":3.1009838},{"name":"7","value":1.9834207},{"name":"8","value":4.1087997},{"name":"9","value":1.0622464},{"name":"10","value":0.4201322}]}}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-aed6d490e869a0b0150b" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-aed6d490e869a0b0150b">{"x":{"type":"PercentArea","config":{"meta":{"caption":""},"graph":{"responsive":true,"orientation":"Vertical"},"dimension":{"height":200},"frame":{"bgcolor":"none"}},"graph":{"categories":["y","z"],"dataset":{"y":[{"name":"1","value":1.31344},{"name":"2","value":1.1400868},{"name":"3","value":3.9263466},{"name":"4","value":1.6262866},{"name":"5","value":3.8881322},{"name":"6","value":1.9533796},{"name":"7","value":4.7140881},{"name":"8","value":3.7276656},{"name":"9","value":0.3976045},{"name":"10","value":0.7761821}],"z":[{"name":"1","value":3.214416},{"name":"2","value":1.785786},{"name":"3","value":4.768672},{"name":"4","value":4.91812},{"name":"5","value":1.311354},{"name":"6","value":2.902268},{"name":"7","value":1.690805},{"name":"8","value":2.134191},{"name":"9","value":3.912272},{"name":"10","value":2.824446}]}}},"evals":[],"jsHooks":[]}</script>
 <h3 id="pie">Pie</h3>
 <pre class="r"><code>df &lt;- data.frame(x = c(&quot;apple&quot;, &quot;banana&quot;, &quot;cake&quot;, &quot;mango&quot;, &quot;strawberry&quot;), y = c(1,4,2,5,3))</code></pre>
 <pre class="r"><code>df %&gt;%
   uv_pie(x) %&gt;%
   uv_add(y) %&gt;%
   uv_frame(bgcolor = &quot;none&quot;)</code></pre>
-<div id="htmlwidget-5a3c5f1db8d04ec2f04e" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5a3c5f1db8d04ec2f04e">{"x":{"type":"Pie","config":{"meta":{"caption":""},"graph":{"responsive":true},"dimension":{"height":200},"frame":{"bgcolor":"none"}},"graph":{"categories":["y"],"dataset":{"y":[{"name":"apple","value":1},{"name":"banana","value":4},{"name":"cake","value":2},{"name":"mango","value":5},{"name":"strawberry","value":3}]}}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-7e65d36a632c2c4957a2" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7e65d36a632c2c4957a2">{"x":{"type":"Pie","config":{"meta":{"caption":""},"graph":{"responsive":true},"dimension":{"height":200},"frame":{"bgcolor":"none"}},"graph":{"categories":["y"],"dataset":{"y":[{"name":"apple","value":1},{"name":"banana","value":4},{"name":"cake","value":2},{"name":"mango","value":5},{"name":"strawberry","value":3}]}}},"evals":[],"jsHooks":[]}</script>
 <h3 id="polar">Polar</h3>
 <pre class="r"><code>df %&gt;%
   uv_polar(x) %&gt;%
   uv_add(y) %&gt;%
   uv_frame(bgcolor = &quot;none&quot;)</code></pre>
-<div id="htmlwidget-c0bc9a934f0f2a87bf11" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c0bc9a934f0f2a87bf11">{"x":{"type":"PolarArea","config":{"meta":{"caption":""},"graph":{"responsive":true},"dimension":{"height":200},"frame":{"bgcolor":"none"}},"graph":{"categories":["y"],"dataset":{"y":[{"name":"apple","value":1},{"name":"banana","value":4},{"name":"cake","value":2},{"name":"mango","value":5},{"name":"strawberry","value":3}]}}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-93a219b778e9c5916ee4" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-93a219b778e9c5916ee4">{"x":{"type":"PolarArea","config":{"meta":{"caption":""},"graph":{"responsive":true},"dimension":{"height":200},"frame":{"bgcolor":"none"}},"graph":{"categories":["y"],"dataset":{"y":[{"name":"apple","value":1},{"name":"banana","value":4},{"name":"cake","value":2},{"name":"mango","value":5},{"name":"strawberry","value":3}]}}},"evals":[],"jsHooks":[]}</script>
 <h3 id="waterfall">Waterfall</h3>
 <pre class="r"><code>df %&gt;%
   uv_waterfall(x) %&gt;%
   uv_add(y) %&gt;%
   uv_frame(bgcolor = &quot;none&quot;)</code></pre>
-<div id="htmlwidget-616a5700ba65ca8dfc12" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-616a5700ba65ca8dfc12">{"x":{"type":"Waterfall","config":{"meta":{"caption":""},"graph":{"responsive":true},"dimension":{"height":200},"frame":{"bgcolor":"none"}},"graph":{"categories":["y"],"dataset":{"y":[{"name":"apple","value":1},{"name":"banana","value":4},{"name":"cake","value":2},{"name":"mango","value":5},{"name":"strawberry","value":3}]}}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-31465f215a07accd1f35" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-31465f215a07accd1f35">{"x":{"type":"Waterfall","config":{"meta":{"caption":""},"graph":{"responsive":true},"dimension":{"height":200},"frame":{"bgcolor":"none"}},"graph":{"categories":["y"],"dataset":{"y":[{"name":"apple","value":1},{"name":"banana","value":4},{"name":"cake","value":2},{"name":"mango","value":5},{"name":"strawberry","value":3}]}}},"evals":[],"jsHooks":[]}</script>
 <h3 id="any">Any</h3>
 <p>Pass any charts with <code>uv_chart</code> specifying <code>type</code> (CamelCase).</p>
 <pre class="r"><code>df %&gt;%
   uv_charts(x, type = &quot;Bar&quot;) %&gt;%
   uv_add(y) %&gt;%
   uv_frame(bgcolor = &quot;none&quot;)</code></pre>
-<div id="htmlwidget-4ba92542fbc0abddbcf4" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4ba92542fbc0abddbcf4">{"x":{"type":"Bar","config":{"meta":{"caption":""},"graph":{"responsive":true},"dimension":{"height":200},"frame":{"bgcolor":"none"}},"graph":{"categories":["y"],"dataset":{"y":[{"name":"apple","value":1},{"name":"banana","value":4},{"name":"cake","value":2},{"name":"mango","value":5},{"name":"strawberry","value":3}]}}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-f0eee7279389899e8605" style="width:100%;height:100%;" class="uvcharts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f0eee7279389899e8605">{"x":{"type":"Bar","config":{"meta":{"caption":""},"graph":{"responsive":true},"dimension":{"height":200},"frame":{"bgcolor":"none"}},"graph":{"categories":["y"],"dataset":{"y":[{"name":"apple","value":1},{"name":"banana","value":4},{"name":"cake","value":2},{"name":"mango","value":5},{"name":"strawberry","value":3}]}}},"evals":[],"jsHooks":[]}</script>
 </div>
 <p></main></p>
 
@@ -240,6 +240,11 @@ df &lt;- data.frame(x = 1:10, y = runif(10, 0, 5), z = runif(10, 0, 5))</code></
 <script type="text/javascript" charset="utf-8">
   $(".dropdown-button").dropdown();
   $(".button-collapse").sideNav();
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  $("main ul").addClass("collection");
+  $("main li").addClass("collection-item");
 </script>
 
 <footer class="page-footer blue">
