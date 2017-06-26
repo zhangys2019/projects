@@ -15,8 +15,8 @@
 <title></title>
 
 <link href="https://cdn.rawgit.com/gaborcsardi/r-font/master/rlogo.css" rel="stylesheet">
-<link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
-<script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+<link href="css/aos.css" rel="stylesheet">
+<script src="js/aos.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!--Import materialize.css-->
 <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
@@ -109,10 +109,16 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 
 <nav>
   <div class="nav-wrapper blue">
-    <div class = "container">
-      <a href="/" class="brand-logo brand left">John Coene</a>
+    <div class="container">
+      <a href="http://john-coene.com/" class="brand-logo brand">John Coene</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="http://johncoene.github.io/cv/" target="_blank">Resume</a></li>
+        <li><a href="http://johncoene.github.io/cv/" target="_blank"><i class="material-icons left">assignment_ind</i>Resume</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="http://johncoene.github.io/cv/" target="_blank"><i class="material-icons left">assignment_ind</i>Resume</a></li>
+        <li><a href="https://twitter.com/jdatap">Twitter</a></li>
+        <li><a href="https://github.com/JohnCoene">Github</a></li>
       </ul>
     </div>
   </div>
@@ -188,6 +194,14 @@ plotKML::<span class="kw">plotKML</span>(earth)</code></pre></div>
   $(document).ready(function(){
     $('.parallax').parallax();
   });
+</script>
+
+<script>
+  AOS.init();
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  $(".button-collapse").sideNav();
 </script>
 
 <footer class="page-footer blue">

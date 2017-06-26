@@ -96,6 +96,9 @@ div(
     div(
       class = "col m4",
       div(
+        `data-aos` = "flip-up",
+        `data-aos-delay` = "100",
+        `data-aos-duration` = "1500",
         class = "card sticky-action",
         div(
           class = "card-image",
@@ -187,7 +190,7 @@ div(
               ),
               p(
                 class = "grey-text text-darken-2",
-                "Limericks in your website."
+                "Limericks on your website."
               ),
               a(
                 class = "secondary-content",
@@ -230,6 +233,9 @@ div(
     div(
       class = "col m4",
       div(
+        `data-aos` = "flip-up",
+        `data-aos-delay` = "100",
+        `data-aos-duration` = "1500",
         class = "card sticky-action",
         div(
           class = "card-image",
@@ -277,12 +283,15 @@ div(
     div(
       class = "col m4",
       div(
+        `data-aos` = "flip-up",
+        `data-aos-delay` = "100",
+        `data-aos-duration` = "1500",
         class = "card sticky-action",
         div(
           class = "card-image",
           img(
             class = "activator",
-            src = "https://raw.githubusercontent.com/JohnCoene/marat/master/assets/img/screenshot.png"
+            src = "img/marat.png"
           )
         ),
         div(
@@ -349,6 +358,9 @@ div(
     div(
       class = "col m4",
       div(
+        `data-aos` = "flip-up",
+        `data-aos-delay` = "100",
+        `data-aos-duration` = "1500",
         class = "card sticky-action",
         div(
           class = "card-image",
@@ -403,6 +415,9 @@ div(
       div(
         class = "card sticky-action",
         div(
+          `data-aos` = "flip-up",
+          `data-aos-delay` = "100",
+          `data-aos-duration` = "1500",
           class = "card-image",
           img(
             class = "activator",
@@ -439,6 +454,29 @@ div(
           ),
           p(
             "R htmlwidget for chartistjs."
+          ),
+          tags$ul(
+            class = "collection",
+            tags$li(
+              class = "collection-item",
+              "8 chart types"
+            ),
+            tags$li(
+              class = "collection-item",
+              "Plugins"
+            ),
+            tags$li(
+              class = "collection-item",
+              "Options"
+            ),
+            tags$li(
+              class = "collection-item",
+              "Fully responsive"
+            ),
+            tags$li(
+              class = "collection-item",
+              "Animations"
+            )
           )
         )
       )
@@ -446,6 +484,9 @@ div(
     div(
       class = "col m4",
       div(
+        `data-aos` = "flip-up",
+        `data-aos-delay` = "100",
+        `data-aos-duration` = "1500",
         class = "card sticky-action",
         div(
           class = "card-image",
@@ -494,6 +535,9 @@ div(
     div(
       class = "col m6",
       div(
+        `data-aos` = "flip-up",
+        `data-aos-delay` = "100",
+        `data-aos-duration` = "1500",
         class = "card sticky-action",
         div(
           class = "card-image",
@@ -539,6 +583,9 @@ div(
     div(
       class = "col m6",
       div(
+        `data-aos` = "flip-up",
+        `data-aos-delay` = "100",
+        `data-aos-duration` = "1500",
         class = "card sticky-action",
         div(
           class = "card-image",
@@ -631,6 +678,9 @@ div(
     div(
       class = "col m6",
       div(
+        `data-aos` = "flip-up",
+        `data-aos-delay` = "100",
+        `data-aos-duration` = "1500",
         class = "card sticky-action",
         div(
           class = "card-image",
@@ -668,7 +718,7 @@ div(
             )
           ),
           p(
-            "R package to visualise Twitter interactions."
+            "R package to visualise Twitter interactions. Includes function to write dynamic Gephi file."
           )
         )
       )
@@ -676,6 +726,9 @@ div(
     div(
       class = "col m6",
       div(
+        `data-aos` = "flip-up",
+        `data-aos-delay` = "100",
+        `data-aos-duration` = "1500",
         class = "card sticky-action",
         div(
           class = "card-image",
@@ -713,7 +766,7 @@ div(
             )
           ),
           p(
-            "R package to plot tweets onto Google Earth."
+            "R package to plot tweets onto Google Earth. Includes function to open generate geo-temporal graph."
           ),
           tags$ul(
             class = "collection",
@@ -753,6 +806,9 @@ div(
     div(
       class = "col m4",
       div(
+        `data-aos` = "flip-up",
+        `data-aos-delay` = "100",
+        `data-aos-duration` = "1500",
         class = "card sticky-action",
         div(
           class = "card-image",
@@ -790,7 +846,9 @@ div(
             )
           ),
           p(
-            "youTubeDataR is an R package that wraps the YouTube Data API."
+            "youTubeDataR is an R package that wraps the YouTube Data API, features all ", 
+            code("GET"), 
+            " functions."
           )
         )
       )
@@ -798,6 +856,9 @@ div(
     div(
       class = "col m4",
       div(
+        `data-aos` = "flip-up",
+        `data-aos-delay` = "100",
+        `data-aos-duration` = "1500",
         class = "card sticky-action",
         div(
           class = "card-image",
@@ -835,7 +896,8 @@ div(
             )
           ),
           p(
-            "R package that includes all the Bible books and some text mining utilities to deal with Middle English."
+            "R package that includes all the Bible books (King James version) ",
+            "and some text mining utilities to deal with Middle English."
           )
         )
       )
@@ -843,6 +905,9 @@ div(
     div(
       class = "col m4",
       div(
+        `data-aos` = "flip-up",
+        `data-aos-delay` = "100",
+        `data-aos-duration` = "1500",
         class = "card sticky-action",
         div(
           class = "card-image",
@@ -914,6 +979,9 @@ div(
     div(
       class = "col m4",
       div(
+        `data-aos` = "flip-up",
+        `data-aos-delay` = "100",
+        `data-aos-duration` = "1500",
         class = "card sticky-action",
         div(
           class = "card-image",
@@ -965,6 +1033,9 @@ div(
     div(
       class = "col m4",
       div(
+        `data-aos` = "flip-up",
+        `data-aos-delay` = "100",
+        `data-aos-duration` = "1500",
         class = "card sticky-action",
         div(
           class = "card-image",
@@ -1016,6 +1087,9 @@ div(
     div(
       class = "col m4",
       div(
+        `data-aos` = "flip-up",
+        `data-aos-delay` = "100",
+        `data-aos-duration` = "1500",
         class = "card sticky-action",
         div(
           class = "card-image",
@@ -1053,7 +1127,7 @@ div(
             )
           ),
           p(
-            "R package to put easter eggs in your Rmarkdown reports."
+            "R package to put easter eggs in your Rmarkdown reports; text and images."
           )
         )
       )

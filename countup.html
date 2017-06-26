@@ -18,8 +18,8 @@
 <script src="site_libs/countUp-1.8.1/countUp-1.8.1.js"></script>
 <script src="site_libs/countup-binding-0.0.1/countup.js"></script>
 <link href="https://cdn.rawgit.com/gaborcsardi/r-font/master/rlogo.css" rel="stylesheet">
-<link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
-<script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+<link href="css/aos.css" rel="stylesheet">
+<script src="js/aos.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!--Import materialize.css-->
 <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
@@ -112,10 +112,16 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 
 <nav>
   <div class="nav-wrapper blue">
-    <div class = "container">
-      <a href="/" class="brand-logo brand left">John Coene</a>
+    <div class="container">
+      <a href="http://john-coene.com/" class="brand-logo brand">John Coene</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="http://johncoene.github.io/cv/" target="_blank">Resume</a></li>
+        <li><a href="http://johncoene.github.io/cv/" target="_blank"><i class="material-icons left">assignment_ind</i>Resume</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="http://johncoene.github.io/cv/" target="_blank"><i class="material-icons left">assignment_ind</i>Resume</a></li>
+        <li><a href="https://twitter.com/jdatap">Twitter</a></li>
+        <li><a href="https://github.com/JohnCoene">Github</a></li>
       </ul>
     </div>
   </div>
@@ -130,8 +136,8 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 <div class="page-header">
 <h3>
 John has been on earth for <span class = 'red-text'>
-<span id="htmlwidget-a88f83c219cbbe1b089d" class="countup html-widget"></span>
-<script type="application/json" data-for="htmlwidget-a88f83c219cbbe1b089d">{"x":{"count":15242400,"start":0,"options":{"useEasing":true,"useGrouping":true,"separator":"'","decimal":".","prefix":"~"},"duration":2.5},"evals":[],"jsHooks":[]}</script>
+<span id="htmlwidget-92a280fe198d631edca9" class="countup html-widget"></span>
+<script type="application/json" data-for="htmlwidget-92a280fe198d631edca9">{"x":{"count":15242400,"start":0,"options":{"useEasing":true,"useGrouping":true,"separator":"'","decimal":".","prefix":"~"},"duration":2.5},"evals":[],"jsHooks":[]}</script>
 </span> minutes.
 </h3>
 </div>
@@ -184,6 +190,14 @@ opts =<span class="st"> </span><span class="kw">list</span>(
   $(document).ready(function(){
     $('.parallax').parallax();
   });
+</script>
+
+<script>
+  AOS.init();
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  $(".button-collapse").sideNav();
 </script>
 
 <footer class="page-footer blue">

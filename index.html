@@ -15,8 +15,8 @@
 <title></title>
 
 <link href="https://cdn.rawgit.com/gaborcsardi/r-font/master/rlogo.css" rel="stylesheet">
-<link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
-<script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+<link href="css/aos.css" rel="stylesheet">
+<script src="js/aos.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!--Import materialize.css-->
 <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
@@ -72,10 +72,16 @@
 
 <nav>
   <div class="nav-wrapper blue">
-    <div class = "container">
-      <a href="/" class="brand-logo brand left">John Coene</a>
+    <div class="container">
+      <a href="http://john-coene.com/" class="brand-logo brand">John Coene</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="http://johncoene.github.io/cv/" target="_blank">Resume</a></li>
+        <li><a href="http://johncoene.github.io/cv/" target="_blank"><i class="material-icons left">assignment_ind</i>Resume</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="http://johncoene.github.io/cv/" target="_blank"><i class="material-icons left">assignment_ind</i>Resume</a></li>
+        <li><a href="https://twitter.com/jdatap">Twitter</a></li>
+        <li><a href="https://github.com/JohnCoene">Github</a></li>
       </ul>
     </div>
   </div>
@@ -123,7 +129,7 @@
 <h1 class="blue-text center">Web</h1>
 <div class="row">
 <div class="col m4">
-<div class="card sticky-action">
+<div data-aos="flip-up" data-aos-delay="100" data-aos-duration="1500" class="card sticky-action">
 <div class="card-image">
 <img class="activator" src="img/thumbnails/fiveline.png"/>
 </div>
@@ -158,7 +164,7 @@ five-line
 <li class="collection-item avatar">
 <i class="material-icons circle amber white-text">code</i>
 <span class="title text-darken-2">API</span>
-<p class="grey-text text-darken-2">Limericks in your website.</p>
+<p class="grey-text text-darken-2">Limericks on your website.</p>
 <a class="secondary-content" href="http://www.five-line.org/api" target="_blank">
 <i class="material-icons grey-text text-darken-2">send</i>
 </a>
@@ -176,7 +182,7 @@ five-line
 </div>
 </div>
 <div class="col m4">
-<div class="card sticky-action">
+<div data-aos="flip-up" data-aos-delay="100" data-aos-duration="1500" class="card sticky-action">
 <div class="card-image">
 <img class="activator" src="img/thumbnails/wine-dashboard.jpg"/>
 </div>
@@ -202,9 +208,9 @@ Includes dashboards on grape varieties, taste descriptors, wines associated with
 </div>
 </div>
 <div class="col m4">
-<div class="card sticky-action">
+<div data-aos="flip-up" data-aos-delay="100" data-aos-duration="1500" class="card sticky-action">
 <div class="card-image">
-<img class="activator" src="https://raw.githubusercontent.com/JohnCoene/marat/master/assets/img/screenshot.png"/>
+<img class="activator" src="img/marat.png"/>
 </div>
 <div class="card-content">
 <span class="card-title activator grey-text text-darken-2">
@@ -238,7 +244,7 @@ by Jean-Paul Marat.
 <h1 class="blue-text center">Viz</h1>
 <div class="row">
 <div class="col m4">
-<div class="card sticky-action">
+<div data-aos="flip-up" data-aos-delay="100" data-aos-duration="1500" class="card sticky-action">
 <div class="card-image">
 <img class="activator" src="img/thumbnails/peity.png"/>
 </div>
@@ -266,7 +272,7 @@ peity htmlwidget for R
 </div>
 <div class="col m4">
 <div class="card sticky-action">
-<div class="card-image">
+<div data-aos="flip-up" data-aos-delay="100" data-aos-duration="1500" class="card-image">
 <img class="activator" src="img/thumbnails/chartist.png"/>
 </div>
 <div class="card-content">
@@ -284,11 +290,18 @@ chartist
 <i class="material-icons right">close</i>
 </span>
 <p>R htmlwidget for chartistjs.</p>
+<ul class="collection">
+<li class="collection-item">8 chart types</li>
+<li class="collection-item">Plugins</li>
+<li class="collection-item">Options</li>
+<li class="collection-item">Fully responsive</li>
+<li class="collection-item">Animations</li>
+</ul>
 </div>
 </div>
 </div>
 <div class="col m4">
-<div class="card sticky-action">
+<div data-aos="flip-up" data-aos-delay="100" data-aos-duration="1500" class="card sticky-action">
 <div class="card-image">
 <img class="activator" src="img/thumbnails/uvcharts.png"/>
 </div>
@@ -313,7 +326,7 @@ uvcharts
 </div>
 <div class="row">
 <div class="col m6">
-<div class="card sticky-action">
+<div data-aos="flip-up" data-aos-delay="100" data-aos-duration="1500" class="card sticky-action">
 <div class="card-image">
 <img class="activator" src="img/thumbnails/datamaps.png"/>
 </div>
@@ -336,7 +349,7 @@ datamaps
 </div>
 </div>
 <div class="col m6">
-<div class="card sticky-action">
+<div data-aos="flip-up" data-aos-delay="100" data-aos-duration="1500" class="card sticky-action">
 <div class="card-image">
 <img class="activator" src="img/thumbnails/echarts.png"/>
 </div>
@@ -375,7 +388,7 @@ echarts
 <h1 class="blue-text center">Twitter</h1>
 <div class="row">
 <div class="col m6">
-<div class="card sticky-action">
+<div data-aos="flip-up" data-aos-delay="100" data-aos-duration="1500" class="card sticky-action">
 <div class="card-image">
 <img class="activator" src="img/thumbnails/graphTweets.png"/>
 </div>
@@ -393,12 +406,12 @@ graphTweets
 graphTweets
 <i class="material-icons right">close</i>
 </span>
-<p>R package to visualise Twitter interactions.</p>
+<p>R package to visualise Twitter interactions. Includes function to write dynamic Gephi file.</p>
 </div>
 </div>
 </div>
 <div class="col m6">
-<div class="card sticky-action">
+<div data-aos="flip-up" data-aos-delay="100" data-aos-duration="1500" class="card sticky-action">
 <div class="card-image">
 <img class="activator" src="img/thumbnails/tweets2earth.png"/>
 </div>
@@ -416,7 +429,7 @@ tweets2earth
 tweets2earth
 <i class="material-icons right">close</i>
 </span>
-<p>R package to plot tweets onto Google Earth.</p>
+<p>R package to plot tweets onto Google Earth. Includes function to open generate geo-temporal graph.</p>
 <ul class="collection">
 <li></li>
 </ul>
@@ -434,7 +447,7 @@ tweets2earth
 <h1 class="blue-text center">Data</h1>
 <div class="row">
 <div class="col m4">
-<div class="card sticky-action">
+<div data-aos="flip-up" data-aos-delay="100" data-aos-duration="1500" class="card sticky-action">
 <div class="card-image">
 <img class="activator" src="img/thumbnails/youTubeDataR.png"/>
 </div>
@@ -452,12 +465,16 @@ youTubeDataR
 youTubeDataR
 <i class="material-icons right">close</i>
 </span>
-<p>youTubeDataR is an R package that wraps the YouTube Data API.</p>
+<p>
+youTubeDataR is an R package that wraps the YouTube Data API, features all 
+<code>GET</code>
+ functions.
+</p>
 </div>
 </div>
 </div>
 <div class="col m4">
-<div class="card sticky-action">
+<div data-aos="flip-up" data-aos-delay="100" data-aos-duration="1500" class="card sticky-action">
 <div class="card-image">
 <img class="activator" src="img/thumbnails/bibler.jpg"/>
 </div>
@@ -475,12 +492,15 @@ bibler
 bibler
 <i class="material-icons right">close</i>
 </span>
-<p>R package that includes all the Bible books and some text mining utilities to deal with Middle English.</p>
+<p>
+R package that includes all the Bible books (King James version) 
+and some text mining utilities to deal with Middle English.
+</p>
 </div>
 </div>
 </div>
 <div class="col m4">
-<div class="card sticky-action">
+<div data-aos="flip-up" data-aos-delay="100" data-aos-duration="1500" class="card sticky-action">
 <div class="card-image">
 <img class="activator" src="img/thumbnails/rodham.png"/>
 </div>
@@ -513,7 +533,7 @@ rodham
 <h1 class="blue-text center">Misc</h1>
 <div class="row">
 <div class="col m4">
-<div class="card sticky-action">
+<div data-aos="flip-up" data-aos-delay="100" data-aos-duration="1500" class="card sticky-action">
 <div class="card-image">
 <img class="activator" src="img/thumbnails/typed.png"/>
 </div>
@@ -540,7 +560,7 @@ typed is an R implementation of
 </div>
 </div>
 <div class="col m4">
-<div class="card sticky-action">
+<div data-aos="flip-up" data-aos-delay="100" data-aos-duration="1500" class="card sticky-action">
 <div class="card-image">
 <img class="activator" src="img/thumbnails/countup.png"/>
 </div>
@@ -567,7 +587,7 @@ R implementation of
 </div>
 </div>
 <div class="col m4">
-<div class="card sticky-action">
+<div data-aos="flip-up" data-aos-delay="100" data-aos-duration="1500" class="card sticky-action">
 <div class="card-image">
 <img class="activator" src="img/thumbnails/egg.jpg"/>
 </div>
@@ -585,7 +605,7 @@ egg
 egg
 <i class="material-icons right">close</i>
 </span>
-<p>R package to put easter eggs in your Rmarkdown reports.</p>
+<p>R package to put easter eggs in your Rmarkdown reports; text and images.</p>
 </div>
 </div>
 </div>
@@ -610,6 +630,14 @@ egg
   $(document).ready(function(){
     $('.parallax').parallax();
   });
+</script>
+
+<script>
+  AOS.init();
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  $(".button-collapse").sideNav();
 </script>
 
 <footer class="page-footer blue">

@@ -19,8 +19,8 @@
 <script src="site_libs/tippyjs-0.17.0/tippy.min.js"></script>
 <script src="site_libs/tippy-binding-0.0.0.9000/tippy.js"></script>
 <link href="https://cdn.rawgit.com/gaborcsardi/r-font/master/rlogo.css" rel="stylesheet">
-<link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
-<script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+<link href="css/aos.css" rel="stylesheet">
+<script src="js/aos.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!--Import materialize.css-->
 <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
@@ -113,10 +113,16 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 
 <nav>
   <div class="nav-wrapper blue">
-    <div class = "container">
-      <a href="/" class="brand-logo brand left">John Coene</a>
+    <div class="container">
+      <a href="http://john-coene.com/" class="brand-logo brand">John Coene</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="http://johncoene.github.io/cv/" target="_blank">Resume</a></li>
+        <li><a href="http://johncoene.github.io/cv/" target="_blank"><i class="material-icons left">assignment_ind</i>Resume</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="http://johncoene.github.io/cv/" target="_blank"><i class="material-icons left">assignment_ind</i>Resume</a></li>
+        <li><a href="https://twitter.com/jdatap">Twitter</a></li>
+        <li><a href="https://github.com/JohnCoene">Github</a></li>
       </ul>
     </div>
   </div>
@@ -163,20 +169,20 @@ is an htmlwidget for
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tippy)
 
 <span class="kw">tippy</span>(<span class="st">&quot;Hover me!&quot;</span>, <span class="dt">tooltip =</span> <span class="st">&quot;Hi, I&#39;m the tooltip!&quot;</span>)</code></pre></div>
-<span id="htmlwidget-31d8c1504a63915879a4" class="tippy html-widget" width="672" height="480"></span>
-<script type="application/json" data-for="htmlwidget-31d8c1504a63915879a4">{"x":{"text":"Hover me!","tooltip":"Hi, I'm the tooltip!","position":"top","animation":"shift","trigger":"mouseenter focus","interactive":"false","interactiveBorder":2,"delay":0,"hideDelay":0,"arrow":"false","arrowSize":"regular","animateFill":"true","duration":375,"hideDuration":375,"html":"false","distance":10,"theme":"dark","offset":0,"hideOnClick":"true","multiple":"false","followCursor":"false","inertia":"false","flipDuration":300,"sticky":"false","stickyDuration":"false","zIndex":9999,"touchHold":"false"},"evals":[],"jsHooks":[]}</script>
+<span id="htmlwidget-6007e521ae2419b3c93f" class="tippy html-widget" width="672" height="480"></span>
+<script type="application/json" data-for="htmlwidget-6007e521ae2419b3c93f">{"x":{"text":"Hover me!","tooltip":"Hi, I'm the tooltip!","position":"top","animation":"shift","trigger":"mouseenter focus","interactive":"false","interactiveBorder":2,"delay":0,"hideDelay":0,"arrow":"false","arrowSize":"regular","animateFill":"true","duration":375,"hideDuration":375,"html":"false","distance":10,"theme":"dark","offset":0,"hideOnClick":"true","multiple":"false","followCursor":"false","inertia":"false","flipDuration":300,"sticky":"false","stickyDuration":"false","zIndex":9999,"touchHold":"false"},"evals":[],"jsHooks":[]}</script>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tippy</span>(<span class="st">&quot;Hover me!&quot;</span>, <span class="dt">tooltip =</span> <span class="st">&quot;Hi, I&#39;m the tooltip!&quot;</span>, <span class="dt">position =</span> <span class="st">&quot;right&quot;</span>,
   <span class="dt">theme =</span> <span class="st">&quot;light&quot;</span>)</code></pre></div>
-<span id="htmlwidget-e2887f8bd3678fa8c66b" class="tippy html-widget" width="672" height="480"></span>
-<script type="application/json" data-for="htmlwidget-e2887f8bd3678fa8c66b">{"x":{"text":"Hover me!","tooltip":"Hi, I'm the tooltip!","position":"right","animation":"shift","trigger":"mouseenter focus","interactive":"false","interactiveBorder":2,"delay":0,"hideDelay":0,"arrow":"false","arrowSize":"regular","animateFill":"true","duration":375,"hideDuration":375,"html":"false","distance":10,"theme":"light","offset":0,"hideOnClick":"true","multiple":"false","followCursor":"false","inertia":"false","flipDuration":300,"sticky":"false","stickyDuration":"false","zIndex":9999,"touchHold":"false"},"evals":[],"jsHooks":[]}</script>
+<span id="htmlwidget-a653496e9f5c56d7142d" class="tippy html-widget" width="672" height="480"></span>
+<script type="application/json" data-for="htmlwidget-a653496e9f5c56d7142d">{"x":{"text":"Hover me!","tooltip":"Hi, I'm the tooltip!","position":"right","animation":"shift","trigger":"mouseenter focus","interactive":"false","interactiveBorder":2,"delay":0,"hideDelay":0,"arrow":"false","arrowSize":"regular","animateFill":"true","duration":375,"hideDuration":375,"html":"false","distance":10,"theme":"light","offset":0,"hideOnClick":"true","multiple":"false","followCursor":"false","inertia":"false","flipDuration":300,"sticky":"false","stickyDuration":"false","zIndex":9999,"touchHold":"false"},"evals":[],"jsHooks":[]}</script>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tippy</span>(<span class="st">&quot;Hover me!&quot;</span>, <span class="dt">tooltip =</span> <span class="st">&quot;Hi, I&#39;m the tooltip!&quot;</span>, <span class="dt">animation =</span> <span class="st">&quot;scale&quot;</span>,
   <span class="dt">duration =</span> <span class="dv">1000</span>, <span class="dt">position =</span> <span class="st">&quot;bottom&quot;</span>)</code></pre></div>
-<span id="htmlwidget-9b11f27e244617b93f58" class="tippy html-widget" width="672" height="480"></span>
-<script type="application/json" data-for="htmlwidget-9b11f27e244617b93f58">{"x":{"text":"Hover me!","tooltip":"Hi, I'm the tooltip!","position":"bottom","animation":"scale","trigger":"mouseenter focus","interactive":"false","interactiveBorder":2,"delay":0,"hideDelay":0,"arrow":"false","arrowSize":"regular","animateFill":"true","duration":1000,"hideDuration":1000,"html":"false","distance":10,"theme":"dark","offset":0,"hideOnClick":"true","multiple":"false","followCursor":"false","inertia":"false","flipDuration":300,"sticky":"false","stickyDuration":"false","zIndex":9999,"touchHold":"false"},"evals":[],"jsHooks":[]}</script>
+<span id="htmlwidget-343785fa689010a2b73f" class="tippy html-widget" width="672" height="480"></span>
+<script type="application/json" data-for="htmlwidget-343785fa689010a2b73f">{"x":{"text":"Hover me!","tooltip":"Hi, I'm the tooltip!","position":"bottom","animation":"scale","trigger":"mouseenter focus","interactive":"false","interactiveBorder":2,"delay":0,"hideDelay":0,"arrow":"false","arrowSize":"regular","animateFill":"true","duration":1000,"hideDuration":1000,"html":"false","distance":10,"theme":"dark","offset":0,"hideOnClick":"true","multiple":"false","followCursor":"false","inertia":"false","flipDuration":300,"sticky":"false","stickyDuration":"false","zIndex":9999,"touchHold":"false"},"evals":[],"jsHooks":[]}</script>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tippy</span>(<span class="st">&quot;Click me!&quot;</span>, <span class="dt">tooltip =</span> <span class="st">&quot;Hi, I&#39;m the tooltip!&quot;</span>, <span class="dt">trigger =</span> <span class="st">&quot;click&quot;</span>,
   <span class="dt">theme =</span> <span class="st">&quot;light&quot;</span>)</code></pre></div>
-<span id="htmlwidget-11c21b9830939432942a" class="tippy html-widget" width="672" height="480"></span>
-<script type="application/json" data-for="htmlwidget-11c21b9830939432942a">{"x":{"text":"Click me!","tooltip":"Hi, I'm the tooltip!","position":"top","animation":"shift","trigger":"click","interactive":"false","interactiveBorder":2,"delay":0,"hideDelay":0,"arrow":"false","arrowSize":"regular","animateFill":"true","duration":375,"hideDuration":375,"html":"false","distance":10,"theme":"light","offset":0,"hideOnClick":"true","multiple":"false","followCursor":"false","inertia":"false","flipDuration":300,"sticky":"false","stickyDuration":"false","zIndex":9999,"touchHold":"false"},"evals":[],"jsHooks":[]}</script>
+<span id="htmlwidget-d8fa35753e9bd8ca0172" class="tippy html-widget" width="672" height="480"></span>
+<script type="application/json" data-for="htmlwidget-d8fa35753e9bd8ca0172">{"x":{"text":"Click me!","tooltip":"Hi, I'm the tooltip!","position":"top","animation":"shift","trigger":"click","interactive":"false","interactiveBorder":2,"delay":0,"hideDelay":0,"arrow":"false","arrowSize":"regular","animateFill":"true","duration":375,"hideDuration":375,"html":"false","distance":10,"theme":"light","offset":0,"hideOnClick":"true","multiple":"false","followCursor":"false","inertia":"false","flipDuration":300,"sticky":"false","stickyDuration":"false","zIndex":9999,"touchHold":"false"},"evals":[],"jsHooks":[]}</script>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
@@ -195,6 +201,14 @@ is an htmlwidget for
   $(document).ready(function(){
     $('.parallax').parallax();
   });
+</script>
+
+<script>
+  AOS.init();
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  $(".button-collapse").sideNav();
 </script>
 
 <footer class="page-footer blue">

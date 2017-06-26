@@ -19,8 +19,8 @@
 <script src="site_libs/egg-1/egg.js"></script>
 <script src="site_libs/egg-binding-0.0.1/egg.js"></script>
 <link href="https://cdn.rawgit.com/gaborcsardi/r-font/master/rlogo.css" rel="stylesheet">
-<link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
-<script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+<link href="css/aos.css" rel="stylesheet">
+<script src="js/aos.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!--Import materialize.css-->
 <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
@@ -113,10 +113,16 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 
 <nav>
   <div class="nav-wrapper blue">
-    <div class = "container">
-      <a href="/" class="brand-logo brand left">John Coene</a>
+    <div class="container">
+      <a href="http://john-coene.com/" class="brand-logo brand">John Coene</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="http://johncoene.github.io/cv/" target="_blank">Resume</a></li>
+        <li><a href="http://johncoene.github.io/cv/" target="_blank"><i class="material-icons left">assignment_ind</i>Resume</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="http://johncoene.github.io/cv/" target="_blank"><i class="material-icons left">assignment_ind</i>Resume</a></li>
+        <li><a href="https://twitter.com/jdatap">Twitter</a></li>
+        <li><a href="https://github.com/JohnCoene">Github</a></li>
       </ul>
     </div>
   </div>
@@ -138,8 +144,8 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 <blockquote>
 <p>Type “coene” to see it in action!</p>
 </blockquote>
-<div id="htmlwidget-1d358d650f63f8401df1" class="egg html-widget" style="display: none; position: absolute; top:20%; left:50% width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-1d358d650f63f8401df1">{"x":{"egg":"","stroke":["c","o","e","n","e"],"fade":1000,"imegg":"http://media.vanityfair.com/photos/54cbf3da998d4de83ba3602a/master/w_960,c_limit/image.jpg"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-fc88ede77d5141a4fa01" class="egg html-widget" style="display: none; position: absolute; top:20%; left:50% width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-fc88ede77d5141a4fa01">{"x":{"egg":"","stroke":["c","o","e","n","e"],"fade":1000,"imegg":"http://media.vanityfair.com/photos/54cbf3da998d4de83ba3602a/master/w_960,c_limit/image.jpg"},"evals":[],"jsHooks":[]}</script>
 <div class="page-header">
 <h2>Install</h2>
 </div>
@@ -173,6 +179,14 @@ devtools::<span class="kw">install_github</span>(<span class="st">&quot;JohnCoen
   $(document).ready(function(){
     $('.parallax').parallax();
   });
+</script>
+
+<script>
+  AOS.init();
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  $(".button-collapse").sideNav();
 </script>
 
 <footer class="page-footer blue">

@@ -16,7 +16,7 @@ div(
     "Marat"
   ),
   img(
-    src = "https://raw.githubusercontent.com/JohnCoene/marat/master/assets/img/screenshot.png",
+    src = "img/marat.png",
     class = "responsive-img z-depth-2"
   ),
   br(),
