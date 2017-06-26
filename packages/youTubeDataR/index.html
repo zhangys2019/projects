@@ -125,7 +125,7 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
       <a href="/" class="brand-logo brand left">John Coene</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="https://github.com/JohnCoene/youtubedatar" target="_blank">Repository</a></li>
-        <li><a href="docs" target="_blank">Docs</a></li>
+        <li><a href="docs">Docs</a></li>
       </ul>
     </div>
   </div>
@@ -137,9 +137,9 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 
 <main>
 <div class="container">
-<h1>youTubeDataR</h1>
-<div id="htmlwidget-0304731b7029df288d4f" style="width:100%;height:300px;" class="chartist html-widget"></div>
-<script type="application/json" data-for="htmlwidget-0304731b7029df288d4f">{"x":{"cdat":{"labels":[905591,4843113,651601,287618,636307,705176,1149649,113598,154463,213217,1936566,181129,165196,1431913,46051,402125,259773,136191,2324410,29898,1867280,1833489,653338,1084911,1666495,197805,16734544,324135,1473460,420065,5439549,211886,1320359,137504,238333,228737,82884,1273046,1804828,445847,533542,201779,156306,7020,620842,35010,129688,242391,2206926,486106],"series":[{"name":"line-1","data":[295,286,224,6437,4212,2758,5342,15318,2727,23661,7987,15942,1226,17353,7624,3011,6756,9594,2496,16483,11580,19916,8003,16143,16620,19524,30218,22343,38917,20255,9778,36148,33492,8938,14918,15928,101310,5363,37829,48351,88094,104661,109012,74139,9396,61000,64368,187013,68412,692995]}]},"ratio":"ct-chart","type":"line","options":{"showArea":true,"showPoint":false,"axisX":{"showLabel":false,"labelInterpolationFnc":"function(value) { return '' + value + '';}"}},"anim":{"FUN":"\n    function(data){\n      if(data.type === 'line' || data.type === 'area'){\n        data.element.animate({d:{begin: 2000 * data.index, dur: 2000, from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(), to: data.path.clone().stringify(), easing: Chartist.Svg.Easing.easeOutQuint}});\n      }\n    }"},"loop":{"ms":5000}},"evals":["options.axisX.labelInterpolationFnc","anim.FUN"],"jsHooks":[]}</script>
+<h2>youTubeDataR</h2>
+<div id="htmlwidget-288462063320d56ba1b7" style="width:100%;height:300px;" class="chartist html-widget"></div>
+<script type="application/json" data-for="htmlwidget-288462063320d56ba1b7">{"x":{"cdat":{"labels":[905591,4843113,651601,287618,636307,705176,1149649,113598,154463,213217,1936566,181129,165196,1431913,46051,402125,259773,136191,2324410,29898,1867280,1833489,653338,1084911,1666495,197805,16734544,324135,1473460,420065,5439549,211886,1320359,137504,238333,228737,82884,1273046,1804828,445847,533542,201779,156306,7020,620842,35010,129688,242391,2206926,486106],"series":[{"name":"line-1","data":[295,286,224,6437,4212,2758,5342,15318,2727,23661,7987,15942,1226,17353,7624,3011,6756,9594,2496,16483,11580,19916,8003,16143,16620,19524,30218,22343,38917,20255,9778,36148,33492,8938,14918,15928,101310,5363,37829,48351,88094,104661,109012,74139,9396,61000,64368,187013,68412,692995]}]},"ratio":"ct-chart","type":"line","options":{"showArea":true,"showPoint":false,"axisX":{"showLabel":false,"labelInterpolationFnc":"function(value) { return '' + value + '';}"}},"style":{"FUN":"\n    function(context){\n      if(context.type === 'line'){\n        context.element.attr({style: 'stroke:#2196f3;'});\n      }\n    }"},"anim":{"FUN":"\n    function(data){\n      if(data.type === 'line' || data.type === 'area'){\n        data.element.animate({d:{begin: 2000 * data.index, dur: 2000, from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(), to: data.path.clone().stringify(), easing: Chartist.Svg.Easing.easeOutQuint}});\n      }\n    }"}},"evals":["options.axisX.labelInterpolationFnc","style.FUN","anim.FUN"],"jsHooks":[]}</script>
 <p><a href="https://travis-ci.org/JohnCoene/youTubeDataR"><img src="https://travis-ci.org/JohnCoene/youTubeDataR.svg?branch=master" alt="Build Status" /></a> <a href="https://ci.appveyor.com/project/JohnCoene/youTubeDataR"><img src="https://ci.appveyor.com/api/projects/status/github/JohnCoene/youTubeDataR?branch=master&amp;svg=true" alt="AppVeyor Build Status" /></a> <a href="https://codecov.io/github/JohnCoene/youTubeDataR?branch=master"><img src="https://codecov.io/github/JohnCoene/youTubeDataR/coverage.svg?branch=master" alt="codecov.io" /></a> <a href="https://coveralls.io/github/JohnCoene/youTubeDataR?branch=master"><img src="https://coveralls.io/repos/github/JohnCoene/youTubeDataR/badge.svg?branch=master" alt="Coverage Status" /></a></p>
 <div class="container-fluid">
 <br/>
@@ -202,12 +202,12 @@ videos &lt;-<span class="st"> </span><span class="kw">getVideos</span>(TK, <span
 
 <span class="co"># plot view count vs comment count</span>
 videos %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(statistics.viewCount) %&gt;%
+<span class="st">  </span><span class="kw">chart_ist</span>(statistics.viewCount, <span class="dt">height =</span> <span class="dv">300</span>) %&gt;%
 <span class="st">  </span><span class="kw">add_ist</span>(statistics.likeCount) %&gt;%
 <span class="st">  </span><span class="kw">opt_ist</span>(<span class="dt">showArea =</span> <span class="ot">TRUE</span>, <span class="dt">showPoint =</span> <span class="ot">FALSE</span>) %&gt;%
 <span class="st">  </span><span class="kw">xaxis_ist</span>(<span class="dt">showLabel =</span> <span class="ot">FALSE</span>) %&gt;%
-<span class="st">  </span><span class="kw">lanim_ist</span>() %&gt;%
-<span class="st">  </span><span class="kw">loop_ist</span>()</code></pre></div>
+<span class="st">  </span><span class="kw">style_ist</span>(<span class="kw">c</span>(<span class="st">&quot;line&quot;</span>), <span class="dt">css =</span> htmltools::<span class="kw">css</span>(<span class="dt">stroke =</span> <span class="st">&quot;#2196f3&quot;</span>)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">lanim_ist</span>() </code></pre></div>
 </div>
 <p></main></p>
 

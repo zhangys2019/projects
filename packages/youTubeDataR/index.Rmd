@@ -14,7 +14,7 @@ videos <- get(load("cred.RData"))
 <div class = "container">
 
 ```{r}
-h1(
+h2(
   "youTubeDataR"
 )
 ```
@@ -25,8 +25,8 @@ videos %>%
   add_ist(statistics.likeCount) %>%
   opt_ist(showArea = TRUE, showPoint = FALSE) %>%
   xaxis_ist(showLabel = FALSE) %>%
-  lanim_ist() %>%
-  loop_ist()
+  style_ist(c("line"), css = htmltools::css(stroke = "#2196f3")) %>% 
+  lanim_ist() 
 ```
 
 [![Build Status](https://travis-ci.org/JohnCoene/youTubeDataR.svg?branch=master)](https://travis-ci.org/JohnCoene/youTubeDataR)
@@ -108,12 +108,12 @@ library(chartist) # load chartist to plot
 
 # plot view count vs comment count
 videos %>%
-  chart_ist(statistics.viewCount) %>%
+  chart_ist(statistics.viewCount, height = 300) %>%
   add_ist(statistics.likeCount) %>%
   opt_ist(showArea = TRUE, showPoint = FALSE) %>%
   xaxis_ist(showLabel = FALSE) %>%
-  lanim_ist() %>%
-  loop_ist()
+  style_ist(c("line"), css = htmltools::css(stroke = "#2196f3")) %>% 
+  lanim_ist() 
 ```
 
 </div>
