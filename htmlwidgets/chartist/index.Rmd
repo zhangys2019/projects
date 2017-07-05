@@ -35,8 +35,7 @@ mtcars %>%
   xaxis_ist(showGrid = FALSE, showLabel = FALSE) %>%
   yaxis_ist(showGrid = FALSE, showLabel = FALSE) %>%
   lanim_ist() %>%
-  sanim_ist() %>%
-  loop_ist(6000)
+  sanim_ist()
 ```
 
 [![Travis-CI Build Status](https://travis-ci.org/JohnCoene/chartist.svg?branch=master)](https://travis-ci.org/JohnCoene/chartist)

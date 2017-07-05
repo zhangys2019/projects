@@ -158,8 +158,8 @@ df &lt;- data.frame(x = 1:20,
   add_ist(y) %&gt;%
   add_ist(z) %&gt;% # leave holes (NA)
   yaxis_ist(onlyInteger = TRUE)</code></pre>
-<div id="htmlwidget-b00260fb73a399a8dc9b" style="width:100%;height:400px;" class="chartist html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b00260fb73a399a8dc9b">{"x":{"cdat":{"labels":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"series":[{"name":"line-1","data":[15,14,null,null,17,null,11,13,null,17,19,12,10,16,null,17,null,14,15,16]},{"name":"line-2","data":[19,12,17,null,17,11,15,null,18,null,null,null,15,12,14,15,10,10,11,13]}]},"ratio":"ct-chart","type":"line","options":{"axisY":{"onlyInteger":true,"labelInterpolationFnc":"function(value) { return '' + value + '';}"}}},"evals":["options.axisY.labelInterpolationFnc"],"jsHooks":[]}</script>
+<div id="htmlwidget-bd6a87cbb33f00aa78ed" style="width:100%;height:400px;" class="chartist html-widget"></div>
+<script type="application/json" data-for="htmlwidget-bd6a87cbb33f00aa78ed">{"x":{"cdat":{"labels":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"series":[{"name":"line-1","data":[15,14,null,null,17,null,11,13,null,17,19,12,10,16,null,17,null,14,15,16]},{"name":"line-2","data":[19,12,17,null,17,11,15,null,18,null,null,null,15,12,14,15,10,10,11,13]}]},"ratio":"ct-chart","type":"line","options":{"axisY":{"onlyInteger":true,"labelInterpolationFnc":"function(value) { return '' + value + '';}"}}},"evals":["options.axisY.labelInterpolationFnc"],"jsHooks":[]}</script>
 <h3 id="fill-holes">Fill holes</h3>
 <pre class="r"><code>df %&gt;%
   chart_ist(x) %&gt;%
@@ -167,8 +167,8 @@ df &lt;- data.frame(x = 1:20,
   add_ist(z) %&gt;% 
   lineopt_ist(fillHoles = TRUE) %&gt;%
   yaxis_ist(onlyInteger = TRUE)</code></pre>
-<div id="htmlwidget-d87852f24a7cd2e9ef9b" style="width:100%;height:400px;" class="chartist html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d87852f24a7cd2e9ef9b">{"x":{"cdat":{"labels":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"series":[{"name":"line-1","data":[15,14,null,null,17,null,11,13,null,17,19,12,10,16,null,17,null,14,15,16]},{"name":"line-2","data":[19,12,17,null,17,11,15,null,18,null,null,null,15,12,14,15,10,10,11,13]}]},"ratio":"ct-chart","type":"line","options":{"lineSmooth":"Chartist.Interpolation.cardinal({fillHoles: true,})","axisY":{"onlyInteger":true,"labelInterpolationFnc":"function(value) { return '' + value + '';}"}}},"evals":["options.lineSmooth","options.axisY.labelInterpolationFnc"],"jsHooks":[]}</script>
+<div id="htmlwidget-f4526257eb1c9e92ad1b" style="width:100%;height:400px;" class="chartist html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f4526257eb1c9e92ad1b">{"x":{"cdat":{"labels":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"series":[{"name":"line-1","data":[15,14,null,null,17,null,11,13,null,17,19,12,10,16,null,17,null,14,15,16]},{"name":"line-2","data":[19,12,17,null,17,11,15,null,18,null,null,null,15,12,14,15,10,10,11,13]}]},"ratio":"ct-chart","type":"line","options":{"lineSmooth":"Chartist.Interpolation.cardinal({fillHoles: true,})","axisY":{"onlyInteger":true,"labelInterpolationFnc":"function(value) { return '' + value + '';}"}}},"evals":["options.lineSmooth","options.axisY.labelInterpolationFnc"],"jsHooks":[]}</script>
 <h2 id="series">Series</h2>
 <p>Set options to specific series by refering to their <code>name</code>.</p>
 <pre class="r"><code>mtcars$models &lt;- row.names(mtcars)
@@ -180,16 +180,16 @@ mtcars[1:15,] %&gt;%
   lineopt_ist(name = &quot;serie-1&quot;, lineSmoothing = &quot;step&quot;) %&gt;%
   lineopt_ist(name = &quot;serie-2&quot;, showArea = TRUE, showPoint = FALSE) %&gt;%
   lineopt_ist(name = &quot;serie-3&quot;, lineSmoothing = 3, showPoint = TRUE)</code></pre>
-<div id="htmlwidget-da3a5fb7e7b5b44bf942" style="width:100%;height:400px;" class="chartist html-widget"></div>
-<script type="application/json" data-for="htmlwidget-da3a5fb7e7b5b44bf942">{"x":{"cdat":{"labels":["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant","Duster 360","Merc 240D","Merc 230","Merc 280","Merc 280C","Merc 450SE","Merc 450SL","Merc 450SLC","Cadillac Fleetwood"],"series":[{"name":"serie-1","data":[6,6,4,6,8,6,8,4,4,6,6,8,8,8,8]},{"name":"serie-2","data":[3.9,3.9,3.85,3.08,3.15,2.76,3.21,3.69,3.92,3.92,3.92,3.07,3.07,3.07,2.93]},{"name":"serie-3","data":[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44,3.44,4.07,3.73,3.78,5.25]}]},"ratio":"ct-chart","type":"line","options":{"series":{"serie-1":{"lineSmooth":"Chartist.Interpolation.step()"},"serie-2":{"showArea":true,"showPoint":false,"lineSmooth":"Chartist.Interpolation.simple()"},"serie-3":{"showPoint":true,"lineSmooth":"Chartist.Interpolation.simple({divisor: \n3\n})"}}}},"evals":["options.series.serie-1.lineSmooth","options.series.serie-2.lineSmooth","options.series.serie-3.lineSmooth"],"jsHooks":[]}</script>
+<div id="htmlwidget-0e892e355e7bcccec2d8" style="width:100%;height:400px;" class="chartist html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0e892e355e7bcccec2d8">{"x":{"cdat":{"labels":["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant","Duster 360","Merc 240D","Merc 230","Merc 280","Merc 280C","Merc 450SE","Merc 450SL","Merc 450SLC","Cadillac Fleetwood"],"series":[{"name":"serie-1","data":[6,6,4,6,8,6,8,4,4,6,6,8,8,8,8]},{"name":"serie-2","data":[3.9,3.9,3.85,3.08,3.15,2.76,3.21,3.69,3.92,3.92,3.92,3.07,3.07,3.07,2.93]},{"name":"serie-3","data":[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44,3.44,4.07,3.73,3.78,5.25]}]},"ratio":"ct-chart","type":"line","options":{"series":{"serie-1":{"lineSmooth":"Chartist.Interpolation.step()"},"serie-2":{"showArea":true,"showPoint":false,"lineSmooth":"Chartist.Interpolation.simple()"},"serie-3":{"showPoint":true,"lineSmooth":"Chartist.Interpolation.simple({divisor: \n3\n})"}}}},"evals":["options.series.serie-1.lineSmooth","options.series.serie-2.lineSmooth","options.series.serie-3.lineSmooth"],"jsHooks":[]}</script>
 <h2 id="distributed-data">Distributed data</h2>
 <p>set <code>distributeSeries</code> to <code>TRUE</code> for categorical data.</p>
 <pre class="r"><code>mtcars[1:10,] %&gt;%
   chart_ist(x = models, type = &quot;bar&quot;) %&gt;%
   add_ist(disp) %&gt;%
   baropt_ist(distributeSeries = TRUE)</code></pre>
-<div id="htmlwidget-524c39f72b3aeac43283" style="width:100%;height:400px;" class="chartist html-widget"></div>
-<script type="application/json" data-for="htmlwidget-524c39f72b3aeac43283">{"x":{"cdat":{"labels":["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant","Duster 360","Merc 240D","Merc 230","Merc 280"],"series":[160,160,108,258,360,225,360,146.7,140.8,167.6]},"ratio":"ct-chart","type":"bar","options":{"distributeSeries":true}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-799132506f1774a62f7c" style="width:100%;height:400px;" class="chartist html-widget"></div>
+<script type="application/json" data-for="htmlwidget-799132506f1774a62f7c">{"x":{"cdat":{"labels":["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant","Duster 360","Merc 240D","Merc 230","Merc 280"],"series":[160,160,108,258,360,225,360,146.7,140.8,167.6]},"ratio":"ct-chart","type":"bar","options":{"distributeSeries":true}},"evals":[],"jsHooks":[]}</script>
 <h2 id="grid-axis">Grid &amp; Axis</h2>
 <p>Customise the grid and axis.</p>
 <pre class="r"><code>mtcars[1:15,] %&gt;%
@@ -197,8 +197,8 @@ mtcars[1:15,] %&gt;%
   add_ist(disp) %&gt;%
   yaxis_ist(position = &quot;end&quot;, prefix = &quot;$&quot;, suffix = &quot;M&quot;, showGrid = TRUE) %&gt;%
   xaxis_ist(position = &quot;end&quot;, showGrid = FALSE)</code></pre>
-<div id="htmlwidget-3f04cc5b1222eff04795" style="width:100%;height:400px;" class="chartist html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3f04cc5b1222eff04795">{"x":{"cdat":{"labels":["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant","Duster 360","Merc 240D","Merc 230","Merc 280","Merc 280C","Merc 450SE","Merc 450SL","Merc 450SLC","Cadillac Fleetwood"],"series":[{"name":"bar-1","data":[160,160,108,258,360,225,360,146.7,140.8,167.6,167.6,275.8,275.8,275.8,472]}]},"ratio":"ct-chart","type":"bar","options":{"axisY":{"showGrid":true,"labelInterpolationFnc":"function(value) { return '$' + value + 'M';}"},"axisX":{"showGrid":false,"labelInterpolationFnc":"function(value) { return '' + value + '';}"}}},"evals":["options.axisY.labelInterpolationFnc","options.axisX.labelInterpolationFnc"],"jsHooks":[]}</script>
+<div id="htmlwidget-fa2a7b68686cd68a0fe9" style="width:100%;height:400px;" class="chartist html-widget"></div>
+<script type="application/json" data-for="htmlwidget-fa2a7b68686cd68a0fe9">{"x":{"cdat":{"labels":["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant","Duster 360","Merc 240D","Merc 230","Merc 280","Merc 280C","Merc 450SE","Merc 450SL","Merc 450SLC","Cadillac Fleetwood"],"series":[{"name":"bar-1","data":[160,160,108,258,360,225,360,146.7,140.8,167.6,167.6,275.8,275.8,275.8,472]}]},"ratio":"ct-chart","type":"bar","options":{"axisY":{"showGrid":true,"labelInterpolationFnc":"function(value) { return '$' + value + 'M';}"},"axisX":{"showGrid":false,"labelInterpolationFnc":"function(value) { return '' + value + '';}"}}},"evals":["options.axisY.labelInterpolationFnc","options.axisX.labelInterpolationFnc"],"jsHooks":[]}</script>
 </div>
 <p></main></p>
 
