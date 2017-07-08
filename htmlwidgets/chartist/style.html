@@ -28,9 +28,7 @@
 <script src="site_libs/chartist-0.10.0/plugins/chartist-plugin-axistitle.min.js"></script>
 <script src="site_libs/chartist-0.10.0/plugins/chartist-plugin-accessibility.min.js"></script>
 <script src="site_libs/chartist-binding-0.0.2.9000/chartist.js"></script>
-<link href="https://cdn.rawgit.com/gaborcsardi/r-font/master/rlogo.css" rel="stylesheet">
-<link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
-<script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+<meta http-equiv="Cache-control" content="public">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!--Import materialize.css-->
 <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css"  media="screen,projection"/>
@@ -144,8 +142,8 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
   chart_ist(qsec, &quot;bar&quot;, height = &quot;200&quot;) %&gt;%
   add_ist(mpg) %&gt;%
   style_ist(type = &quot;bar&quot;, css = htmltools::css(stroke = &quot;darkblue&quot;))</code></pre>
-<div id="htmlwidget-4a4f2f8e80d975020c0b" style="width:100%;height:200px;" class="chartist html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4a4f2f8e80d975020c0b">{"x":{"cdat":{"labels":[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3,18.9,17.4,17.6,18,17.98,17.82,17.42,19.47,18.52,19.9,20.01,16.87,17.3,15.41,17.05,18.9,16.7,16.9,14.5,15.5,14.6,18.6],"series":[{"name":"bar-1","data":[15.8,15,13.3,19.7,14.3,21,26,15.5,30.4,21,18.7,19.2,15.2,16.4,14.7,17.3,10.4,10.4,15.2,19.2,30.4,21.4,22.8,17.8,27.3,21.4,32.4,33.9,24.4,21.5,18.1,22.8]}]},"ratio":"ct-chart","type":"bar","options":[],"style":{"FUN":"\n    function(context){\n      if(context.type === 'bar'){\n        context.element.attr({style: 'stroke:darkblue;'});\n      }\n    }"}},"evals":["style.FUN"],"jsHooks":[]}</script>
+<div id="htmlwidget-ae2a43bc79dee85bc0e0" style="width:100%;height:200px;" class="chartist html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ae2a43bc79dee85bc0e0">{"x":{"cdat":{"labels":[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3,18.9,17.4,17.6,18,17.98,17.82,17.42,19.47,18.52,19.9,20.01,16.87,17.3,15.41,17.05,18.9,16.7,16.9,14.5,15.5,14.6,18.6],"series":[{"name":"bar-1","data":[15.8,15,13.3,19.7,14.3,21,26,15.5,30.4,21,18.7,19.2,15.2,16.4,14.7,17.3,10.4,10.4,15.2,19.2,30.4,21.4,22.8,17.8,27.3,21.4,32.4,33.9,24.4,21.5,18.1,22.8]}]},"ratio":"ct-chart","type":"bar","options":[],"style":{"FUN":"\n    function(context){\n      if(context.type === 'bar'){\n        context.element.attr({style: 'stroke:darkblue;'});\n      }\n    }"}},"evals":["style.FUN"],"jsHooks":[]}</script>
 <p>If you do speficy <code>type</code> it’ll default to the chart <code>type</code>, or <code>bar</code> in this case.</p>
 <pre class="r"><code>mtcars %&gt;%
   chart_ist(qsec, &quot;bar&quot;, height = &quot;250&quot;) %&gt;%
@@ -153,16 +151,16 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
   xaxis_ist(showGrid = FALSE) %&gt;%
   yaxis_ist(showLabel = FALSE, showGrid = FALSE) %&gt;%
   style_ist(&quot;bar&quot;, css = htmltools::css(stroke = &quot;#d3d3d3&quot;, stroke.width = 20))</code></pre>
-<div id="htmlwidget-80cafbbf52a529af9db3" style="width:100%;height:250px;" class="chartist html-widget"></div>
-<script type="application/json" data-for="htmlwidget-80cafbbf52a529af9db3">{"x":{"cdat":{"labels":[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3,18.9,17.4,17.6,18,17.98,17.82,17.42,19.47,18.52,19.9,20.01,16.87,17.3,15.41,17.05,18.9,16.7,16.9,14.5,15.5,14.6,18.6],"series":[{"name":"bar-1","data":[15.8,15,13.3,19.7,14.3,21,26,15.5,30.4,21,18.7,19.2,15.2,16.4,14.7,17.3,10.4,10.4,15.2,19.2,30.4,21.4,22.8,17.8,27.3,21.4,32.4,33.9,24.4,21.5,18.1,22.8]}]},"ratio":"ct-chart","type":"bar","options":{"axisX":{"showGrid":false,"labelInterpolationFnc":"function(value) { return '' + value + '';}"},"axisY":{"showLabel":false,"showGrid":false,"labelInterpolationFnc":"function(value) { return '' + value + '';}"}},"style":{"FUN":"\n    function(context){\n      if(context.type === 'bar'){\n        context.element.attr({style: 'stroke:#d3d3d3;stroke-width:20;'});\n      }\n    }"}},"evals":["options.axisX.labelInterpolationFnc","options.axisY.labelInterpolationFnc","style.FUN"],"jsHooks":[]}</script>
+<div id="htmlwidget-e027350496ae3c4b6c35" style="width:100%;height:250px;" class="chartist html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e027350496ae3c4b6c35">{"x":{"cdat":{"labels":[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3,18.9,17.4,17.6,18,17.98,17.82,17.42,19.47,18.52,19.9,20.01,16.87,17.3,15.41,17.05,18.9,16.7,16.9,14.5,15.5,14.6,18.6],"series":[{"name":"bar-1","data":[15.8,15,13.3,19.7,14.3,21,26,15.5,30.4,21,18.7,19.2,15.2,16.4,14.7,17.3,10.4,10.4,15.2,19.2,30.4,21.4,22.8,17.8,27.3,21.4,32.4,33.9,24.4,21.5,18.1,22.8]}]},"ratio":"ct-chart","type":"bar","options":{"axisX":{"showGrid":false,"labelInterpolationFnc":"function(value) { return '' + value + '';}"},"axisY":{"showLabel":false,"showGrid":false,"labelInterpolationFnc":"function(value) { return '' + value + '';}"}},"style":{"FUN":"\n    function(context){\n      if(context.type === 'bar'){\n        context.element.attr({style: 'stroke:#d3d3d3;stroke-width:20;'});\n      }\n    }"}},"evals":["options.axisX.labelInterpolationFnc","options.axisY.labelInterpolationFnc","style.FUN"],"jsHooks":[]}</script>
 <h3 id="multiple-elements">Multiple elements</h3>
 <p>You can pass a <code>vector</code> of multiple types.</p>
 <pre class="r"><code>mtcars %&gt;%
   chart_ist(qsec) %&gt;%
   add_ist(mpg) %&gt;%
   style_ist(c(&quot;point&quot;, &quot;line&quot;), css = htmltools::css(stroke = &quot;black&quot;)) </code></pre>
-<div id="htmlwidget-c4867a98d1af10cc0eb6" style="width:100%;height:400px;" class="chartist html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c4867a98d1af10cc0eb6">{"x":{"cdat":{"labels":[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3,18.9,17.4,17.6,18,17.98,17.82,17.42,19.47,18.52,19.9,20.01,16.87,17.3,15.41,17.05,18.9,16.7,16.9,14.5,15.5,14.6,18.6],"series":[{"name":"line-1","data":[15.8,15,13.3,19.7,14.3,21,26,15.5,30.4,21,18.7,19.2,15.2,16.4,14.7,17.3,10.4,10.4,15.2,19.2,30.4,21.4,22.8,17.8,27.3,21.4,32.4,33.9,24.4,21.5,18.1,22.8]}]},"ratio":"ct-chart","type":"line","options":[],"style":{"FUN":"\n    function(context){\n      if(context.type === 'point' || context.type === 'line'){\n        context.element.attr({style: 'stroke:black;'});\n      }\n    }"}},"evals":["style.FUN"],"jsHooks":[]}</script>
+<div id="htmlwidget-c21cba64307fb8a6a203" style="width:100%;height:400px;" class="chartist html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c21cba64307fb8a6a203">{"x":{"cdat":{"labels":[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3,18.9,17.4,17.6,18,17.98,17.82,17.42,19.47,18.52,19.9,20.01,16.87,17.3,15.41,17.05,18.9,16.7,16.9,14.5,15.5,14.6,18.6],"series":[{"name":"line-1","data":[15.8,15,13.3,19.7,14.3,21,26,15.5,30.4,21,18.7,19.2,15.2,16.4,14.7,17.3,10.4,10.4,15.2,19.2,30.4,21.4,22.8,17.8,27.3,21.4,32.4,33.9,24.4,21.5,18.1,22.8]}]},"ratio":"ct-chart","type":"line","options":[],"style":{"FUN":"\n    function(context){\n      if(context.type === 'point' || context.type === 'line'){\n        context.element.attr({style: 'stroke:black;'});\n      }\n    }"}},"evals":["style.FUN"],"jsHooks":[]}</script>
 <h3 id="advanced">Advanced</h3>
 <pre class="r"><code>mtcars %&gt;%
   chart_ist(qsec) %&gt;%
@@ -171,8 +169,8 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
   style_ist(&quot;line&quot;, css = htmltools::css(stroke = &quot;rgba(0,0,0,0.7)&quot;, stroke.dasharray = 15, stroke.width = 5)) %&gt;%
   style_ist(&quot;grid&quot;, css = htmltools::css(stroke.width = 4, stroke = &quot;rgba(0,0,0,0.2)&quot;, stroke.dasharray = 2)) %&gt;%
   style_ist(&quot;point&quot;, css = htmltools::css(stroke = &quot;darkred&quot;, stroke.width = 15)) </code></pre>
-<div id="htmlwidget-b518c51f114ca4cca590" style="width:100%;height:400px;" class="chartist html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b518c51f114ca4cca590">{"x":{"cdat":{"labels":[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3,18.9,17.4,17.6,18,17.98,17.82,17.42,19.47,18.52,19.9,20.01,16.87,17.3,15.41,17.05,18.9,16.7,16.9,14.5,15.5,14.6,18.6],"series":[{"name":"line-1","data":[15.8,15,13.3,19.7,14.3,21,26,15.5,30.4,21,18.7,19.2,15.2,16.4,14.7,17.3,10.4,10.4,15.2,19.2,30.4,21.4,22.8,17.8,27.3,21.4,32.4,33.9,24.4,21.5,18.1,22.8]}]},"ratio":"ct-chart","type":"line","options":{"axisX":{"showLabel":false,"labelInterpolationFnc":"function(value) { return '' + value + '';}"}},"style":{"FUN":"\n    function(context){\n      if(context.type === 'line'){\n        context.element.attr({style: 'stroke:rgba(0,0,0,0.7);stroke-dasharray:15;stroke-width:5;'});\n      }\n    \n      if(context.type === 'grid'){\n        context.element.attr({style: 'stroke-width:4;stroke:rgba(0,0,0,0.2);stroke-dasharray:2;'});\n      }\n    \n      if(context.type === 'point'){\n        context.element.attr({style: 'stroke:darkred;stroke-width:15;'});\n      }\n    }"}},"evals":["options.axisX.labelInterpolationFnc","style.FUN"],"jsHooks":[]}</script>
+<div id="htmlwidget-2842d4e608b429cefd1e" style="width:100%;height:400px;" class="chartist html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2842d4e608b429cefd1e">{"x":{"cdat":{"labels":[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3,18.9,17.4,17.6,18,17.98,17.82,17.42,19.47,18.52,19.9,20.01,16.87,17.3,15.41,17.05,18.9,16.7,16.9,14.5,15.5,14.6,18.6],"series":[{"name":"line-1","data":[15.8,15,13.3,19.7,14.3,21,26,15.5,30.4,21,18.7,19.2,15.2,16.4,14.7,17.3,10.4,10.4,15.2,19.2,30.4,21.4,22.8,17.8,27.3,21.4,32.4,33.9,24.4,21.5,18.1,22.8]}]},"ratio":"ct-chart","type":"line","options":{"axisX":{"showLabel":false,"labelInterpolationFnc":"function(value) { return '' + value + '';}"}},"style":{"FUN":"\n    function(context){\n      if(context.type === 'line'){\n        context.element.attr({style: 'stroke:rgba(0,0,0,0.7);stroke-dasharray:15;stroke-width:5;'});\n      }\n    \n      if(context.type === 'grid'){\n        context.element.attr({style: 'stroke-width:4;stroke:rgba(0,0,0,0.2);stroke-dasharray:2;'});\n      }\n    \n      if(context.type === 'point'){\n        context.element.attr({style: 'stroke:darkred;stroke-width:15;'});\n      }\n    }"}},"evals":["options.axisX.labelInterpolationFnc","style.FUN"],"jsHooks":[]}</script>
 </div>
 <p></main></p>
 
