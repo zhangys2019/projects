@@ -71,7 +71,7 @@ div(
 )
 ```
 
-```{r parallax 1}
+```{r parallax 1, eval = FALSE}
 div(
   class = "parallax-container hide-on-small-only",
   div(
@@ -790,7 +790,7 @@ div(
 )
 ```
 
-```{r parallax 2}
+```{r parallax 2, eval = FALSE}
 div(
   class = "parallax-container hide-on-small-only",
   div(
