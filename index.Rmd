@@ -96,7 +96,7 @@ div(
     div(
       class = "col m4",
       div(
-        `data-aos` = "flip-up",
+        `data-aos` = "fade-up",
         `data-aos-delay` = "100",
         `data-aos-duration` = "1500",
         class = "card sticky-action z-depth-3",
@@ -233,7 +233,7 @@ div(
     div(
       class = "col m4",
       div(
-        `data-aos` = "flip-up",
+        `data-aos` = "fade-up",
         `data-aos-delay` = "100",
         `data-aos-duration` = "1500",
         class = "card sticky-action z-depth-3",
@@ -260,6 +260,7 @@ div(
           tags$a(
             href="http://johncoene.github.io/wine/",
             target = "_blank",
+            class = "blue-text link-shadow",
             "Browse"
           )
         ),
@@ -283,7 +284,7 @@ div(
     div(
       class = "col m4",
       div(
-        `data-aos` = "flip-up",
+        `data-aos` = "fade-up",
         `data-aos-delay` = "100",
         `data-aos-duration` = "1500",
         class = "card sticky-action z-depth-3",
@@ -309,6 +310,7 @@ div(
           class = "card-action",
           tags$a(
             href="marat",
+            class = "blue-text link-shadow",
             "Check it out!"
           )
         ),
@@ -345,7 +347,7 @@ div(
     div(
       class = "col m4",
       div(
-        `data-aos` = "flip-up",
+        `data-aos` = "fade-up",
         `data-aos-delay` = "100",
         `data-aos-duration` = "1500",
         class = "card sticky-action z-depth-3",
@@ -372,6 +374,7 @@ div(
           tags$a(
             href="https://github.com/JohnCoene/peity",
             target = "_blank",
+            class = "blue-text link-shadow",
             "Discover"
           )
         ),
@@ -401,7 +404,7 @@ div(
       class = "col m4",
       div(
         class = "card sticky-action z-depth-3",
-        `data-aos` = "flip-up",
+        `data-aos` = "fade-up",
         `data-aos-delay` = "100",
         `data-aos-duration` = "1500",
         div(
@@ -426,6 +429,7 @@ div(
           class = "card-action",
           tags$a(
             href="htmlwidgets/chartist",
+            class = "blue-text link-shadow",
             "Start plotting"
           )
         ),
@@ -471,7 +475,7 @@ div(
     div(
       class = "col m4",
       div(
-        `data-aos` = "flip-up",
+        `data-aos` = "fade-up",
         `data-aos-delay` = "100",
         `data-aos-duration` = "1500",
         class = "card sticky-action z-depth-3",
@@ -497,6 +501,7 @@ div(
           class = "card-action",
           tags$a(
             href="htmlwidgets/uvcharts",
+            class = "blue-text link-shadow",
             "Start charting"
           )
         ),
@@ -537,7 +542,7 @@ div(
     div(
       class = "col m6",
       div(
-        `data-aos` = "flip-up",
+        `data-aos` = "fade-up",
         `data-aos-delay` = "100",
         `data-aos-duration` = "1500",
         class = "card sticky-action z-depth-3",
@@ -563,6 +568,7 @@ div(
           class = "card-action",
           tags$a(
             href="datamaps",
+            class = "blue-text link-shadow",
             "Start mapping"
           )
         ),
@@ -606,7 +612,7 @@ div(
     div(
       class = "col m6",
       div(
-        `data-aos` = "flip-up",
+        `data-aos` = "fade-up",
         `data-aos-delay` = "100",
         `data-aos-duration` = "1500",
         class = "card sticky-action z-depth-3",
@@ -632,6 +638,7 @@ div(
           class = "card-action",
           tags$a(
             href="htmlwidgets/echarts/",
+            class = "blue-text link-shadow",
             "Your first chart"
           )
         ),
@@ -693,7 +700,7 @@ div(
     div(
       class = "col m6",
       div(
-        `data-aos` = "flip-up",
+        `data-aos` = "fade-up",
         `data-aos-delay` = "100",
         `data-aos-duration` = "1500",
         class = "card sticky-action z-depth-3",
@@ -719,6 +726,7 @@ div(
           class = "card-action",
           tags$a(
             href="packages/graphTweets",
+            class = "blue-text link-shadow",
             "Visualise"
           )
         ),
@@ -741,7 +749,7 @@ div(
     div(
       class = "col m6",
       div(
-        `data-aos` = "flip-up",
+        `data-aos` = "fade-up",
         `data-aos-delay` = "100",
         `data-aos-duration` = "1500",
         class = "card sticky-action z-depth-3",
@@ -767,6 +775,7 @@ div(
           class = "card-action",
           tags$a(
             href="tweets2earth",
+            class = "blue-text link-shadow",
             "Get started"
           )
         ),
@@ -815,7 +824,7 @@ div(
     div(
       class = "col m4",
       div(
-        `data-aos` = "flip-up",
+        `data-aos` = "fade-up",
         `data-aos-delay` = "100",
         `data-aos-duration` = "1500",
         class = "card sticky-action z-depth-3",
@@ -841,6 +850,7 @@ div(
           class = "card-action",
           tags$a(
             href="packages/youTubeDataR/",
+            class = "blue-text link-shadow",
             "Get data"
           )
         ),
@@ -865,7 +875,7 @@ div(
     div(
       class = "col m4",
       div(
-        `data-aos` = "flip-up",
+        `data-aos` = "fade-up",
         `data-aos-delay` = "100",
         `data-aos-duration` = "1500",
         class = "card sticky-action z-depth-3",
@@ -891,6 +901,7 @@ div(
           class = "card-action",
           tags$a(
             href="packages/bibler",
+            class = "blue-text link-shadow",
             "Explore"
           )
         ),
@@ -914,7 +925,7 @@ div(
     div(
       class = "col m4",
       div(
-        `data-aos` = "flip-up",
+        `data-aos` = "fade-up",
         `data-aos-delay` = "100",
         `data-aos-duration` = "1500",
         class = "card sticky-action z-depth-3",
@@ -940,6 +951,7 @@ div(
           class = "card-action",
           tags$a(
             href="packages/rodham",
+            class = "blue-text link-shadow",
             "Discover"
           )
         ),
@@ -975,7 +987,7 @@ div(
     div(
       class = "col m4",
       div(
-        `data-aos` = "flip-up",
+        `data-aos` = "fade-up",
         `data-aos-delay` = "100",
         `data-aos-duration` = "1500",
         class = "card sticky-action z-depth-3",
@@ -1002,6 +1014,7 @@ div(
           tags$a(
             href="https://github.com/JohnCoene/typed",
             target = "_blank",
+            class = "blue-text link-shadow",
             "Start typing"
           )
         ),
@@ -1029,7 +1042,7 @@ div(
     div(
       class = "col m4",
       div(
-        `data-aos` = "flip-up",
+        `data-aos` = "fade-up",
         `data-aos-delay` = "100",
         `data-aos-duration` = "1500",
         class = "card sticky-action z-depth-3",
@@ -1056,6 +1069,7 @@ div(
           tags$a(
             href="countup",
             target="_blank",
+            class = "blue-text link-shadow",
             "Get counting"
           )
         ),
@@ -1083,7 +1097,7 @@ div(
     div(
       class = "col m4",
       div(
-        `data-aos` = "flip-up",
+        `data-aos` = "fade-up",
         `data-aos-delay` = "100",
         `data-aos-duration` = "1500",
         class = "card sticky-action z-depth-3",
@@ -1109,6 +1123,7 @@ div(
           class = "card-action",
           tags$a(
             href="egg",
+            class = "blue-text link-shadow",
             "Get cooking"
           )
         ),
