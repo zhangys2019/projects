@@ -99,6 +99,9 @@ div(
         "Enlighten the masses"
       )
     ),
+    p(
+      "Run with:"
+    ), 
     pre(
       code(
         "bundle exec jekyll serve --watch"

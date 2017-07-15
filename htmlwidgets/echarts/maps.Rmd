@@ -18,7 +18,7 @@ h1(
 
 ### How it works
 
-Some things remain unchanged; you still `%>%` your data and initiate the chart with the `echart` function. Once this done you can setup a map with `emap` and `emap_` and pass arguments that will apply to the map as a whole. Following that you add, if necessary, coordinates of points with `emap_coords` and `emap_coords`. Note that this does NOT draw points on the map, this is merely a reference table for your actual series to plot, i.e.: `points` or `lines`. Adding coordinates is obviously not required for choropleth maps (`emap_choropleth` and `emap_choropleth_`).
+Some things remain unchanged; you still `%>%` your data and initiate the chart with the `echart` function. Once this done you can setup a map with `emap` and `emap_` and pass arguments that will apply to the map as a whole. Following that you add, if necessary, coordinates of points with `emap_coords` and `emap_coords_`. Note that this does NOT draw points on the map, this is merely a reference table for your actual series to plot, i.e.: `points` or `lines`. Adding coordinates is obviously not required for choropleth maps (`emap_choropleth` and `emap_choropleth_`).
 
 ### Examples
 
