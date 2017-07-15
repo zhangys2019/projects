@@ -1068,7 +1068,6 @@ div(
           class = "card-action",
           tags$a(
             href="countup",
-            target="_blank",
             class = "blue-text link-shadow",
             "Get counting"
           )

@@ -22,7 +22,7 @@ div(
   br(),
   h4(
     class = "grey-text text-darken-2",
-    "Revice the values of the Enlightenment with marat!"
+    "Revive the values of the Enlightenment with marat!"
   ),
   br(),
   a(
