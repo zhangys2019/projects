@@ -101,7 +101,30 @@ div(
     ),
     pre(
       code(
-        "devtools::install_github('stuff')"
+        "bundle exec jekyll serve --watch"
+      )
+    ),
+    tags$ul(
+      class = "collection with-header",
+      tags$li(
+        class = "collection-header",
+        "Plugins"
+      ),
+      tags$li(
+        class = "collection-item",
+        a(
+          href = "https://github.com/paulrobertlloyd/jekyll-roman",
+          target = "_blank",
+          "jekyll-roman"
+        )
+      ),
+      tags$li(
+        class = "collection-item",
+        a(
+          href = "https://github.com/jekyll/jekyll-seo-tag",
+          target = "_blank",
+          "jekyll-seo-tag"
+        )
       )
     )
   )
