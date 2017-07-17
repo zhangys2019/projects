@@ -1,0 +1,164 @@
+---
+title: ""
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(rodham)
+library(dplyr)
+library(tidyr)
+library(echarts)
+```
+
+<main>
+<div class="container">
+
+## Setup
+
+Install and load `rodham`. Also, for these examples I am using the `echarts` library for the visualisation as well as `dplyr` and `tidyr` for the data manipulation, install and load that too.
+
+```{r setup rodham, eval=FALSE}
+# install.packages("rodham") # CRAN release
+library(rodham)
+
+# install.packages("dplyr")
+library(dplyr)
+
+# install.packages("tidyr")
+library(tidyr)
+
+# devtools::install_github("JohnCoene/echarts")
+library(echarts)
+
+```
+
+## Get the emails
+
+Let's download the Benghazi release to use as example.
+
+```{r dl, eval=FALSE}
+ext <- get_xpdf() # get the pdftotext extractor
+
+ownload_emails("Benghazi") # download
+
+dir.create("pdf") # create directory where to extract pdf emails to
+
+unzip("Benghazi.zip", exdir = "./emails_pdf")
+
+dir <- "text"
+
+dir.create(dir)
+
+# extract emails to created directory
+extract_emails("pdf", save.dir = dir, ext = ext)
+
+# laod all emails
+hrc_emails <- load_emails(dir)
+```
+
+```{r, echo=FALSE}
+hrc_emails <- suppressMessages(load_emails("benghazi_text"))
+```
+
+## Explore
+
+Now we can explore the emails. Let's look at when the emails are received; we can get the date using the `get_date` method.
+
+```{r date plot}
+get_date(hrc_emails) %>% # get the dates
+  count(dates) %>% # count by dates
+  echart(dates, width = "100%") %>% # plot
+  earea(n, name = "emails") %>% 
+  etitle("Benghazi release", "Number of emails by date") %>% 
+  emark_point("emails", data = list(list(type = "max", name = "maximum"))) %>% 
+  etooltip() %>% 
+  etoolbox_magic(type = list("line", "bar")) %>% 
+  ezoom() %>% 
+  etheme("helianthus")
+```
+
+Already we can see something interesting, the peak on the 12<sup>th</sup> of September 2012. A bit of Googling reveals that this is the very day of the [Benghazi attack](https://en.wikipedia.org/wiki/2012_Benghazi_attack) that lead to the death of [J. Christopher Stevens](https://en.wikipedia.org/wiki/J._Christopher_Stevens) and the diplomat [Sean Smith](https://en.wikipedia.org/wiki/Sean_Smith_(diplomat)).
+
+You watch the speech from Hillary Clinton, then Secretary of State, about the killing and given on that very day.
+
+```{r video embed, echo=FALSE}
+vembedr::embed_youtube("ljPgIQwaXJ0")
+```
+
+But before we do that let's explore a bit further. Let' look at the people involved in the emails exchanges. We'll remove Hillary Clinton because we can safely expect 
+
+```{r communications, warning=FALSE}
+people <- get_com(hrc_emails) %>% 
+  gather(sr, name, from, to) %>%
+  filter(name != "Hillary Clinton") %>% 
+  filter(name != "") %>% 
+  count(name, sort = TRUE)
+
+people %>% 
+  echart(name, width = "100%") %>% 
+  ecloud(n, size = list("70%", "70%")) %>% 
+  etooltip(trigger = "item") %>% 
+  etitle("Benghazi release", "Senders and receivers") %>% 
+  etheme("helianthus")
+```
+
+We can see `r people$n[1]` mentions of `r people$name[1]`, senior policy advisor to Hillary Clinton and `r people$n[2]` mentions of `r people$name[2]`, lawyer who defended Bill Clinton during his 1999 impeachment trial, which hints at the situation Clinton found herself in.
+
+Perhaps we could look at the network of emails as this may contain valuable information.
+
+```{r network, warning=FALSE}
+# nodes table
+nodes <- get_com(hrc_emails) %>% 
+  gather(sr, name, from, to) %>%
+  filter(name != "") %>% 
+  count(name, sort = TRUE) %>% 
+  as.data.frame(people)
+
+# edge table
+edges <- get_com(hrc_emails) %>% 
+  mutate(to = as.character(to), 
+         from = as.character(from)) %>% 
+  filter(from != "") %>% 
+  group_by(from, to) %>% 
+  tally(sort = TRUE) %>% 
+  as.data.frame(edges)
+
+echart(width = "100%") %>% 
+  eforce(
+    itemStyle = list()
+  ) %>% 
+  enodes(nodes, 
+         name, 
+         value = n) %>% 
+  elinks(edges, from, to) %>% 
+  etitle("Benghazi release", "Network of emails") %>% 
+  etooltip(trigger = "item") %>% 
+  etheme("helianthus")
+```
+
+Now let's look at the topic of the emails with `get_subject`.
+
+```{r subject, warning=FALSE}
+library(tidytext)
+
+get_subject(hrc_emails) %>% 
+  mutate(subject = as.character(subject)) %>% 
+  unnest_tokens(word, subject) %>% # tokenise
+  anti_join(stop_words, by = "word") %>%  # remove stopwords
+  count(word, sort = TRUE) %>%
+  slice(1:10) %>% # take top 10 terms
+  echart(word, width = "100%") %>% 
+  ebar(n) %>% 
+  etooltip(trigger = "item") %>% 
+  etitle("Benghazi Release", "10 most mentioned terms in subject") %>% 
+  etheme("helianthus")
+```
+
+This reveals that, unsurprisingly, "Libya", "libyan" and "Benghazi" are some of the most frquent terms in email subjects. However here we come closer to the whole controversy; the---most frequent word---"sid" stands for [Sydney Blumenthal](https://en.wikipedia.org/wiki/Sidney_Blumenthal), a name that came up extremely often during Hillary Clinton's testimony. The reason for its controversy since "Sid" is not an official but an informal aide that the Clintons first met 30 years ago.
+
+
+> "I think they both believe that the role he played in the White House then, especially in crafting political defenses, was important in the president surviving impeachment and staying in office,"
+> --<cite>[CNN Politics](http://edition.cnn.com/2015/10/22/politics/hillary-clinton-benghazi-sidney-blumenthal/index.html)</cite>
+
+</div>
+</main>

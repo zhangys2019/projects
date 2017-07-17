@@ -52,11 +52,7 @@ forceNetwork(Links = g$links, Nodes = g$nodes, clickAction = popup,
 [![CRAN_Status_Badge](http://cranlogs.r-pkg.org/badges/grand-total/rodham)](http://cranlogs.r-pkg.org/badges/grand-total/rodham)
 
 ```{r}
-div(class = "page-header",
-    h2("About", class = "text-primary"))
-
-div(class = "container-fluid",
-    p(code("rodham"), " is an R package that includes a dataset of Hillary Rodham Clinton's personal emails as well as function to download their entire content from the Wall Street Journal and read it into R.", code("rodham"), " is available on CRAN."))
+p(code("rodham"), " is an R package that includes a dataset of Hillary Rodham Clinton's personal emails as well as function to download their entire content from the Wall Street Journal and read it into R.", code("rodham"), " is available on CRAN.")
 ```
 
 ```{r install}

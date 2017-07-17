@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<title></title>
+
+<script src="site_libs/htmlwidgets-0.8/htmlwidgets.js"></script>
+<script src="site_libs/echarts-2.2.7/echarts-all.js"></script>
+<script src="site_libs/echarts-binding-0.0.1/echarts.js"></script>
+<meta http-equiv="Cache-control" content="public">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="../../css/materialize.min.css"  media="screen,projection"/>
+
+<link rel="stylesheet" href="../../css/atelier-cave-light.css">
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-74544116-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<!--SHARE TAGS-->
+<meta name="google-site-verification" content="p4A9hVd1c8FOAlQsyDq0NMrE9IQdtfZoHgQ2e1t2dYE" />
+<meta name="description" content="R, data, and other indoor stuff." />
+
+<!-- Schema.org markup for Google+ -->
+<meta itemprop="name" content="John Coene">
+<meta itemprop="description" content="R, data, and other indoor stuff.">
+<meta itemprop="image" content="http://john-coene.com/img/graphTweets.png">
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="website">
+<meta name="twitter:site" content="@jdatap">
+<meta name="twitter:title" content="John Coene">
+<meta name="twitter:description" content="R, data, and other indoor stuff.">
+<meta name="twitter:creator" content="@jdatap">
+<meta name="twitter:image" content="http://john-coene.com/img/graphTweets.png">
+
+<!-- Open Graph data -->
+<meta property="og:title" content="John Coene" />
+<meta property="og:image" content="http://john-coene.com/img/graphTweets.png" />
+<meta property="og:description" content="R, data, and other indoor stuff." />
+<meta property="og:site_name" content="John Coene" />
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #dddddd; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { font-weight: bold; } /* Keyword */
+code > span.dt { color: #800000; } /* DataType */
+code > span.dv { color: #0000ff; } /* DecVal */
+code > span.bn { color: #0000ff; } /* BaseN */
+code > span.fl { color: #800080; } /* Float */
+code > span.ch { color: #ff00ff; } /* Char */
+code > span.st { color: #dd0000; } /* String */
+code > span.co { color: #808080; font-style: italic; } /* Comment */
+code > span.al { color: #00ff00; font-weight: bold; } /* Alert */
+code > span.fu { color: #000080; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #ff0000; font-weight: bold; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #ff00ff; } /* SpecialChar */
+code > span.vs { color: #dd0000; } /* VerbatimString */
+code > span.ss { color: #dd0000; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { font-weight: bold; } /* Preprocessor */
+code > span.at { } /* Attribute */
+code > span.do { color: #808080; font-style: italic; } /* Documentation */
+code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+
+
+<link rel="stylesheet" href="../../css/styles.css" type="text/css" />
+
+</head>
+
+<body>
+
+
+<ul id="dropdown1" class="dropdown-content">
+  <li><a class="blue-text" href="https://cran.r-project.org/web/packages/rodham/" target="_blank">CRAN</a></li>
+  <li><a class="blue-text" href="https://github.com/JohnCoene/rodham/" target="_blank">Repository</a></li>
+  <li><a class="blue-text" href="https://cran.r-project.org/web/packages/rodham/rodham.pdf">Manual</a></li>
+  <li><a class="blue-text" href="https://cran.r-project.org/web/packages/rodham/vignettes/how-to.html" target="_blank">Vignette</a></li>
+  <li><a class="blue-text" href="examples">Examples</a></li>
+</ul>
+
+<nav>
+  <div class="nav-wrapper blue">
+    <div class="container">
+      <a href="http://john-coene.com/" class="brand-logo brand">John Coene</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li>
+          <a class="dropdown-button" href="#!" data-activates="dropdown1">Explore<i class="material-icons right">arrow_drop_down</i></a>
+        </li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="https://cran.r-project.org/web/packages/rodham/" target="_blank">CRAN</a></li>
+        <li><a href="https://github.com/JohnCoene/rodham/" target="_blank">Repository</a></li>
+        <li><a href="https://cran.r-project.org/web/packages/rodham/rodham.pdf">Manual</a></li>
+        <li><a href="https://cran.r-project.org/web/packages/rodham/vignettes/how-to.html" target="_blank">Vignette</a></li>
+        <li><a href="examples">Examples</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+<main>
+<div class="container">
+<h2 id="setup">Setup</h2>
+<p>Install and load <code>rodham</code>. Also, for these examples I am using the <code>echarts</code> library for the visualisation as well as <code>dplyr</code> and <code>tidyr</code> for the data manipulation, install and load that too.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages(&quot;rodham&quot;) # CRAN release</span>
+<span class="kw">library</span>(rodham)
+
+<span class="co"># install.packages(&quot;dplyr&quot;)</span>
+<span class="kw">library</span>(dplyr)
+
+<span class="co"># install.packages(&quot;tidyr&quot;)</span>
+<span class="kw">library</span>(tidyr)
+
+<span class="co"># devtools::install_github(&quot;JohnCoene/echarts&quot;)</span>
+<span class="kw">library</span>(echarts)</code></pre></div>
+<h2 id="get-the-emails">Get the emails</h2>
+<p>Let’s download the Benghazi release to use as example.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ext &lt;-<span class="st"> </span><span class="kw">get_xpdf</span>() <span class="co"># get the pdftotext extractor</span>
+
+<span class="kw">ownload_emails</span>(<span class="st">&quot;Benghazi&quot;</span>) <span class="co"># download</span>
+
+<span class="kw">dir.create</span>(<span class="st">&quot;pdf&quot;</span>) <span class="co"># create directory where to extract pdf emails to</span>
+
+<span class="kw">unzip</span>(<span class="st">&quot;Benghazi.zip&quot;</span>, <span class="dt">exdir =</span> <span class="st">&quot;./emails_pdf&quot;</span>)
+
+dir &lt;-<span class="st"> &quot;text&quot;</span>
+
+<span class="kw">dir.create</span>(dir)
+
+<span class="co"># extract emails to created directory</span>
+<span class="kw">extract_emails</span>(<span class="st">&quot;pdf&quot;</span>, <span class="dt">save.dir =</span> dir, <span class="dt">ext =</span> ext)
+
+<span class="co"># laod all emails</span>
+hrc_emails &lt;-<span class="st"> </span><span class="kw">load_emails</span>(dir)</code></pre></div>
+<h2 id="explore">Explore</h2>
+<p>Now we can explore the emails. Let’s look at when the emails are received; we can get the date using the <code>get_date</code> method.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_date</span>(hrc_emails) %&gt;%<span class="st"> </span><span class="co"># get the dates</span>
+<span class="st">  </span><span class="kw">count</span>(dates) %&gt;%<span class="st"> </span><span class="co"># count by dates</span>
+<span class="st">  </span><span class="kw">echart</span>(dates, <span class="dt">width =</span> <span class="st">&quot;100%&quot;</span>) %&gt;%<span class="st"> </span><span class="co"># plot</span>
+<span class="st">  </span><span class="kw">earea</span>(n, <span class="dt">name =</span> <span class="st">&quot;emails&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etitle</span>(<span class="st">&quot;Benghazi release&quot;</span>, <span class="st">&quot;Number of emails by date&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">emark_point</span>(<span class="st">&quot;emails&quot;</span>, <span class="dt">data =</span> <span class="kw">list</span>(<span class="kw">list</span>(<span class="dt">type =</span> <span class="st">&quot;max&quot;</span>, <span class="dt">name =</span> <span class="st">&quot;maximum&quot;</span>))) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etooltip</span>() %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etoolbox_magic</span>(<span class="dt">type =</span> <span class="kw">list</span>(<span class="st">&quot;line&quot;</span>, <span class="st">&quot;bar&quot;</span>)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">ezoom</span>() %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etheme</span>(<span class="st">&quot;helianthus&quot;</span>)</code></pre></div>
+<div id="htmlwidget-d039e3c468577e992a5f" style="width:100%;height:480px;" class="echarts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d039e3c468577e992a5f">{"x":{"theme":"helianthus","options":{"xAxis":[{"type":"category","data":["2011-03-03","2011-03-11","2011-03-13","2011-03-23","2011-03-27","2011-03-29","2011-03-30","2011-04-01","2011-04-02","2011-04-03","2011-04-08","2011-04-10","2011-04-22","2011-04-23","2011-04-24","2011-04-26","2011-05-02","2011-05-06","2011-06-03","2011-06-10","2011-08-08","2011-08-21","2011-08-22","2011-09-03","2011-09-10","2011-09-14","2011-10-21","2012-01-05","2012-01-06","2012-01-09","2012-01-12","2012-01-18","2012-01-23","2012-01-24","2012-01-27","2012-02-21","2012-02-22","2012-02-24","2012-02-28","2012-03-09","2012-04-03","2012-04-04","2012-04-05","2012-04-23","2012-04-27","2012-07-04","2012-07-07","2012-07-17","2012-08-23","2012-08-24","2012-08-27","2012-08-28","2012-09-11","2012-09-12","2012-09-13","2012-09-14","2012-09-15","2012-09-16","2012-09-17","2012-09-18","2012-09-19","2012-09-20","2012-09-21","2012-09-22","2012-09-23","2012-09-24","2012-09-25","2012-09-26","2012-09-27","2012-09-28","2012-09-30","2012-10-01","2012-10-03","2012-10-06","2012-10-07","2012-10-08","2012-10-10","2012-10-11","2012-10-12","2012-10-13","2012-10-14","2012-10-15","2012-10-16","2012-10-17","2012-10-18","2012-10-19","2012-10-25","2012-10-27","2012-10-29","2012-11-11","2012-11-13","2012-11-14","2012-11-15","2012-11-16","2012-11-18","2012-11-22","2012-11-23","2012-11-24","2012-11-25","2012-11-26","2012-11-28","2012-12-04","2012-12-10","2012-12-18","2012-12-19","2012-12-20","2012-12-24"]}],"yAxis":[],"series":[{"name":"emails","type":"line","data":[1,2,2,1,2,3,3,1,3,1,3,1,2,2,1,2,2,2,4,1,1,1,5,1,1,1,1,5,1,1,1,1,2,1,1,1,1,1,1,2,2,1,1,1,1,1,3,1,1,2,1,2,6,27,9,13,13,14,3,1,1,2,3,3,8,3,1,1,3,2,2,6,2,2,4,2,5,2,6,1,4,3,1,5,2,2,4,1,1,1,1,5,2,1,2,1,5,1,2,2,2,1,1,2,1,11,1],"smooth":true,"itemStyle":{"normal":{"areaStyle":{"type":"default"}}},"markPoint":{"data":[{"type":"max","name":"maximum"}],"clickable":true,"symbol":"pin","symbolSize":10,"large":false}}],"title":{"show":true,"text":"Benghazi release","subtext":"Number of emails by date","target":"blank","subtarget":"blank","x":"left","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":5,"zlevel":0,"z":6},"tooltip":{"show":true,"trigger":"axis","zlevel":1,"showContent":true,"islandFormatter":"{a} < br/>{b} : {c}","showDelay":20,"hideDelay":100,"transitionDuration":0.4,"enterable":false,"backgroundColor":"rgba(0,0,0,0.7)","borderColor":"#333","borderRadius":4,"borderWidth":0,"padding":5,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"toolbox":{"show":true,"zlevel":0,"z":6,"orient":"horizontal","x":"right","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemSize":16,"color":["#1e90ff","#22bb22","#4b0082","#d2691e"],"disableColor":"#ddd","effectiveColor":"red","showTitle":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"feature":{"magicType":{"show":true,"title":{"line":"line","bar":"bar","stack":"stack","tiled":"tiled","force":"force","chord":"chord","pie":"pie","funnel":"funnel"},"type":["line","bar"]}}},"dataZoom":{"show":true,"zlevel":0,"z":4,"orient":"horizontal","backgroundColor":"rgba(0,0,0,0)","dataBackgroundColor":"#eee","fillerColor":"rgba(144,197,237,0.2)","handleColor":"rgba(70,130,180,0.8)","handleSize":8,"start":0,"end":100,"showDetail":true,"realtime":false,"zoomLock":false}}},"evals":[],"jsHooks":[]}</script>
+<p>Already we can see something interesting, the peak on the 12<sup>th</sup> of September 2012. A bit of Googling reveals that this is the very day of the <a href="https://en.wikipedia.org/wiki/2012_Benghazi_attack">Benghazi attack</a> that lead to the death of <a href="https://en.wikipedia.org/wiki/J._Christopher_Stevens">J. Christopher Stevens</a> and the diplomat <a href="https://en.wikipedia.org/wiki/Sean_Smith_(diplomat)">Sean Smith</a>.</p>
+<p>You watch the speech from Hillary Clinton, then Secretary of State, about the killing and given on that very day.</p>
+<iframe src="https://www.youtube.com/embed/ljPgIQwaXJ0" width="420" height="315" frameborder="0" allowfullscreen=""></iframe>
+<p>But before we do that let’s explore a bit further. Let’ look at the people involved in the emails exchanges. We’ll remove Hillary Clinton because we can safely expect</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">people &lt;-<span class="st"> </span><span class="kw">get_com</span>(hrc_emails) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">gather</span>(sr, name, from, to) %&gt;%
+<span class="st">  </span><span class="kw">filter</span>(name !=<span class="st"> &quot;Hillary Clinton&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(name !=<span class="st"> &quot;&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">count</span>(name, <span class="dt">sort =</span> <span class="ot">TRUE</span>)
+
+people %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">echart</span>(name, <span class="dt">width =</span> <span class="st">&quot;100%&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">ecloud</span>(n, <span class="dt">size =</span> <span class="kw">list</span>(<span class="st">&quot;70%&quot;</span>, <span class="st">&quot;70%&quot;</span>)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etooltip</span>(<span class="dt">trigger =</span> <span class="st">&quot;item&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etitle</span>(<span class="st">&quot;Benghazi release&quot;</span>, <span class="st">&quot;Senders and receivers&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etheme</span>(<span class="st">&quot;helianthus&quot;</span>)</code></pre></div>
+<div id="htmlwidget-98711ea55592f5b1f8e6" style="width:100%;height:480px;" class="echarts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-98711ea55592f5b1f8e6">{"x":{"theme":"helianthus","options":{"series":[{"type":"wordCloud","clickable":true,"center":["50%","50%"],"size":["70%","70%"],"textRotation":[0,90],"autoSize":{"enable":true,"minSize":12},"z":2,"zlevel":0,"tooltip":{"show":true,"trigger":"item","zlevel":1,"showContent":true,"islandFormatter":"{a} < br/>{b} : {c}","showDelay":5,"hideDelay":100,"transitionDuration":4,"enterable":false,"backgroundColor":"rgba(0,0,0,0.7)","borderColor":"#333","borderRadius":4,"borderWidth":0,"padding":5,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"data":[{"name":"Jake Sullivan","value":"92"},{"name":"Cheryl Mills","value":"81"},{"name":"Monica Hanley","value":"27"},{"name":"Huma Abedin","value":"15"},{"name":"Robert Russo","value":"15"},{"name":"Sidney Blumenthal","value":"13"},{"name":"Anne-Marie Slaughter","value":" 5"},{"name":"Oscar Flores","value":" 5"},{"name":"Philippe Reines","value":" 5"},{"name":"Daniel Schwerin","value":" 4"},{"name":"Wendy Sherman","value":" 4"},{"name":"Claire Coleman","value":" 3"},{"name":"Lona Valmoro","value":" 3"},{"name":"Thomas Nides","value":" 3"},{"name":"William Burns","value":" 3"},{"name":"Capricia Marshall","value":" 2"},{"name":"Burns Strider","value":" 1"},{"name":"Harold Hongju Koh","value":" 1"},{"name":"Judith McHale","value":" 1"},{"name":"Lauren Jiloty","value":" 1"},{"name":"Maria Otero","value":" 1"},{"name":"Melanne Verveer","value":" 1"},{"name":"Victoria Nuland","value":" 1"}]}],"tooltip":{"show":true,"trigger":"item","zlevel":1,"showContent":true,"islandFormatter":"{a} < br/>{b} : {c}","showDelay":20,"hideDelay":100,"transitionDuration":0.4,"enterable":false,"backgroundColor":"rgba(0,0,0,0.7)","borderColor":"#333","borderRadius":4,"borderWidth":0,"padding":5,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"title":{"show":true,"text":"Benghazi release","subtext":"Senders and receivers","target":"blank","subtarget":"blank","x":"left","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":5,"zlevel":0,"z":6}}},"evals":[],"jsHooks":[]}</script>
+<p>We can see 92 mentions of Jake Sullivan, senior policy advisor to Hillary Clinton and 81 mentions of Cheryl Mills, lawyer who defended Bill Clinton during his 1999 impeachment trial, which hints at the situation Clinton found herself in.</p>
+<p>Perhaps we could look at the network of emails as this may contain valuable information.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># nodes table</span>
+nodes &lt;-<span class="st"> </span><span class="kw">get_com</span>(hrc_emails) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">gather</span>(sr, name, from, to) %&gt;%
+<span class="st">  </span><span class="kw">filter</span>(name !=<span class="st"> &quot;&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">count</span>(name, <span class="dt">sort =</span> <span class="ot">TRUE</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">as.data.frame</span>(people)
+
+<span class="co"># edge table</span>
+edges &lt;-<span class="st"> </span><span class="kw">get_com</span>(hrc_emails) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">to =</span> <span class="kw">as.character</span>(to), 
+         <span class="dt">from =</span> <span class="kw">as.character</span>(from)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(from !=<span class="st"> &quot;&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(from, to) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">tally</span>(<span class="dt">sort =</span> <span class="ot">TRUE</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">as.data.frame</span>(edges)
+
+<span class="kw">echart</span>(<span class="dt">width =</span> <span class="st">&quot;100%&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">eforce</span>(
+    <span class="dt">itemStyle =</span> <span class="kw">list</span>()
+  ) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">enodes</span>(nodes, 
+         name, 
+         <span class="dt">value =</span> n) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">elinks</span>(edges, from, to) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etitle</span>(<span class="st">&quot;Benghazi release&quot;</span>, <span class="st">&quot;Network of emails&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etooltip</span>(<span class="dt">trigger =</span> <span class="st">&quot;item&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etheme</span>(<span class="st">&quot;helianthus&quot;</span>)</code></pre></div>
+<div id="htmlwidget-6243a3cab93621efbcbf" style="width:100%;height:480px;" class="echarts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6243a3cab93621efbcbf">{"x":{"theme":"helianthus","options":{"series":[{"itemStyle":[],"type":"force","large":false,"center":["50%","50%"],"roam":false,"size":"100%","minRadius":10,"maxRadius":20,"linkSymbol":"none","linkSymbolSize":[10,15],"scaling":1,"gravity":1,"draggable":true,"useWorker":true,"steps":1,"z":2,"zlevel":0,"nodes":[{"name":"Hillary Clinton","value":"285"},{"name":"Jake Sullivan","value":" 92"},{"name":"Cheryl Mills","value":" 81"},{"name":"Monica Hanley","value":" 27"},{"name":"Huma Abedin","value":" 15"},{"name":"Robert Russo","value":" 15"},{"name":"Sidney Blumenthal","value":" 13"},{"name":"Anne-Marie Slaughter","value":"  5"},{"name":"Oscar Flores","value":"  5"},{"name":"Philippe Reines","value":"  5"},{"name":"Daniel Schwerin","value":"  4"},{"name":"Wendy Sherman","value":"  4"},{"name":"Claire Coleman","value":"  3"},{"name":"Lona Valmoro","value":"  3"},{"name":"Thomas Nides","value":"  3"},{"name":"William Burns","value":"  3"},{"name":"Capricia Marshall","value":"  2"},{"name":"Burns Strider","value":"  1"},{"name":"Harold Hongju Koh","value":"  1"},{"name":"Judith McHale","value":"  1"},{"name":"Lauren Jiloty","value":"  1"},{"name":"Maria Otero","value":"  1"},{"name":"Melanne Verveer","value":"  1"},{"name":"Victoria Nuland","value":"  1"}],"links":[{"source":"Cheryl Mills","target":"Hillary Clinton","weight":"1"},{"source":"Jake Sullivan","target":"Hillary Clinton","weight":"1"},{"source":"Hillary Clinton","target":"Jake Sullivan","weight":"1"},{"source":"Hillary Clinton","target":"Monica Hanley","weight":"1"},{"source":"Hillary Clinton","target":"Robert Russo","weight":"1"},{"source":"Sidney Blumenthal","target":"Hillary Clinton","weight":"1"},{"source":"Hillary Clinton","target":"Cheryl Mills","weight":"1"},{"source":"Huma Abedin","target":"Hillary Clinton","weight":"1"},{"source":"Monica Hanley","target":"Hillary Clinton","weight":"1"},{"source":"Hillary Clinton","target":"","weight":"1"},{"source":"Anne-Marie Slaughter","target":"Hillary Clinton","weight":"1"},{"source":"Hillary Clinton","target":"Huma Abedin","weight":"1"},{"source":"Hillary Clinton","target":"Oscar Flores","weight":"1"},{"source":"Claire Coleman","target":"Hillary Clinton","weight":"1"},{"source":"Philippe Reines","target":"Hillary Clinton","weight":"1"},{"source":"Wendy Sherman","target":"Hillary Clinton","weight":"1"},{"source":"Capricia Marshall","target":"Cheryl Mills","weight":"1"},{"source":"Daniel Schwerin","target":"Hillary Clinton","weight":"1"},{"source":"Lona Valmoro","target":"Hillary Clinton","weight":"1"},{"source":"William Burns","target":"Hillary Clinton","weight":"1"},{"source":"Burns Strider","target":"Hillary Clinton","weight":"1"},{"source":"Cheryl Mills","target":"Cheryl Mills","weight":"1"},{"source":"Cheryl Mills","target":"Jake Sullivan","weight":"1"},{"source":"Daniel Schwerin","target":"Jake Sullivan","weight":"1"},{"source":"Harold Hongju Koh","target":"Hillary Clinton","weight":"1"},{"source":"Hillary Clinton","target":"Lauren Jiloty","weight":"1"},{"source":"Hillary Clinton","target":"Lona Valmoro","weight":"1"},{"source":"Hillary Clinton","target":"Thomas Nides","weight":"1"},{"source":"Hillary Clinton","target":"William Burns","weight":"1"},{"source":"Jake Sullivan","target":"Wendy Sherman","weight":"1"},{"source":"Judith McHale","target":"Hillary Clinton","weight":"1"},{"source":"Maria Otero","target":"Hillary Clinton","weight":"1"},{"source":"Melanne Verveer","target":"Hillary Clinton","weight":"1"},{"source":"Monica Hanley","target":"Daniel Schwerin","weight":"1"},{"source":"Monica Hanley","target":"Jake Sullivan","weight":"1"},{"source":"Philippe Reines","target":"Cheryl Mills","weight":"1"},{"source":"Philippe Reines","target":"Thomas Nides","weight":"1"},{"source":"Robert Russo","target":"Hillary Clinton","weight":"1"},{"source":"Thomas Nides","target":"Hillary Clinton","weight":"1"},{"source":"Victoria Nuland","target":"Hillary Clinton","weight":"1"}]}],"title":{"show":true,"text":"Benghazi release","subtext":"Network of emails","target":"blank","subtarget":"blank","x":"left","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":5,"zlevel":0,"z":6},"tooltip":{"show":true,"trigger":"item","zlevel":1,"showContent":true,"islandFormatter":"{a} < br/>{b} : {c}","showDelay":20,"hideDelay":100,"transitionDuration":0.4,"enterable":false,"backgroundColor":"rgba(0,0,0,0.7)","borderColor":"#333","borderRadius":4,"borderWidth":0,"padding":5,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}}}},"evals":[],"jsHooks":[]}</script>
+<p>Now let’s look at the topic of the emails with <code>get_subject</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidytext)
+
+<span class="kw">get_subject</span>(hrc_emails) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">subject =</span> <span class="kw">as.character</span>(subject)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">unnest_tokens</span>(word, subject) %&gt;%<span class="st"> </span><span class="co"># tokenise</span>
+<span class="st">  </span><span class="kw">anti_join</span>(stop_words, <span class="dt">by =</span> <span class="st">&quot;word&quot;</span>) %&gt;%<span class="st">  </span><span class="co"># remove stopwords</span>
+<span class="st">  </span><span class="kw">count</span>(word, <span class="dt">sort =</span> <span class="ot">TRUE</span>) %&gt;%
+<span class="st">  </span><span class="kw">slice</span>(<span class="dv">1</span>:<span class="dv">10</span>) %&gt;%<span class="st"> </span><span class="co"># take top 10 terms</span>
+<span class="st">  </span><span class="kw">echart</span>(word, <span class="dt">width =</span> <span class="st">&quot;100%&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">ebar</span>(n) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etooltip</span>(<span class="dt">trigger =</span> <span class="st">&quot;item&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etitle</span>(<span class="st">&quot;Benghazi Release&quot;</span>, <span class="st">&quot;10 most mentioned terms in subject&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">etheme</span>(<span class="st">&quot;helianthus&quot;</span>)</code></pre></div>
+<div id="htmlwidget-5a2ef07161a2ffc3ffb0" style="width:100%;height:480px;" class="echarts html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5a2ef07161a2ffc3ffb0">{"x":{"theme":"helianthus","options":{"xAxis":[{"type":"category","data":["sid","libya","benghazi","intel","libyan","update","stevens","chris","u.s","26"]}],"yAxis":[],"series":[{"name":"n","type":"bar","data":[63,52,31,29,27,15,12,10,10,9],"clickable":true,"xAxisIndex":0,"yAxisIndex":0,"barGap":"100%","barCategory":"20%","legendHoverLink":true,"z":2,"zlevel":0}],"tooltip":{"show":true,"trigger":"item","zlevel":1,"showContent":true,"islandFormatter":"{a} < br/>{b} : {c}","showDelay":20,"hideDelay":100,"transitionDuration":0.4,"enterable":false,"backgroundColor":"rgba(0,0,0,0.7)","borderColor":"#333","borderRadius":4,"borderWidth":0,"padding":5,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"title":{"show":true,"text":"Benghazi Release","subtext":"10 most mentioned terms in subject","target":"blank","subtarget":"blank","x":"left","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":5,"zlevel":0,"z":6}}},"evals":[],"jsHooks":[]}</script>
+<p>This reveals that, unsurprisingly, “Libya”, “libyan” and “Benghazi” are some of the most frquent terms in email subjects. However here we come closer to the whole controversy; the—most frequent word—“sid” stands for <a href="https://en.wikipedia.org/wiki/Sidney_Blumenthal">Sydney Blumenthal</a>, a name that came up extremely often during Hillary Clinton’s testimony. The reason for its controversy since “Sid” is not an official but an informal aide that the Clintons first met 30 years ago.</p>
+<blockquote>
+<p>“I think they both believe that the role he played in the White House then, especially in crafting political defenses, was important in the president surviving impeachment and staying in office,” –<cite><a href="http://edition.cnn.com/2015/10/22/politics/hillary-clinton-benghazi-sidney-blumenthal/index.html">CNN Politics</a></cite></p>
+</blockquote>
+</div>
+<p></main></p>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="../../js/materialize.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript" charset="utf-8">
+ $('code').each(function(i, inline) {
+   hljs.highlightBlock(inline);
+ });
+ $('pre code').each(function(i, block) {
+   hljs.highlightBlock(block);
+ });
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  $(".dropdown-button").dropdown();
+  $(".button-collapse").sideNav();
+</script>
+
+<footer class="page-footer blue">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text brand">John Coene</h5>
+        <p class="grey-text text-lighten-4">Data, limericks, and other indoor stuff.</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Connect</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="https://twitter.com/jdatap">Twitter</a></li>
+          <li><a class="grey-text text-lighten-3" href="http://github.com/JohnCoene">Github</a></li>
+          <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/johncoene/">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    © 2017 John Coene
+    <a class="grey-text text-lighten-4 right" href="http://johncoene.github.io/cv/">Resume</a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
