@@ -85,7 +85,7 @@ You watch the speech from Hillary Clinton, then Secretary of State, about the ki
 vembedr::embed_youtube("ljPgIQwaXJ0")
 ```
 
-But before we do that let's explore a bit further. Let' look at the people involved in the emails exchanges. We'll remove Hillary Clinton because we can safely expect 
+But before we do that let's explore a bit further. Let's look at the people involved in the emails exchanges. We'll remove Hillary Clinton because we can safely expect 
 
 ```{r communications, warning=FALSE}
 people <- get_com(hrc_emails) %>% 
@@ -154,7 +154,7 @@ get_subject(hrc_emails) %>%
   etheme("helianthus")
 ```
 
-This reveals that, unsurprisingly, "Libya", "libyan" and "Benghazi" are some of the most frquent terms in email subjects. However here we come closer to the whole controversy; the---most frequent word---"sid" stands for [Sydney Blumenthal](https://en.wikipedia.org/wiki/Sidney_Blumenthal), a name that came up extremely often during Hillary Clinton's testimony. The reason for its controversy since "Sid" is not an official but an informal aide that the Clintons first met 30 years ago.
+This reveals that, unsurprisingly, "Libya", "libyan" and "Benghazi" are some of the most frquent terms in email subjects. However here we come closer to the whole controversy; the---most frequent word---"sid" stands for [Sydney Blumenthal](https://en.wikipedia.org/wiki/Sidney_Blumenthal), a name that came up extremely often during Hillary Clinton's testimony. The reason for its controversy is that "Sid" is not an official but an informal aide that the Clintons first met 30 years ago.
 
 
 > "I think they both believe that the role he played in the White House then, especially in crafting political defenses, was important in the president surviving impeachment and staying in office,"
