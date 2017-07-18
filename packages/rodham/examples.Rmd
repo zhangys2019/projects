@@ -40,13 +40,13 @@ Let's download the Benghazi release to use as example.
 ```{r dl, eval=FALSE}
 ext <- get_xpdf() # get the pdftotext extractor
 
-ownload_emails("Benghazi") # download
+download_emails("Benghazi") # download
 
 dir.create("pdf") # create directory where to extract pdf emails to
 
-unzip("Benghazi.zip", exdir = "./emails_pdf")
+unzip("Benghazi.zip", exdir = "pdf")
 
-dir <- "text"
+dir <- "text" # where we'll extract txt files to
 
 dir.create(dir)
 
@@ -80,7 +80,7 @@ get_date(hrc_emails) %>% # get the dates
 
 Already we can see something interesting, the peak on the 12<sup>th</sup> of September 2012. A bit of Googling reveals that this is the very day of the [Benghazi attack](https://en.wikipedia.org/wiki/2012_Benghazi_attack) that lead to the death of [J. Christopher Stevens](https://en.wikipedia.org/wiki/J._Christopher_Stevens) and the diplomat [Sean Smith](https://en.wikipedia.org/wiki/Sean_Smith_(diplomat)).
 
-You watch the speech from Hillary Clinton, then Secretary of State, about the killing and given on that very day.
+Below, you can watch the speech from Hillary Clinton, then Secretary of State, about the killing and given on that very day.
 
 ```{r video embed, echo=FALSE}
 vembedr::embed_youtube("ljPgIQwaXJ0")
@@ -97,7 +97,7 @@ people <- get_com(hrc_emails) %>%
 
 people %>% 
   echart(name, width = "100%") %>% 
-  ecloud(n, size = list("70%", "70%")) %>% 
+  ecloud(n, size = list("40%", "70%")) %>% 
   etooltip(trigger = "item") %>% 
   etitle("Benghazi release", "Senders and receivers") %>% 
   etheme("helianthus")
@@ -155,7 +155,7 @@ get_subject(hrc_emails) %>%
   etheme("helianthus")
 ```
 
-This reveals that, unsurprisingly, "Libya", "libyan" and "Benghazi" are some of the most frquent terms in email subjects. However here we come closer to the whole controversy; the---most frequent word---"sid" stands for [Sydney Blumenthal](https://en.wikipedia.org/wiki/Sidney_Blumenthal), a name that came up extremely often during Hillary Clinton's testimony. The reason for its controversy is that "Sid" is not an official but an informal aide that the Clintons first met 30 years ago.
+This reveals that, unsurprisingly, "Libya", "libyan" and "Benghazi" are some of the most frequent terms in email subjects. However here we come closer to the whole controversy; the---most frequent word---"sid" stands for [Sydney Blumenthal](https://en.wikipedia.org/wiki/Sidney_Blumenthal), a name that came up extremely often during Hillary Clinton's testimony. The reason for its controversy is that "Sid" is not an official but an informal aide that the Clintons first met 30 years ago.
 
 
 > "I think they both believe that the role he played in the White House then, especially in crafting political defenses, was important in the president surviving impeachment and staying in office,"
@@ -175,7 +175,7 @@ content[[1]]
 
 Thankfully the [tidytext](http://tidytextmining.com) package by Julia Silge makes mining text in R much more convenient. We can use the `tidy_emails` to convert the email content into a tidy tibble.
 
-**NB:** THis is not on CRAN yet you are going to need the dev version: `devtools::install_github("JohnCoene/rodham")`.
+**NB:** This is not on v0.1.1.
 
 ```{r}
 content <- tidy_emails(content)
@@ -185,6 +185,8 @@ content
 In the first column you will find the document ID (`emails`) and in the second column (`content`) you will find each line of text.
 
 ### Sentiment
+
+Let's look at the overall sentiment using the `nrc` lexicon to look into emotions.
 
 ```{r nrc, warning=FALSE, message=FALSE}
 library(tidytext)
