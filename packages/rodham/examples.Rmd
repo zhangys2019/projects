@@ -160,5 +160,68 @@ This reveals that, unsurprisingly, "Libya", "libyan" and "Benghazi" are some of 
 > "I think they both believe that the role he played in the White House then, especially in crafting political defenses, was important in the president surviving impeachment and staying in office,"
 > --<cite>[CNN Politics](http://edition.cnn.com/2015/10/22/politics/hillary-clinton-benghazi-sidney-blumenthal/index.html)</cite>
 
+## Content
+
+Now we can look at the actual content of the emails using `get_content`. As you may well know text is inherently dirty, `rodham` comes with a `clean_content` function that attempts to remove a lot of comments and other unwanted lines from the emails.
+
+```{r}
+content <- get_content(hrc_emails) # get content
+content <- clean_content(content) # clean
+
+# print first email
+content[[1]]
+```
+
+Thankfully the [tidytext](http://tidytextmining.com) package by Julia Silge makes mining text in R much more convenient. We can use the `tidy_emails` to convert the email content into a tidy tibble.
+
+**NB:** THis is not on CRAN yet you are going to need the dev version: `devtools::install_github("JohnCoene/rodham")`.
+
+```{r}
+content <- tidy_emails(content)
+content
+```
+
+In the first column you will find the document ID (`emails`) and in the second column (`content`) you will find each line of text.
+
+### Sentiment
+
+```{r nrc, warning=FALSE, message=FALSE}
+library(tidytext)
+
+content %>% 
+  unnest_tokens(word, content) %>% # tokenise
+  inner_join(get_sentiments("nrc")) %>% # merge with NRC lexicon
+  count(sentiment, sort = TRUE) %>% 
+  mutate(percent = n/sum(n),
+         percent = round(percent, 2) * 100) %>% # counts to percent
+  echart(sentiment, width = "100%") %>% # plot
+  epie(percent, roseType = "radius") %>% 
+  etooltip(trigger = "item") %>% 
+  etheme("helianthus")
+```
+
+How about we use the afinnity lexicon to look at sentiment over time. On the plot below I also show the highest and lowest days along with the average.
+
+```{r afinn date, warning=FALSE, message=FALSE}
+content %>% 
+  inner_join(get_date(hrc_emails)) %>% # add dates
+  unnest_tokens(word, content) %>% # tokenise
+  inner_join(get_sentiments("afinn")) %>% # merge with NRC lexicon
+  group_by(dates) %>% 
+  summarise(score = sum(score)) %>% # sum sentiment / day
+  echart(dates, width = "100%") %>% # plot
+  ebar(score) %>% 
+  emark_point(
+    data = list(
+      list(type = "max", name = "maximum"), 
+      list(type = "min", name = "minimum")
+      )) %>% 
+  emark_line(data = list(list(type = "average", name = "average"))) %>% 
+  etooltip(trigger = "item") %>% 
+  ezoom() %>% 
+  etitle("Benghazi release", "Sentiment over time") %>% 
+  etheme("helianthus")
+```
+
 </div>
 </main>
