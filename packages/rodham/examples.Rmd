@@ -18,7 +18,8 @@ library(echarts)
 Install and load `rodham`. Also, for these examples I am using the `echarts` library for the visualisation as well as `dplyr` and `tidyr` for the data manipulation, install and load that too.
 
 ```{r setup rodham, eval=FALSE}
-# install.packages("rodham") # CRAN release
+# install.packages("rodham") 
+# CRAN release
 library(rodham)
 
 # install.packages("dplyr")
