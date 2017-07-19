@@ -157,7 +157,6 @@ get_subject(hrc_emails) %>%
 
 This reveals that, unsurprisingly, "Libya", "libyan" and "Benghazi" are some of the most frequent terms in email subjects. However here we come closer to the whole controversy; the---most frequent word---"sid" stands for [Sydney Blumenthal](https://en.wikipedia.org/wiki/Sidney_Blumenthal), a name that came up extremely often during Hillary Clinton's testimony. The reason for its controversy is that "Sid" is not an official but an informal aide that the Clintons first met 30 years ago.
 
-
 > "I think they both believe that the role he played in the White House then, especially in crafting political defenses, was important in the president surviving impeachment and staying in office,"
 > --<cite>[CNN Politics](http://edition.cnn.com/2015/10/22/politics/hillary-clinton-benghazi-sidney-blumenthal/index.html)</cite>
 
@@ -183,6 +182,34 @@ content
 ```
 
 In the first column you will find the document ID (`emails`) and in the second column (`content`) you will find each line of text.
+
+Though it may not hold crucial information, I'm curious to see how long Hillary's emails are, I tend to keep mine (too) short. Plus it's a nice easy way to introduce the content of the emails.
+
+> "OK"
+> "Best,"
+> "John"
+
+So I'm at an average of 3 words per email, let's see about Hillary's.
+
+```{r}
+nwords <- content %>% 
+  inner_join(get_com(hrc_emails)) %>%  # add sender's and receiver to
+  filter(from == "Hillary Clinton") %>%  # filter only those sent by Hillary
+  group_by(emails) %>% # group by emails to
+  count(sort = TRUE) %>% # count number of words in each
+  ungroup() 
+
+nwords %>%   
+  echart(emails, width = "100%") %>% # plot
+  earea(n) %>% 
+  emark_line(data = list(list(type = "average", name = "average"))) %>% 
+  exAxis_category(boundaryGap = FALSE) %>% 
+  etitle("Benghazi release", "Word per emails") %>% 
+  etooltip() %>% 
+  etheme("helianthus")
+```
+
+Hers are much longer than mine, which is rather good news if you ask me. There seems to an email in the tail with 263 words in it and pulls the average up (median = `r median(nwords$n)`), so let's look at the distribution.
 
 ### Sentiment
 
