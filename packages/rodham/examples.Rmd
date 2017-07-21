@@ -87,7 +87,7 @@ Already we can see something interesting, the peak on the 12<sup>th</sup> of Sep
 Below, you can watch the speech from Hillary Clinton, then Secretary of State, about the killing and given on that very day.
 
 ```{r video embed, echo=FALSE}
-vembedr::embed_youtube("ljPgIQwaXJ0")
+vembedr::embed_youtube("ljPgIQwaXJ0", width = 400, height = 300)
 ```
 
 Let's look at the people involved in the email exchanges, shall we? We'll remove "Hillary Clinton" because we can safely expect that she'll be the most frequent name in there.
