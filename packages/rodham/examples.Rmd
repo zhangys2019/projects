@@ -13,6 +13,10 @@ library(echarts)
 <main>
 <div class="container">
 
+## Exploring the Benghazi release
+
+*This is meant as an example where I merely explore the emails, it is not to be considered as a full-fledged analysis on which one should forge an opinion*
+
 ## Setup
 
 Install and load `rodham`. Also, for these examples I am using the `echarts` library for the visualisation as well as `dplyr` and `tidyr` for the data manipulation, install and load that too.
@@ -86,7 +90,7 @@ Below, you can watch the speech from Hillary Clinton, then Secretary of State, a
 vembedr::embed_youtube("ljPgIQwaXJ0")
 ```
 
-But before we do that let's explore a bit further. Let's look at the people involved in the emails exchanges. We'll remove Hillary Clinton because we can safely expect 
+Let's look at the people involved in the email exchanges, shall we? We'll remove "Hillary Clinton" because we can safely expect that she'll be the most frequent name in there.
 
 ```{r communications, warning=FALSE}
 people <- get_com(hrc_emails) %>% 
@@ -97,7 +101,7 @@ people <- get_com(hrc_emails) %>%
 
 people %>% 
   echart(name, width = "100%") %>% 
-  ecloud(n, size = list("40%", "70%")) %>% 
+  ecloud(n, size = list("30%", "80%")) %>% 
   etooltip(trigger = "item") %>% 
   etitle("Benghazi release", "Senders and receivers") %>% 
   etheme("helianthus")
@@ -186,12 +190,14 @@ In the first column you will find the document ID (`emails`) and in the second c
 Though it may not hold crucial information, I'm curious to see how long Hillary's emails are, I tend to keep mine (too) short. Plus it's a nice easy way to introduce the content of the emails.
 
 > "OK"
+>
 > "Best,"
+>
 > "John"
 
 So I'm at an average of 3 words per email, let's see about Hillary's.
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 nwords <- content %>% 
   inner_join(get_com(hrc_emails)) %>%  # add sender's and receiver to
   filter(from == "Hillary Clinton") %>%  # filter only those sent by Hillary
@@ -252,6 +258,48 @@ content %>%
   etitle("Benghazi release", "Sentiment over time") %>% 
   etheme("helianthus")
 ```
+
+## TF-IDF
+
+We previously already look at word frequencies, however this is often not very insightful; the most frequent terms are just as useless at the least frequent. What we actually want to is not to look at term frequency, we would like to extract the most characteristic terms from each emails. The latter will cary much more information.
+
+Term frequency-inverse document frequency actual remedies to that to a great example, the simple fact that you do not have to remove stop words demonstrates that very quality.
+
+```{r tfidf, warning=FALSE, message=FALSE}
+# count frequency of each word for each emails
+content %>% 
+  unnest_tokens(word, content) %>% 
+  count(emails, word, sort = TRUE) %>% 
+  ungroup() -> words_email
+
+# get tfidf
+words_email %>% 
+  bind_tf_idf(word, emails, n ) %>% 
+  arrange(desc(tf_idf)) -> tfidf
+
+tfidf %>% 
+  top_n(20) %>%
+  mutate(tf_idf = round(tf_idf, 4)) %>% 
+  echart(word, width = "100%") %>% 
+  ebar(tf_idf) %>% 
+  etitle("Benghazi release", "tf-idf") %>% 
+  etooltip(trigger = "item") %>% 
+  etheme("helianthus")
+```
+
+I suspect the term "breaking" appears in emails from the day of the attacks:
+
+```{r, warning=FALSE, message=FALSE}
+tfidf %>% 
+  top_n(20) %>% 
+  filter(grepl("^breaking$", word)) %>% 
+  inner_join(get_date(hrc_emails)) %>% 
+  select(emails, word, dates)
+```
+
+Wrong, they all pre-date the event.
+
+**Thanks for reading folks!** In hope this can get you started, please post your suggestions or issues with the package [here](https://github.com/JohnCoene/rodham/issues)
 
 </div>
 </main>
