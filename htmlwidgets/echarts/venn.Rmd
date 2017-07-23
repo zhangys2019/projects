@@ -1,0 +1,31 @@
+---
+title: ""
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(echarts)
+```
+
+<main>
+<div class = "container">
+
+```{r, echo=FALSE}
+h1(
+  "Venn"
+)
+```
+
+### Basic
+
+This is a reproduction of the following [example](http://echarts.baidu.com/echarts2/doc/example/venn.html#-en) taken from Baidu's EChart official website.
+
+```{r}
+venn <- data.frame(name = c("banana", "pineapple", "overlap"),
+                   values = c(20, 50, 10))
+
+venn %>%
+    echart(name, width = "100%") %>%
+    evenn(values) %>%
+    etheme("macarons2")
+```
