@@ -306,7 +306,7 @@ edges <- plyr::ddply(edges, c("source", "target", "lon_start", "lat_start",
 
 # plot
 nodes %>% 
-  echart(nodes) %>% 
+  echart(nodes, width = "100%") %>% 
   emap(mapType = "world|United States of America") %>% 
   emap_coords(longitude, latitude) %>% 
   emap_lines(edges, source, target)

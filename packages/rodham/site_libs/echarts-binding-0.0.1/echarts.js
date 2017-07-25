@@ -78,7 +78,6 @@ var solarlight = {backgroundColor:'#fdf6e3',color:["#b58900","#cb4b16","#dc322f"
       },
 
       resize: function(width, height) {
-
       }
 
     };

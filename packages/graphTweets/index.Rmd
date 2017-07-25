@@ -56,12 +56,18 @@ devtools::install_github("JohnCoene/graphTweets") # dev version
 ```
 
 ```{r button}
-a(href="https://cran.r-project.org/web/packages/graphTweets/", 
+p(
+  a(href="https://cran.r-project.org/web/packages/graphTweets/", 
   target = "_blank",
   class = "btn blue",
   "CRAN release",
   tags$i(
     class="icon-rlogo left"
+    )
+  ),
+  a(href="examples", 
+    class = "btn blue",
+    "Examples"
   )
 )
 ```

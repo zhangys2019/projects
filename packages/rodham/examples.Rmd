@@ -178,7 +178,7 @@ content[[1]]
 
 Thankfully the [tidytext](http://tidytextmining.com) package by Julia Silge makes mining text in R much more convenient. We can use the `tidy_emails` to convert the email content into a tidy tibble.
 
-**NB:** This is not on v0.1.1.
+**NB:** This was added in v0.1.1.
 
 ```{r}
 content <- tidy_emails(content)
@@ -261,7 +261,7 @@ content %>%
 
 ## TF-IDF
 
-We previously already look at word frequencies, however this is often not very insightful; the most frequent terms are just as useless at the least frequent. What we actually want to is not to look at term frequency, we would like to extract the most characteristic terms from each emails. The latter will cary much more information.
+We previously already look at word frequencies, however this is often not very insightful; the most frequent terms are just as useless at the least frequent. What we actually want is to extract the most characteristic terms from each emails. The latter will cary much more information.
 
 Term frequency-inverse document frequency actual remedies to that to a great example, the simple fact that you do not have to remove stop words demonstrates that very quality.
 
