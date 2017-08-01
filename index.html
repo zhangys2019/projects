@@ -122,8 +122,44 @@
 </div>
 <div class="container section">
 <h1 class="blue-text center">Web</h1>
+<div class="row hide-on-small-only">
+<h3 class="center orange-text text-lighten-1">five-line</h3>
+<p class="center grey-text text-darken-2">[website - App - API - R Package]</p>
+</div>
+<div class="row hide-on-small-only">
+<div class="siema">
+<div>
+<a href="http://www.five-line.org/" target="_blank">
+<img class="siema-img" src="img/carousels/fiveline_web.png"/>
+</a>
+</div>
+<div>
+<a href="https://play.google.com/store/apps/details?id=org.five_line.www.five_line" target="_blank">
+<img class="siema-img" src="img/carousels/fiveline_app.png"/>
+</a>
+</div>
+<div>
+<a href="http://www.five-line.org/api" target="_blank">
+<img class="siema-img" src="img/carousels/fiveline_api.png"/>
+</a>
+</div>
+<div>
+<a href="https://github.com/JohnCoene/fiveline" target="_blank">
+<img class="siema-img" src="img/carousels/fiveline_package.png"/>
+</a>
+</div>
+</div>
 <div class="row">
-<div class="col m4">
+<a class="prev btn blue lighten-2 left">
+<i class="material-icons">keyboard_arrow_left</i>
+</a>
+<a class="next btn blue lighten-2 right">
+<i class="material-icons">keyboard_arrow_right</i>
+</a>
+</div>
+</div>
+<div class="row">
+<div class="col s12 hide-on-med-and-up">
 <div data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" class="card sticky-action z-depth-3">
 <div class="card-image">
 <img class="activator" src="img/thumbnails/fiveline.png"/>
@@ -176,7 +212,7 @@ five-line
 </div>
 </div>
 </div>
-<div class="col m4">
+<div class="col s12 m6">
 <div data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" class="card sticky-action z-depth-3">
 <div class="card-image">
 <img class="activator" src="img/thumbnails/wine-dashboard.jpg"/>
@@ -202,7 +238,7 @@ Includes dashboards on grape varieties, taste descriptors, wines associated with
 </div>
 </div>
 </div>
-<div class="col m4">
+<div class="col s12 m6">
 <div data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" class="card sticky-action z-depth-3">
 <div class="card-image">
 <img class="activator" src="img/thumbnails/marat.png"/>
@@ -607,6 +643,7 @@ egg
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="js/siema.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 <script type="text/javascript" charset="utf-8">
@@ -622,6 +659,19 @@ egg
 /*  $(document).ready(function(){
     $('.parallax').parallax();
   });*/
+</script>
+
+<script>
+  const mySiema = new Siema({
+    duration: 500,
+    easing: 'ease-out',
+    loop: false
+  });
+  
+  document.querySelector('.prev').addEventListener('click', () => mySiema.prev());
+  document.querySelector('.next').addEventListener('click', () => mySiema.next());
+  
+  setInterval(() => mySiema.next(), 3000)
 </script>
 
 <script>

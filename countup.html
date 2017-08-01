@@ -136,8 +136,8 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 <div class="page-header">
 <h3>
 John has been on earth for <span class = 'red-text'>
-<span id="htmlwidget-242f2668c4ebe295cb91" class="countup html-widget"></span>
-<script type="application/json" data-for="htmlwidget-242f2668c4ebe295cb91">{"x":{"count":15242400,"start":0,"options":{"useEasing":true,"useGrouping":true,"separator":"'","decimal":".","prefix":"~"},"duration":2.5},"evals":[],"jsHooks":[]}</script>
+<span id="htmlwidget-fad21e222948277e7572" class="countup html-widget"></span>
+<script type="application/json" data-for="htmlwidget-fad21e222948277e7572">{"x":{"count":15242400,"start":0,"options":{"useEasing":true,"useGrouping":true,"separator":"'","decimal":".","prefix":"~"},"duration":2.5},"evals":[],"jsHooks":[]}</script>
 </span> minutes.
 </h3>
 </div>
@@ -175,6 +175,7 @@ opts =<span class="st"> </span><span class="kw">list</span>(
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="js/siema.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 <script type="text/javascript" charset="utf-8">
@@ -190,6 +191,19 @@ opts =<span class="st"> </span><span class="kw">list</span>(
 /*  $(document).ready(function(){
     $('.parallax').parallax();
   });*/
+</script>
+
+<script>
+  const mySiema = new Siema({
+    duration: 500,
+    easing: 'ease-out',
+    loop: false
+  });
+  
+  document.querySelector('.prev').addEventListener('click', () => mySiema.prev());
+  document.querySelector('.next').addEventListener('click', () => mySiema.next());
+  
+  setInterval(() => mySiema.next(), 3000)
 </script>
 
 <script>

@@ -91,10 +91,83 @@ div(
     class = "blue-text center",
     "Web"
   ),
+  div(class = "row hide-on-small-only",
+    h3(
+      class = "center orange-text text-lighten-1",
+      "five-line"
+    ),
+    p(
+      class = "center grey-text text-darken-2",
+      "[website - App - API - R Package]"
+    )
+  ),
+  div(
+    class = "row hide-on-small-only",
+    div(
+      class = "siema",
+      div(
+        tags$a(
+          href = "http://www.five-line.org/",
+          target= "_blank",
+          img(
+            class = "siema-img",
+            src = "img/carousels/fiveline_web.png"
+          )
+        )
+      ),
+      div(
+        tags$a(
+          href = "https://play.google.com/store/apps/details?id=org.five_line.www.five_line",
+          target= "_blank",
+          img(
+            class = "siema-img",
+            src = "img/carousels/fiveline_app.png"
+          )
+        )
+      ),
+      div(
+        tags$a(
+          href = "http://www.five-line.org/api",
+          target= "_blank",
+          img(
+            class = "siema-img",
+            src = "img/carousels/fiveline_api.png"
+          )
+        )
+      ),
+      div(
+        tags$a(
+          href = "https://github.com/JohnCoene/fiveline",
+          target= "_blank",
+          img(
+            class = "siema-img",
+            src = "img/carousels/fiveline_package.png"
+          )
+        )
+      )
+    ),
+    div(
+      class = "row",
+      tags$a(
+        class = "prev btn blue lighten-2 left",
+        tags$i(
+          class = "material-icons",
+          "keyboard_arrow_left"
+        )
+      ),
+      tags$a(
+        class = "next btn blue lighten-2 right",
+        tags$i(
+          class = "material-icons",
+          "keyboard_arrow_right"
+        )
+      )
+    )
+  ),
   div(
     class = "row",
     div(
-      class = "col m4",
+      class = "col s12 hide-on-med-and-up",
       div(
         `data-aos` = "fade-up",
         `data-aos-delay` = "100",
@@ -231,7 +304,7 @@ div(
       )
     ),
     div(
-      class = "col m4",
+      class = "col s12 m6",
       div(
         `data-aos` = "fade-up",
         `data-aos-delay` = "100",
@@ -282,7 +355,7 @@ div(
       )
     ),
     div(
-      class = "col m4",
+      class = "col s12 m6",
       div(
         `data-aos` = "fade-up",
         `data-aos-delay` = "100",
