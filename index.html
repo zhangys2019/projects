@@ -124,10 +124,10 @@
 <h1 class="blue-text center">Web</h1>
 <div class="row hide-on-small-only">
 <h3 class="center orange-text text-lighten-1">five-line</h3>
-<p class="center grey-text text-darken-2">[website - App - API - R Package]</p>
+<p class="center grey-text text-darken-2">[ website - App - API - R Package ]</p>
 </div>
 <div class="row hide-on-small-only">
-<div class="siema">
+<div class="siema z-depth-3">
 <div>
 <a href="http://www.five-line.org/" target="_blank">
 <img class="siema-img" src="img/carousels/fiveline_web.png"/>
@@ -150,6 +150,7 @@
 </div>
 </div>
 <div class="row">
+<br/>
 <a class="prev btn blue lighten-2 left">
 <i class="material-icons">keyboard_arrow_left</i>
 </a>
@@ -269,7 +270,39 @@ by Jean-Paul Marat. Ideal for blogging.
 <div class="container section">
 <h1 class="blue-text center">Viz</h1>
 <div class="row">
-<div class="col m4">
+<h3 class="center orange-text text-lighten-1">echarts</h3>
+<p class="center grey-text text-darken-2">[ Powerful interactive visualizations in R ]</p>
+</div>
+<div class="row hide-on-small-only">
+<div class="esiema z-depth-3">
+<div>
+<a href="htmlwidgets/echarts/">
+<img class="siema-img" src="img/carousels/echarts_types.png"/>
+</a>
+</div>
+<div>
+<a href="htmlwidgets/echarts/">
+<img class="siema-img" src="img/carousels/echarts_themes.png"/>
+</a>
+</div>
+<div>
+<a href="htmlwidgets/echarts/">
+<img class="siema-img" src="img/carousels/echarts_responsive.png"/>
+</a>
+</div>
+</div>
+<div class="row hide-on-small-only">
+<br/>
+<a class="eprev btn blue lighten-2 left">
+<i class="material-icons">keyboard_arrow_left</i>
+</a>
+<a class="enext btn blue lighten-2 right">
+<i class="material-icons">keyboard_arrow_right</i>
+</a>
+</div>
+</div>
+<div class="row">
+<div class="col m3">
 <div data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" class="card sticky-action z-depth-3">
 <div class="card-image">
 <img class="activator" src="img/thumbnails/peity.png"/>
@@ -296,7 +329,7 @@ peity htmlwidget for R
 </div>
 </div>
 </div>
-<div class="col m4">
+<div class="col m3">
 <div class="card sticky-action z-depth-3" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500">
 <div class="card-image">
 <img class="activator" src="img/thumbnails/chartist.png"/>
@@ -326,7 +359,7 @@ chartist
 </div>
 </div>
 </div>
-<div class="col m4">
+<div class="col m3">
 <div data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" class="card sticky-action z-depth-3">
 <div class="card-image">
 <img class="activator" src="img/thumbnails/uvcharts.png"/>
@@ -356,9 +389,7 @@ R htmlwidget for uvcharts.
 </div>
 </div>
 </div>
-</div>
-<div class="row">
-<div class="col m6">
+<div class="col m3">
 <div data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" class="card sticky-action z-depth-3">
 <div class="card-image">
 <img class="activator" src="img/thumbnails/datamaps.png"/>
@@ -388,38 +419,6 @@ R htmlwidget for datamaps.
 <li class="collection-item">Bubbles</li>
 </ul>
 </p>
-</div>
-</div>
-</div>
-<div class="col m6">
-<div data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" class="card sticky-action z-depth-3">
-<div class="card-image">
-<img class="activator" src="img/thumbnails/echarts.png"/>
-</div>
-<div class="card-content">
-<span class="card-title activator grey-text text-darken-2">
-echarts
-<i class="material-icons right">more_vert</i>
-</span>
-</div>
-<div class="card-action">
-<a href="htmlwidgets/echarts/" class="blue-text link-shadow">Your first chart</a>
-</div>
-<div class="card-reveal">
-<span class="card-title activator grey-text text-darken-2">
-echarts
-<i class="material-icons right">close</i>
-</span>
-<p class="grey-text text-darken-2">R htmlwidget for ECharts2.</p>
-<ul class="collection with-header">
-<li class="collection-header">
-<h5>Features</h5>
-</li>
-<li class="collection-item">13 chart types</li>
-<li class="collection-item">10 themes</li>
-<li class="collection-item">100s of options</li>
-<li class="collection-item">Fully responsive</li>
-</ul>
 </div>
 </div>
 </div>
@@ -672,6 +671,19 @@ egg
   document.querySelector('.next').addEventListener('click', () => mySiema.next());
   
   setInterval(() => mySiema.next(), 3000)
+
+  const emySiema = new Siema({
+    selector: ".esiema",
+    duration: 500,
+    easing: 'ease-out',
+    loop: false
+  });
+  
+  document.querySelector('.eprev').addEventListener('click', () => emySiema.prev());
+  document.querySelector('.enext').addEventListener('click', () => emySiema.next());
+  
+  setInterval(() => mySiema.next(), 3000)
+
 </script>
 
 <script>

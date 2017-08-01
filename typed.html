@@ -136,8 +136,8 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 <main>
 <div class="container">
 <h1>
-<span id="htmlwidget-b731cbc0afeb5a3bcbfc" class="typed html-widget"></span>
-<script type="application/json" data-for="htmlwidget-b731cbc0afeb5a3bcbfc">{"x":{"type":"typed.js for Rmarkdown","typeSpeed":100,"contentType":"html"},"evals":[],"jsHooks":[]}</script>
+<span id="htmlwidget-fb1b61926535e2736d54" class="typed html-widget"></span>
+<script type="application/json" data-for="htmlwidget-fb1b61926535e2736d54">{"x":{"type":"typed.js for Rmarkdown","typeSpeed":100,"contentType":"html"},"evals":[],"jsHooks":[]}</script>
 </h1>
 <p><a href="https://travis-ci.org/JohnCoene/typed"><img src="https://travis-ci.org/JohnCoene/typed.svg?branch=master" alt="Travis-CI Build Status" /></a> <a href="https://saythanks.io/to/JohnCoene"><img src="https://img.shields.io/badge/say-thanks-ff69b4.svg" alt="saythanks" /></a></p>
 <div class="container-fluid">
@@ -200,6 +200,19 @@ It is obviously meant to be used in Rmarkdown html documents (such as this very 
   document.querySelector('.next').addEventListener('click', () => mySiema.next());
   
   setInterval(() => mySiema.next(), 3000)
+
+  const emySiema = new Siema({
+    selector: ".esiema",
+    duration: 500,
+    easing: 'ease-out',
+    loop: false
+  });
+  
+  document.querySelector('.eprev').addEventListener('click', () => emySiema.prev());
+  document.querySelector('.enext').addEventListener('click', () => emySiema.next());
+  
+  setInterval(() => mySiema.next(), 3000)
+
 </script>
 
 <script>

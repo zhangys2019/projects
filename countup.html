@@ -136,8 +136,8 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 <div class="page-header">
 <h3>
 John has been on earth for <span class = 'red-text'>
-<span id="htmlwidget-fad21e222948277e7572" class="countup html-widget"></span>
-<script type="application/json" data-for="htmlwidget-fad21e222948277e7572">{"x":{"count":15242400,"start":0,"options":{"useEasing":true,"useGrouping":true,"separator":"'","decimal":".","prefix":"~"},"duration":2.5},"evals":[],"jsHooks":[]}</script>
+<span id="htmlwidget-31e4f3eb61a07187150f" class="countup html-widget"></span>
+<script type="application/json" data-for="htmlwidget-31e4f3eb61a07187150f">{"x":{"count":15242400,"start":0,"options":{"useEasing":true,"useGrouping":true,"separator":"'","decimal":".","prefix":"~"},"duration":2.5},"evals":[],"jsHooks":[]}</script>
 </span> minutes.
 </h3>
 </div>
@@ -204,6 +204,19 @@ opts =<span class="st"> </span><span class="kw">list</span>(
   document.querySelector('.next').addEventListener('click', () => mySiema.next());
   
   setInterval(() => mySiema.next(), 3000)
+
+  const emySiema = new Siema({
+    selector: ".esiema",
+    duration: 500,
+    easing: 'ease-out',
+    loop: false
+  });
+  
+  document.querySelector('.eprev').addEventListener('click', () => emySiema.prev());
+  document.querySelector('.enext').addEventListener('click', () => emySiema.next());
+  
+  setInterval(() => mySiema.next(), 3000)
+
 </script>
 
 <script>

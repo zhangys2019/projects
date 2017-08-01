@@ -98,13 +98,13 @@ div(
     ),
     p(
       class = "center grey-text text-darken-2",
-      "[website - App - API - R Package]"
+      "[ website - App - API - R Package ]"
     )
   ),
   div(
     class = "row hide-on-small-only",
     div(
-      class = "siema",
+      class = "siema z-depth-3",
       div(
         tags$a(
           href = "http://www.five-line.org/",
@@ -148,6 +148,7 @@ div(
     ),
     div(
       class = "row",
+      br(),
       tags$a(
         class = "prev btn blue lighten-2 left",
         tags$i(
@@ -415,10 +416,71 @@ div(
     class = "blue-text center",
     "Viz"
   ),
+  div(class = "row",
+    h3(
+      class = "center orange-text text-lighten-1",
+      "echarts"
+    ),
+    p(
+      class = "center grey-text text-darken-2",
+      "[ Powerful interactive visualizations in R ]"
+    )
+  ),
+  div(
+    class = "row hide-on-small-only",
+    div(
+      class = "esiema z-depth-3",
+      div(
+        tags$a(
+          href = "htmlwidgets/echarts/",
+          img(
+            class = "siema-img",
+            src = "img/carousels/echarts_types.png"
+          )
+        )
+      ),
+      div(
+        tags$a(
+          href = "htmlwidgets/echarts/",
+          img(
+            class = "siema-img",
+            src = "img/carousels/echarts_themes.png"
+          )
+        )
+      ),
+      div(
+        tags$a(
+          href = "htmlwidgets/echarts/",
+          img(
+            class = "siema-img",
+            src = "img/carousels/echarts_responsive.png"
+          )
+        )
+      )
+    ),
+    div(
+      class = "row hide-on-small-only",
+      br(),
+      tags$a(
+        class = "eprev btn blue lighten-2 left",
+        tags$i(
+          class = "material-icons",
+          "keyboard_arrow_left"
+        )
+      ),
+      tags$a(
+        class = "enext btn blue lighten-2 right",
+        tags$i(
+          class = "material-icons",
+          "keyboard_arrow_right"
+        )
+      )
+    )
+  ),
   div(
     class = "row",
     div(
-      class = "col m4",
+      class = "col m3",
       div(
         `data-aos` = "fade-up",
         `data-aos-delay` = "100",
@@ -474,7 +536,7 @@ div(
       )
     ),
     div(
-      class = "col m4",
+      class = "col m3",
       div(
         class = "card sticky-action z-depth-3",
         `data-aos` = "fade-up",
@@ -546,7 +608,7 @@ div(
       )
     ),
     div(
-      class = "col m4",
+      class = "col m3",
       div(
         `data-aos` = "fade-up",
         `data-aos-delay` = "100",
@@ -608,12 +670,9 @@ div(
           )
         )
       )
-    )
-  ),
-  div(
-    class = "row",
-    div(
-      class = "col m6",
+    ),
+     div(
+      class = "col m3",
       div(
         `data-aos` = "fade-up",
         `data-aos-delay` = "100",
@@ -677,81 +736,6 @@ div(
                 class = "collection-item",
                 "Bubbles"
               )
-            )
-          )
-        )
-      )
-    ),
-    div(
-      class = "col m6",
-      div(
-        `data-aos` = "fade-up",
-        `data-aos-delay` = "100",
-        `data-aos-duration` = "1500",
-        class = "card sticky-action z-depth-3",
-        div(
-          class = "card-image",
-          img(
-            class = "activator",
-            src = "img/thumbnails/echarts.png"
-          )
-        ),
-        div(
-          class = "card-content",
-          tags$span(
-            class = "card-title activator grey-text text-darken-2", 
-            "echarts",
-            tags$i(
-              class = "material-icons right",
-              "more_vert"
-            )
-          )
-        ),
-        div(
-          class = "card-action",
-          tags$a(
-            href="htmlwidgets/echarts/",
-            class = "blue-text link-shadow",
-            "Your first chart"
-          )
-        ),
-        div(
-          class = "card-reveal",
-          tags$span(
-            class = "card-title activator grey-text text-darken-2", 
-            "echarts",
-            tags$i(
-              class = "material-icons right",
-              "close"
-            )
-          ),
-          p(
-            class = "grey-text text-darken-2",
-            "R htmlwidget for ECharts2."
-          ),
-          tags$ul(
-            class = "collection with-header",
-            tags$li(
-              class = "collection-header",
-              h5(
-                "Features"
-              )
-            ),
-            tags$li(
-              class = "collection-item",
-              "13 chart types"
-            ),
-            tags$li(
-              class = "collection-item",
-              "10 themes"
-            ),
-            tags$li(
-              class = "collection-item",
-              "100s of options"
-            ),
-            tags$li(
-              class = "collection-item",
-              "Fully responsive"
             )
           )
         )

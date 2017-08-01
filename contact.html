@@ -128,6 +128,19 @@
   document.querySelector('.next').addEventListener('click', () => mySiema.next());
   
   setInterval(() => mySiema.next(), 3000)
+
+  const emySiema = new Siema({
+    selector: ".esiema",
+    duration: 500,
+    easing: 'ease-out',
+    loop: false
+  });
+  
+  document.querySelector('.eprev').addEventListener('click', () => emySiema.prev());
+  document.querySelector('.enext').addEventListener('click', () => emySiema.next());
+  
+  setInterval(() => mySiema.next(), 3000)
+
 </script>
 
 <script>
