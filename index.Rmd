@@ -427,7 +427,7 @@ div(
     )
   ),
   div(
-    class = "row hide-on-small-only",
+    class = "row",
     div(
       class = "esiema z-depth-3",
       div(
