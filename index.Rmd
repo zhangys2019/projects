@@ -30,10 +30,7 @@ div(
           href = "https://github.com/JohnCoene",
           target = "_blank",
           class = "btn grey darken-3 waves-effect z-depth-5",
-          tags$i(
-            class = "material-icons",
-            "code"
-          )
+          "GIT"
         )
       )
     ),
@@ -45,10 +42,7 @@ div(
           href = "https://www.linkedin.com/in/johncoene/",
           target = "_blank",
           class = "btn blue darken-3 waves-effect z-depth-5",
-          tags$i(
-            class = "material-icons",
-            "assignment_ind"
-          )
+          "LKN"
         )
       )
     ),
@@ -60,10 +54,7 @@ div(
           href = "https://twitter.com/jdatap",
           target = "_blank",
           class = "btn blue lighten-1 waves-effect z-depth-5",
-          tags$i(
-            class = "material-icons",
-            "sms"
-          )
+          "TWT"
         )
       )
     )
