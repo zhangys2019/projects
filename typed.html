@@ -136,8 +136,8 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 <main>
 <div class="container">
 <h1>
-<span id="htmlwidget-e5f3cd489cfb8cb15b8a" class="typed html-widget"></span>
-<script type="application/json" data-for="htmlwidget-e5f3cd489cfb8cb15b8a">{"x":{"type":"typed.js for Rmarkdown","typeSpeed":100,"contentType":"html"},"evals":[],"jsHooks":[]}</script>
+<span id="htmlwidget-bf5e09bdd0397881ad43" class="typed html-widget"></span>
+<script type="application/json" data-for="htmlwidget-bf5e09bdd0397881ad43">{"x":{"type":"typed.js for Rmarkdown","typeSpeed":100,"contentType":"html"},"evals":[],"jsHooks":[]}</script>
 </h1>
 <p><a href="https://travis-ci.org/JohnCoene/typed"><img src="https://travis-ci.org/JohnCoene/typed.svg?branch=master" alt="Travis-CI Build Status" /></a> <a href="https://saythanks.io/to/JohnCoene"><img src="https://img.shields.io/badge/say-thanks-ff69b4.svg" alt="saythanks" /></a></p>
 <div class="container-fluid">
@@ -191,7 +191,7 @@ It is obviously meant to be used in Rmarkdown html documents (such as this very 
 
 <script>
   const mySiema = new Siema({
-    duration: 500,
+    duration: 700,
     easing: 'ease-out',
     loop: false
   });
@@ -199,20 +199,38 @@ It is obviously meant to be used in Rmarkdown html documents (such as this very 
   document.querySelector('.prev').addEventListener('click', () => mySiema.prev());
   document.querySelector('.next').addEventListener('click', () => mySiema.next());
   
-  setInterval(() => mySiema.next(), 3000)
+  setInterval(() => mySiema.next(), 10000)
 
   const emySiema = new Siema({
     selector: ".esiema",
-    duration: 500,
+    duration: 700,
     easing: 'ease-out',
-    loop: false
+    loop: true
   });
   
   document.querySelector('.eprev').addEventListener('click', () => emySiema.prev());
   document.querySelector('.enext').addEventListener('click', () => emySiema.next());
   
-  setInterval(() => mySiema.next(), 3000)
+  setInterval(() => emySiema.next(), 10000)
+  
+  const rmySiema = new Siema({
+    selector: ".rsiema",
+    duration: 700,
+    easing: 'ease-out',
+    loop: true
+  });
+  
+  document.querySelector('.rprev').addEventListener('click', () => rmySiema.prev());
+  document.querySelector('.rnext').addEventListener('click', () => rmySiema.next());
+  
+  setInterval(() => rmySiema.next(), 10000)
 
+</script>
+
+<script>
+  $(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
 </script>
 
 <script>

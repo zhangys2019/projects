@@ -20,7 +20,7 @@
 
 <script>
   const mySiema = new Siema({
-    duration: 500,
+    duration: 700,
     easing: 'ease-out',
     loop: false
   });
@@ -28,20 +28,38 @@
   document.querySelector('.prev').addEventListener('click', () => mySiema.prev());
   document.querySelector('.next').addEventListener('click', () => mySiema.next());
   
-  setInterval(() => mySiema.next(), 3000)
+  setInterval(() => mySiema.next(), 10000)
 
   const emySiema = new Siema({
     selector: ".esiema",
-    duration: 500,
+    duration: 700,
     easing: 'ease-out',
-    loop: false
+    loop: true
   });
   
   document.querySelector('.eprev').addEventListener('click', () => emySiema.prev());
   document.querySelector('.enext').addEventListener('click', () => emySiema.next());
   
-  setInterval(() => mySiema.next(), 3000)
+  setInterval(() => emySiema.next(), 10000)
+  
+  const rmySiema = new Siema({
+    selector: ".rsiema",
+    duration: 700,
+    easing: 'ease-out',
+    loop: true
+  });
+  
+  document.querySelector('.rprev').addEventListener('click', () => rmySiema.prev());
+  document.querySelector('.rnext').addEventListener('click', () => rmySiema.next());
+  
+  setInterval(() => rmySiema.next(), 10000)
 
+</script>
+
+<script>
+  $(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
 </script>
 
 <script>

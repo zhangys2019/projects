@@ -876,10 +876,89 @@ div(
     class = "blue-text center",
     "Data"
   ),
+  div(class = "row",
+    h3(
+      class = "center orange-text text-lighten-1",
+      "rodham"
+    ),
+    p(
+      class = "center grey-text text-darken-2",
+      "[ Download and analyse Hillary Clinton's emails in R ]"
+    )
+  ),
   div(
     class = "row",
     div(
-      class = "col m4",
+      class = "rsiema z-depth-3",
+      div(
+        tags$a(
+          href = "packages/rodham/",
+          img(
+            class = "siema-img",
+            src = "img/carousels/rodham_intro.png"
+          )
+        )
+      ),
+      div(
+        tags$a(
+          href = "packages/rodham/",
+          img(
+            class = "siema-img",
+            src = "img/carousels/rodham_releases.png"
+          )
+        )
+      ),
+      div(
+        tags$a(
+          href = "packages/rodham/",
+          img(
+            class = "siema-img",
+            src = "img/carousels/rodham_download.png"
+          )
+        )
+      ),
+      div(
+        tags$a(
+          href = "packages/rodham/",
+          img(
+            class = "siema-img",
+            src = "img/carousels/rodham_analyse.png"
+          )
+        )
+      ),
+      div(
+        tags$a(
+          href = "packages/rodham/",
+          img(
+            class = "siema-img",
+            src = "img/carousels/rodham_tidy.png"
+          )
+        )
+      )
+    ),
+    div(
+      class = "row hide-on-small-only",
+      br(),
+      tags$a(
+        class = "rprev btn blue lighten-2 left",
+        tags$i(
+          class = "material-icons",
+          "keyboard_arrow_left"
+        )
+      ),
+      tags$a(
+        class = "rnext btn blue lighten-2 right",
+        tags$i(
+          class = "material-icons",
+          "keyboard_arrow_right"
+        )
+      )
+    )
+  ),
+  div(
+    class = "row",
+    div(
+      class = "col m6",
       div(
         `data-aos` = "fade-up",
         `data-aos-delay` = "100",
@@ -930,7 +1009,7 @@ div(
       )
     ),
     div(
-      class = "col m4",
+      class = "col m6",
       div(
         `data-aos` = "fade-up",
         `data-aos-delay` = "100",
@@ -978,55 +1057,6 @@ div(
           )
         )
       )
-    ),
-    div(
-      class = "col m4",
-      div(
-        `data-aos` = "fade-up",
-        `data-aos-delay` = "100",
-        `data-aos-duration` = "1500",
-        class = "card sticky-action z-depth-3",
-        div(
-          class = "card-image",
-          img(
-            class = "activator",
-            src = "img/thumbnails/rodham.jpg"
-          )
-        ),
-        div(
-          class = "card-content",
-          tags$span(
-            class = "card-title activator grey-text text-darken-2", 
-            "rodham",
-            tags$i(
-              class = "material-icons right",
-              "more_vert"
-            )
-          )
-        ),
-        div(
-          class = "card-action",
-          tags$a(
-            href="packages/rodham",
-            class = "blue-text link-shadow",
-            "Discover"
-          )
-        ),
-        div(
-          class = "card-reveal",
-          tags$span(
-            class = "card-title activator grey-text text-darken-2", 
-            "rodham",
-            tags$i(
-              class = "material-icons right",
-              "close"
-            )
-          ),
-          p(
-            "R package to download and analyse Hillary Rodham Clinton emails from the Wall Street Journal."
-          )
-        )
-      )
     )
   )
 )
@@ -1041,161 +1071,81 @@ div(
   ),
   div(
     class = "row",
-    div(
-      class = "col m4",
-      div(
-        `data-aos` = "fade-up",
-        `data-aos-delay` = "100",
-        `data-aos-duration` = "1500",
-        class = "card sticky-action z-depth-3",
+    tags$ul(
+      class = "collapsible popout",
+      `data-collapsible` = "accordion",
+      tags$li(
         div(
-          class = "card-image",
-          img(
-            class = "activator",
-            src = "img/thumbnails/typed.jpg"
-          )
-        ),
-        div(
-          class = "card-content",
-          tags$span(
-            class = "card-title activator grey-text text-darken-2", 
-            "typed",
-            tags$i(
-              class = "material-icons right",
-              "more_vert"
-            )
-          )
-        ),
-        div(
-          class = "card-action",
-          tags$a(
-            href="https://github.com/JohnCoene/typed",
-            target = "_blank",
-            class = "blue-text link-shadow",
-            "Start typing"
-          )
-        ),
-        div(
-          class = "card-reveal",
-          tags$span(
-            class = "card-title activator grey-text text-darken-2", 
-            "typed",
-            tags$i(
-              class = "material-icons right",
-              "close"
-            )
+          class = "collapsible-header active blue-text",
+          tags$i(
+            class = "material-icons",
+            "text_format"
           ),
-          p(
+          "typed"
+        ),
+        div(
+          class = "collapsible-body",
+          tags$span(
             "typed is an R implementation of ",
             a(
               href = "https://github.com/mattboldt/typed.js",
               "typed.js"
             ),
-            "."
+            ".",
+            tags$a(
+              href = "https://github.com/JohnCoene/typed",
+              target = "_blank",
+              class = "right link-shadow",
+              "Start typing"
+            )
           )
         )
-      )
-    ),
-    div(
-      class = "col m4",
-      div(
-        `data-aos` = "fade-up",
-        `data-aos-delay` = "100",
-        `data-aos-duration` = "1500",
-        class = "card sticky-action z-depth-3",
+      ),
+      tags$li(
         div(
-          class = "card-image",
-          img(
-            class = "activator",
-            src = "img/thumbnails/countup.jpg"
-          )
-        ),
-        div(
-          class = "card-content",
-          tags$span(
-            class = "card-title activator grey-text text-darken-2", 
-            "countup",
-            tags$i(
-              class = "material-icons right",
-              "more_vert"
-            )
-          )
-        ),
-        div(
-          class = "card-action",
-          tags$a(
-            href="countup",
-            class = "blue-text link-shadow",
-            "Get counting"
-          )
-        ),
-        div(
-          class = "card-reveal",
-          tags$span(
-            class = "card-title activator grey-text text-darken-2", 
-            "countup",
-            tags$i(
-              class = "material-icons right",
-              "close"
-            )
+          class = "collapsible-header blue-text",
+          tags$i(
+            class = "material-icons",
+            "alarm"
           ),
-          p(
+          "countup"
+        ),
+        div(
+          class = "collapsible-body",
+          tags$span(
             "R implementation of ",
             a(
               href = "https://inorganik.github.io/countUp.js/",
               "countup.js"
             ),
-            "."
+            ".",
+            tags$a(
+              href = "countup",
+              class = "right link-shadow",
+              "Get counting"
+            )
           )
         )
-      )
-    ),
-    div(
-      class = "col m4",
-      div(
-        `data-aos` = "fade-up",
-        `data-aos-delay` = "100",
-        `data-aos-duration` = "1500",
-        class = "card sticky-action z-depth-3",
+      ),
+      tags$li(
         div(
-          class = "card-image",
-          img(
-            class = "activator",
-            src = "img/thumbnails/egg.jpg"
-          )
-        ),
-        div(
-          class = "card-content",
-          tags$span(
-            class = "card-title activator grey-text text-darken-2", 
-            "egg",
-            tags$i(
-              class = "material-icons right",
-              "more_vert"
-            )
-          )
-        ),
-        div(
-          class = "card-action",
-          tags$a(
-            href="egg",
-            class = "blue-text link-shadow",
-            "Get cooking"
-          )
-        ),
-        div(
-          class = "card-reveal",
-          tags$span(
-            class = "card-title activator grey-text text-darken-2", 
-            "egg",
-            tags$i(
-              class = "material-icons right",
-              "close"
-            )
+          class = "collapsible-header blue-text",
+          tags$i(
+            class = "material-icons",
+            "filter_drama"
           ),
-          p(
+          "egg"
+        ),
+        div(
+          class = "collapsible-body",
+          tags$span(
             "R package to put easter eggs in your Rmarkdown reports; text and images."
-          )
+          ),
+            tags$a(
+              href = "egg",
+              class = "right link-shadow",
+              "Get cooking"
+            )
         )
       )
     )

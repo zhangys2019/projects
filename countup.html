@@ -136,8 +136,8 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 <div class="page-header">
 <h3>
 John has been on earth for <span class = 'red-text'>
-<span id="htmlwidget-e6d853ef278dcedba66d" class="countup html-widget"></span>
-<script type="application/json" data-for="htmlwidget-e6d853ef278dcedba66d">{"x":{"count":15242400,"start":0,"options":{"useEasing":true,"useGrouping":true,"separator":"'","decimal":".","prefix":"~"},"duration":2.5},"evals":[],"jsHooks":[]}</script>
+<span id="htmlwidget-6ae3e5f3355056e7feee" class="countup html-widget"></span>
+<script type="application/json" data-for="htmlwidget-6ae3e5f3355056e7feee">{"x":{"count":15242400,"start":0,"options":{"useEasing":true,"useGrouping":true,"separator":"'","decimal":".","prefix":"~"},"duration":2.5},"evals":[],"jsHooks":[]}</script>
 </span> minutes.
 </h3>
 </div>
@@ -195,7 +195,7 @@ opts =<span class="st"> </span><span class="kw">list</span>(
 
 <script>
   const mySiema = new Siema({
-    duration: 500,
+    duration: 700,
     easing: 'ease-out',
     loop: false
   });
@@ -203,20 +203,38 @@ opts =<span class="st"> </span><span class="kw">list</span>(
   document.querySelector('.prev').addEventListener('click', () => mySiema.prev());
   document.querySelector('.next').addEventListener('click', () => mySiema.next());
   
-  setInterval(() => mySiema.next(), 3000)
+  setInterval(() => mySiema.next(), 10000)
 
   const emySiema = new Siema({
     selector: ".esiema",
-    duration: 500,
+    duration: 700,
     easing: 'ease-out',
-    loop: false
+    loop: true
   });
   
   document.querySelector('.eprev').addEventListener('click', () => emySiema.prev());
   document.querySelector('.enext').addEventListener('click', () => emySiema.next());
   
-  setInterval(() => mySiema.next(), 3000)
+  setInterval(() => emySiema.next(), 10000)
+  
+  const rmySiema = new Siema({
+    selector: ".rsiema",
+    duration: 700,
+    easing: 'ease-out',
+    loop: true
+  });
+  
+  document.querySelector('.rprev').addEventListener('click', () => rmySiema.prev());
+  document.querySelector('.rnext').addEventListener('click', () => rmySiema.next());
+  
+  setInterval(() => rmySiema.next(), 10000)
 
+</script>
+
+<script>
+  $(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
 </script>
 
 <script>

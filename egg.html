@@ -144,8 +144,8 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 <blockquote>
 <p>Type “coene” to see it in action!</p>
 </blockquote>
-<div id="htmlwidget-00eb858c81d0b04d1656" class="egg html-widget" style="display: none; position: absolute; top:20%; left:50% width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-00eb858c81d0b04d1656">{"x":{"egg":"","stroke":["c","o","e","n","e"],"fade":1000,"imegg":"http://media.vanityfair.com/photos/54cbf3da998d4de83ba3602a/master/w_960,c_limit/image.jpg"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9cc833b81e415c25149c" class="egg html-widget" style="display: none; position: absolute; top:20%; left:50% width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-9cc833b81e415c25149c">{"x":{"egg":"","stroke":["c","o","e","n","e"],"fade":1000,"imegg":"http://media.vanityfair.com/photos/54cbf3da998d4de83ba3602a/master/w_960,c_limit/image.jpg"},"evals":[],"jsHooks":[]}</script>
 <div class="page-header">
 <h2>Install</h2>
 </div>
@@ -184,7 +184,7 @@ devtools::<span class="kw">install_github</span>(<span class="st">&quot;JohnCoen
 
 <script>
   const mySiema = new Siema({
-    duration: 500,
+    duration: 700,
     easing: 'ease-out',
     loop: false
   });
@@ -192,20 +192,38 @@ devtools::<span class="kw">install_github</span>(<span class="st">&quot;JohnCoen
   document.querySelector('.prev').addEventListener('click', () => mySiema.prev());
   document.querySelector('.next').addEventListener('click', () => mySiema.next());
   
-  setInterval(() => mySiema.next(), 3000)
+  setInterval(() => mySiema.next(), 10000)
 
   const emySiema = new Siema({
     selector: ".esiema",
-    duration: 500,
+    duration: 700,
     easing: 'ease-out',
-    loop: false
+    loop: true
   });
   
   document.querySelector('.eprev').addEventListener('click', () => emySiema.prev());
   document.querySelector('.enext').addEventListener('click', () => emySiema.next());
   
-  setInterval(() => mySiema.next(), 3000)
+  setInterval(() => emySiema.next(), 10000)
+  
+  const rmySiema = new Siema({
+    selector: ".rsiema",
+    duration: 700,
+    easing: 'ease-out',
+    loop: true
+  });
+  
+  document.querySelector('.rprev').addEventListener('click', () => rmySiema.prev());
+  document.querySelector('.rnext').addEventListener('click', () => rmySiema.next());
+  
+  setInterval(() => rmySiema.next(), 10000)
 
+</script>
+
+<script>
+  $(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
 </script>
 
 <script>
