@@ -167,7 +167,7 @@
   document.querySelector('.prev').addEventListener('click', () => mySiema.prev());
   document.querySelector('.next').addEventListener('click', () => mySiema.next());
   
-  setInterval(() => mySiema.next(), 10000)
+  setInterval(() => mySiema.next(), 7000)
 
   const emySiema = new Siema({
     selector: ".esiema",
@@ -179,7 +179,7 @@
   document.querySelector('.eprev').addEventListener('click', () => emySiema.prev());
   document.querySelector('.enext').addEventListener('click', () => emySiema.next());
   
-  setInterval(() => emySiema.next(), 10000)
+  setInterval(() => emySiema.next(), 5000)
   
   const rmySiema = new Siema({
     selector: ".rsiema",
