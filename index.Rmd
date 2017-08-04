@@ -11,10 +11,10 @@ knitr::opts_chunk$set(echo = FALSE)
 ```{r intro}
 div(
   id = "particles-js",
-  style = "height: 80vh;",
+  style = "height: 100vh;",
   div(
     class = "container section center",
-    style = "margin-top: 20vh;",
+    style = "padding-top: 20vh;",
     h1(
       class = "brand blue-text",
       "Project Vault"
