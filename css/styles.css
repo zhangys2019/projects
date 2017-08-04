@@ -39,9 +39,3 @@ pre code {
 .italics{
   font-family: italics;
 }
-
-canvas {
-display:block;
-position: fixed;
-z-index: -10;
-}
