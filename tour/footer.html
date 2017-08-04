@@ -1,0 +1,53 @@
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="js/siema.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+  $(".button-collapse").sideNav();
+</script>
+
+<script>
+  $(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+
+var clock = $('.your-clock').FlipClock(3600 * 24 * 18, {
+  countdown: true,
+  clockFace: 'DailyCounter'
+});
+
+$("#pc-menu").sideNav();
+
+$(document).ready(function(){
+  $('.scrollspy').scrollSpy();
+});
+
+$(document).ready(function(){
+  $('.tabs').tabs();
+});
+</script>
+
+<footer class="page-footer teal">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text brand">John-seeks-a-job</h5>
+        <p class="grey-text text-lighten-4">European tour.</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Connect</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="https://twitter.com/jdatap" target="_blank">Twitter</a></li>
+          <li><a class="grey-text text-lighten-3" href="http://github.com/JohnCoene" target="_blank">Github</a></li>
+          <li><a class="grey-text text-lighten-3" href="mailto:jcoenep@gmail.com">jcoenep@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    With <i class="material-icons red-text">favorite</i> by John Coene
+    </div>
+  </div>
+</footer>

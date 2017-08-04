@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<title></title>
+
+<script src="site_libs/htmlwidgets-0.9/htmlwidgets.js"></script>
+<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
+<link href="site_libs/leaflet-0.7.7/leaflet.css" rel="stylesheet" />
+<script src="site_libs/leaflet-0.7.7/leaflet.js"></script>
+<link href="site_libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<link href="site_libs/leaflet-label-0.2.2/leaflet.label.css" rel="stylesheet" />
+<script src="site_libs/leaflet-label-0.2.2/leaflet.label.js"></script>
+<script src="site_libs/Proj4Leaflet-0.7.2/proj4-compressed.js"></script>
+<script src="site_libs/Proj4Leaflet-0.7.2/proj4leaflet.js"></script>
+<script src="site_libs/leaflet-binding-1.1.0/leaflet.js"></script>
+<link href="site_libs/leaflet-awesomemarkers-2.0.3/leaflet.awesome-markers.css" rel="stylesheet" />
+<script src="site_libs/leaflet-awesomemarkers-2.0.3/leaflet.awesome-markers.min.js"></script>
+<link href="site_libs/ionicons-2.0.1/ionicons.min.css" rel="stylesheet" />
+<script src="site_libs/leaflet-providers-1.0.27/leaflet-providers.js"></script>
+<script src="site_libs/leaflet-providers-plugin-1.1.0/leaflet-providers-plugin.js"></script>
+<link href="css/aos.css" rel="stylesheet">
+<script src="js/aos.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+<!--flipclock-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.css" />
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-74544116-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<meta http-equiv="Cache-control" content="public">
+
+<!--SHARE TAGS-->
+<meta name="google-site-verification" content="p4A9hVd1c8FOAlQsyDq0NMrE9IQdtfZoHgQ2e1t2dYE" />
+<meta name="description" content="John Coene - Europe tour." />
+
+<!-- Schema.org markup for Google+ -->
+<meta itemprop="name" content="John Coene">
+<meta itemprop="description" content="John Coene - Europe tour.">
+<meta itemprop="image" content="http://johncoene.github.io/tour/img/tour.png">
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="website">
+<meta name="twitter:site" content="@jdatap">
+<meta name="twitter:title" content="John Coene Tour">
+<meta name="twitter:description" content="Data, limericks, and other indoor stuff.">
+<meta name="twitter:creator" content="@jdatap">
+<meta name="twitter:image" content="http://johncoene.github.io/tour/img/tour_tw.png">
+
+<!-- Open Graph data -->
+<meta property="og:title" content="John Coene Tour" />
+<meta property="og:image" content="http://johncoene.github.io/tour/img/tour_fb.png" />
+<meta property="og:description" content="John Coene - Europe tour." />
+<meta property="og:site_name" content="John Coene" />
+
+
+
+
+
+<link rel="stylesheet" href="css/styles.css" type="text/css" />
+
+</head>
+
+<body>
+
+
+ <ul class="side-nav fixed hide-on-small-only table-of-contents">
+    <li><div class="userView">
+      <div class="background teal">
+        <!--<img src="img/jp.jpg">-->
+      </div>
+      <a href="#about"><img class="circle" src="img/jp.png"></a>
+      <a href="#about"><span class="white-text name brand logo country large-logo">John Coene</span></a>
+      <a href="mailto:jcoenep@gmail.com"><span class="white-text email">jcoenep@gmail.com</span></a>
+    </div>
+    </li>
+    <li><a class="teal-text" href="#home"><i class="material-icons left">home</i>Home</a></li>
+    <li><a class="teal-text" href="#about"><i class="material-icons left">face</i>About</a></li>
+    <li><a class="teal-text" href="#dates"><i class="material-icons left">date_range</i>Dates</a></li>
+    <li><a class="teal-text" href="#locations"><i class="material-icons left">place</i>Locations</a></li>
+    <li><a class="teal-text" href="#book"><i class="material-icons left">add_circle</i>Book</a></li>
+    <li><div class="divider"></div></li>
+    <li><a href="http://johncoene.github.io/cv" target="_blank"><i class="material-icons left">person</i>Resume</a></li>
+    <li><a href="http://john-coene.com/" target="_blank"><i class="material-icons left">blur_on</i>Portfolio</a></li>
+    <li><a href="https://twitter.com/jdatap" target="_blank"><i class="material-icons left">sms</i>Twitter</a></li>
+    <li><a href="https://github.com/JohnCoene" target="_blank"><i class="material-icons left">code</i>Github</a></li>
+    <li><a href="https://www.linkedin.com/in/johncoene/" target="_blank"><i class="material-icons left">assignment_ind</i>LinkedIn</a></li>
+</ul>
+
+ <ul id="slide-out" class="side-nav hide-on-med-and-up table-of-contents">
+    <li><div class="userView">
+      <div class="background teal">
+        <!--<img src="img/jp.jpg">-->
+      </div>
+      <a href="#about"><img class="circle" src="img/jp.png"></a>
+      <a href="#about"><span class="white-text name brand logo country large-logo">John Coene</span></a>
+      <a href="mailto:jcoenep@gmail.com"><span class="white-text email">jcoenep@gmail.com</span></a>
+    </div>
+    </li>
+    <li><a class="teal-text" href="#home"><i class="material-icons left">home</i>Home</a></li>
+    <li><a class="teal-text" href="#about"><i class="material-icons left">face</i>About</a></li>
+    <li><a class="teal-text" href="#dates"><i class="material-icons left">date_range</i>Dates</a></li>
+    <li><a class="teal-text" href="#locations"><i class="material-icons left">place</i>Locations</a></li>
+    <li><a class="teal-text" href="#book"><i class="material-icons left">add_circle</i>Book</a></li>
+    <li><div class="divider"></div></li>
+    <li><a href="http://johncoene.github.io/cv" target="_blank"><i class="material-icons left">person</i>Resume</a></li>
+    <li><a href="http://john-coene.com/" target="_blank"><i class="material-icons left">blur_on</i>Portfolio</a></li>
+    <li><a href="https://twitter.com/jdatap" target="_blank"><i class="material-icons left">sms</i>Twitter</a></li>
+    <li><a href="https://github.com/JohnCoene" target="_blank"><i class="material-icons left">code</i>Github</a></li>
+    <li><a href="https://www.linkedin.com/in/johncoene/" target="_blank"><i class="material-icons left">assignment_ind</i>LinkedIn</a></li>
+</ul>
+
+<div class="fixed-action-btn hide-on-med-and-up">
+    <a class="btn-floating btn-large waves-effect waves-light teal button-collapse z-depth-3" id="pc-menu" href="#" data-activates="slide-out"><i class="material-icons">menu</i></a>
+</div>
+
+
+
+
+
+<main>
+<div class="container">
+<div style="height: 80vh; margin-top: 20vh;" class="section scrollspy" id="home">
+<div>
+<h1 class="red-text center text-lighten-1">
+<span class="brand">John-seeks-a-job</span>
+<span class="norm grey-text text-darken-1"> tour</span>
+</h1>
+<p class="italics center grey-text hide-on-small-only">Starts in</p>
+<div class="hide-on-small-only" style="text-align: center;">
+<div style="display: inline-block; width: auto;" class="your-clock"></div>
+</div>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="center">
+<a class="btn pulse teal waves-effect waves-light">BOOK NOW!</a>
+</div>
+</div>
+<div class="section scrollspy" id="about">
+<ul id="tabs" class="tabs">
+<li class="tab col s6 left">
+<a href="#tab1">WHAT IS THIS TOUR ABOUT?</a>
+</li>
+<li class="tab col s6 right">
+<a href="#tab2">WHO IS JOHN?</a>
+</li>
+</ul>
+<div id="tab1" class="col s12">
+<div class="row">
+<div class="col m6"></div>
+</div>
+</div>
+<div id="tab2" class="col s12">
+<div class="row">
+<div class="col m4">
+<img src="img/jp.png" class="responsive-img"/>
+</div>
+<div class="col m8">
+<h5>Data person</h5>
+<p>John has broad knowledge of data ranging from data collection to visualisation through analysis.</p>
+<p>John knows R, Shiny, Rmarkdown, Django, Git, SQL (PostgreSQL, SQLite, MySQL), web stuff (HTML, CSS, javascript), and plenty more.</p>
+<p>Go check his portfolio for more details:</p>
+<a class="red-text text-lighten-1" href="http://john-coene.com" target="_blank">
+<i class="material-icons left">blur_on</i>
+portfolio
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="row section scrollspy" id="dates">
+<h2 class="teal-text center">TOUR DATES</h2>
+<div class="col m6 s12">
+<div id="htmlwidget-a408e03e79caf8e00fe3" style="width:100%;height:500px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a408e03e79caf8e00fe3">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addAwesomeMarkers","args":[[51.507351,50.850346,49.815273,47.376887,45.464204,43.710173,41.385064,43.604652,48.856614,50.850346],[-0.127758,4.351721,6.129583,8.541694,9.189982,7.261953,2.173403,1.444209,2.352222,4.351721],{"icon":"coffee","markerColor":"#009688","iconColor":"#eeeeee","spin":false,"squareMarker":false,"iconRotate":0,"font":"monospace","prefix":"ion"},null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["1 days in <span style='color:#009688;'>London<\/span><br>22/08/2017: 23/08/2017","1 days in <span style='color:#009688;'>Brussels<\/span><br>24/08/2017: 25/08/2017","1 days in <span style='color:#009688;'>Luxembourg<\/span><br>25/08/2017: 26/08/2017","3 days in <span style='color:#009688;'>Zurich<\/span><br>27/08/2017: 30/08/2017","5 days in <span style='color:#009688;'>Milan<\/span><br>31/08/2017: 05/09/2017","1 days in <span style='color:#009688;'>Nice<\/span><br>06/09/2017: 07/09/2017","6 days in <span style='color:#009688;'>Barcelona<\/span><br>07/09/2017: 13/09/2017","5 days in <span style='color:#009688;'>Toulouse<\/span><br>14/09/2017: 19/09/2017","1 days in <span style='color:#009688;'>Paris<\/span><br>20/09/2017: 21/09/2017","3 days in <span style='color:#009688;'>Brussels<\/span><br>22/09/2017: 25/09/2017"],null,null,null,["London","Brussels","Luxembourg","Zurich","Milan","Nice","Barcelona","Toulouse","Paris","Brussels"],null,null]},{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]}],"limits":{"lat":[41.385064,51.507351],"lng":[-0.127758,9.189982]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div class="col m6 s12">
+<ul class="collapsible" data-collapsible="accordion">
+<li>
+<div class="collapsible-header active">
+<i class="material-icons">directions_boat</i>
+London - United Kingdom
+</div>
+<div class="collapsible-body">
+<span>John will be in London between the 22/08/2017 and the 26/08/2017.</span>
+</div>
+</li>
+<li>
+<div class="collapsible-header">
+<i class="material-icons">flight</i>
+Brussels - Belgium
+</div>
+<div class="collapsible-body">
+<span>John will be in Brussels between the 21/08/2017 and the 26/08/2017.</span>
+</div>
+</li>
+<li>
+<div class="collapsible-header">
+<i class="material-icons">directions_car</i>
+Zurich - Switzerland
+</div>
+<div class="collapsible-body">John will be in Zurich between the 27/08/2017 and the 30/08/2017.</div>
+</li>
+<li>
+<div class="collapsible-header">
+<i class="material-icons">directions_railway</i>
+Milan - Italy
+</div>
+<div class="collapsible-body">
+<span>John will be in Milan between the 31/08/2017 and the 07/09/2017.</span>
+</div>
+</li>
+<li>
+<div class="collapsible-header">
+<i class="material-icons">directions_bike</i>
+Nice - France
+</div>
+<div class="collapsible-body">
+<span>John will be in Nice between the 06/09/17 and the 07/09/2017.</span>
+</div>
+</li>
+<li>
+<div class="collapsible-header">
+<i class="material-icons">directions_bus</i>
+Barcelona - Spain
+</div>
+<div class="collapsible-body">
+<span>John will be in Barcelona between the 07/09/2017 and the 13/09/2017.</span>
+</div>
+</li>
+<li>
+<div class="collapsible-header">
+<i class="material-icons">directions_subway</i>
+Toulouse - France
+</div>
+<div class="collapsible-body">
+<span>John will be in Toulouse between the 14/09/2017 and the 19/09/2017.</span>
+</div>
+</li>
+<li>
+<div class="collapsible-header">
+<i class="material-icons">directions_run</i>
+Paris - France
+</div>
+<div class="collapsible-body">
+<span>John will be in Paris between the 20/09/2017 and the 21/09/2017.</span>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section scrollspy" id="locations">
+<h2 class="teal-text center">LOCATIONS</h2>
+<div class="row">
+<div class="col s12 m4">
+<div class="card">
+<div class="card-image">
+<img src="img/london.png"/>
+<span class="card-title">LONDON</span>
+</div>
+<div class="card-content">
+<p>John can be in London between the 22/08/2017 and the 26/08/2017.</p>
+</div>
+<div class="card-action">
+<a class="red-text text-lighten-1" href="#book">BOOK NOW!</a>
+</div>
+</div>
+</div>
+<div class="col s12 m4">
+<div class="card">
+<div class="card-image">
+<img src="img/brussels.png"/>
+<span class="card-title">Brussels</span>
+</div>
+<div class="card-content">
+<p>John will be in Brussels between the 22/08/2017 and the 26/08/2017.</p>
+</div>
+<div class="card-action">
+<a class="red-text text-lighten-1" href="#book">BOOK NOW!</a>
+</div>
+</div>
+</div>
+<div class="col s12 m4">
+<div class="card">
+<div class="card-image">
+<img src="img/zurich.png"/>
+<span class="card-title">Zurich</span>
+</div>
+<div class="card-content">
+<p>John can be in London between the 22/08/2017 and the 26/08/2017.</p>
+</div>
+<div class="card-action">
+<a class="red-text text-lighten-1" href="#book">BOOK NOW!</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section scrollspy" id="book">
+<h2 class="teal-text center">BOOK</h2>
+<div class="row">
+<form action="https://formspree.io/jcoenep@gmail.com" method="POST" class="col s12">
+<div class="row">
+<div class="input-field col s6">
+<i class="material-icons prefix">account_circle</i>
+<input name="name" id="icon_name" type="text" class="validate"/>
+<label for="icon_name">Full Name</label>
+</div>
+<div class="input-field col s6">
+<i class="material-icons prefix">email</i>
+<input name="_replyto" id="email" type="text" class="validate"/>
+<label for="emails">Email</label>
+</div>
+</div>
+<div class="row">
+<div class="input-field col s6">
+<i class="material-icons prefix">group_work</i>
+<input name="company" id="icon_company" type="text" class="validate"/>
+<label for="icon_company">Company Name</label>
+</div>
+<div class="input-field col s6">
+<i class="material-icons prefix">location_on</i>
+<input name="location" id="icon_location" type="text" class="validate"/>
+<label for="icon_location">Location</label>
+</div>
+</div>
+<div class="row">
+<div class="input-field col s12">
+<i class="material-icons prefix">edit</i>
+<input name="message" id="icon_message" type="text" class="validate"/>
+<label for="icon_message">Dates, location and message</label>
+</div>
+</div>
+<input class="btn btn-large teal center" type="submit" value="send"/>
+</form>
+</div>
+</div>
+</div>
+<p></main></p>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="js/siema.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+  $(".button-collapse").sideNav();
+</script>
+
+<script>
+  $(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+
+var clock = $('.your-clock').FlipClock(3600 * 24 * 18, {
+  countdown: true,
+  clockFace: 'DailyCounter'
+});
+
+$("#pc-menu").sideNav();
+
+$(document).ready(function(){
+  $('.scrollspy').scrollSpy();
+});
+
+$(document).ready(function(){
+  $('.tabs').tabs();
+});
+</script>
+
+<footer class="page-footer teal">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text brand">John-seeks-a-job</h5>
+        <p class="grey-text text-lighten-4">European tour.</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Connect</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="https://twitter.com/jdatap" target="_blank">Twitter</a></li>
+          <li><a class="grey-text text-lighten-3" href="http://github.com/JohnCoene" target="_blank">Github</a></li>
+          <li><a class="grey-text text-lighten-3" href="mailto:jcoenep@gmail.com">jcoenep@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    With <i class="material-icons red-text">favorite</i> by John Coene
+    </div>
+  </div>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
