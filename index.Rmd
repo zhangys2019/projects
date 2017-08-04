@@ -10,53 +10,56 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```{r intro}
 div(
-  class = "container section center",
-  style = "height: 80vh; margin-top: 20vh;",
   id = "particles-js",
-  h1(
-    class = "brand blue-text",
-    "Project Vault"
-  ),
-  h4(
-    class = "grey-text text-darken-2",
-    "Data, limericks, and other indoor stuff."
-  ),
-  br(),
+  style = "height: 80vh;",
   div(
-    class = "row",
-    div(
-      class = "col s4",
-      p(
-        class = "center-align",
-        a(
-          href = "https://github.com/JohnCoene",
-          target = "_blank",
-          class = "btn grey darken-3 waves-effect z-depth-5",
-          "GIT"
-        )
-      )
+    class = "container section center",
+    style = "margin-top: 20vh;",
+    h1(
+      class = "brand blue-text",
+      "Project Vault"
     ),
-    div(
-      class = "col s4",
-      p(
-        class = "center-align",
-        a(
-          href = "https://www.linkedin.com/in/johncoene/",
-          target = "_blank",
-          class = "btn blue darken-3 waves-effect z-depth-5",
-          "LKN"
-        )
-      )
+    h4(
+      class = "grey-text text-darken-2",
+      "Data, limericks, and other indoor stuff."
     ),
+    br(),
     div(
-      class = "col s4",
-      p(
-        class = "center-align",
-        a(
-          href = "https://twitter.com/jdatap",
-          target = "_blank",
-          class = "btn blue lighten-1 waves-effect z-depth-5",
-          "TWT"
+      class = "row",
+      div(
+        class = "col s4",
+        p(
+          class = "center-align",
+          a(
+            href = "https://github.com/JohnCoene",
+            target = "_blank",
+            class = "btn grey darken-3 waves-effect z-depth-5",
+            "GIT"
+          )
+        )
+      ),
+      div(
+        class = "col s4",
+        p(
+          class = "center-align",
+          a(
+            href = "https://www.linkedin.com/in/johncoene/",
+            target = "_blank",
+            class = "btn blue darken-3 waves-effect z-depth-5",
+            "LKN"
+          )
+        )
+      ),
+      div(
+        class = "col s4",
+        p(
+          class = "center-align",
+          a(
+            href = "https://twitter.com/jdatap",
+            target = "_blank",
+            class = "btn blue lighten-1 waves-effect z-depth-5",
+            "TWT"
+          )
         )
       )
     )
