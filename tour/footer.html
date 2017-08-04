@@ -8,14 +8,23 @@
 </script>
 
 <script>
+  var start = new Date(2017, 7, 21, 0, 0, 0, 0);
+  var today = new Date();
+  var diff = (start.getTime() - today.getTime()) / 1000;
+  console.log(start);
+  
+  var clock = $('.your-clock').FlipClock(diff, {
+    countdown: true,
+    clockFace: 'DailyCounter',
+    showSeconds: true
+  });
+
+</script>
+
+<script>
   $(document).ready(function(){
     $('.collapsible').collapsible();
   });
-
-var clock = $('.your-clock').FlipClock(3600 * 24 * 18, {
-  countdown: true,
-  clockFace: 'DailyCounter'
-});
 
 $("#pc-menu").sideNav();
 

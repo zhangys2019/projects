@@ -50,6 +50,10 @@ div(
     class = "center",
     tags$a(
       class = "btn pulse teal waves-effect waves-light",
+      tags$i(
+        class = "material-icons left",
+        "receipt"
+      ),
       "BOOK NOW!"
     )
   )
@@ -79,16 +83,29 @@ div(
     )
   ),
   div(
+    style = "min-height: 300px;",
     id = "tab1",
     class = "col s12",
     div(
       class = "row",
-      div(
-        class = "col m6"
+      p(
+        class = "center",
+        "John is a Belgian citizen currently living in Beijing, China, who seeks to return to Europe.",
+        br(),
+        "He has organised this tour so that he gets to meet you.",
+        tags$i(
+          class = "material-icons",
+          "thumb_up"
+        )
+      ),
+      h2(
+        class = "red-text text-lighten-1 center",
+        "Let's meet!"
       )
     )
   ),
   div(
+    style = "min-height: 300px;",
     id = "tab2",
     class = "col s12",
     div(
@@ -103,26 +120,47 @@ div(
       div(
         class = "col m8",
         h5(
+          class = "teal-text",
           "Data person"
         ),
         p(
-          "John has broad knowledge of data ranging from data collection to visualisation through analysis."
+          "5 years of progressive experience in data ranging from data collection to visualisation through analysis."
         ),
         p(
-          "John knows R, Shiny, Rmarkdown, Django, Git, SQL (PostgreSQL, SQLite, MySQL), web stuff (HTML, CSS, javascript), and plenty more."
-        ),
-        p(
-          "Go check his portfolio for more details:"
-        ),
-        tags$a(
-          class = "red-text text-lighten-1",
-          href = "http://john-coene.com",
-          target = "_blank",
-          tags$i(
-            class = "material-icons left",
-            "blur_on"
+          tags$span(
+            class = "red-text text-lighten-2",
+            "Domain knowledge"
           ),
-          "portfolio"
+          "Social Media Analysis (text mining, social network analysis), web analytics, mobile analytics and market research."
+        ),
+        p(
+          tags$span(
+            class = "red-text text-lighten-2",
+            "Technical"
+          ),
+          "R, Shiny, Rmarkdown, Shiny, Django, Git, SQL (PostgreSQL, SQLite, MySQL), web stuff (HTML, CSS, javascript), and plenty more."
+        ),
+        p(
+          tags$a(
+            class = "btn red lighten-1",
+            href = "http://john-coene.com",
+            target = "_blank",
+            tags$i(
+              class = "material-icons left",
+              "blur_on"
+            ),
+            "Portfolio"
+          ),
+          tags$a(
+            class = "btn red lighten-2",
+            href = "http://johncoene.github.io/cv",
+            target = "_blank",
+            tags$i(
+              class = "material-icons right",
+              "person"
+            ),
+            "Resume"
+          )
         )
       )
     )
@@ -419,6 +457,12 @@ div(
   h2(
     class = "teal-text center",
     "BOOK"
+  ),
+  p(
+    class = "center",
+    "Do not hesitate to suggest other locations, I may be able to accomodate.",
+    br(),
+    "Fill in the form below and I'll get back to you within 24 hours!"
   ),
   div(
     class = "row",

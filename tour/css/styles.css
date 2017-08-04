@@ -54,3 +54,15 @@ header, main, footer {
     padding-left: 0;
   }
 }
+
+.tabs .tab a.active {
+  color: #009688;
+}
+
+.tabs .tab a:hover {
+  color: #009688;
+}
+
+.tabs .tab a {
+  color: #009688;
+}

@@ -13,7 +13,7 @@ div(
   style = "height: 100vh;",
   div(
     class = "container section center",
-    style = "padding-top: 20vh; position: absolute; width: 100%;",
+    style = "padding-top: 20vh;",
     h1(
       class = "brand blue-text",
       "Project Vault"

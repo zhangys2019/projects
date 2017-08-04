@@ -93,8 +93,8 @@
       <div class="background teal">
         <!--<img src="img/jp.jpg">-->
       </div>
-      <a href="#about"><img class="circle" src="img/jp.png"></a>
-      <a href="#about"><span class="white-text name brand logo country large-logo">John Coene</span></a>
+      <a href="#"><img class="circle" src="img/jp.png"></a>
+      <a href="#"><span class="white-text name brand logo country large-logo">John Coene</span></a>
       <a href="mailto:jcoenep@gmail.com"><span class="white-text email">jcoenep@gmail.com</span></a>
     </div>
     </li>
@@ -102,7 +102,7 @@
     <li><a class="teal-text" href="#about"><i class="material-icons left">face</i>About</a></li>
     <li><a class="teal-text" href="#dates"><i class="material-icons left">date_range</i>Dates</a></li>
     <li><a class="teal-text" href="#locations"><i class="material-icons left">place</i>Locations</a></li>
-    <li><a class="teal-text" href="#book"><i class="material-icons left">add_circle</i>Book</a></li>
+    <li><a class="teal-text" href="#book"><i class="material-icons left">receipt</i>Book</a></li>
     <li><div class="divider"></div></li>
     <li><a href="http://johncoene.github.io/cv" target="_blank"><i class="material-icons left">person</i>Resume</a></li>
     <li><a href="http://john-coene.com/" target="_blank"><i class="material-icons left">blur_on</i>Portfolio</a></li>
@@ -125,7 +125,7 @@
     <li><a class="teal-text" href="#about"><i class="material-icons left">face</i>About</a></li>
     <li><a class="teal-text" href="#dates"><i class="material-icons left">date_range</i>Dates</a></li>
     <li><a class="teal-text" href="#locations"><i class="material-icons left">place</i>Locations</a></li>
-    <li><a class="teal-text" href="#book"><i class="material-icons left">add_circle</i>Book</a></li>
+    <li><a class="teal-text" href="#book"><i class="material-icons left">receipt</i>Book</a></li>
     <li><div class="divider"></div></li>
     <li><a href="http://johncoene.github.io/cv" target="_blank"><i class="material-icons left">person</i>Resume</a></li>
     <li><a href="http://john-coene.com/" target="_blank"><i class="material-icons left">blur_on</i>Portfolio</a></li>
@@ -160,7 +160,10 @@
 <br/>
 <br/>
 <div class="center">
-<a class="btn pulse teal waves-effect waves-light">BOOK NOW!</a>
+<a class="btn pulse teal waves-effect waves-light">
+<i class="material-icons left">receipt</i>
+BOOK NOW!
+</a>
 </div>
 </div>
 <div class="section scrollspy" id="about">
@@ -172,25 +175,43 @@
 <a href="#tab2">WHO IS JOHN?</a>
 </li>
 </ul>
-<div id="tab1" class="col s12">
+<div style="min-height: 300px;" id="tab1" class="col s12">
 <div class="row">
-<div class="col m6"></div>
+<p class="center">
+John is a Belgian citizen currently living in Beijing, China, who seeks to return to Europe.
+<br/>
+He has organised this tour so that he gets to meet you.
+<i class="material-icons">thumb_up</i>
+</p>
+<h2 class="red-text text-lighten-1 center">Let's meet!</h2>
 </div>
 </div>
-<div id="tab2" class="col s12">
+<div style="min-height: 300px;" id="tab2" class="col s12">
 <div class="row">
 <div class="col m4">
 <img src="img/jp.png" class="responsive-img"/>
 </div>
 <div class="col m8">
-<h5>Data person</h5>
-<p>John has broad knowledge of data ranging from data collection to visualisation through analysis.</p>
-<p>John knows R, Shiny, Rmarkdown, Django, Git, SQL (PostgreSQL, SQLite, MySQL), web stuff (HTML, CSS, javascript), and plenty more.</p>
-<p>Go check his portfolio for more details:</p>
-<a class="red-text text-lighten-1" href="http://john-coene.com" target="_blank">
+<h5 class="teal-text">Data person</h5>
+<p>5 years of progressive experience in data ranging from data collection to visualisation through analysis.</p>
+<p>
+<span class="red-text text-lighten-2">Domain knowledge</span>
+Social Media Analysis (text mining, social network analysis), web analytics, mobile analytics and market research.
+</p>
+<p>
+<span class="red-text text-lighten-2">Technical</span>
+R, Shiny, Rmarkdown, Shiny, Django, Git, SQL (PostgreSQL, SQLite, MySQL), web stuff (HTML, CSS, javascript), and plenty more.
+</p>
+<p>
+<a class="btn red lighten-1" href="http://john-coene.com" target="_blank">
 <i class="material-icons left">blur_on</i>
-portfolio
+Portfolio
 </a>
+<a class="btn red lighten-2" href="http://johncoene.github.io/cv" target="_blank">
+<i class="material-icons right">person</i>
+Resume
+</a>
+</p>
 </div>
 </div>
 </div>
@@ -198,8 +219,8 @@ portfolio
 <div class="row section scrollspy" id="dates">
 <h2 class="teal-text center">TOUR DATES</h2>
 <div class="col m6 s12">
-<div id="htmlwidget-a408e03e79caf8e00fe3" style="width:100%;height:500px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a408e03e79caf8e00fe3">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addAwesomeMarkers","args":[[51.507351,50.850346,49.815273,47.376887,45.464204,43.710173,41.385064,43.604652,48.856614,50.850346],[-0.127758,4.351721,6.129583,8.541694,9.189982,7.261953,2.173403,1.444209,2.352222,4.351721],{"icon":"coffee","markerColor":"#009688","iconColor":"#eeeeee","spin":false,"squareMarker":false,"iconRotate":0,"font":"monospace","prefix":"ion"},null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["1 days in <span style='color:#009688;'>London<\/span><br>22/08/2017: 23/08/2017","1 days in <span style='color:#009688;'>Brussels<\/span><br>24/08/2017: 25/08/2017","1 days in <span style='color:#009688;'>Luxembourg<\/span><br>25/08/2017: 26/08/2017","3 days in <span style='color:#009688;'>Zurich<\/span><br>27/08/2017: 30/08/2017","5 days in <span style='color:#009688;'>Milan<\/span><br>31/08/2017: 05/09/2017","1 days in <span style='color:#009688;'>Nice<\/span><br>06/09/2017: 07/09/2017","6 days in <span style='color:#009688;'>Barcelona<\/span><br>07/09/2017: 13/09/2017","5 days in <span style='color:#009688;'>Toulouse<\/span><br>14/09/2017: 19/09/2017","1 days in <span style='color:#009688;'>Paris<\/span><br>20/09/2017: 21/09/2017","3 days in <span style='color:#009688;'>Brussels<\/span><br>22/09/2017: 25/09/2017"],null,null,null,["London","Brussels","Luxembourg","Zurich","Milan","Nice","Barcelona","Toulouse","Paris","Brussels"],null,null]},{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]}],"limits":{"lat":[41.385064,51.507351],"lng":[-0.127758,9.189982]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-ca5a43ed6d868f7d4b04" style="width:100%;height:500px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ca5a43ed6d868f7d4b04">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addAwesomeMarkers","args":[[51.507351,50.850346,49.815273,47.376887,45.464204,43.710173,41.385064,43.604652,48.856614,50.850346],[-0.127758,4.351721,6.129583,8.541694,9.189982,7.261953,2.173403,1.444209,2.352222,4.351721],{"icon":"coffee","markerColor":"#009688","iconColor":"#eeeeee","spin":false,"squareMarker":false,"iconRotate":0,"font":"monospace","prefix":"ion"},null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["1 days in <span style='color:#009688;'>London<\/span><br>22/08/2017: 23/08/2017","1 days in <span style='color:#009688;'>Brussels<\/span><br>24/08/2017: 25/08/2017","1 days in <span style='color:#009688;'>Luxembourg<\/span><br>25/08/2017: 26/08/2017","3 days in <span style='color:#009688;'>Zurich<\/span><br>27/08/2017: 30/08/2017","5 days in <span style='color:#009688;'>Milan<\/span><br>31/08/2017: 05/09/2017","1 days in <span style='color:#009688;'>Nice<\/span><br>06/09/2017: 07/09/2017","6 days in <span style='color:#009688;'>Barcelona<\/span><br>07/09/2017: 13/09/2017","5 days in <span style='color:#009688;'>Toulouse<\/span><br>14/09/2017: 19/09/2017","1 days in <span style='color:#009688;'>Paris<\/span><br>20/09/2017: 21/09/2017","3 days in <span style='color:#009688;'>Brussels<\/span><br>22/09/2017: 25/09/2017"],null,null,null,["London","Brussels","Luxembourg","Zurich","Milan","Nice","Barcelona","Toulouse","Paris","Brussels"],null,null]},{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]}],"limits":{"lat":[41.385064,51.507351],"lng":[-0.127758,9.189982]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div class="col m6 s12">
 <ul class="collapsible" data-collapsible="accordion">
@@ -325,6 +346,11 @@ Paris - France
 </div>
 <div class="section scrollspy" id="book">
 <h2 class="teal-text center">BOOK</h2>
+<p class="center">
+Do not hesitate to suggest other locations, I may be able to accomodate.
+<br/>
+Fill in the form below and I'll get back to you within 24 hours!
+</p>
 <div class="row">
 <form action="https://formspree.io/jcoenep@gmail.com" method="POST" class="col s12">
 <div class="row">
@@ -375,14 +401,23 @@ Paris - France
 </script>
 
 <script>
+  var start = new Date(2017, 7, 21, 0, 0, 0, 0);
+  var today = new Date();
+  var diff = (start.getTime() - today.getTime()) / 1000;
+  console.log(start);
+  
+  var clock = $('.your-clock').FlipClock(diff, {
+    countdown: true,
+    clockFace: 'DailyCounter',
+    showSeconds: true
+  });
+
+</script>
+
+<script>
   $(document).ready(function(){
     $('.collapsible').collapsible();
   });
-
-var clock = $('.your-clock').FlipClock(3600 * 24 * 18, {
-  countdown: true,
-  clockFace: 'DailyCounter'
-});
 
 $("#pc-menu").sideNav();
 

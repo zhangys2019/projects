@@ -9,3 +9,4 @@ render_site("./packages/bibler") # bibler
 render_site("./packages/rodham") # rodham
 render_site("./packages/graphTweets") # graphTweets
 render_site("./htmlwidgets/echarts") # echarts
+render_site("./tour")
