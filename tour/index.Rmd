@@ -14,7 +14,7 @@ library(dplyr)
 
 ```{r}
 div(
-  style = "height: 80vh; margin-top: 20vh;",
+  style = "height: 90vh; margin-top: 10vh;",
   class = "section scrollspy",
   id = "home",
   div(
@@ -24,9 +24,10 @@ div(
         class = "brand",
         "John-seeks-a-job"
       ),
+      br(),
       tags$span(
         class = "norm grey-text text-darken-1",
-        " tour"
+        "European tour"
       )
     ),
     p(
@@ -49,6 +50,7 @@ div(
   div(
     class = "center",
     tags$a(
+      href = "#book",
       class = "btn pulse teal waves-effect waves-light",
       tags$i(
         class = "material-icons left",
@@ -71,14 +73,14 @@ div(
       class = "tab col s6 left",
       tags$a(
         href = "#tab1",
-        "WHAT IS THIS TOUR ABOUT?"
+        "WHAT"
       )
     ),
     tags$li(
       class = "tab col s6 right",
       tags$a(
         href = "#tab2",
-        "WHO IS JOHN?"
+        "WHO"
       )
     )
   ),
@@ -90,17 +92,17 @@ div(
       class = "row",
       p(
         class = "center",
-        "John is a Belgian citizen currently living in Beijing, China, who seeks to return to Europe.",
+        "John is a Belgian citizen who seeks to return to Europe after living and working 5 years in China.",
         br(),
-        "He has organised this tour so that he gets to meet you.",
+        "He has organised this tour so that we get to meet.",
         tags$i(
           class = "material-icons",
-          "thumb_up"
+          "local_cafe"
         )
       ),
       h2(
         class = "red-text text-lighten-1 center",
-        "Let's meet!"
+        "Let's chat!"
       )
     )
   ),
@@ -129,16 +131,23 @@ div(
         p(
           tags$span(
             class = "red-text text-lighten-2",
-            "Domain knowledge"
+            "Domain knowledge:"
           ),
           "Social Media Analysis (text mining, social network analysis), web analytics, mobile analytics and market research."
         ),
         p(
           tags$span(
             class = "red-text text-lighten-2",
-            "Technical"
+            "Technical:"
           ),
           "R, Shiny, Rmarkdown, Shiny, Django, Git, SQL (PostgreSQL, SQLite, MySQL), web stuff (HTML, CSS, javascript), and plenty more."
+        ),
+        p(
+          tags$span(
+            class = "red-text text-lighten-2",
+            "Languages:"
+          ),
+          "English & French."
         ),
         p(
           tags$a(
@@ -190,7 +199,7 @@ icons <- awesomeIcons(
 p <- tour %>% 
   leaflet(
         width = "100%",
-        height = "500px") %>% 
+        height = "400px") %>% 
   addTiles() %>%
   addAwesomeMarkers(~long, ~lat, icon=icons, label=~as.character(City), 
                     popup = ~tooltip) %>% 
@@ -204,144 +213,11 @@ div(
   id = "dates",
   h2(
       class = "teal-text center",
-      "TOUR DATES"
+      "TOUR"
     ),
   div(
-    class = "col m6 s12",
+    class = "col m12 s12",
     p
-  ),
-  div(
-    class = "col m6 s12",
-    tags$ul(
-      class = "collapsible",
-      `data-collapsible` = "accordion",
-      tags$li(
-        tags$div(
-          class = "collapsible-header active",
-          tags$i(
-            class = "material-icons",
-            "directions_boat"
-          ),
-          "London - United Kingdom"
-        ),
-        tags$div(
-          class = "collapsible-body",
-          tags$span(
-            "John will be in London between the 22/08/2017 and the 26/08/2017."
-          )
-        )
-      ),
-      tags$li(
-        tags$div(
-          class = "collapsible-header",
-          tags$i(
-            class = "material-icons",
-            "flight"
-          ),
-          "Brussels - Belgium"
-        ),
-        tags$div(
-          class = "collapsible-body",
-          tags$span(
-            "John will be in Brussels between the 21/08/2017 and the 26/08/2017."
-          )
-        )
-      ),
-      tags$li(
-        tags$div(
-          class = "collapsible-header",
-          tags$i(
-            class = "material-icons",
-            "directions_car"
-          ),
-          "Zurich - Switzerland"
-        ),
-        tags$div(
-          class = "collapsible-body",
-          "John will be in Zurich between the 27/08/2017 and the 30/08/2017."
-        )
-      ),
-      tags$li(
-        tags$div(
-          class = "collapsible-header",
-          tags$i(
-            class = "material-icons",
-            "directions_railway"
-          ),
-          "Milan - Italy"
-        ),
-        tags$div(
-          class = "collapsible-body",
-          tags$span(
-            "John will be in Milan between the 31/08/2017 and the 07/09/2017."
-          )
-        )
-      ),
-      tags$li(
-        tags$div(
-          class = "collapsible-header",
-          tags$i(
-            class = "material-icons",
-            "directions_bike"
-          ),
-          "Nice - France"
-        ),
-        tags$div(
-          class = "collapsible-body",
-          tags$span(
-            "John will be in Nice between the 06/09/17 and the 07/09/2017."
-          )
-        )
-      ),
-      tags$li(
-        tags$div(
-          class = "collapsible-header",
-          tags$i(
-            class = "material-icons",
-            "directions_bus"
-          ),
-          "Barcelona - Spain"
-        ),
-        tags$div(
-          class = "collapsible-body",
-          tags$span(
-            "John will be in Barcelona between the 07/09/2017 and the 13/09/2017."
-          )
-        )
-      ),
-      tags$li(
-        tags$div(
-          class = "collapsible-header",
-          tags$i(
-            class = "material-icons",
-            "directions_subway"
-          ),
-          "Toulouse - France"
-        ),
-        tags$div(
-          class = "collapsible-body",
-          tags$span(
-            "John will be in Toulouse between the 14/09/2017 and the 19/09/2017."
-          )
-        )
-      ),
-      tags$li(
-        tags$div(
-          class = "collapsible-header",
-          tags$i(
-            class = "material-icons",
-            "directions_run"
-          ),
-          "Paris - France"
-        ),
-        tags$div(
-          class = "collapsible-body",
-          tags$span(
-            "John will be in Paris between the 20/09/2017 and the 21/09/2017."
-          )
-        )
-      )
-    )
   )
 )
 ```
@@ -352,7 +228,7 @@ div(
   id = "locations",
   h2(
       class = "teal-text center",
-      "LOCATIONS"
+      "DATES"
   ),
   div(
     class = "row",
@@ -423,17 +299,17 @@ div(
         div(
           class = "card-image",
           tags$img(
-            src = "img/zurich.png"
+            src = "img/bern.png"
           ),
           tags$span(
             class = "card-title",
-            "Zurich"
+            "Bern"
           )
         ),
         div(
           class = "card-content",
           tags$p(
-            "John can be in London between the 22/08/2017 and the 26/08/2017."
+            "John can be in Bern between the 22/08/2017 and the 26/08/2017."
           )
         ),
         div(
@@ -456,7 +332,7 @@ div(
   id = "book",
   h2(
     class = "teal-text center",
-    "BOOK"
+    "MEET JOHN"
   ),
   p(
     class = "center",
@@ -523,7 +399,7 @@ div(
           ),
           tags$label(
             `for` = "icon_company",
-            "Company Name"
+            "Company"
           )
         ),
         div(
