@@ -129,7 +129,7 @@ div(
           class = "red-text text-lighten-1",
           "Technical skills:"
         ),
-        "R, Shiny, Rmarkdown, Shiny, Django, Git, SQL (PostgreSQL, SQLite, MySQL), web stuff (HTML, CSS, javascript), and plenty more."
+        "R, Rmarkdown, Shiny, Django, Git, SQL (PostgreSQL, SQLite, MySQL), web stuff (HTML, CSS, javascript), and plenty more."
       ),
       p(
         tags$a(
