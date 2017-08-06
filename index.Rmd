@@ -8,12 +8,14 @@ knitr::opts_chunk$set(echo = FALSE)
 
 <main>
 
+<div class="corner-ribbon top-right shadow red"><a href="tour" class = "white-text">Hire John</a></div>
+
 ```{r intro}
 div(
   style = "height: 100vh;",
   div(
     class = "container section center",
-    style = "padding-top: 20vh;",
+    style = "padding-top: 10vh;",
     h1(
       class = "brand blue-text",
       "Project Vault"

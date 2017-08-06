@@ -7,12 +7,15 @@ knitr::opts_chunk$set(echo = FALSE)
 library(htmltools)
 library(leaflet)
 library(dplyr)
+library(egg)
 ```
 
 <main>
 <div class = "container">
 
 ```{r}
+egg(c("c", "o", "e", "n", "e"), imegg = "img/jp.png", timeout = 10000) # easter egg
+
 div(
   style = "height: 90vh; margin-top: 10vh;",
   class = "section scrollspy",
@@ -27,7 +30,7 @@ div(
       br(),
       tags$span(
         class = "norm grey-text text-darken-1",
-        "European tour"
+        "Europe tour"
       )
     ),
     p(
@@ -57,12 +60,105 @@ div(
         "receipt"
       ),
       "BOOK NOW!"
+    ),
+    p(
+      br(),
+      br(),
+      class = "grey-text hide-on-small-only italics",
+      "Type 'Coene' to see John!"
     )
   )
 )
 ```
 
-```{r what}
+```{r where is john}
+div(
+  class = "row center",
+  style = "min-height: 300px;",
+  h2(
+    class = "teal-text",
+    "Where is John right now?"
+  ),
+  h5(
+    "Right now John is in ",
+    span(
+      class = "red-text text-lighten-1 link-shadow",
+      id = "place"
+    ),
+    "!"
+  )
+)
+```
+
+```{r}
+div(
+  class = "section scrollspy",
+  id = "about",
+  div(
+    class = "row",
+    div(
+      class = "col m12 center",
+      tags$img(
+        src = "img/jp.png",
+        class = "responsive-img circle",
+        style = "max-height:70px;"
+      ),
+      h3(
+        class = "teal-text",
+        '"Data Guy"'
+      ),
+      p(
+        "5 years of progressive experience in the realm of analytics ranging from data collection to visualisation through analysis."
+      ),
+      p(
+        span(
+          class = "red-text text-lighten-1",
+          "Languages:"
+        ),
+        "English & French."
+      ),
+      p(
+        span(
+          class = "red-text text-lighten-1",
+          "Domain knowledge:"
+        ),
+        "Social Media Analysis, web analytics, mobile analytics and market research."
+      ),
+      p(
+        span(
+          class = "red-text text-lighten-1",
+          "Technical skills:"
+        ),
+        "R, Shiny, Rmarkdown, Shiny, Django, Git, SQL (PostgreSQL, SQLite, MySQL), web stuff (HTML, CSS, javascript), and plenty more."
+      ),
+      p(
+        tags$a(
+          class = "btn red lighten-1",
+          href = "http://john-coene.com",
+          target = "_blank",
+          tags$i(
+            class = "material-icons left",
+            "bubble_chart"
+          ),
+          "Portfolio"
+        ),
+        tags$a(
+          class = "btn teal lighten-1",
+          href = "http://johncoene.github.io/cv",
+          target = "_blank",
+          tags$i(
+            class = "material-icons right",
+            "person"
+          ),
+          "Resume"
+        )
+      )
+    )
+  )
+)
+```
+
+```{r tabs, eval=FALSE}
 div(
   class = "section scrollspy",
   id = "about",
@@ -177,7 +273,7 @@ div(
 )
 ```
 
-```{r}
+```{r map}
 tour <- read.csv("data/tour.csv")
 
 # time
@@ -235,6 +331,9 @@ div(
     div(
       class = "col s12 m4",
       div(
+        `data-aos` = "fade-up",
+        `data-aos-delay` = "100",
+        `data-aos-duration` = "1500",
         class = "card",
         div(
           class = "card-image",
@@ -249,7 +348,7 @@ div(
         div(
           class = "card-content",
           tags$p(
-            "John can be in London between the 22/08/2017 and the 26/08/2017."
+            "John can be in London between the 21/09/2017 and the 25/09/2017."
           )
         ),
         div(
@@ -265,6 +364,9 @@ div(
     div(
       class = "col s12 m4",
       div(
+        `data-aos` = "fade-up",
+        `data-aos-delay` = "100",
+        `data-aos-duration` = "1500",
         class = "card",
         div(
           class = "card-image",
@@ -279,7 +381,7 @@ div(
         div(
           class = "card-content",
           tags$p(
-            "John will be in Brussels between the 22/08/2017 and the 26/08/2017."
+            "John will be in Brussels between the 25/09/2017 and the 26/09/2017."
           )
         ),
         div(
@@ -295,6 +397,9 @@ div(
     div(
       class = "col s12 m4",
       div(
+        `data-aos` = "fade-up",
+        `data-aos-delay` = "100",
+        `data-aos-duration` = "1500",
         class = "card",
         div(
           class = "card-image",
@@ -309,7 +414,211 @@ div(
         div(
           class = "card-content",
           tags$p(
-            "John can be in Bern between the 22/08/2017 and the 26/08/2017."
+            "John can be in Bern between the 30/08/2017 and the 01/09/2017."
+          )
+        ),
+        div(
+          class = "card-action",
+          tags$a(
+            class = "red-text text-lighten-1",
+            href = "#book",
+            "BOOK NOW!"
+          )
+        )
+      )
+    )
+  ),
+  div(
+    class = "row",
+    div(
+      class = "col s12 m4",
+      div(
+        `data-aos` = "fade-up",
+        `data-aos-delay` = "100",
+        `data-aos-duration` = "1500",
+        class = "card",
+        div(
+          class = "card-image",
+          tags$img(
+            src = "img/milan.png"
+          ),
+          tags$span(
+            class = "card-title",
+            "Milan"
+          )
+        ),
+        div(
+          class = "card-content",
+          tags$p(
+            "John is in Milan between the 01/09/2017 and the 06/09/2017."
+          )
+        ),
+        div(
+          class = "card-action",
+          tags$a(
+            class = "red-text text-lighten-1",
+            href = "#book",
+            "BOOK NOW!"
+          )
+        )
+      )
+    ),
+    div(
+      class = "col s12 m4",
+      div(
+        `data-aos` = "fade-up",
+        `data-aos-delay` = "100",
+        `data-aos-duration` = "1500",
+        class = "card",
+        div(
+          class = "card-image",
+          tags$img(
+            src = "img/pisa.png"
+          ),
+          tags$span(
+            class = "card-title",
+            "Pisa"
+          )
+        ),
+        div(
+          class = "card-content",
+          tags$p(
+            "John is in Pisa between the 06/09/2017 and the 11/09/2017."
+          )
+        ),
+        div(
+          class = "card-action",
+          tags$a(
+            class = "red-text text-lighten-1",
+            href = "#book",
+            "BOOK NOW!"
+          )
+        )
+      )
+    ),
+    div(
+      class = "col s12 m4",
+      div(
+        `data-aos` = "fade-up",
+        `data-aos-delay` = "100",
+        `data-aos-duration` = "1500",
+        class = "card",
+        div(
+          class = "card-image",
+          tags$img(
+            src = "img/marseille.png"
+          ),
+          tags$span(
+            class = "card-title",
+            "Marseille"
+          )
+        ),
+        div(
+          class = "card-content",
+          tags$p(
+            "John is in Marseile between the 11/09/2017 and the 12/09/2017."
+          )
+        ),
+        div(
+          class = "card-action",
+          tags$a(
+            class = "red-text text-lighten-1",
+            href = "#book",
+            "BOOK NOW!"
+          )
+        )
+      )
+    )
+  ),
+  div(
+    class = "row",
+    div(
+      class = "col s12 m4",
+      div(
+        `data-aos` = "fade-up",
+        `data-aos-delay` = "100",
+        `data-aos-duration` = "1500",
+        class = "card",
+        div(
+          class = "card-image",
+          tags$img(
+            src = "img/barcelona.png"
+          ),
+          tags$span(
+            class = "card-title",
+            "Barcelona"
+          )
+        ),
+        div(
+          class = "card-content",
+          tags$p(
+            "John is in Barcelona between the 12/09/2017 and the 18/09/2017."
+          )
+        ),
+        div(
+          class = "card-action",
+          tags$a(
+            class = "red-text text-lighten-1",
+            href = "#book",
+            "BOOK NOW!"
+          )
+        )
+      )
+    ),
+    div(
+      class = "col s12 m4",
+      div(
+        `data-aos` = "fade-up",
+        `data-aos-delay` = "100",
+        `data-aos-duration` = "1500",
+        class = "card",
+        div(
+          class = "card-image",
+          tags$img(
+            src = "img/toulouse.png"
+          ),
+          tags$span(
+            class = "card-title",
+            "Toulouse"
+          )
+        ),
+        div(
+          class = "card-content",
+          tags$p(
+            "John is in Toulouse between the 18/09/2017 and the 19/09/2017."
+          )
+        ),
+        div(
+          class = "card-action",
+          tags$a(
+            class = "red-text text-lighten-1",
+            href = "#book",
+            "BOOK NOW!"
+          )
+        )
+      )
+    ),
+    div(
+      class = "col s12 m4",
+      div(
+        `data-aos` = "fade-up",
+        `data-aos-delay` = "100",
+        `data-aos-duration` = "1500",
+        class = "card",
+        div(
+          class = "card-image",
+          tags$img(
+            src = "img/paris.png"
+          ),
+          tags$span(
+            class = "card-title",
+            "Paris"
+          )
+        ),
+        div(
+          class = "card-content",
+          tags$p(
+            "John is in Marseile between the 19/09/2017 and the 20/09/2017."
           )
         ),
         div(
@@ -436,7 +745,7 @@ div(
           ),
           tags$label(
             `for` = "icon_message",
-            "Dates, location and message"
+            "Dates and message"
           )
         )
       ),

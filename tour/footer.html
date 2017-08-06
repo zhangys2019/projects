@@ -11,7 +11,6 @@
   var start = new Date(2017, 7, 21, 0, 0, 0, 0);
   var today = new Date();
   var diff = (start.getTime() - today.getTime()) / 1000;
-  console.log(start);
   
   var clock = $('.your-clock').FlipClock(diff, {
     countdown: true,
@@ -19,6 +18,44 @@
     showSeconds: true
   });
 
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $('.parallax').parallax();
+  });
+</script>
+
+<script>
+  var today = new Date();
+  var d = document.getElementById("place");
+  
+  if(today < new Date(2017, 7, 21, 0, 0, 0, 0)){
+    d.innerHTML = "Beijing";
+  } else if(today > new Date(2017, 7, 30, 0, 0, 0, 0) && today < new Date(2017, 8, 1, 0, 0, 0, 0)){
+    d.innerHTML = "Switzerland"; 
+  } else if(today > new Date(2017, 8, 6, 0, 0, 0, 0) && today < new Date(2017, 8, 1, 0, 0, 0, 0)){
+    d.innerHTML = "Milan"; 
+  } else if(today > new Date(2017, 8, 11, 0, 0, 0, 0) && today < new Date(2017, 8, 6, 0, 0, 0, 0)){
+    d.innerHTML = "Pisa"; 
+  } else if(today > new Date(2017, 8, 11, 0, 0, 0, 0) && today < new Date(2017, 8, 12, 0, 0, 0, 0)){
+    d.innerHTML = "Marseile"; 
+  } else if(today > new Date(2017, 8, 12, 0, 0, 0, 0) && today < new Date(2017, 8, 18, 0, 0, 0, 0)){
+    d.innerHTML = "Barcelona"; 
+  } else if(today > new Date(2017, 8, 18, 0, 0, 0, 0) && today < new Date(2017, 8, 19, 0, 0, 0, 0)){
+    d.innerHTML = "Toulouse"; 
+  } else if(today > new Date(2017, 8, 19, 0, 0, 0, 0) && today < new Date(2017, 8, 21, 0, 0, 0, 0)){
+    d.innerHTML = "Paris"; 
+  } else if(today > new Date(2017, 8, 21, 0, 0, 0, 0) && today < new Date(2017, 8, 27, 0, 0, 0, 0)){
+    d.innerHTML = "Switzerland"; 
+  } else if(today > new Date(2017, 8, 27, 0, 0, 0, 0)){
+    d.innerHTML = "Beijing"; 
+  }
+  
+</script>
+
+<script>
+  AOS.init();
 </script>
 
 <script>
@@ -42,7 +79,7 @@ $(document).ready(function(){
     <div class="row">
       <div class="col l6 s12">
         <h5 class="white-text brand">John-seeks-a-job</h5>
-        <p class="grey-text text-lighten-4">European tour.</p>
+        <p class="grey-text text-lighten-4">Europe tour.</p>
       </div>
       <div class="col l4 offset-l2 s12">
         <h5 class="white-text">Connect</h5>

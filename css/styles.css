@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Bungee|Comfortaa');
 
+html, body{
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body{
   font-family: 'Comfortaa', cursive;
   background-color: #f5f5f5;
@@ -39,3 +44,39 @@ pre code {
 .italics{
   font-family: italics;
 }
+
+.corner-ribbon{
+  width: 200px;
+  background: #e43;
+  position: absolute;
+  top: 25px;
+  left: -50px;
+  text-align: center;
+  line-height: 50px;
+  letter-spacing: 1px;
+  color: #f0f0f0;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+/* Custom styles */
+
+.corner-ribbon.sticky{
+  position: fixed;
+}
+
+.corner-ribbon.shadow{
+  box-shadow: 0 0 3px rgba(0,0,0,.3);
+}
+
+/* Different positions */
+
+.corner-ribbon.top-right{
+  top: 25px;
+  right: -50px;
+  left: auto;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.corner-ribbon.red{background: #e43;}
