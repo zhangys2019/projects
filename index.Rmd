@@ -289,7 +289,7 @@ div(
               ),
               a(
                 class = "secondary-content",
-                href = "http://john-coene.com/five-line",
+                href = "http://github.com/JohnCoene/fiveline",
                 target = "_blank",
                 tags$i(
                   class = "material-icons grey-text text-darken-2",
