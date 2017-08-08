@@ -9,6 +9,7 @@ knitr::opts_chunk$set(echo = FALSE)
 <main>
 
 <div class="corner-ribbon top-right shadow red"><a href="tour" class = "white-text">Hire John</a></div>
+<div id="particles-js"></div>
 
 ```{r intro}
 div(
@@ -17,7 +18,7 @@ div(
     class = "container section center",
     style = "padding-top: 10vh;",
     h1(
-      class = "brand blue-text",
+      class = "brand blue-text link-shadow",
       "Project Vault"
     ),
     h4(
@@ -925,6 +926,7 @@ div(
 ```{r misc}
 div(
   class = "container section",
+  style = "z-index:999;",
   h1(
     class = "blue-text center",
     "Misc"

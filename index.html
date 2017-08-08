@@ -97,9 +97,12 @@
 <div class="corner-ribbon top-right shadow red">
 <a href="tour" class = "white-text">Hire John</a>
 </div>
+<div id="particles-js">
+
+</div>
 <div style="height: 100vh;">
 <div class="container section center" style="padding-top: 10vh;">
-<h1 class="brand blue-text">Project Vault</h1>
+<h1 class="brand blue-text link-shadow">Project Vault</h1>
 <h4 class="grey-text text-darken-2">Data, limericks, and other indoor stuff.</h4>
 <br/>
 <div class="row">
@@ -523,7 +526,7 @@ and some text mining utilities to deal with Middle English.
 </div>
 </div>
 </div>
-<div class="container section">
+<div class="container section" style="z-index:999;">
 <h1 class="blue-text center">Misc</h1>
 <div class="row">
 <ul class="collapsible popout" data-collapsible="accordion">
@@ -573,6 +576,7 @@ egg
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
 <script type="text/javascript" src="js/siema.min.js"></script>
+<script src="js/particles.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 <script type="text/javascript" charset="utf-8">
@@ -582,6 +586,11 @@ egg
  $('pre code').each(function(i, block) {
    hljs.highlightBlock(block);
  });
+</script>
+
+<script>
+particlesJS.load('particles-js', 'js/particles.json', function() {
+});
 </script>
 
 <script type="text/javascript" charset="utf-8">
