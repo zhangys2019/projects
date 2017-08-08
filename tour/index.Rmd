@@ -94,63 +94,78 @@ div(
 div(
   class = "section scrollspy",
   id = "about",
+  style = "min-height: 600px;",
   div(
     class = "row",
     div(
       class = "col m12 center",
-      tags$img(
-        src = "img/jp.png",
-        class = "responsive-img circle",
-        style = "max-height:70px;"
-      ),
       h3(
         class = "teal-text",
         '"Data Guy"'
       ),
       p(
+        class = "grey-text italics",
         "5 years of progressive experience in the realm of analytics ranging from data collection to visualisation through analysis."
       ),
-      p(
-        span(
-          class = "red-text text-lighten-1",
-          "Languages:"
-        ),
-        "English & French."
-      ),
-      p(
-        span(
-          class = "red-text text-lighten-1",
-          "Domain knowledge:"
-        ),
-        "Social Media Analysis, web analytics, mobile analytics and market research."
-      ),
-      p(
-        span(
-          class = "red-text text-lighten-1",
-          "Technical skills:"
-        ),
-        "R, Rmarkdown, Shiny, Django, Git, SQL (PostgreSQL, SQLite, MySQL), web stuff (HTML, CSS, javascript), and plenty more."
-      ),
-      p(
-        tags$a(
-          class = "btn red lighten-1",
-          href = "http://john-coene.com",
-          target = "_blank",
+      div(
+        class = "row",
+        div(
+          class = "col m4 s12 center",
           tags$i(
-            class = "material-icons left",
+            class = "material-icons large red-text text-lighten-1",
+            "business"
+          ),
+          h4(
+            "Domain knowledge"
+          ),
+          p(
+            class = "grey-text",
+            "Social Media Analysis, web analytics, mobile analytics and market research"
+          ),
+          tags$a(
+            class = "btn teal lighten-1",
+            href = "http://johncoene.github.io/cv",
+            target = "_blank",
+            "Resume"
+          ),
+          br(),
+          br()
+        ),
+        div(
+          class = "col m4 s12 center",
+          tags$i(
+            class = "material-icons large red-text text-lighten-1",
             "bubble_chart"
           ),
-          "Portfolio"
-        ),
-        tags$a(
-          class = "btn teal lighten-1",
-          href = "http://johncoene.github.io/cv",
-          target = "_blank",
-          tags$i(
-            class = "material-icons right",
-            "person"
+          h4(
+            "Technical skills"
           ),
-          "Resume"
+          p(
+            class = "grey-text",
+            "R, Rmarkdown, Shiny, Django, Git, SQL (PostgreSQL, SQLite, MySQL), web stuff (HTML, CSS, javascript), and plenty more."
+          ),
+          tags$a(
+            class = "btn teal lighten-1",
+            href = "http://john-coene.com",
+            target = "_blank",
+            "Portfolio"
+          ),
+          br(),
+          br()
+        ),
+        div(
+          class = "col m4 s12 center",
+          tags$i(
+            class = "material-icons large red-text text-lighten-1",
+            "translate"
+          ),
+          h4(
+            "Languages"
+          ),
+          p(
+            class = "grey-text",
+            "French, English and Mandarin (basic)."
+          )
         )
       )
     )
