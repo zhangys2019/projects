@@ -210,7 +210,7 @@ div(
             )
           ),
           p(
-            "A set of of dashboards on Twitter conversations taking place on Twitter.",
+            "A set of of dashboards on wine conversations taking place on Twitter.",
             "Includes dashboards on grape varieties, taste descriptors, wines associated with meal times, and more."
           )
         )
