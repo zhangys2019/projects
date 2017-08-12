@@ -14,9 +14,6 @@
 
 <title></title>
 
-<script src="site_libs/htmlwidgets-0.9/htmlwidgets.js"></script>
-<script src="site_libs/echarts-2.2.7/echarts-all.js"></script>
-<script src="site_libs/echarts-binding-0.0.1/echarts.js"></script>
 <meta http-equiv="Cache-control" content="public">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!--Import materialize.css-->
@@ -169,35 +166,60 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 
 <main>
 <div class="container">
-<h1>Gauges</h1>
-<h3 id="basic">Basic</h3>
-<p>This is a reproduction of the following <a href="http://echarts.baidu.com/echarts2/doc/example/gauge1.html#-en">example</a> taken from Baidu’s EChart official website.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">echart</span>(<span class="dt">width =</span> <span class="st">&quot;100%&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">egauge</span>(<span class="dv">85</span>, <span class="st">&quot;Completion rate&quot;</span>) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">etoolbox_full</span>() %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">etooltip</span>(<span class="dt">trigger =</span> <span class="st">&quot;item&quot;</span>) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">etheme</span>(<span class="st">&quot;macarons&quot;</span>)</code></pre></div>
-<div id="htmlwidget-dad0cf805bc62c571259" style="width:100%;height:480px;" class="echarts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-dad0cf805bc62c571259">{"x":{"theme":"macarons","options":{"series":[{"name":"Completion rate","type":"gauge","clickable":false,"legendHoverLink":true,"center":["50%","50%"],"radius":["0%","75%"],"startAngle":225,"endAngle":-45,"min":0,"max":100,"z":2,"zlevel":0,"splitNumber":10,"data":[{"value":85,"name":"Completion rate"}]}],"toolbox":{"show":true,"zlevel":0,"z":6,"orient":"horizontal","x":"right","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemSize":16,"color":["#1e90ff","#22bb22","#4b0082","#d2691e"],"disableColor":"#ddd","effectiveColor":"red","showTitle":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"feature":{"mark":{"show":true,"title":{"mark":"Mark","markUndo":"Undo","markClear":"Clear"},"lineStyle":{"color":"#1e90ff","typed":"dashed","width":2,"shadowColor":"rgba(0,0,0,0)","shadowBlur":5,"shadowOffsetX":3,"shadowOffsetY":3}},"restore":{"show":true,"title":"Reset"},"saveAsImage":{"show":true,"title":"Save as image"},"dataZoom":{"show":true,"title":{"dataZoom":"Area Zoom","dataZoomReset":"Reset"}},"dataView":{"show":true,"title":"View","readOnly":false,"lang":["Data View","close","refresh"]}}},"tooltip":{"show":true,"trigger":"item","zlevel":1,"showContent":true,"islandFormatter":"{a} < br/>{b} : {c}","showDelay":20,"hideDelay":100,"transitionDuration":0.4,"enterable":false,"backgroundColor":"rgba(0,0,0,0.7)","borderColor":"#333","borderRadius":4,"borderWidth":0,"padding":5,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}}}},"evals":[],"jsHooks":[]}</script>
-<h3 id="dark">Dark</h3>
-<p>This is a reproduction of the following <a href="http://echarts.baidu.com/echarts2/doc/example/gauge3.html#-en">example</a> taken from Baidu’s EChart official website.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">axis_label &lt;-<span class="st"> </span>htmlwidgets::<span class="kw">JS</span>(<span class="st">&quot;</span>
-<span class="st">function(v){</span>
-<span class="st">  switch (v+&#39;&#39;){</span>
-<span class="st">    case &#39;10&#39;: return &#39;low&#39;;</span>
-<span class="st">    case &#39;50&#39;: return &#39;Medium&#39;;</span>
-<span class="st">    case &#39;90&#39;: return &#39;High&#39;;</span>
-<span class="st">    default: return &#39;&#39;;}}&quot;</span>)
+<p><h1>Shiny</h1><p>Example to explore echarts themes.</p><a class="btn blue" href="https://johncoene.shinyapps.io/echartsthemes/" target="_blank">Demo link</a><br/><iframe src="https://johncoene.shinyapps.io/echartsthemes/" style="border: none; width: 100%; height: 500px;"></iframe><h3>UI</h3></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># ui.r</span>
+<span class="kw">library</span>(shiny)
 
-text &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">color =</span> <span class="st">&quot;#FFF&quot;</span>)
+<span class="kw">shinyUI</span>(<span class="kw">fluidPage</span>(
+  
+  <span class="kw">titlePanel</span>(<span class="st">&quot;echarts themes&quot;</span>),
+  
+  <span class="kw">sidebarLayout</span>(
+    <span class="kw">sidebarPanel</span>(
+      <span class="kw">selectInput</span>(<span class="st">&quot;themes&quot;</span>, <span class="dt">label =</span> <span class="kw">h3</span>(<span class="st">&quot;Themes&quot;</span>), 
+                  <span class="dt">choices =</span> <span class="kw">list</span>(<span class="st">&quot;mint&quot;</span> =<span class="st"> &quot;mint&quot;</span>, 
+                                 <span class="st">&quot;macarons&quot;</span> =<span class="st"> &quot;macarons&quot;</span>,
+                                 <span class="st">&quot;macarons2&quot;</span> =<span class="st"> &quot;macarons2&quot;</span>,
+                                 <span class="st">&quot;green&quot;</span> =<span class="st"> &quot;green&quot;</span>,
+                                 <span class="st">&quot;blue&quot;</span> =<span class="st"> &quot;blue&quot;</span>,
+                                 <span class="st">&quot;dark&quot;</span> =<span class="st"> &quot;dark&quot;</span>,
+                                 <span class="st">&quot;gray&quot;</span> =<span class="st"> &quot;gray&quot;</span>,
+                                 <span class="st">&quot;helianthus&quot;</span> =<span class="st"> &quot;helianthus&quot;</span>,
+                                 <span class="st">&quot;red&quot;</span> =<span class="st"> &quot;red&quot;</span>,
+                                 <span class="st">&quot;roma&quot;</span> =<span class="st"> &quot;roma&quot;</span>,
+                                 <span class="st">&quot;sakura&quot;</span> =<span class="st"> &quot;sakura&quot;</span>,
+                                 <span class="st">&quot;shine&quot;</span> =<span class="st"> &quot;shine&quot;</span>,
+                                 <span class="st">&quot;infographic&quot;</span> =<span class="st"> &quot;infographic&quot;</span>,
+                                 <span class="st">&quot;solarlight&quot;</span> =<span class="st"> &quot;solarlight&quot;</span>), <span class="dt">selected =</span> <span class="st">&quot;macarons&quot;</span>)
+    ),
+    
+    <span class="kw">mainPanel</span>(
+       echarts::<span class="kw">echartsOutput</span>(<span class="st">&quot;plot&quot;</span>)
+    )
+  )
+))</code></pre></div>
+<h3>Server</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># server.r</span>
+<span class="kw">library</span>(shiny)
 
-<span class="kw">echart</span>(<span class="dt">width =</span> <span class="st">&quot;100%&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">egauge</span>(<span class="dv">85</span>, <span class="st">&quot;Completion rate&quot;</span>, <span class="dt">axisLabel =</span> <span class="kw">list</span>(<span class="dt">formatter =</span> axis_label, <span class="dt">textStyle =</span> text)) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">etooltip</span>(<span class="dt">trigger =</span> <span class="st">&quot;item&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">etoolbox_full</span>() %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">etheme</span>(<span class="st">&quot;dark&quot;</span>)</code></pre></div>
-<div id="htmlwidget-904c3d5564c42431022e" style="width:100%;height:480px;" class="echarts html-widget"></div>
-<script type="application/json" data-for="htmlwidget-904c3d5564c42431022e">{"x":{"theme":"dark","options":{"series":[{"axisLabel":{"formatter":"\nfunction(v){\n  switch (v+''){\n    case '10': return 'low';\n    case '50': return 'Medium';\n    case '90': return 'High';\n    default: return '';}}","textStyle":{"color":"#FFF"}},"name":"Completion rate","type":"gauge","clickable":false,"legendHoverLink":true,"center":["50%","50%"],"radius":["0%","75%"],"startAngle":225,"endAngle":-45,"min":0,"max":100,"z":2,"zlevel":0,"splitNumber":10,"data":[{"value":85,"name":"Completion rate"}]}],"tooltip":{"show":true,"trigger":"item","zlevel":1,"showContent":true,"islandFormatter":"{a} < br/>{b} : {c}","showDelay":20,"hideDelay":100,"transitionDuration":0.4,"enterable":false,"backgroundColor":"rgba(0,0,0,0.7)","borderColor":"#333","borderRadius":4,"borderWidth":0,"padding":5,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"}},"toolbox":{"show":true,"zlevel":0,"z":6,"orient":"horizontal","x":"right","y":"top","backgroundColor":"rgba(0,0,0,0)","borderColor":"#ccc","borderWidth":0,"padding":5,"itemGap":10,"itemSize":16,"color":["#1e90ff","#22bb22","#4b0082","#d2691e"],"disableColor":"#ddd","effectiveColor":"red","showTitle":true,"textStyle":{"fontFamily":"Arial, Verdana, sans-serif","fontSize":12,"fontStyle":"normal","fontWeight":"normal"},"feature":{"mark":{"show":true,"title":{"mark":"Mark","markUndo":"Undo","markClear":"Clear"},"lineStyle":{"color":"#1e90ff","typed":"dashed","width":2,"shadowColor":"rgba(0,0,0,0)","shadowBlur":5,"shadowOffsetX":3,"shadowOffsetY":3}},"restore":{"show":true,"title":"Reset"},"saveAsImage":{"show":true,"title":"Save as image"},"dataZoom":{"show":true,"title":{"dataZoom":"Area Zoom","dataZoomReset":"Reset"}},"dataView":{"show":true,"title":"View","readOnly":false,"lang":["Data View","close","refresh"]}}}}},"evals":["options.series.0.axisLabel.formatter"],"jsHooks":[]}</script>
+<span class="kw">shinyServer</span>(function(input, output) {
+  
+  dataset &lt;-<span class="st"> </span><span class="kw">reactive</span>(
+    mtcars %&gt;%<span class="st"> </span>
+<span class="st">      </span>dplyr::<span class="kw">mutate</span>(<span class="dt">id =</span> <span class="dv">1</span>:<span class="kw">n</span>())
+  )
+   
+  output$plot &lt;-<span class="st"> </span><span class="kw">renderEcharts</span>({
+    
+    <span class="kw">dataset</span>() %&gt;%<span class="st"> </span>
+<span class="st">      </span><span class="kw">echart</span>(id) %&gt;%<span class="st"> </span>
+<span class="st">      </span><span class="kw">ebar</span>(wt, <span class="dt">stack =</span> <span class="st">&quot;grp&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">      </span><span class="kw">ebar</span>(drat, <span class="dt">stack =</span> <span class="st">&quot;grp&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">      </span><span class="kw">etheme</span>(input$themes)
+    
+  })
+  
+})</code></pre></div>
 </div>
 <p></main></p>
 

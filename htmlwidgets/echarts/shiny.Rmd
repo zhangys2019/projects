@@ -1,0 +1,107 @@
+---
+title: ""
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(echarts)
+library(htmltools)
+```
+
+<main>
+<div class = "container">
+
+```{r, echo=FALSE}
+h1(
+  "Shiny"
+)
+
+p(
+  "Example to explore echarts themes."
+)
+
+tags$a(
+  "Demo link",
+  class = "btn blue",
+  href = "https://johncoene.shinyapps.io/echartsthemes/",
+  target = "_blank"
+)
+
+br()
+
+tags$iframe(
+  src = "https://johncoene.shinyapps.io/echartsthemes/",
+  style = "border: none; width: 100%; height: 500px;"
+)
+
+h3(
+  "UI"
+)
+```
+
+```{r, eval=FALSE}
+# ui.r
+library(shiny)
+
+shinyUI(fluidPage(
+  
+  titlePanel("echarts themes"),
+  
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("themes", label = h3("Themes"), 
+                  choices = list("mint" = "mint", 
+                                 "macarons" = "macarons",
+                                 "macarons2" = "macarons2",
+                                 "green" = "green",
+                                 "blue" = "blue",
+                                 "dark" = "dark",
+                                 "gray" = "gray",
+                                 "helianthus" = "helianthus",
+                                 "red" = "red",
+                                 "roma" = "roma",
+                                 "sakura" = "sakura",
+                                 "shine" = "shine",
+                                 "infographic" = "infographic",
+                                 "solarlight" = "solarlight"), selected = "macarons")
+    ),
+    
+    mainPanel(
+       echarts::echartsOutput("plot")
+    )
+  )
+))
+```
+
+```{r, echo=FALSE}
+h3(
+  "Server"
+)
+```
+
+```{r, eval=FALSE}
+# server.r
+library(shiny)
+
+shinyServer(function(input, output) {
+  
+  dataset <- reactive(
+    mtcars %>% 
+      dplyr::mutate(id = 1:n())
+  )
+   
+  output$plot <- renderEcharts({
+    
+    dataset() %>% 
+      echart(id) %>% 
+      ebar(wt, stack = "grp") %>% 
+      ebar(drat, stack = "grp") %>% 
+      etheme(input$themes)
+    
+  })
+  
+})
+```
+
+</div>
+</main>
