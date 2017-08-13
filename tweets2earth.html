@@ -123,28 +123,18 @@ code > span. { color: #1f1c1b; } /* Normal */
     <div class="container">
       <a href="http://john-coene.com/" class="brand-logo brand">John Coene</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <ul class="right hide-on-med-and-down">
         <li><a href="http://john-coene.com/"><i class="material-icons">home</i></a></li>
       </ul>
-      <a href="tour" class="btn-floating btn-large halfway-fab waves-effect waves-light blue darken-3 hide-on-med-and-up">
-        <i class="material-icons">face</i>
-      </a>
     </div>
+    <ul class="side-nav" id="mobile-demo">
+      <li><a href="http://johncoene.github.io/cv">Resume</a></li>
+      <li><a href="https://twitter.com/jdatap">Twitter</a></li>
+      <li><a href="https://github.com/JohnCoene">Github</a></li>
+      <li><a href="https://www.linkedin.com/in/johncoene/">LinkedIn</a></li>
+    </ul>
   </div>
 </nav>
-
-<ul class="side-nav" id="mobile-demo">
-  <li><a href="#web">Web</a></li>
-  <li><a href="#viz">Viz</a></li>
-  <li><a href="#twitter">Twitter</a></li>
-  <li><a href="#data">Data</a></li>
-  <li><a href="#misc">Misc</a></li>
-  <li class="divider"></li>
-  <li><a href="http://johncoene.github.io/cv">Resume</a></li>
-  <li><a href="https://twitter.com/jdatap">Twitter</a></li>
-  <li><a href="https://github.com/JohnCoene">Github</a></li>
-  <li><a href="https://www.linkedin.com/in/johncoene/">LinkedIn</a></li>
-</ul>
 
 
 
@@ -224,8 +214,8 @@ particlesJS.load('particles-js', 'js/particles.json', function() {});
     $('.scrollspy').scrollSpy({
       scrollOffset: 0
     });
-    $(".button-collapse").sideNav();
   });
+  $(".button-collapse").sideNav();
 </script>
 
 <script>
