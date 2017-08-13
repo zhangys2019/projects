@@ -81,6 +81,36 @@ div(
 )
 ```
 
+<div id = "nav">
+```{r}
+HTML(
+  '
+  <nav class="pushpin-nav z-depth-3 hide-on-small-only" data-target="nav" style="z-index:9999;">
+    <div class="nav-wrapper grey lighten-3">
+      <div class="container">
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="left hide-on-med-and-down">
+          <li><a class="blue-text" href="#web">Web</a></li>
+          <li><a class="blue-text" href="#viz">Viz</a></li>
+          <li><a class="blue-text" href="#twitter">Twitter</a></li>
+          <li><a class="blue-text" href="#data">Data</a></li>
+        </ul>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li>
+            <a class="dropdown-button blue-text" href="#!" data-activates="social">
+              <i class="material-icons right blue-text">arrow_drop_down</i>Connect</a>
+          </li>
+          <li class ="brand-logo center">
+            <a href="tour" class="red waves-effect waves-light btn">Hire John <i class="material-icons right">face</i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+'
+)
+```
+
 ```{r web}
 div(
   class = "container section scrollspy",
@@ -768,7 +798,7 @@ div(
           href = "packages/rodham/",
           img(
             class = "siema-img",
-            src = "img/carousels/rodham_download.png"
+            src = "img/carousels/rodham_releases.png"
           )
         )
       ),
@@ -1009,4 +1039,5 @@ div(
 )
 ```
 
+</div>
 </main>

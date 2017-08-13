@@ -75,6 +75,26 @@ particlesJS.load('particles-js', 'js/particles.json', function() {});
   AOS.init();
 </script>
 
+<script>
+    var options = [
+      {selector: '#misc', offset: 50, callback: function(el) {
+        Materialize.toast("Hire John <i class='material-icons right'>thumb_up</i>", 3000 );
+      } }
+    ];
+    Materialize.scrollFire(options);
+</script>
+
+<script>
+  $('.pushpin-nav').each(function() {
+    var $this = $(this);
+    var $target = $('#' + $(this).attr('data-target'));
+    $this.pushpin({
+      top: $target.offset().top,
+      bottom: $target.offset().top + $target.outerHeight() - $this.height()
+    });
+  });
+</script>
+
 <footer class="page-footer blue">
   <div class="container">
     <div class="row">

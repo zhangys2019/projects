@@ -19,8 +19,8 @@ opts = list(
   prefix = "~"
 )
 div(class = "page-header",
-    h3(HTML("John has been on earth for <span class = 'red-text'>"), 
-       countup(29 * 365 * 24 * 60, options = opts), HTML("</span> minutes.")))
+    h3(HTML("John was born <span class = 'red-text'>"), 
+       countup(29 * 365 * 24 * 60, options = opts), HTML("</span> minutes ago.")))
 ```
 
 [![Travis-CI Build Status](https://travis-ci.org/JohnCoene/countup.svg?branch=master)](https://travis-ci.org/JohnCoene/countup)
