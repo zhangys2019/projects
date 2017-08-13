@@ -14,14 +14,17 @@
 </script>
 
 <script>
-particlesJS.load('particles-js', 'js/particles.json', function() {
-});
+particlesJS.load('particles-js', 'js/particles.json', function() {});
 </script>
 
 <script type="text/javascript" charset="utf-8">
-/*  $(document).ready(function(){
-    $('.parallax').parallax();
-  });*/
+  $(".dropdown-button").dropdown();
+  $(document).ready(function(){
+    $('.scrollspy').scrollSpy({
+      scrollOffset: 0
+    });
+    $(".button-collapse").sideNav();
+  });
 </script>
 
 <script>
@@ -70,10 +73,6 @@ particlesJS.load('particles-js', 'js/particles.json', function() {
 
 <script>
   AOS.init();
-</script>
-
-<script type="text/javascript" charset="utf-8">
-  $(".button-collapse").sideNav();
 </script>
 
 <footer class="page-footer blue">

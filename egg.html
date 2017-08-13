@@ -111,24 +111,47 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 <body>
 
 
-<nav>
-  <div class="nav-wrapper blue">
-    <div class="container">
-      <a href="http://john-coene.com/" class="brand-logo brand">John Coene</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="http://johncoene.github.io/cv" target="_blank"><i class="material-icons left">account_circle</i>Resume</a></li>
-        <li><a href="https://twitter.com/jdatap" target="_blank"><i class="material-icons left">sms</i>Twitter</a></li>
-        <li><a href="https://github.com/JohnCoene" target="_blank"><i class="material-icons left">code</i>Github</a></li>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-        <li><a href="http://johncoene.github.io/cv">Resume</a></li>
-        <li><a href="https://twitter.com/jdatap">Twitter</a></li>
-        <li><a href="https://github.com/JohnCoene">Github</a></li>
-      </ul>
+<ul id="social" class="dropdown-content">
+  <li><a class="blue-text" href="http://johncoene.github.io/cv">Resume</a></li>
+  <li><a class="blue-text" href="https://twitter.com/jdatap">Twitter</a></li>
+  <li><a class="blue-text" href="https://github.com/JohnCoene">Github</a></li>
+</ul>
+
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper blue">
+      <div class="container">
+        <a href="http://john-coene.com/" class="brand-logo brand">John Coene</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="#web">Web</a></li>
+          <li><a href="#viz">Viz</a></li>
+          <li><a href="#twitter">Twitter</a></li>
+          <li><a href="#data">Data</a></li>
+          <li>
+            <a class="dropdown-button" href="#!" data-activates="social"><i class="material-icons left">arrow_drop_down</i>Connect</a>
+          </li>
+          <li><a href="tour" class="red waves-effect waves-light btn">Hire John <i class="material-icons right">face</i></a></li>
+        </ul>
+        <a href="tour" class="btn-floating btn-large halfway-fab waves-effect waves-light blue darken-3 hide-on-med-and-up">
+          <i class="material-icons">face</i>
+        </a>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</div>
+
+<ul class="side-nav" id="mobile-demo">
+  <li><a href="#web">Web</a></li>
+  <li><a href="#viz">Viz</a></li>
+  <li><a href="#twitter">Twitter</a></li>
+  <li><a href="#data">Data</a></li>
+  <li><a href="#misc">Misc</a></li>
+  <li class="divider"></li>
+  <li><a href="http://johncoene.github.io/cv">Resume</a></li>
+  <li><a href="https://twitter.com/jdatap">Twitter</a></li>
+  <li><a href="https://github.com/JohnCoene">Github</a></li>
+</ul>
 
 
 
@@ -146,8 +169,8 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 <blockquote>
 <p>Type “coene” to see it in action!</p>
 </blockquote>
-<div id="htmlwidget-6a099735e9b5ca134659" class="egg html-widget" style="display: none; position: absolute; top:20%; left:50% width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-6a099735e9b5ca134659">{"x":{"egg":"","stroke":["c","o","e","n","e"],"fade":1000,"imegg":"http://media.vanityfair.com/photos/54cbf3da998d4de83ba3602a/master/w_960,c_limit/image.jpg"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-5c054b75c0fe5c0d1870" class="egg html-widget" style="display: none; position: absolute; top:20%; left:50% width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-5c054b75c0fe5c0d1870">{"x":{"egg":"","stroke":["c","o","e","n","e"],"fade":1000,"imegg":"http://media.vanityfair.com/photos/54cbf3da998d4de83ba3602a/master/w_960,c_limit/image.jpg"},"evals":[],"jsHooks":[]}</script>
 <div class="page-header">
 <h2>Install</h2>
 </div>
@@ -180,14 +203,17 @@ devtools::<span class="kw">install_github</span>(<span class="st">&quot;JohnCoen
 </script>
 
 <script>
-particlesJS.load('particles-js', 'js/particles.json', function() {
-});
+particlesJS.load('particles-js', 'js/particles.json', function() {});
 </script>
 
 <script type="text/javascript" charset="utf-8">
-/*  $(document).ready(function(){
-    $('.parallax').parallax();
-  });*/
+  $(".dropdown-button").dropdown();
+  $(document).ready(function(){
+    $('.scrollspy').scrollSpy({
+      scrollOffset: 0
+    });
+    $(".button-collapse").sideNav();
+  });
 </script>
 
 <script>
@@ -236,10 +262,6 @@ particlesJS.load('particles-js', 'js/particles.json', function() {
 
 <script>
   AOS.init();
-</script>
-
-<script type="text/javascript" charset="utf-8">
-  $(".button-collapse").sideNav();
 </script>
 
 <footer class="page-footer blue">

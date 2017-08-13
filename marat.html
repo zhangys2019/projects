@@ -70,24 +70,47 @@
 <body>
 
 
-<nav>
-  <div class="nav-wrapper blue">
-    <div class="container">
-      <a href="http://john-coene.com/" class="brand-logo brand">John Coene</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="http://johncoene.github.io/cv" target="_blank"><i class="material-icons left">account_circle</i>Resume</a></li>
-        <li><a href="https://twitter.com/jdatap" target="_blank"><i class="material-icons left">sms</i>Twitter</a></li>
-        <li><a href="https://github.com/JohnCoene" target="_blank"><i class="material-icons left">code</i>Github</a></li>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-        <li><a href="http://johncoene.github.io/cv">Resume</a></li>
-        <li><a href="https://twitter.com/jdatap">Twitter</a></li>
-        <li><a href="https://github.com/JohnCoene">Github</a></li>
-      </ul>
+<ul id="social" class="dropdown-content">
+  <li><a class="blue-text" href="http://johncoene.github.io/cv">Resume</a></li>
+  <li><a class="blue-text" href="https://twitter.com/jdatap">Twitter</a></li>
+  <li><a class="blue-text" href="https://github.com/JohnCoene">Github</a></li>
+</ul>
+
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper blue">
+      <div class="container">
+        <a href="http://john-coene.com/" class="brand-logo brand">John Coene</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="#web">Web</a></li>
+          <li><a href="#viz">Viz</a></li>
+          <li><a href="#twitter">Twitter</a></li>
+          <li><a href="#data">Data</a></li>
+          <li>
+            <a class="dropdown-button" href="#!" data-activates="social"><i class="material-icons left">arrow_drop_down</i>Connect</a>
+          </li>
+          <li><a href="tour" class="red waves-effect waves-light btn">Hire John <i class="material-icons right">face</i></a></li>
+        </ul>
+        <a href="tour" class="btn-floating btn-large halfway-fab waves-effect waves-light blue darken-3 hide-on-med-and-up">
+          <i class="material-icons">face</i>
+        </a>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</div>
+
+<ul class="side-nav" id="mobile-demo">
+  <li><a href="#web">Web</a></li>
+  <li><a href="#viz">Viz</a></li>
+  <li><a href="#twitter">Twitter</a></li>
+  <li><a href="#data">Data</a></li>
+  <li><a href="#misc">Misc</a></li>
+  <li class="divider"></li>
+  <li><a href="http://johncoene.github.io/cv">Resume</a></li>
+  <li><a href="https://twitter.com/jdatap">Twitter</a></li>
+  <li><a href="https://github.com/JohnCoene">Github</a></li>
+</ul>
 
 
 
@@ -175,14 +198,17 @@ folder.
 </script>
 
 <script>
-particlesJS.load('particles-js', 'js/particles.json', function() {
-});
+particlesJS.load('particles-js', 'js/particles.json', function() {});
 </script>
 
 <script type="text/javascript" charset="utf-8">
-/*  $(document).ready(function(){
-    $('.parallax').parallax();
-  });*/
+  $(".dropdown-button").dropdown();
+  $(document).ready(function(){
+    $('.scrollspy').scrollSpy({
+      scrollOffset: 0
+    });
+    $(".button-collapse").sideNav();
+  });
 </script>
 
 <script>
@@ -231,10 +257,6 @@ particlesJS.load('particles-js', 'js/particles.json', function() {
 
 <script>
   AOS.init();
-</script>
-
-<script type="text/javascript" charset="utf-8">
-  $(".button-collapse").sideNav();
 </script>
 
 <footer class="page-footer blue">

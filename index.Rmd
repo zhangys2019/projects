@@ -7,8 +7,6 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 <main>
-
-<div class="corner-ribbon top-right shadow red"><a href="tour" class = "white-text">Hire John</a></div>
 <div id="particles-js"></div>
 
 ```{r intro}
@@ -17,6 +15,7 @@ div(
   div(
     class = "container section center",
     style = "padding-top: 10vh;",
+    id = "home",
     h1(
       class = "brand blue-text link-shadow",
       "Project Vault"
@@ -84,7 +83,8 @@ div(
 
 ```{r web}
 div(
-  class = "container section",
+  class = "container section scrollspy",
+  id = "web",
   h1(
     class = "blue-text center",
     "Web"
@@ -272,7 +272,8 @@ div(
 
 ```{r viz}
 div(
-  class = "container section",
+  class = "container section scrollspy",
+  id = "viz",
   h1(
     class = "blue-text center",
     "Viz"
@@ -608,7 +609,8 @@ div(
 
 ```{r social media}
 div(
-  class = "container section",
+  class = "container section scrollspy",
+  id = "twitter",
   h1(
     class = "blue-text center",
     "Twitter"
@@ -732,7 +734,8 @@ div(
 
 ```{r data}
 div(
-  class = "container section",
+  class = "container section scrollspy",
+  id = "data",
   h1(
     class = "blue-text center",
     "Data"
@@ -926,7 +929,7 @@ div(
 ```{r misc}
 div(
   class = "container section",
-  style = "z-index:999;",
+  id = "misc",
   h1(
     class = "blue-text center",
     "Misc"
