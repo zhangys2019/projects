@@ -768,15 +768,6 @@ div(
           href = "packages/rodham/",
           img(
             class = "siema-img",
-            src = "img/carousels/rodham_releases.png"
-          )
-        )
-      ),
-      div(
-        tags$a(
-          href = "packages/rodham/",
-          img(
-            class = "siema-img",
             src = "img/carousels/rodham_download.png"
           )
         )
