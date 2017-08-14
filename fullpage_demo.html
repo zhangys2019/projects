@@ -18,6 +18,44 @@
     <link href="data:text/css;charset=utf-8,%23tocMenu%20li%20%7B%0Adisplay%3Ainline%2Dblock%3B%0Amargin%3A%2010px%3B%0Acolor%3A%20%23000%3B%0Abackground%3A%23fff%3B%0Abackground%3A%20rgba%28255%2C255%2C255%2C%200%2E5%29%3B%0A%2Dwebkit%2Dborder%2Dradius%3A%204px%3B%0Aborder%2Dradius%3A%204px%3B%0A%7D%0A%23tocMenu%20li%2Eactive%7B%0Abackground%3A%23666%3B%0Abackground%3A%20rgba%280%2C0%2C0%2C%200%2E5%29%3B%0Acolor%3A%20%23fff%3B%0A%7D%0A%23tocMenu%20li%20a%7B%0Atext%2Ddecoration%3Anone%3B%0Acolor%3A%20%23000%3B%0A%7D%0A%23tocMenu%20li%2Eactive%20a%3Ahover%7B%0Acolor%3A%20%23000%3B%0A%7D%0A%23tocMenu%20li%3Ahover%7B%0Abackground%3A%20rgba%28255%2C255%2C255%2C%200%2E8%29%3B%0A%7D%0A%23tocMenu%20li%20a%2C%0A%23tocMenu%20li%2Eactive%20a%7B%0Apadding%3A%209px%2018px%3B%0Adisplay%3Ablock%3B%0A%7D%0A%23tocMenu%20li%2Eactive%20a%7B%0Acolor%3A%20%23fff%3B%0A%7D%0A%23tocMenu%7B%0Atext%2Dalign%3A%20left%3B%0Aposition%3Afixed%3B%0Atop%3A0%3B%0Aleft%3A0%3B%0Aheight%3A%2040px%3B%0Az%2Dindex%3A%2070%3B%0Awidth%3A%20100%25%3B%0Apadding%3A%200%3B%0Amargin%3A0%3B%0A%7D%0Abody%7B%0Acolor%3A%20%23212121%3B%0A%7D%0A" type="text/css" rel="stylesheet" />
 
     
+        <style type="text/css">
+    div.sourceCode { overflow-x: auto; }
+    table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+      margin: 0; padding: 0; vertical-align: baseline; border: none; }
+    table.sourceCode { width: 100%; line-height: 100%; background-color: #303030; color: #cccccc; }
+    td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; }
+    td.sourceCode { padding-left: 5px; }
+    pre, code { color: #cccccc; background-color: #303030; }
+    code > span.kw { color: #f0dfaf; } /* Keyword */
+    code > span.dt { color: #dfdfbf; } /* DataType */
+    code > span.dv { color: #dcdccc; } /* DecVal */
+    code > span.bn { color: #dca3a3; } /* BaseN */
+    code > span.fl { color: #c0bed1; } /* Float */
+    code > span.ch { color: #dca3a3; } /* Char */
+    code > span.st { color: #cc9393; } /* String */
+    code > span.co { color: #7f9f7f; } /* Comment */
+    code > span.ot { color: #efef8f; } /* Other */
+    code > span.al { color: #ffcfaf; } /* Alert */
+    code > span.fu { color: #efef8f; } /* Function */
+    code > span.er { color: #c3bf9f; } /* Error */
+    code > span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
+    code > span.cn { color: #dca3a3; font-weight: bold; } /* Constant */
+    code > span.sc { color: #dca3a3; } /* SpecialChar */
+    code > span.vs { color: #cc9393; } /* VerbatimString */
+    code > span.ss { color: #cc9393; } /* SpecialString */
+    code > span.im { } /* Import */
+    code > span.va { } /* Variable */
+    code > span.cf { color: #f0dfaf; } /* ControlFlow */
+    code > span.op { color: #f0efd0; } /* Operator */
+    code > span.bu { } /* BuiltIn */
+    code > span.ex { } /* Extension */
+    code > span.pp { color: #ffcfaf; font-weight: bold; } /* Preprocessor */
+    code > span.at { } /* Attribute */
+    code > span.do { color: #7f9f7f; } /* Documentation */
+    code > span.an { color: #7f9f7f; font-weight: bold; } /* Annotation */
+    code > span.cv { color: #7f9f7f; font-weight: bold; } /* CommentVar */
+    code > span.in { color: #7f9f7f; font-weight: bold; } /* Information */
+    </style>
     
     
         <style>
@@ -40,23 +78,45 @@
       <h1 id="sections">Sections</h1>
       <h2 id="this-is-a-section">This is a section</h2>
       <p>This is a section.</p>
-      <ul>
-      <li>Sections are marked by <code>h1</code> tags or <code># Some Section</code> in <code>Rmarkdown</code>.</li>
-      </ul>
+      <p>Sections are marked by <code>h1</code> tags or <code># Some Section</code> in <code>Rmarkdown</code>.</p>
+      <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Sections</span>
+      
+      ## This is a section
+      
+      Sections are marked by <span class="st">`</span><span class="dt">h1</span><span class="st">`</span> tags or <span class="st">`</span><span class="dt"># Some Section</span><span class="st">`</span> <span class="cf">in</span> <span class="st">`</span><span class="dt">Rmarkdown</span><span class="st">`</span>.</code></pre></div>
       <h1 id="slides">Slides</h1>
       <h5 id="slide-1">Slide 1</h5>
       <h2 id="this-is-slide-1">This is Slide 1</h2>
       <p>You can also include slides.</p>
       <p>Slides are <code>h5</code> or <code>##### Some Slide</code> in <code>Rmarkdown</code>.</p>
+      <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Slides</span>
+      
+      ##### Slide 1
+      
+      ## This is Slide 1
+      
+      You can also include slides.
+      
+      Slides are <span class="st">`</span><span class="dt">h5</span><span class="st">`</span> or <span class="st">`</span><span class="dt">##### Some Slide</span><span class="st">`</span> <span class="cf">in</span> <span class="st">`</span><span class="dt">Rmarkdown</span><span class="st">`</span>.</code></pre></div>
       <h5 id="slide-2">Slide 2</h5>
       <h2 id="this-is-slide-2">This is Slide 2</h2>
       <p>Second slide content.</p>
+      <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">##### Slide 2
+      
+      ## This is Slide 2
+      
+      Second slide content.</code></pre></div>
       <h1 id="colors">Colors</h1>
       <h2 id="colors-1">Colors</h2>
-      <p>You can set background colors with <code>background</code> in your <code>yaml</code>.</p>
+      <p>You can set background colors with <code>background</code> in your <code>yaml</code>. Below are the colors used for this document:</p>
+      <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">background<span class="op">:</span><span class="st"> </span>
+      <span class="st">  </span><span class="op">-</span><span class="st"> '#3f51b5'</span>
+        <span class="op">-</span><span class="st"> '#4db6ac'</span>
+        <span class="op">-</span><span class="st"> '#9575cd'</span>
+        <span class="op">-</span><span class="st"> '#7986cb'</span></code></pre></div>
       <h1 id="options">Options</h1>
       <h2 id="options-1">Options</h2>
-      <p>There are many other options you can set up see the <a href>documentation</a> for the full list.</p>
+      <p>There are many other options you can set up see the <a href="http://john-coene.com/reporter" target="_blank" style="color: white;">documentation</a> for the full list.</p>
   </div>
 
 
@@ -81,8 +141,8 @@
     
     var continuousVertical = true;
     var continuousHorizontal = true;
-    var navigation = true;
-    var navigationPosition = 'right';
+    var navigation = false;
+    var navigationPosition = 'none';
     var slidesNavigation = false;
     var center = true;
 

@@ -12,7 +12,7 @@
 
 
 
-<title>reporter</title>
+<title></title>
 
 <link href="css/aos.css" rel="stylesheet">
 <script src="js/aos.js"></script>
@@ -140,11 +140,12 @@ code > span. { color: #1f1c1b; } /* Normal */
 </nav>
 
 
-<h1 class="title toc-ignore">reporter</h1>
 
 
 
-<p><a href="https://travis-ci.org/JohnCoene/reporter"><img src="https://travis-ci.org/JohnCoene/reporter.svg?branch=master" alt="Travis-CI Build Status" /></a></p>
+<main>
+<div class="container">
+<p><a href="https://travis-ci.org/JohnCoene/reporter"><img src="https://travis-ci.org/JohnCoene/reporter.svg?branch=master" alt="Travis-CI Build Status" /></a> <a href="https://ci.appveyor.com/project/JohnCoene/reporter"><img src="https://ci.appveyor.com/api/projects/status/github/JohnCoene/reporter?branch=master&amp;svg=true" alt="AppVeyor Build Status" /></a></p>
 <p><code>reporter</code> is a set of Rmarkdown formats currently including:</p>
 <ul>
 <li>fullpage - Not into slides? Me neither! This comes close enough.</li>
@@ -152,45 +153,47 @@ code > span. { color: #1f1c1b; } /* Normal */
 </ul>
 <br/>
 <p>
-<a href="https://github.com/JohnCoene/reporter" target="_blank"><button class='bttn-unite bttn-lg bttn-danger'><i class='fa fa-github' aria-hidden='true'></i> Repository</button></a>
+<a href="https://github.com/JohnCoene/reporter" target="_blank" class="btn blue">Repository</a>
 </p>
 <div class="page-header">
 <h2>Install</h2>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;JohnCoene/reporter&quot;</span>)</code></pre></div>
-<div class="page-header">
-<h2>Demos</h2>
-</div>
 <p>
-<a href="fullpage_demo" target="_blank"><button class='bttn-unite bttn-lg bttn-info'><i class='fa fa-file-text' aria-hidden='true'></i> Full Page</button></a>
+<a href="fullpage_demo" target="_blank" class="btn blue lighten-1">Demo</a>
 </p>
 <div class="page-header">
 <h2>Full page</h2>
 </div>
-<p>Features:</p>
-<ul>
-<li>slides</li>
-<li>background colors</li>
-<li>navigation</li>
-<li>table of content</li>
-<li>and more</li>
+<ul class="collection with-header">
+<li class="collection-header">
+<h4>Featrures</h4>
+</li>
+<li class="collection-item">Slides</li>
+<li class="collection-item">Background color</li>
+<li class="collection-item">Navigation</li>
+<li class="collection-item">And more...</li>
 </ul>
-<p>Options:</p>
-<ul>
-<li><code>toc</code> - Table of content as menu, i.e.: <code>toc: true</code></li>
-<li><code>background</code> - background color of sections, i.e.: ```</li>
-<li>background:
-<ul>
-<li>blue</li>
-<li>red</li>
-<li>green ```</li>
-</ul></li>
-<li><code>continousVertical</code></li>
-<li><code>continuousHorizontal</code></li>
-<li><code>navigation</code> whether to show navigation</li>
-<li><code>navigationPosition</code> position of aforementioned <code>navigation</code></li>
-<li><code>slidesNavigation</code></li>
+<ul class="collection with-header">
+<li class="collection-header">
+<h4>Options</h4>
+</li>
+<li class="collection-item">
+toc: Table of content as menu, i.e.:
+<code>toc: true</code>
+</li>
+<li class="collection-item">background: background color of sections, see demo.</li>
+<li class="collection-item">continuousVertical</li>
+<li class="collection-item">continuousHorizontal</li>
+<li class="collection-item">navigation: whether to show navigation</li>
+<li class="collection-item">
+navigationPosition: position of aforementioned
+<code>navigation</code>
+</li>
+<li class="collection-item">slidesNavigation</li>
 </ul>
+</div>
+<p></main></p>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
