@@ -25,7 +25,9 @@ tags$img(
 * fullpage - Not into slides? Me neither! This comes close enough.
 * material (WIP)
 
-I implemented fullpage.js because I actually despise slides, it's the most misused form of reporting; it should only be used for actual presentation in my opinion. However the management loves it so I have to comply. Until I stumbled upon [fullpage.js](https://alvarotrigo.com/fullPage/) which is a neat hybrid of long-form and slide formats.
+I implemented fullpage.js because I actually despise slides, it's probably the most misused form of reporting; it should only be used for actual presentations in my opinion. However the management loves it so I have to comply. 
+
+But I stumbled upon [fullpage.js](https://alvarotrigo.com/fullPage/) which is a neat hybrid of long-form and slide formats that will satisfy everyone.
 
 `r br()`
 
