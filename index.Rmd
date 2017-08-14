@@ -81,11 +81,11 @@ div(
 )
 ```
 
-<div id = "nav">
+<div id = "nav1" class = "nav1">
 ```{r}
 HTML(
   '
-  <nav class="pushpin-nav z-depth-3 hide-on-small-only" data-target="nav" style="z-index:9999;">
+  <nav class="pushpin-nav z-depth-3 hide-on-small-only" data-target="nav1" style="z-index:9999;">
     <div class="nav-wrapper grey lighten-3">
       <div class="container">
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
