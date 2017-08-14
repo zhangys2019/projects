@@ -965,27 +965,6 @@ div(
           class = "collapsible-header blue-text",
           tags$i(
             class = "material-icons",
-            "insert_drive_file"
-          ),
-          "reporter"
-        ),
-        div(
-          class = "collapsible-body",
-          tags$span(
-            "Rmarkdown format; implementation of fullpage.js and materialize CSS (WIP)."
-          ),
-            tags$a(
-              href = "reporter",
-              class = "right link-shadow",
-              "Start reporting"
-            )
-        )
-      ),
-      tags$li(
-        div(
-          class = "collapsible-header active blue-text",
-          tags$i(
-            class = "material-icons",
             "text_format"
           ),
           "typed"
@@ -1006,6 +985,27 @@ div(
               "Start typing"
             )
           )
+        )
+      ),
+      tags$li(
+        div(
+          class = "collapsible-header active blue-text",
+          tags$i(
+            class = "material-icons",
+            "insert_drive_file"
+          ),
+          "reporter"
+        ),
+        div(
+          class = "collapsible-body",
+          tags$span(
+            "Rmarkdown format; implementation of fullpage.js and materialize CSS (WIP)."
+          ),
+            tags$a(
+              href = "reporter",
+              class = "right link-shadow",
+              "Start reporting"
+            )
         )
       ),
       tags$li(
