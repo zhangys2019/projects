@@ -99,6 +99,7 @@ HTML(
           <li>
             <a class="dropdown-button blue-text" href="#!" data-activates="social">
               <i class="material-icons right blue-text">arrow_drop_down</i>Connect</a>
+              <li><a class="blue-text" href="#contact">Contact</a></li>
           </li>
           <li class ="brand-logo brand blue-text center">
             JOHN COENE
@@ -1069,6 +1070,89 @@ map <- leaflet() %>%
 
 div(
   class = "section",
+  id = "contact",
+  h1(
+    class = "blue-text center",
+    "Contact"
+  ),
+  div(
+    class = "row",
+    tags$form(
+      action = "https://formspree.io/jcoenep@gmail.com",
+      method = "POST",
+      class = "col s12",
+      div(
+        class = "row",
+        div(
+          class = "input-field col m3 s6 push-m3",
+          tags$i(
+            class = "material-icons prefix",
+            "account_circle"
+          ),
+          tags$input(
+            placeholder="Your name",
+            id = "name_prefix",
+            type = "text",
+            name = "name",
+            class = "validate"
+          ),
+          tags$label(
+            `for` = "name_prefix",
+            "Name"
+          )
+        ),
+        div(
+          class = "input-field col m3 s6 push-m3",
+          tags$i(
+            class = "material-icons prefix",
+            "mail_outline"
+          ),
+          tags$input(
+            placeholder="Your email",
+            id = "mail_prefix",
+            type = "text",
+            name = "_replyto",
+            class = "validate"
+          ),
+          tags$label(
+            `for` = "mail_prefix",
+            "Email"
+          )
+        )
+      ),
+      div(
+        class = "row",
+        div(
+          class = "input-field col m6 s12 push-m3",
+          tags$i(
+            class = "material-icons prefix",
+            "edit"
+          ),
+          tags$input(
+            placeholder="Your message",
+            id = "message_prefix",
+            type = "text",
+            class = "validate"
+          ),
+          tags$label(
+            `for` = "message_prefix",
+            "Message"
+          ) 
+        )
+      ),
+      div(
+        class = "row",
+        div(
+          class = "col s4 push-m4 push-s4 center",
+          tags$input(
+            type = "submit",
+            value = "Send",
+            class ="blue btn waves-effect waves-light"
+          )
+        )
+      )
+    )
+  ),
   map
 )
 ```
