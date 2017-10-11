@@ -100,8 +100,8 @@ HTML(
             <a class="dropdown-button blue-text" href="#!" data-activates="social">
               <i class="material-icons right blue-text">arrow_drop_down</i>Connect</a>
           </li>
-          <li class ="brand-logo center">
-            <a href="tour" class="red waves-effect waves-light btn">Hire John <i class="material-icons right">face</i></a>
+          <li class ="brand-logo brand blue-text center">
+            JOHN COENE
           </li>
         </ul>
       </div>
