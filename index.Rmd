@@ -1060,5 +1060,18 @@ div(
 )
 ```
 
+```{r contact}
+map <- leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(lat = 46.204391, 
+             lng = 6.143158,
+             popup="John")
+
+div(
+  class = "section",
+  map
+)
+```
+
 </div>
 </main>
