@@ -21,40 +21,44 @@ div(
   class = "section scrollspy",
   id = "home",
   div(
-    h1(
+    h3(
       class = "red-text center text-lighten-1",
       tags$span(
         class = "brand",
+        style = "text-decoration: line-through;",
         "John-seeks-a-job"
       ),
       br(),
       tags$span(
-        class = "norm grey-text text-darken-1",
+        class = "norm grey-text text-lighten-1",
         "Europe tour"
+      ),
+      tags$span(
+        class = "norm grey-text text-darken-1",
+        "(done!)"
       )
     ),
-    p(
-      class = "italics center grey-text hide-on-small-only",
-      "Starts in"
-    ),
+    br(),
     div(
-      class = "hide-on-small-only",
-      style="text-align: center;",
-      div(
-        style="display: inline-block; width: auto;",
-        class = "your-clock"
+      class = "teal-text text-lighten-1 center",
+      h1(
+        "John has found a job!"
       )
     )
   ),
-  br(),
-  br(),
+  p(
+    class = "center",
+    tags$i(
+      class = "teal-text material-icons",
+      "thumb_up"
+    )),
   br(),
   br(),
   div(
     class = "center",
     tags$a(
       href = "#book",
-      class = "btn pulse teal waves-effect waves-light",
+      class = "btn grey waves-effect waves-light disabled",
       tags$i(
         class = "material-icons left",
         "receipt"
