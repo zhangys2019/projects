@@ -635,7 +635,7 @@ egg
 <div class="row">
 <div class="input-field col m6 s12 push-m3">
 <i class="material-icons prefix">edit</i>
-<textarea placeholder="Your message" id="message_prefix" name="message" class="materialize-textarea validate"></textarea>
+<textarea placeholder="Your message" id="message_prefix" name="message" data-length="500" class="materialize-textarea validate"></textarea>
 <label for="message_prefix">Message</label>
 </div>
 </div>
@@ -646,8 +646,8 @@ egg
 </div>
 </form>
 </div>
-<div id="htmlwidget-2ad693687b686a25beb7" style="width:100%;height:400px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2ad693687b686a25beb7">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[46.204391,6.143158,null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"John",null,null,null,null,null,null]}],"limits":{"lat":[46.204391,46.204391],"lng":[6.143158,6.143158]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-fca5457f2115e434ff1b" style="width:100%;height:400px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-fca5457f2115e434ff1b">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[46.204391,6.143158,null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"John",null,null,null,null,null,null]}],"limits":{"lat":[46.204391,46.204391],"lng":[6.143158,6.143158]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p></main></p>
@@ -727,6 +727,12 @@ particlesJS.load('particles-js', 'js/particles.json', function() {});
 
 <script>
   AOS.init();
+</script>
+
+<script>
+  $(document).ready(function() {
+    $('input#input_text, textarea#message_prefix').characterCounter();
+  });
 </script>
 
 <script>

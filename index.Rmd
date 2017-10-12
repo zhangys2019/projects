@@ -1137,6 +1137,7 @@ div(
             placeholder="Your message",
             id = "message_prefix",
             name="message",
+            `data-length` = "500",
             class = "materialize-textarea validate"
           ),
           tags$label(

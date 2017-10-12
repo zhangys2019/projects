@@ -76,6 +76,12 @@ particlesJS.load('particles-js', 'js/particles.json', function() {});
 </script>
 
 <script>
+  $(document).ready(function() {
+    $('input#input_text, textarea#message_prefix').characterCounter();
+  });
+</script>
+
+<script>
   $('.pushpin-nav').each(function() {
     var $this = $(this);
     var $target = $('#' + $(this).attr('data-target'));
