@@ -4,6 +4,7 @@ title: ""
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+library(leaflet)
 ```
 
 <main>
@@ -1075,6 +1076,10 @@ div(
     class = "blue-text center",
     "Contact"
   ),
+  p(
+    class = "grey-text text-darken-1 center",
+    "Feedback is most welcome."
+  ),
   div(
     class = "row",
     tags$form(
@@ -1128,11 +1133,11 @@ div(
             class = "material-icons prefix",
             "edit"
           ),
-          tags$input(
+          tags$textarea(
             placeholder="Your message",
             id = "message_prefix",
-            type = "text",
-            class = "validate"
+            name="message",
+            class = "materialize-textarea validate"
           ),
           tags$label(
             `for` = "message_prefix",
