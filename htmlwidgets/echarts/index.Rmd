@@ -58,7 +58,7 @@ div(class = "page-header",
 9. force networks
 10. word-clouds
 11. maps
-12. treemaps
+12. radar
 13. candlestick charts
 14. themes
 15. responsive
