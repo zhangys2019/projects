@@ -6,6 +6,19 @@ title: ""
 knitr::opts_chunk$set(echo = FALSE)
 library(echarts)
 library(htmltools)
+library(RGoogleAnalytics)
+
+# token <- readRDS("token.rds")
+# token <- ValidateToken(token)
+# 
+# params <- Init(start.date = "2017-01-01", 
+#      end.date = "2017-11-01",
+#      dimensions = "ga:country",
+#      metrics = "ga:pageViews",
+#      table.id = "ga:117734225")
+# 
+# query <- QueryBuilder(params)
+# sesh <- GetReportData(query, token)
 
 sesh <- read.csv("./data/sessions.csv")
 ```
@@ -26,7 +39,7 @@ sesh %>%
   emap_choropleth(Sessions) %>% 
   ecolorbar(min = 1, max = 270, calculable = TRUE, text = list("high", "low"), color = list('orangered','yellow','lightskyblue')) %>% 
   etitle("Sessions origins in 2016", "john-coene.com", sublink = "http://john-coene.com/") %>%
-  etheme("macarons")
+  etheme("blue")
 ```
 
 ```{r chart types}
