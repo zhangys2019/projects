@@ -34,12 +34,12 @@ h1(
 
 ```{r header}
 sesh %>% 
-  echart(Country, width = "100%") %>% 
-  emap() %>% 
-  emap_choropleth(Sessions) %>% 
-  ecolorbar(min = 1, max = 270, calculable = TRUE, text = list("high", "low"), color = list('orangered','yellow','lightskyblue')) %>% 
-  etitle("Sessions origins in 2016", "john-coene.com", sublink = "http://john-coene.com/") %>%
-  etheme("blue")
+    echart(Country, width = "100%") %>% 
+    emap() %>% 
+    emap_choropleth(Sessions) %>% 
+    ecolorbar(min = 1, max = 270, calculable = TRUE, text = list("high", "low")) %>% 
+    etitle("Sessions origins in 2016", "john-coene.com", sublink = "http://john-coene.com/") %>%
+    etheme("blue")
 ```
 
 ```{r chart types}
