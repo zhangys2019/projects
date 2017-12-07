@@ -1,0 +1,110 @@
+---
+title: ""
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(billboard)
+library(htmltools)
+```
+
+<main>
+<div class="container">
+
+```{r}
+h1(
+  "billboard"
+)
+```
+
+```{r header}
+mtcars %>% 
+  b_board(width = "100%") %>% 
+  b_area_spline(drat, name = "Rear axle ratio") %>% 
+  b_bar(cyl, name = "# cylinders") %>% 
+  b_spline(mpg, axis = "y2") %>% 
+  b_xlabel("1:n") %>% 
+  b_ylabel("y axis") %>% 
+  b_ylabel("Miles per galon", axis = "y2") %>% 
+  b_grid_line(5, "avg (maybe)", axis = "y") %>% 
+  b_region("x", 8, 12) %>% 
+  b_title("Good ol' mtcars") %>% 
+  b_brewer("Blues", 3) %>% 
+  b_subchart() # add subchart
+```
+
+<br>
+[![Travis-CI Build Status](https://travis-ci.org/JohnCoene/uvcharts.svg?branch=master)](https://travis-ci.org/JohnCoene/uvcharts)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/JohnCoene/uvcharts?branch=master&svg=true)](https://ci.appveyor.com/project/JohnCoene/uvcharts)
+
+
+```{r}
+br()
+h4(code("billboard"), " is an htmlwidget for ",
+   a("billboard.js", href = "https://naver.github.io/billboard.js/", target = "_blank"))
+```
+
+> Re-usable, easy interface JavaScript chart library, based on D3 v4+. --- billboard.js
+
+```{r install, echo = FALSE}
+div(
+    h3("Install", class = "text-primary"))
+```
+
+```{r, eval=FALSE, echo = TRUE}
+devtools::install_github("JohnCoene/billboard")
+```
+
+```{r first chart, echo = FALSE}
+div(
+    h3("Your first chart", class = "text-primary"))
+```
+
+```{r, echo=TRUE, eval = TRUE}
+library(billboard)
+
+df <- data.frame(y = runif(15, 10, 16))
+
+df %>%
+  b_board(width = "100%") %>% # set width for Rmarkdown
+  b_line(y)
+```
+
+```{r how it works, echo = FALSE}
+div(class = "page-header",
+    h2("How it works", class = "text-primary"))
+```
+
+All function start in `b_`.
+
+1. Initiate a uvchart with `b_board`.
+2. Add series, values to plot, with `b_bar`, `b_line`, etc.
+3. Customise your chart with any of the 40+ functions.
+
+*Supports `group_by` for long form data*
+
+```{r adv ex, echo=FALSE}
+div(
+    h3("Advanced example", class = "text-primary"))
+```
+
+Below is the code used to generate the very banner of this page.
+
+```{r, eval=FALSE, echo = TRUE}
+mtcars %>% 
+  b_board() %>% # intialise
+  b_area_spline(drat, name = "Rear axle ratio") %>% 
+  b_bar(cyl, name = "# cylinders") %>% 
+  b_spline(mpg, axis = "y2") %>% 
+  b_xlabel("1:n") %>% # change labels
+  b_ylabel("y axis") %>% 
+  b_ylabel("Miles per galon", axis = "y2") %>% 
+  b_grid_line(5, "avg (maybe)", axis = "y") %>% # mark line 
+  b_region("x", 8, 12) %>% # mark region
+  b_title("Good ol' mtcars") %>% # add title
+  b_brewer("Blues", 3) %>% # change chart color
+  b_subchart() # add subchart
+```
+
+</div>
+</main>

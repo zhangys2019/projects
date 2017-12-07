@@ -1,0 +1,132 @@
+---
+title: ""
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(billboard)
+```
+
+<main>
+<div class="container">
+
+```{r, echo=FALSE}
+h1(
+  "Chart types"
+)
+```
+
+```{r}
+# create data
+df <- data.frame(x = runif(10, 0, 5), y = runif(10, 0, 5), z = runif(10, 0, 5))
+```
+
+### Bar
+
+```{r}
+df %>%
+  b_board() %>%
+  b_bar(x) %>% 
+  b_bar(y, stack = TRUE) %>% 
+  b_bar(z, stack= TRUE)
+```
+
+### Area
+
+```{r}
+df %>%
+  b_board() %>%
+  b_area(x) %>% 
+  b_area(y, stack = TRUE) %>% 
+  b_area(z, stack= TRUE)
+```
+
+### Scatter
+
+*Scatter does stack*
+
+```{r}
+df %>%
+  b_board() %>%
+  b_scatter(x) %>% 
+  b_scatter(y, stack = TRUE) %>% 
+  b_scatter(z, stack= TRUE)
+```
+
+### Line
+
+```{r}
+df %>%
+  b_board() %>%
+  b_line(x) %>%
+  b_line(y, stack = TRUE) %>% 
+  b_line(z, stack = TRUE)
+```
+
+### spline
+
+```{r}
+df %>%
+  b_board() %>%
+  b_spline(x) %>%
+  b_spline(y, stack = TRUE) %>% 
+  b_spline(z, stack = TRUE)
+```
+
+### Step
+
+```{r}
+df %>%
+  b_board() %>%
+  b_step(x) %>% 
+  b_step(y, stack = TRUE) %>% 
+  b_step(z, stack= TRUE)
+```
+
+### Area spline
+
+```{r}
+df %>%
+  b_board() %>%
+  b_area_spline(x) %>% 
+  b_area_spline(y, stack = TRUE) %>% 
+  b_area_spline(z, stack= TRUE)
+```
+
+### Step area
+
+```{r}
+df %>%
+  b_board() %>%
+  b_step_area(x) %>% 
+  b_step_area(y, stack = TRUE) %>% 
+  b_step_area(z, stack= TRUE)
+```
+
+### Pie
+
+```{r}
+df <- data.frame(x = c("apple", "banana", "cake", "mango", "strawberry"), y = c(1,4,2,5,3))
+
+df %>% 
+  b_board(x) %>% 
+  b_pie(y) 
+```
+
+### Donut
+
+```{r}
+df %>% 
+  b_board(x) %>% 
+  b_donut(y) 
+```
+
+### Gauge
+
+```{r}
+b_board() %>% 
+  b_gauge(27)
+```
+
+</div>
+</main>

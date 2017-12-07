@@ -1,0 +1,12 @@
+name: "John Coene"
+output_dir: "."
+      
+output:
+  html_document:
+    theme: null
+    include:
+      in_header:: header.html
+      before_body: nav.html
+      after_body: footer.html
+    css: 
+      - ../../css/styles.css
