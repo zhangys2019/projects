@@ -5,7 +5,7 @@ title: ""
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library(billboard)
-library(htmltools)
+library(dplyr)
 ```
 
 <main>
@@ -19,7 +19,9 @@ h1(
 
 ```{r header}
 mtcars %>% 
-  b_board(width = "100%") %>% 
+  mutate(model = rownames(.)) %>% 
+  slice(1:10) %>% 
+  b_board(model) %>% 
   b_area_spline(drat, name = "Rear axle ratio") %>% 
   b_bar(cyl, name = "# cylinders") %>% 
   b_spline(mpg, axis = "y2") %>% 
@@ -29,13 +31,12 @@ mtcars %>%
   b_grid_line(5, "avg (maybe)", axis = "y") %>% 
   b_region("x", 8, 12) %>% 
   b_title("Good ol' mtcars") %>% 
-  b_brewer("Blues", 3) %>% 
+  b_color_brewer("Blues", 3) %>% 
   b_subchart() # add subchart
 ```
 
 <br>
-[![Travis-CI Build Status](https://travis-ci.org/JohnCoene/uvcharts.svg?branch=master)](https://travis-ci.org/JohnCoene/uvcharts)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/JohnCoene/uvcharts?branch=master&svg=true)](https://ci.appveyor.com/project/JohnCoene/uvcharts)
+[![Travis-CI Build Status](https://travis-ci.org/JohnCoene/billboard.svg?branch=master)](https://travis-ci.org/JohnCoene/billboard)
 
 
 ```{r}
@@ -45,6 +46,15 @@ h4(code("billboard"), " is an htmlwidget for ",
 ```
 
 > Re-usable, easy interface JavaScript chart library, based on D3 v4+. --- billboard.js
+
+```{r, echo=FALSE}
+a(
+  href = "https://github.com/JohnCoene/billboard",
+  target = "_blank",
+  "Github",
+  class = "btn blue"
+)
+```
 
 ```{r install, echo = FALSE}
 div(
@@ -63,10 +73,10 @@ div(
 ```{r, echo=TRUE, eval = TRUE}
 library(billboard)
 
-df <- data.frame(y = runif(15, 10, 16))
+df <- data.frame(x = 1:15, y = runif(15, 10, 16))
 
 df %>%
-  b_board(width = "100%") %>% # set width for Rmarkdown
+  b_board(x) %>% 
   b_line(y)
 ```
 
@@ -92,6 +102,8 @@ Below is the code used to generate the very banner of this page.
 
 ```{r, eval=FALSE, echo = TRUE}
 mtcars %>% 
+  mutate(model = rownames(.)) %>% 
+  slice(1:10) %>% 
   b_board() %>% # intialise
   b_area_spline(drat, name = "Rear axle ratio") %>% 
   b_bar(cyl, name = "# cylinders") %>% 
@@ -102,7 +114,7 @@ mtcars %>%
   b_grid_line(5, "avg (maybe)", axis = "y") %>% # mark line 
   b_region("x", 8, 12) %>% # mark region
   b_title("Good ol' mtcars") %>% # add title
-  b_brewer("Blues", 3) %>% # change chart color
+  b_color_brewer("Blues", 3) %>% # change chart color
   b_subchart() # add subchart
 ```
 

@@ -16,11 +16,6 @@
 
 <link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-1.1/highlight.js"></script>
-<script src="site_libs/htmlwidgets-0.9/htmlwidgets.js"></script>
-<script src="site_libs/d3-4.10.0/d3.v4.min.js"></script>
-<link href="site_libs/billboard-1.0.1/billboard.min.css" rel="stylesheet" />
-<script src="site_libs/billboard-1.0.1/billboard.min.js"></script>
-<script src="site_libs/billboard-binding-0.0.1/billboard.js"></script>
 <meta http-equiv="Cache-control" content="public">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!--Import materialize.css-->
@@ -108,64 +103,159 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 
 <main>
 <div class="container">
-<h1>billboard</h1>
-<div id="htmlwidget-474687175dea29c0c9bd" style="width:100%;height:480px;" class="billboard html-widget"></div>
-<script type="application/json" data-for="htmlwidget-474687175dea29c0c9bd">{"x":{"options":{"data":{"columns":[["b_xAxIs","Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant","Duster 360","Merc 240D","Merc 230","Merc 280"],["Rear axle ratio","3.9","3.9","3.85","3.08","3.15","2.76","3.21","3.69","3.92","3.92"],["# cylinders","6","6","4","6","8","6","8","4","4","6"],["mpg","21","21","22.8","21.4","18.7","18.1","14.3","24.4","22.8","19.2"]],"types":{"Rear axle ratio":"area-spline","# cylinders":"bar","mpg":"spline"},"groups":[[]],"x":"b_xAxIs","type":"spline","axes":{"Rear axle ratio":"y","# cylinders":"y","mpg":"y2"},"colors":{"Rear axle ratio":"#DEEBF7","# cylinders":"#9ECAE1","mpg":"#3182BD"}},"axis":{"x":{"type":"category","categories":["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant","Duster 360","Merc 240D","Merc 230","Merc 280"],"label":{"text":"1:n","position":"inner-top"}},"y2":{"show":true,"label":{"text":"Miles per galon","position":"inner-top"}},"y":{"label":{"text":"y axis","position":"inner-top"}}},"bar":{"zerobased":true},"grid":{"y":{"lines":[{"value":5,"text":"avg (maybe)"}]}},"regions":[{"axis":"x","start":8,"end":12}],"title":{"position":"top-center","text":"Good ol' mtcars"},"subchart":{"show":true,"size":{"height":20}}}},"evals":[],"jsHooks":[]}</script>
-<p><br> <a href="https://travis-ci.org/JohnCoene/billboard"><img src="https://travis-ci.org/JohnCoene/billboard.svg?branch=master" alt="Travis-CI Build Status" /></a></p>
-<p><br/><h4>
-<code>billboard</code>
- is an htmlwidget for 
-<a href="https://naver.github.io/billboard.js/" target="_blank">billboard.js</a>
-</h4></p>
-<blockquote>
-<p>Re-usable, easy interface JavaScript chart library, based on D3 v4+. — billboard.js</p>
-</blockquote>
-<a href="https://github.com/JohnCoene/billboard" target="_blank" class="btn blue">Github</a>
-<div>
-<h3 class="text-primary">Install</h3>
-</div>
-<pre class="r"><code>devtools::install_github(&quot;JohnCoene/billboard&quot;)</code></pre>
-<div>
-<h3 class="text-primary">Your first chart</h3>
-</div>
-<pre class="r"><code>library(billboard)
+<h1>Shiny</h1>
+<p><code>billboard</code> comes with handy proxies to use in Shiny.</p>
+<p>Use <code>billboardProxy</code> to initialise a proxy.</p>
+<ul>
+<li><code>b_zoom_p</code> - Zoom proxy</li>
+<li><code>b_focus_p</code> - Foxus proxy</li>
+<li><code>b_defocus_p</code> - Unfocus proxy</li>
+<li><code>b_transform_p</code> - Transform chart proxy</li>
+<li><code>b_stack_p</code> - Stack proxy</li>
+<li><code>b_region_p</code> - Customise regions proxy</li>
+<li><code>b_add_region_p</code> - Add region proxy</li>
+<li><code>b_flow_p</code> - Add rows</li>
+<li><code>b_load_p</code> - Add columns</li>
+</ul>
+<p>
+<a href="http://shiny.john-coene.com/billboard" target="_blank" class="btn large pulse blue">Demo</a>
+</p>
+<p>Example:</p>
+<pre class="r"><code>library(shiny)
+library(billboard)
 
-df &lt;- data.frame(x = 1:15, y = runif(15, 10, 16))
+ui &lt;- fluidPage(
+  fluidRow(
+    column(
+    3,
+     sliderInput(&quot;zoom&quot;,
+       &quot;Zoom on a region&quot;,
+       min = 0,
+       max = 150,
+       value = 100
+     )
+    ),
+    column(
+      2,
+     selectInput(
+       &quot;transform&quot;,
+       &quot;Filter:&quot;,
+       choices = c(&quot;line&quot;, &quot;spline&quot;, &quot;area&quot;, &quot;area-spline&quot;, &quot;scatter&quot;, &quot;bar&quot;),
+       selected = &quot;line&quot;
+     )
+    ),
+    column(
+      2,
+     selectInput(
+      &quot;focus&quot;,
+       label = &quot;Focus on data&quot;,
+       choices = c(&quot;y&quot;, &quot;z&quot;),
+       selected = &quot;y&quot;
+     )
+    ),
+    column(
+      3,
+     selectInput(
+      &quot;stack&quot;,
+       label = &quot;Stack&quot;,
+       choices = c(&quot;x&quot;, &quot;y&quot;, &quot;z&quot;),
+       selected = &quot;y&quot;,
+       multiple = TRUE
+     )
+    ),
+    column(
+      2,
+     checkboxInput(
+       &quot;region&quot;, &quot;Add region&quot;, FALSE
+     )
+   )
+  ),
+  fluidRow(
+    billboardOutput(&quot;billboard&quot;)
+  ),
+  fluidRow(
+    column(
+      3,
+     sliderInput(&quot;add&quot;,
+       &quot;Add rows&quot;,
+       min = 0,
+       max = 100,
+       value = 0
+     )
+    ),
+    column(
+      3,
+      actionButton(&quot;cols&quot;, &quot;Add serie&quot;)
+    )
+  )
+)
 
-df %&gt;%
-  b_board(x) %&gt;% 
-  b_line(y)</code></pre>
-<div id="htmlwidget-67b6a8e24640fd468dc1" style="width:100%;height:480px;" class="billboard html-widget"></div>
-<script type="application/json" data-for="htmlwidget-67b6a8e24640fd468dc1">{"x":{"options":{"data":{"columns":[["b_xAxIs","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"],["y","12.6814973857254","15.8881866047159","10.9391092751175","13.5557608366944","11.9159424551763","10.7085067573935","12.5986774587072","13.4140286906622","10.5527647058479","10.6182446768507","14.1511686020531","11.1648845220916","15.7228003870696","10.9992999173701","15.5165222976357"]],"types":{"y":"line"},"groups":[[]],"x":"b_xAxIs","type":"line","axes":{"y":"y"}},"line":{"connectNull":false}}},"evals":[],"jsHooks":[]}</script>
-<div class="page-header">
-<h2 class="text-primary">How it works</h2>
-</div>
-<p>All function start in <code>b_</code>.</p>
-<ol style="list-style-type: decimal">
-<li>Initiate a uvchart with <code>b_board</code>.</li>
-<li>Add series, values to plot, with <code>b_bar</code>, <code>b_line</code>, etc.</li>
-<li>Customise your chart with any of the 40+ functions.</li>
-</ol>
-<p><em>Supports <code>group_by</code> for long form data</em></p>
-<div>
-<h3 class="text-primary">Advanced example</h3>
-</div>
-<p>Below is the code used to generate the very banner of this page.</p>
-<pre class="r"><code>mtcars %&gt;% 
-  mutate(model = rownames(.)) %&gt;% 
-  slice(1:10) %&gt;% 
-  b_board() %&gt;% # intialise
-  b_area_spline(drat, name = &quot;Rear axle ratio&quot;) %&gt;% 
-  b_bar(cyl, name = &quot;# cylinders&quot;) %&gt;% 
-  b_spline(mpg, axis = &quot;y2&quot;) %&gt;% 
-  b_xlabel(&quot;1:n&quot;) %&gt;% # change labels
-  b_ylabel(&quot;y axis&quot;) %&gt;% 
-  b_ylabel(&quot;Miles per galon&quot;, axis = &quot;y2&quot;) %&gt;% 
-  b_grid_line(5, &quot;avg (maybe)&quot;, axis = &quot;y&quot;) %&gt;% # mark line 
-  b_region(&quot;x&quot;, 8, 12) %&gt;% # mark region
-  b_title(&quot;Good ol&#39; mtcars&quot;) %&gt;% # add title
-  b_color_brewer(&quot;Blues&quot;, 3) %&gt;% # change chart color
-  b_subchart() # add subchart</code></pre>
+server &lt;- function(input, output){
+
+  data &lt;- data.frame(x = runif(100, 1, 100),
+    y = runif(100, 1, 100),
+    z = runif(100, 1, 100))
+
+  df &lt;- eventReactive(input$add, {
+    data.frame(x = runif(input$add, 10, 80),
+      y = runif(input$add, 10, 80),
+      z = runif(input$add, 10, 80))
+  })
+
+  random_data &lt;- eventReactive(input$cols, {
+    df &lt;- data.frame(x = runif(100, 1, 100))
+    names(df) &lt;- paste0(&quot;col&quot;, sample(LETTERS, 1))
+    df
+  })
+
+  output$billboard &lt;- renderBillboard({
+    data %&gt;%
+      b_board() %&gt;%
+      b_line(x) %&gt;%
+      b_bar(y, stack = TRUE) %&gt;%
+      b_area(z, stack = TRUE) %&gt;%
+      b_zoom()
+  })
+
+  observeEvent(input$zoom, {
+    billboardProxy(&quot;billboard&quot;) %&gt;%
+    b_zoom_p(c(0, input$zoom))
+  })
+
+  observeEvent(input$transform, {
+    billboardProxy(&quot;billboard&quot;) %&gt;%
+    b_transform_p(input$transform, &quot;x&quot;)
+  })
+
+  observeEvent(input$focus, {
+    billboardProxy(&quot;billboard&quot;) %&gt;%
+    b_focus_p(list(&quot;x&quot;, input$filter))
+  })
+
+  observeEvent(input$stack, {
+    billboardProxy(&quot;billboard&quot;) %&gt;%
+    b_stack_p(list(&quot;x&quot;, input$stack))
+  })
+
+  observeEvent(input$region, {
+    if(isTRUE(input$region)){
+      billboardProxy(&quot;billboard&quot;) %&gt;%
+      b_add_region_p(axis = &quot;x&quot;, start = 1, end = 40)
+    }
+  })
+
+  observeEvent(input$add, {
+    billboardProxy(&quot;billboard&quot;) %&gt;%
+    b_flow_p(df(), names(df()))
+  })
+
+  observeEvent(input$cols, {
+    billboardProxy(&quot;billboard&quot;) %&gt;%
+    b_load_p(random_data(), names(random_data()))
+  })
+}
+
+shinyApp(ui, server)</code></pre>
 </div>
 <p></main></p>
 

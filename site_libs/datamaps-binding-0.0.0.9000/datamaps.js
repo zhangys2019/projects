@@ -12,6 +12,8 @@ HTMLWidgets.widget({
 
       renderValue: function(x) {
 
+        delete window.map;
+
         var map = new Datamap({
             element: document.getElementById(el.id),
             scope: x.scope,
@@ -44,7 +46,11 @@ HTMLWidgets.widget({
 
       resize: function(width, height) {
 
-        // TODO: code to re-render the widget with a new size
+        if(map){
+          d3.select(window).on('resize', function() {
+            map.resize();
+          });
+        }
 
       }
 

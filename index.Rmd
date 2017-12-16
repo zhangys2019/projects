@@ -374,7 +374,7 @@ div(
   div(
     class = "row",
     div(
-      class = "col m3",
+      class = "col m4",
       div(
         `data-aos` = "fade-up",
         `data-aos-delay` = "100",
@@ -430,7 +430,7 @@ div(
       )
     ),
     div(
-      class = "col m3",
+      class = "col m4",
       div(
         class = "card sticky-action z-depth-3",
         `data-aos` = "fade-up",
@@ -502,7 +502,7 @@ div(
       )
     ),
     div(
-      class = "col m3",
+      class = "col m4",
       div(
         `data-aos` = "fade-up",
         `data-aos-delay` = "100",
@@ -564,9 +564,12 @@ div(
           )
         )
       )
-    ),
+    )
+  ),
+  div(
+    class = "row",
      div(
-      class = "col m3",
+      class = "col m6",
       div(
         `data-aos` = "fade-up",
         `data-aos-delay` = "100",
@@ -611,13 +614,7 @@ div(
           p(
             "R htmlwidget for datamaps.",
             tags$ul(
-              class = "collection with-header",
-              tags$li(
-                class = "collection-header",
-                h5(
-                  "Map types"
-                )
-              ),
+              class = "collection",
               tags$li(
                 class = "collection-item",
                 "Choropleth"
@@ -629,6 +626,70 @@ div(
               tags$li(
                 class = "collection-item",
                 "Bubbles"
+              )
+            )
+          )
+        )
+      )
+    ),
+     div(
+      class = "col m6",
+      div(
+        `data-aos` = "fade-up",
+        `data-aos-delay` = "100",
+        `data-aos-duration` = "1500",
+        class = "card sticky-action z-depth-3",
+        div(
+          class = "card-image",
+          img(
+            class = "activator",
+            src = "img/thumbnails/billboard.png"
+          )
+        ),
+        div(
+          class = "card-content",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "billboard",
+            tags$i(
+              class = "material-icons right",
+              "more_vert"
+            )
+          )
+        ),
+        div(
+          class = "card-action",
+          tags$a(
+            href="htmlwidgets/billboard",
+            class = "blue-text link-shadow",
+            "Start graphing"
+          )
+        ),
+        div(
+          class = "card-reveal",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "billboard",
+            tags$i(
+              class = "material-icons right",
+              "close"
+            )
+          ),
+          p(
+            "R htmlwidget for billboard.js.",
+            tags$ul(
+              class = "collection",
+              tags$li(
+                class = "collection-item",
+                "11 chart types"
+              ),
+              tags$li(
+                class = "collection-item",
+                "Tons of options"
+              ),
+              tags$li(
+                class = "collection-item",
+                "Shiny proxies"
               )
             )
           )
