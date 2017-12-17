@@ -52,7 +52,7 @@ mtcars %>%
 
 ### Empty
 
-No axis change or legend, chart height
+No axis change or legend, change height.
 
 ```{r}
 mtcars %>%
@@ -90,7 +90,20 @@ mtcars %>%
   b_bar(wt) %>% 
   b_area(drat) %>% 
   b_bar(mpg, axis = "y2") %>% 
-  b_color_brewer("Dark2", 3)
+  b_color_brewer("Accent", 3)
+```
+
+### Subchart
+
+Add a subchart
+
+```{r}
+mtcars %>% 
+  mutate(x = 1:n()) %>% 
+  b_board(x) %>% 
+  b_bar(wt) %>% 
+  b_area(drat) %>% 
+  b_subchart()
 ```
 
 </div>
