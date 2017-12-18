@@ -48,7 +48,7 @@ sesh %>%
 div(
   class = "row",
   div(
-    class = "col m8",
+    class = "col m6",
     "R htmlwidget for ",
     a(
       "datamaps",
@@ -57,7 +57,7 @@ div(
     )
   ),
   div(
-    class = "col m4",
+    class = "col m3",
     a(
       class = "btn blue waves-effect",
       href="https://github.com/JohnCoene/datamaps", 
@@ -67,6 +67,19 @@ div(
         "code"
       ),
       "Repository"
+    )
+  ),
+  div(
+    class = "col m3",
+    a(
+      href = "http://shiny.john-coene.com/datamaps/",
+      tagret = "_blank",
+      class = "btn blue",
+      tags$i(
+        class = "material-icons left",
+        "dashboard"
+      ),
+      "Proxy demo"
     )
   )
 )
@@ -144,7 +157,7 @@ states %>%
     add_labels() # add state labels
 ```
 
-### Advanced examples
+### Advanced example
 
 Below is the code used to generate the map in the header of this very page.
 
@@ -171,6 +184,71 @@ sesh %>%
   add_choropleth(iso3c, Sessions, colors = RColorBrewer::brewer.pal(5, "YlOrRd")) %>% # add chorpleth layer
   add_data(continents) %>% # add continent dataset
   add_bubbles(long, lat, log(Sessions) * 5, continent, continent, colors = RColorBrewer::brewer.pal(4, "Set1")) # add continent bubbles
+```
+
+### Proxies
+
+Shiny proxies to update the map without redrawing.
+
+* `update_choropleth`
+* `update_arcs`
+* `update_arcs_name`
+* `update_bubbles`
+
+```{r, echo = FALSE}
+a(
+  href = "http://shiny.john-coene.com/datamaps/",
+  tagret = "_blank",
+  class = "btn blue pulse",
+  "Proxy demo"
+)
+```
+
+Proxy example
+
+```{r, eval=FALSE, echo=TRUE}
+library(shiny)
+
+ui <- fluidPage(
+  selectInput(
+    "countrySelect",
+    "Select Country",
+    choices = c("USA", "FRA", "CHN", "RUS", "COG", "DZA", "BRA", "IND")
+  ),
+  sliderInput(
+    "value",
+    "Value",
+    min = 1,
+    max = 10,
+    value = 5
+  ),
+  actionButton("update", "Update"),
+  datamapsOutput("map")
+)
+
+server <- function(input, output){
+
+  data <- data.frame(name = c("USA", "FRA", "CHN", "RUS", "COG", "DZA", "BRA", "IND", "ALG", "AFG"),
+                     color = 1:10)
+
+ updated_data <- reactive({
+   data.frame(name = input$countrySelect, value = input$value)
+ })
+
+  output$map <- renderDatamaps({
+    data %>%
+      datamaps() %>%
+      add_choropleth(name, color)
+  })
+
+  observeEvent(input$update, {
+    datamapsProxy("map") %>%
+      add_data(updated_data()) %>% # pass updated data
+      update_choropleth(name, value, TRUE) # update
+  })
+}
+
+shinyApp(ui, server)
 ```
 
 </div>

@@ -18,7 +18,7 @@
 <script src="site_libs/d3js-3.5.3/d3.min.js"></script>
 <script src="site_libs/topojson-1.6.9/topojson.min.js"></script>
 <script src="site_libs/datamaps-0.5.0/datamaps.all.hires.min.js"></script>
-<script src="site_libs/datamaps-binding-0.0.0.9000/datamaps.js"></script>
+<script src="site_libs/datamaps-binding-0.0.1/datamaps.js"></script>
 <link href="css/aos.css" rel="stylesheet">
 <script src="js/aos.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -148,18 +148,24 @@ code > span. { color: #1f1c1b; } /* Normal */
 <main>
 <div class="container">
 <h1>datamaps</h1>
-<div id="htmlwidget-ac3b7e0e3587f1f2a454" style="width:100%;height:480px;" class="datamaps html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ac3b7e0e3587f1f2a454">{"x":{"responsive":false,"scope":"world","projection":"equirectangular","fills":{"defaultFill":"lightgray","270":"#FFFFB2","163":"#FEF099","122":"#FEE180","96":"#FED368","33":"#FDC357","19":"#FDB14E","18":"#FD9F45","17":"#FD8D3C","10":"#F97534","8":"#F55E2C","6":"#F14624","4":"#E83220","3":"#DA2122","2":"#CB1024","1":"#BD0026","Africa":"#E41A1C","Americas":"#377EB8","Asia":"#4DAF4A","Europe":"#984EA3"},"geographyConfig":{"dataUrl":null},"data":{"GBR":{"fillKey":"270"},"RUS":{"fillKey":"163"},"CHN":{"fillKey":"122"},"USA":{"fillKey":"96"},"ITA":{"fillKey":"33"},"AUT":{"fillKey":"19"},"IRQ":{"fillKey":"18"},"DEU":{"fillKey":"17"},"SAU":{"fillKey":"10"},"IND":{"fillKey":"8"},"JPN":{"fillKey":"8"},"FRA":{"fillKey":"6"},"BRA":{"fillKey":"4"},"ESP":{"fillKey":"4"},"MEX":{"fillKey":"4"},"KEN":{"fillKey":"3"},"SRB":{"fillKey":"3"},"OMN":{"fillKey":"2"},"POL":{"fillKey":"2"},"SVN":{"fillKey":"2"},"VNM":{"fillKey":"2"},"BEL":{"fillKey":"1"},"CAN":{"fillKey":"1"},"CHE":{"fillKey":"1"},"COL":{"fillKey":"1"},"HKG":{"fillKey":"1"},"HUN":{"fillKey":"1"},"IRL":{"fillKey":"1"},"KOR":{"fillKey":"1"},"LKA":{"fillKey":"1"},"LTU":{"fillKey":"1"},"NOR":{"fillKey":"1"},"PAK":{"fillKey":"1"},"QAT":{"fillKey":"1"},"SGP":{"fillKey":"1"},"TUR":{"fillKey":"1"},"TWN":{"fillKey":"1"},"UKR":{"fillKey":"1"},"ZWE":{"fillKey":"1"}},"bubbles":[{"fillKey":"Africa","longitude":"  3.917313","latitude":" 7.401962","radius":" 6.931472","name":"Africa"},{"fillKey":"Americas","longitude":"-99.133209","latitude":"19.432608","radius":"23.317195","name":"Americas"},{"fillKey":"Asia","longitude":"106.660172","latitude":"10.762622","radius":"25.908918","name":"Asia"},{"fillKey":"Europe","longitude":" 16.363449","latitude":"48.210033","radius":"31.326506","name":"Europe"}]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-8b9d7233a6e6c55339fc" style="width:100%;height:480px;" class="datamaps html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8b9d7233a6e6c55339fc">{"x":{"responsive":false,"scope":"world","projection":"equirectangular","fills":{"defaultFill":"lightgray","270":"#FFFFB2","163":"#FEF099","122":"#FEE180","96":"#FED368","33":"#FDC357","19":"#FDB14E","18":"#FD9F45","17":"#FD8D3C","10":"#F97534","8":"#F55E2C","6":"#F14624","4":"#E83220","3":"#DA2122","2":"#CB1024","1":"#BD0026","Africa":"#E41A1C","Americas":"#377EB8","Asia":"#4DAF4A","Europe":"#984EA3"},"geographyConfig":{"dataUrl":null},"data":{"GBR":{"fillKey":"270"},"RUS":{"fillKey":"163"},"CHN":{"fillKey":"122"},"USA":{"fillKey":"96"},"ITA":{"fillKey":"33"},"AUT":{"fillKey":"19"},"IRQ":{"fillKey":"18"},"DEU":{"fillKey":"17"},"SAU":{"fillKey":"10"},"IND":{"fillKey":"8"},"JPN":{"fillKey":"8"},"FRA":{"fillKey":"6"},"BRA":{"fillKey":"4"},"ESP":{"fillKey":"4"},"MEX":{"fillKey":"4"},"KEN":{"fillKey":"3"},"SRB":{"fillKey":"3"},"OMN":{"fillKey":"2"},"POL":{"fillKey":"2"},"SVN":{"fillKey":"2"},"VNM":{"fillKey":"2"},"BEL":{"fillKey":"1"},"CAN":{"fillKey":"1"},"CHE":{"fillKey":"1"},"COL":{"fillKey":"1"},"HKG":{"fillKey":"1"},"HUN":{"fillKey":"1"},"IRL":{"fillKey":"1"},"KOR":{"fillKey":"1"},"LKA":{"fillKey":"1"},"LTU":{"fillKey":"1"},"NOR":{"fillKey":"1"},"PAK":{"fillKey":"1"},"QAT":{"fillKey":"1"},"SGP":{"fillKey":"1"},"TUR":{"fillKey":"1"},"TWN":{"fillKey":"1"},"UKR":{"fillKey":"1"},"ZWE":{"fillKey":"1"}},"bubbles":[{"fillKey":"Africa","longitude":"  3.917313","latitude":" 7.401962","radius":" 6.931472","name":"Africa"},{"fillKey":"Americas","longitude":"-99.133209","latitude":"19.432608","radius":"23.317195","name":"Americas"},{"fillKey":"Asia","longitude":"106.660172","latitude":"10.762622","radius":"25.908918","name":"Asia"},{"fillKey":"Europe","longitude":" 16.363449","latitude":"48.210033","radius":"31.326506","name":"Europe"}]},"evals":[],"jsHooks":[]}</script>
 <p><a href="https://travis-ci.org/JohnCoene/datamaps"><img src="https://travis-ci.org/JohnCoene/datamaps.svg?branch=master" alt="Travis-CI Build Status" /></a> <a href="https://ci.appveyor.com/project/JohnCoene/datamaps"><img src="https://ci.appveyor.com/api/projects/status/github/JohnCoene/datamaps?branch=master&amp;svg=true" alt="AppVeyor Build Status" /></a></p>
 <div class="row">
-<div class="col m8">
+<div class="col m6">
 R htmlwidget for 
 <a href="http://datamaps.github.io/" target="_blank">datamaps</a>
 </div>
-<div class="col m4">
+<div class="col m3">
 <a class="btn blue waves-effect" href="https://github.com/JohnCoene/datamaps" target="_blank">
 <i class="material-icons left">code</i>
 Repository
+</a>
+</div>
+<div class="col m3">
+<a href="http://shiny.john-coene.com/datamaps/" tagret="_blank" class="btn blue">
+<i class="material-icons left">dashboard</i>
+Proxy demo
 </a>
 </div>
 </div>
@@ -208,9 +214,9 @@ states <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">datamaps</span>(<span class="dt">scope =</span> <span class="st">&quot;usa&quot;</span>, <span class="dt">width =</span> <span class="st">&quot;100%&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># intiate map</span>
 <span class="st">    </span><span class="kw">add_arcs_name</span>(from, to) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># add arcs layers </span>
 <span class="st">    </span><span class="kw">add_labels</span>() <span class="co"># add state labels</span></code></pre></div>
-<div id="htmlwidget-3259493a255b8b42c503" style="width:100%;height:480px;" class="datamaps html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3259493a255b8b42c503">{"x":{"responsive":false,"scope":"usa","projection":"equirectangular","fills":{"defaultFill":"#ABDDA4"},"geographyConfig":{"dataUrl":null},"arcs":[{"origin":"AR","destination":"CA"},{"origin":"NY","destination":"NC"},{"origin":"CA","destination":"AL"},{"origin":"IL","destination":"OK"},{"origin":"CO","destination":"CO"},{"origin":"MT","destination":"TX"},{"origin":"TX","destination":"NV"},{"origin":"OK","destination":"NM"},{"origin":"AL","destination":"NY"},{"origin":"NM","destination":"AR"},{"origin":"NV","destination":"PA"},{"origin":"NC","destination":"OH"},{"origin":"OH","destination":"IL"},{"origin":"PA","destination":"MT"}],"labels":true},"evals":[],"jsHooks":[]}</script>
-<h3 id="advanced-examples">Advanced examples</h3>
+<div id="htmlwidget-35a692c7f4b5c6044619" style="width:100%;height:480px;" class="datamaps html-widget"></div>
+<script type="application/json" data-for="htmlwidget-35a692c7f4b5c6044619">{"x":{"responsive":false,"scope":"usa","projection":"equirectangular","fills":{"defaultFill":"#ABDDA4"},"geographyConfig":{"dataUrl":null},"arcs":[{"origin":"AR","destination":"NC"},{"origin":"NY","destination":"AL"},{"origin":"CA","destination":"OH"},{"origin":"IL","destination":"MT"},{"origin":"CO","destination":"AR"},{"origin":"MT","destination":"NY"},{"origin":"TX","destination":"OK"},{"origin":"OK","destination":"CO"},{"origin":"AL","destination":"CA"},{"origin":"NM","destination":"TX"},{"origin":"NV","destination":"PA"},{"origin":"NC","destination":"IL"},{"origin":"OH","destination":"NM"},{"origin":"PA","destination":"NV"}],"labels":{"options":{"labelColor":"#000","lineWidth":1,"fontSize":10,"fontFamily":"Verdana"}}},"evals":[],"jsHooks":[]}</script>
+<h3 id="advanced-example">Advanced example</h3>
 <p>Below is the code used to generate the map in the header of this very page.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(datamaps)
 <span class="kw">library</span>(dplyr)
@@ -234,6 +240,58 @@ sesh <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">add_choropleth</span>(iso3c, Sessions, <span class="dt">colors =</span> RColorBrewer<span class="op">::</span><span class="kw">brewer.pal</span>(<span class="dv">5</span>, <span class="st">&quot;YlOrRd&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># add chorpleth layer</span>
 <span class="st">  </span><span class="kw">add_data</span>(continents) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># add continent dataset</span>
 <span class="st">  </span><span class="kw">add_bubbles</span>(long, lat, <span class="kw">log</span>(Sessions) <span class="op">*</span><span class="st"> </span><span class="dv">5</span>, continent, continent, <span class="dt">colors =</span> RColorBrewer<span class="op">::</span><span class="kw">brewer.pal</span>(<span class="dv">4</span>, <span class="st">&quot;Set1&quot;</span>)) <span class="co"># add continent bubbles</span></code></pre></div>
+<h3 id="proxies">Proxies</h3>
+<p>Shiny proxies to update the map without redrawing.</p>
+<ul>
+<li><code>update_choropleth</code></li>
+<li><code>update_arcs</code></li>
+<li><code>update_arcs_name</code></li>
+<li><code>update_bubbles</code></li>
+</ul>
+<a href="http://shiny.john-coene.com/datamaps/" tagret="_blank" class="btn blue pulse">Proxy demo</a>
+<p>Proxy example</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(shiny)
+
+ui &lt;-<span class="st"> </span><span class="kw">fluidPage</span>(
+  <span class="kw">selectInput</span>(
+    <span class="st">&quot;countrySelect&quot;</span>,
+    <span class="st">&quot;Select Country&quot;</span>,
+    <span class="dt">choices =</span> <span class="kw">c</span>(<span class="st">&quot;USA&quot;</span>, <span class="st">&quot;FRA&quot;</span>, <span class="st">&quot;CHN&quot;</span>, <span class="st">&quot;RUS&quot;</span>, <span class="st">&quot;COG&quot;</span>, <span class="st">&quot;DZA&quot;</span>, <span class="st">&quot;BRA&quot;</span>, <span class="st">&quot;IND&quot;</span>)
+  ),
+  <span class="kw">sliderInput</span>(
+    <span class="st">&quot;value&quot;</span>,
+    <span class="st">&quot;Value&quot;</span>,
+    <span class="dt">min =</span> <span class="dv">1</span>,
+    <span class="dt">max =</span> <span class="dv">10</span>,
+    <span class="dt">value =</span> <span class="dv">5</span>
+  ),
+  <span class="kw">actionButton</span>(<span class="st">&quot;update&quot;</span>, <span class="st">&quot;Update&quot;</span>),
+  <span class="kw">datamapsOutput</span>(<span class="st">&quot;map&quot;</span>)
+)
+
+server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output){
+
+  data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">name =</span> <span class="kw">c</span>(<span class="st">&quot;USA&quot;</span>, <span class="st">&quot;FRA&quot;</span>, <span class="st">&quot;CHN&quot;</span>, <span class="st">&quot;RUS&quot;</span>, <span class="st">&quot;COG&quot;</span>, <span class="st">&quot;DZA&quot;</span>, <span class="st">&quot;BRA&quot;</span>, <span class="st">&quot;IND&quot;</span>, <span class="st">&quot;ALG&quot;</span>, <span class="st">&quot;AFG&quot;</span>),
+                     <span class="dt">color =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)
+
+ updated_data &lt;-<span class="st"> </span><span class="kw">reactive</span>({
+   <span class="kw">data.frame</span>(<span class="dt">name =</span> input<span class="op">$</span>countrySelect, <span class="dt">value =</span> input<span class="op">$</span>value)
+ })
+
+  output<span class="op">$</span>map &lt;-<span class="st"> </span><span class="kw">renderDatamaps</span>({
+    data <span class="op">%&gt;%</span>
+<span class="st">      </span><span class="kw">datamaps</span>() <span class="op">%&gt;%</span>
+<span class="st">      </span><span class="kw">add_choropleth</span>(name, color)
+  })
+
+  <span class="kw">observeEvent</span>(input<span class="op">$</span>update, {
+    <span class="kw">datamapsProxy</span>(<span class="st">&quot;map&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">      </span><span class="kw">add_data</span>(<span class="kw">updated_data</span>()) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># pass updated data</span>
+<span class="st">      </span><span class="kw">update_choropleth</span>(name, value, <span class="ot">TRUE</span>) <span class="co"># update</span>
+  })
+}
+
+<span class="kw">shinyApp</span>(ui, server)</code></pre></div>
 </div>
 <p></main></p>
 
