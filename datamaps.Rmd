@@ -8,19 +8,10 @@ library(htmltools)
 library(datamaps)
 library(dplyr)
 
-sesh <- read.csv("https://raw.githubusercontent.com/JohnCoene/projects/gh-pages/htmlwidgets/echarts/data/sessions.csv")
+cn <- unique(countrycode::countrycode_data$iso3c)
+cn <- cn[!is.na(cn)]
 
-# datamaps uses iso3c format
-sesh$iso3c <- countrycode::countrycode(sesh$Country, "country.name", "iso3c")
-sesh <- sesh[!is.na(sesh$iso3c),] # remove NA
-sesh$continent <- countrycode::countrycode(sesh$iso3c, "iso3c", "continent") # find continents
-
-# sum Sessions by continent
-continents <- sesh %>% 
-  group_by(continent) %>% 
-  summarise(Sessions = sum(Sessions)) %>% 
-  mutate(long = c(3.917313, -99.133209, 106.660172, 16.363449),
-         lat = c(7.401962, 19.432608, 10.762622, 48.210033))
+data <- data.frame(name = cn, color = ceiling(runif(length(cn), 1, 50)))
 ```
 
 <main>
@@ -34,11 +25,9 @@ h1(
 
 
 ```{r}
-sesh %>% 
-  datamaps(default = "lightgray", width = "100%") %>% # initiate map
-  add_choropleth(iso3c, Sessions, colors = RColorBrewer::brewer.pal(5, "YlOrRd")) %>% # add chorpleth layer
-  add_data(continents) %>% # add continent dataset
-  add_bubbles(long, lat, log(Sessions) * 5, continent, continent, colors = RColorBrewer::brewer.pal(4, "Set1")) # add continent bubbles
+data %>%
+  datamaps(width = "100%") %>%
+  add_choropleth(name, color, colors = c("#2196f3", "#bbdefb"))
 ```
 
 [![Travis-CI Build Status](https://travis-ci.org/JohnCoene/datamaps.svg?branch=master)](https://travis-ci.org/JohnCoene/datamaps)
@@ -84,6 +73,8 @@ div(
   )
 )
 ```
+
+> Customizable SVG map visualizations for the web in a single Javascript file using D3.js
 
 ### Install 
 
@@ -131,6 +122,14 @@ tags$ul(
   ),
   tags$li(
     class = "collection-item",
+    code("add_legend")
+  ),
+  tags$li(
+    class = "collection-item",
+    code("add_graticule")
+  ),
+  tags$li(
+    class = "collection-item",
     code("config_geo")
   ),
   tags$li(
@@ -157,11 +156,24 @@ states %>%
     add_labels() # add state labels
 ```
 
-### Advanced example
+### Advanced examples
 
 Below is the code used to generate the map in the header of this very page.
 
 ```{r, echo = TRUE, eval = FALSE}
+cn <- unique(countrycode::countrycode_data$iso3c)
+cn <- cn[!is.na(cn)]
+
+data <- data.frame(name = cn, color = ceiling(runif(length(cn), 1, 50)))
+
+data %>%
+  datamaps() %>%
+  add_choropleth(name, color)
+```
+
+Combine types.
+
+```{r}
 library(datamaps)
 library(dplyr)
 
@@ -180,10 +192,22 @@ continents <- sesh %>%
          lat = c(7.401962, 19.432608, 10.762622, 48.210033))
 
 sesh %>% 
-  datamaps(default = "lightgray") %>% # initiate map
+  datamaps(default = "lightgray", width = "100%") %>% # initiate map
   add_choropleth(iso3c, Sessions, colors = RColorBrewer::brewer.pal(5, "YlOrRd")) %>% # add chorpleth layer
   add_data(continents) %>% # add continent dataset
   add_bubbles(long, lat, log(Sessions) * 5, continent, continent, colors = RColorBrewer::brewer.pal(4, "Set1")) # add continent bubbles
+```
+
+Set different projections and add graticule.
+
+```{r}
+data <- data.frame(name = c("USA", "CAN", "BRA", "ARG", "MEX", "CUB", "BOL"),
+                   color = round(runif(7, 1, 10)))
+
+data %>%
+    datamaps(projection = "orthographic", width = "100%") %>%
+    add_choropleth(name, color, colors = c("skyblue", "yellow", "orangered")) %>% 
+  add_graticule() 
 ```
 
 ### Proxies
