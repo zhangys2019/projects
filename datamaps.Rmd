@@ -173,7 +173,7 @@ data %>%
 
 Combine types.
 
-```{r}
+```{r, warning = FALSE, echo = TRUE}
 library(datamaps)
 library(dplyr)
 
@@ -200,7 +200,7 @@ sesh %>%
 
 Set different projections and add graticule.
 
-```{r}
+```{r, echo = TRUE}
 data <- data.frame(name = c("USA", "CAN", "BRA", "ARG", "MEX", "CUB", "BOL"),
                    color = round(runif(7, 1, 10)))
 
