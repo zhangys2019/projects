@@ -11,3 +11,4 @@ render_site("./packages/rodham") # rodham
 render_site("./packages/graphTweets") # graphTweets
 render_site("./htmlwidgets/echarts") # echarts
 render_site("./htmlwidgets/billboard") # billboard
+render_site("./packages/fullPage") # fullPage

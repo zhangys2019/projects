@@ -198,7 +198,7 @@ div(
   div(
     class = "row",
     div(
-      class = "col s12 m6",
+      class = "col s12 m4",
       div(
         `data-aos` = "fade-up",
         `data-aos-delay` = "100",
@@ -249,7 +249,7 @@ div(
       )
     ),
     div(
-      class = "col s12 m6",
+      class = "col s12 m4",
       div(
         `data-aos` = "fade-up",
         `data-aos-delay` = "100",
@@ -294,6 +294,55 @@ div(
           p(
             "A jekyll theme inspired by L'Ami du peuple, an octavo published during the French Revolution ",
             "by Jean-Paul Marat. Ideal for blogging."
+          )
+        )
+      )
+    ),
+    div(
+      class = "col s12 m4",
+      div(
+        `data-aos` = "fade-up",
+        `data-aos-delay` = "100",
+        `data-aos-duration` = "1500",
+        class = "card sticky-action z-depth-3",
+        div(
+          class = "card-image",
+          img(
+            class = "activator",
+            src = "img/thumbnails/fp.png"
+          )
+        ),
+        div(
+          class = "card-content",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "fullPage",
+            tags$i(
+              class = "material-icons right",
+              "more_vert"
+            )
+          )
+        ),
+        div(
+          class = "card-action",
+          tags$a(
+            href="/packages/fullPage",
+            class = "blue-text link-shadow",
+            "Explore!"
+          )
+        ),
+        div(
+          class = "card-reveal",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "fullPage",
+            tags$i(
+              class = "material-icons right",
+              "close"
+            )
+          ),
+          p(
+            "A set of three shiny pages, fullPage.js, pagePiling.js and multiScroll.js to make slick looking Shiny apps."
           )
         )
       )
