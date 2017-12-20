@@ -29,7 +29,7 @@ htmltools::HTML('
       <span class="dots" style="background:#5AC05A;"></span>
     </div>
     <div class="columns middles">
-      <input type="text" value="http://shiny.john-coene.com/multiScroll">
+      <input type="text" value="shiny.john-coene.com/multiScroll">
     </div>
     <div class="columns rights">
       <div style="float:right">
