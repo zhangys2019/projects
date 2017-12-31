@@ -29,7 +29,7 @@ htmltools::HTML('
       <span class="dots" style="background:#5AC05A;"></span>
     </div>
     <div class="columns middles">
-      <input type="text" value="shiny.john-coene.com/multiScroll">
+      <input type="text" value="shiny.john-coene.com/pagePiling">
     </div>
     <div class="columns rights">
       <div style="float:right">
@@ -41,7 +41,7 @@ htmltools::HTML('
   </div>
 
   <div class="contents video-container" style="height:600px;">
-    <iframe src = "http://shiny.john-coene.com/multiScroll" width = "100%" frameborder="0" allowfullscreen></iframe>
+    <iframe src = "http://shiny.john-coene.com/pagePiling" width = "100%" frameborder="0" allowfullscreen></iframe>
   </div>
 </div>')
 ```
