@@ -70,7 +70,7 @@ div(
         href = "https://en.wikipedia.org/wiki/Jean-Paul_Marat",
         target = "_blank"
       ),
-      "during the French Revolution, in which he was vocal advocate for the rights of man and liberty."
+      "during the French Revolution, in which he was a vocal advocate for the rights of man and liberty."
     )
   ),
   div(
