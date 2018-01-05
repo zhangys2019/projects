@@ -72,7 +72,7 @@ div(
   div(
     class = "col m6",
     img(
-      src = "http::/john-coene.com/img/echarts_sticker2.png", class = "img-responsive"
+      src = "http://john-coene.com/img/echarts_sticker2.png", class = "img-responsive"
     )
   )
 )
