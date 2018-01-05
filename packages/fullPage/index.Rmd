@@ -117,6 +117,7 @@ h3("Example")
 pagePiling.js example, functions start with `page`.
 
 ```{r, eval = FALSE, echo = TRUE}
+library(fullPage)
 library(shiny)
 
 options <- list(

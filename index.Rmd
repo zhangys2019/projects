@@ -198,7 +198,58 @@ div(
   div(
     class = "row",
     div(
-      class = "col s12 m4",
+      class = "col s12 m3",
+      div(
+        `data-aos` = "fade-up",
+        `data-aos-delay` = "100",
+        `data-aos-duration` = "1500",
+        class = "card sticky-action z-depth-3",
+        div(
+          class = "card-image",
+          img(
+            class = "activator",
+            src = "img/thumbnails/likealocal.png"
+          )
+        ),
+        div(
+          class = "card-content",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "Like a Local",
+            tags$i(
+              class = "material-icons right",
+              "more_vert"
+            )
+          )
+        ),
+        div(
+          class = "card-action",
+          tags$a(
+            href="http://www.negotiatelikealocal.com/",
+            target = "_blank",
+            class = "blue-text link-shadow",
+            "Get tips"
+          )
+        ),
+        div(
+          class = "card-reveal",
+          tags$span(
+            class = "card-title activator grey-text text-darken-2", 
+            "Negotiate Like a Local",
+            tags$i(
+              class = "material-icons right",
+              "close"
+            )
+          ),
+          p(
+            "A Django webapp to explore to get culture-aware negotiation tips based on nationalities.",
+            "Ultimately based on the book Negotiate Like a Local and cultural dimensions of Geert Hofstede."
+          )
+        )
+      )
+    ),
+    div(
+      class = "col s12 m3",
       div(
         `data-aos` = "fade-up",
         `data-aos-delay` = "100",
@@ -249,7 +300,7 @@ div(
       )
     ),
     div(
-      class = "col s12 m4",
+      class = "col s12 m3",
       div(
         `data-aos` = "fade-up",
         `data-aos-delay` = "100",
@@ -299,7 +350,7 @@ div(
       )
     ),
     div(
-      class = "col s12 m4",
+      class = "col s12 m3",
       div(
         `data-aos` = "fade-up",
         `data-aos-delay` = "100",
