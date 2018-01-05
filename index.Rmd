@@ -360,7 +360,7 @@ div(
           class = "card-image",
           img(
             class = "activator",
-            src = "img/thumbnails/fp.png"
+            src = "img/fullPage2.gif"
           )
         ),
         div(
