@@ -23,7 +23,7 @@ h1(
 ```{r}
 axis <- c("sales", "marketing", "development", "customer support", "IT", "admin")
 radar <- data.frame(axis = rep(axis, 2),
-                    values = c(6, 16, 30, 38, 52, 25, 7, 13, 33, 25, 46, 37),
+                    values = runif(12, 2, 10),
                     groups = c(rep("grp1", 6), rep("grp2", 6)))
 
 radar %>% 
@@ -31,7 +31,9 @@ radar %>%
   echart(axis, width = "100%") %>% 
   eradar(values) %>% 
   elegend() %>% 
-  etoolbox_full()
+  etooltip(trigger = "axis") %>% 
+  etoolbox_full() %>% 
+  etheme("macarons")
 ```
 
 ### Filled
@@ -41,7 +43,7 @@ radar %>%
 ```{r}
 axis <- c("sales", "marketing", "development", "customer support", "IT", "admin")
 radar <- data.frame(axis = rep(axis, 2),
-                    values = c(6, 16, 30, 38, 52, 25, 7, 13, 33, 25, 46, 37),
+                    values = runif(12, 2, 10),
                     groups = c(rep("grp1", 6), rep("grp2", 6)))
 
 fill <- list(normal = list(areaStyle = list(type = "default")))
@@ -49,7 +51,7 @@ fill <- list(normal = list(areaStyle = list(type = "default")))
 radar %>% 
   group_by(groups) %>% 
   echart(axis, width = "100%") %>% 
-  eradar(values, itemStyle = fill) %>% 
+  eradar(values, itemStyle = fill, symbolSize = 0) %>% 
   elegend() %>% 
   etoolbox_full()
 ```

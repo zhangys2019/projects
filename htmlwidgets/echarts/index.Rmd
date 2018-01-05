@@ -45,24 +45,38 @@ sesh %>%
 ```{r chart types}
 div(class = "page-header",
     h2("Features", class = "text-primary"))
-```
 
-1. bar charts
-2. line charts
-3. area charts
-4. pie & donut charts
-5. heatmaps
-6. chord diagrams
-7. venn diagrams
-8. gauges
-9. force networks
-10. word-clouds
-11. maps
-12. radar
-13. candlestick charts
-14. themes
-15. responsive
-16. animations
+div(
+  class = "row",
+  div(
+    class = "col m6",
+    tags$ul(
+      tags$li("Bar charts"),
+      tags$li("Line charts"),
+      tags$li("Area charts"),
+      tags$li("Pie & Donut charts"),
+      tags$li("Heatmaps"),
+      tags$li("Chord diagrams"),
+      tags$li("Venn diagrams"),
+      tags$li("Gauges"),
+      tags$li("Force networks"),
+      tags$li("Word-clouds"),
+      tags$li("Maps"),
+      tags$li("Radar"),
+      tags$li("Candlestick charts"),
+      tags$li("Themes"),
+      tags$li("Fully responsive"),
+      tags$li("Animations")
+    )
+  ),
+  div(
+    class = "col m6",
+    img(
+      src = "../../img/echarts_sticker2.png", class = "img-responsive"
+    )
+  )
+)
+```
 
 ```{r install}
 div(class = "page-header",
