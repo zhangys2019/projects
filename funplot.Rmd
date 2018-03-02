@@ -1,0 +1,127 @@
+---
+title: ""
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(htmltools)
+library(funplot)
+library(dplyr)
+```
+
+<main>
+<div class = "container">
+
+```{r, echo=FALSE}
+h1(
+  "funplot"
+)
+```
+
+```{r, echo = FALSE}
+funplot() %>%
+  fun_add("x * x") %>%
+  fun_deriv("2 * x", mouse = TRUE) %>%
+  fun_add("x * x * x") %>%
+  fun_secants(x0 = 5, mouse = TRUE)
+```
+
+[![Travis-CI Build Status](https://travis-ci.org/JohnCoene/funplot.svg?branch=master)](https://travis-ci.org/JohnCoene/funplot)
+
+Function Plot is a plotting library built on top of D3.js used to render functions with little configuration (think of it as a clone of Google's plotting utility: y=x2)
+
+The library currently supports interactive line charts and scatterplots, whenever the graph scale is modified the function is evaluated again with the new bounds, result: infinite graphs!
+
+### Install 
+
+```{r, eval = FALSE}
+# install.packages("devtools")
+devtools::install_github("JohnCoene/funplot")
+```
+
+### Your first plot
+
+Pass basic functions.
+
+```{r}
+funplot() %>%
+  fun_add(fun = "sin(x)") 
+```
+
+### Parametric equations
+
+Use parametric equations.
+
+```{r}
+funplot() %>%
+  fun_add_param(
+    x = "sin(t) * (exp(cos(t)) - 2 cos(4t) - sin(t/12)^5)",
+    y = "cos(t) * (exp(cos(t)) - 2 cos(4t) - sin(t/12)^5)"
+  )
+```
+
+### Polar equations
+
+Use polar equations.
+
+```{r}
+funplot() %>%
+  fun_add_polar(r = "2 * sin(4 theta)")
+```
+
+### Implicit functions
+
+Use polar functions (see `fun_scope`).
+
+```{r}
+funplot() %>%
+  fun_add_imp("x ^ 2 + y ^ 2 - 1")
+```
+
+### Multiple functions
+
+Plot multiple equations.
+
+```{r}
+funplot() %>%
+  fun_add("sqrt(1 - x * x)") %>%
+  fun_add("-sqrt(1 - x * x)")
+```
+
+### Secants and derivatives
+
+Chart in header of this page.
+
+```{r}
+funplot() %>%
+  fun_add("x * x") %>%
+  fun_deriv("2 * x", mouse = TRUE) %>%
+  fun_add("x * x * x") %>%
+  fun_secants(x0 = 5, mouse = TRUE)
+```
+
+### Math.js
+
+function-plot uses interval-arithmetic math by default, unfortunately some functions are not implemented yet because of the underlying complexity, for this reason you can always evaluate a function with [math.js](http://mathjs.org/).
+
+```{r}
+funplot() %>%
+  fun_math("tan(x)", samples = 4000) %>% 
+  fun_x("log")
+```
+
+### Options
+
+This is only some of the options.
+
+```{r}
+funplot() %>%
+  fun_add("x^2", color = "orange") %>%
+  fun_annot(x = 1, text = "x = 1") %>%
+  fun_annot(y = 2, text = "y = 2") %>% 
+  fun_y(label = "Y axis", domain = c(-1, 7)) %>% 
+  fun_title("funplot options")
+```
+
+</div>
+</main>

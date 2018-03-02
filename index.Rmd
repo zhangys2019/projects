@@ -1152,7 +1152,7 @@ div(
       ),
       tags$li(
         div(
-          class = "collapsible-header active blue-text",
+          class = "collapsible-header blue-text",
           tags$i(
             class = "material-icons",
             "insert_drive_file"
@@ -1169,6 +1169,27 @@ div(
               class = "right link-shadow",
               "Start reporting"
             )
+        )
+      ),
+      tags$li(
+        div(
+          class = "collapsible-header active blue-text",
+          tags$i(
+            class = "material-icons",
+            "multiline_chart"
+          ),
+          "funplot"
+        ),
+        div(
+          class = "collapsible-body",
+          tags$span(
+            "Render equations with little configuration."
+          ),
+            tags$a(
+              href = "funplot",
+              class = "right link-shadow",
+              "Get plotting"
+          )
         )
       ),
       tags$li(
@@ -1215,7 +1236,7 @@ div(
               href = "egg",
               class = "right link-shadow",
               "Get cooking"
-            )
+          )
         )
       )
     )

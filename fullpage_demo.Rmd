@@ -1,0 +1,94 @@
+---
+title: "fullpage"
+author: "John Coene"
+date: "June 12, 2017"
+output: 
+  reporter::fullpage_document:
+    highlight: zenburn
+    toc: true
+    navigation: false
+    background: 
+      - '#3f51b5'
+      - '#4db6ac'
+      - '#9575cd'
+      - '#7986cb'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(htmltools)
+```
+
+
+# Sections
+
+## This is a section
+
+This is a section.
+
+Sections are marked by `h1` tags or `# Some Section` in `Rmarkdown`.
+
+```{r, eval=FALSE}
+# Sections
+
+## This is a section
+
+Sections are marked by `h1` tags or `# Some Section` in `Rmarkdown`.
+```
+
+# Slides
+
+##### Slide 1
+
+## This is Slide 1
+
+You can also include slides.
+
+Slides are `h5` or `##### Some Slide` in `Rmarkdown`.
+
+```{r, eval=FALSE}
+# Slides
+
+##### Slide 1
+
+## This is Slide 1
+
+You can also include slides.
+
+Slides are `h5` or `##### Some Slide` in `Rmarkdown`.
+```
+
+##### Slide 2
+
+## This is Slide 2
+
+Second slide content.
+
+```{r, eval=FALSE}
+##### Slide 2
+
+## This is Slide 2
+
+Second slide content.
+```
+
+# Colors
+
+## Colors
+
+You can set background colors with `background` in your `yaml`.
+Below are the colors used for this document:
+
+```{r, eval=FALSE}
+background: 
+  - '#3f51b5'
+  - '#4db6ac'
+  - '#9575cd'
+  - '#7986cb'
+```
+
+# Options
+
+## Options
+
+There are many other options you can set up see the `r tags$a("documentation", href="http://john-coene.com/reporter", target = "_blank", style = "color: white;")` for the full list.
