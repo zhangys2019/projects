@@ -35,7 +35,6 @@ funplot() %>%
 ```
 
 [![Travis-CI Build Status](https://travis-ci.org/JohnCoene/funplot.svg?branch=master)](https://travis-ci.org/JohnCoene/funplot)
-<a class="github-button" href="https://github.com/JohnCoene/funplot" data-icon="octicon-star" aria-label="Star JohnCoene/funplot on GitHub">Star</a>
 
 Function Plot is a plotting library built on top of D3.js used to render functions with little configuration (think of it as a clone of Google's plotting utility: y=x2)
 
