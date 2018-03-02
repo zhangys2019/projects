@@ -14,7 +14,15 @@ library(dplyr)
 
 ```{r, echo=FALSE}
 h1(
-  "funplot"
+  "funplot",
+  a(
+    class = "github-button",
+    href = "https://github.com/JohnCoene/funplot",
+    `data-icon` = "octicon-star",
+    `aria-label`= "Star JohnCoene/funplot on GitHub",
+    `data-show-count` = TRUE,
+    "Star"
+  )
 )
 ```
 
@@ -27,10 +35,26 @@ funplot() %>%
 ```
 
 [![Travis-CI Build Status](https://travis-ci.org/JohnCoene/funplot.svg?branch=master)](https://travis-ci.org/JohnCoene/funplot)
+<a class="github-button" href="https://github.com/JohnCoene/funplot" data-icon="octicon-star" aria-label="Star JohnCoene/funplot on GitHub">Star</a>
 
 Function Plot is a plotting library built on top of D3.js used to render functions with little configuration (think of it as a clone of Google's plotting utility: y=x2)
 
 The library currently supports interactive line charts and scatterplots, whenever the graph scale is modified the function is evaluated again with the new bounds, result: infinite graphs!
+
+```{r, echo=FALSE}
+p(
+  a(
+    class = "btn blue waves-effect",
+    href="https://github.com/JohnCoene/funplot", 
+    target = "_blank",
+    tags$i(
+      class = "material-icons left",
+      "code"
+    ),
+    "Repository"
+  )
+)
+```
 
 ### Install 
 
@@ -123,5 +147,7 @@ funplot() %>%
   fun_title("funplot options")
 ```
 
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
 </div>
 </main>

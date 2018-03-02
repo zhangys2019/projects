@@ -13,7 +13,15 @@ library(dplyr)
 
 ```{r}
 h1(
-  "fullPage"
+  "fullPage",
+  a(
+    class = "github-button",
+    href = "https://github.com/JohnCoene/fullpage",
+    `data-icon` = "octicon-star",
+    `aria-label`= "Star JohnCoene/fullpage on GitHub",
+    `data-show-count` = TRUE,
+    "Star"
+  )
 )
 ```
 

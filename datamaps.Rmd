@@ -19,7 +19,15 @@ data <- data.frame(name = cn, color = ceiling(runif(length(cn), 1, 50)))
 
 ```{r}
 h1(
-  "datamaps"
+  "datamaps",
+  a(
+    class = "github-button",
+    href = "https://github.com/JohnCoene/datamaps",
+    `data-icon` = "octicon-star",
+    `aria-label`= "Star JohnCoene/datamaps on GitHub",
+    `data-show-count` = TRUE,
+    "Star"
+  )
 )
 ```
 
@@ -79,8 +87,8 @@ div(
 ### Install 
 
 ```{r, echo = TRUE, eval = FALSE}
-# install.packages("devtools")
-devtools::install_github("JohnCoene/datamaps")
+install.packages("datamaps") # CRAN release
+devtools::install_github("JohnCoene/datamaps") # dev version
 ```
 
 ### How it works

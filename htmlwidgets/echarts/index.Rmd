@@ -28,7 +28,15 @@ sesh <- read.csv("./data/sessions.csv")
 
 ```{r, echo=FALSE}
 h1(
-  "echarts"
+  "echarts",
+  a(
+    class = "github-button",
+    href = "https://github.com/JohnCoene/echarts",
+    `data-icon` = "octicon-star",
+    `aria-label`= "Star JohnCoene/echarts on GitHub",
+    `data-show-count` = TRUE,
+    "Star"
+  )
 )
 ```
 

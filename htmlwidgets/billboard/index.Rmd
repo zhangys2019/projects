@@ -13,7 +13,15 @@ library(dplyr)
 
 ```{r}
 h1(
-  "billboard"
+  "billboard",
+  a(
+    class = "github-button",
+    href = "https://github.com/JohnCoene/billboard",
+    `data-icon` = "octicon-star",
+    `aria-label`= "Star JohnCoene/billboard on GitHub",
+    `data-show-count` = TRUE,
+    "Star"
+  )
 )
 ```
 
