@@ -310,5 +310,6 @@ server <- function(input, output){
 shinyApp(ui, server)
 ```
 
+<script async defer src="https://buttons.github.io/buttons.js"></script>
 </div>
 </main>

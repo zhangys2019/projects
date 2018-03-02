@@ -14,7 +14,7 @@
 
 <title></title>
 
-<script src="site_libs/htmlwidgets-0.8/htmlwidgets.js"></script>
+<script src="site_libs/htmlwidgets-1.0/htmlwidgets.js"></script>
 <link href="site_libs/chartist-0.10.0/chartist.min.css" rel="stylesheet" />
 <link href="site_libs/chartist-0.10.0/chartist-plugin-tooltip.css" rel="stylesheet" />
 <link href="site_libs/chartist-0.10.0/threshold.css" rel="stylesheet" />
@@ -75,37 +75,41 @@
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
   margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #dddddd; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #ffffff; color: #1f1c1b; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #ffffff; color: #a0a0a0; border-right: 1px solid #a0a0a0; }
 td.sourceCode { padding-left: 5px; }
-code > span.kw { font-weight: bold; } /* Keyword */
-code > span.dt { color: #800000; } /* DataType */
-code > span.dv { color: #0000ff; } /* DecVal */
-code > span.bn { color: #0000ff; } /* BaseN */
-code > span.fl { color: #800080; } /* Float */
-code > span.ch { color: #ff00ff; } /* Char */
-code > span.st { color: #dd0000; } /* String */
-code > span.co { color: #808080; font-style: italic; } /* Comment */
-code > span.al { color: #00ff00; font-weight: bold; } /* Alert */
-code > span.fu { color: #000080; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #ff0000; font-weight: bold; } /* Warning */
-code > span.cn { color: #000000; } /* Constant */
-code > span.sc { color: #ff00ff; } /* SpecialChar */
-code > span.vs { color: #dd0000; } /* VerbatimString */
-code > span.ss { color: #dd0000; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { } /* Variable */
-code > span.cf { } /* ControlFlow */
-code > span.op { } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { font-weight: bold; } /* Preprocessor */
-code > span.at { } /* Attribute */
-code > span.do { color: #808080; font-style: italic; } /* Documentation */
-code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
+pre, code { color: #1f1c1b; background-color: #ffffff; }
+code > span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code > span.dt { color: #0057ae; } /* DataType */
+code > span.dv { color: #b08000; } /* DecVal */
+code > span.bn { color: #b08000; } /* BaseN */
+code > span.fl { color: #b08000; } /* Float */
+code > span.cn { color: #aa5500; } /* Constant */
+code > span.ch { color: #924c9d; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #bf0303; } /* String */
+code > span.vs { color: #bf0303; } /* VerbatimString */
+code > span.ss { color: #ff5500; } /* SpecialString */
+code > span.im { color: #ff5500; } /* Import */
+code > span.co { color: #898887; } /* Comment */
+code > span.do { color: #607880; } /* Documentation */
+code > span.an { color: #ca60ca; } /* Annotation */
+code > span.cv { color: #0095ff; } /* CommentVar */
+code > span.ot { color: #006e28; } /* Other */
+code > span.fu { color: #644a9b; } /* Function */
+code > span.va { color: #0057ae; } /* Variable */
+code > span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #1f1c1b; } /* Operator */
+code > span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code > span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code > span.pp { color: #006e28; } /* Preprocessor */
+code > span.at { color: #0057ae; } /* Attribute */
+code > span.re { color: #0057ae; } /* RegionMarker */
+code > span.in { color: #b08000; } /* Information */
+code > span.wa { color: #bf0303; } /* Warning */
+code > span.al { color: #bf0303; font-weight: bold; } /* Alert */
+code > span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code > span. { color: #1f1c1b; } /* Normal */
 </style>
 
 
@@ -135,9 +139,12 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 
 <main>
 <div class="container">
-<h2>youTubeDataR</h2>
-<div id="htmlwidget-65806d09921b2fabba9f" style="width:100%;height:300px;" class="chartist html-widget"></div>
-<script type="application/json" data-for="htmlwidget-65806d09921b2fabba9f">{"x":{"cdat":{"labels":[905591,4843113,651601,287618,636307,705176,1149649,113598,154463,213217,1936566,181129,165196,1431913,46051,402125,259773,136191,2324410,29898,1867280,1833489,653338,1084911,1666495,197805,16734544,324135,1473460,420065,5439549,211886,1320359,137504,238333,228737,82884,1273046,1804828,445847,533542,201779,156306,7020,620842,35010,129688,242391,2206926,486106],"series":[{"name":"line-1","data":[295,286,224,6437,4212,2758,5342,15318,2727,23661,7987,15942,1226,17353,7624,3011,6756,9594,2496,16483,11580,19916,8003,16143,16620,19524,30218,22343,38917,20255,9778,36148,33492,8938,14918,15928,101310,5363,37829,48351,88094,104661,109012,74139,9396,61000,64368,187013,68412,692995]}]},"ratio":"ct-chart","type":"line","options":{"showArea":true,"showPoint":false,"axisX":{"showLabel":false,"labelInterpolationFnc":"function(value) { return '' + value + '';}"}},"style":{"FUN":"\n    function(context){\n      if(context.type === 'line'){\n        context.element.attr({style: 'stroke:#2196f3;'});\n      }\n    }"},"anim":{"FUN":"\n    function(data){\n      if(data.type === 'line' || data.type === 'area'){\n        data.element.animate({d:{begin: 2000 * data.index, dur: 2000, from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(), to: data.path.clone().stringify(), easing: Chartist.Svg.Easing.easeOutQuint}});\n      }\n    }"}},"evals":["options.axisX.labelInterpolationFnc","style.FUN","anim.FUN"],"jsHooks":[]}</script>
+<h2>
+youTubeDataR
+<a class="github-button" href="https://github.com/JohnCoene/youTubeDataR" data-icon="octicon-star" aria-label="Star JohnCoene/youTubeDataR on GitHub" data-show-count="TRUE">Star</a>
+</h2>
+<div id="htmlwidget-664d2919452b0a82f291" style="width:100%;height:300px;" class="chartist html-widget"></div>
+<script type="application/json" data-for="htmlwidget-664d2919452b0a82f291">{"x":{"cdat":{"labels":[905591,4843113,651601,287618,636307,705176,1149649,113598,154463,213217,1936566,181129,165196,1431913,46051,402125,259773,136191,2324410,29898,1867280,1833489,653338,1084911,1666495,197805,16734544,324135,1473460,420065,5439549,211886,1320359,137504,238333,228737,82884,1273046,1804828,445847,533542,201779,156306,7020,620842,35010,129688,242391,2206926,486106],"series":[{"name":"line-1","data":[295,286,224,6437,4212,2758,5342,15318,2727,23661,7987,15942,1226,17353,7624,3011,6756,9594,2496,16483,11580,19916,8003,16143,16620,19524,30218,22343,38917,20255,9778,36148,33492,8938,14918,15928,101310,5363,37829,48351,88094,104661,109012,74139,9396,61000,64368,187013,68412,692995]}]},"ratio":"ct-chart","type":"line","options":{"showArea":true,"showPoint":false,"axisX":{"showLabel":false,"labelInterpolationFnc":"function(value) { return '' + value + '';}"}},"style":{"FUN":"\n    function(context){\n      if(context.type === 'line'){\n        context.element.attr({style: 'stroke:#2196f3;'});\n      }\n    }"},"anim":{"FUN":"\n    function(data){\n      if(data.type === 'line' || data.type === 'area'){\n        data.element.animate({d:{begin: 2000 * data.index, dur: 2000, from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(), to: data.path.clone().stringify(), easing: Chartist.Svg.Easing.easeOutQuint}});\n      }\n    }"}},"evals":["options.axisX.labelInterpolationFnc","style.FUN","anim.FUN"],"jsHooks":[]}</script>
 <p><a href="https://travis-ci.org/JohnCoene/youTubeDataR"><img src="https://travis-ci.org/JohnCoene/youTubeDataR.svg?branch=master" alt="Build Status" /></a> <a href="https://ci.appveyor.com/project/JohnCoene/youTubeDataR"><img src="https://ci.appveyor.com/api/projects/status/github/JohnCoene/youTubeDataR?branch=master&amp;svg=true" alt="AppVeyor Build Status" /></a> <a href="https://codecov.io/github/JohnCoene/youTubeDataR?branch=master"><img src="https://codecov.io/github/JohnCoene/youTubeDataR/coverage.svg?branch=master" alt="codecov.io" /></a> <a href="https://coveralls.io/github/JohnCoene/youTubeDataR?branch=master"><img src="https://coveralls.io/repos/github/JohnCoene/youTubeDataR/badge.svg?branch=master" alt="Coverage Status" /></a></p>
 <div class="container-fluid">
 <br/>
@@ -152,7 +159,7 @@ youTubeDataR is an R package that provides access to the
 </div><div class="container-fluid">
 <p>Install from Github.</p>
 </div></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools::<span class="kw">install_github</span>(<span class="st">&quot;JohnCoene/youTubeDataR&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;JohnCoene/youTubeDataR&quot;</span>)</code></pre></div>
 <div class="page-header">
 <h2>Setup</h2>
 </div>
@@ -181,7 +188,7 @@ any &lt;-<span class="st"> </span><span class="kw">searchTube</span>(TK, <span c
 search &lt;-<span class="st"> </span><span class="kw">searchTube</span>(TK, <span class="dt">query =</span> <span class="st">&quot;R tutorial&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;channel&quot;</span>)
 
 <span class="co"># get random channel out of search results</span>
-chan &lt;-<span class="st"> </span><span class="kw">sample</span>(search$id.channelId, <span class="dv">1</span>)
+chan &lt;-<span class="st"> </span><span class="kw">sample</span>(search<span class="op">$</span>id.channelId, <span class="dv">1</span>)
 
 <span class="co"># get activities of sampled channel</span>
 chan.act &lt;-<span class="st"> </span><span class="kw">getActivities</span>(TK, <span class="dt">channel.id =</span> chan)
@@ -193,19 +200,20 @@ chan.sect &lt;-<span class="st"> </span><span class="kw">getChannelSections</spa
 my.videos &lt;-<span class="st"> </span><span class="kw">getVideos</span>(TK, <span class="dt">chart =</span> <span class="st">&quot;mostPopular&quot;</span>, <span class="dt">part =</span> <span class="st">&quot;statistics&quot;</span>)</code></pre></div>
 <p>Example used to make chart in page header.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">part &lt;-<span class="st"> </span><span class="kw">findParts</span>(<span class="st">&quot;getVideos&quot;</span>) <span class="co"># helper FUN to find valid parts</span>
-part &lt;-<span class="st"> </span>part[part %in%<span class="st"> &quot;statistics&quot;</span>] <span class="co"># get statistics</span>
+part &lt;-<span class="st"> </span>part[part <span class="op">%in%</span><span class="st"> &quot;statistics&quot;</span>] <span class="co"># get statistics</span>
 videos &lt;-<span class="st"> </span><span class="kw">getVideos</span>(TK, <span class="dt">part =</span> <span class="st">&quot;statistics&quot;</span>, <span class="dt">chart =</span> <span class="st">&quot;mostPopular&quot;</span>) <span class="co"># get statistics of most popular videos</span>
 
 <span class="kw">library</span>(chartist) <span class="co"># load chartist to plot</span>
 
 <span class="co"># plot view count vs comment count</span>
-videos %&gt;%
-<span class="st">  </span><span class="kw">chart_ist</span>(statistics.viewCount, <span class="dt">height =</span> <span class="dv">300</span>) %&gt;%
-<span class="st">  </span><span class="kw">add_ist</span>(statistics.likeCount) %&gt;%
-<span class="st">  </span><span class="kw">opt_ist</span>(<span class="dt">showArea =</span> <span class="ot">TRUE</span>, <span class="dt">showPoint =</span> <span class="ot">FALSE</span>) %&gt;%
-<span class="st">  </span><span class="kw">xaxis_ist</span>(<span class="dt">showLabel =</span> <span class="ot">FALSE</span>) %&gt;%
-<span class="st">  </span><span class="kw">style_ist</span>(<span class="kw">c</span>(<span class="st">&quot;line&quot;</span>), <span class="dt">css =</span> htmltools::<span class="kw">css</span>(<span class="dt">stroke =</span> <span class="st">&quot;#2196f3&quot;</span>)) %&gt;%<span class="st"> </span>
+videos <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">chart_ist</span>(statistics.viewCount, <span class="dt">height =</span> <span class="dv">300</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">add_ist</span>(statistics.likeCount) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">opt_ist</span>(<span class="dt">showArea =</span> <span class="ot">TRUE</span>, <span class="dt">showPoint =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">xaxis_ist</span>(<span class="dt">showLabel =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">style_ist</span>(<span class="kw">c</span>(<span class="st">&quot;line&quot;</span>), <span class="dt">css =</span> htmltools<span class="op">::</span><span class="kw">css</span>(<span class="dt">stroke =</span> <span class="st">&quot;#2196f3&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">lanim_ist</span>() </code></pre></div>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
 </div>
 <p></main></p>
 

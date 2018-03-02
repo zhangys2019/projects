@@ -151,8 +151,8 @@ code > span. { color: #1f1c1b; } /* Normal */
 funplot
 <a class="github-button" href="https://github.com/JohnCoene/funplot" data-icon="octicon-star" aria-label="Star JohnCoene/funplot on GitHub" data-show-count="TRUE">Star</a>
 </h1>
-<div id="htmlwidget-5c72b2e40f433e240dec" style="width:672px;height:480px;" class="function-plot html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5c72b2e40f433e240dec">{"x":{"data":[{"fn":"x * x","closed":false,"skipTip":false,"derivative":{"fn":"2 * x","updateOnMouseMove":true}},{"fn":"x * x * x","closed":false,"skipTip":false,"secants":[{"x0":5,"updateOnMouseMove":true}]}]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-6698c9a8c174445ef823" style="width:672px;height:480px;" class="function-plot html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6698c9a8c174445ef823">{"x":{"data":[{"fn":"x * x","closed":false,"skipTip":false,"derivative":{"fn":"2 * x","updateOnMouseMove":true}},{"fn":"x * x * x","closed":false,"skipTip":false,"secants":[{"x0":5,"updateOnMouseMove":true}]}]},"evals":[],"jsHooks":[]}</script>
 <p><a href="https://travis-ci.org/JohnCoene/funplot"><img src="https://travis-ci.org/JohnCoene/funplot.svg?branch=master" alt="Travis-CI Build Status" /></a> <a class="github-button" href="https://github.com/JohnCoene/funplot" data-icon="octicon-star" aria-label="Star JohnCoene/funplot on GitHub">Star</a></p>
 <p>Function Plot is a plotting library built on top of D3.js used to render functions with little configuration (think of it as a clone of Google’s plotting utility: y=x2)</p>
 <p>The library currently supports interactive line charts and scatterplots, whenever the graph scale is modified the function is evaluated again with the new bounds, result: infinite graphs!</p>
@@ -169,8 +169,8 @@ devtools<span class="op">::</span><span class="kw">install_github</span>(<span c
 <p>Pass basic functions.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">funplot</span>() <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">fun_add</span>(<span class="dt">fun =</span> <span class="st">&quot;sin(x)&quot;</span>) </code></pre></div>
-<div id="htmlwidget-0d30c83c01ea6f90ac38" style="width:672px;height:480px;" class="function-plot html-widget"></div>
-<script type="application/json" data-for="htmlwidget-0d30c83c01ea6f90ac38">{"x":{"data":[{"fn":"sin(x)","closed":false,"skipTip":false}]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-879ba8737b206749bd5b" style="width:672px;height:480px;" class="function-plot html-widget"></div>
+<script type="application/json" data-for="htmlwidget-879ba8737b206749bd5b">{"x":{"data":[{"fn":"sin(x)","closed":false,"skipTip":false}]},"evals":[],"jsHooks":[]}</script>
 <h3 id="parametric-equations">Parametric equations</h3>
 <p>Use parametric equations.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">funplot</span>() <span class="op">%&gt;%</span>
@@ -178,27 +178,27 @@ devtools<span class="op">::</span><span class="kw">install_github</span>(<span c
     <span class="dt">x =</span> <span class="st">&quot;sin(t) * (exp(cos(t)) - 2 cos(4t) - sin(t/12)^5)&quot;</span>,
     <span class="dt">y =</span> <span class="st">&quot;cos(t) * (exp(cos(t)) - 2 cos(4t) - sin(t/12)^5)&quot;</span>
   )</code></pre></div>
-<div id="htmlwidget-8835ddc001cbdf840b9f" style="width:672px;height:480px;" class="function-plot html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8835ddc001cbdf840b9f">{"x":{"data":[{"x":"sin(t) * (exp(cos(t)) - 2 cos(4t) - sin(t/12)^5)","y":"cos(t) * (exp(cos(t)) - 2 cos(4t) - sin(t/12)^5)","fnType":"parametric","closed":false,"graphType":"polyline","skipTip":false}]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-a52528ba5e68bc04d401" style="width:672px;height:480px;" class="function-plot html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a52528ba5e68bc04d401">{"x":{"data":[{"x":"sin(t) * (exp(cos(t)) - 2 cos(4t) - sin(t/12)^5)","y":"cos(t) * (exp(cos(t)) - 2 cos(4t) - sin(t/12)^5)","fnType":"parametric","closed":false,"graphType":"polyline","skipTip":false}]},"evals":[],"jsHooks":[]}</script>
 <h3 id="polar-equations">Polar equations</h3>
 <p>Use polar equations.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">funplot</span>() <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">fun_add_polar</span>(<span class="dt">r =</span> <span class="st">&quot;2 * sin(4 theta)&quot;</span>)</code></pre></div>
-<div id="htmlwidget-9bf270834929e2a486f6" style="width:672px;height:480px;" class="function-plot html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9bf270834929e2a486f6">{"x":{"data":[{"r":"2 * sin(4 theta)","fnType":"polar","closed":false,"graphType":"polyline","skipTip":false}]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-83598d190f193ad589f2" style="width:672px;height:480px;" class="function-plot html-widget"></div>
+<script type="application/json" data-for="htmlwidget-83598d190f193ad589f2">{"x":{"data":[{"r":"2 * sin(4 theta)","fnType":"polar","closed":false,"graphType":"polyline","skipTip":false}]},"evals":[],"jsHooks":[]}</script>
 <h3 id="implicit-functions">Implicit functions</h3>
 <p>Use polar functions (see <code>fun_scope</code>).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">funplot</span>() <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">fun_add_imp</span>(<span class="st">&quot;x ^ 2 + y ^ 2 - 1&quot;</span>)</code></pre></div>
-<div id="htmlwidget-f8cb31935b429117455d" style="width:672px;height:480px;" class="function-plot html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f8cb31935b429117455d">{"x":{"data":[{"fn":"x ^ 2 + y ^ 2 - 1","fnType":"implicit","closed":false,"skipTip":false}]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-90b175909ddcc68c8180" style="width:672px;height:480px;" class="function-plot html-widget"></div>
+<script type="application/json" data-for="htmlwidget-90b175909ddcc68c8180">{"x":{"data":[{"fn":"x ^ 2 + y ^ 2 - 1","fnType":"implicit","closed":false,"skipTip":false}]},"evals":[],"jsHooks":[]}</script>
 <h3 id="multiple-functions">Multiple functions</h3>
 <p>Plot multiple equations.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">funplot</span>() <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">fun_add</span>(<span class="st">&quot;sqrt(1 - x * x)&quot;</span>) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">fun_add</span>(<span class="st">&quot;-sqrt(1 - x * x)&quot;</span>)</code></pre></div>
-<div id="htmlwidget-4fb2c3d96e77e7e1c43c" style="width:672px;height:480px;" class="function-plot html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4fb2c3d96e77e7e1c43c">{"x":{"data":[{"fn":"sqrt(1 - x * x)","closed":false,"skipTip":false},{"fn":"-sqrt(1 - x * x)","closed":false,"skipTip":false}]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-1fce6f5dd598b96c5e78" style="width:672px;height:480px;" class="function-plot html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1fce6f5dd598b96c5e78">{"x":{"data":[{"fn":"sqrt(1 - x * x)","closed":false,"skipTip":false},{"fn":"-sqrt(1 - x * x)","closed":false,"skipTip":false}]},"evals":[],"jsHooks":[]}</script>
 <h3 id="secants-and-derivatives">Secants and derivatives</h3>
 <p>Chart in header of this page.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">funplot</span>() <span class="op">%&gt;%</span>
@@ -206,15 +206,15 @@ devtools<span class="op">::</span><span class="kw">install_github</span>(<span c
 <span class="st">  </span><span class="kw">fun_deriv</span>(<span class="st">&quot;2 * x&quot;</span>, <span class="dt">mouse =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">fun_add</span>(<span class="st">&quot;x * x * x&quot;</span>) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">fun_secants</span>(<span class="dt">x0 =</span> <span class="dv">5</span>, <span class="dt">mouse =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<div id="htmlwidget-0d807bddb082e3ee475a" style="width:672px;height:480px;" class="function-plot html-widget"></div>
-<script type="application/json" data-for="htmlwidget-0d807bddb082e3ee475a">{"x":{"data":[{"fn":"x * x","closed":false,"skipTip":false,"derivative":{"fn":"2 * x","updateOnMouseMove":true}},{"fn":"x * x * x","closed":false,"skipTip":false,"secants":[{"x0":5,"updateOnMouseMove":true}]}]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-25193dde4dda3343439f" style="width:672px;height:480px;" class="function-plot html-widget"></div>
+<script type="application/json" data-for="htmlwidget-25193dde4dda3343439f">{"x":{"data":[{"fn":"x * x","closed":false,"skipTip":false,"derivative":{"fn":"2 * x","updateOnMouseMove":true}},{"fn":"x * x * x","closed":false,"skipTip":false,"secants":[{"x0":5,"updateOnMouseMove":true}]}]},"evals":[],"jsHooks":[]}</script>
 <h3 id="math.js">Math.js</h3>
 <p>function-plot uses interval-arithmetic math by default, unfortunately some functions are not implemented yet because of the underlying complexity, for this reason you can always evaluate a function with <a href="http://mathjs.org/">math.js</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">funplot</span>() <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">fun_math</span>(<span class="st">&quot;tan(x)&quot;</span>, <span class="dt">samples =</span> <span class="dv">4000</span>) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">fun_x</span>(<span class="st">&quot;log&quot;</span>)</code></pre></div>
-<div id="htmlwidget-9fcae74b1ba26a184c6c" style="width:672px;height:480px;" class="function-plot html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9fcae74b1ba26a184c6c">{"x":{"data":[{"samples":4000,"fn":"tan(x)","sample":"builtIn","graphType":"polyline"}],"xAxis":{"type":"log"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-8d77e065753f84b61f08" style="width:672px;height:480px;" class="function-plot html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8d77e065753f84b61f08">{"x":{"data":[{"samples":4000,"fn":"tan(x)","sample":"builtIn","graphType":"polyline"}],"xAxis":{"type":"log"}},"evals":[],"jsHooks":[]}</script>
 <h3 id="options">Options</h3>
 <p>This is only some of the options.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">funplot</span>() <span class="op">%&gt;%</span>
@@ -223,8 +223,8 @@ devtools<span class="op">::</span><span class="kw">install_github</span>(<span c
 <span class="st">  </span><span class="kw">fun_annot</span>(<span class="dt">y =</span> <span class="dv">2</span>, <span class="dt">text =</span> <span class="st">&quot;y = 2&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">fun_y</span>(<span class="dt">label =</span> <span class="st">&quot;Y axis&quot;</span>, <span class="dt">domain =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">7</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">fun_title</span>(<span class="st">&quot;funplot options&quot;</span>)</code></pre></div>
-<div id="htmlwidget-4dc9086fbfc01e56fd60" style="width:672px;height:480px;" class="function-plot html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4dc9086fbfc01e56fd60">{"x":{"data":[{"fn":"x^2","closed":false,"color":"orange","skipTip":false}],"annotations":[{"x":1,"text":"x = 1"},{"y":2,"text":"y = 2"}],"yAxis":{"label":"Y axis","domain":[-1,7]},"title":"funplot options"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-51c0d329d198e45d6a8e" style="width:672px;height:480px;" class="function-plot html-widget"></div>
+<script type="application/json" data-for="htmlwidget-51c0d329d198e45d6a8e">{"x":{"data":[{"fn":"x^2","closed":false,"color":"orange","skipTip":false}],"annotations":[{"x":1,"text":"x = 1"},{"y":2,"text":"y = 2"}],"yAxis":{"label":"Y axis","domain":[-1,7]},"title":"funplot options"},"evals":[],"jsHooks":[]}</script>
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 </div>
 <p></main></p>

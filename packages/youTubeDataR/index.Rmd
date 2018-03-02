@@ -15,7 +15,15 @@ videos <- get(load("cred.RData"))
 
 ```{r}
 h2(
-  "youTubeDataR"
+  "youTubeDataR",
+  a(
+    class = "github-button",
+    href = "https://github.com/JohnCoene/youTubeDataR",
+    `data-icon` = "octicon-star",
+    `aria-label`= "Star JohnCoene/youTubeDataR on GitHub",
+    `data-show-count` = TRUE,
+    "Star"
+  )
 )
 ```
 
@@ -116,5 +124,6 @@ videos %>%
   lanim_ist() 
 ```
 
+<script async defer src="https://buttons.github.io/buttons.js"></script>
 </div>
 </main>
