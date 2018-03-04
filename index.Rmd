@@ -1197,6 +1197,27 @@ div(
           class = "collapsible-header blue-text",
           tags$i(
             class = "material-icons",
+            "mail"
+          ),
+          "mjml"
+        ),
+        div(
+          class = "collapsible-body",
+          tags$span(
+            "Create and send responsive emails with R."
+          ),
+            tags$a(
+              href = "mjml",
+              class = "right link-shadow",
+              "Start mailing"
+          )
+        )
+      ),
+      tags$li(
+        div(
+          class = "collapsible-header blue-text",
+          tags$i(
+            class = "material-icons",
             "alarm"
           ),
           "countup"

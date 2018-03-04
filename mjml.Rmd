@@ -1,0 +1,317 @@
+---
+title: ""
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(htmltools)
+library(mjml)
+```
+
+<main>
+<div class = "container">
+
+```{r, echo=FALSE}
+h1(
+  "mjml",
+  a(
+    class = "github-button",
+    href = "https://github.com/JohnCoene/mjml",
+    `data-icon` = "octicon-star",
+    `aria-label`= "Star JohnCoene/mjml on GitHub",
+    `data-show-count` = TRUE,
+    "Star"
+  )
+)
+```
+
+[![Travis-CI Build Status](https://travis-ci.org/JohnCoene/mjml.svg?branch=master)](https://travis-ci.org/JohnCoene/mjml)
+
+Easily create responsive emails from R with [mjml](https://mjml.io/).
+
+### Setup
+
+Install the package.
+
+```{r, echo = TRUE, eval = FALSE}
+devtools::install_github("JohnCoene/mjml") # dev version
+```
+
+Install [mjml](https://mjml.io/).
+
+```{bash, eval = FALSE}
+# Install with npm in a folder where you will use MJML
+$> npm install mjml
+
+# In the folder where you installed MJML you can now run:
+$> ./node_modules/.bin/mjml -V
+```
+
+Point to mjml from R.
+
+```{r}
+mj_set("./node_modules/.bin/mjml")
+```
+
+You're set!
+
+### Basics
+
+```{r, eval = FALSE}
+# create an email
+mj_ml(
+  mj_body(
+    mj_container(
+      mj_section(
+        mj_column(
+          mj_text("Some text"),
+          mj_image(src = "https://media.vanityfair.com/photos/54cbf3da998d4de83ba3602a/master/w_960,c_limit/image.jpg")
+        )
+      )
+    )
+  )
+) -> mjml
+
+# save as mjml
+mjml %>% 
+  mj_save_mjml("email.mjml")
+
+# save as mjml
+# then
+# convert to html
+mjml %>% 
+  mj_save_mjml() %>% 
+  mj_convert_html("email.html")
+
+# Or
+# just save as html straight away
+mjml %>% 
+  mj_save("email.html")
+
+# Or
+# even easier
+# send the email straight away
+mjml %>% 
+  mj_send() # fill in details
+```
+
+## Design
+
+Basics of email design with `mjml`. 1) Put everything related to the document such as style and meta elements in `mj_head`. 2) Put everything related to the content of your email in `mj-body`. 3) In mjml, rows = `mj_section`. 4) Up to four `mj_columns`, specify width in percentage, i.e.: `width = 20%` (optional).
+
+```{r, eval=FALSE}
+mj_ml(
+  mj_head(
+    mj_font(
+      href = "https://fonts.googleapis.com/css?family=Raleway",
+      name = "Raleway"
+    ),
+    mj_preview("MJML Preview"), # email preview
+    mj_title("MJML Title") # email title
+  ),
+  mj_body( # email content
+    mj_section( # row 1
+      mj_text("Some text")
+    ),
+    mj_section( # row 2
+      mj_column(
+        mj_carousel(
+          mj_carousel_image(paste0("https://media.vanityfair.com/photos/",
+                                   "54cbf3da998d4de83ba3602a/master/",
+                                   "w_960,c_limit/image.jpg")),
+          mj_carousel_image(paste0("https://media.vanityfair.com/photos/",
+                                   "54cbf3dafde9250a6c402ed2/master/",
+                                   "w_690,c_limit/image.jpg"))
+        )
+      )
+    )
+  )
+) %>% 
+  mj_save_mjml("email.html") %>% 
+  mj_send_html(...)
+```
+
+### Templates
+
+Use the Rstudio addins to insert email templates. Currently included templates: `Allura`, `Happy New Year`, `Card`, `Proof`.
+
+Card Template below:
+
+```{r, eval=FALSE}
+  mj_ml(
+
+    mj_head(
+      mj_title("Say hello to card"),
+      mj_font(
+        name = "Roboto",
+        href = "https://fonts.googleapis.com/css?family=Montserrat:300,400,500"
+      ),
+      mj_attributes(
+        mj_all(`font-family` = "Montserrat, Helvetica, Arial, sans-serif"),
+        mj_text(`font-weight` = "400", `font-size` = "16", color = "#000000", `line-height` = "24px"),
+        mj_section(padding = 0)
+      )
+    ),
+
+    mj_body(
+      mj_container(
+        `background-color` = "#F2F2F2",
+        mj_section(
+          padding = "10px 0 20px 0",
+          mj_column(
+            mj_text(
+              align = "center",
+              color = "#9B9B9B",
+              `font-size` = "11px",
+              "Writing A Good Headline For Your Advertisement"
+            )
+          )
+        ),
+        mj_section(
+          padding = "20px 20px 0 20px",
+          `background-color` = "#FFFFFF",
+          mj_column(
+            width = "35%",
+            mj_text(
+              align = "left",
+              `font-size` = "20",
+              `font-weight` = "500",
+              "// BR&AND"
+            )
+          ),
+          mj_column(
+            width = "65%",
+            mj_text(
+              align = "right",
+              `font-size` = "11",
+              htmltools::a(
+                href = "#",
+                style = "color: #000000; text-decoration: none;",
+                "HOME"
+              ),
+              "&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;",
+              htmltools::a(
+                href = "#",
+                style = "color: #000000; text-decoration: none;",
+                "SERVICE"
+              ),
+              "&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;",
+              htmltools::a(
+                href = "#",
+                style = "color: #000000; text-decoration: none;",
+                "THIRD"
+              )
+            )
+          )
+        ),
+        mj_section(
+          padding = "20px 20px 0 20px",
+          `background-color` = "#FFFFFF",
+          mj_column(
+            mj_text(
+              align = "center",
+              `font-weight` = "300",
+              padding = "30px 40px 10px 40px",
+              `font-size` = "32px",
+              `line-height` = "40x",
+              color = "#5FA91D",
+              "Free Advertising For Your Online Business."
+            )
+          )
+        ),
+        mj_section(
+          padding = "10px 20px",
+          `background-color` = "#FFFFFF",
+          mj_column(
+            mj_divider(width = "30px", `border-width` = "3px", `border-color` = "#9B9B9B")
+          )
+        ),
+        mj_section(
+          padding = "0 20px 20px 20px",
+          `background-color` = "#FFFFFF",
+          mj_column(
+            width = "80%",
+            mj_text(
+              align = "center", `padding-top` = "10px", `font-weight` = "500", padding = "0",
+              "A Right Media Mix Can Make The Difference."
+            )
+          )
+        ),
+        mj_section(
+          `background-url` = "http://nimus.de/share/tpl-card/bg.jpg",
+          `vertical-align` = "middle",
+          `background-size` = "cover",
+          `background-repeat` = "no-repeat",
+          mj_column(
+            width = "100%",
+            mj_image(
+              src = "http://nimus.de/share/tpl-card/lineshadow.png",
+              alt = "",
+              align = "center",
+              border = "none",
+              padding = "0"
+            ),
+            mj_text(
+              align = "center", padding = "50px 40px 0 40px", `font-weight` = "300", padding = "0",
+              paste("Marketers/advertisers usually focus their efforts on the people responsible for making the purchase.",
+                    "In many cases, this is an effective approach but in other cases it can make for a totally useless",
+                    "marketing campaign.")
+            ),
+            mj_button(
+              align = "center",
+              `background-color` = "#5FA91D",
+              color = "#FFFFFF",
+              `border-radius` = "2px",
+              href = "#",
+              `inner-padding` = "15px 30px",
+              `padding-bottom` = "100",
+              `padding-top` = "20",
+              "CALL TO ACTION"
+            )
+          )
+        ),
+        mj_section(
+          padding = "50px 0 0 0",
+          `background-color` = "#FFFFFF",
+          mj_column(
+            mj_image(
+              src = "http://nimus.de/share/tpl-card/bottom.png",
+              alt = "bottom border",
+              align = "center",
+              border = "none",
+              padding = "0"
+            )
+          )
+        ),
+        mj_section(
+          padding = "10px 0 20px 0",
+          mj_column(
+            mj_text(
+              align = "center",
+              color = "#9B9B9B",
+              `font-size` = "11px",
+              htmltools::a(
+                href = "#",
+                style = "color: #9B9B9B;",
+                "Unsubscribe"
+              ),
+              "from this newsletter",
+              htmltools::br(),
+              "52 Edison Court Suite 259 / East Aidabury / Cambodi",
+              htmltools::br(),
+              htmltools::a(
+                href = "#",
+                style = "color: #9B9B9B; text-decoration:none;",
+                "Made by svenhaustein.de"
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+```
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+</div>
+</main>
