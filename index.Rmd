@@ -12,7 +12,7 @@ library(leaflet)
 
 ```{r intro}
 div(
-  style = "height: 95vh;",
+  style = "height: 100vh;",
   div(
     class = "container section center",
     style = "padding-top: 10vh;",
@@ -63,12 +63,6 @@ div(
             "TWT"
           )
         )
-      )
-    ),
-    div(
-      class = "row",
-      HTML(
-        '<script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5jdbjle7o04&amp;m=0&amp;c=ffffff&amp;cr1=ff0000&amp;f=arial&amp;l=0" async="async"></script>'
       )
     )
   )
