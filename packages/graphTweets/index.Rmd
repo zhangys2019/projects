@@ -91,35 +91,18 @@ library(graphTweets)
 
 # simple network
 tweets %>% 
-  gt_edges(text, screen_name) %>% # get edges
+  gt_edges(text, screen_name, status_id) %>% # get edges
   gt_nodes %>% # get nodes
   gt_graph %>% # build igraph object
   plot(.)
 
 # dynamic graph
 tweets %>% 
-  gt_edges(text, screen_name, "created_at") %>% # add created time
+  gt_edges(text, screen_name, status_id, "created_at") %>% # add created time
   gt_nodes(TRUE) %>% 
   gt_graph %>% 
   gt_dyn %>% # make dynamic
   gt_save # save as .graphml
-
-## V3.2
-library(twitteR)
-token <- setup_twitter_oauth(consumer_key, consumer_secret, 
-                             access_token=NULL, access_secret=NULL)
-tweets <- searchTwitter("rstats", n = 200)
-tweets <- twListToDF(tweets)
-
-library(graphTweets)
-
-edges <- getEdges(data = tweets, tweets = "text", source = "screenName")
-nodes <- getNodes(edges)
-
-# plot
-g <- igraph::graph.data.frame(edges, directed=TRUE, vertices = nodes)
-
-plot(g)
 ```
 
 </div>
