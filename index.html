@@ -12,9 +12,9 @@
 
 
 
-<title></title>
+<title>John Coene</title>
 
-<script src="site_libs/htmlwidgets-1.0/htmlwidgets.js"></script>
+<script src="site_libs/htmlwidgets-1.2/htmlwidgets.js"></script>
 <script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
 <link href="site_libs/leaflet-0.7.7/leaflet.css" rel="stylesheet" />
 <script src="site_libs/leaflet-0.7.7/leaflet.js"></script>
@@ -106,6 +106,7 @@
 </nav>
 
 
+<h1 class="title toc-ignore">John Coene</h1>
 
 
 
@@ -313,32 +314,21 @@ fullPage
 <p class="center grey-text text-darken-2">[ Powerful interactive visualizations in R ]</p>
 </div>
 <div class="row">
-<div class="esiema z-depth-3">
-<div>
-<a href="htmlwidgets/echarts/">
-<img class="siema-img" src="img/carousels/echarts_types.png"/>
-</a>
+<div class="col m3"></div>
+<div class="col s12 m6">
+<div class="card blue z-depth-5">
+<div class="card-content white-text">
+<span class="card-title">echarts4r</span>
+<p>Powerful visualisations in R: tens of chart types, themes, plenty of customisation, interactivity, animations, shiny proxies and more.</p>
 </div>
-<div>
-<a href="htmlwidgets/echarts/">
-<img class="siema-img" src="img/carousels/echarts_themes.png"/>
-</a>
-</div>
-<div>
-<a href="htmlwidgets/echarts/">
-<img class="siema-img" src="img/carousels/echarts_responsive.png"/>
-</a>
+<div class="card-action">
+<a class="white-text" href="http://echarts4r.john-coene.com/articles/get_started.html" target="_blank">Get Started</a>
+<a class="white-text" href="http://echarts4r.john-coene.com" target="_blank">Documentation</a>
+<a class="white-text" href="http://echarts4r.john-coene.com/articles/gallery.html" target="_blank">Gallery</a>
 </div>
 </div>
-<div class="row hide-on-small-only">
-<br/>
-<a class="eprev btn blue lighten-2 left">
-<i class="material-icons">keyboard_arrow_left</i>
-</a>
-<a class="enext btn blue lighten-2 right">
-<i class="material-icons">keyboard_arrow_right</i>
-</a>
 </div>
+<div class="col m3"></div>
 </div>
 <div class="row">
 <div class="col m4">
@@ -744,11 +734,11 @@ egg
 </div>
 </form>
 </div>
-<div id="htmlwidget-ae34083d188062519486" style="width:100%;height:400px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ae34083d188062519486">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[46.204391,6.143158,null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"John",null,null,null,null,null,null]}],"limits":{"lat":[46.204391,46.204391],"lng":[6.143158,6.143158]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-d342954bad344db6fa8a" style="width:100%;height:400px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d342954bad344db6fa8a">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[46.204391,6.143158,null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"John",null,null,null,null,null,null]}],"limits":{"lat":[46.204391,46.204391],"lng":[6.143158,6.143158]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
-<p></main></p>
+</main>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
@@ -842,6 +832,15 @@ particlesJS.load('particles-js', 'js/particles.json', function() {});
       bottom: $target.offset().top + $target.outerHeight() - $this.height()
     });
   });
+</script>
+
+<script>
+   $(document).ready(function(){
+       var toastHTML = '<a class="white-text" target="_blank" href="http://echarts4r.john-coene.com/">echarts4r</a><i class="material-icons right">bubble_chart</i></span>';
+       Materialize.toast(toastHTML, 10000);
+    });
+    
+    $("h1").first().remove() // remove first h1
 </script>
 
 <footer class="page-footer blue">

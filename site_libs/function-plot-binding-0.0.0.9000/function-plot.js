@@ -12,7 +12,7 @@ HTMLWidgets.widget({
 
       renderValue: function(x) {
 
-        functionPlot({
+        var plot = functionPlot({
           target: '#' + el.id,
           title: x.title,
           width: x.width,
@@ -24,12 +24,11 @@ HTMLWidgets.widget({
           grid: x.grid,
           data: x.data
         });
-
+        
+        plot;
       },
 
       resize: function(width, height) {
-
-        // TODO: code to re-render the widget with a new size
 
       }
 

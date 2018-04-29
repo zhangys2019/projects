@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "John Coene"
 ---
 
 ```{r setup, include=FALSE}
@@ -423,52 +423,31 @@ div(
   div(
     class = "row",
     div(
-      class = "esiema z-depth-3",
+      class = "col m3"
+    ),
+    div(
+      class = "col s12 m6",
       div(
-        tags$a(
-          href = "htmlwidgets/echarts/",
-          img(
-            class = "siema-img",
-            src = "img/carousels/echarts_types.png"
-          )
-        )
-      ),
-      div(
-        tags$a(
-          href = "htmlwidgets/echarts/",
-          img(
-            class = "siema-img",
-            src = "img/carousels/echarts_themes.png"
-          )
-        )
-      ),
-      div(
-        tags$a(
-          href = "htmlwidgets/echarts/",
-          img(
-            class = "siema-img",
-            src = "img/carousels/echarts_responsive.png"
-          )
+        class = "card blue z-depth-5",
+        div(
+          class = "card-content white-text",
+          span(class = "card-title", "echarts4r"),
+          p("Powerful visualisations in R: tens of chart types, themes, plenty of customisation, interactivity, animations, shiny proxies and more.")
+        ),
+        div(
+          class = "card-action",
+          a("Get Started", 
+            class = "white-text",
+            href = "http://echarts4r.john-coene.com/articles/get_started.html", target = "_blank"),
+          a("Documentation", class = "white-text", 
+            href = "http://echarts4r.john-coene.com", target = "_blank"),
+          a("Gallery", class = "white-text", 
+            href = "http://echarts4r.john-coene.com/articles/gallery.html", target = "_blank")
         )
       )
     ),
     div(
-      class = "row hide-on-small-only",
-      br(),
-      tags$a(
-        class = "eprev btn blue lighten-2 left",
-        tags$i(
-          class = "material-icons",
-          "keyboard_arrow_left"
-        )
-      ),
-      tags$a(
-        class = "enext btn blue lighten-2 right",
-        tags$i(
-          class = "material-icons",
-          "keyboard_arrow_right"
-        )
-      )
+      class = "col m3"
     )
   ),
   div(

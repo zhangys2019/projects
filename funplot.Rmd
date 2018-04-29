@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "funplot"
 ---
 
 ```{r setup, include=FALSE}

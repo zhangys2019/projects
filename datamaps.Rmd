@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "Datamaps"
 ---
 
 ```{r setup, include=FALSE}
@@ -8,7 +8,7 @@ library(htmltools)
 library(datamaps)
 library(dplyr)
 
-cn <- unique(countrycode::countrycode_data$iso3c)
+cn <- unique(countrycode::codelist_panel$iso3c)
 cn <- cn[!is.na(cn)]
 
 data <- data.frame(name = cn, color = ceiling(runif(length(cn), 1, 50)))
@@ -40,12 +40,14 @@ data %>%
 
 [![Travis-CI Build Status](https://travis-ci.org/JohnCoene/datamaps.svg?branch=master)](https://travis-ci.org/JohnCoene/datamaps)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/JohnCoene/datamaps?branch=master&svg=true)](https://ci.appveyor.com/project/JohnCoene/datamaps)
+[![CRAN](https://img.shields.io/cran/v/datamaps.svg)](https://img.shields.io/cran/v/datamaps.svg)
+[![CRAN_Status_Badge](http://cranlogs.r-pkg.org/badges/grand-total/datamaps)](http://cranlogs.r-pkg.org/badges/grand-total/datamaps)
 
 ```{r, echo = FALSE}
 div(
   class = "row",
   div(
-    class = "col m6",
+    class = "col m3",
     "R htmlwidget for ",
     a(
       "datamaps",
@@ -57,6 +59,19 @@ div(
     class = "col m3",
     a(
       class = "btn blue waves-effect",
+      href="http://datamaps.john-coene.com/", 
+      target = "_blank",
+      tags$i(
+        class = "material-icons left",
+        "insert_drive_file"
+      ),
+      "Documentation"
+    )
+  ),
+  div(
+    class = "col m3",
+    a(
+      class = "btn blue lighten-1 waves-effect",
       href="https://github.com/JohnCoene/datamaps", 
       target = "_blank",
       tags$i(
@@ -71,7 +86,7 @@ div(
     a(
       href = "http://shiny.john-coene.com/datamaps/",
       tagret = "_blank",
-      class = "btn blue",
+      class = "btn blue lighten-2",
       tags$i(
         class = "material-icons left",
         "dashboard"

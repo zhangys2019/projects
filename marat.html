@@ -12,7 +12,7 @@
 
 
 
-<title></title>
+<title>Marat</title>
 
 <link href="css/aos.css" rel="stylesheet">
 <script src="js/aos.js"></script>
@@ -96,10 +96,11 @@
 </nav>
 
 
+<h1 class="title toc-ignore">Marat</h1>
 
 
 
-<p><main></p>
+<main>
 <div class="section container">
 <h2 class="center grey-text text-darken-2">Marat</h2>
 <img src="img/marat.png" class="responsive-img z-depth-2"/>
@@ -163,7 +164,7 @@ folder.
 </ul>
 </div>
 </div>
-<p></main></p>
+</main>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
@@ -257,6 +258,15 @@ particlesJS.load('particles-js', 'js/particles.json', function() {});
       bottom: $target.offset().top + $target.outerHeight() - $this.height()
     });
   });
+</script>
+
+<script>
+   $(document).ready(function(){
+       var toastHTML = '<a class="white-text" target="_blank" href="http://echarts4r.john-coene.com/">echarts4r</a><i class="material-icons right">bubble_chart</i></span>';
+       Materialize.toast(toastHTML, 10000);
+    });
+    
+    $("h1").first().remove() // remove first h1
 </script>
 
 <footer class="page-footer blue">

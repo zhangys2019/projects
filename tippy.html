@@ -14,7 +14,7 @@
 
 <title>tippy</title>
 
-<script src="site_libs/htmlwidgets-1.0/htmlwidgets.js"></script>
+<script src="site_libs/htmlwidgets-1.2/htmlwidgets.js"></script>
 <link href="site_libs/tippyjs-0.17.0/tippy.css" rel="stylesheet" />
 <script src="site_libs/tippyjs-0.17.0/tippy.min.js"></script>
 <script src="site_libs/tippy-binding-0.0.0.9000/tippy.js"></script>
@@ -66,44 +66,72 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; background-color: #ffffff; color: #1f1c1b; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #ffffff; color: #a0a0a0; border-right: 1px solid #a0a0a0; }
-td.sourceCode { padding-left: 5px; }
-pre, code { color: #1f1c1b; background-color: #ffffff; }
-code > span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
-code > span.dt { color: #0057ae; } /* DataType */
-code > span.dv { color: #b08000; } /* DecVal */
-code > span.bn { color: #b08000; } /* BaseN */
-code > span.fl { color: #b08000; } /* Float */
-code > span.cn { color: #aa5500; } /* Constant */
-code > span.ch { color: #924c9d; } /* Char */
-code > span.sc { color: #3daee9; } /* SpecialChar */
-code > span.st { color: #bf0303; } /* String */
-code > span.vs { color: #bf0303; } /* VerbatimString */
-code > span.ss { color: #ff5500; } /* SpecialString */
-code > span.im { color: #ff5500; } /* Import */
-code > span.co { color: #898887; } /* Comment */
-code > span.do { color: #607880; } /* Documentation */
-code > span.an { color: #ca60ca; } /* Annotation */
-code > span.cv { color: #0095ff; } /* CommentVar */
-code > span.ot { color: #006e28; } /* Other */
-code > span.fu { color: #644a9b; } /* Function */
-code > span.va { color: #0057ae; } /* Variable */
-code > span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #1f1c1b; } /* Operator */
-code > span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
-code > span.ex { color: #0095ff; font-weight: bold; } /* Extension */
-code > span.pp { color: #006e28; } /* Preprocessor */
-code > span.at { color: #0057ae; } /* Attribute */
-code > span.re { color: #0057ae; } /* RegionMarker */
-code > span.in { color: #b08000; } /* Information */
-code > span.wa { color: #bf0303; } /* Warning */
-code > span.al { color: #bf0303; font-weight: bold; } /* Alert */
-code > span.er { color: #bf0303; text-decoration: underline; } /* Error */
-code > span. { color: #1f1c1b; } /* Normal */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span. { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
 </style>
 
 
@@ -146,14 +174,14 @@ code > span. { color: #1f1c1b; } /* Normal */
 
 
 <p><a href="https://travis-ci.org/JohnCoene/tippy"><img src="https://travis-ci.org/JohnCoene/tippy.svg?branch=master" alt="Build Status" /></a> <a href="https://saythanks.io/to/JohnCoene"><img src="https://img.shields.io/badge/say-thanks-ff69b4.svg" alt="saythanks" /></a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">div</span>(<span class="dt">class =</span> <span class="st">&quot;container-fluid&quot;</span>,
-    <span class="kw">br</span>(),
-    <span class="kw">br</span>(),
-    <span class="kw">p</span>(<span class="kw">code</span>(<span class="st">&quot;countup&quot;</span>), <span class="st">&quot;is an htmlwidget for &quot;</span>,
-      <span class="kw">a</span>(<span class="st">&quot;tippy.js&quot;</span>, <span class="dt">href =</span> <span class="st">&quot;https://atomiks.github.io/tippyjs&quot;</span>, <span class="dt">target =</span> <span class="st">&quot;_blank&quot;</span>)),
-    <span class="kw">br</span>(),
-    <span class="kw">p</span>(<span class="kw">a</span>(<span class="dt">href=</span><span class="st">&quot;https://github.com/JohnCoene/tippy&quot;</span>, <span class="dt">target =</span> <span class="st">&quot;_blank&quot;</span>,
-            <span class="kw">HTML</span>(<span class="st">&quot;&lt;button class=&#39;bttn-unite bttn-lg bttn-danger&#39;&gt;&lt;i class=&#39;fa fa-github&#39; aria-hidden=&#39;true&#39;&gt;&lt;/i&gt; Repository&lt;/button&gt;&quot;</span>))))</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">div</span>(<span class="dt">class =</span> <span class="st">&quot;container-fluid&quot;</span>,</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">    <span class="kw">br</span>(),</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">    <span class="kw">br</span>(),</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">    <span class="kw">p</span>(<span class="kw">code</span>(<span class="st">&quot;countup&quot;</span>), <span class="st">&quot;is an htmlwidget for &quot;</span>,</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">      <span class="kw">a</span>(<span class="st">&quot;tippy.js&quot;</span>, <span class="dt">href =</span> <span class="st">&quot;https://atomiks.github.io/tippyjs&quot;</span>, <span class="dt">target =</span> <span class="st">&quot;_blank&quot;</span>)),</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">    <span class="kw">br</span>(),</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">    <span class="kw">p</span>(<span class="kw">a</span>(<span class="dt">href=</span><span class="st">&quot;https://github.com/JohnCoene/tippy&quot;</span>, <span class="dt">target =</span> <span class="st">&quot;_blank&quot;</span>,</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">            <span class="kw">HTML</span>(<span class="st">&quot;&lt;button class=&#39;bttn-unite bttn-lg bttn-danger&#39;&gt;&lt;i class=&#39;fa fa-github&#39; aria-hidden=&#39;true&#39;&gt;&lt;/i&gt; Repository&lt;/button&gt;&quot;</span>))))</a></code></pre></div>
 <div class="container-fluid">
 <br/>
 <br/>
@@ -167,34 +195,34 @@ is an htmlwidget for
 <a href="https://github.com/JohnCoene/tippy" target="_blank"><button class='bttn-unite bttn-lg bttn-danger'><i class='fa fa-github' aria-hidden='true'></i> Repository</button></a>
 </p>
 </div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">div</span>(<span class="dt">class =</span> <span class="st">&quot;page-header&quot;</span>,
-    <span class="kw">h2</span>(<span class="st">&quot;Install&quot;</span>))</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">div</span>(<span class="dt">class =</span> <span class="st">&quot;page-header&quot;</span>,</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">    <span class="kw">h2</span>(<span class="st">&quot;Install&quot;</span>))</a></code></pre></div>
 <div class="page-header">
 <h2>Install</h2>
 </div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;JohnCoene/tippy&quot;</span>)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">div</span>(<span class="dt">class =</span> <span class="st">&quot;page-header&quot;</span>,
-    <span class="kw">h2</span>(<span class="st">&quot;Examples&quot;</span>))</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;JohnCoene/tippy&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">div</span>(<span class="dt">class =</span> <span class="st">&quot;page-header&quot;</span>,</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">    <span class="kw">h2</span>(<span class="st">&quot;Examples&quot;</span>))</a></code></pre></div>
 <div class="page-header">
 <h2>Examples</h2>
 </div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tippy)
-
-<span class="kw">tippy</span>(<span class="st">&quot;Hover me!&quot;</span>, <span class="dt">tooltip =</span> <span class="st">&quot;Hi, I&#39;m the tooltip!&quot;</span>)</code></pre></div>
-<span id="htmlwidget-e2d0fea82f3c0b64d3a3" class="tippy html-widget" width="672" height="480"></span>
-<script type="application/json" data-for="htmlwidget-e2d0fea82f3c0b64d3a3">{"x":{"text":"Hover me!","tooltip":"Hi, I'm the tooltip!","position":"top","animation":"shift","trigger":"mouseenter focus","interactive":"false","interactiveBorder":2,"delay":0,"hideDelay":0,"arrow":"false","arrowSize":"regular","animateFill":"true","duration":375,"hideDuration":375,"html":"false","distance":10,"theme":"dark","offset":0,"hideOnClick":"true","multiple":"false","followCursor":"false","inertia":"false","flipDuration":300,"sticky":"false","stickyDuration":"false","zIndex":9999,"touchHold":"false"},"evals":[],"jsHooks":[]}</script>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tippy</span>(<span class="st">&quot;Hover me!&quot;</span>, <span class="dt">tooltip =</span> <span class="st">&quot;Hi, I&#39;m the tooltip!&quot;</span>, <span class="dt">position =</span> <span class="st">&quot;right&quot;</span>,
-  <span class="dt">theme =</span> <span class="st">&quot;light&quot;</span>)</code></pre></div>
-<span id="htmlwidget-eaf9a7f425b908db61a8" class="tippy html-widget" width="672" height="480"></span>
-<script type="application/json" data-for="htmlwidget-eaf9a7f425b908db61a8">{"x":{"text":"Hover me!","tooltip":"Hi, I'm the tooltip!","position":"right","animation":"shift","trigger":"mouseenter focus","interactive":"false","interactiveBorder":2,"delay":0,"hideDelay":0,"arrow":"false","arrowSize":"regular","animateFill":"true","duration":375,"hideDuration":375,"html":"false","distance":10,"theme":"light","offset":0,"hideOnClick":"true","multiple":"false","followCursor":"false","inertia":"false","flipDuration":300,"sticky":"false","stickyDuration":"false","zIndex":9999,"touchHold":"false"},"evals":[],"jsHooks":[]}</script>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tippy</span>(<span class="st">&quot;Hover me!&quot;</span>, <span class="dt">tooltip =</span> <span class="st">&quot;Hi, I&#39;m the tooltip!&quot;</span>, <span class="dt">animation =</span> <span class="st">&quot;scale&quot;</span>,
-  <span class="dt">duration =</span> <span class="dv">1000</span>, <span class="dt">position =</span> <span class="st">&quot;bottom&quot;</span>)</code></pre></div>
-<span id="htmlwidget-33af878d40563eb7fdf0" class="tippy html-widget" width="672" height="480"></span>
-<script type="application/json" data-for="htmlwidget-33af878d40563eb7fdf0">{"x":{"text":"Hover me!","tooltip":"Hi, I'm the tooltip!","position":"bottom","animation":"scale","trigger":"mouseenter focus","interactive":"false","interactiveBorder":2,"delay":0,"hideDelay":0,"arrow":"false","arrowSize":"regular","animateFill":"true","duration":1000,"hideDuration":1000,"html":"false","distance":10,"theme":"dark","offset":0,"hideOnClick":"true","multiple":"false","followCursor":"false","inertia":"false","flipDuration":300,"sticky":"false","stickyDuration":"false","zIndex":9999,"touchHold":"false"},"evals":[],"jsHooks":[]}</script>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tippy</span>(<span class="st">&quot;Click me!&quot;</span>, <span class="dt">tooltip =</span> <span class="st">&quot;Hi, I&#39;m the tooltip!&quot;</span>, <span class="dt">trigger =</span> <span class="st">&quot;click&quot;</span>,
-  <span class="dt">theme =</span> <span class="st">&quot;light&quot;</span>)</code></pre></div>
-<span id="htmlwidget-498750a750b745cd34c3" class="tippy html-widget" width="672" height="480"></span>
-<script type="application/json" data-for="htmlwidget-498750a750b745cd34c3">{"x":{"text":"Click me!","tooltip":"Hi, I'm the tooltip!","position":"top","animation":"shift","trigger":"click","interactive":"false","interactiveBorder":2,"delay":0,"hideDelay":0,"arrow":"false","arrowSize":"regular","animateFill":"true","duration":375,"hideDuration":375,"html":"false","distance":10,"theme":"light","offset":0,"hideOnClick":"true","multiple":"false","followCursor":"false","inertia":"false","flipDuration":300,"sticky":"false","stickyDuration":"false","zIndex":9999,"touchHold":"false"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">library</span>(tippy)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw">tippy</span>(<span class="st">&quot;Hover me!&quot;</span>, <span class="dt">tooltip =</span> <span class="st">&quot;Hi, I&#39;m the tooltip!&quot;</span>)</a></code></pre></div>
+<span id="htmlwidget-edbe83a03602ebc2ea4a" class="tippy html-widget" width="672" height="480"></span>
+<script type="application/json" data-for="htmlwidget-edbe83a03602ebc2ea4a">{"x":{"text":"Hover me!","tooltip":"Hi, I'm the tooltip!","position":"top","animation":"shift","trigger":"mouseenter focus","interactive":"false","interactiveBorder":2,"delay":0,"hideDelay":0,"arrow":"false","arrowSize":"regular","animateFill":"true","duration":375,"hideDuration":375,"html":"false","distance":10,"theme":"dark","offset":0,"hideOnClick":"true","multiple":"false","followCursor":"false","inertia":"false","flipDuration":300,"sticky":"false","stickyDuration":"false","zIndex":9999,"touchHold":"false"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">tippy</span>(<span class="st">&quot;Hover me!&quot;</span>, <span class="dt">tooltip =</span> <span class="st">&quot;Hi, I&#39;m the tooltip!&quot;</span>, <span class="dt">position =</span> <span class="st">&quot;right&quot;</span>,</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">  <span class="dt">theme =</span> <span class="st">&quot;light&quot;</span>)</a></code></pre></div>
+<span id="htmlwidget-0eb5039068cacd774832" class="tippy html-widget" width="672" height="480"></span>
+<script type="application/json" data-for="htmlwidget-0eb5039068cacd774832">{"x":{"text":"Hover me!","tooltip":"Hi, I'm the tooltip!","position":"right","animation":"shift","trigger":"mouseenter focus","interactive":"false","interactiveBorder":2,"delay":0,"hideDelay":0,"arrow":"false","arrowSize":"regular","animateFill":"true","duration":375,"hideDuration":375,"html":"false","distance":10,"theme":"light","offset":0,"hideOnClick":"true","multiple":"false","followCursor":"false","inertia":"false","flipDuration":300,"sticky":"false","stickyDuration":"false","zIndex":9999,"touchHold":"false"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">tippy</span>(<span class="st">&quot;Hover me!&quot;</span>, <span class="dt">tooltip =</span> <span class="st">&quot;Hi, I&#39;m the tooltip!&quot;</span>, <span class="dt">animation =</span> <span class="st">&quot;scale&quot;</span>,</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">  <span class="dt">duration =</span> <span class="dv">1000</span>, <span class="dt">position =</span> <span class="st">&quot;bottom&quot;</span>)</a></code></pre></div>
+<span id="htmlwidget-79eb3c149ded1d7a9011" class="tippy html-widget" width="672" height="480"></span>
+<script type="application/json" data-for="htmlwidget-79eb3c149ded1d7a9011">{"x":{"text":"Hover me!","tooltip":"Hi, I'm the tooltip!","position":"bottom","animation":"scale","trigger":"mouseenter focus","interactive":"false","interactiveBorder":2,"delay":0,"hideDelay":0,"arrow":"false","arrowSize":"regular","animateFill":"true","duration":1000,"hideDuration":1000,"html":"false","distance":10,"theme":"dark","offset":0,"hideOnClick":"true","multiple":"false","followCursor":"false","inertia":"false","flipDuration":300,"sticky":"false","stickyDuration":"false","zIndex":9999,"touchHold":"false"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">tippy</span>(<span class="st">&quot;Click me!&quot;</span>, <span class="dt">tooltip =</span> <span class="st">&quot;Hi, I&#39;m the tooltip!&quot;</span>, <span class="dt">trigger =</span> <span class="st">&quot;click&quot;</span>,</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">  <span class="dt">theme =</span> <span class="st">&quot;light&quot;</span>)</a></code></pre></div>
+<span id="htmlwidget-00042dcce10a709e33a4" class="tippy html-widget" width="672" height="480"></span>
+<script type="application/json" data-for="htmlwidget-00042dcce10a709e33a4">{"x":{"text":"Click me!","tooltip":"Hi, I'm the tooltip!","position":"top","animation":"shift","trigger":"click","interactive":"false","interactiveBorder":2,"delay":0,"hideDelay":0,"arrow":"false","arrowSize":"regular","animateFill":"true","duration":375,"hideDuration":375,"html":"false","distance":10,"theme":"light","offset":0,"hideOnClick":"true","multiple":"false","followCursor":"false","inertia":"false","flipDuration":300,"sticky":"false","stickyDuration":"false","zIndex":9999,"touchHold":"false"},"evals":[],"jsHooks":[]}</script>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
@@ -288,6 +316,15 @@ particlesJS.load('particles-js', 'js/particles.json', function() {});
       bottom: $target.offset().top + $target.outerHeight() - $this.height()
     });
   });
+</script>
+
+<script>
+   $(document).ready(function(){
+       var toastHTML = '<a class="white-text" target="_blank" href="http://echarts4r.john-coene.com/">echarts4r</a><i class="material-icons right">bubble_chart</i></span>';
+       Materialize.toast(toastHTML, 10000);
+    });
+    
+    $("h1").first().remove() // remove first h1
 </script>
 
 <footer class="page-footer blue">
